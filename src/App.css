@@ -1,0 +1,110 @@
+.App {
+  text-align: left;
+  margin: 1rem;
+}
+
+.date-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+}
+
+.timeslot {
+  display: block;
+  margin: 0.5rem;
+}
+
+.timeslot-time {
+  display: inline-block;
+  min-width: 10ch;
+  vertical-align: top;
+}
+
+.timeslot-items {
+  display: inline-block;
+  width: 90%;
+  vertical-align: top;
+}
+
+.item {
+  margin-bottom: 0.25rem;
+  max-width: 60ch;
+  border: 1px solid red;
+}
+
+.item-selection {
+  display: inline-block;
+  min-width: 5ch;
+  vertical-align: top;
+}
+
+.item-entry {
+  display: inline-block;
+  max-width: 55ch;
+}
+
+.item-title {
+  font-weight: bold;
+}
+
+.item-location,
+.item-tags {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.item-tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.item-people {
+  margin: 0.5rem 0;
+}
+
+.item-people .participant {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.item-people .participant img {
+  max-width: 2rem;
+}
+
+.item-details {
+  transition-property: max-height;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-height: 0;
+  overflow: hidden;
+}
+
+.item-details-expanded {
+  background-color: #ddd;
+  max-height: 40rem;
+}
+
+.people .participant {
+  display: inline-block;
+  min-width: 10rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.people .participant img {
+  max-width: 5rem;
+}
+
+.person {
+  margin: 1rem;
+}
+
+.person .person-image img {
+  max-width: 10rem;
+}
+
+.person .person-bio {
+  max-width: 60ch;
+}

@@ -1,0 +1,10 @@
+{
+  "APP_TITLE": "ConClár Programme Guide",
+  "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
+  "NAVIGATION": {
+    "PROGRAM": "Programme",
+    "PEOPLE": "People",
+    "MYSCHEDULE": "My Schedule",
+    "INFO": "Information"
+  }
+}
