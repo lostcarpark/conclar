@@ -72,6 +72,33 @@ export class App extends React.Component {
     });
   }
 
+  // Extract locations from program.
+  processLocations(program) {
+    const locations = [];
+    for (const item of program) {
+      // Check item has at least one location.
+      if (item.loc && Array.isArray(item.loc)) {
+        for (const loc of item.loc) {
+          // If location doesn't exist in locations array, add it.
+          if (
+            !locations.find((entry) => {
+              return loc === entry.value;
+            })
+          ) {
+            locations.push({ value: loc, label: loc });
+          }
+        }
+      }
+    }
+    // Now sort the locations.
+    locations.sort((a, b) => {
+      if (a.value > b.value) return 1;
+      if (a.value < b.value) return -1;
+      return 0;
+    });
+    return locations;
+  }
+
   processMySchedule(program) {
     let selectedItems = ProgramSelection.getAllSelections();
     let mySchedule = program.filter((item) => {
@@ -90,20 +117,20 @@ export class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log(configData.PROGRAM_DATA_URL)
     fetch(configData.PROGRAM_DATA_URL)
       .then((res) => res.text())
       .then((data) => {
         let program = this.processProgramData(data);
         let people = this.processPeopleData(data);
         this.addProgramParticipantDetails(program, people);
+        let locations = this.processLocations(program);
         let mySchedule = this.processMySchedule(program);
-        console.log(mySchedule);
         localStorage.setItem("program", JSON.stringify(program));
         localStorage.setItem("people", JSON.stringify(people));
         this.setState({
           program: program,
           people: people,
+          locations: locations,
           mySchedule: mySchedule,
           dataIsLoaded: true,
         });
@@ -111,7 +138,7 @@ export class App extends React.Component {
   }
 
   render() {
-    const { program, people, mySchedule, dataIsLoaded } = this.state;
+    const { program, people, locations, mySchedule, dataIsLoaded } = this.state;
 
     if (!dataIsLoaded)
       return (
@@ -122,7 +149,7 @@ export class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Header title={ configData.APP_TITLE } />
+          <Header title={configData.APP_TITLE} />
           <Navigation />
 
           <Routes>
@@ -132,6 +159,7 @@ export class App extends React.Component {
                 element={
                   <FilterableProgram
                     program={program}
+                    locations={locations}
                     handler={this.programUpdateHandler}
                   />
                 }

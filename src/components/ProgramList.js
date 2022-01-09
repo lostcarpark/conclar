@@ -5,11 +5,10 @@ const ProgramList = ({ program, handler }) => {
   const rows = [];
   let itemRows = [];
   let curDate = null;
-  console.log(program);
+  //console.log(program);
   program.forEach((item) => {
     if (item.date !== curDate) {
       if (itemRows.length > 0) {
-        console.log("%s: %d", curDate, itemRows.length);
         rows.push(<Day key={curDate} date={curDate} items={itemRows} handler={handler} />);
         itemRows = [];
       }
@@ -17,7 +16,6 @@ const ProgramList = ({ program, handler }) => {
     }
     itemRows.push(item);
   });
-  console.log("%s: %d", curDate, itemRows.length);
   rows.push(<Day key={curDate} date={curDate} items={itemRows} handler={handler} />);
   return <div className="program">{rows}</div>;
 };
