@@ -11,6 +11,7 @@ import Person from "./components/Person";
 import Info from "./components/Info";
 import "./App.css";
 import { ProgramSelection } from "./ProgramSelection";
+import { Format } from "./Format";
 
 export class App extends React.Component {
   constructor(props) {
@@ -19,6 +20,8 @@ export class App extends React.Component {
     this.state = {
       program: [],
       people: [],
+      locations: [],
+      tags: [],
       mySchedule: [],
       dataIsLoaded: false,
     };
@@ -77,7 +80,7 @@ export class App extends React.Component {
     const locations = [];
     for (const item of program) {
       // Check item has at least one location.
-      if (item.loc && Array.isArray(item.loc)) {
+      if (item.loc && Array.isArray(item.loc) && item.loc.length) {
         for (const loc of item.loc) {
           // If location doesn't exist in locations array, add it.
           if (
@@ -97,6 +100,33 @@ export class App extends React.Component {
       return 0;
     });
     return locations;
+  }
+
+  // Extract tags from program.
+  processTags(program) {
+    const tags = [];
+    for (const item of program) {
+      // Check item has at least one tag.
+      if (item.tags && Array.isArray(item.tags) && item.tags.length) {
+        for (const tag of item.tags) {
+          // If location doesn't exist in tags array, add it.
+          if (
+            !tags.find((entry) => {
+              return tag === entry.value;
+            })
+          ) {
+            tags.push({ value: tag, label: Format.formatTag(tag) });
+          }
+        }
+      }
+    }
+    // Now sort the locations.
+    tags.sort((a, b) => {
+      if (a.label > b.label) return 1;
+      if (a.label < b.label) return -1;
+      return 0;
+    });
+    return tags;
   }
 
   processMySchedule(program) {
@@ -124,6 +154,7 @@ export class App extends React.Component {
         let people = this.processPeopleData(data);
         this.addProgramParticipantDetails(program, people);
         let locations = this.processLocations(program);
+        let tags = this.processTags(program);
         let mySchedule = this.processMySchedule(program);
         localStorage.setItem("program", JSON.stringify(program));
         localStorage.setItem("people", JSON.stringify(people));
@@ -131,6 +162,7 @@ export class App extends React.Component {
           program: program,
           people: people,
           locations: locations,
+          tags: tags,
           mySchedule: mySchedule,
           dataIsLoaded: true,
         });
@@ -138,7 +170,7 @@ export class App extends React.Component {
   }
 
   render() {
-    const { program, people, locations, mySchedule, dataIsLoaded } = this.state;
+    const { program, people, locations, tags, mySchedule, dataIsLoaded } = this.state;
 
     if (!dataIsLoaded)
       return (
@@ -160,6 +192,7 @@ export class App extends React.Component {
                   <FilterableProgram
                     program={program}
                     locations={locations}
+                    tags={tags}
                     handler={this.programUpdateHandler}
                   />
                 }
