@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import ReactSelect from "react-select";
 import ProgramList from "./ProgramList";
 
-const FilterableProgram = ({ program, locations, handler }) => {
+const FilterableProgram = ({ program, locations, tags, handler }) => {
   const [search, setSearch] = useState("");
   const [selLoc, setSelLoc] = useState([]);
+  const [selTags, setSelTags] = useState([]);
   let filtered = applyFilters();
   let total = filtered.length;
   let totalMessage = `Listing ${total} items`;
-  
+
   function applyFilters() {
     const term = search.trim().toLowerCase();
 
     // If no filters, return full program;
-    if (term.length === 0 && selLoc.length === 0) return program;
+    if (term.length === 0 && selLoc.length === 0 && selTags === 0) return program;
 
     let filtered = program;
 
@@ -42,7 +43,19 @@ const FilterableProgram = ({ program, locations, handler }) => {
         return false;
       });
     }
-    return filtered;
+    console.log(tags);
+    // Filter by tags
+    if (selTags.length) {
+        filtered = filtered.filter((item) => {
+          for (const tag of item.tags) {
+            for (const selected of selTags) {
+              if (selected.value === tag) return true;
+            }
+          }
+          return false;
+        });
+      }
+      return filtered;
   }
 
   function handleSearch(event) {
@@ -51,6 +64,10 @@ const FilterableProgram = ({ program, locations, handler }) => {
 
   function handleLoc(value) {
     setSelLoc(value);
+  }
+
+  function handleTags(value) {
+    setSelTags(value);
   }
 
   return (
@@ -63,6 +80,15 @@ const FilterableProgram = ({ program, locations, handler }) => {
             isMulti
             value={selLoc}
             onChange={handleLoc}
+          />
+        </div>
+        <div className="filter-tags">
+          <ReactSelect
+            placeholder="Select tags"
+            options={tags}
+            isMulti
+            value={selTags}
+            onChange={handleTags}
           />
         </div>
         <div className="filter-search">
