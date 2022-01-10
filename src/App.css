@@ -24,6 +24,7 @@
 .timeslot {
   display: block;
   margin: 0.5rem;
+  border-bottom: 1px solid gray;
 }
 
 .timeslot-time {

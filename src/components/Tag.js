@@ -1,4 +1,4 @@
-import { Format } from '../Format'
+import { Format } from '../utils/Format'
 
 const Tag = ({ tag }) => {
   return <div className="item-tag">{Format.formatTag(tag)}</div>;

@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 
 const Participant = ({ person }) => {
-  let img = person.links.img ? <img src={person.links.img} /> : "";
+  let img =
+    person.links && person.links.img ? (
+      <img src={person.links.img} alt={person.name} />
+    ) : (
+      ""
+    );
   return (
     <li className="participant">
       <Link to={"/people/" + person.id}>

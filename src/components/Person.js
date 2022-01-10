@@ -5,7 +5,7 @@ import ProgramList from "./ProgramList";
 const Person = ({ people, program, handler }) => {
   let params = useParams();
   let person = people.find((person) => person.id === params.id);
-  let img = person.links.img ? <img src={person.links.img} alt={person.name} /> : "";
+  let img = (person.links && person.links.img) ? <img src={person.links.img} alt={person.name} /> : "";
   return (
     <div className="person">
       <h2 className="person-name">Person: {person.name}</h2>
