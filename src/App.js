@@ -45,15 +45,18 @@ export class App extends React.Component {
 
   // Process
   processPeopleData(people) {
-    people = people.sort((a, b) => {
-      if (a.name.join(" ") < b.name.join(" ")) return -1;
-      if (a.name.join(" ") > b.name.join(" ")) return 1;
-      return 0;
-    });
-    people.forEach((person) => {
+    for (let person of people) {
+      if (!person.sortname) {
+        person.sortname = [...person.name].reverse().join(' ');
+      }
       person.uri = encodeURIComponent(
         person.name.join(" ").replace(/[ ]/g, "_")
       );
+    }
+    people.sort((a, b) => {
+      if (a.sortname < b.sortname) return -1;
+      if (a.sortname > b.sortname) return 1;
+      return 0;
     });
     return people;
   }
@@ -70,7 +73,13 @@ export class App extends React.Component {
           if (fullPerson) {
             person.uri = fullPerson.uri;
             person.links = fullPerson.links;
+            person.sortName = fullPerson.sortName;
           }
+        });
+        item.people.sort((a, b) => {
+          if (a.sortname < b.sortname) return -1;
+          if (a.sortname > b.sortname) return 1;
+          return 0;
         });
       }
     });
