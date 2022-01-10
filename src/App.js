@@ -11,7 +11,8 @@ import Person from "./components/Person";
 import Info from "./components/Info";
 import "./App.css";
 import { ProgramSelection } from "./ProgramSelection";
-import { Format } from "./Format";
+import { JsonParse } from "./utils/JsonParse";
+import { Format } from "./utils/Format";
 
 export class App extends React.Component {
   constructor(props) {
@@ -28,10 +29,8 @@ export class App extends React.Component {
     this.programUpdateHandler = this.programUpdateHandler.bind(this);
   }
 
-  processProgramData(data) {
-    // Regular expression to find program data.
-    let matches = data.match(/program = ([^\n]*);/);
-    let program = JSON.parse(matches[1]).sort((a, b) => {
+  processProgramData(program) {
+    program.sort((a, b) => {
       // First compare the dates.
       if (a.date < b.date) return -1;
       if (a.date > b.date) return +1;
@@ -45,16 +44,16 @@ export class App extends React.Component {
   }
 
   // Process
-  processPeopleData(data) {
-    // Regular expression to find people.
-    let matches = data.match(/people = ([^\n]*);/);
-    let people = JSON.parse(matches[1]).sort((a, b) => {
-      if (a.name[0] < b.name[0]) return -1;
-      if (a.name[0] > b.name[0]) return 1;
+  processPeopleData(people) {
+    people = people.sort((a, b) => {
+      if (a.name.join(" ") < b.name.join(" ")) return -1;
+      if (a.name.join(" ") > b.name.join(" ")) return 1;
       return 0;
     });
     people.forEach((person) => {
-      person.uri = encodeURIComponent(person.name[0].replace(/[ ]/g, "_"));
+      person.uri = encodeURIComponent(
+        person.name.join(" ").replace(/[ ]/g, "_")
+      );
     });
     return people;
   }
@@ -68,8 +67,10 @@ export class App extends React.Component {
           let fullPerson = people.find(
             (fullPerson) => fullPerson.id === person.id
           );
-          person.uri = fullPerson.uri;
-          person.links = fullPerson.links;
+          if (fullPerson) {
+            person.uri = fullPerson.uri;
+            person.links = fullPerson.links;
+          }
         });
       }
     });
@@ -146,31 +147,58 @@ export class App extends React.Component {
     this.setState({ currentState });
   }
 
+  // Process data from program and people.
+  processData(progData, pplData = null) {
+    if (pplData === null) {
+      pplData = progData;
+    }
+    let program = this.processProgramData(progData);
+    let people = this.processPeopleData(pplData);
+    this.addProgramParticipantDetails(program, people);
+    let locations = this.processLocations(program);
+    let tags = this.processTags(program);
+    let mySchedule = this.processMySchedule(program);
+    localStorage.setItem("program", JSON.stringify(program));
+    localStorage.setItem("people", JSON.stringify(people));
+    this.setState({
+      program: program,
+      people: people,
+      locations: locations,
+      tags: tags,
+      mySchedule: mySchedule,
+      dataIsLoaded: true,
+    });
+  }
+
   componentDidMount() {
-    fetch(configData.PROGRAM_DATA_URL)
-      .then((res) => res.text())
-      .then((data) => {
-        let program = this.processProgramData(data);
-        let people = this.processPeopleData(data);
-        this.addProgramParticipantDetails(program, people);
-        let locations = this.processLocations(program);
-        let tags = this.processTags(program);
-        let mySchedule = this.processMySchedule(program);
-        localStorage.setItem("program", JSON.stringify(program));
-        localStorage.setItem("people", JSON.stringify(people));
-        this.setState({
-          program: program,
-          people: people,
-          locations: locations,
-          tags: tags,
-          mySchedule: mySchedule,
-          dataIsLoaded: true,
+    // If only one data source, we can use a single fetch.
+    if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
+      fetch(configData.PROGRAM_DATA_URL)
+        .then((res) => res.text())
+        .then((data) => {
+          const entities = JsonParse.extractJson(data);
+          this.processData(entities[0], entities[1]);
         });
+    } else {
+      // Separate program and people sources, so need to create promise for each fetch.
+      let progPromise = fetch(configData.PROGRAM_DATA_URL).then((res) =>
+        res.text()
+      );
+      let pplPromise = fetch(configData.PEOPLE_DATA_URL).then((res) =>
+        res.text()
+      );
+      Promise.all([progPromise, pplPromise]).then((data) => {
+        let program = JsonParse.extractJson(data[0])[0];
+        let people = JsonParse.extractJson(data[1])[0];
+        // Called with an array containing result of each promise.
+        this.processData(program, people);
       });
+    }
   }
 
   render() {
-    const { program, people, locations, tags, mySchedule, dataIsLoaded } = this.state;
+    const { program, people, locations, tags, mySchedule, dataIsLoaded } =
+      this.state;
 
     if (!dataIsLoaded)
       return (

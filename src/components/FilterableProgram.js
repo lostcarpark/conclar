@@ -43,7 +43,6 @@ const FilterableProgram = ({ program, locations, tags, handler }) => {
         return false;
       });
     }
-    console.log(tags);
     // Filter by tags
     if (selTags.length) {
         filtered = filtered.filter((item) => {
