@@ -1,9 +1,9 @@
 {
-  "APP_TITLE": "ConClár Programme Guide",
-  "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
+  "APP_TITLE": "Capricon Programme Guide",
+  "PROGRAM_DATA_URL": "https://zambia.octocon.com/CapkonOpasData.jsonp",
+  "PEOPLE_DATA_URL": "https://zambia.octocon.com/CapkonOpasData.jsonp",
   "NAVIGATION": {
-    "PROGRAM": "Programme",
+    "PROGRAM": "Program",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information"

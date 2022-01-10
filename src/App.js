@@ -207,7 +207,7 @@ export class App extends React.Component {
         </div>
       );
     return (
-      <Router>
+      <Router basename={'/guide'}>
         <div className="App">
           <Header title={configData.APP_TITLE} />
           <Navigation />
