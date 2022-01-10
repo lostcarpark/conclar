@@ -3,16 +3,19 @@ import PropTypes from "prop-types";
 
 const Participant = ({ person, thumbnails }) => {
   let img =
-    (thumbnails && person.links && person.links.img) ? (
-      <div className="participant-image"><img src={person.links.img} alt={person.name} /></div>
+    thumbnails && person.links && person.links.img ? (
+      <div className="participant-image">
+        <img src={person.links.img} alt={person.name} />
+      </div>
     ) : (
       ""
     );
+  let name = Array.isArray(person.name) ? person.name.join(" ") : person.name;
   return (
     <li className="participant">
       <Link to={"/people/" + person.id}>
         {img}
-        <span>{person.name}</span>
+        <span>{name}</span>
       </Link>
     </li>
   );
