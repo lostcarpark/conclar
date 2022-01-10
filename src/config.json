@@ -1,7 +1,7 @@
 {
   "APP_TITLE": "Capricon Programme Guide",
-  "PROGRAM_DATA_URL": "https://zambia.octocon.com/CapkonOpasData.jsonp",
-  "PEOPLE_DATA_URL": "https://zambia.octocon.com/CapkonOpasData.jsonp",
+  "PROGRAM_DATA_URL": "https://zambia.capricon.org/guide/konOpasData.json",
+  "PEOPLE_DATA_URL": "https://zambia.capricon.org/guide/konOpasData.json",
   "NAVIGATION": {
     "PROGRAM": "Program",
     "PEOPLE": "People",
