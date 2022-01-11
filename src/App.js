@@ -46,12 +46,15 @@ export class App extends React.Component {
   // Process
   processPeopleData(people) {
     for (let person of people) {
+      // If SortName not in file, create from name. If name is array, put last element first for sorting.
       if (!person.sortname) {
-        person.sortname = [...person.name].reverse().join(' ');
+        person.sortname = Array.isArray(person.name)
+          ? [...person.name].reverse().join(" ")
+          : person.name;
       }
-      person.uri = encodeURIComponent(
-        person.name.join(" ").replace(/[ ]/g, "_")
-      );
+      // If name is an array, convert to single string.
+      if (Array.isArray(person.name)) person.name = person.name.join(" ");
+      person.uri = encodeURIComponent(person.name.replace(/[ ]/g, "_"));
     }
     people.sort((a, b) => {
       if (a.sortname < b.sortname) return -1;

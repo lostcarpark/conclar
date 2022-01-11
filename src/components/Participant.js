@@ -10,12 +10,11 @@ const Participant = ({ person, thumbnails }) => {
     ) : (
       ""
     );
-  let name = Array.isArray(person.name) ? person.name.join(" ") : person.name;
   return (
     <li className="participant">
       <Link to={"/people/" + person.id}>
         {img}
-        <span>{name}</span>
+        <span>{person.name}</span>
       </Link>
     </li>
   );
