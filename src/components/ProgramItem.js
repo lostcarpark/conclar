@@ -40,11 +40,11 @@ class ProgramItem extends Component {
   render() {
     let id = "item_" + this.props.item.id;
     const locations = [];
-    if (Array.isArray(this.props.loc))
-      for (let loc of this.props.loc) {
+    if (Array.isArray(this.props.item.loc))
+      for (let loc of this.props.item.loc) {
         locations.push(<Location key={loc} loc={loc} />);
       }
-    else locations.push(<Location key={this.props.loc} loc={this.props.loc} />);
+    else locations.push(<Location key={this.props.item.loc} loc={this.props.item.loc} />);
 
     const tags = [];
     for (let tag of this.props.item.tags) {
