@@ -40,13 +40,16 @@ class ProgramItem extends Component {
   render() {
     let id = "item_" + this.props.item.id;
     const locations = [];
-    this.props.item.loc.forEach((loc) => {
-      locations.push(<Location key={loc} loc={loc} />);
-    });
+    if (Array.isArray(this.props.loc))
+      for (let loc of this.props.loc) {
+        locations.push(<Location key={loc} loc={loc} />);
+      }
+    else locations.push(<Location key={this.props.loc} loc={this.props.loc} />);
+
     const tags = [];
-    this.props.item.tags.forEach((tag) => {
+    for (let tag of this.props.item.tags) {
       tags.push(<Tag key={tag} tag={tag} />);
-    });
+    }
     // console.log(this.props.item.people);
     const people = [];
     if (this.props.item.people) {
