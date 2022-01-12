@@ -2,10 +2,17 @@
   "APP_TITLE": "Capricon Programme Guide",
   "PROGRAM_DATA_URL": "https://zambia.capricon.org/guide/konOpasData.json",
   "PEOPLE_DATA_URL": "https://zambia.capricon.org/guide/konOpasData.json",
+  "TIMEZONE": "America/Chicago",
   "NAVIGATION": {
     "PROGRAM": "Program",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information"
+  },
+  "LOCAL_TIME": {
+    "CHECKBOX_LABEL": "Show local time",
+    "NOTICE": "Local time shown in italics.",
+    "PREV_DAY": " previous day",
+    "NEXT_DAY": " next day"
   }
 }

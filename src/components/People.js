@@ -4,7 +4,7 @@ import Participant from "./Participant";
 
 const People = ({ people }) => {
   const storedThumbnails = localStorage.getItem('thumbnails'); // Get default thumbnails from local storage.
-  const [thumbnails, setThimbnails] = useState(storedThumbnails === 'false' ? false : true); // Default to true unless false explicitly stored.
+  const [thumbnails, setThumbnails] = useState(storedThumbnails === 'false' ? false : true); // Default to true unless false explicitly stored.
   //console.log(people);
   const rows = [];
   people.forEach((person) => {
@@ -12,7 +12,7 @@ const People = ({ people }) => {
   });
 
   function handleThumbnail(event) {
-    setThimbnails(event.target.checked);
+    setThumbnails(event.target.checked);
     localStorage.setItem('thumbnails', event.target.checked ? 'true' : 'false');
   }
 
