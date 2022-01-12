@@ -77,7 +77,7 @@ const People = ({ people }) => {
         checked={sort}
         onChange={handleSort}
       />
-      <label htmlFor="thumbnails">
+      <label htmlFor="sort_people">
         {configData.PEOPLE.SORT.CHECKBOX_LABEL}
       </label>
     </div>
