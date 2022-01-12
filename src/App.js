@@ -212,6 +212,8 @@ export class App extends React.Component {
     const { program, people, locations, tags, mySchedule, dataIsLoaded } =
       this.state;
 
+    const offset = Format.getTimeZoneOffset();
+
     if (!dataIsLoaded)
       return (
         <div>
@@ -233,6 +235,7 @@ export class App extends React.Component {
                     program={program}
                     locations={locations}
                     tags={tags}
+                    offset={offset}
                     handler={this.programUpdateHandler}
                   />
                 }
@@ -245,6 +248,7 @@ export class App extends React.Component {
                     <Person
                       people={people}
                       program={program}
+                      offset={offset}
                       handler={this.programUpdateHandler}
                     />
                   }
@@ -255,6 +259,7 @@ export class App extends React.Component {
                 element={
                   <ProgramList
                     program={mySchedule}
+                    offset={offset}
                     handler={this.programUpdateHandler}
                   />
                 }

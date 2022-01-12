@@ -1,20 +1,45 @@
 import React, { useState } from "react";
 import ReactSelect from "react-select";
 import ProgramList from "./ProgramList";
+import configData from "../config.json";
 
-const FilterableProgram = ({ program, locations, tags, handler }) => {
+const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
   const [search, setSearch] = useState("");
   const [selLoc, setSelLoc] = useState([]);
   const [selTags, setSelTags] = useState([]);
-  let filtered = applyFilters();
-  let total = filtered.length;
-  let totalMessage = `Listing ${total} items`;
+  const storedLocalTime = localStorage.getItem("show_local_time"); // Get default show local time from local storage.
+  const [showLocalTime, setShowLocalTime] = useState(
+    storedLocalTime === "false" ? false : true
+  );
 
-  function applyFilters() {
+  const filtered = applyFilters(program);
+  const total = filtered.length;
+  const totalMessage = `Listing ${total} items`;
+
+  const localTimeCheckbox =
+    offset === 0 ? (
+      ""
+    ) : (
+      <div className="local-time-checkbox">
+        <input
+          id="show_local_time"
+          name="show_local_time"
+          type="checkbox"
+          checked={showLocalTime}
+          onChange={handleShowLocalTime}
+        />
+        <label htmlFor="show_local_time">
+          {configData.LOCAL_TIME.CHECKBOX_LABEL}
+        </label>
+      </div>
+    );
+
+  function applyFilters(program) {
     const term = search.trim().toLowerCase();
 
     // If no filters, return full program;
-    if (term.length === 0 && selLoc.length === 0 && selTags === 0) return program;
+    if (term.length === 0 && selLoc.length === 0 && selTags === 0)
+      return program;
 
     let filtered = program;
 
@@ -45,16 +70,16 @@ const FilterableProgram = ({ program, locations, tags, handler }) => {
     }
     // Filter by tags
     if (selTags.length) {
-        filtered = filtered.filter((item) => {
-          for (const tag of item.tags) {
-            for (const selected of selTags) {
-              if (selected.value === tag) return true;
-            }
+      filtered = filtered.filter((item) => {
+        for (const tag of item.tags) {
+          for (const selected of selTags) {
+            if (selected.value === tag) return true;
           }
-          return false;
-        });
-      }
-      return filtered;
+        }
+        return false;
+      });
+    }
+    return filtered;
   }
 
   function handleSearch(event) {
@@ -67,6 +92,14 @@ const FilterableProgram = ({ program, locations, tags, handler }) => {
 
   function handleTags(value) {
     setSelTags(value);
+  }
+
+  function handleShowLocalTime(event) {
+    setShowLocalTime(event.target.checked);
+    localStorage.setItem(
+      "show_local_time",
+      event.target.checked ? "true" : "false"
+    );
   }
 
   return (
@@ -99,9 +132,15 @@ const FilterableProgram = ({ program, locations, tags, handler }) => {
           />
         </div>
         <div className="filter-total">{totalMessage}</div>
+        {localTimeCheckbox}
       </div>
       <div className="program-container">
-        <ProgramList program={filtered} handler={handler} />
+        <ProgramList
+          program={filtered}
+          offset={offset}
+          showLocalTime={showLocalTime}
+          handler={handler}
+        />
       </div>
     </div>
   );
