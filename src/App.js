@@ -9,6 +9,7 @@ import ProgramList from "./components/ProgramList";
 import People from "./components/People";
 import Person from "./components/Person";
 import Info from "./components/Info";
+import Footer from "./components/Footer";
 import "./App.css";
 import { ProgramSelection } from "./ProgramSelection";
 import { JsonParse } from "./utils/JsonParse";
@@ -25,6 +26,8 @@ export class App extends React.Component {
       tags: [],
       mySchedule: [],
       dataIsLoaded: false,
+      info: '',
+      infoIsLoaded: false,
     };
     this.programUpdateHandler = this.programUpdateHandler.bind(this);
   }
@@ -172,14 +175,14 @@ export class App extends React.Component {
     let mySchedule = this.processMySchedule(program);
     localStorage.setItem("program", JSON.stringify(program));
     localStorage.setItem("people", JSON.stringify(people));
-    this.setState({
-      program: program,
-      people: people,
-      locations: locations,
-      tags: tags,
-      mySchedule: mySchedule,
-      dataIsLoaded: true,
-    });
+    let state = this.state;
+    state.program = program;
+    state.people = people;
+    state.locations = locations;
+    state.tags = tags;
+    state.mySchedule = mySchedule;
+    state.dataIsLoaded = true;
+    this.setState(state);
   }
 
   componentDidMount() {
@@ -206,10 +209,17 @@ export class App extends React.Component {
         this.processData(program, people);
       });
     }
+    // Fetch the information page.
+    fetch(configData.INFORMATION.MARKDOWN_URL).then((res) => res.text()).then((info) => {
+      let state=this.state;
+      state.info = info;
+      state.infoIsLoaded = true;
+      this.setState(state);
+    })
   }
 
   render() {
-    const { program, people, locations, tags, mySchedule, dataIsLoaded } =
+    const { program, people, locations, tags, mySchedule, dataIsLoaded, info, infoIsLoaded } =
       this.state;
 
     const offset = Format.getTimeZoneOffset();
@@ -264,9 +274,10 @@ export class App extends React.Component {
                   />
                 }
               />
-              <Route path="info" element={<Info />} />
+              <Route path="info" element={<Info info={info} infoIsLoaded={infoIsLoaded} />} />
             </Route>
           </Routes>
+          <Footer />
         </div>
       </Router>
     );

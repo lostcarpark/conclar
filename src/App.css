@@ -135,3 +135,13 @@
 .person .person-bio {
   max-width: 60ch;
 }
+
+.info {
+  margin: 1rem;
+  max-width: 60ch;
+}
+
+footer {
+  margin-top: 2rem;
+  border-top: 1px solid gray;
+}

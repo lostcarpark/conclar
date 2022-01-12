@@ -1,10 +1,14 @@
-const Info = () => {
-  return (
-    <div>
-      <h2>About ConClár</h2>
-      <p>ConClár is a browser based convention program guide.</p>
-    </div>
+import ReactMarkdown from "react-markdown";
+import configData from "../config.json";
+import remarkGfm from 'remark-gfm'
+
+const Info = ({ info, infoIsLoaded }) => {
+  const renderedInfo = infoIsLoaded ? (
+    <ReactMarkdown children={info} remarkPlugins={[remarkGfm]} />
+  ) : (
+    configData.INFORMATION.LOADING_MESSAGE
   );
+  return <div className="info">{renderedInfo}</div>;
 };
 
 export default Info;
