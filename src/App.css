@@ -106,11 +106,18 @@
   font-size: 0.9em;
 }
 
+.people ul {
+  column-width: 25ch;
+}
+
 .people .participant {
-  display: inline-block;
   min-width: 10rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
+}
+
+.people .participant {
+  list-style-type: none;
 }
 
 .people .participant img {
