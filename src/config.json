@@ -14,5 +14,20 @@
     "NOTICE": "Local time shown in italics.",
     "PREV_DAY": " previous day",
     "NEXT_DAY": " next day"
+  },
+  "PEOPLE": {
+    "THUMBNAILS": {
+      "SHOW_THUMBNAILS": true,
+      "SHOW_CHECKBOX": true,
+      "CHECKBOX_LABEL": "Show thumbnails"
+    },
+    "SORT": {
+      "SHOW_CHECKBOX": true,
+      "CHECKBOX_LABEL": "Sort by full name"
+    },
+    "SEARCH": {
+      "SHOW_SEARCH": true,
+      "SEARCH_LABEL": "Search people"
+    }
   }
 }
