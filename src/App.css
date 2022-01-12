@@ -97,6 +97,15 @@
   max-height: 40rem;
 }
 
+.time-convention {
+  font-weight: bold;
+}
+
+.time-local {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
 .people .participant {
   display: inline-block;
   min-width: 10rem;

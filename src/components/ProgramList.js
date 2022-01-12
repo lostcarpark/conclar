@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import Day from "./Day";
+import configData from "../config.json";
 
-const ProgramList = ({ program, handler }) => {
+const ProgramList = ({ program, offset, handler }) => {
   const rows = [];
   let itemRows = [];
   let curDate = null;
+  const showLocalTime = localStorage.getItem('show_local_time') !== 'false';
   //console.log(program);
 
   if (program.length === 0) {
@@ -21,6 +23,8 @@ const ProgramList = ({ program, handler }) => {
           <Day
             key={curDate}
             date={curDate}
+            offset={offset}
+            showLocalTime={showLocalTime}
             items={itemRows}
             handler={handler}
           />
@@ -32,9 +36,27 @@ const ProgramList = ({ program, handler }) => {
     itemRows.push(item);
   });
   rows.push(
-    <Day key={curDate} date={curDate} items={itemRows} handler={handler} />
+    <Day
+      key={curDate}
+      date={curDate}
+      offset={offset}
+      showLocalTime={showLocalTime}
+      items={itemRows}
+      handler={handler}
+    />
   );
-  return <div className="program">{rows}</div>;
+  const localTime =
+    offset !== 0 && showLocalTime ? (
+      <div className="time-local">{configData.LOCAL_TIME.NOTICE}</div>
+    ) : (
+      ""
+    );
+  return (
+    <div className="program-container">
+      {localTime}
+      <div className="program">{rows}</div>
+    </div>
+  );
 };
 
 ProgramList.propTypes = {
