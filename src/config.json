@@ -29,5 +29,13 @@
       "SHOW_SEARCH": true,
       "SEARCH_LABEL": "Search people"
     }
+  },
+  "INFORMATION": {
+    "MARKDOWN_URL": "info.md",
+    "LOADING_MESSAGE": "Loading..."
+  },
+  "FOOTER": {
+    "SITE_NOTE_MARKDOWN": "",
+    "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   }
 }
