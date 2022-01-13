@@ -17,16 +17,36 @@ export class Format {
   }
 
   // Get the offset from the convention time to the user's local time in miliseconds.
+  // This is a bit messy, as it convers to a string and back again, but it's the best I've found so far.
   static getTimeZoneOffset() {
     let language = window.navigator.userLanguage || window.navigator.language;
     let localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const date = new Date();
+    // Convert to string in user's timezone, then back to a date.
     const localDate = new Date(
-      date.toLocaleString(language, { timeZone: localTimeZone })
+      date.toLocaleString(language, {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZone: localTimeZone,
+      })
     );
+    // Convert to string in convention timezone, and also back to date.
     const conDate = new Date(
-      date.toLocaleString(language, { timeZone: configData.TIMEZONE })
+      date.toLocaleString(language, {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZone: configData.TIMEZONE,
+      })
     );
+    // Subtracting the dates returns the offset in milliseconds. Divide by 1000 because we only need seconds.
     return (localDate - conDate) / 1000;
   }
 
