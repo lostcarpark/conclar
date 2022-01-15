@@ -9,7 +9,7 @@ const TimeSlot = ({ time, offset, showLocalTime, items, handler }) => {
     </div>
   );
   const localTime =
-    offset !== 0 && showLocalTime ? (
+    offset !== null && offset !== 0 && showLocalTime ? (
       <div className="time-local">
         {Format.formatTimeInLocalTimeZone(time, offset)}
       </div>
