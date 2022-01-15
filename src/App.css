@@ -15,11 +15,21 @@ h1, h2, h3, h4, .item-title, .date-heading {
 .filter-locations {
   display: inline-block;
   font-size: .8em;
+  padding: 0 0.5em 0.5em 0;
 }
 
 .filter-tags {
   display: inline-block;
   font-size: .8em;
+  padding: 0 0.5em 0.5em 0;
+}
+
+.filter-total {
+  margin: 0.3rem 0 1rem 0;
+}
+
+.local-time-checkbox {
+  float: right;
 }
 
 .date-heading {
