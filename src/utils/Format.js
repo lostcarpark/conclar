@@ -19,35 +19,45 @@ export class Format {
   // Get the offset from the convention time to the user's local time in miliseconds.
   // This is a bit messy, as it convers to a string and back again, but it's the best I've found so far.
   static getTimeZoneOffset() {
-    let language = window.navigator.userLanguage || window.navigator.language;
-    let localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const date = new Date();
-    // Convert to string in user's timezone, then back to a date.
-    const localDate = new Date(
-      date.toLocaleString(language, {
-        year: "numeric",
-        month: "short",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        timeZone: localTimeZone,
-      })
-    );
-    // Convert to string in convention timezone, and also back to date.
-    const conDate = new Date(
-      date.toLocaleString(language, {
-        year: "numeric",
-        month: "short",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        timeZone: configData.TIMEZONE,
-      })
-    );
-    // Subtracting the dates returns the offset in milliseconds. Divide by 1000 because we only need seconds.
-    return (localDate - conDate) / 1000;
+    // Date conversion a bit precarious, so wrap in try...catch.
+    try {
+      let language = window.navigator.userLanguage || window.navigator.language;
+      let localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const date = new Date();
+      // Convert to string in user's timezone, then back to a date.
+      const localDate = new Date(
+        date.toLocaleString(language, {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          timeZone: localTimeZone,
+        })
+      );
+      // Convert to string in convention timezone, and also back to date.
+      const conDate = new Date(
+        date.toLocaleString(language, {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          timeZone: configData.TIMEZONE,
+        })
+      );
+      // Check if dates are valid. Return null if not.
+      if (!(localDate instanceof Date) || isNaN(localDate) || !(conDate instanceof Date) || isNaN(conDate)) {
+        return null;
+      }
+      // Subtracting the dates returns the offset in milliseconds. Divide by 1000 because we only need seconds.
+      return (localDate - conDate) / 1000;
+    } catch (e) {
+      // Something went wrong. Return Null.
+      return null;
+    }
   }
 
   // Format the time in the convention time zone. Currently this is not reformatted, but it may be in future.

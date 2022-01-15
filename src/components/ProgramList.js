@@ -6,7 +6,7 @@ const ProgramList = ({ program, offset, handler }) => {
   const rows = [];
   let itemRows = [];
   let curDate = null;
-  const showLocalTime = localStorage.getItem('show_local_time') !== 'false';
+  const showLocalTime = localStorage.getItem("show_local_time") !== "false";
   //console.log(program);
 
   if (program.length === 0) {
@@ -46,7 +46,9 @@ const ProgramList = ({ program, offset, handler }) => {
     />
   );
   const localTime =
-    offset !== 0 && showLocalTime ? (
+    offset === null ? (
+      <div className="time-local">{configData.LOCAL_TIME.FAILURE}</div>
+    ) : offset !== 0 && showLocalTime ? (
       <div className="time-local">{configData.LOCAL_TIME.NOTICE}</div>
     ) : (
       ""

@@ -9,11 +9,18 @@
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information"
   },
+  "TAGS": {
+    "SEPARATE": [
+      { "PREFIX": "type", "PLACEHOLDER": "Select type" },
+      { "PREFIX": "test", "PLACEHOLDER": "Select test" }
+    ]
+  },
   "LOCAL_TIME": {
     "CHECKBOX_LABEL": "Show local time",
     "NOTICE": "Local time shown in italics.",
     "PREV_DAY": " previous day",
-    "NEXT_DAY": " next day"
+    "NEXT_DAY": " next day",
+    "FAILURE": "Unable to convert to local time."
   },
   "PEOPLE": {
     "THUMBNAILS": {

@@ -26,7 +26,7 @@ export class App extends React.Component {
       tags: [],
       mySchedule: [],
       dataIsLoaded: false,
-      info: '',
+      info: "",
       infoIsLoaded: false,
     };
     this.programUpdateHandler = this.programUpdateHandler.bind(this);
@@ -120,28 +120,54 @@ export class App extends React.Component {
 
   // Extract tags from program.
   processTags(program) {
-    const tags = [];
+    // Tags is an object with a property for each tag type. Default to one property for general tags.
+    const tags = { tags: [] };
+
+    // Subfunction to push tag to tag list.
+    function addTag (tagList, value, label) {
+      // If item doesn't exist in tags array, add it.
+      if (
+        !tagList.find((entry) => {
+          return value === entry.value;
+        })
+      ) {
+        tagList.push({ value: value, label: label });
+      }
+    }
+
+    // For each tag prefix we want to separate, add a property.
+    for (const tag of configData.TAGS.SEPARATE) {
+      tags[tag.PREFIX] = [];
+    }
     for (const item of program) {
       // Check item has at least one tag.
       if (item.tags && Array.isArray(item.tags) && item.tags.length) {
         for (const tag of item.tags) {
-          // If location doesn't exist in tags array, add it.
-          if (
-            !tags.find((entry) => {
-              return tag === entry.value;
-            })
-          ) {
-            tags.push({ value: tag, label: Format.formatTag(tag) });
+          let matches = tag.match(/^(.+):(.+)/);
+          if (matches.length === 3) {
+            const prefix = matches[1];
+            const label = matches[2];
+            // Tag has a prefix. Check if it's one we're interested in.
+            if (prefix in tags) {
+              addTag(tags[prefix], tag, label);
+            } else {
+              addTag(tags.tags, tag, Format.formatTag(tag));
+            }
+          } else {
+            // Tag does not have a prefix, so add to default tags list.
+            addTag(tags.tags, tag, tag);
           }
         }
       }
     }
-    // Now sort the locations.
-    tags.sort((a, b) => {
-      if (a.label > b.label) return 1;
-      if (a.label < b.label) return -1;
-      return 0;
-    });
+    // Now sort each set of tags.
+    for (let tagList in tags) {
+      tags[tagList].sort((a, b) => {
+        if (a.label > b.label) return 1;
+        if (a.label < b.label) return -1;
+        return 0;
+      });
+    }
     return tags;
   }
 
@@ -210,17 +236,27 @@ export class App extends React.Component {
       });
     }
     // Fetch the information page.
-    fetch(configData.INFORMATION.MARKDOWN_URL).then((res) => res.text()).then((info) => {
-      let state=this.state;
-      state.info = info;
-      state.infoIsLoaded = true;
-      this.setState(state);
-    })
+    fetch(configData.INFORMATION.MARKDOWN_URL)
+      .then((res) => res.text())
+      .then((info) => {
+        let state = this.state;
+        state.info = info;
+        state.infoIsLoaded = true;
+        this.setState(state);
+      });
   }
 
   render() {
-    const { program, people, locations, tags, mySchedule, dataIsLoaded, info, infoIsLoaded } =
-      this.state;
+    const {
+      program,
+      people,
+      locations,
+      tags,
+      mySchedule,
+      dataIsLoaded,
+      info,
+      infoIsLoaded,
+    } = this.state;
 
     const offset = Format.getTimeZoneOffset();
 
@@ -274,7 +310,10 @@ export class App extends React.Component {
                   />
                 }
               />
-              <Route path="info" element={<Info info={info} infoIsLoaded={infoIsLoaded} />} />
+              <Route
+                path="info"
+                element={<Info info={info} infoIsLoaded={infoIsLoaded} />}
+              />
             </Route>
           </Routes>
           <Footer />

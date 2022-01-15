@@ -6,7 +6,7 @@ import configData from "../config.json";
 const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
   const [search, setSearch] = useState("");
   const [selLoc, setSelLoc] = useState([]);
-  const [selTags, setSelTags] = useState([]);
+  const [selTags, setSelTags] = useState({});
   const storedLocalTime = localStorage.getItem("show_local_time"); // Get default show local time from local storage.
   const [showLocalTime, setShowLocalTime] = useState(
     storedLocalTime === "false" ? false : true
@@ -68,16 +68,18 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
         return false;
       });
     }
-    // Filter by tags
-    if (selTags.length) {
-      filtered = filtered.filter((item) => {
-        for (const tag of item.tags) {
-          for (const selected of selTags) {
-            if (selected.value === tag) return true;
+    // Filter by each tag dropdown.
+    for (const tagType in selTags) {
+      if (selTags[tagType].length) {
+        filtered = filtered.filter((item) => {
+          for (const tag of item.tags) {
+            for (const selected of selTags[tagType]) {
+              if (selected.value === tag) return true;
+            }
           }
-        }
-        return false;
-      });
+          return false;
+        });
+      }
     }
     return filtered;
   }
@@ -90,8 +92,10 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
     setSelLoc(value);
   }
 
-  function handleTags(value) {
-    setSelTags(value);
+  function handleTags(tag, value) {
+    let selections = { ...selTags };
+    selections[tag] = value;
+    setSelTags(selections);
   }
 
   function handleShowLocalTime(event) {
@@ -100,6 +104,29 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
       "show_local_time",
       event.target.checked ? "true" : "false"
     );
+  }
+
+  // TODO: Probably should move the tags filter to its own component.
+  const tagFilters = [];
+  for (const tag in tags) {
+    const tagData = configData.TAGS.SEPARATE.find((item) => {
+      return item.PREFIX === tag;
+    });
+    // Only add drop-down if tag type actually contains elements.
+    if (tags[tag].length) {
+      const placeholder = tagData ? tagData.PLACEHOLDER : "Select tags";
+      tagFilters.push(
+        <div key={tag} className={"filter-tags filter-tags-" + tag}>
+          <ReactSelect
+            placeholder={placeholder}
+            options={tags[tag]}
+            isMulti
+            value={selTags[tag]}
+            onChange={(value) => handleTags(tag, value)}
+          />
+        </div>
+      );
+    }
   }
 
   return (
@@ -114,15 +141,7 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
             onChange={handleLoc}
           />
         </div>
-        <div className="filter-tags">
-          <ReactSelect
-            placeholder="Select tags"
-            options={tags}
-            isMulti
-            value={selTags}
-            onChange={handleTags}
-          />
-        </div>
+        {tagFilters}
         <div className="filter-search">
           <input
             type="text"

@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown";
-import configData from "../config.json";
 import remarkGfm from 'remark-gfm'
+import configData from "../config.json";
 
 const Info = ({ info, infoIsLoaded }) => {
   const renderedInfo = infoIsLoaded ? (
