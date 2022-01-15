@@ -16,7 +16,6 @@ h1, h2, h3, h4, .item-title, .date-heading {
   font-family: Candara, Optima, Segoe, 'Segoe UI', sans-serif;
 }
 
-
 .navigation ul {
   display:flex;
   justify-content: space-around;
@@ -85,6 +84,10 @@ h1, h2, h3, h4, .item-title, .date-heading {
   float: right;
 }
 
+.program-container {
+  margin-top: 0.5rem;
+}
+
 .date-heading {
   font-size: 1.5rem;
   font-weight: bold;
@@ -97,39 +100,47 @@ h1, h2, h3, h4, .item-title, .date-heading {
   display: block;
   margin: 0.5rem;
   border-bottom: 1px solid gray;
+  white-space: nowrap;
 }
 
 .timeslot-time {
   display: inline-block;
-  min-width: 10ch;
+  min-width: 5ch;
   vertical-align: top;
 }
 
 .timeslot-items {
   display: inline-block;
-  width: 90%;
+  width: 75%;
   vertical-align: top;
 }
 
 .item {
   margin-bottom: 0.25rem;
   max-width: 60ch;
-  border: 1px solid red;
+}
+
+.item ~ .item {
+  border-top: 1px solid #bbb;
+  padding-top: 0.5rem;
 }
 
 .item-selection {
   display: inline-block;
   min-width: 5ch;
   vertical-align: top;
+  text-align: center;
 }
 
 .item-entry {
   display: inline-block;
   max-width: 55ch;
+  white-space: normal;
 }
 
 .item-title {
   font-weight: bold;
+  white-space: normal;
 }
 
 .item-location,
@@ -164,9 +175,14 @@ h1, h2, h3, h4, .item-title, .date-heading {
   overflow: hidden;
 }
 
+.item-entry > .item-details.item-details-expanded {
+  background-color: #F0F0F0;
+}
+
 .item-details-expanded {
-  background-color: #ddd;
   max-height: 40rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .time-convention {
@@ -176,6 +192,7 @@ h1, h2, h3, h4, .item-title, .date-heading {
 .time-local {
   font-style: italic;
   font-size: 0.9em;
+  padding-left: 0.2em;
 }
 
 .people ul {
