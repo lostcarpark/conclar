@@ -4,12 +4,12 @@
 }
 
 .filter-locations {
-  max-width: 60ch;
+  display: inline-block;
   font-size: .8em;
 }
 
 .filter-tags {
-  max-width: 60ch;
+  display: inline-block;
   font-size: .8em;
 }
 

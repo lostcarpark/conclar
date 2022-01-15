@@ -1,4 +1,4 @@
-# About Conclár
+# About ConClár
 
 ConClár is a browser based convention programme guide.
 
@@ -6,15 +6,15 @@ ConClár is a browser based convention programme guide.
 
 This is a sample information page. You should customise with an information page specific to your convention.
 
-The information page is composed in [Markdown](https://www.markdownguide.org/basic-syntax/). This is a common standard for formatting text that is easy to follow and safer than HTML. There us a handy [cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+The information page is composed in [Markdown](https://www.markdownguide.org/basic-syntax/). This is a common standard for formatting text that is easy to follow and safer than HTML. There is a handy [cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 You may edit the provided file, `info.md`, or change the INFORMATION.MARKDOWN_URL setting in `config.json`.
 
 ## Basic formatting
 
-Supported formatting includes *emphesis* and **strong emphesis** as well as ***really strong emphesis***. ~~Strike through~~ is also possible.
+Supported formatting includes *emphasis* and **strong emphasis** as well as ***really strong emphasis***. ~~Strike through~~ is also possible.
 
-## Buleted Lists
+## Bulleted Lists
 
 ### Benefits of Markdown
 
