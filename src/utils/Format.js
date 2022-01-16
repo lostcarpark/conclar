@@ -49,7 +49,12 @@ export class Format {
         })
       );
       // Check if dates are valid. Return null if not.
-      if (!(localDate instanceof Date) || isNaN(localDate) || !(conDate instanceof Date) || isNaN(conDate)) {
+      if (
+        !(localDate instanceof Date) ||
+        isNaN(localDate) ||
+        !(conDate instanceof Date) ||
+        isNaN(conDate)
+      ) {
         return null;
       }
       // Subtracting the dates returns the offset in milliseconds. Divide by 1000 because we only need seconds.
@@ -60,32 +65,87 @@ export class Format {
     }
   }
 
-  // Format the time in the convention time zone. Currently this is not reformatted, but it may be in future.
-  static formatTimeInConventionTimeZone(time) {
-    return time;
+  // Format with leading 0 if less than 10.
+  static FormatLeadingZero(num) {
+    return (num < 10 ? "0" : "") + num;
   }
 
-  static formatTimeInLocalTimeZone(time, offset) {
+  // Take date in "hh:mm" format, and return hours and minutes.
+  static parseTime(time) {
+    const matches = time.match(/^(\d{1,2})[^\d](\d{2})$/);
+    const hours = parseInt(matches[1]);
+    const mins = parseInt(matches[2]);
+    return [hours, mins];
+  }
+
+  // Use toLocaleString to generate a 12 hour time in user's locale.
+  static formatHoursMinsAs12Hour(hours, mins) {
+    let language = window.navigator.userLanguage || window.navigator.language;
+    let time = new Date();
+    time.setUTCHours(hours);
+    time.setUTCMinutes(mins);
+    return time.toLocaleString(language, {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+      timeZone: "UTC",
+    });
+  }
+
+  // Format a time for 12 hour clock.
+  static formatTimeAs12Hour(time) {
+    let [hours, mins] = this.parseTime(time);
+    return this.formatHoursMinsAs12Hour(hours, mins);
+  }
+
+  // Use
+  static formatHoursMinsAs24Hour(hours, mins) {
+    let language = window.navigator.userLanguage || window.navigator.language;
+    let time = new Date();
+    time.setUTCHours(hours);
+    time.setUTCMinutes(mins);
+    return time.toLocaleString(language, {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      timeZone: "UTC",
+    });
+  }
+
+  // Format time for 24 clock.
+  static formatTimeAs24Hour(time) {
+    let [hours, mins] = this.parseTime(time);
+    return this.formatHoursMinsAs24Hour(hours, mins);
+  }
+
+  // Format the time in the convention time zone. Currently this is not reformatted, but it may be in future.
+  static formatTimeInConventionTimeZone(time, ampm) {
+    if (ampm) {
+      return this.formatTimeAs12Hour(time);
+    }
+    return this.formatTimeAs24Hour(time);
+  }
+
+  static formatTimeInLocalTimeZone(time, offset, ampm) {
     const HOUR = 3600;
     const MINUTE = 60;
-    const matches = time.match(/^(\d{1,2})[^\d](\d{2})$/);
-    if (matches) {
-      const conTime = matches[1] * HOUR + matches[2] * MINUTE;
-      const localTime = conTime + offset;
-      let hours = Math.floor(localTime / HOUR);
-      let note = "";
-      if (hours < 0) {
-        hours += 24;
-        note = configData.LOCAL_TIME.PREV_DAY;
-      }
-      if (hours > 23) {
-        hours -= 24;
-        note = configData.LOCAL_TIME.NEXT_DAY;
-      }
-      const mins = Math.floor((localTime % HOUR) / MINUTE);
-      return hours + ":" + (mins < 10 ? "0" : "") + mins + note;
+    let [hours, mins] = this.parseTime(time);
+    const conTime = hours * HOUR + mins * MINUTE;
+    const localTime = conTime + offset;
+    let localHours = Math.floor(localTime / HOUR);
+    let note = "";
+    if (localHours < 0) {
+      localHours += 24;
+      note = configData.LOCAL_TIME.PREV_DAY;
     }
-    return time;
+    if (localHours > 23) {
+      localHours -= 24;
+      note = configData.LOCAL_TIME.NEXT_DAY;
+    }
+    const localMins = Math.floor((localTime % HOUR) / MINUTE);
+
+    if (ampm) return this.formatHoursMinsAs12Hour(localHours, localMins) + note;
+    return this.formatHoursMinsAs24Hour(localHours, localMins) + note;
   }
 
   // If tag contains a ":", capitalise the part before the colon, and add a space after the colon.

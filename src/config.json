@@ -2,7 +2,7 @@
   "APP_TITLE": "ConClár Programme Guide",
   "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "TIMEZONE": "Europe/Dublin",
+  "TIMEZONE": "Europe/Paris",
   "NAVIGATION": {
     "PROGRAM": "Programme",
     "PEOPLE": "People",
@@ -21,6 +21,11 @@
     "PREV_DAY": " previous day",
     "NEXT_DAY": " next day",
     "FAILURE": "Unable to convert to local time."
+  },
+  "TIME_FORMAT": {
+    "DEFAULT_12HR": false,
+    "SHOW_CHECKBOX": true,
+    "CHECKBOX_LABEL": "Show 12 hour time"
   },
   "PEOPLE": {
     "THUMBNAILS": {
