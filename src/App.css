@@ -84,6 +84,26 @@ h1, h2, h3, h4, .item-title, .date-heading {
   float: right;
 }
 
+/* style all checkboxes as buttons */
+input[type=checkbox] ~ label {
+  border: 2px solid red;
+  border-radius: 1rem;
+  padding: 0.2rem 0.4rem;
+  margin-bottom: 0.2rem;
+  color: red;
+  font-size: smaller;
+  text-decoration: line-through;
+  display: inline-block;
+}
+input[type=checkbox]:checked ~ label {
+  color: green;
+  border-color: green;
+  text-decoration: none;
+}
+input[type=checkbox] {
+    display:none;
+}
+
 .program-container {
   margin-top: 0.5rem;
 }
