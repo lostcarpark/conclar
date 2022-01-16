@@ -1,10 +1,35 @@
+/*
+ * Table of contents
+ *
+ * 1. Global application styles.
+ * 2. Application header.
+ * 3. Navigation.
+ * 4. Program.
+ * 5. People.
+ * 6. Informtion page.
+ * 7. Site footer.
+ */
+
+
+/*
+ * 1. Global application styles.
+ */
+
 .App {
   text-align: left;
   margin: 1rem;
-  font-family: Calibri, 'Roboto', 'Open Sans', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Open Sans', 'Lato', 'Helvetica Neue', Arial, sans-serif;
 }
 
-header {
+h1, h2, h3, h4, .item-title, .date-heading {
+  font-family: Candara, Optima, Segoe, 'Segoe UI', sans-serif;
+}
+
+/*
+ * 2. Application header.
+ */
+
+ header {
   text-align: center;
 }
 
@@ -12,11 +37,11 @@ header h1 {
   margin: 1rem 0;
 }
 
-h1, h2, h3, h4, .item-title, .date-heading {
-  font-family: Candara, Optima, Segoe, 'Segoe UI', sans-serif;
-}
+/*
+ * 3. Navigation.
+ */
 
-.navigation ul {
+ .navigation ul {
   display:flex;
   justify-content: space-around;
   padding-inline-start: 0;
@@ -106,6 +131,10 @@ input[type=checkbox] {
 input.selection-control {
     display:unset;
 }
+
+/*
+ * 4. Program.
+ */
 
 .program-container {
   margin-top: 0.5rem;
@@ -235,6 +264,10 @@ input.selection-control {
   padding-left: 0.2em;
 }
 
+/*
+ * 5. people.
+ */
+
 .people ul {
   column-width: 25ch;
 }
@@ -253,6 +286,7 @@ input.selection-control {
   min-width: 10rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  break-inside: avoid;
 }
 
 .people .participant {
@@ -282,12 +316,20 @@ input.selection-control {
   max-width: 60ch;
 }
 
-.info {
+/*
+ * 6. Information page.
+ */
+
+ .info {
   margin: 1rem;
   max-width: 60ch;
 }
 
-footer {
+/*
+ * 7. Site footer.
+ */
+
+ footer {
   margin-top: 2rem;
   border-top: 1px solid gray;
 }
