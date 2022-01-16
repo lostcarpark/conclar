@@ -11,7 +11,7 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
   const [showLocalTime, setShowLocalTime] = useState(
     storedLocalTime === "false" ? false : true
   );
-  const stored12HourTime = localStorage.getItem("12_hour_time");
+  const stored12HourTime = localStorage.getItem("twelve_hour_time");
   const [show12HourTime, setShow12HourTime] = useState(
     stored12HourTime === configData.TIME_FORMAT.DEFAULT_12HR
       ? "false" // If defaulting to 12 hour, assume true unless "false" saved.
@@ -45,15 +45,15 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
     );
 
   const show12HourTimeCheckbox = configData.TIME_FORMAT.SHOW_CHECKBOX ? (
-    <div className="12_hour_time-checkbox">
+    <div className="twelve_hour_time-checkbox">
       <input
-        id="12_hour_time"
-        name="12_hour_time"
+        id="twelve_hour_time"
+        name="twelve_hour_time"
         type="checkbox"
         checked={show12HourTime}
         onChange={handleShow12HourTime}
       />
-      <label htmlFor="12_hour_time">
+      <label htmlFor="twelve_hour_time">
         {configData.TIME_FORMAT.CHECKBOX_LABEL}
       </label>
     </div>

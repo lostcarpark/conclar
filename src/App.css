@@ -105,7 +105,8 @@ header h1 {
   margin: 0.3rem 0 1rem 0;
 }
 
-.local-time-checkbox {
+.local-time-checkbox,
+.twelve_hour_time-checkbox {
   float: right;
 }
 
@@ -114,7 +115,7 @@ input[type=checkbox] ~ label {
   border: 2px solid red;
   border-radius: 1rem;
   padding: 0.2rem 0.4rem;
-  margin-bottom: 0.2rem;
+  margin: 0 0.1rem 0.2rem 0;
   color: red;
   font-size: smaller;
   text-decoration: line-through;
@@ -138,6 +139,7 @@ input.selection-control {
 
 .program-container {
   margin-top: 0.5rem;
+  clear:both;
 }
 
 .date-heading {
