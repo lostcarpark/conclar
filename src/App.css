@@ -158,6 +158,11 @@ h1, h2, h3, h4, .item-title, .date-heading {
   margin: 0.5rem 0;
 }
 
+.item-people ul {
+  margin:0;
+  padding:0;
+}
+
 .item-people .participant {
   display: inline-block;
   margin-right: 1rem;
@@ -165,6 +170,18 @@ h1, h2, h3, h4, .item-title, .date-heading {
 
 .item-people .participant img {
   max-width: 2rem;
+  border-radius:50%;
+  vertical-align:middle;
+  padding: 0.1rem;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.14) , 0px 3px 1px -2px rgba(0,0,0,0.12) , 0px 1px 5px 0px rgba(0,0,0,0.2);
+}
+
+.item-people div.participant-image {
+  display: inline-block;
+}
+
+.participant .participant-image ~ span {
+ padding-left: 0.3rem;
 }
 
 .item-details {
@@ -199,6 +216,16 @@ h1, h2, h3, h4, .item-title, .date-heading {
   column-width: 25ch;
 }
 
+.participant a {
+  color: black;
+}
+
+.participant a:active,
+.participant a:hover,
+.participant a:visited {
+  color: #444;
+}
+
 .people .participant {
   min-width: 10rem;
   margin-right: 1rem;
@@ -211,6 +238,10 @@ h1, h2, h3, h4, .item-title, .date-heading {
 
 .people .participant img {
   max-width: 5rem;
+  border-radius:50%;
+  vertical-align:middle;
+  padding: 0.1rem;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.14) , 0px 3px 1px -2px rgba(0,0,0,0.12) , 0px 1px 5px 0px rgba(0,0,0,0.2);
 }
 
 .person {
@@ -219,6 +250,9 @@ h1, h2, h3, h4, .item-title, .date-heading {
 
 .person .person-image img {
   max-width: 10rem;
+  padding: 0.3rem;
+  margin: 0 0.5rem 0.5rem 0;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.14) , 0px 3px 1px -2px rgba(0,0,0,0.12) , 0px 1px 5px 0px rgba(0,0,0,0.2);
 }
 
 .person .person-bio {
