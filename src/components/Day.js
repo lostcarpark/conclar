@@ -2,7 +2,14 @@
 import TimeSlot from "./TimeSlot";
 import { Format } from "../utils/Format";
 
-const Day = ({ date, offset, showLocalTime, items, handler }) => {
+const Day = ({
+  date,
+  offset,
+  showLocalTime,
+  show12HourTime,
+  items,
+  handler,
+}) => {
   const day = Format.formatDateForLocaleAsUTC(date);
   const rows = [];
   let itemRows = [];
@@ -16,6 +23,7 @@ const Day = ({ date, offset, showLocalTime, items, handler }) => {
             time={curTime}
             offset={offset}
             showLocalTime={showLocalTime}
+            show12HourTime={show12HourTime}
             items={itemRows}
             handler={handler}
           />
@@ -32,6 +40,7 @@ const Day = ({ date, offset, showLocalTime, items, handler }) => {
       time={curTime}
       offset={offset}
       showLocalTime={showLocalTime}
+      show12HourTime={show12HourTime}
       items={itemRows}
       handler={handler}
     />

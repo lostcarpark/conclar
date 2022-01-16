@@ -22,6 +22,11 @@
     "NEXT_DAY": " next day",
     "FAILURE": "Unable to convert to local time."
   },
+  "TIME_FORMAT": {
+    "DEFAULT_12HR": false,
+    "SHOW_CHECKBOX": true,
+    "CHECKBOX_LABEL": "Show 12 hour time"
+  },
   "PEOPLE": {
     "THUMBNAILS": {
       "SHOW_THUMBNAILS": true,
