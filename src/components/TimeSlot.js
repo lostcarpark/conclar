@@ -2,16 +2,16 @@
 import ProgramItem from "./ProgramItem";
 import { Format } from "../utils/Format";
 
-const TimeSlot = ({ time, offset, showLocalTime, items, handler }) => {
+const TimeSlot = ({ time, offset, showLocalTime, show12HourTime, items, handler }) => {
   const conTime = (
     <div className="time-convention">
-      {Format.formatTimeInConventionTimeZone(time)}
+      {Format.formatTimeInConventionTimeZone(time, show12HourTime)}
     </div>
   );
   const localTime =
     offset !== null && offset !== 0 && showLocalTime ? (
       <div className="time-local">
-        {Format.formatTimeInLocalTimeZone(time, offset)}
+        {Format.formatTimeInLocalTimeZone(time, offset, show12HourTime)}
       </div>
     ) : (
       ""

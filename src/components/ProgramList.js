@@ -7,6 +7,7 @@ const ProgramList = ({ program, offset, handler }) => {
   let itemRows = [];
   let curDate = null;
   const showLocalTime = localStorage.getItem("show_local_time") !== "false";
+  const show12HourTime = localStorage.getItem("12_hour_time") === "true";
   //console.log(program);
 
   if (program.length === 0) {
@@ -25,6 +26,7 @@ const ProgramList = ({ program, offset, handler }) => {
             date={curDate}
             offset={offset}
             showLocalTime={showLocalTime}
+            show12HourTime={show12HourTime}
             items={itemRows}
             handler={handler}
           />
@@ -41,6 +43,7 @@ const ProgramList = ({ program, offset, handler }) => {
       date={curDate}
       offset={offset}
       showLocalTime={showLocalTime}
+      show12HourTime={show12HourTime}
       items={itemRows}
       handler={handler}
     />
