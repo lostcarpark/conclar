@@ -33,7 +33,8 @@
     "THUMBNAILS": {
       "SHOW_THUMBNAILS": true,
       "SHOW_CHECKBOX": true,
-      "CHECKBOX_LABEL": "Show thumbnails"
+      "CHECKBOX_LABEL": "Show thumbnails",
+      "DEFAULT_IMAGE": ""
     },
     "SORT": {
       "SHOW_CHECKBOX": true,
@@ -42,8 +43,7 @@
     "SEARCH": {
       "SHOW_SEARCH": true,
       "SEARCH_LABEL": "Search people"
-    },
-    "USE_PLACEHOLDER": ""
+    }
   },
   "INFORMATION": {
     "MARKDOWN_URL": "info.md",
