@@ -8,9 +8,9 @@ const Participant = ({ person, thumbnails }) => {
       <div className="participant-image">
         <img src={person.links.img} alt={person.name} />
       </div>
-    ) : thumbnails && configData && configData.PEOPLE && configData.PEOPLE.USE_PLACEHOLDER ? (
+    ) : thumbnails && configData && configData.PEOPLE && configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE ? (
       <div className="participant-image">
-				<img src={configData.PEOPLE.USE_PLACEHOLDER} alt={person.name} />
+				<img src={configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE} alt={person.name} />
       </div>
     ) : (
       ""
