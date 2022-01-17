@@ -42,23 +42,26 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+See the section about [React app deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Customisation
 
-The main place customisations go is the `src/config.json` file. Settings currently available are:
+The main place customisations go is the `src/config.json` file. Settings currently available include:
 
-APP_TITLE: The title to appear at the top of the webpage, and in the browser window title.
-PROGRAM_DATA_URL: The address of the file containing programme data.
-PEOPLE_DATA_URL: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
-NAVIGATION: Each value in this section sets the label that will appear on main navigation of the site. Useful for switching between different international spellings of "programme".
+* `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
+* `PROGRAM_DATA_URL`: The address of the file containing programme data.
+* `PEOPLE_DATA_URL`: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
+* `NAVIGATION`: Each value in this section sets the label that will appear on main navigation of the site. Useful for switching between different international spellings of "programme".
+* `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
 
 More settings will be added to this file in future versions.
 
-To customise the site heading, edit the `src/components/Jeader.js` file.
+To customise the site heading, edit the `src/components/Header.js` file.  
 
-To customise the convention information page, edit `src/components/Info.js`. Note that a more streamlined method for customising this will be provided in future.
+The convention information page is composed in Markdown using the provided file, `public/info.md`.  Markdown is a common standard for formatting text that is easy to follow and safer than HTML.  There is a handy cheat sheet.
 
 To change the styling, edit `src/App.css`. Note that the current styling is temporary, and a better default theme with easier customisation is planned.
+
+To change the home screen app name, edit `public/manifest.json`.
 
 ## 
