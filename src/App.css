@@ -42,7 +42,8 @@ header h1 {
  */
 
  .navigation ul {
-  display:flex;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   padding-inline-start: 0;
   list-style-type: none;
