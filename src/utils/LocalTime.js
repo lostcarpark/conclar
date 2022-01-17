@@ -1,7 +1,40 @@
 import configData from "../config.json";
 
 // Class containing finctions for formatting values for ConClár.
-export class Format {
+export class LocalTime {
+  static get localTimeClass() {
+    return "show_local_time";
+  }
+
+  static getStoredLocalTime() {
+    const storedLocalTime = localStorage.getItem(this.localTimeClass);
+    return storedLocalTime === "false" ? false : true;
+  }
+
+  static setStoredLocalTime(showLocalTime) {
+    localStorage.setItem(this.localTimeClass, showLocalTime ? "true" : "false");
+  }
+
+  static get twelveHourTimeClass() {
+    return "twelve_hour_time";
+  }
+
+  static getStoredTwelveHourTime() {
+    const stored12HourTime = localStorage.getItem(this.twelveHourTimeClass);
+    if (configData.TIME_FORMAT.DEFAULT_12HR)
+      // If defaulting to 12 hour, assume true unless "false" saved.
+      return stored12HourTime === "false" ? false : true;
+    // If defaulting to 24 hour, assume false unless "true" saved.
+    return stored12HourTime === "true" ? true : false;
+  }
+
+  static setStoredTwelveHourTime(twelveHour) {
+    localStorage.setItem(
+      this.twelveHourTimeClass,
+      twelveHour ? "true" : "false"
+    );
+  }
+
   // Format the date as a string in user's language.
   static formatDateForLocaleAsUTC(date) {
     let language = window.navigator.userLanguage || window.navigator.language;

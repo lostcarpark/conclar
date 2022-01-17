@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
 import Day from "./Day";
 import configData from "../config.json";
+import { LocalTime } from "../utils/LocalTime";
 
 const ProgramList = ({ program, offset, handler }) => {
   const rows = [];
   let itemRows = [];
   let curDate = null;
   const showLocalTime = localStorage.getItem("show_local_time") !== "false";
-  const show12HourTime = localStorage.getItem("12_hour_time") === "true";
+  const show12HourTime = LocalTime.getStoredTwelveHourTime();
   //console.log(program);
 
   if (program.length === 0) {
