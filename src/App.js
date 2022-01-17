@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 import { ProgramSelection } from "./ProgramSelection";
 import { JsonParse } from "./utils/JsonParse";
-import { Format } from "./utils/Format";
+import { LocalTime } from "./utils/LocalTime";
 
 export class App extends React.Component {
   constructor(props) {
@@ -151,7 +151,7 @@ export class App extends React.Component {
             if (prefix in tags) {
               addTag(tags[prefix], tag, label);
             } else {
-              addTag(tags.tags, tag, Format.formatTag(tag));
+              addTag(tags.tags, tag, LocalTime.formatTag(tag));
             }
           } else {
             // Tag does not have a prefix, so add to default tags list.
@@ -258,7 +258,7 @@ export class App extends React.Component {
       infoIsLoaded,
     } = this.state;
 
-    const offset = Format.getTimeZoneOffset();
+    const offset = LocalTime.getTimeZoneOffset();
 
     if (!dataIsLoaded)
       return (
@@ -267,7 +267,7 @@ export class App extends React.Component {
         </div>
       );
     return (
-      <Router>
+      <Router basename={configData.BASE_PATH}>
         <div className="App">
           <Header title={configData.APP_TITLE} />
           <Navigation />

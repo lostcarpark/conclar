@@ -1,13 +1,15 @@
 {
+  "BASE_PATH": "/",
   "APP_TITLE": "ConClár Programme Guide",
   "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "TIMEZONE": "Europe/Dublin",
+  "TIMEZONE": "Europe/Helsinki",
   "NAVIGATION": {
     "PROGRAM": "Programme",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
-    "INFO": "Information"
+    "INFO": "Information",
+    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
   },
   "TAGS": {
     "SEPARATE": [

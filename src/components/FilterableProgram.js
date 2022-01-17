@@ -2,24 +2,18 @@ import React, { useState } from "react";
 import ReactSelect from "react-select";
 import ProgramList from "./ProgramList";
 import configData from "../config.json";
+import { LocalTime } from "../utils/LocalTime";
 
 const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
   const [search, setSearch] = useState("");
   const [selLoc, setSelLoc] = useState([]);
   const [selTags, setSelTags] = useState({});
-  const storedLocalTime = localStorage.getItem("show_local_time"); // Get default show local time from local storage.
+  // Get default show local time from local storage.
   const [showLocalTime, setShowLocalTime] = useState(
-    storedLocalTime === "false" ? false : true
+    LocalTime.getStoredLocalTime()
   );
-  const stored12HourTime = localStorage.getItem("twelve_hour_time");
   const [show12HourTime, setShow12HourTime] = useState(
-    stored12HourTime === configData.TIME_FORMAT.DEFAULT_12HR
-      ? "false" // If defaulting to 12 hour, assume true unless "false" saved.
-        ? false
-        : true
-      : "true" // If defaulting to 24 hour, assume false unless "true" saved.
-      ? true
-      : false
+    LocalTime.getStoredTwelveHourTime()
   );
 
   const filtered = applyFilters(program);
@@ -32,8 +26,8 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
     ) : (
       <div className="local-time-checkbox">
         <input
-          id="show_local_time"
-          name="show_local_time"
+          id={LocalTime.localTimeClass}
+          name={LocalTime.localTimeClass}
           type="checkbox"
           checked={showLocalTime}
           onChange={handleShowLocalTime}
@@ -45,15 +39,15 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
     );
 
   const show12HourTimeCheckbox = configData.TIME_FORMAT.SHOW_CHECKBOX ? (
-    <div className="twelve_hour_time-checkbox">
+    <div className={LocalTime.twelveHourTimeClass + "-checkbox"}>
       <input
-        id="twelve_hour_time"
-        name="twelve_hour_time"
+        id={LocalTime.twelveHourTimeClass}
+        name={LocalTime.twelveHourTimeClass}
         type="checkbox"
         checked={show12HourTime}
         onChange={handleShow12HourTime}
       />
-      <label htmlFor="twelve_hour_time">
+      <label htmlFor={LocalTime.twelveHourTimeClass}>
         {configData.TIME_FORMAT.CHECKBOX_LABEL}
       </label>
     </div>
@@ -127,18 +121,12 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
 
   function handleShowLocalTime(event) {
     setShowLocalTime(event.target.checked);
-    localStorage.setItem(
-      "show_local_time",
-      event.target.checked ? "true" : "false"
-    );
+    LocalTime.setStoredLocalTime(event.target.checked);
   }
 
   function handleShow12HourTime(event) {
     setShow12HourTime(event.target.checked);
-    localStorage.setItem(
-      "12_hour_time",
-      event.target.checked ? "true" : "false"
-    );
+    LocalTime.setStoredTwelveHourTime(event.target.checked);
   }
 
   // TODO: Probably should move the tags filter to its own component.
@@ -186,8 +174,10 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
           />
         </div>
         <div className="filter-total">{totalMessage}</div>
-        {localTimeCheckbox}
-        {show12HourTimeCheckbox}
+        <div className="filter-options">
+          {localTimeCheckbox}
+          {show12HourTimeCheckbox}
+        </div>
       </div>
       <div className="program-container">
         <ProgramList program={filtered} offset={offset} handler={handler} />

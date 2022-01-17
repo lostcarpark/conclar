@@ -1,6 +1,6 @@
 // import PropTypes from 'prop-types'
 import TimeSlot from "./TimeSlot";
-import { Format } from "../utils/Format";
+import { LocalTime } from "../utils/LocalTime";
 
 const Day = ({
   date,
@@ -10,7 +10,7 @@ const Day = ({
   items,
   handler,
 }) => {
-  const day = Format.formatDateForLocaleAsUTC(date);
+  const day = LocalTime.formatDateForLocaleAsUTC(date);
   const rows = [];
   let itemRows = [];
   let curTime = null;
