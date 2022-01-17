@@ -1,4 +1,5 @@
 {
+  "BASE_PATH": "/guide/",
   "APP_TITLE": "Capricon Program Guide",
   "PROGRAM_DATA_URL": "https://zambia.capricon.org/guide/konOpasData.json",
   "PEOPLE_DATA_URL": "https://zambia.capricon.org/guide/konOpasData.json",
@@ -7,7 +8,8 @@
     "PROGRAM": "Program",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
-    "INFO": "Information"
+    "INFO": "Information",
+    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
   },
   "TAGS": {
     "SEPARATE": [

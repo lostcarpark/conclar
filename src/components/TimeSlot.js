@@ -1,17 +1,17 @@
 // import PropTypes from 'prop-types'
 import ProgramItem from "./ProgramItem";
-import { Format } from "../utils/Format";
+import { LocalTime } from "../utils/LocalTime";
 
 const TimeSlot = ({ time, offset, showLocalTime, show12HourTime, items, handler }) => {
   const conTime = (
     <div className="time-convention">
-      {Format.formatTimeInConventionTimeZone(time, show12HourTime)}
+      {LocalTime.formatTimeInConventionTimeZone(time, show12HourTime)}
     </div>
   );
   const localTime =
     offset !== null && offset !== 0 && showLocalTime ? (
       <div className="time-local">
-        {Format.formatTimeInLocalTimeZone(time, offset, show12HourTime)}
+        {LocalTime.formatTimeInLocalTimeZone(time, offset, show12HourTime)}
       </div>
     ) : (
       ""

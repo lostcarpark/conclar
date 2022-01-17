@@ -1,7 +1,7 @@
-import { Format } from '../utils/Format'
+import { LocalTime } from '../utils/LocalTime'
 
 const Tag = ({ tag }) => {
-  return <div className="item-tag">{Format.formatTag(tag)}</div>;
+  return <div className="item-tag">{LocalTime.formatTag(tag)}</div>;
 };
 
 export default Tag;
