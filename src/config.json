@@ -42,7 +42,8 @@
     "SEARCH": {
       "SHOW_SEARCH": true,
       "SEARCH_LABEL": "Search people"
-    }
+    },
+    "USE_PLACEHOLDER": ""
   },
   "INFORMATION": {
     "MARKDOWN_URL": "info.md",
