@@ -124,7 +124,7 @@ export class App extends React.Component {
     const tags = { tags: [] };
 
     // Subfunction to push tag to tag list.
-    function addTag (tagList, value, label) {
+    function addTag(tagList, value, label) {
       // If item doesn't exist in tags array, add it.
       if (
         !tagList.find((entry) => {
@@ -136,8 +136,10 @@ export class App extends React.Component {
     }
 
     // For each tag prefix we want to separate, add a property.
-    for (const tag of configData.TAGS.SEPARATE) {
-      tags[tag.PREFIX] = [];
+    if ("SEPARATE" in configData.TAGS) {
+      for (const tag of configData.TAGS.SEPARATE) {
+        tags[tag.PREFIX] = [];
+      }
     }
     for (const item of program) {
       // Check item has at least one tag.

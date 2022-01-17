@@ -3,12 +3,14 @@ import configData from "../config.json";
 
 const Navigation = () => {
   const extraLinks = [];
-  for (let link of configData.NAVIGATION.EXTRA) {
-    extraLinks.push(
-      <li key={link.URL}>
-        <Link to={link.URL}>{link.LABEL}</Link>
-      </li>
-    );
+  if ("EXTRA" in configData.NAVIGATION) {
+    for (let link of configData.NAVIGATION.EXTRA) {
+      extraLinks.push(
+        <li key={link.URL}>
+          <a href={link.URL}>{link.LABEL}</a>
+        </li>
+      );
+    }
   }
   return (
     <nav className="navigation">
