@@ -9,12 +9,12 @@
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
-    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
+    "EXTRA": []
   },
   "TAGS": {
     "SEPARATE": [
-      { "PREFIX": "type", "PLACEHOLDER": "Select type" },
-      { "PREFIX": "test", "PLACEHOLDER": "Select test" }
+      { "PREFIX": "Division", "PLACEHOLDER": "Select division" },
+      { "PREFIX": "Track", "PLACEHOLDER": "Select track" }
     ]
   },
   "LOCAL_TIME": {
@@ -31,14 +31,13 @@
   },
   "PEOPLE": {
     "THUMBNAILS": {
-      "SHOW_THUMBNAILS": true,
-      "SHOW_CHECKBOX": true,
-      "CHECKBOX_LABEL": "Show thumbnails",
-      "DEFAULT_IMAGE": ""
+      "SHOW_THUMBNAILS": false,
+      "SHOW_CHECKBOX": false,
+      "CHECKBOX_LABEL": "Show thumbnails"
     },
     "SORT": {
       "SHOW_CHECKBOX": true,
-      "CHECKBOX_LABEL": "Sort by full name"
+      "CHECKBOX_LABEL": "Alternate Sort"
     },
     "SEARCH": {
       "SHOW_SEARCH": true,
@@ -46,7 +45,7 @@
     }
   },
   "INFORMATION": {
-    "MARKDOWN_URL": "info.md",
+    "MARKDOWN_URL": "capricon_info.md",
     "LOADING_MESSAGE": "Loading..."
   },
   "FOOTER": {
