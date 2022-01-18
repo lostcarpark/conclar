@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import configData from "../config.json";
 
 const Participant = ({ person, thumbnails }) => {
   function getParticipantThumbnail(person) {
