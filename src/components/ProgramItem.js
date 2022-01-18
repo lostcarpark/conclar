@@ -3,6 +3,7 @@ import { ProgramSelection } from "../ProgramSelection";
 import Location from "./Location";
 import Tag from "./Tag";
 import Participant from "./Participant";
+import configData from "../config.json";
 //import PropTypes from 'prop-types'
 
 class ProgramItem extends Component {
@@ -44,7 +45,10 @@ class ProgramItem extends Component {
       for (let loc of this.props.item.loc) {
         locations.push(<Location key={loc} loc={loc} />);
       }
-    else locations.push(<Location key={this.props.item.loc} loc={this.props.item.loc} />);
+    else
+      locations.push(
+        <Location key={this.props.item.loc} loc={this.props.item.loc} />
+      );
 
     const tags = [];
     for (let tag of this.props.item.tags) {
@@ -57,6 +61,28 @@ class ProgramItem extends Component {
         people.push(<Participant key={person.id} person={person} />);
       });
     }
+    const meetingLink =
+      this.props.item.links &&
+      this.props.item.links.meeting &&
+      this.props.item.links.meeting.length ? (
+        <div className="item-links-meeting">
+          <a href={this.props.item.links.meeting}>{configData.LINKS.MEETING}</a>
+        </div>
+      ) : (
+        ""
+      );
+    const recordingLink =
+      this.props.item.links &&
+      this.props.item.links.recording &&
+      this.props.item.links.recording.length ? (
+        <div className="item-links-recording">
+          <a href={this.props.item.links.recording}>
+            {configData.LINKS.RECORDING}
+          </a>
+        </div>
+      ) : (
+        ""
+      );
 
     return (
       <div id={id} className="item">
@@ -89,6 +115,10 @@ class ProgramItem extends Component {
               className="item-description"
               dangerouslySetInnerHTML={{ __html: this.props.item.desc }}
             />
+            <div className="item-links">
+              {meetingLink}
+              {recordingLink}
+            </div>
           </div>
         </div>
       </div>

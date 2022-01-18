@@ -17,6 +17,10 @@
       { "PREFIX": "test", "PLACEHOLDER": "Select test" }
     ]
   },
+  "LINKS": {
+    "MEETING": "Click to view stream",
+    "RECORDING": "Click to view recording"
+  },
   "LOCAL_TIME": {
     "CHECKBOX_LABEL": "Show local time",
     "NOTICE": "Local time shown in italics.",
@@ -34,7 +38,7 @@
       "SHOW_THUMBNAILS": true,
       "SHOW_CHECKBOX": true,
       "CHECKBOX_LABEL": "Show thumbnails",
-      "DEFAULT_IMAGE": ""
+      "DEFAULT_IMAGE": "head.svg"
     },
     "SORT": {
       "SHOW_CHECKBOX": true,

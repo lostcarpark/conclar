@@ -60,6 +60,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 * `NAVIGATION.INFO`: Label for the Information menu link.
 * `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
 * `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type" }`.
+* `LINKS.MEETING`: Text to display on meeting links.
+* `LINKS.RECORDING`: Text to display on recording links.
 * `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
 * `LOCAL_TIME.NOTICE`: Label for notie telling users how local time displayed.
 * `LOCAL_TIME.PREV_DAY`: Label appended to local time if local time is before start of advertised day.
@@ -71,6 +73,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 * `PEOPLE.THUMBNAILS.SHOW_THUMBNAILS`: Set to false to not show member thumbnails (useful to remove spurious controls if pictures not in file).
 * `PEOPLE.THUMBNAILS.SHOW_CHECKBOX`: Set to false to hide "Show thumbnails" checkbox.
 * `PEOPLE.THUMBNAILS.CHECKBOX_LABEL`: Label for "Show thumbnails" checkbox.
+* `PEOPLE.THUMBNAILS.DEFAULT_IMAGE`: Set to default thumbnail for participants with no photo. Can be filename of image in public directory, or external URL. Leave blank for no default thumbnail.
 * `PEOPLE.SORT.SHOW_CHECKBOX`: Set to false to hide "Sort by full name" checkbox. Useful if your data only contains "name for publications".
 * `PEOPLE.SORT.CHECKBOX_LABEL`: Label for "Sort by full name" checkbox.
 * `PEOPLE.SEARCH.SHOW_SEARCH`: Set to false to hide "people" search box.
@@ -158,3 +161,15 @@ For hosting in a subdirectory, this should be altered as follows:
             try_files $uri /guide/index.html;
     }
 ```
+
+## Credits
+
+ConClár is Copyright James Shields, 2022, and made available as an open source project under the MIT licence.
+
+Thanks to:
+* Eemeli Aro for developing KonOpas, which was the inspiration for ConClár.
+* M. C. DeMarco for work on styling and lots of helpful suggestions.
+* Annemarie Nungent for checking my Irish.
+* Fionna O'Sullivan for proofreading and awesome suggestions.
+
+The included "rainbow head" thumbnail image is a public domain image available on [Open Clipart](https://openclipart.org/detail/296715/rainbow-head-2).
