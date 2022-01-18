@@ -29,7 +29,7 @@ h1, h2, h3, h4, .item-title, .date-heading {
  * 2. Application header.
  */
 
- header {
+header {
   text-align: center;
 }
 
@@ -140,10 +140,20 @@ input.selection-control {
 
 .program-container {
   margin-top: 0.5rem;
-  clear:both;
+  clear: both;
+  display: grid;
+}
+
+.program-page {
+}
+
+.person .time-local-message {
+  margin-top: 1rem;
 }
 
 .date-heading {
+  grid-column-start: 1;
+  grid-column-end: 3;
   font-size: 1.5rem;
   font-weight: bold;
   margin-top: 1rem;
@@ -152,7 +162,6 @@ input.selection-control {
 }
 
 .timeslot {
-  display: block;
   margin: 0.5rem;
   border-bottom: 1px solid gray;
   white-space: nowrap;
@@ -305,7 +314,7 @@ input.selection-control {
 }
 
 .person {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .person .person-image img {
