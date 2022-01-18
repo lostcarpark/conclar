@@ -138,17 +138,20 @@ input.selection-control {
  * 4. Program.
  */
 
+.program-page {
+  /* styles not applied to participants' subprograms */
+}
+
 .program-container {
   margin-top: 0.5rem;
   clear: both;
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 
-.program-page {
-}
-
-.person .time-local-message {
-  margin-top: 1rem;
+.time-local-message {
+  font-style: italic;
+  color: grey;
 }
 
 .date-heading {
@@ -156,7 +159,7 @@ input.selection-control {
   font-weight: bold;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
 
 .timeslot {
@@ -166,8 +169,7 @@ input.selection-control {
 }
 
 .timeslot-time {
-  display: inline-block;
-  min-width: 5ch;
+  min-width: 8ch;
   vertical-align: top;
   flex-grow: 0;
 }
@@ -182,6 +184,7 @@ input.selection-control {
 .item {
   margin-bottom: 0.25rem;
   max-width: 60ch;
+  display: flex;
 }
 
 .item ~ .item {
@@ -190,21 +193,23 @@ input.selection-control {
 }
 
 .item-selection {
-  display: inline-block;
   min-width: 5ch;
-  vertical-align: top;
+  vertical-align: baseline;
   flex-grow: 0;
+  text-align: center;
 }
 
 .item-entry {
-  display: inline-block;
+  display: flex;
   max-width: 55ch;
   flex-grow: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 
 .item-title {
   font-weight: bold;
-  white-space: normal;
 }
 
 .item-location,
@@ -244,7 +249,7 @@ input.selection-control {
   display: inline-block;
 }
 
-.participant .participant-image ~ span {
+.program-container .participant .participant-image ~ span {
  padding-left: 0.3rem;
 }
 
@@ -326,6 +331,14 @@ input.selection-control {
 
 .person .person-bio {
   max-width: 60ch;
+}
+
+.person .time-local-message {
+  margin-top: 1rem;
+}
+
+.person .program-container {
+  /* program styles only applied to participants' subprograms */
 }
 
 /*
