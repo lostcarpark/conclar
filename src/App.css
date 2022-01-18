@@ -54,11 +54,11 @@ header h1 {
 
 /* CSS for button 81 from https://getcssscan.com/css-buttons-examples */
 .navigation li a {
-  background-color: #fff;
+  background-color: lavender;
   border: 0 solid #e2e8f0;
   border-radius: 1rem;
   box-sizing: border-box;
-  color: #0d172a;
+  color: darkviolet;
   cursor: pointer;
   display: inline-block;
   font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -100,13 +100,17 @@ header h1 {
   padding: 0 0.5em 0.5em 0;
 }
 
+.filter-search {
+  font-size: .8em;
+}
+
 .filter-total {
   margin: 0.3rem 0 1rem 0;
 }
 
 .local-time-checkbox,
 .twelve_hour_time-checkbox {
-  float: right;
+  float: left;
 }
 
 /* style all non-selection checkboxes as buttons */
@@ -170,7 +174,7 @@ input.selection-control {
 .item {
   margin-bottom: 0.25rem;
   max-width: 60ch;
-  border: 1px solid red;
+  border: 1px solid darkviolet;
 }
 
 .item-selection {
@@ -221,7 +225,7 @@ input.selection-control {
 }
 
 .item-details-expanded {
-  background-color: #ddd;
+  background-color: lavender;
   max-height: 40rem;
 }
 
@@ -275,7 +279,7 @@ input.selection-control {
 
  .info {
   margin: 1rem;
-  max-width: 60ch;
+  /* max-width: 60ch; */
 }
 
 /*
