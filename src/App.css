@@ -15,14 +15,51 @@
  * 1. Global application styles.
  */
 
+:root {
+  --main-bg: #fff;
+  --main-fg: #000;
+  --navigation-button-bg: #ddd;
+  --navigation-button-fg: #0d172a;
+  --navigation-button-border: #e2e8f0;
+  --navigation-button-hover-bg: #1e293b;
+  --navigation-button-hover-fg: #fff;
+  --checkbox-selected-bg: white;
+  --checkbox-selected-fg: green;
+  --checkbox-selected-border: green;
+  --checkbox-unselected-bg: white;
+  --checkbox-unselected-fg: red;
+  --checkbox-unselected-border: red;
+  --program-date-line: #888;
+  --program-time-line: #ccc;
+  --program-item-line: #bbb;
+  --program-tags-fg: #888;
+  --program-expanded-bg: #eee;
+  --participant-link-fg: #000;
+  --participant-link-visited-fg: #444;
+  --footer-line: #888;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--main-bg);
+  color: var(--main-fg);
+}
+
 .App {
   text-align: left;
   margin: 1rem;
-  font-family: 'Roboto', 'Open Sans', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Calibri', 'Open Sans', 'Lato', 'Helvetica Neue', Arial, sans-serif;
 }
 
 h1, h2, h3, h4, .item-title, .date-heading {
   font-family: Candara, Optima, Segoe, 'Segoe UI', sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 /*
@@ -55,11 +92,11 @@ header h1 {
 
 /* CSS for button 81 from https://getcssscan.com/css-buttons-examples */
 .navigation li a {
-  background-color: #fff;
-  border: 0 solid #e2e8f0;
+  background-color: var(--navigation-button-bg);
+  color: var(--navigation-button-fg);
+  border: 0 solid var(--navigation-button-border);
   border-radius: 1rem;
   box-sizing: border-box;
-  color: #0d172a;
   cursor: pointer;
   display: inline-block;
   font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -79,8 +116,8 @@ header h1 {
 }
 
 .navigation li a:hover {
-  background-color: #1e293b;
-  color: #fff;
+  background-color: var(--navigation-button-hover-bg);
+  color: var(--navigation-button-hover-fg);
 }
 
 @media (min-width: 768px) {
@@ -113,18 +150,20 @@ header h1 {
 
 /* style all non-selection checkboxes as buttons */
 input[type=checkbox] ~ label {
-  border: 2px solid red;
+  background-color: var(--checkbox-unselected-bg);
+  color: var(--checkbox-unselected-fg);
+  border: 2px solid var(--checkbox-unselected-border);
   border-radius: 1rem;
   padding: 0.2rem 0.4rem;
   margin: 0 0.1rem 0.2rem 0;
-  color: red;
   font-size: smaller;
   text-decoration: line-through;
   display: inline-block;
 }
 input[type=checkbox]:checked ~ label {
-  color: green;
-  border-color: green;
+  background-color: var(--checkbox-selected-bg);
+  color: var(--checkbox-selected-fg);
+  border-color: var(--checkbox-selected-border);
   text-decoration: none;
 }
 input[type=checkbox] {
@@ -148,13 +187,13 @@ input.selection-control {
   font-weight: bold;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--program-date-line);
 }
 
 .timeslot {
   display: block;
   margin: 0.5rem;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--program-time-line);
   white-space: nowrap;
 }
 
@@ -176,7 +215,7 @@ input.selection-control {
 }
 
 .item ~ .item {
-  border-top: 1px solid #bbb;
+  border-top: 1px solid var(--program-item-line);
   padding-top: 0.5rem;
 }
 
@@ -201,7 +240,7 @@ input.selection-control {
 .item-location,
 .item-tags {
   font-size: 0.9em;
-  color: #888;
+  color: var(--program-tags-fg);
 }
 
 .item-tag {
@@ -248,7 +287,7 @@ input.selection-control {
 }
 
 .item-entry > .item-details.item-details-expanded {
-  background-color: #F0F0F0;
+  background-color: var(--program-expanded-bg);
 }
 
 .item-details-expanded {
@@ -276,13 +315,13 @@ input.selection-control {
 }
 
 .participant a {
-  color: black;
+  color: var(--participant-link-fg);
 }
 
 .participant a:active,
 .participant a:hover,
 .participant a:visited {
-  color: #444;
+  color: var(--participant-link-visited-fg);
 }
 
 .people .participant {
@@ -334,5 +373,5 @@ input.selection-control {
 
  footer {
   margin-top: 2rem;
-  border-top: 1px solid gray;
+  border-top: 1px solid var(--footer-line);
 }
