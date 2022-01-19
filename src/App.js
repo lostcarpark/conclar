@@ -5,6 +5,7 @@ import configData from "./config.json";
 import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
+import NotFound from "./components/NotFound";
 import FilterableProgram from "./components/FilterableProgram";
 import ProgramList from "./components/ProgramList";
 import People from "./components/People";
@@ -319,6 +320,10 @@ export class App extends React.Component {
                   element={<Info info={info} infoIsLoaded={infoIsLoaded} />}
                 />
               </Route>
+				      <Route 
+			          path='*' 
+			          element={<NotFound />}
+				      />
             </Routes>
             <Footer />
           </div>
