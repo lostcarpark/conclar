@@ -124,8 +124,9 @@ header h1 {
 
 @media (min-width: 768px) {
   .navigation li a {
-    font-size: 1.125rem;
-    padding: 1rem 2rem;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
   }
 }
 
