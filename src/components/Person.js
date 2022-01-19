@@ -6,8 +6,14 @@ import ProgramList from "./ProgramList";
 const Person = ({ people, program, offset, handler }) => {
   const params = useParams();
   const person = people.find((person) => person.id === params.id);
+  if (!person)
+    return (
+        <div className="error">
+          Person id <span>{params.id}</span> was not found.
+        </div>
+    );
   const img = (person.links && person.links.img) ? <img src={person.links.img} alt={person.name} /> : "";
-  const safeBio = DOMPurify.sanitize(person.bio);
+  const safeBio = person.bio ? DOMPurify.sanitize(person.bio) : "";
   return (
     <div className="person">
       <h2 className="person-name">Person: {person.name}</h2>

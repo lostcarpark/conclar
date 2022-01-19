@@ -37,6 +37,7 @@
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
   --footer-line: #888;
+  --error-message-fg: tomato;
 }
 
 body {
@@ -122,10 +123,20 @@ header h1 {
 }
 
 @media (min-width: 768px) {
-  .button-81 {
+  .navigation li a {
     font-size: 1.125rem;
     padding: 1rem 2rem;
   }
+}
+
+.error {
+  text-align: center;
+  color: var(--error-message-fg);
+  font-size: larger;
+  margin: 3rem;
+}
+.error span {
+  font-weight: bold;
 }
 
 .filter-locations {
