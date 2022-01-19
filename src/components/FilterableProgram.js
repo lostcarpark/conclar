@@ -179,7 +179,7 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
           {show12HourTimeCheckbox}
         </div>
       </div>
-      <div className="program-container">
+      <div className="program-page">
         <ProgramList program={filtered} offset={offset} handler={handler} />
       </div>
     </div>

@@ -51,9 +51,9 @@ const ProgramList = ({ program, offset, handler }) => {
   );
   const localTime =
     offset === null ? (
-      <div className="time-local">{configData.LOCAL_TIME.FAILURE}</div>
+      <div className="time-local-message">{configData.LOCAL_TIME.FAILURE}</div>
     ) : offset !== 0 && showLocalTime ? (
-      <div className="time-local">{configData.LOCAL_TIME.NOTICE}</div>
+      <div className="time-local-message">{configData.LOCAL_TIME.NOTICE}</div>
     ) : (
       ""
     );

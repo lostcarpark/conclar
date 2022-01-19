@@ -66,7 +66,7 @@ code {
  * 2. Application header.
  */
 
- header {
+header {
   text-align: center;
 }
 
@@ -105,13 +105,14 @@ header h1 {
   line-height: 1;
   padding: .6rem 1.1rem;
   text-align: center;
-  text-decoration: none #0d172a solid;
+  text-decoration: none;
   text-decoration-thickness: auto;
   transition: all .1s cubic-bezier(.4, 0, .2, 1);
   box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  /* don't line-break individual links */
   white-space: nowrap;
 }
 
@@ -177,9 +178,20 @@ input.selection-control {
  * 4. Program.
  */
 
+.program-page {
+  /* styles not applied to participants' subprograms */
+}
+
 .program-container {
   margin-top: 0.5rem;
-  clear:both;
+  clear: both;
+  display: flex;
+  flex-direction: column;
+}
+
+.time-local-message {
+  font-style: italic;
+  color: grey;
 }
 
 .date-heading {
@@ -191,27 +203,28 @@ input.selection-control {
 }
 
 .timeslot {
-  display: block;
   margin: 0.5rem;
   border-bottom: 1px solid var(--program-time-line);
-  white-space: nowrap;
+  display: flex;
 }
 
 .timeslot-time {
-  display: inline-block;
-  min-width: 5ch;
+  min-width: 8ch;
   vertical-align: top;
+  flex-grow: 0;
 }
 
 .timeslot-items {
-  display: inline-block;
-  width: 75%;
   vertical-align: top;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .item {
   margin-bottom: 0.25rem;
   max-width: 60ch;
+  display: flex;
 }
 
 .item ~ .item {
@@ -220,21 +233,23 @@ input.selection-control {
 }
 
 .item-selection {
-  display: inline-block;
-  min-width: 5ch;
-  vertical-align: top;
+  min-width: 3ch;
+  vertical-align: baseline;
+  flex-grow: 0;
   text-align: center;
 }
 
 .item-entry {
-  display: inline-block;
+  display: flex;
   max-width: 55ch;
-  white-space: normal;
+  flex-grow: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 
 .item-title {
   font-weight: bold;
-  white-space: normal;
 }
 
 .item-location,
@@ -274,7 +289,7 @@ input.selection-control {
   display: inline-block;
 }
 
-.participant .participant-image ~ span {
+.program-container .participant .participant-image ~ span {
  padding-left: 0.3rem;
 }
 
@@ -344,7 +359,7 @@ input.selection-control {
 }
 
 .person {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .person .person-image img {
@@ -356,6 +371,14 @@ input.selection-control {
 
 .person .person-bio {
   max-width: 60ch;
+}
+
+.person .time-local-message {
+  margin-top: 1rem;
+}
+
+.person .program-container {
+  /* program styles only applied to participants' subprograms */
 }
 
 /*
@@ -373,5 +396,7 @@ input.selection-control {
 
  footer {
   margin-top: 2rem;
-  border-top: 1px solid var(--footer-line);
+/* often there is already a border before this element so omit:
+  border-top: 1px solid var(--footer-line); */
+  text-align: right;
 }
