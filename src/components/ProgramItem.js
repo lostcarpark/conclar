@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DOMPurify from "dompurify";
 import { ProgramSelection } from "../ProgramSelection";
 import Location from "./Location";
 import Tag from "./Tag";
@@ -24,10 +25,6 @@ class ProgramItem extends Component {
     let currentState = this.state;
     currentState.expanded = !currentState.expanded;
     this.setState({ currentState });
-    // this.setState(prevState => ({
-    //     expanded: !prevState.expanded
-    // }));
-    // alert(e.target.parent);
   }
 
   handleChange({ target }) {
@@ -54,13 +51,14 @@ class ProgramItem extends Component {
     for (let tag of this.props.item.tags) {
       tags.push(<Tag key={tag} tag={tag} />);
     }
-    // console.log(this.props.item.people);
+    
     const people = [];
     if (this.props.item.people) {
       this.props.item.people.forEach((person) => {
         people.push(<Participant key={person.id} person={person} />);
       });
     }
+    const safeDesc = DOMPurify.sanitize(this.props.item.desc);
     const meetingLink =
       this.props.item.links &&
       this.props.item.links.meeting &&
@@ -113,7 +111,7 @@ class ProgramItem extends Component {
             <div className="item-tags">{tags}</div>
             <div
               className="item-description"
-              dangerouslySetInnerHTML={{ __html: this.props.item.desc }}
+              dangerouslySetInnerHTML={{__html: safeDesc}}
             />
             <div className="item-links">
               {meetingLink}
