@@ -119,7 +119,7 @@ The `package.json` file should start as follows:
 
 ### Hosting on Apache
 
-On Apache, the easiest way to direct traffic to `index.html` is by way of a `.htaccess` file. This should be in the same directory as the application, and should contain the following:
+On Apache, the easiest way to direct traffic to `index.html` is by way of a `.htaccess` file. A default .htaccess is included in the `public` directory. This will get copied to the `build` directory, but may get hidden when you copy to your webserver. The contents are as follows:
 
 ```
 <IfModule mod_rewrite.c>
@@ -132,7 +132,7 @@ On Apache, the easiest way to direct traffic to `index.html` is by way of a `.ht
 </IfModule>
 ```
 
-If you are hosting in a subdirectory, modify it as follows:
+If you are hosting in a subdirectory, modify `.htaccess` as follows (replace "guide" with the folder you are hosting in):
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine On
