@@ -17,6 +17,10 @@
       { "PREFIX": "Track", "PLACEHOLDER": "Select track" }
     ]
   },
+  "LINKS": {
+    "MEETING": "Click to view stream",
+    "RECORDING": "Click to view recording"
+  },
   "LOCAL_TIME": {
     "CHECKBOX_LABEL": "Show local time",
     "NOTICE": "Local time shown in italics.",
