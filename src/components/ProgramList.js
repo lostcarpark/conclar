@@ -11,7 +11,7 @@ const ProgramList = ({ program, offset, handler }) => {
   const show12HourTime = LocalTime.getStoredTwelveHourTime();
   //console.log(program);
 
-  if (program.length === 0) {
+  if (program === null || program.length === 0) {
     return (
       <div className="program">
         <div className="program-empty">No items found.</div>
