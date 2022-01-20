@@ -81,6 +81,7 @@ const App = () => {
               person.uri = fullPerson.uri;
               person.links = fullPerson.links;
               person.sortName = fullPerson.sortName;
+              person.image_256_url = fullPerson.image_256_url;
             }
           });
           item.people.sort((a, b) => {
