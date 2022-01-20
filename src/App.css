@@ -190,9 +190,9 @@ input.selection-control {
  * 4. Program.
  */
 
-.program-page {
-  /* styles not applied to participants' subprograms */
-}
+/* styles not applied to participants' subprograms */
+/* .program-page {
+} */
 
 .program-container {
   margin-top: 0.5rem;
@@ -389,9 +389,9 @@ input.selection-control {
   margin-top: 1rem;
 }
 
-.person .program-container {
-  /* program styles only applied to participants' subprograms */
-}
+/* program styles only applied to participants' subprograms */
+/* .person .program-container {
+} */
 
 /*
  * 6. Information page.
