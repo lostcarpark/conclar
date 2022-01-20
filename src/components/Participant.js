@@ -8,7 +8,10 @@ const Participant = ({ person, thumbnails }) => {
       if (person.links && person.links.img) {
         return (
           <div className="participant-image">
-            <img src={person.links.img} alt={person.name} />
+            <img src={person.links.img} alt={person.name} onError={({ currentTarget }) => {
+							currentTarget.onerror = null;
+							currentTarget.style.display="none";
+						}} />
           </div>
         );
       }
