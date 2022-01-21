@@ -193,6 +193,7 @@ input.selection-control {
 }
 
 .item-location,
+.item-duration,
 .item-tags {
   font-size: 0.9em;
   color: #888;

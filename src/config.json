@@ -1,8 +1,8 @@
 {
-  "BASE_PATH": "/guide/",
-  "APP_TITLE": "Capricon Program Guide",
-  "PROGRAM_DATA_URL": "https://zambia.capricon.org/guide/konOpasData.json",
-  "PEOPLE_DATA_URL": "https://zambia.capricon.org/guide/konOpasData.json",
+  "BASE_PATH": "/",
+  "APP_TITLE": "Capricon 42 Program Guide",
+  "PROGRAM_DATA_URL": "https://guide.capricon.org/konOpasData.json",
+  "PEOPLE_DATA_URL": "https://guide.capricon.org/konOpasData.json",
   "TIMEZONE": "America/Chicago",
   "NAVIGATION": {
     "PROGRAM": "Program",
