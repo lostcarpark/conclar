@@ -61,6 +61,12 @@ class ProgramItem extends Component {
         people.push(<Participant key={person.id} person={person} />);
       });
     }
+    const duration =
+      this.props.item.mins ? (
+        <div className="item-duration">{this.props.item.mins} mins</div>
+      ) : (
+        ""
+      );
     const meetingLink =
       this.props.item.links &&
       this.props.item.links.meeting &&
@@ -100,6 +106,7 @@ class ProgramItem extends Component {
         <div className="item-entry" onClick={this.toggleDetails.bind(this)}>
           <div className="item-title">{this.props.item.title}</div>
           <div className="item-location">{locations}</div>
+          {duration}
           <div
             className={
               this.state.expanded
