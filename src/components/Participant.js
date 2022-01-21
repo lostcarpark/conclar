@@ -5,10 +5,23 @@ import configData from "../config.json";
 const Participant = ({ person, thumbnails }) => {
   function getParticipantThumbnail(person) {
     if (thumbnails) {
-      if (person.links && person.links.img) {
+      if (person.links && person.links.img) { //konopas format
         return (
           <div className="participant-image">
-            <img src={person.links.img} alt={person.name} />
+            <img src={person.links.img} alt={person.name} onError={({ currentTarget }) => {
+              currentTarget.onerror = null;
+              currentTarget.style.display="none";
+            }} />
+          </div>
+        );
+      }
+      if (person.image_256_url) { //grenadine format
+        return (
+          <div className="participant-image">
+            <img src={person.image_256_url} alt={person.name} onError={({ currentTarget }) => {
+              currentTarget.onerror = null;
+              currentTarget.style.display="none";
+            }} />
           </div>
         );
       }
@@ -19,7 +32,7 @@ const Participant = ({ person, thumbnails }) => {
         return (
           <div className="participant-image participant-default-image">
             <img
-              src={configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE}
+              src={configData.BASE_PATH + configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE}
               alt={person.name}
             />
           </div>

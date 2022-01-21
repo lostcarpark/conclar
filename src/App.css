@@ -79,7 +79,7 @@ header h1 {
  * 3. Navigation.
  */
 
- .navigation ul {
+.navigation ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -193,6 +193,11 @@ input.selection-control {
 /* styles not applied to participants' subprograms */
 /* .program-page {
 } */
+
+.program-empty {
+  font-style: italic;
+  padding-top: 1rem;
+}
 
 .program-container {
   margin-top: 0.5rem;

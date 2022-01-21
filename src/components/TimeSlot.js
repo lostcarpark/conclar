@@ -3,6 +3,8 @@ import ProgramItem from "./ProgramItem";
 import { LocalTime } from "../utils/LocalTime";
 
 const TimeSlot = ({ time, offset, showLocalTime, show12HourTime, items, handler }) => {
+	if (!time)
+		return "";
   const conTime = (
     <div className="time-convention">
       {LocalTime.formatTimeInConventionTimeZone(time, show12HourTime)}
