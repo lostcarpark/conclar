@@ -138,6 +138,14 @@ const FilterableProgram = () => {
         });
       }
     }
+		if (!showPastItems) {
+			// Filter by past item state.  Quick hack to treat this as a filter.
+			const now = LocalTime.dateToConTime(new Date());
+			console.log("Showing items after", now.date, now.time, "(adjusted con time).");
+			filtered = filtered.filter((item) => {
+				return (now.date < item.date) || (now.date == item.date && now.time <= item.time);
+			});
+		}
     return filtered;
   }
 
