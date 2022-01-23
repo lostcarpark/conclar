@@ -42,8 +42,6 @@ const model = {
   }),
   // Actions.
   setData: action((state, data) => {
-    console.log("Program loaded: ", data.program);
-    console.log("Locations: ", data.locations);
     state.program = data.program;
     state.people = data.people;
     state.locations = data.locations;
@@ -99,12 +97,19 @@ const model = {
   isExpanded: computed((state) => {
     return (id) => state.expandedItems.find((item) => item === id) || false;
   }),
-  getMySchedule: computed((state) => {
-    return () =>
-      state.program.filter((item) =>
-        state.mySelections.find((id) => item.id === id)
-      );
+  noneExpanded: computed((state) => state.expandedItems.length === 0),
+  allExpanded: computed((state) => {
+    // Loop through all items in progrm. If any not found in expanded list, return false.
+    for (let item of state.program)
+      if (!state.expandedItems.find((id) => item.id === id)) return false;
+    // All found, so can return true.
+    return true;
   }),
+  getMySchedule: computed((state) =>
+    state.program.filter((item) =>
+      state.mySelections.find((id) => item.id === id)
+    )
+  ),
 };
 
 export default model;

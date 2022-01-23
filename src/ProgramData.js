@@ -30,6 +30,9 @@ export class ProgramData {
       }
       // If name is an array, convert to single string.
       if (Array.isArray(person.name)) person.name = person.name.join(" ");
+      // Several possible picture fields, so provide one.
+      person.img = (person.links && (person.links.img || person.links.photo)) || person.image_256_url || null;
+      // Hoping to use in future for nicer URLs of form "/person/name". However caused problems with unicode chars, so using ID for now.
       person.uri = encodeURIComponent(person.name.replace(/[ ]/g, "_"));
     }
     people.sort((a, b) => {
@@ -43,26 +46,24 @@ export class ProgramData {
   // After loading program and people, add additional person data to program items.
   static addProgramParticipantDetails(program, people) {
     // Add extra participant info to program participants.
-    program.forEach((item) => {
+    for (let item of program) {
       if (item.people) {
-        item.people.forEach((person) => {
+        for (let index = 0; index < item.people.length; index++) {
           let fullPerson = people.find(
-            (fullPerson) => fullPerson.id === person.id
+            (fullPerson) => fullPerson.id === item.people[index].id
           );
           if (fullPerson) {
-            person.uri = fullPerson.uri;
-            person.links = fullPerson.links;
-            person.sortName = fullPerson.sortName;
-            person.image_256_url = fullPerson.image_256_url;
+            // Replace partial person with full person reference.
+            item.people[index] = fullPerson;
           }
-        });
+        }
         item.people.sort((a, b) => {
           if (a.sortname < b.sortname) return -1;
           if (a.sortname > b.sortname) return 1;
           return 0;
         });
       }
-    });
+    }
   }
 
   // Extract locations from program.

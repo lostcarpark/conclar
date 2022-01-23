@@ -18,7 +18,6 @@ const AppRoutes = () => {
   const fetchProgram = useStoreActions((actions) => actions.fetchProgram);
 
   useEffect(() => {
-    console.log("Use Effect for fun and profit.");
     fetchProgram();
     // eslint-disable-next-line
   }, []);
