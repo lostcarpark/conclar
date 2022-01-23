@@ -157,7 +157,8 @@ header h1 {
 }
 
 .local-time-checkbox,
-.twelve_hour_time-checkbox {
+.twelve_hour_time-checkbox,
+.past-items-checkbox {
   float: right;
 }
 

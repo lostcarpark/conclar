@@ -12,6 +12,7 @@ const model = {
   tags: [],
   showLocalTime: LocalTime.getStoredLocalTime(),
   show12HourTime: LocalTime.getStoredTwelveHourTime(),
+  showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
   mySelections: ProgramSelection.getAllSelections(),
   showThumbnails: localStorage.getItem("thumbnails") === "false" ? false : true,
@@ -52,6 +53,9 @@ const model = {
   }),
   setShow12HourTime: action((state, show12HourTime) => {
     state.show12HourTime = show12HourTime;
+  }),
+  setShowPastItems: action((state, showPastItems) => {
+    state.showPastItems = showPastItems;
   }),
   setShowThumbnails: action((state, showThumbnails) => {
     state.showThumbnails = showThumbnails;
