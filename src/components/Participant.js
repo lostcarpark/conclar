@@ -5,20 +5,10 @@ import configData from "../config.json";
 const Participant = ({ person, thumbnails }) => {
   function getParticipantThumbnail(person) {
     if (thumbnails) {
-      if (person.links && person.links.img) { //konopas format
+      if (person.img) {
         return (
           <div className="participant-image">
-            <img src={person.links.img} alt={person.name} onError={({ currentTarget }) => {
-              currentTarget.onerror = null;
-              currentTarget.style.display="none";
-            }} />
-          </div>
-        );
-      }
-      if (person.image_256_url) { //grenadine format
-        return (
-          <div className="participant-image">
-            <img src={person.image_256_url} alt={person.name} onError={({ currentTarget }) => {
+            <img src={person.img} alt={person.name} onError={({ currentTarget }) => {
               currentTarget.onerror = null;
               currentTarget.style.display="none";
             }} />

@@ -23,6 +23,8 @@ const FilterableProgram = () => {
     expandAll: actions.expandAll,
     collapseAll: actions.collapseAll,
   }));
+  const noneExpanded = useStoreState((state) => state.noneExpanded);
+  const allExpanded = useStoreState((state) => state.allExpanded);
 
   const [search, setSearch] = useState("");
   const [selLoc, setSelLoc] = useState([]);
@@ -187,8 +189,8 @@ const FilterableProgram = () => {
         </div>
         <div className="filter-total">{totalMessage}</div>
         <div className="filter-expand">
-          <button onClick={expandAll}>{configData.EXPAND.EXPAND_ALL_LABEL}</button>
-          <button onClick={collapseAll}>{configData.EXPAND.COLLAPSE_ALL_LABEL}</button>
+          <button disabled={allExpanded} onClick={expandAll}>{configData.EXPAND.EXPAND_ALL_LABEL}</button>
+          <button disabled={noneExpanded} onClick={collapseAll}>{configData.EXPAND.COLLAPSE_ALL_LABEL}</button>
         </div>
         <div className="filter-options">
           {localTimeCheckbox}

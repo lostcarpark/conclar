@@ -16,8 +16,8 @@ const Person = () => {
       </div>
     );
   const img =
-    (person.links && person.links.img) || person.image_256_url ? (
-      <img src={person.image_256_url || person.links.img} alt={person.name} />
+    (person.img) ? (
+      <img src={person.img} alt={person.name} />
     ) : (
       ""
     );

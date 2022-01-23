@@ -6,7 +6,6 @@ export class ProgramSelection {
     let store = localStorage.getItem("selections_" + configData.APP_ID);
     if (store) {
       let selections = JSON.parse(store);
-      console.log("Selections: ", selections);
       if (Array.isArray(selections)) return selections;
     }
     return [];

@@ -45,7 +45,6 @@ const People = () => {
 
   function handleThumbnail(event) {
     setShowThumbnails(event.target.checked);
-    console.log("Thumbnails: ", event.target.checked);
   }
 
   function handleSort(event) {
