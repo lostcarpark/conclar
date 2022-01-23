@@ -1,5 +1,6 @@
 {
   "BASE_PATH": "/",
+  "APP_ID": "O2021",
   "APP_TITLE": "ConClár Programme Guide",
   "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
@@ -16,6 +17,10 @@
       { "PREFIX": "type", "PLACEHOLDER": "Select type" },
       { "PREFIX": "test", "PLACEHOLDER": "Select test" }
     ]
+  },
+  "EXPAND": {
+    "EXPAND_ALL_LABEL": "Expand All",
+    "COLLAPSE_ALL_LABEL": "Collapse All"
   },
   "LINKS": {
     "MEETING": "Click to view stream",

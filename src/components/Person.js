@@ -1,18 +1,26 @@
 import React from "react";
+import { useStoreState } from "easy-peasy";
 import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 import ProgramList from "./ProgramList";
 
-const Person = ({ people, program, offset, handler }) => {
+const Person = () => {
+  const program = useStoreState((state) => state.program);
+  const people = useStoreState((state) => state.people);
   const params = useParams();
   const person = people.find((person) => person.id.toString() === params.id);
   if (!person)
     return (
-        <div className="error">
-          Person id <span>{params.id}</span> was not found.
-        </div>
+      <div className="error">
+        Person id <span>{params.id}</span> was not found.
+      </div>
     );
-  const img = (person.links && person.links.img || person.image_256_url) ? <img src={person.image_256_url || person.links.img} alt={person.name} /> : "";
+  const img =
+    (person.links && person.links.img) || person.image_256_url ? (
+      <img src={person.image_256_url || person.links.img} alt={person.name} />
+    ) : (
+      ""
+    );
   const safeBio = person.bio ? DOMPurify.sanitize(person.bio) : "";
   return (
     <div className="person">
@@ -31,8 +39,6 @@ const Person = ({ people, program, offset, handler }) => {
           }
           return false;
         })}
-        offset={offset}
-        handler={handler}
       />
     </div>
   );

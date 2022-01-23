@@ -1,27 +1,39 @@
 import React, { useState } from "react";
 import ReactSelect from "react-select";
+import { useStoreState, useStoreActions } from "easy-peasy";
 import ProgramList from "./ProgramList";
 import configData from "../config.json";
 import { LocalTime } from "../utils/LocalTime";
 
-const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
+const FilterableProgram = () => {
+  const program = useStoreState((state) => state.program);
+  const locations = useStoreState((state) => state.locations);
+  const tags = useStoreState((state) => state.tags);
+  const offset = useStoreState((state) => state.offset);
+
+  const showLocalTime = useStoreState((state) => state.showLocalTime);
+  const setShowLocalTime = useStoreActions(
+    (actions) => actions.setShowLocalTime
+  );
+  const show12HourTime = useStoreState((state) => state.show12HoueTime);
+  const setShow12HourTime = useStoreActions(
+    (actions) => actions.setShow12HourTime
+  );
+  const { expandAll, collapseAll } = useStoreActions((actions) => ({
+    expandAll: actions.expandAll,
+    collapseAll: actions.collapseAll,
+  }));
+
   const [search, setSearch] = useState("");
   const [selLoc, setSelLoc] = useState([]);
   const [selTags, setSelTags] = useState({});
-  // Get default show local time from local storage.
-  const [showLocalTime, setShowLocalTime] = useState(
-    LocalTime.getStoredLocalTime()
-  );
-  const [show12HourTime, setShow12HourTime] = useState(
-    LocalTime.getStoredTwelveHourTime()
-  );
 
   const filtered = applyFilters(program);
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
 
   const localTimeCheckbox =
-    offset === 0 ? (
+    offset === null || offset === 0 ? (
       ""
     ) : (
       <div className="local-time-checkbox">
@@ -174,13 +186,17 @@ const FilterableProgram = ({ program, locations, tags, offset, handler }) => {
           />
         </div>
         <div className="filter-total">{totalMessage}</div>
+        <div className="filter-expand">
+          <button onClick={expandAll}>{configData.EXPAND.EXPAND_ALL_LABEL}</button>
+          <button onClick={collapseAll}>{configData.EXPAND.COLLAPSE_ALL_LABEL}</button>
+        </div>
         <div className="filter-options">
           {localTimeCheckbox}
           {show12HourTimeCheckbox}
         </div>
       </div>
       <div className="program-page">
-        <ProgramList program={filtered} offset={offset} handler={handler} />
+        <ProgramList program={filtered} />
       </div>
     </div>
   );
