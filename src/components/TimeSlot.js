@@ -1,8 +1,12 @@
 // import PropTypes from 'prop-types'
+import { useStoreState } from "easy-peasy";
 import ProgramItem from "./ProgramItem";
 import { LocalTime } from "../utils/LocalTime";
 
-const TimeSlot = ({ time, offset, showLocalTime, show12HourTime, items, handler }) => {
+const TimeSlot = ({ time, items }) => {
+  const showLocalTime = useStoreState((state)=>state.showLocalTime);
+  const show12HourTime = useStoreState((state)=>state.show12HourTime);
+  const offset = useStoreState(state => state.offset);
 	if (!time)
 		return "";
   const conTime = (
@@ -20,7 +24,7 @@ const TimeSlot = ({ time, offset, showLocalTime, show12HourTime, items, handler 
     );
   const rows = [];
   items.forEach((item) => {
-    rows.push(<ProgramItem key={item.id} item={item} handler={handler} />);
+    rows.push(<ProgramItem key={item.id} item={item} />);
   });
 
   return (

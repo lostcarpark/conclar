@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
+import { useStoreState } from "easy-peasy";
 import Day from "./Day";
 import configData from "../config.json";
-import { LocalTime } from "../utils/LocalTime";
 
-const ProgramList = ({ program, offset, handler }) => {
+const ProgramList = ({ program }) => {
+  const showLocalTime = useStoreState((state) => state.showLocalTime);
+  const offset = useStoreState((state) => state.offset);
+
   const rows = [];
   let itemRows = [];
   let curDate = null;
-  const showLocalTime = localStorage.getItem("show_local_time") !== "false";
-  const show12HourTime = LocalTime.getStoredTwelveHourTime();
-  //console.log(program);
 
   if (program === null || program.length === 0) {
     return (
@@ -21,34 +21,14 @@ const ProgramList = ({ program, offset, handler }) => {
   program.forEach((item) => {
     if (item.date !== curDate) {
       if (itemRows.length > 0) {
-        rows.push(
-          <Day
-            key={curDate}
-            date={curDate}
-            offset={offset}
-            showLocalTime={showLocalTime}
-            show12HourTime={show12HourTime}
-            items={itemRows}
-            handler={handler}
-          />
-        );
+        rows.push(<Day key={curDate} date={curDate} items={itemRows} />);
         itemRows = [];
       }
       curDate = item.date;
     }
     itemRows.push(item);
   });
-  rows.push(
-    <Day
-      key={curDate}
-      date={curDate}
-      offset={offset}
-      showLocalTime={showLocalTime}
-      show12HourTime={show12HourTime}
-      items={itemRows}
-      handler={handler}
-    />
-  );
+  rows.push(<Day key={curDate} date={curDate} items={itemRows} />);
   const localTime =
     offset === null ? (
       <div className="time-local-message">{configData.LOCAL_TIME.FAILURE}</div>

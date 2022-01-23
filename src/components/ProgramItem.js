@@ -1,26 +1,32 @@
-import React, { useState } from "react";
 import DOMPurify from "dompurify";
-import { ProgramSelection } from "../ProgramSelection";
+import { useStoreState, useStoreActions } from "easy-peasy";
 import Location from "./Location";
 import Tag from "./Tag";
 import Participant from "./Participant";
 import configData from "../config.json";
 //import PropTypes from 'prop-types'
 
-const ProgramItem = ({ item, handler }) => {
-  const [expanded, setExpanded] = useState(false);
-  const [selected, setSelected] = useState(
-    ProgramSelection.getSelection(item.id)
-  );
+const ProgramItem = ({ item }) => {
+  const selected = useStoreState((state) => state.isSelected(item.id));
+  const { addSelection, removeSelection } = useStoreActions((actions) => ({
+    addSelection: actions.addSelection,
+    removeSelection: actions.removeSelection,
+  }));
+
+  const expanded = useStoreState((state) => state.isExpanded(item.id));
+  const { expandItem, collapseItem } = useStoreActions((actions) => ({
+    expandItem: actions.expandItem,
+    collapseItem: actions.collapseItem,
+  }));
 
   function toggleExpanded() {
-    setExpanded(!expanded);
+    if (expanded) collapseItem(item.id);
+    else expandItem(item.id);
   }
 
   function handleSelected(event) {
-    setSelected(event.target.checked)
-    ProgramSelection.setSelection(item.id, event.target.checked);
-    handler();
+    if (event.target.checked) addSelection(item.id);
+    else removeSelection(item.id);
   }
 
   let id = "item_" + item.id;
@@ -29,10 +35,7 @@ const ProgramItem = ({ item, handler }) => {
     for (let loc of item.loc) {
       locations.push(<Location key={loc} loc={loc} />);
     }
-  else
-    locations.push(
-      <Location key={item.loc} loc={item.loc} />
-    );
+  else locations.push(<Location key={item.loc} loc={item.loc} />);
 
   const tags = [];
   for (let tag of item.tags) {
@@ -47,9 +50,7 @@ const ProgramItem = ({ item, handler }) => {
   }
   const safeDesc = DOMPurify.sanitize(item.desc);
   const meetingLink =
-    item.links &&
-    item.links.meeting &&
-    item.links.meeting.length ? (
+    item.links && item.links.meeting && item.links.meeting.length ? (
       <div className="item-links-meeting">
         <a href={item.links.meeting}>{configData.LINKS.MEETING}</a>
       </div>
@@ -57,13 +58,9 @@ const ProgramItem = ({ item, handler }) => {
       ""
     );
   const recordingLink =
-    item.links &&
-    item.links.recording &&
-    item.links.recording.length ? (
+    item.links && item.links.recording && item.links.recording.length ? (
       <div className="item-links-recording">
-        <a href={item.links.recording}>
-          {configData.LINKS.RECORDING}
-        </a>
+        <a href={item.links.recording}>{configData.LINKS.RECORDING}</a>
       </div>
     ) : (
       ""
@@ -86,9 +83,7 @@ const ProgramItem = ({ item, handler }) => {
         <div className="item-location">{locations}</div>
         <div
           className={
-            expanded
-              ? "item-details item-details-expanded"
-              : "item-details"
+            expanded ? "item-details item-details-expanded" : "item-details"
           }
         >
           <div className="item-people">

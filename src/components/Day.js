@@ -4,11 +4,7 @@ import { LocalTime } from "../utils/LocalTime";
 
 const Day = ({
   date,
-  offset,
-  showLocalTime,
-  show12HourTime,
   items,
-  handler,
 }) => {
   const day = LocalTime.formatDateForLocaleAsUTC(date);
   const rows = [];
@@ -21,11 +17,7 @@ const Day = ({
           <TimeSlot
             key={curTime}
             time={curTime}
-            offset={offset}
-            showLocalTime={showLocalTime}
-            show12HourTime={show12HourTime}
             items={itemRows}
-            handler={handler}
           />
         );
         itemRows = [];
@@ -38,11 +30,7 @@ const Day = ({
     <TimeSlot
       key={curTime}
       time={curTime}
-      offset={offset}
-      showLocalTime={showLocalTime}
-      show12HourTime={show12HourTime}
       items={itemRows}
-      handler={handler}
     />
   );
 
