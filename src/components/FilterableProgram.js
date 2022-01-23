@@ -15,9 +15,13 @@ const FilterableProgram = () => {
   const setShowLocalTime = useStoreActions(
     (actions) => actions.setShowLocalTime
   );
-  const show12HourTime = useStoreState((state) => state.show12HoueTime);
+  const show12HourTime = useStoreState((state) => state.show12HourTime);
   const setShow12HourTime = useStoreActions(
     (actions) => actions.setShow12HourTime
+  );
+  const showPastItems = useStoreState((state) => state.showPastItems);
+  const setShowPastItems = useStoreActions(
+    (actions) => actions.setShowPastItems
   );
   const { expandAll, collapseAll } = useStoreActions((actions) => ({
     expandAll: actions.expandAll,
@@ -69,6 +73,24 @@ const FilterableProgram = () => {
     ""
   );
 
+  //Nice to have a check here for whether it's during con right now.
+  const pastItemsCheckbox = true ? ( 
+    <div className="past-items-checkbox">
+      <input
+        id={LocalTime.pastItemsClass}
+        name={LocalTime.pastItemsClass}
+        type="checkbox"
+        checked={showPastItems}
+        onChange={handleShowPastItems}
+      />
+      <label htmlFor={LocalTime.pastItemsClass}>
+        {configData.SHOW_PAST_ITEMS.CHECKBOX_LABEL}
+      </label>
+    </div>
+    ) : (
+			""
+		);
+
   function applyFilters(program) {
     const term = search.trim().toLowerCase();
 
@@ -116,6 +138,14 @@ const FilterableProgram = () => {
         });
       }
     }
+		if (!showPastItems) {
+			// Filter by past item state.  Quick hack to treat this as a filter.
+			const now = LocalTime.dateToConTime(new Date());
+			console.log("Showing items after", now.date, now.time, "(adjusted con time).");
+			filtered = filtered.filter((item) => {
+				return (now.date < item.date) || (now.date == item.date && now.time <= item.time);
+			});
+		}
     return filtered;
   }
 
@@ -141,6 +171,11 @@ const FilterableProgram = () => {
   function handleShow12HourTime(event) {
     setShow12HourTime(event.target.checked);
     LocalTime.setStoredTwelveHourTime(event.target.checked);
+  }
+
+  function handleShowPastItems(event) {
+    setShowPastItems(event.target.checked);
+    LocalTime.setStoredPastItems(event.target.checked);
   }
 
   // TODO: Probably should move the tags filter to its own component.
@@ -195,6 +230,7 @@ const FilterableProgram = () => {
         <div className="filter-options">
           {localTimeCheckbox}
           {show12HourTimeCheckbox}
+          {pastItemsCheckbox}
         </div>
       </div>
       <div className="program-page">

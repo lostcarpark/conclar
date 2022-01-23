@@ -38,6 +38,11 @@
     "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show 12 hour time"
   },
+  "SHOW_PAST_ITEMS": {
+    "DEFAULT": true,
+    "CHECKBOX_LABEL": "Show past items",
+    "ADJUST_MINUTES": 10
+  },
   "PEOPLE": {
     "THUMBNAILS": {
       "SHOW_THUMBNAILS": true,
