@@ -15,7 +15,7 @@ const FilterableProgram = () => {
   const setShowLocalTime = useStoreActions(
     (actions) => actions.setShowLocalTime
   );
-  const show12HourTime = useStoreState((state) => state.show12HoueTime);
+  const show12HourTime = useStoreState((state) => state.show12HourTime);
   const setShow12HourTime = useStoreActions(
     (actions) => actions.setShow12HourTime
   );
