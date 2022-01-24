@@ -93,8 +93,19 @@ export class ProgramData {
     return locations;
   }
 
+	static reformatAsTag(program) {
+		//Grenadine does not have a mode to put types ("format") into the tags like Zambia does.
+		for (let item of program) {
+			if (item.format && item.hasOwnProperty("tags"))
+				item.tags.push("type:" + item.format);
+		}
+		return program;
+	}
+
   // Extract tags from program.
   static processTags(program) {
+		//Pre-parse grenadine Format as konopas Type.
+
     // Tags is an object with a property for each tag type. Default to one property for general tags.
     const tags = { tags: [] };
 
@@ -150,7 +161,9 @@ export class ProgramData {
 
   // Process data from program and people.
   static processData(progData, pplData) {
-    const program = this.processProgramData(progData);
+    let program = this.processProgramData(progData);
+		if (configData.TAGS.FORMAT_AS_TAG) 
+			program = this.reformatAsTag(program);
     const people = this.processPeopleData(pplData);
     this.addProgramParticipantDetails(program, people);
     const locations = this.processLocations(program);
