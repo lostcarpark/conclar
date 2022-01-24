@@ -16,7 +16,8 @@
     "SEPARATE": [
       { "PREFIX": "type", "PLACEHOLDER": "Select type" },
       { "PREFIX": "test", "PLACEHOLDER": "Select test" }
-    ]
+    ],
+    "FORMAT_AS_TAG": false
   },
   "EXPAND": {
     "EXPAND_ALL_LABEL": "Expand All",

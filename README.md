@@ -60,6 +60,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 * `NAVIGATION.INFO`: Label for the Information menu link.
 * `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
 * `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type" }`.
+* `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 * `LINKS.MEETING`: Text to display on meeting links.
 * `LINKS.RECORDING`: Text to display on recording links.
 * `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
@@ -70,6 +71,9 @@ The main place customisations go is the `src/config.json` file. Settings current
 * `TIME_FORMAT.DEFAULT_12HR`: Set to true if you want time displayed in 12 hour format by default.
 * `TIME_FORMAT.SHOW_CHECKBOX`: If set to false, users will not be given option to change between 12 and 24 hour time.
 * `TIME_FORMAT.CHECKBOX_LABEL`: Label for the 12 hour time checkbox label.
+* `SHOW_PAST_ITEMS.DEFAULT`: Set to true to show past programme items by default.
+* `SHOW_PAST_ITEMS.CHECKBOX_LABEL`: Label for the show past items checkbox.
+* `SHOW_PAST_ITEMS.ADJUST_MINUTES`: Some wiggle room (in minutes) in order not to hide past items immediately they start.
 * `PEOPLE.THUMBNAILS.SHOW_THUMBNAILS`: Set to false to not show member thumbnails (useful to remove spurious controls if pictures not in file).
 * `PEOPLE.THUMBNAILS.SHOW_CHECKBOX`: Set to false to hide "Show thumbnails" checkbox.
 * `PEOPLE.THUMBNAILS.CHECKBOX_LABEL`: Label for "Show thumbnails" checkbox.
