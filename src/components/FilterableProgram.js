@@ -38,6 +38,8 @@ const FilterableProgram = () => {
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
 
+  const duringCon = program && program.length ? LocalTime.inConTime(program) : false;
+
   const localTimeCheckbox =
     offset === null || offset === 0 ? (
       ""
@@ -74,7 +76,7 @@ const FilterableProgram = () => {
   );
 
   //Nice to have a check here for whether it's during con right now.
-  const pastItemsCheckbox = true ? ( 
+  const pastItemsCheckbox = duringCon && configData.SHOW_PAST_ITEMS.SHOW_CHECKBOX ? ( 
     <div className="past-items-checkbox">
       <input
         id={LocalTime.pastItemsClass}
@@ -93,6 +95,8 @@ const FilterableProgram = () => {
 
   function applyFilters(program) {
     const term = search.trim().toLowerCase();
+
+    const duringCon = program && program.length ? LocalTime.inConTime(program) : false;
 
     // If no filters, return full program;
     if (term.length === 0 && selLoc.length === 0 && selTags === 0)
@@ -138,10 +142,10 @@ const FilterableProgram = () => {
         });
       }
     }
-    if (!showPastItems) {
+    if (duringCon && !showPastItems) {
       // Filter by past item state.  Quick hack to treat this as a filter.
       const now = LocalTime.dateToConTime(new Date());
-      console.log("Showing items after", now.date, now.time, "(adjusted con time).");
+      //console.log("Showing items after", now.date, now.time, "(adjusted con time).");
       filtered = filtered.filter((item) => {
         // eslint-disable-next-line
         return (now.date < item.date) || (now.date === item.date && now.time <= item.time);

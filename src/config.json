@@ -2,9 +2,9 @@
   "BASE_PATH": "/",
   "APP_ID": "O2021",
   "APP_TITLE": "ConClár Programme Guide",
-  "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "TIMEZONE": "Europe/Dublin",
+  "PROGRAM_DATA_URL": "//test.mcdemarco.net/data/konOpasData.jsonp",
+  "PEOPLE_DATA_URL": "//test.mcdemarco.net/data/konOpasData.jsonp",
+  "TIMEZONE": "Europe/Moscow",
   "NAVIGATION": {
     "PROGRAM": "Programme",
     "PEOPLE": "People",
@@ -40,7 +40,7 @@
     "CHECKBOX_LABEL": "Show 12 hour time"
   },
   "SHOW_PAST_ITEMS": {
-    "DEFAULT": true,
+    "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show past items",
     "ADJUST_MINUTES": 10
   },
