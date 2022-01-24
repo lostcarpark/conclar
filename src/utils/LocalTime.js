@@ -196,6 +196,7 @@ export class LocalTime {
 
   static dateToConTime(datetime) {
     //SO: https://stackoverflow.com/a/53652131
+		//datetime is a javascript Date object
 
     let invdate = new Date(datetime.toLocaleString('en-US', {
       timeZone: configData.TIMEZONE
@@ -215,5 +216,18 @@ export class LocalTime {
     
     return conTimeFormatted;
   }
+
+	static inConTime(program) {
+		//Expects the program items to have dates.
+		const today = new Date();
+		const aDay = 3600 * 1000 * 24; //in  milliseconds
+		const firstItem = program[0];
+		const lastItem = program[program.length - 1];
+		//Pad by one day to avoid time zone issues.
+		const tomorrow = this.dateToConTime(new Date(Date.now(today) + aDay));
+		const yesterday = this.dateToConTime(new Date(Date.now(today) - aDay));
+		//Neither the first day of con is after tomorrow nor the last day of con is before yesterday.
+		return !(firstItem.date > tomorrow.date || lastItem.date < yesterday.date)
+	}
 
 }

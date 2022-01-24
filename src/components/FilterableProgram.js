@@ -74,7 +74,7 @@ const FilterableProgram = () => {
   );
 
   //Nice to have a check here for whether it's during con right now.
-  const pastItemsCheckbox = true ? ( 
+  const pastItemsCheckbox = isDuringCon(program) && configData.SHOW_PAST_ITEMS.SHOW_CHECKBOX ? ( 
     <div className="past-items-checkbox">
       <input
         id={LocalTime.pastItemsClass}
@@ -138,16 +138,20 @@ const FilterableProgram = () => {
         });
       }
     }
-    if (!showPastItems) {
+    if (isDuringCon(program) && !showPastItems) {
       // Filter by past item state.  Quick hack to treat this as a filter.
       const now = LocalTime.dateToConTime(new Date());
-      console.log("Showing items after", now.date, now.time, "(adjusted con time).");
+      //console.log("Showing items after", now.date, now.time, "(adjusted con time).");
       filtered = filtered.filter((item) => {
         // eslint-disable-next-line
         return (now.date < item.date) || (now.date === item.date && now.time <= item.time);
       });
     }
     return filtered;
+  }
+
+  function isDuringCon(program) {
+    return program && program.length ? LocalTime.inConTime(program) : false;
   }
 
   function handleSearch(event) {

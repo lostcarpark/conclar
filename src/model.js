@@ -94,6 +94,7 @@ const model = {
     );
     ProgramSelection.setAllSelections(state.mySelections);
   }),
+
   // Computed.
   isSelected: computed((state) => {
     return (id) => state.mySelections.find((item) => item === id) || false;

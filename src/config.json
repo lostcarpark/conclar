@@ -40,7 +40,7 @@
     "CHECKBOX_LABEL": "Show 12 hour time"
   },
   "SHOW_PAST_ITEMS": {
-    "DEFAULT": true,
+    "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show past items",
     "ADJUST_MINUTES": 10
   },
