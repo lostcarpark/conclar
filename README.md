@@ -167,6 +167,12 @@ For hosting in a subdirectory, this should be altered as follows:
     }
 ```
 
+## File Format
+
+The ConClár file format is designed to be compatible with KonOpas, and in most cases data files for KonOpas can be used without modification.
+
+Full details of the file format are in a separate [Data Structure document](https://github.com/lostcarpark/conclar/blob/main/docs/conclar_file_specs.md).
+
 ## Credits
 
 ConClár is Copyright James Shields, 2022, and made available as an open source project under the MIT licence.
@@ -174,6 +180,7 @@ ConClár is Copyright James Shields, 2022, and made available as an open source 
 Thanks to:
 * Eemeli Aro for developing KonOpas, which was the inspiration for ConClár.
 * M. C. DeMarco for work on styling and lots of helpful suggestions.
+* Leane Verhulst for testing and documentation contributions.
 * Annemarie Nungent for checking my Irish.
 * Fionna O'Sullivan for proofreading and awesome suggestions.
 
