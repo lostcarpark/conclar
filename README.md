@@ -60,6 +60,9 @@ The main place customisations go is the `src/config.json` file. Settings current
 * `NAVIGATION.MYSCHEDULE`: Label for user's personal schedule.
 * `NAVIGATION.INFO`: Label for the Information menu link.
 * `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
+* `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing.  (Searching can be inconvenient on touch screens.)
+* `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
+* `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 * `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type" }`.
 * `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 * `LINKS.MEETING`: Text to display on meeting links.

@@ -191,13 +191,15 @@ const FilterableProgram = () => {
     });
     // Only add drop-down if tag type actually contains elements.
     if (tags[tag].length) {
-      const placeholder = tagData ? tagData.PLACEHOLDER : "Select tags";
+      const placeholder = tagData ? tagData.PLACEHOLDER : configData.TAGS.PLACEHOLDER;
+      const searchable = tagData ? tagData.SEARCHABLE : configData.TAGS.SEARCHABLE;
       tagFilters.push(
         <div key={tag} className={"filter-tags filter-tags-" + tag}>
           <ReactSelect
             placeholder={placeholder}
             options={tags[tag]}
             isMulti
+            isSearchable={searchable}
             value={selTags[tag]}
             onChange={(value) => handleTags(tag, value)}
           />
@@ -214,6 +216,7 @@ const FilterableProgram = () => {
             placeholder="Select locations"
             options={locations}
             isMulti
+            isSearchable={configData.LOCATIONS.SEARCHABLE}
             value={selLoc}
             onChange={handleLoc}
           />
