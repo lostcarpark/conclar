@@ -23,12 +23,9 @@
   --navigation-button-border: #e2e8f0;
   --navigation-button-hover-bg: #1e293b;
   --navigation-button-hover-fg: #fff;
-  --checkbox-selected-bg: white;
-  --checkbox-selected-fg: green;
-  --checkbox-selected-border: green;
-  --checkbox-unselected-bg: white;
-  --checkbox-unselected-fg: red;
-  --checkbox-unselected-border: red;
+  --checkbox-switch-bg: white;
+  --checkbox-selected-bg: green;
+  --checkbox-unselected-bg: red;
   --program-date-line: #888;
   --program-time-line: #ccc;
   --program-item-line: #bbb;
@@ -160,33 +157,12 @@ div.filter-options {
   float: right;
 }
 
-/* style all non-selection checkboxes as buttons
-input[type=checkbox] ~ label {
-  background-color: var(--checkbox-unselected-bg);
-  color: var(--checkbox-unselected-fg);
-  border: 2px solid var(--checkbox-unselected-border);
-  border-radius: 1rem;
-  padding: 0.2rem 0.4rem;
-  margin: 0 0.1rem 0.2rem 0;
-  font-size: smaller;
-  text-decoration: line-through;
-  display: inline-block;
-}
-input[type=checkbox]:checked ~ label {
-  background-color: var(--checkbox-selected-bg);
-  color: var(--checkbox-selected-fg);
-  border-color: var(--checkbox-selected-border);
-  text-decoration: none;
-}
-input[type=checkbox] {
-    display:none;
-}
-input.selection-control {
-    display:unset;
-}
- */
+/* style all non-selection checkboxes as toggles
+   based on https://www.sitepoint.com/css3-toggle-switch/ */
 
-/* based on https://www.sitepoint.com/css3-toggle-switch/ */
+div.switch-wrapper {
+  font-size: smaller;
+}
 
 div.switch-wrapper,
 div.switch-wrapper ~ div {
@@ -220,7 +196,7 @@ input.switch:empty ~ label:after {
   left: 0;
   content: ' ';
   width: 3em;
-  background-color: #c33;
+  background-color: var(--checkbox-unselected-bg);
   border-radius: 1em;
   box-shadow: inset 0 0.2em 0 rgba(0,0,0,0.3);
   -webkit-transition: all 100ms ease-in;
@@ -232,13 +208,13 @@ input.switch:empty ~ label:after {
   top: 0.1em;
   bottom: 0.1em;
   margin-left: 0.1em;
-  background-color: #fff;
+  background-color:  var(--checkbox-switch-bg);
   border-radius: 0.9em;
   box-shadow: inset 0 -0.2em 0 rgba(0,0,0,0.2);
 }
 
 input.switch:checked ~ label:before {
-  background-color: #393;
+  background-color:  var(--checkbox-selected-bg);
 }
 
 input.switch:checked ~ label:after {
