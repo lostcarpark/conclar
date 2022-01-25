@@ -56,10 +56,11 @@ const People = () => {
   }
 
   const thumbnailsCheckbox = configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX ? (
-    <div className="people-thumbnails">
+    <div className="people-thumbnails switch-wrapper">
       <input
         id="thumbnails"
         name="thumbnails"
+        className="switch"
         type="checkbox"
         checked={showThumbnails}
         onChange={handleThumbnail}
@@ -73,10 +74,11 @@ const People = () => {
   );
 
   const sortCheckbox = configData.PEOPLE.SORT.SHOW_CHECKBOX ? (
-    <div className="people-sort">
+    <div className="people-sort switch-wrapper">
       <input
         id="sort_people"
         name="sort_people"
+        className="switch"
         type="checkbox"
         checked={sortByFullName}
         onChange={handleSort}
