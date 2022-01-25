@@ -29,6 +29,7 @@
   --checkbox-unselected-bg: white;
   --checkbox-unselected-fg: red;
   --checkbox-unselected-border: red;
+  --program-time-local-message: grey;
   --program-date-line: #888;
   --program-time-line: #ccc;
   --program-item-line: #bbb;
@@ -208,7 +209,7 @@ input.selection-control {
 
 .time-local-message {
   font-style: italic;
-  color: grey;
+  color: var(--program-time-local-message);
 }
 
 .date-heading {
