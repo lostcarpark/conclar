@@ -48,29 +48,20 @@ var program = [
 	...
 ];
 ```
-`id` is a unique id to a programme item. This id is referred to by the `prog` field in the `people` array.
-
-`title` is the title of the programme item.
-
-`tags` may include any number of programme tracks or other classifying indicators in this array. These different tags can have prefixes (such as "Track:" or "Division:" to split out the type of tag.
-
-`date` is the date of when the item will happen.
-
-`time` is the time of when the programme item will start. It assumes that the timezone of the item is the same as the server.
-
-`mins` is the duration of the programme item in minutes.
-
-Note: In order to avoid complications related to programme items that go on past midnight, or which have a starting time past midnight, is to include `time` for the start time and use `mins` for the duration in minutes (with 0 for unknown or n/a).
-
-`loc` is the location of the programme item. There can be multiple items in this array.
-
-`people` is an array that contains a list of the people assigned to the programme item. It contains the `id` from the people array and the "ready to print" format of the person's name.
-
-`desc` is a description of the programme item.
-
-Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which are not supported elsewhere.
-
-`links` is an array that contains a set of url links for the programme item. Currently, `meeting` and `recording` are the valid link types.
+* `var program =` and the trailing semicolon are completely optional. They were needed by KonOpas, but ConClár ignores everything outside square brackets. `program` must be the first array in the file.
+* `id` is a unique id to a programme item. This id is referred to by the `prog` field in the `people` array.
+* `title` is the title of the programme item.
+* `tags` may include any number of programme tracks or other classifying indicators in this array. These different tags can have prefixes (such as "Track:" or "Division:" to split out the type of tag.
+* `format` optional field used by Grenadine. Treated as a `tag` if present.
+* `date` is the date of when the item will happen.
+* `time` is the time of when the programme item will start. It assumes that the timezone of the item is the same as the server.
+* `mins` is the duration of the programme item in minutes.
+    * Note: In order to avoid complications related to programme items that go on past midnight, or which have a starting time past midnight, is to include `time` for the start time and use `mins` for the duration in minutes (with 0 for unknown or n/a).
+* `loc` is the location of the programme item. There can be multiple items in this array.
+* `people` is an array that contains a list of the people assigned to the programme item. Each person is an array, however the only field is `id`, as the entries get replaced by references to the full `people` records when the file is loaded.
+* `desc` is a description of the programme item.
+    * Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which are not supported elsewhere.
+* `links` is an array that contains a set of url links for the programme item. Currently, `meeting` and `recording` are the valid link types.
 
 
 ## People Object
@@ -115,26 +106,18 @@ var people = [
 	...
 ];
 ```
-`id` is a unique id to a people item. This id is referenced by the `people` field in the `program` array.
-
-`name` is the name of the person. It can be an array in the following format: [ "First", "Last", "Prefix", "Suffix" ] or as [ "Full Name" ].
-
-Note: The name field a different field in program.js’s `people` and in people.js; in the former it’s ready to print whereas in the latter it’s an array [ "First", "Last", "Prefix", "Suffix" ] with fields possibly left as empty strings or left out completely.
-
-`sortname` is an alternate sort for the name field.
-
-`tags` is NOT CURRENTLY IMPLEMENTED for ConClár.
-
-`prog` is an array of programme ids to which the person is assigned.
-
-`links` is an array of items for the person. 
-
-Currently implemented links are:
-- `img` - a link which is a path to a thumbnail image of the person;
-- `photo` - a link which is a path to a thumbnail image of the person;
-- `img_256_url` - a link which is a path to a thumbnail image of the person (used by Grenadine).
-
-`bio` is the biography of the person.
-
-Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which may not be supported elsewhere (though they’ll probably be fine).
+* `var people =` and the trailing semicolon were required by KonOpas, but are optional for ConClár. Everything outside square brackets is ignored. If `program` and `people` are in a single file, `program` must come first. 
+* `id` is a unique id to a people item. This id is referenced by the `people` field in the `program` array.
+* `name` is the name of the person. It can be an array in the following format: [ "First", "Last", "Prefix", "Suffix" ] or as [ "Full Name" ].
+    *Note: The name field a different field in program.js’s `people` and in people.js; in the former it’s ready to print whereas in the latter it’s an array [ "First", "Last", "Prefix", "Suffix" ] with fields possibly left as empty strings or left out completely.
+* `sortname` is an alternate sort for the name field.
+* `tags` is NOT CURRENTLY IMPLEMENTED for ConClár.
+* `prog` is an array of programme ids to which the person is assigned.
+* `links` is an array of items for the person.  Currently implemented links are:
+    * `img` - a link which is a path to a thumbnail image of the person;
+    * `photo` - a link which is a path to a thumbnail image of the person;
+    * Not yet supported, but expect to be added soon: `url`, `fb`, and `twitter`.
+* `img_256_url` - a link which is a path to a thumbnail image of the person (used by Grenadine). Note this is in the root level of the `people` record, not under `links`.
+* `bio` is the biography of the person.
+    * Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which get sanitized for dangerous HTML, but all other fields must be plain text.
 
