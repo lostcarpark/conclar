@@ -269,6 +269,7 @@ input.selection-control {
   font-weight: bold;
 }
 
+.item-duration,
 .item-location,
 .item-tags {
   font-size: 0.9em;
