@@ -156,9 +156,7 @@ header h1 {
   margin: 0.3rem 0 1rem 0;
 }
 
-.local-time-checkbox,
-.twelve_hour_time-checkbox,
-.past-items-checkbox {
+div.filter-options {
   float: right;
 }
 
@@ -204,7 +202,7 @@ input.switch:empty ~ label {
   position: relative;
   float: left;
   line-height: 1.6em;
-  text-indent: 4em;
+  text-indent: 3.4em;
   margin: 0.2em 0;
   cursor: pointer;
   -webkit-user-select: none;
@@ -221,7 +219,7 @@ input.switch:empty ~ label:after {
   bottom: 0;
   left: 0;
   content: ' ';
-  width: 3.6em;
+  width: 3em;
   background-color: #c33;
   border-radius: 1em;
   box-shadow: inset 0 0.2em 0 rgba(0,0,0,0.3);
@@ -244,7 +242,7 @@ input.switch:checked ~ label:before {
 }
 
 input.switch:checked ~ label:after {
-  margin-left: 2.1em;
+  margin-left: 1.5em;
 }
 
 /*

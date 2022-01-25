@@ -42,10 +42,11 @@ const FilterableProgram = () => {
     offset === null || offset === 0 ? (
       ""
     ) : (
-      <div className="local-time-checkbox">
+      <div className="local-time-checkbox switch-wrapper">
         <input
           id={LocalTime.localTimeClass}
           name={LocalTime.localTimeClass}
+          className="switch"
           type="checkbox"
           checked={showLocalTime}
           onChange={handleShowLocalTime}
@@ -57,10 +58,11 @@ const FilterableProgram = () => {
     );
 
   const show12HourTimeCheckbox = configData.TIME_FORMAT.SHOW_CHECKBOX ? (
-    <div className={LocalTime.twelveHourTimeClass + "-checkbox"}>
+    <div className={LocalTime.twelveHourTimeClass + "-checkbox switch-wrapper"}>
       <input
         id={LocalTime.twelveHourTimeClass}
         name={LocalTime.twelveHourTimeClass}
+        className="switch"
         type="checkbox"
         checked={show12HourTime}
         onChange={handleShow12HourTime}
@@ -75,10 +77,11 @@ const FilterableProgram = () => {
 
   //Nice to have a check here for whether it's during con right now.
   const pastItemsCheckbox = isDuringCon(program) && configData.SHOW_PAST_ITEMS.SHOW_CHECKBOX ? ( 
-    <div className="past-items-checkbox">
+    <div className="past-items-checkbox switch-wrapper">
       <input
         id={LocalTime.pastItemsClass}
         name={LocalTime.pastItemsClass}
+        className="switch"
         type="checkbox"
         checked={showPastItems}
         onChange={handleShowPastItems}
