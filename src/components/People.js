@@ -22,11 +22,7 @@ const People = () => {
   // Make a copy of people array, and apply filtering and sorting.
   let displayPeople = [...people];
   if (sortByFullName)
-    displayPeople.sort((a, b) => {
-      if (a.name > b.name) return 1;
-      if (a.name < b.name) return -1;
-      return 0;
-    });
+    displayPeople.sort((a, b) => a.name.localeCompare(b.name));
   const term = search.trim().toLowerCase();
   if (term.length > 0)
     displayPeople = displayPeople.filter((person) => {

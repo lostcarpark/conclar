@@ -13,11 +13,11 @@
     "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
   },
   "LOCATIONS": {
-    "SEARCHABLE": true
+    "SEARCHABLE": false
   },
   "TAGS": {
     "PLACEHOLDER": "Select tags",
-    "SEARCHABLE": true,
+    "SEARCHABLE": false,
     "SEPARATE": [
       { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true },
       { "PREFIX": "test", "PLACEHOLDER": "Select test", "SEARCHABLE": true }
