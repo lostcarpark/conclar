@@ -75,6 +75,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 * `TIME_FORMAT.DEFAULT_12HR`: Set to true if you want time displayed in 12 hour format by default.
 * `TIME_FORMAT.SHOW_CHECKBOX`: If set to false, users will not be given option to change between 12 and 24 hour time.
 * `TIME_FORMAT.CHECKBOX_LABEL`: Label for the 12 hour time checkbox label.
+* `DURATION.SHOW_DURATION`: If true, `mins` from program data will be displayed.
+* `DURATION.DURATION_LABEL`: Format for duration. `@mins` will be replaced by number of minutes. Note: do not translate `@mins`.
 * `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
 * `SHOW_PAST_ITEMS.CHECKBOX_LABEL`: Label for the show past items checkbox.
 * `SHOW_PAST_ITEMS.ADJUST_MINUTES`: Some wiggle room (in minutes) in order not to hide past items immediately as they start.
@@ -86,6 +88,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 * `PEOPLE.SORT.CHECKBOX_LABEL`: Label for "Sort by full name" checkbox.
 * `PEOPLE.SEARCH.SHOW_SEARCH`: Set to false to hide "people" search box.
 * `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
+* `USELESS_CHECKBOX.CHECKBOX_LABEL`: Label for any useless checkboxes.
 * `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
 * `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
 * `FOOTER.SITE_NOTE_MARKDOWN`: General note displayed in the footer of the page. May use Markdown for encoding of links, emphesis, etc.
