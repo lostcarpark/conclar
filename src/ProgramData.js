@@ -31,15 +31,14 @@ export class ProgramData {
       // If name is an array, convert to single string.
       if (Array.isArray(person.name)) person.name = person.name.join(" ");
       // Several possible picture fields, so provide one.
-      person.img = (person.links && (person.links.img || person.links.photo)) || person.image_256_url || null;
+      person.img =
+        (person.links && (person.links.img || person.links.photo)) ||
+        person.image_256_url ||
+        null;
       // Hoping to use in future for nicer URLs of form "/person/name". However caused problems with unicode chars, so using ID for now.
       person.uri = encodeURIComponent(person.name.replace(/[ ]/g, "_"));
     }
-    people.sort((a, b) => {
-      if (a.sortname < b.sortname) return -1;
-      if (a.sortname > b.sortname) return 1;
-      return 0;
-    });
+    people.sort((a, b) => a.sortname.localeCompare(b.sortname));
     return people;
   }
 
@@ -57,11 +56,7 @@ export class ProgramData {
             item.people[index] = fullPerson;
           }
         }
-        item.people.sort((a, b) => {
-          if (a.sortname < b.sortname) return -1;
-          if (a.sortname > b.sortname) return 1;
-          return 0;
-        });
+        item.people.sort((a, b) => a.sortname.localeCompare(b.sortname));
       }
     }
   }
@@ -85,26 +80,22 @@ export class ProgramData {
       }
     }
     // Now sort the locations.
-    locations.sort((a, b) => {
-      if (a.value > b.value) return 1;
-      if (a.value < b.value) return -1;
-      return 0;
-    });
+    locations.sort((a, b) => a.value.localeCompare(b.value));
     return locations;
   }
 
-	static reformatAsTag(program) {
-		//Grenadine does not have a mode to put types ("format") into the tags like Zambia does.
-		for (let item of program) {
-			if (item.format && item.hasOwnProperty("tags"))
-				item.tags.push("type:" + item.format);
-		}
-		return program;
-	}
+  static reformatAsTag(program) {
+    //Grenadine does not have a mode to put types ("format") into the tags like Zambia does.
+    for (let item of program) {
+      if (item.format && item.hasOwnProperty("tags"))
+        item.tags.push("type:" + item.format);
+    }
+    return program;
+  }
 
   // Extract tags from program.
   static processTags(program) {
-		//Pre-parse grenadine Format as konopas Type.
+    //Pre-parse grenadine Format as konopas Type.
 
     // Tags is an object with a property for each tag type. Default to one property for general tags.
     const tags = { tags: [] };
@@ -150,11 +141,7 @@ export class ProgramData {
     }
     // Now sort each set of tags.
     for (let tagList in tags) {
-      tags[tagList].sort((a, b) => {
-        if (a.label > b.label) return 1;
-        if (a.label < b.label) return -1;
-        return 0;
-      });
+      tags[tagList].sort((a, b) => a.label.localeCompare(b.label));
     }
     return tags;
   }
@@ -162,8 +149,7 @@ export class ProgramData {
   // Process data from program and people.
   static processData(progData, pplData) {
     let program = this.processProgramData(progData);
-		if (configData.TAGS.FORMAT_AS_TAG) 
-			program = this.reformatAsTag(program);
+    if (configData.TAGS.FORMAT_AS_TAG) program = this.reformatAsTag(program);
     const people = this.processPeopleData(pplData);
     this.addProgramParticipantDetails(program, people);
     const locations = this.processLocations(program);
