@@ -38,7 +38,9 @@ const People = () => {
       <Participant
         key={person.id}
         person={person}
-        thumbnails={showThumbnails}
+        thumbnails={
+          configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS && showThumbnails
+        }
       />
     );
   }
@@ -55,28 +57,33 @@ const People = () => {
     setSearch(event.target.value);
   }
 
+  const thumbnailCheckboxLabel =
+    configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS ===
+    configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX
+      ? configData.PEOPLE.THUMBNAILS.CHECKBOX_LABEL
+      : configData.USELESS_CHECKBOX.CHECKBOX_LABEL;
   const thumbnailsCheckbox = configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX ? (
-    <div className="people-thumbnails">
+    <div className="people-thumbnails switch-wrapper">
       <input
         id="thumbnails"
         name="thumbnails"
+        className="switch"
         type="checkbox"
         checked={showThumbnails}
         onChange={handleThumbnail}
       />
-      <label htmlFor="thumbnails">
-        {configData.PEOPLE.THUMBNAILS.CHECKBOX_LABEL}
-      </label>
+      <label htmlFor="thumbnails">{thumbnailCheckboxLabel}</label>
     </div>
   ) : (
     ""
   );
 
   const sortCheckbox = configData.PEOPLE.SORT.SHOW_CHECKBOX ? (
-    <div className="people-sort">
+    <div className="people-sort switch-wrapper">
       <input
         id="sort_people"
         name="sort_people"
+        className="switch"
         type="checkbox"
         checked={sortByFullName}
         onChange={handleSort}

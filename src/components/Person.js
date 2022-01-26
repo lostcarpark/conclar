@@ -3,6 +3,7 @@ import { useStoreState } from "easy-peasy";
 import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 import ProgramList from "./ProgramList";
+import configData from "../config.json";
 
 const Person = () => {
   const program = useStoreState((state) => state.program);
@@ -24,7 +25,10 @@ const Person = () => {
   const safeBio = person.bio ? DOMPurify.sanitize(person.bio) : "";
   return (
     <div className="person">
-      <h2 className="person-name">Person: {person.name}</h2>
+      <h2 className="person-name">
+        <span className="person-title">{configData.PEOPLE.PERSON_HEADER}</span>
+        {person.name}
+      </h2>
       <div className="person-image">{img}</div>
       <div
         className="person-bio"

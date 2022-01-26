@@ -49,6 +49,7 @@ See the section about [React app deployment](https://facebook.github.io/create-r
 The main place customisations go is the `src/config.json` file. Settings currently available include:
 
 * `BASE_PATH`: The path to ConClár within your webserver. Set to '/' to run in the root directory. See below for running in a subdirectory.
+* `APP_ID`: A unique id to distinguish between instances of multi-year conventions.
 * `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
 * `PROGRAM_DATA_URL`: The address of the file containing programme data.
 * `PEOPLE_DATA_URL`: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
@@ -59,7 +60,11 @@ The main place customisations go is the `src/config.json` file. Settings current
 * `NAVIGATION.MYSCHEDULE`: Label for user's personal schedule.
 * `NAVIGATION.INFO`: Label for the Information menu link.
 * `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
+* `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing.  (Searching can be inconvenient on touch screens.)
+* `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
+* `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 * `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type" }`.
+* `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 * `LINKS.MEETING`: Text to display on meeting links.
 * `LINKS.RECORDING`: Text to display on recording links.
 * `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
@@ -70,6 +75,9 @@ The main place customisations go is the `src/config.json` file. Settings current
 * `TIME_FORMAT.DEFAULT_12HR`: Set to true if you want time displayed in 12 hour format by default.
 * `TIME_FORMAT.SHOW_CHECKBOX`: If set to false, users will not be given option to change between 12 and 24 hour time.
 * `TIME_FORMAT.CHECKBOX_LABEL`: Label for the 12 hour time checkbox label.
+* `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
+* `SHOW_PAST_ITEMS.CHECKBOX_LABEL`: Label for the show past items checkbox.
+* `SHOW_PAST_ITEMS.ADJUST_MINUTES`: Some wiggle room (in minutes) in order not to hide past items immediately as they start.
 * `PEOPLE.THUMBNAILS.SHOW_THUMBNAILS`: Set to false to not show member thumbnails (useful to remove spurious controls if pictures not in file).
 * `PEOPLE.THUMBNAILS.SHOW_CHECKBOX`: Set to false to hide "Show thumbnails" checkbox.
 * `PEOPLE.THUMBNAILS.CHECKBOX_LABEL`: Label for "Show thumbnails" checkbox.
@@ -162,6 +170,12 @@ For hosting in a subdirectory, this should be altered as follows:
     }
 ```
 
+## File Format
+
+The ConClár file format is designed to be compatible with KonOpas, and in most cases data files for KonOpas can be used without modification.
+
+Full details of the file format are in a separate [Data Structure document](https://github.com/lostcarpark/conclar/blob/main/docs/conclar_file_specs.md).
+
 ## Credits
 
 ConClár is Copyright James Shields, 2022, and made available as an open source project under the MIT licence.
@@ -169,6 +183,7 @@ ConClár is Copyright James Shields, 2022, and made available as an open source 
 Thanks to:
 * Eemeli Aro for developing KonOpas, which was the inspiration for ConClár.
 * M. C. DeMarco for work on styling and lots of helpful suggestions.
+* Leane Verhulst for testing and documentation contributions.
 * Annemarie Nungent for checking my Irish.
 * Fionna O'Sullivan for proofreading and awesome suggestions.
 

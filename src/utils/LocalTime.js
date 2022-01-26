@@ -35,6 +35,19 @@ export class LocalTime {
     );
   }
 
+  static get pastItemsClass() {
+    return "show_past_items";
+  }
+
+  static getStoredPastItems() {
+    const storedPastItems = localStorage.getItem(this.pastItemsClass);
+    return storedPastItems === "false" ? false : true;
+  }
+
+  static setStoredPastItems(showPastItems) {
+    localStorage.setItem(this.pastItemsClass, showPastItems ? "true" : "false");
+  }
+
   // Format the date as a string in user's language.
   static formatDateForLocaleAsUTC(date) {
     let language = window.navigator.userLanguage || window.navigator.language;
@@ -180,5 +193,41 @@ export class LocalTime {
     if (ampm) return this.formatHoursMinsAs12Hour(localHours, localMins) + note;
     return this.formatHoursMinsAs24Hour(localHours, localMins) + note;
   }
+
+  static dateToConTime(datetime) {
+    //SO: https://stackoverflow.com/a/53652131
+		//datetime is a javascript Date object
+
+    let invdate = new Date(datetime.toLocaleString('en-US', {
+      timeZone: configData.TIMEZONE
+    }));
+
+    var diff = datetime.getTime() - invdate.getTime();
+
+    var conTime = new Date(datetime.getTime() - diff);
+
+    //Make the adjustment.
+    conTime.setMinutes(conTime.getMinutes() - (configData.SHOW_PAST_ITEMS.ADJUST_MINUTES || 0));
+
+    //parse into dates and times in KonOpas format (hopefully)
+    let conTimeFormatted = {};
+    conTimeFormatted.date = conTime.getFullYear() + "-" + ('0' + (conTime.getMonth() + 1)).slice(-2) +  "-" + ('0' + conTime.getDate()).slice(-2);
+    conTimeFormatted.time = ('0' + conTime.getHours()).slice(-2) + ":" + ('0' + conTime.getMinutes()).slice(-2);
+    
+    return conTimeFormatted;
+  }
+
+	static inConTime(program) {
+		//Expects the program items to have dates.
+		const today = new Date();
+		const aDay = 3600 * 1000 * 24; //in  milliseconds
+		const firstItem = program[0];
+		const lastItem = program[program.length - 1];
+		//Pad by one day to avoid time zone issues.
+		const tomorrow = this.dateToConTime(new Date(Date.now(today) + aDay));
+		const yesterday = this.dateToConTime(new Date(Date.now(today) - aDay));
+		//Neither the first day of con is after tomorrow nor the last day of con is before yesterday.
+		return !(firstItem.date > tomorrow.date || lastItem.date < yesterday.date)
+	}
 
 }

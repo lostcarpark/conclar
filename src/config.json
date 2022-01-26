@@ -12,11 +12,17 @@
     "INFO": "Information",
     "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
   },
+  "LOCATIONS": {
+    "SEARCHABLE": true
+  },
   "TAGS": {
+    "PLACEHOLDER": "Select tags",
+    "SEARCHABLE": true,
     "SEPARATE": [
-      { "PREFIX": "type", "PLACEHOLDER": "Select type" },
-      { "PREFIX": "test", "PLACEHOLDER": "Select test" }
-    ]
+      { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true },
+      { "PREFIX": "test", "PLACEHOLDER": "Select test", "SEARCHABLE": true }
+    ],
+    "FORMAT_AS_TAG": false
   },
   "EXPAND": {
     "EXPAND_ALL_LABEL": "Expand All",
@@ -38,6 +44,11 @@
     "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show 12 hour time"
   },
+  "SHOW_PAST_ITEMS": {
+    "SHOW_CHECKBOX": true,
+    "CHECKBOX_LABEL": "Show past items",
+    "ADJUST_MINUTES": 10
+  },
   "PEOPLE": {
     "THUMBNAILS": {
       "SHOW_THUMBNAILS": true,
@@ -52,7 +63,11 @@
     "SEARCH": {
       "SHOW_SEARCH": true,
       "SEARCH_LABEL": "Search people"
-    }
+    },
+    "PERSON_HEADER": "Person: "
+  },
+  "USELESS_CHECKBOX": {
+    "CHECKBOX_LABEL": "Useless checkbox"
   },
   "INFORMATION": {
     "MARKDOWN_URL": "info.md",

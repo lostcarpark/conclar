@@ -23,12 +23,9 @@
   --navigation-button-border: #e2e8f0;
   --navigation-button-hover-bg: #1e293b;
   --navigation-button-hover-fg: #fff;
-  --checkbox-selected-bg: white;
-  --checkbox-selected-fg: green;
-  --checkbox-selected-border: green;
-  --checkbox-unselected-bg: white;
-  --checkbox-unselected-fg: red;
-  --checkbox-unselected-border: red;
+  --checkbox-switch-bg: white;
+  --checkbox-selected-bg: green;
+  --checkbox-unselected-bg: red;
   --program-time-local-message: grey;
   --program-date-line: #888;
   --program-time-line: #ccc;
@@ -157,34 +154,74 @@ header h1 {
   margin: 0.3rem 0 1rem 0;
 }
 
-.local-time-checkbox,
-.twelve_hour_time-checkbox {
+/* Removing for now to prevent odd display of checkboxes in middle of row, and weird display in Firefox.
+div.filter-options {
   float: right;
 }
+*/
 
-/* style all non-selection checkboxes as buttons */
-input[type=checkbox] ~ label {
-  background-color: var(--checkbox-unselected-bg);
-  color: var(--checkbox-unselected-fg);
-  border: 2px solid var(--checkbox-unselected-border);
-  border-radius: 1rem;
-  padding: 0.2rem 0.4rem;
-  margin: 0 0.1rem 0.2rem 0;
+/* style all non-selection checkboxes as toggles
+   based on https://www.sitepoint.com/css3-toggle-switch/ */
+
+div.switch-wrapper {
   font-size: smaller;
-  text-decoration: line-through;
-  display: inline-block;
 }
-input[type=checkbox]:checked ~ label {
-  background-color: var(--checkbox-selected-bg);
-  color: var(--checkbox-selected-fg);
-  border-color: var(--checkbox-selected-border);
-  text-decoration: none;
+
+div.switch-wrapper,
+div.switch-wrapper ~ div {
+  clear: both;
+  margin: 0.5em 1em;
 }
-input[type=checkbox] {
-    display:none;
+
+input.switch:empty {
+  margin-left: -999px;
 }
-input.selection-control {
-    display:unset;
+
+input.switch:empty ~ label {
+  position: relative;
+  float: left;
+  line-height: 1.6em;
+  text-indent: 3.4em;
+  margin: 0.2em 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input.switch:empty ~ label:before, 
+input.switch:empty ~ label:after {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+  width: 3em;
+  background-color: var(--checkbox-unselected-bg);
+  border-radius: 1em;
+  box-shadow: inset 0 0.2em 0 rgba(0,0,0,0.3);
+  -webkit-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+}
+
+input.switch:empty ~ label:after {
+  width: 1.4em;
+  top: 0.1em;
+  bottom: 0.1em;
+  margin-left: 0.1em;
+  background-color:  var(--checkbox-switch-bg);
+  border-radius: 0.9em;
+  box-shadow: inset 0 -0.2em 0 rgba(0,0,0,0.2);
+}
+
+input.switch:checked ~ label:before {
+  background-color:  var(--checkbox-selected-bg);
+}
+
+input.switch:checked ~ label:after {
+  margin-left: 1.5em;
 }
 
 /*
@@ -270,6 +307,7 @@ input.selection-control {
   font-weight: bold;
 }
 
+.item-duration,
 .item-location,
 .item-tags {
   font-size: 0.9em;
