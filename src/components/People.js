@@ -38,7 +38,9 @@ const People = () => {
       <Participant
         key={person.id}
         person={person}
-        thumbnails={configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS && showThumbnails}
+        thumbnails={
+          configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS && showThumbnails
+        }
       />
     );
   }
@@ -55,6 +57,11 @@ const People = () => {
     setSearch(event.target.value);
   }
 
+  const thumbnailCheckboxLabel =
+    configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS ===
+    configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX
+      ? configData.PEOPLE.THUMBNAILS.CHECKBOX_LABEL
+      : configData.USELESS_CHECKBOX.CHECKBOX_LABEL;
   const thumbnailsCheckbox = configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX ? (
     <div className="people-thumbnails switch-wrapper">
       <input
@@ -65,9 +72,7 @@ const People = () => {
         checked={showThumbnails}
         onChange={handleThumbnail}
       />
-      <label htmlFor="thumbnails">
-        {configData.PEOPLE.THUMBNAILS.CHECKBOX_LABEL}
-      </label>
+      <label htmlFor="thumbnails">{thumbnailCheckboxLabel}</label>
     </div>
   ) : (
     ""
