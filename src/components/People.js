@@ -38,7 +38,7 @@ const People = () => {
       <Participant
         key={person.id}
         person={person}
-        thumbnails={showThumbnails}
+        thumbnails={configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS && showThumbnails}
       />
     );
   }
