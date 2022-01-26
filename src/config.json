@@ -44,6 +44,10 @@
     "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show 12 hour time"
   },
+  "DURATION": {
+    "SHOW_DURATION": true,
+    "DURATION_LABEL": "Duration: @mins mins"
+  },
   "SHOW_PAST_ITEMS": {
     "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show past items",

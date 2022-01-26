@@ -66,8 +66,10 @@ const ProgramItem = ({ item }) => {
       ""
     );
   const duration =
-    item.mins ? (
-      <div className="item-duration">{item.mins} mins</div>
+    configData.DURATION.SHOW_DURATION && item.mins ? (
+      <div className="item-duration">
+        {configData.DURATION.DURATION_LABEL.replace("@mins", item.mins)}
+      </div>
     ) : (
       ""
     );
