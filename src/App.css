@@ -26,6 +26,7 @@
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: green;
   --checkbox-unselected-bg: red;
+  --program-time-local-message: grey;
   --program-date-line: #888;
   --program-time-line: #ccc;
   --program-item-line: #bbb;
@@ -245,7 +246,7 @@ input.switch:checked ~ label:after {
 
 .time-local-message {
   font-style: italic;
-  color: grey;
+  color: var(--program-time-local-message);
 }
 
 .date-heading {
