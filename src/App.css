@@ -153,9 +153,11 @@ header h1 {
   margin: 0.3rem 0 1rem 0;
 }
 
+/* Removing for now to prevent odd display of checkboxes in middle of row, and weird display in Firefox.
 div.filter-options {
   float: right;
 }
+*/
 
 /* style all non-selection checkboxes as toggles
    based on https://www.sitepoint.com/css3-toggle-switch/ */
