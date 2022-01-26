@@ -88,8 +88,10 @@ const ProgramItem = ({ item }) => {
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
         <div className="item-title">{item.title}</div>
-        <div className="item-location">{locations}</div>
-        {duration}
+        <div className="item-line2">
+          <div className="item-location">{locations}</div>
+          {duration}
+        </div>
         <div
           className={
             expanded ? "item-details item-details-expanded" : "item-details"

@@ -174,7 +174,7 @@ div.switch-wrapper ~ div {
 }
 
 input.switch:empty {
-  margin-left: -999px;
+  display:none;
 }
 
 input.switch:empty ~ label {
@@ -314,9 +314,17 @@ input.switch:checked ~ label:after {
   color: var(--program-tags-fg);
 }
 
-.item-tag {
+.item-tag,
+.item-location {
   display: inline-block;
   margin-right: 0.5rem;
+}
+
+/* To put duration on its own line, remove this bit. */
+.item-duration {
+  display: inline-block;
+  margin-right: 0.5rem;
+  white-space:nowrap;
 }
 
 .item-people {
