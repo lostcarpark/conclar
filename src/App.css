@@ -306,6 +306,7 @@ input.switch:checked ~ label:after {
   font-weight: bold;
 }
 
+.item-duration,
 .item-location,
 .item-tags {
   font-size: 0.9em;

@@ -65,6 +65,12 @@ const ProgramItem = ({ item }) => {
     ) : (
       ""
     );
+  const duration =
+    item.mins ? (
+      <div className="item-duration">{item.mins} mins</div>
+    ) : (
+      ""
+    );
 
   return (
     <div id={id} className="item">
@@ -81,6 +87,7 @@ const ProgramItem = ({ item }) => {
       <div className="item-entry" onClick={toggleExpanded}>
         <div className="item-title">{item.title}</div>
         <div className="item-location">{locations}</div>
+        {duration}
         <div
           className={
             expanded ? "item-details item-details-expanded" : "item-details"
