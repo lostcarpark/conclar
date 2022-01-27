@@ -5,6 +5,7 @@
   "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "TIMEZONE": "Europe/Dublin",
+  "INTERACTIVE": true,
   "NAVIGATION": {
     "PROGRAM": "Programme",
     "PEOPLE": "People",

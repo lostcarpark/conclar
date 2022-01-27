@@ -20,8 +20,10 @@ const ProgramItem = ({ item }) => {
   }));
 
   function toggleExpanded() {
-    if (expanded) collapseItem(item.id);
-    else expandItem(item.id);
+		if (configData.INTERACTIVE) {
+			if (expanded) collapseItem(item.id);
+			else expandItem(item.id);
+		}
   }
 
   function handleSelected(event) {

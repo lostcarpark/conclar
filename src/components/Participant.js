@@ -32,14 +32,26 @@ const Participant = ({ person, thumbnails }) => {
     return "";
   }
 
-  return (
-    <li className="participant">
-      <Link to={"/people/" + person.id}>
+  function getParticipant(person) {
+    if (configData.INTERACTIVE) {
+      return (
+        <li className="participant">
+          <Link to={"/people/" + person.id}>
+            {getParticipantThumbnail(person)}
+            <span>{person.name}</span>
+          </Link>
+        </li>
+      )
+    }
+    return (
+      <li className="participant">
         {getParticipantThumbnail(person)}
         <span>{person.name}</span>
-      </Link>
-    </li>
-  );
+      </li>
+    );
+  }
+
+  return getParticipant(person);
 };
 
 Participant.defaultProps = {
