@@ -8,6 +8,7 @@
  * 5. People.
  * 6. Informtion page.
  * 7. Site footer.
+ * 8. Print styles.
  */
 
 
@@ -463,4 +464,20 @@ input.switch:checked ~ label:after {
 /* often there is already a border before this element so omit:
   border-top: 1px solid var(--footer-line); */
   text-align: right;
+}
+
+/*
+ * 8. Print styles.
+ */
+
+@media print {
+
+/* fix any odd coloration here */
+
+/* hide interactive bits */
+
+  .navigation, .filter, .people-settings {
+    display: none;
+  }
+
 }
