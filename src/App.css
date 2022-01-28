@@ -494,7 +494,7 @@ input.switch:checked ~ label:after {
 /* some styling for the non-interactive version of the schedule. */
 
 .uninteractive .item-selection {
-   visibility: hidden;
+   display: none;
 }
 
 .uninteractive .item-details {
@@ -503,4 +503,25 @@ input.switch:checked ~ label:after {
   padding: 0.5rem;
   border-radius: 0.5rem;
   overflow: auto;
+}
+
+div.uninteractive {
+  display: flex;
+  flex-direction: column;
+}
+
+div.uninteractive div.program-page,
+div.uninteractive div.info {
+  width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+  div.uninteractive {
+    flex-direction: row;
+  }
+
+  div.uninteractive div.program-page,
+  div.uninteractive div.info {
+    width: 50%;
+  }
 }
