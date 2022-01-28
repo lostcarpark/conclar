@@ -1,27 +1,15 @@
-import React, { useState } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import React from "react";
+import { useStoreState } from "easy-peasy";
 import ProgramList from "./ProgramList";
 import Info from "./Info";
-import configData from "../config.json";
 import { LocalTime } from "../utils/LocalTime";
 
 const UnfilterableProgram = () => {
   const program = useStoreState((state) => state.program);
-  const offset = useStoreState((state) => state.offset);
 
-  const showLocalTime = useStoreState((state) => state.showLocalTime);
-  const show12HourTime = useStoreState((state) => state.show12HourTime);
   const showPastItems = useStoreState((state) => state.showPastItems);
 
-  const { expandAll, collapseAll } = useStoreActions((actions) => ({
-    expandAll: actions.expandAll,
-    collapseAll: actions.collapseAll,
-  }));
-  const noneExpanded = useStoreState((state) => state.noneExpanded);
-  const allExpanded = useStoreState((state) => state.allExpanded);
-
   const filtered = applyFilters(program);
-  const total = filtered.length;
 
   function applyFilters(program) {
 
