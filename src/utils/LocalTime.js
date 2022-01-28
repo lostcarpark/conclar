@@ -53,6 +53,8 @@ export class LocalTime {
     let language = window.navigator.userLanguage || window.navigator.language;
     // Assume UTC timezone for purpose of formatting date headings.
     let dateTime = new Date(date + "T00:00:00.000Z");
+		if (isNaN(dateTime.getTime()))
+			return "";
     return dateTime.toLocaleDateString(language, {
       weekday: "long",
       year: "numeric",
