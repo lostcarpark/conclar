@@ -8,6 +8,7 @@
  * 5. People.
  * 6. Informtion page.
  * 7. Site footer.
+ * 8. Print styles.
  */
 
 
@@ -171,6 +172,10 @@ div.switch-wrapper,
 div.switch-wrapper ~ div {
   clear: both;
   margin: 0.5em 1em;
+}
+
+div.program-empty {
+  clear: both;
 }
 
 input.switch:empty {
@@ -373,6 +378,7 @@ input.switch:checked ~ label:after {
   max-height: 40rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  overflow: auto;
 }
 
 .time-convention {
@@ -463,4 +469,59 @@ input.switch:checked ~ label:after {
 /* often there is already a border before this element so omit:
   border-top: 1px solid var(--footer-line); */
   text-align: right;
+}
+
+/*
+ * 8. Print styles.
+ */
+
+@media print {
+
+/* fix any odd coloration here */
+
+/* hide interactive bits */
+
+  .navigation, .filter, .people-settings {
+    display: none;
+  }
+
+  .participant a {
+    text-decoration: none;
+  }
+
+}
+
+/* some styling for the non-interactive version of the schedule. */
+
+.uninteractive .item-selection {
+   display: none;
+}
+
+.uninteractive .item-details {
+  background-color: var(--program-expanded-bg);
+  max-height: 40rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+
+div.uninteractive {
+  display: flex;
+  flex-direction: column;
+}
+
+div.uninteractive div.program-page,
+div.uninteractive div.info {
+  width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+  div.uninteractive {
+    flex-direction: row;
+  }
+
+  div.uninteractive div.program-page,
+  div.uninteractive div.info {
+    width: 50%;
+  }
 }
