@@ -1,4 +1,5 @@
 import configData from "./config.json";
+import { JsonParse } from "./utils/JsonParse";
 import { Format } from "./utils/Format";
 
 // Creating class for processing program and people data.
@@ -154,8 +155,6 @@ export class ProgramData {
     this.addProgramParticipantDetails(program, people);
     const locations = this.processLocations(program);
     const tags = this.processTags(program);
-    localStorage.setItem("program", JSON.stringify(program));
-    localStorage.setItem("people", JSON.stringify(people));
 
     return {
       program: program,
@@ -163,5 +162,36 @@ export class ProgramData {
       locations: locations,
       tags: tags,
     };
+  }
+
+  static async fetchUrl(url) {
+    const res = await fetch(url, { cache: "reload" });
+    const data = await res.text();
+    return JsonParse.extractJson(data);
+  }
+
+  static async fetchData() {
+    // If only one data source, we can use a single fetch.
+    if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
+      try {
+        const entities = await this.fetchUrl(configData.PROGRAM_DATA_URL);
+        return ProgramData.processData(entities[0], entities[1]);
+      } catch (e) {
+        console.log("Fetch error", e);
+      }
+    } else {
+      // Separate program and people sources, so need to create promise for each fetch.
+      const progPromise = fetch(configData.PROGRAM_DATA_URL).then((res) =>
+        res.text()
+      );
+      const pplPromise = fetch(configData.PEOPLE_DATA_URL).then((res) =>
+        res.text()
+      );
+      const data = await Promise.all([progPromise, pplPromise]);
+      const rawProgram = JsonParse.extractJson(data[0])[0];
+      const rawPeople = JsonParse.extractJson(data[1])[0];
+      // Called with an array containing result of each promise.
+      return ProgramData.processData(rawProgram, rawPeople);
+    }
   }
 }

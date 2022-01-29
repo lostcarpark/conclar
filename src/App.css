@@ -11,7 +11,6 @@
  * 8. Print styles.
  */
 
-
 /*
  * 1. Global application styles.
  */
@@ -37,6 +36,15 @@
   --participant-link-visited-fg: #444;
   --footer-line: #888;
   --error-message-fg: tomato;
+  --shadow-014: rgba(0, 0, 0, 0.14);
+  --shadow-012: rgba(0, 0, 0, 0.12);
+  --shadow-02: rgba(0, 0, 0, 0.2);
+  --shadow-03: rgba(0, 0, 0, 0.3);
+  --shadow-gray: rgba(166, 175, 195, 0.25);
+  --debug-online-bg: green;
+  --debug-online-fg: white;
+  --debug-offline-bg: red;
+  --debug-offline-fg: white;
 }
 
 body {
@@ -50,15 +58,21 @@ body {
 .App {
   text-align: left;
   margin: 1rem;
-  font-family: 'Roboto', 'Calibri', 'Open Sans', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Roboto", "Calibri", "Open Sans", "Lato", "Helvetica Neue", Arial,
+    sans-serif;
 }
 
-h1, h2, h3, h4, .item-title, .date-heading {
-  font-family: Candara, Optima, Segoe, 'Segoe UI', sans-serif;
+h1,
+h2,
+h3,
+h4,
+.item-title,
+.date-heading {
+  font-family: Candara, Optima, Segoe, "Segoe UI", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -99,16 +113,18 @@ header h1 {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.7rem;
   font-weight: 600;
   line-height: 1;
-  padding: .6rem 1.1rem;
+  padding: 0.6rem 1.1rem;
   text-align: center;
   text-decoration: none;
   text-decoration-thickness: auto;
-  transition: all .1s cubic-bezier(.4, 0, .2, 1);
-  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 1px 2px var(--shadow-gray);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -141,13 +157,13 @@ header h1 {
 
 .filter-locations {
   display: inline-block;
-  font-size: .8em;
+  font-size: 0.8em;
   padding: 0 0.5em 0.5em 0;
 }
 
 .filter-tags {
   display: inline-block;
-  font-size: .8em;
+  font-size: 0.8em;
   padding: 0 0.5em 0.5em 0;
 }
 
@@ -179,7 +195,7 @@ div.program-empty {
 }
 
 input.switch:empty {
-  display:none;
+  display: none;
 }
 
 input.switch:empty ~ label {
@@ -195,18 +211,18 @@ input.switch:empty ~ label {
   user-select: none;
 }
 
-input.switch:empty ~ label:before, 
+input.switch:empty ~ label:before,
 input.switch:empty ~ label:after {
   position: absolute;
   display: block;
   top: 0;
   bottom: 0;
   left: 0;
-  content: ' ';
+  content: " ";
   width: 3em;
   background-color: var(--checkbox-unselected-bg);
   border-radius: 1em;
-  box-shadow: inset 0 0.2em 0 rgba(0,0,0,0.3);
+  box-shadow: inset 0 0.2em 0 var(--shadow-03);
   -webkit-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
 }
@@ -216,13 +232,13 @@ input.switch:empty ~ label:after {
   top: 0.1em;
   bottom: 0.1em;
   margin-left: 0.1em;
-  background-color:  var(--checkbox-switch-bg);
+  background-color: var(--checkbox-switch-bg);
   border-radius: 0.9em;
-  box-shadow: inset 0 -0.2em 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -0.2em 0 var(--shadow-02);
 }
 
 input.switch:checked ~ label:before {
-  background-color:  var(--checkbox-selected-bg);
+  background-color: var(--checkbox-selected-bg);
 }
 
 input.switch:checked ~ label:after {
@@ -329,7 +345,7 @@ input.switch:checked ~ label:after {
 .item-duration {
   display: inline-block;
   margin-right: 0.5rem;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
 .item-people {
@@ -337,8 +353,8 @@ input.switch:checked ~ label:after {
 }
 
 .item-people ul {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 .item-people .participant {
@@ -348,10 +364,11 @@ input.switch:checked ~ label:after {
 
 .item-people .participant img {
   max-width: 2rem;
-  border-radius:50%;
-  vertical-align:middle;
+  border-radius: 50%;
+  vertical-align: middle;
   padding: 0.1rem;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.14) , 0px 3px 1px -2px rgba(0,0,0,0.12) , 0px 1px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px 0px var(--shadow-014),
+    0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
 }
 
 .item-people div.participant-image {
@@ -359,7 +376,7 @@ input.switch:checked ~ label:after {
 }
 
 .program-container .participant .participant-image ~ span {
- padding-left: 0.3rem;
+  padding-left: 0.3rem;
 }
 
 .item-details {
@@ -422,10 +439,11 @@ input.switch:checked ~ label:after {
 
 .people .participant img {
   max-width: 5rem;
-  border-radius:50%;
-  vertical-align:middle;
+  border-radius: 50%;
+  vertical-align: middle;
   padding: 0.1rem;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.14) , 0px 3px 1px -2px rgba(0,0,0,0.12) , 0px 1px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px 0px var(--shadow-014),
+    0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
 }
 
 .person {
@@ -436,7 +454,8 @@ input.switch:checked ~ label:after {
   max-width: 10rem;
   padding: 0.3rem;
   margin: 0 0.5rem 0.5rem 0;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.14) , 0px 3px 1px -2px rgba(0,0,0,0.12) , 0px 1px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px 0px var(--shadow-014),
+    0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
 }
 
 .person .person-bio {
@@ -455,7 +474,7 @@ input.switch:checked ~ label:after {
  * 6. Information page.
  */
 
- .info {
+.info {
   margin: 1rem;
   max-width: 60ch;
 }
@@ -464,9 +483,9 @@ input.switch:checked ~ label:after {
  * 7. Site footer.
  */
 
- footer {
+footer {
   margin-top: 2rem;
-/* often there is already a border before this element so omit:
+  /* often there is already a border before this element so omit:
   border-top: 1px solid var(--footer-line); */
   text-align: right;
 }
@@ -476,25 +495,25 @@ input.switch:checked ~ label:after {
  */
 
 @media print {
+  /* fix any odd coloration here */
 
-/* fix any odd coloration here */
+  /* hide interactive bits */
 
-/* hide interactive bits */
-
-  .navigation, .filter, .people-settings {
+  .navigation,
+  .filter,
+  .people-settings {
     display: none;
   }
 
   .participant a {
     text-decoration: none;
   }
-
 }
 
 /* some styling for the non-interactive version of the schedule. */
 
 .uninteractive .item-selection {
-   display: none;
+  display: none;
 }
 
 .uninteractive .item-details {
@@ -524,4 +543,31 @@ div.uninteractive div.info {
   div.uninteractive div.info {
     width: 50%;
   }
+}
+
+/*
+ * 9. Debug mode styles.
+ */
+
+.debug {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.25rem;
+  z-index: 2;
+}
+
+.debug-online {
+  background-color: var(--debug-online-bg);
+  color: var(--debug-online-fg);
+}
+
+.debug-offline {
+  background-color: var(--debug-offline-bg);
+  color: var(--debug-offline-fg);
+}
+
+.debug-status {
+  padding: 0 1em;
 }

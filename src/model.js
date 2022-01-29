@@ -1,8 +1,6 @@
 import { action, thunk, computed } from "easy-peasy";
-import configData from "./config.json";
 import { ProgramData } from "./ProgramData";
 import { ProgramSelection } from "./ProgramSelection";
-import { JsonParse } from "./utils/JsonParse";
 import { LocalTime } from "./utils/LocalTime";
 
 const model = {
@@ -18,28 +16,10 @@ const model = {
   showThumbnails: localStorage.getItem("thumbnails") === "false" ? false : true,
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
   offset: LocalTime.getTimeZoneOffset(),
+  onLine: window.navigator.onLine,
   // Thunks
   fetchProgram: thunk(async (actions) => {
-    // If only one data source, we can use a single fetch.
-    if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
-      const res = await fetch(configData.PROGRAM_DATA_URL);
-      const data = await res.text();
-      const entities = JsonParse.extractJson(data);
-      actions.setData(ProgramData.processData(entities[0], entities[1]));
-    } else {
-      // Separate program and people sources, so need to create promise for each fetch.
-      const progPromise = fetch(configData.PROGRAM_DATA_URL).then((res) =>
-        res.text()
-      );
-      const pplPromise = fetch(configData.PEOPLE_DATA_URL).then((res) =>
-        res.text()
-      );
-      const data = await Promise.all([progPromise, pplPromise]);
-      const rawProgram = JsonParse.extractJson(data[0])[0];
-      const rawPeople = JsonParse.extractJson(data[1])[0];
-      // Called with an array containing result of each promise.
-      actions.setData(ProgramData.processData(rawProgram, rawPeople));
-    }
+    actions.setData(await ProgramData.fetchData());
   }),
   // Actions.
   setData: action((state, data) => {
@@ -64,6 +44,9 @@ const model = {
   setSortByFullName: action((state, sortByFullName) => {
     state.sortByFullName = sortByFullName;
     localStorage.setItem("sort_people", sortByFullName ? "true" : "false");
+  }),
+  setOnLine: action((state, onLine) => {
+    state.onLine = onLine;
   }),
 
   // Actions for expanding program items.

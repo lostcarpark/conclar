@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import configData from "../config.json";
 import ScrollToTop from "./ScrollToTop";
+import Timer from "./Timer";
+import Debug from "./Debug";
 import Header from "./Header";
 import Navigation from "./Navigation";
 import NotFound from "./NotFound";
@@ -17,9 +19,10 @@ import Footer from "./Footer";
 
 const TheApp = configData.INTERACTIVE ? (
         <div className="App">
+          <Timer tick={15} />
+          <Debug />
           <Header title={configData.APP_TITLE} />
           <Navigation />
-
           <Routes>
             <Route path="/">
               <Route index element={<FilterableProgram />} />
