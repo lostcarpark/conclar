@@ -12,16 +12,17 @@ const UnfilterableProgram = () => {
   const filtered = applyFilters(program);
 
   function applyFilters(program) {
-
     let filtered = program;
 
     if (isDuringCon(program) && !showPastItems) {
       // Filter by past item state.  Quick hack to treat this as a filter.
       const now = LocalTime.dateToConTime(new Date());
-      //console.log("Showing items after", now.date, now.time, "(adjusted con time).");
       filtered = filtered.filter((item) => {
         // eslint-disable-next-line
-        return (now.date < item.date) || (now.date === item.date && now.time <= item.time);
+        return (
+          now.date < item.date ||
+          (now.date === item.date && now.time <= item.time)
+        );
       });
     }
     return filtered;
@@ -36,8 +37,8 @@ const UnfilterableProgram = () => {
       <div className="program-page">
         <ProgramList program={filtered} />
       </div>
-      <hr/>
-      <Info/>
+      <hr />
+      <Info />
     </div>
   );
 };

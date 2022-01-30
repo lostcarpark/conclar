@@ -53,8 +53,7 @@ export class LocalTime {
     let language = window.navigator.userLanguage || window.navigator.language;
     // Assume UTC timezone for purpose of formatting date headings.
     let dateTime = new Date(date + "T00:00:00.000Z");
-		if (isNaN(dateTime.getTime()))
-			return "";
+    if (isNaN(dateTime.getTime())) return "";
     return dateTime.toLocaleDateString(language, {
       weekday: "long",
       year: "numeric",
@@ -120,7 +119,8 @@ export class LocalTime {
 
   // Take date in "hh:mm" format, and return hours and minutes.
   static parseTime(time) {
-    const matches = time.match(/^(\d{1,2})[^\d](\d{2})$/);
+    const matches = time.match(/^(\d{1,2})[^\d](\d{2})([^\d](\d{2}))?$/);
+    if (!matches) return [];
     const hours = parseInt(matches[1]);
     const mins = parseInt(matches[2]);
     return [hours, mins];
@@ -198,38 +198,49 @@ export class LocalTime {
 
   static dateToConTime(datetime) {
     //SO: https://stackoverflow.com/a/53652131
-		//datetime is a javascript Date object
+    //datetime is a javascript Date object
 
-    let invdate = new Date(datetime.toLocaleString('en-US', {
-      timeZone: configData.TIMEZONE
-    }));
+    let invdate = new Date(
+      datetime.toLocaleString("en-US", {
+        timeZone: configData.TIMEZONE,
+      })
+    );
 
     var diff = datetime.getTime() - invdate.getTime();
 
     var conTime = new Date(datetime.getTime() - diff);
 
     //Make the adjustment.
-    conTime.setMinutes(conTime.getMinutes() - (configData.SHOW_PAST_ITEMS.ADJUST_MINUTES || 0));
+    conTime.setMinutes(
+      conTime.getMinutes() - (configData.SHOW_PAST_ITEMS.ADJUST_MINUTES || 0)
+    );
 
     //parse into dates and times in KonOpas format (hopefully)
     let conTimeFormatted = {};
-    conTimeFormatted.date = conTime.getFullYear() + "-" + ('0' + (conTime.getMonth() + 1)).slice(-2) +  "-" + ('0' + conTime.getDate()).slice(-2);
-    conTimeFormatted.time = ('0' + conTime.getHours()).slice(-2) + ":" + ('0' + conTime.getMinutes()).slice(-2);
-    
+    conTimeFormatted.date =
+      conTime.getFullYear() +
+      "-" +
+      ("0" + (conTime.getMonth() + 1)).slice(-2) +
+      "-" +
+      ("0" + conTime.getDate()).slice(-2);
+    conTimeFormatted.time =
+      ("0" + conTime.getHours()).slice(-2) +
+      ":" +
+      ("0" + conTime.getMinutes()).slice(-2);
+
     return conTimeFormatted;
   }
 
-	static inConTime(program) {
-		//Expects the program items to have dates.
-		const today = new Date();
-		const aDay = 3600 * 1000 * 24; //in  milliseconds
-		const firstItem = program[0];
-		const lastItem = program[program.length - 1];
-		//Pad by one day to avoid time zone issues.
-		const tomorrow = this.dateToConTime(new Date(Date.now(today) + aDay));
-		const yesterday = this.dateToConTime(new Date(Date.now(today) - aDay));
-		//Neither the first day of con is after tomorrow nor the last day of con is before yesterday.
-		return !(firstItem.date > tomorrow.date || lastItem.date < yesterday.date)
-	}
-
+  static inConTime(program) {
+    //Expects the program items to have dates.
+    const today = new Date();
+    const aDay = 3600 * 1000 * 24; //in  milliseconds
+    const firstItem = program[0];
+    const lastItem = program[program.length - 1];
+    //Pad by one day to avoid time zone issues.
+    const tomorrow = this.dateToConTime(new Date(Date.now(today) + aDay));
+    const yesterday = this.dateToConTime(new Date(Date.now(today) - aDay));
+    //Neither the first day of con is after tomorrow nor the last day of con is before yesterday.
+    return !(firstItem.date > tomorrow.date || lastItem.date < yesterday.date);
+  }
 }

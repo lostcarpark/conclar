@@ -1,15 +1,16 @@
 import { action, thunk, computed } from "easy-peasy";
-import configData from "./config.json";
 import { ProgramData } from "./ProgramData";
 import { ProgramSelection } from "./ProgramSelection";
-import { JsonParse } from "./utils/JsonParse";
 import { LocalTime } from "./utils/LocalTime";
+import configData from "./config.json";
 
 const model = {
   program: [],
   people: [],
   locations: [],
   tags: [],
+  lastFetchTime: null,
+  timeSinceLastFetch: null,
   showLocalTime: LocalTime.getStoredLocalTime(),
   show12HourTime: LocalTime.getStoredTwelveHourTime(),
   showPastItems: LocalTime.getStoredPastItems(),
@@ -18,28 +19,12 @@ const model = {
   showThumbnails: localStorage.getItem("thumbnails") === "false" ? false : true,
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
   offset: LocalTime.getTimeZoneOffset(),
+  onLine: window.navigator.onLine,
   // Thunks
   fetchProgram: thunk(async (actions) => {
-    // If only one data source, we can use a single fetch.
-    if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
-      const res = await fetch(configData.PROGRAM_DATA_URL);
-      const data = await res.text();
-      const entities = JsonParse.extractJson(data);
-      actions.setData(ProgramData.processData(entities[0], entities[1]));
-    } else {
-      // Separate program and people sources, so need to create promise for each fetch.
-      const progPromise = fetch(configData.PROGRAM_DATA_URL).then((res) =>
-        res.text()
-      );
-      const pplPromise = fetch(configData.PEOPLE_DATA_URL).then((res) =>
-        res.text()
-      );
-      const data = await Promise.all([progPromise, pplPromise]);
-      const rawProgram = JsonParse.extractJson(data[0])[0];
-      const rawPeople = JsonParse.extractJson(data[1])[0];
-      // Called with an array containing result of each promise.
-      actions.setData(ProgramData.processData(rawProgram, rawPeople));
-    }
+    actions.setData(await ProgramData.fetchData());
+    actions.resetLastFetchTime();
+    actions.updateTimeSinceLastFetch();
   }),
   // Actions.
   setData: action((state, data) => {
@@ -48,14 +33,26 @@ const model = {
     state.locations = data.locations;
     state.tags = data.tags;
   }),
+  resetLastFetchTime: action((state) => {
+    state.lastFetchTime = new Date().getTime();
+  }),
+  updateTimeSinceLastFetch: action((state) => {
+    const milisecondsPerSec = 1000;
+    state.timeSinceLastFetch = Math.floor(
+      (new Date().getTime() - state.lastFetchTime) / milisecondsPerSec
+    );
+  }),
   setShowLocalTime: action((state, showLocalTime) => {
     state.showLocalTime = showLocalTime;
+    LocalTime.setStoredLocalTime(showLocalTime);
   }),
   setShow12HourTime: action((state, show12HourTime) => {
     state.show12HourTime = show12HourTime;
+    LocalTime.setStoredTwelveHourTime(show12HourTime);
   }),
   setShowPastItems: action((state, showPastItems) => {
     state.showPastItems = showPastItems;
+    LocalTime.setStoredPastItems(showPastItems);
   }),
   setShowThumbnails: action((state, showThumbnails) => {
     state.showThumbnails = showThumbnails;
@@ -64,6 +61,9 @@ const model = {
   setSortByFullName: action((state, sortByFullName) => {
     state.sortByFullName = sortByFullName;
     localStorage.setItem("sort_people", sortByFullName ? "true" : "false");
+  }),
+  setOnLine: action((state, onLine) => {
+    state.onLine = onLine;
   }),
 
   // Actions for expanding program items.
@@ -96,6 +96,9 @@ const model = {
   }),
 
   // Computed.
+  timeToNextFetch: computed((state) => {
+    return configData.TIMER.FETCH_INTERVAL_MINS * 60 - state.timeSinceLastFetch;
+  }),
   isSelected: computed((state) => {
     return (id) => state.mySelections.find((item) => item === id) || false;
   }),

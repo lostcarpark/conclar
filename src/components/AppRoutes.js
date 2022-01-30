@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import configData from "../config.json";
 import ScrollToTop from "./ScrollToTop";
+import Timer from "./Timer";
+import Debug from "./Debug";
 import Header from "./Header";
 import Navigation from "./Navigation";
 import NotFound from "./NotFound";
@@ -16,36 +18,37 @@ import Info from "./Info";
 import Footer from "./Footer";
 
 const TheApp = configData.INTERACTIVE ? (
-        <div className="App">
-          <Header title={configData.APP_TITLE} />
-          <Navigation />
-
-          <Routes>
-            <Route path="/">
-              <Route index element={<FilterableProgram />} />
-              <Route path="people">
-                <Route index element={<People />} />
-                <Route path=":id" element={<Person />} />
-              </Route>
-              <Route path="myschedule" element={<MySchedule />} />
-              <Route path="info" element={<Info />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </div>
-  ) : (
-        <div className="App">
-          <Header title={configData.APP_TITLE} />
-          <Routes>
-            <Route path="/">
-              <Route index element={<UnfilterableProgram />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </div>
-  );
+  <div className="App">
+    <Timer tick={configData.TIMER.TIMER_TICK_SECS} />
+    <Debug />
+    <Header title={configData.APP_TITLE} />
+    <Navigation />
+    <Routes>
+      <Route path="/">
+        <Route index element={<FilterableProgram />} />
+        <Route path="people">
+          <Route index element={<People />} />
+          <Route path=":id" element={<Person />} />
+        </Route>
+        <Route path="myschedule" element={<MySchedule />} />
+        <Route path="info" element={<Info />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    <Footer />
+  </div>
+) : (
+  <div className="App">
+    <Header title={configData.APP_TITLE} />
+    <Routes>
+      <Route path="/">
+        <Route index element={<UnfilterableProgram />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    <Footer />
+  </div>
+);
 
 const AppRoutes = () => {
   const fetchProgram = useStoreActions((actions) => actions.fetchProgram);
@@ -57,9 +60,7 @@ const AppRoutes = () => {
 
   return (
     <Router basename={configData.BASE_PATH}>
-      <ScrollToTop>
-        {TheApp}
-      </ScrollToTop>
+      <ScrollToTop>{TheApp}</ScrollToTop>
     </Router>
   );
 };
