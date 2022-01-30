@@ -2,12 +2,15 @@ import { action, thunk, computed } from "easy-peasy";
 import { ProgramData } from "./ProgramData";
 import { ProgramSelection } from "./ProgramSelection";
 import { LocalTime } from "./utils/LocalTime";
+import configData from "./config.json";
 
 const model = {
   program: [],
   people: [],
   locations: [],
   tags: [],
+  lastFetchTime: null,
+  timeSinceLastFetch: null,
   showLocalTime: LocalTime.getStoredLocalTime(),
   show12HourTime: LocalTime.getStoredTwelveHourTime(),
   showPastItems: LocalTime.getStoredPastItems(),
@@ -20,6 +23,8 @@ const model = {
   // Thunks
   fetchProgram: thunk(async (actions) => {
     actions.setData(await ProgramData.fetchData());
+    actions.resetLastFetchTime();
+    actions.updateTimeSinceLastFetch();
   }),
   // Actions.
   setData: action((state, data) => {
@@ -28,14 +33,26 @@ const model = {
     state.locations = data.locations;
     state.tags = data.tags;
   }),
+  resetLastFetchTime: action((state) => {
+    state.lastFetchTime = new Date().getTime();
+  }),
+  updateTimeSinceLastFetch: action((state) => {
+    const milisecondsPerSec = 1000;
+    state.timeSinceLastFetch = Math.floor(
+      (new Date().getTime() - state.lastFetchTime) / milisecondsPerSec
+    );
+  }),
   setShowLocalTime: action((state, showLocalTime) => {
     state.showLocalTime = showLocalTime;
+    LocalTime.setStoredLocalTime(showLocalTime);
   }),
   setShow12HourTime: action((state, show12HourTime) => {
     state.show12HourTime = show12HourTime;
+    LocalTime.setStoredTwelveHourTime(show12HourTime);
   }),
   setShowPastItems: action((state, showPastItems) => {
     state.showPastItems = showPastItems;
+    LocalTime.setStoredPastItems(showPastItems);
   }),
   setShowThumbnails: action((state, showThumbnails) => {
     state.showThumbnails = showThumbnails;
@@ -79,6 +96,9 @@ const model = {
   }),
 
   // Computed.
+  timeToNextFetch: computed((state) => {
+    return configData.TIMER.FETCH_INTERVAL_MINS * 60 - state.timeSinceLastFetch;
+  }),
   isSelected: computed((state) => {
     return (id) => state.mySelections.find((item) => item === id) || false;
   }),

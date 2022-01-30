@@ -2,19 +2,14 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import configData from "../config.json";
 
 const Debug = () => {
+  const timeToNextFetch = useStoreState((state) => state.timeToNextFetch);
   const fetchProgram = useStoreActions((actions) => actions.fetchProgram);
   const onLine = useStoreState((state) => state.onLine);
-  const setOnLine = useStoreActions((actions) => actions.setOnLine);
 
   if (!configData.DEBUG_MODE.ENABLE) return "";
 
   const handleFetch = () => {
-    console.log("Fetch Data Now...");
     fetchProgram();
-  };
-
-  const handleOnLine = () => {
-    setOnLine(window.navigator.onLine);
   };
 
   const onlineClass = onLine ? "debug-online" : "debug-offline";
@@ -29,9 +24,7 @@ const Debug = () => {
           {configData.DEBUG_MODE.FETCH_BUTTON_LABEL}
         </button>
       </span>
-      <span className="debug-check">
-        <button onClick={handleOnLine}>Check Online</button>
-      </span>
+      <span className="debug-time-left">{timeToNextFetch} seconds</span>
     </div>
   );
 };

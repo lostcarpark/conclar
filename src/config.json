@@ -82,6 +82,10 @@
     "SITE_NOTE_MARKDOWN": "",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
+  "TIMER": {
+    "FETCH_INTERVAL_MINS": 30,
+    "TIMER_TICK_SECS": 15
+  },
   "DEBUG_MODE": {
     "ENABLE": false,
     "ONLINE_LABEL": "Currently Online",

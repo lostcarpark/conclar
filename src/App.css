@@ -568,6 +568,6 @@ div.uninteractive div.info {
   color: var(--debug-offline-fg);
 }
 
-.debug-status {
+.debug span {
   padding: 0 1em;
 }

@@ -76,23 +76,24 @@ const FilterableProgram = () => {
   );
 
   //Nice to have a check here for whether it's during con right now.
-  const pastItemsCheckbox = isDuringCon(program) && configData.SHOW_PAST_ITEMS.SHOW_CHECKBOX ? ( 
-    <div className="past-items-checkbox switch-wrapper">
-      <input
-        id={LocalTime.pastItemsClass}
-        name={LocalTime.pastItemsClass}
-        className="switch"
-        type="checkbox"
-        checked={showPastItems}
-        onChange={handleShowPastItems}
-      />
-      <label htmlFor={LocalTime.pastItemsClass}>
-        {configData.SHOW_PAST_ITEMS.CHECKBOX_LABEL}
-      </label>
-    </div>
+  const pastItemsCheckbox =
+    isDuringCon(program) && configData.SHOW_PAST_ITEMS.SHOW_CHECKBOX ? (
+      <div className="past-items-checkbox switch-wrapper">
+        <input
+          id={LocalTime.pastItemsClass}
+          name={LocalTime.pastItemsClass}
+          className="switch"
+          type="checkbox"
+          checked={showPastItems}
+          onChange={handleShowPastItems}
+        />
+        <label htmlFor={LocalTime.pastItemsClass}>
+          {configData.SHOW_PAST_ITEMS.CHECKBOX_LABEL}
+        </label>
+      </div>
     ) : (
-			""
-		);
+      ""
+    );
 
   function applyFilters(program) {
     const term = search.trim().toLowerCase();
@@ -147,7 +148,10 @@ const FilterableProgram = () => {
       //console.log("Showing items after", now.date, now.time, "(adjusted con time).");
       filtered = filtered.filter((item) => {
         // eslint-disable-next-line
-        return (now.date < item.date) || (now.date === item.date && now.time <= item.time);
+        return (
+          now.date < item.date ||
+          (now.date === item.date && now.time <= item.time)
+        );
       });
     }
     return filtered;
@@ -173,17 +177,14 @@ const FilterableProgram = () => {
 
   function handleShowLocalTime(event) {
     setShowLocalTime(event.target.checked);
-    LocalTime.setStoredLocalTime(event.target.checked);
   }
 
   function handleShow12HourTime(event) {
     setShow12HourTime(event.target.checked);
-    LocalTime.setStoredTwelveHourTime(event.target.checked);
   }
 
   function handleShowPastItems(event) {
     setShowPastItems(event.target.checked);
-    LocalTime.setStoredPastItems(event.target.checked);
   }
 
   // TODO: Probably should move the tags filter to its own component.
@@ -194,8 +195,12 @@ const FilterableProgram = () => {
     });
     // Only add drop-down if tag type actually contains elements.
     if (tags[tag].length) {
-      const placeholder = tagData ? tagData.PLACEHOLDER : configData.TAGS.PLACEHOLDER;
-      const searchable = tagData ? tagData.SEARCHABLE : configData.TAGS.SEARCHABLE;
+      const placeholder = tagData
+        ? tagData.PLACEHOLDER
+        : configData.TAGS.PLACEHOLDER;
+      const searchable = tagData
+        ? tagData.SEARCHABLE
+        : configData.TAGS.SEARCHABLE;
       tagFilters.push(
         <div key={tag} className={"filter-tags filter-tags-" + tag}>
           <ReactSelect
@@ -235,8 +240,12 @@ const FilterableProgram = () => {
         </div>
         <div className="filter-total">{totalMessage}</div>
         <div className="filter-expand">
-          <button disabled={allExpanded} onClick={expandAll}>{configData.EXPAND.EXPAND_ALL_LABEL}</button>
-          <button disabled={noneExpanded} onClick={collapseAll}>{configData.EXPAND.COLLAPSE_ALL_LABEL}</button>
+          <button disabled={allExpanded} onClick={expandAll}>
+            {configData.EXPAND.EXPAND_ALL_LABEL}
+          </button>
+          <button disabled={noneExpanded} onClick={collapseAll}>
+            {configData.EXPAND.COLLAPSE_ALL_LABEL}
+          </button>
         </div>
         <div className="filter-options">
           {localTimeCheckbox}
