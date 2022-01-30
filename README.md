@@ -48,58 +48,64 @@ See the section about [React app deployment](https://facebook.github.io/create-r
 
 The main place customisations go is the `src/config.json` file. Settings currently available include:
 
-* `BASE_PATH`: The path to ConClár within your webserver. Set to '/' to run in the root directory. See below for running in a subdirectory.
-* `APP_ID`: A unique id to distinguish between instances of multi-year conventions.
-* `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
-* `PROGRAM_DATA_URL`: The address of the file containing programme data.
-* `PEOPLE_DATA_URL`: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
-* `TIMEZONE`: The name of the timezone where your convention takes place. Viewers outside convention timezone will see times in convention time, and their local time below it.
-* `INTERACTIVE`: Set to false to get a non-interactive, expanded view of the schedule.  The info page is also included, but not the participant list or individual participant pages.
-* `NAVIGATION`: Each value in this section sets the label that will appear on main navigation of the site. Useful for switching between different international spellings of "programme".
-* `NAVIGATION.PROGRAM`: Label for program/programme menu.
-* `NAVIGATION.PEOPLE`: Label for people menu.
-* `NAVIGATION.MYSCHEDULE`: Label for user's personal schedule.
-* `NAVIGATION.INFO`: Label for the Information menu link.
-* `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
-* `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing.  (Searching can be inconvenient on touch screens.)
-* `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
-* `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
-* `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type" }`.
-* `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
-* `LINKS.MEETING`: Text to display on meeting links.
-* `LINKS.RECORDING`: Text to display on recording links.
-* `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
-* `LOCAL_TIME.NOTICE`: Label for notie telling users how local time displayed.
-* `LOCAL_TIME.PREV_DAY`: Label appended to local time if local time is before start of advertised day.
-* `LOCAL_TIME.NEXT_DAY`: Label appended to local time if local time is after end of advertised day.
-* `LOCAL_TIME.FAILURE`: Local time depends on string conversions, and could fail in some circumstances. Display this message if unable to convert.
-* `TIME_FORMAT.DEFAULT_12HR`: Set to true if you want time displayed in 12 hour format by default.
-* `TIME_FORMAT.SHOW_CHECKBOX`: If set to false, users will not be given option to change between 12 and 24 hour time.
-* `TIME_FORMAT.CHECKBOX_LABEL`: Label for the 12 hour time checkbox label.
-* `DURATION.SHOW_DURATION`: If true, `mins` from program data will be displayed.
-* `DURATION.DURATION_LABEL`: Format for duration. `@mins` will be replaced by number of minutes. Note: do not translate `@mins`.
-* `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
-* `SHOW_PAST_ITEMS.CHECKBOX_LABEL`: Label for the show past items checkbox.
-* `SHOW_PAST_ITEMS.ADJUST_MINUTES`: Some wiggle room (in minutes) in order not to hide past items immediately as they start.
-* `PEOPLE.THUMBNAILS.SHOW_THUMBNAILS`: Set to false to not show member thumbnails (useful to remove spurious controls if pictures not in file).
-* `PEOPLE.THUMBNAILS.SHOW_CHECKBOX`: Set to false to hide "Show thumbnails" checkbox.
-* `PEOPLE.THUMBNAILS.CHECKBOX_LABEL`: Label for "Show thumbnails" checkbox.
-* `PEOPLE.THUMBNAILS.DEFAULT_IMAGE`: Set to default thumbnail for participants with no photo. Can be filename of image in public directory, or external URL. Leave blank for no default thumbnail.
-* `PEOPLE.SORT.SHOW_CHECKBOX`: Set to false to hide "Sort by full name" checkbox. Useful if your data only contains "name for publications".
-* `PEOPLE.SORT.CHECKBOX_LABEL`: Label for "Sort by full name" checkbox.
-* `PEOPLE.SEARCH.SHOW_SEARCH`: Set to false to hide "people" search box.
-* `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
-* `USELESS_CHECKBOX.CHECKBOX_LABEL`: Label for any useless checkboxes.
-* `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
-* `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
-* `FOOTER.SITE_NOTE_MARKDOWN`: General note displayed in the footer of the page. May use Markdown for encoding of links, emphesis, etc.
-* `FOOTER.CONCLAR_NOTE_MARKDOWN`: Note crediting ConClár. You are free to remove or modify this, but we politely request retaining to help promote this free tool.
+- `BASE_PATH`: The path to ConClár within your webserver. Set to '/' to run in the root directory. See below for running in a subdirectory.
+- `APP_ID`: A unique id to distinguish between instances of multi-year conventions.
+- `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
+- `PROGRAM_DATA_URL`: The address of the file containing programme data.
+- `PEOPLE_DATA_URL`: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
+- `TIMEZONE`: The name of the timezone where your convention takes place. Viewers outside convention timezone will see times in convention time, and their local time below it.
+- `INTERACTIVE`: Set to `false` to get a non-interactive, expanded view of the schedule. The info page is also included, but not the participant list or individual participant pages.
+- `NAVIGATION`: Each value in this section sets the label that will appear on main navigation of the site. Useful for switching between different international spellings of "programme".
+- `NAVIGATION.PROGRAM`: Label for program/programme menu.
+- `NAVIGATION.PEOPLE`: Label for people menu.
+- `NAVIGATION.MYSCHEDULE`: Label for user's personal schedule.
+- `NAVIGATION.INFO`: Label for the Information menu link.
+- `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
+- `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
+- `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
+- `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
+- `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type" }`.
+- `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
+- `LINKS.MEETING`: Text to display on meeting links.
+- `LINKS.RECORDING`: Text to display on recording links.
+- `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
+- `LOCAL_TIME.NOTICE`: Label for notie telling users how local time displayed.
+- `LOCAL_TIME.PREV_DAY`: Label appended to local time if local time is before start of advertised day.
+- `LOCAL_TIME.NEXT_DAY`: Label appended to local time if local time is after end of advertised day.
+- `LOCAL_TIME.FAILURE`: Local time depends on string conversions, and could fail in some circumstances. Display this message if unable to convert.
+- `TIME_FORMAT.DEFAULT_12HR`: Set to true if you want time displayed in 12 hour format by default.
+- `TIME_FORMAT.SHOW_CHECKBOX`: If set to false, users will not be given option to change between 12 and 24 hour time.
+- `TIME_FORMAT.CHECKBOX_LABEL`: Label for the 12 hour time checkbox label.
+- `DURATION.SHOW_DURATION`: If true, `mins` from program data will be displayed.
+- `DURATION.DURATION_LABEL`: Format for duration. `@mins` will be replaced by number of minutes. Note: do not translate `@mins`.
+- `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
+- `SHOW_PAST_ITEMS.CHECKBOX_LABEL`: Label for the show past items checkbox.
+- `SHOW_PAST_ITEMS.ADJUST_MINUTES`: Some wiggle room (in minutes) in order not to hide past items immediately as they start.
+- `PEOPLE.THUMBNAILS.SHOW_THUMBNAILS`: Set to false to not show member thumbnails (useful to remove spurious controls if pictures not in file).
+- `PEOPLE.THUMBNAILS.SHOW_CHECKBOX`: Set to false to hide "Show thumbnails" checkbox.
+- `PEOPLE.THUMBNAILS.CHECKBOX_LABEL`: Label for "Show thumbnails" checkbox.
+- `PEOPLE.THUMBNAILS.DEFAULT_IMAGE`: Set to default thumbnail for participants with no photo. Can be filename of image in public directory, or external URL. Leave blank for no default thumbnail.
+- `PEOPLE.SORT.SHOW_CHECKBOX`: Set to false to hide "Sort by full name" checkbox. Useful if your data only contains "name for publications".
+- `PEOPLE.SORT.CHECKBOX_LABEL`: Label for "Sort by full name" checkbox.
+- `PEOPLE.SEARCH.SHOW_SEARCH`: Set to false to hide "people" search box.
+- `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
+- `USELESS_CHECKBOX.CHECKBOX_LABEL`: Label for any useless checkboxes.
+- `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
+- `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
+- `FOOTER.SITE_NOTE_MARKDOWN`: General note displayed in the footer of the page. May use Markdown for encoding of links, emphesis, etc.
+- `FOOTER.CONCLAR_NOTE_MARKDOWN`: Note crediting ConClár. You are free to remove or modify this, but we politely request retaining to help promote this free tool.
+- `TIMER.FETCH_INTERVAL_MINS`: Number of minutes between refreshes of program data.
+- `TIMER.TIMER_TICK_SECS`: Number of seconds between checks of timer.
+- `DEBUG_MODE.ENABLE`: If true, display banner showing online status, and allowing manual data fetch.
+- `DEBUG_MODE.ONLINE_LABEL`: Label to display in debug mode when online.
+- `DEBUG_MODE.OFFLINE_LABEL`: Label to display in debug mode when offline.
+- `DEBUG_MODE.FETCH_BUTTON_LABEL`: Label to display in debug mode on Fetch button.
 
 More settings will be added to this file in future versions.
 
-To customise the site heading, edit the `src/components/Header.js` file.  
+To customise the site heading, edit the `src/components/Header.js` file.
 
-The convention information page is composed in Markdown using the provided file, `public/info.md`.  Markdown is a common standard for formatting text that is easy to follow and safer than HTML.  There is a handy cheat sheet.
+The convention information page is composed in Markdown using the provided file, `public/info.md`. Markdown is a common standard for formatting text that is easy to follow and safer than HTML. There is a handy cheat sheet.
 
 To change the styling, edit `src/App.css`. Note that the current styling is temporary, and a better default theme with easier customisation is planned.
 
@@ -114,12 +120,14 @@ After running `npm run build` just copy the build directory to the public direct
 ### Hosting in a subdirectory
 
 If you need to put ConClár in a subdirectory on your webserver, you'll need to carry out the following additional steps:
+
 1. Edit the `BASE_PATH` setting in your `config.json` file. To put in a directory called "guide", set `BASE_PATH` to "/guide/".
 2. Edit the `package.json` file and add a `homepage` setting as shown below.
 3. Set appropriate settings for the webserver to find the `index.html` in the subdirectory.
 4. Use `npm run build` to prepare the application to upload.
 
 The `package.json` file should start as follows:
+
 ```
   {
     "name": "conclar",
@@ -145,6 +153,7 @@ On Apache, the easiest way to direct traffic to `index.html` is by way of a `.ht
 ```
 
 If you are hosting in a subdirectory, modify `.htaccess` as follows (replace "guide" with the folder you are hosting in):
+
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -185,10 +194,11 @@ Full details of the file format are in a separate [Data Structure document](http
 ConClár is Copyright James Shields, 2022, and made available as an open source project under the MIT licence.
 
 Thanks to:
-* Eemeli Aro for developing KonOpas, which was the inspiration for ConClár.
-* M. C. DeMarco for work on styling and lots of helpful suggestions.
-* Leane Verhulst for testing and documentation contributions.
-* Annemarie Nungent for checking my Irish.
-* Fionna O'Sullivan for proofreading and awesome suggestions.
+
+- Eemeli Aro for developing KonOpas, which was the inspiration for ConClár.
+- M. C. DeMarco for work on styling and lots of helpful suggestions.
+- Leane Verhulst for testing and documentation contributions.
+- Annemarie Nungent for checking my Irish.
+- Fionna O'Sullivan for proofreading and awesome suggestions.
 
 The included "rainbow head" thumbnail image is a public domain image available on [Open Clipart](https://openclipart.org/detail/296715/rainbow-head-2).
