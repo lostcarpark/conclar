@@ -55,6 +55,9 @@
     "ADJUST_MINUTES": 10
   },
   "PEOPLE": {
+    "MODERATORS": {
+      "MODERATOR_LABEL": "(moderator)"
+    },
     "THUMBNAILS": {
       "SHOW_THUMBNAILS": true,
       "SHOW_CHECKBOX": true,
