@@ -21,7 +21,7 @@ var program = [
 		"mins": "90",
 		"loc": [ "Some Room", "Some Area" ],
 		"people": [
-			{ "id": "2345", "name": "Just Sömeguy" },
+			{ "id": "2345", "name": "Just Sömeguy", "role": "moderator" },
 			{ "id": "4567", "name": "Andhis Friend, Jr." }
 		],
 		"desc": "Every prögrammé item really ought to have an explanation, unless it's really evident from the title itself what it'll be about.",
@@ -36,7 +36,7 @@ var program = [
 		"mins": "45",
 		"loc": [ "Another Room", "Some Area" ],
 		"people": [
-			{ "id": "1234", "name": "Sir Galahad" },
+			{ "id": "1234", "name": "Sir Galahad (moderator)" },
 			{ "id": "2345", "name": "Just Sömeguy" }
 		],
 		"desc": "",
@@ -58,7 +58,7 @@ var program = [
 * `mins` is the duration of the programme item in minutes.
     * Note: In order to avoid complications related to programme items that go on past midnight, or which have a starting time past midnight, is to include `time` for the start time and use `mins` for the duration in minutes (with 0 for unknown or n/a).
 * `loc` is the location of the programme item. There can be multiple items in this array.
-* `people` is an array that contains a list of the people assigned to the programme item. Each person is an array, however the only field is `id`, as the entries get replaced by references to the full `people` records when the file is loaded.
+* `people` is an array that contains a list of the people assigned to the programme item. Each person is an array, containing `id` (required), `name` (optional) and `role` (optional). If name is present, it will get replaced by reference to the full `people` record when the file is loaded. The `role` item, if present, is checked for "Moderator" and used to set the moderator flag. The `name` item is also checked for "(moderator)" and will set the moderator flag.
 * `desc` is a description of the programme item.
     * Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which are not supported elsewhere.
 * `links` is an array that contains a set of url links for the programme item. Currently, `meeting` and `recording` are the valid link types.
