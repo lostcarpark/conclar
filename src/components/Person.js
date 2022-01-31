@@ -22,7 +22,7 @@ const Person = () => {
     ) : (
       ""
     );
-  const safeBio = person.bio ? DOMPurify.sanitize(person.bio, JSON.parse(JSON.stringify(configData.PEOPLE.BIO.PURIFY_OPTIONS))) : "";
+  const safeBio = person.bio ? DOMPurify.sanitize(person.bio, configData.PEOPLE.BIO.PURIFY_OPTIONS) : "";
   return (
     <div className="person">
       <h2 className="person-name">
