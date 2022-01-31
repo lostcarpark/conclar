@@ -41,7 +41,7 @@ const ProgramItem = ({ item, forceExpanded }) => {
     }
   else locations.push(<Location key={item.loc} loc={item.loc} />);
 
-  const permaLink = configData.PERMALINK.SHOW_PERMALINK ? (
+  const permaLink = configData.PERMALINK.SHOW_PERMALINK && configData.INTERACTIVE ? (
     <div className="item-permalink">
       <Link to={"/id/" + item.id} title={configData.PERMALINK.PERMALINK_TITLE}>
         <HiLink />
