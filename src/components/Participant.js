@@ -8,10 +8,14 @@ const Participant = ({ person, thumbnails, moderator }) => {
       if (person.img) {
         return (
           <div className="participant-image">
-            <img src={person.img} alt={person.name} onError={({ currentTarget }) => {
-              currentTarget.onerror = null;
-              currentTarget.style.display="none";
-            }} />
+            <img
+              src={person.img}
+              alt={person.name}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.style.display = "none";
+              }}
+            />
           </div>
         );
       }
@@ -22,7 +26,10 @@ const Participant = ({ person, thumbnails, moderator }) => {
         return (
           <div className="participant-image participant-default-image">
             <img
-              src={configData.BASE_PATH + configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE}
+              src={
+                configData.BASE_PATH +
+                configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE
+              }
               alt={person.name}
             />
           </div>
@@ -35,12 +42,15 @@ const Participant = ({ person, thumbnails, moderator }) => {
   function getParticipantName(person, moderator) {
     if (moderator) {
       return (
-	<span>{person.name} <span className="moderator">(moderator)</span></span>
-      )
+        <span>
+          {person.name}{" "}
+          <span className="moderator">
+            {configData.PEOPLE.MODERATORS.MODERATOR_LABEL}
+          </span>
+        </span>
+      );
     } else {
-      return (
-        <span>{person.name}</span>
-      )
+      return <span>{person.name}</span>;
     }
   }
 
@@ -50,15 +60,15 @@ const Participant = ({ person, thumbnails, moderator }) => {
         <li className="participant">
           <Link to={"/people/" + person.id}>
             {getParticipantThumbnail(person)}
-            {getParticipantName(person,moderator)}
+            {getParticipantName(person, moderator)}
           </Link>
         </li>
-      )
+      );
     }
     return (
       <li className="participant">
         {getParticipantThumbnail(person)}
-        {getParticipantName(person,moderator)}
+        {getParticipantName(person, moderator)}
       </li>
     );
   }
