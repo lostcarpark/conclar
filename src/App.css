@@ -32,6 +32,8 @@
   --program-item-line: #bbb;
   --program-tags-fg: #888;
   --program-expanded-bg: #eee;
+  --permalink-icon-fg: #265C83;
+  --permalink-icon-hover-fg: #7FDBFF;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
   --footer-line: #888;
@@ -350,6 +352,17 @@ input.switch:checked ~ label:after {
 
 .item-permalink {
   float: right;
+}
+
+.item-permalink a {
+  transition: color .4s;
+  color: var(--permalink-icon-fg);
+}
+.item-permalink a:visited {
+  color: var(--permalink-icon-fg);
+}
+.item-permalink a:hover   { 
+  color: var(--permalink-icon-hover-fg);
 }
 
 .item-people {
