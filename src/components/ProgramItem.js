@@ -1,5 +1,6 @@
 import DOMPurify from "dompurify";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import { HiLink } from "react-icons/hi";
 import Location from "./Location";
 import Tag from "./Tag";
 import Participant from "./Participant";
@@ -107,6 +108,9 @@ const ProgramItem = ({ item }) => {
             expanded ? "item-details item-details-expanded" : "item-details"
           }
         >
+          <div className="item-perm-link">
+            <HiLink />
+          </div>
           <div className="item-people">
             <ul>{people}</ul>
           </div>
