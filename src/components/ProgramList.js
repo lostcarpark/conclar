@@ -3,7 +3,7 @@ import { useStoreState } from "easy-peasy";
 import Day from "./Day";
 import configData from "../config.json";
 
-const ProgramList = ({ program }) => {
+const ProgramList = ({ program, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const offset = useStoreState((state) => state.offset);
 
@@ -21,14 +21,28 @@ const ProgramList = ({ program }) => {
   program.forEach((item) => {
     if (item.date !== curDate) {
       if (itemRows.length > 0) {
-        rows.push(<Day key={curDate} date={curDate} items={itemRows} />);
+        rows.push(
+          <Day
+            key={curDate}
+            date={curDate}
+            items={itemRows}
+            forceExpanded={forceExpanded}
+          />
+        );
         itemRows = [];
       }
       curDate = item.date;
     }
     itemRows.push(item);
   });
-  rows.push(<Day key={curDate} date={curDate} items={itemRows} />);
+  rows.push(
+    <Day
+      key={curDate}
+      date={curDate}
+      items={itemRows}
+      forceExpanded={forceExpanded}
+    />
+  );
   const localTime =
     offset === null ? (
       <div className="time-local-message">{configData.LOCAL_TIME.FAILURE}</div>
@@ -45,8 +59,13 @@ const ProgramList = ({ program }) => {
   );
 };
 
+ProgramList.defaultProps = {
+  forceExpanded: false,
+};
+
 ProgramList.propTypes = {
   program: PropTypes.array,
+  forceExpanded: PropTypes.bool,
 };
 
 export default ProgramList;

@@ -1,14 +1,13 @@
-// import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import { useStoreState } from "easy-peasy";
 import ProgramItem from "./ProgramItem";
 import { LocalTime } from "../utils/LocalTime";
 
-const TimeSlot = ({ time, items }) => {
-  const showLocalTime = useStoreState((state)=>state.showLocalTime);
-  const show12HourTime = useStoreState((state)=>state.show12HourTime);
-  const offset = useStoreState(state => state.offset);
-	if (!time)
-		return "";
+const TimeSlot = ({ time, items, forceExpanded }) => {
+  const showLocalTime = useStoreState((state) => state.showLocalTime);
+  const show12HourTime = useStoreState((state) => state.show12HourTime);
+  const offset = useStoreState((state) => state.offset);
+  if (!time) return "";
   const conTime = (
     <div className="time-convention">
       {LocalTime.formatTimeInConventionTimeZone(time, show12HourTime)}
@@ -24,7 +23,9 @@ const TimeSlot = ({ time, items }) => {
     );
   const rows = [];
   items.forEach((item) => {
-    rows.push(<ProgramItem key={item.id} item={item} />);
+    rows.push(
+      <ProgramItem key={item.id} item={item} forceExpanded={forceExpanded} />
+    );
   });
 
   return (
@@ -38,8 +39,14 @@ const TimeSlot = ({ time, items }) => {
   );
 };
 
-// Day.PropTypes = {
-//     date: PropTypes.string
-// }
+TimeSlot.defaultProps = {
+  forceExpanded: false,
+};
+
+TimeSlot.propTypes = {
+  time: PropTypes.string,
+  items: PropTypes.array,
+  forceExpanded: PropTypes.bool,
+};
 
 export default TimeSlot;

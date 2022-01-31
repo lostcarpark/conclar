@@ -1,11 +1,8 @@
-// import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import TimeSlot from "./TimeSlot";
 import { LocalTime } from "../utils/LocalTime";
 
-const Day = ({
-  date,
-  items,
-}) => {
+const Day = ({ date, items, forceExpanded }) => {
   const day = LocalTime.formatDateForLocaleAsUTC(date);
   const rows = [];
   let itemRows = [];
@@ -18,6 +15,7 @@ const Day = ({
             key={curTime}
             time={curTime}
             items={itemRows}
+            forceExpanded={forceExpanded}
           />
         );
         itemRows = [];
@@ -31,6 +29,7 @@ const Day = ({
       key={curTime}
       time={curTime}
       items={itemRows}
+      forceExpanded={forceExpanded}
     />
   );
 
@@ -42,8 +41,14 @@ const Day = ({
   );
 };
 
-// Day.PropTypes = {
-//     date: PropTypes.string
-// }
+Day.defaultProps = {
+  forceExpanded: false,
+};
+
+Day.propTypes = {
+  date: PropTypes.string,
+  items: PropTypes.array,
+  forceExpanded: PropTypes.bool,
+};
 
 export default Day;

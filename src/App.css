@@ -348,6 +348,10 @@ input.switch:checked ~ label:after {
   white-space: nowrap;
 }
 
+.item-permalink {
+  float: right;
+}
+
 .item-people {
   margin: 0.5rem 0;
 }

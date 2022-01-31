@@ -66,6 +66,10 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 - `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type" }`.
 - `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
+- `PERMALINK.SHOW_PERMALINK`: If true, display a "permalink" icon when each program item is expanded.
+- `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
+- `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
+- `EXPAND.COLLAPSE_ALL_LABEL`: Label for Collapse All button.
 - `LINKS.MEETING`: Text to display on meeting links.
 - `LINKS.RECORDING`: Text to display on recording links.
 - `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
