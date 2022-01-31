@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import configData from "../config.json";
 
-const Participant = ({ person, thumbnails }) => {
+const Participant = ({ person, thumbnails, moderator }) => {
   function getParticipantThumbnail(person) {
     if (thumbnails) {
       if (person.img) {
@@ -32,13 +32,25 @@ const Participant = ({ person, thumbnails }) => {
     return "";
   }
 
+  function getParticipantName(person, moderator) {
+    if (moderator) {
+      return (
+	<span>{person.name} <span className="moderator">(moderator)</span></span>
+      )
+    } else {
+      return (
+        <span>{person.name}</span>
+      )
+    }
+  }
+
   function getParticipant(person) {
     if (configData.INTERACTIVE) {
       return (
         <li className="participant">
           <Link to={"/people/" + person.id}>
             {getParticipantThumbnail(person)}
-            <span>{person.name}</span>
+            {getParticipantName(person,moderator)}
           </Link>
         </li>
       )
@@ -46,7 +58,7 @@ const Participant = ({ person, thumbnails }) => {
     return (
       <li className="participant">
         {getParticipantThumbnail(person)}
-        <span>{person.name}</span>
+        {getParticipantName(person,moderator)}
       </li>
     );
   }

@@ -20,10 +20,10 @@ const ProgramItem = ({ item }) => {
   }));
 
   function toggleExpanded() {
-		if (configData.INTERACTIVE) {
-			if (expanded) collapseItem(item.id);
-			else expandItem(item.id);
-		}
+    if (configData.INTERACTIVE) {
+      if (expanded) collapseItem(item.id);
+      else expandItem(item.id);
+    }
   }
 
   function handleSelected(event) {
@@ -47,7 +47,7 @@ const ProgramItem = ({ item }) => {
   const people = [];
   if (item.people) {
     item.people.forEach((person) => {
-      people.push(<Participant key={person.id} person={person} />);
+      people.push(<Participant key={person.id} person={person} moderator={person.id === item.moderator} />);
     });
   }
   const safeDesc = DOMPurify.sanitize(item.desc);
