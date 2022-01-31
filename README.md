@@ -54,7 +54,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PROGRAM_DATA_URL`: The address of the file containing programme data.
 - `PEOPLE_DATA_URL`: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
 - `TIMEZONE`: The name of the timezone where your convention takes place. Viewers outside convention timezone will see times in convention time, and their local time below it.
-- `INTERACTIVE`: Set to `false` to get a non-interactive, expanded view of the schedule. The info page is also included, but not the participant list or individual participant pages.
+- `INTERACTIVE`: Set to `false` to get a non-interactive, expanded view of the schedule. The info page is also included, but not the participant list, individual participant pages, or individual item pages (regardless of the `PERMALINK.SHOW_PERMALINK` setting).
 - `NAVIGATION`: Each value in this section sets the label that will appear on main navigation of the site. Useful for switching between different international spellings of "programme".
 - `NAVIGATION.PROGRAM`: Label for program/programme menu.
 - `NAVIGATION.PEOPLE`: Label for people menu.
