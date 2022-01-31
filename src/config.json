@@ -25,6 +25,10 @@
     ],
     "FORMAT_AS_TAG": false
   },
+  "PERMALINK": {
+    "SHOW_PERMALINK": true,
+    "PERMALINK_TITLE": "Permalink"
+  },
   "EXPAND": {
     "EXPAND_ALL_LABEL": "Expand All",
     "COLLAPSE_ALL_LABEL": "Collapse All"
