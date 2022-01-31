@@ -33,6 +33,11 @@
     "EXPAND_ALL_LABEL": "Expand All",
     "COLLAPSE_ALL_LABEL": "Collapse All"
   },
+  "ITEM_DESCRIPTION": {
+    "PURIFY_OPTIONS": {
+      "FORBID_ATTR": ["style"]
+    }
+  },
   "LINKS": {
     "SIGNUP": "Click to sign up",
     "MEETING": "Click to view stream",
@@ -77,7 +82,10 @@
       "SHOW_SEARCH": true,
       "SEARCH_LABEL": "Search people"
     },
-    "PERSON_HEADER": "Person: "
+    "PERSON_HEADER": "Person: ",
+    "BIO": {
+      "PURIFY_OPTIONS": {}
+    }
   },
   "USELESS_CHECKBOX": {
     "CHECKBOX_LABEL": "Useless checkbox"
