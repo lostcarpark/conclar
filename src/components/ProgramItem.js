@@ -68,7 +68,7 @@ const ProgramItem = ({ item, forceExpanded }) => {
       );
     });
   }
-  const safeDesc = DOMPurify.sanitize(item.desc);
+  const safeDesc = DOMPurify.sanitize(item.desc, configData.ITEM_DESCRIPTION.PURIFY_OPTIONS);
   const signupLink =
     item.links && item.links.signup && item.links.signup.length ? (
       <div className="item-links-signup">

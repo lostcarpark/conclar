@@ -70,6 +70,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
 - `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
 - `EXPAND.COLLAPSE_ALL_LABEL`: Label for Collapse All button.
+- `ITEM_DESCRIPTION.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing item descriptions.  For the available options, see [the DOMPurify documentation](https://github.com/cure53/DOMPurify#can-i-configure-dompurify).  Format options as JSON, *e.g.*, `{"FORBID_ATTR": ["style"]}`.
 - `LINKS.MEETING`: Text to display on meeting links.
 - `LINKS.RECORDING`: Text to display on recording links.
 - `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
@@ -93,6 +94,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PEOPLE.SORT.CHECKBOX_LABEL`: Label for "Sort by full name" checkbox.
 - `PEOPLE.SEARCH.SHOW_SEARCH`: Set to false to hide "people" search box.
 - `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
+- `PEOPLE.BIO.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing participant bios.  For more details, see `ITEM_DESCRIPTION.PURIFY_OPTIONS` above.
 - `USELESS_CHECKBOX.CHECKBOX_LABEL`: Label for any useless checkboxes.
 - `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
 - `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
