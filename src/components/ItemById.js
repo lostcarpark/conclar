@@ -6,7 +6,11 @@ const ItemById = () => {
   const params = useParams();
   const program = useStoreState((state) => state.program);
   if (program.length === 0) return <></>;
-  const filteredProgram = program.filter((item) => item.id.toString() === params.id);
+
+  // Filter to select only the specified ID.
+  const filteredProgram = program.filter(
+    (item) => item.id.toString() === params.id
+  );
   return <ProgramList program={filteredProgram} forceExpanded={true} />;
 };
 
