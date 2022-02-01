@@ -16,13 +16,20 @@ const Person = () => {
         Person id <span>{params.id}</span> was not found.
       </div>
     );
-  const img =
-    (person.img) ? (
-      <img src={person.img} alt={person.name} />
-    ) : (
-      ""
-    );
-  const safeBio = person.bio ? DOMPurify.sanitize(person.bio, configData.PEOPLE.BIO.PURIFY_OPTIONS) : "";
+  const img = person.img ? <img src={person.img} alt={person.name} /> : "";
+  // Sanitize the bio to remove dangerous HTML, using options from config.
+  const safeBio = person.bio
+    ? DOMPurify.sanitize(person.bio, configData.PEOPLE.BIO.PURIFY_OPTIONS)
+    : "";
+  const filteredProgram = program.filter((item) => {
+    if (item.people) {
+      // IF item has people, check eash one to see if they match the person we're interested in.
+      for (const person of item.people) {
+        if (person.id.toString() === params.id) return true;
+      }
+    }
+    return false;
+  });
   return (
     <div className="person">
       <h2 className="person-name">
@@ -34,16 +41,7 @@ const Person = () => {
         className="person-bio"
         dangerouslySetInnerHTML={{ __html: safeBio }}
       />
-      <ProgramList
-        program={program.filter((item) => {
-          if (item.people) {
-            for (const person of item.people) {
-              if (person.id.toString() === params.id) return true;
-            }
-          }
-          return false;
-        })}
-      />
+      <ProgramList program={filteredProgram} />
     </div>
   );
 };

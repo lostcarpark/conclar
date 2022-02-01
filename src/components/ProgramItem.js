@@ -41,15 +41,19 @@ const ProgramItem = ({ item, forceExpanded }) => {
     }
   else locations.push(<Location key={item.loc} loc={item.loc} />);
 
-  const permaLink = configData.PERMALINK.SHOW_PERMALINK && configData.INTERACTIVE ? (
-    <div className="item-permalink">
-      <Link to={"/id/" + item.id} title={configData.PERMALINK.PERMALINK_TITLE}>
-        <HiLink />
-      </Link>
-    </div>
-  ) : (
-    ""
-  );
+  const permaLink =
+    configData.PERMALINK.SHOW_PERMALINK && configData.INTERACTIVE ? (
+      <div className="item-permalink">
+        <Link
+          to={"/id/" + item.id}
+          title={configData.PERMALINK.PERMALINK_TITLE}
+        >
+          <HiLink />
+        </Link>
+      </div>
+    ) : (
+      ""
+    );
 
   const tags = [];
   for (let tag of item.tags) {
@@ -68,7 +72,10 @@ const ProgramItem = ({ item, forceExpanded }) => {
       );
     });
   }
-  const safeDesc = DOMPurify.sanitize(item.desc, configData.ITEM_DESCRIPTION.PURIFY_OPTIONS);
+  const safeDesc = DOMPurify.sanitize(
+    item.desc,
+    configData.ITEM_DESCRIPTION.PURIFY_OPTIONS
+  );
   const signupLink =
     item.links && item.links.signup && item.links.signup.length ? (
       <div className="item-links-signup">
