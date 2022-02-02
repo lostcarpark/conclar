@@ -109,6 +109,30 @@ const ProgramItem = ({ item, forceExpanded }) => {
       ""
     );
 
+  const itemExpandedClass =
+    expanded || forceExpanded ? " item-details-expanded" : "";
+  const itemExpandedDetails =
+    expanded || forceExpanded ? (
+      <>
+        {permaLink}
+        <div className="item-people">
+          <ul>{people}</ul>
+        </div>
+        <div className="item-tags">{tags}</div>
+        <div
+          className="item-description"
+          dangerouslySetInnerHTML={{ __html: safeDesc }}
+        />
+        <div className="item-links">
+          {signupLink}
+          {meetingLink}
+          {recordingLink}
+        </div>
+      </>
+    ) : (
+      ""
+    );
+
   return (
     <div id={id} className="item">
       <div className="item-selection">
@@ -127,27 +151,8 @@ const ProgramItem = ({ item, forceExpanded }) => {
           <div className="item-location">{locations}</div>
           {duration}
         </div>
-        <div
-          className={
-            expanded || forceExpanded
-              ? "item-details item-details-expanded"
-              : "item-details"
-          }
-        >
-          {permaLink}
-          <div className="item-people">
-            <ul>{people}</ul>
-          </div>
-          <div className="item-tags">{tags}</div>
-          <div
-            className="item-description"
-            dangerouslySetInnerHTML={{ __html: safeDesc }}
-          />
-          <div className="item-links">
-            {signupLink}
-            {meetingLink}
-            {recordingLink}
-          </div>
+        <div className={"item-details" + itemExpandedClass}>
+          {itemExpandedDetails}
         </div>
       </div>
     </div>
