@@ -4,6 +4,7 @@
  * 1. Global application styles.
  * 2. Application header.
  * 3. Navigation.
+ * 3a. Toggles and Filters
  * 4. Program.
  * 5. People.
  * 6. Informtion page.
@@ -103,7 +104,7 @@ header h1 {
 }
 
 .navigation li {
-  margin: 0;
+  margin: 0.25em 0;
 }
 
 /* CSS for button 81 from https://getcssscan.com/css-buttons-examples */
@@ -147,6 +148,14 @@ header h1 {
   }
 }
 
+@media (max-width: 480px) {
+  .navigation li a {
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* page not founds */
 .error {
   text-align: center;
   color: var(--error-message-fg);
@@ -157,29 +166,8 @@ header h1 {
   font-weight: bold;
 }
 
-.filter-locations {
-  display: inline-block;
-  font-size: 0.8em;
-  padding: 0 0.5em 0.5em 0;
-}
-
-.filter-tags {
-  display: inline-block;
-  font-size: 0.8em;
-  padding: 0 0.5em 0.5em 0;
-}
-
-.filter-total {
-  margin: 0.3rem 0 1rem 0;
-}
-
-/* Removing for now to prevent odd display of checkboxes in middle of row, and weird display in Firefox.
-div.filter-options {
-  float: right;
-}
-*/
-
-/* style all non-selection checkboxes as toggles
+/* 3a. Toggles and Filters
+   style all non-selection checkboxes as toggles
    based on https://www.sitepoint.com/css3-toggle-switch/ */
 
 div.switch-wrapper {
@@ -245,6 +233,22 @@ input.switch:checked ~ label:before {
 
 input.switch:checked ~ label:after {
   margin-left: 1.5em;
+}
+
+.filter-locations {
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0 0.5em 0.5em 0;
+}
+
+.filter-tags {
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0 0.5em 0.5em 0;
+}
+
+.filter-total {
+  margin: 0.3rem 0 1rem 0;
 }
 
 /*
