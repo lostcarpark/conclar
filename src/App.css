@@ -4,7 +4,7 @@
  * 1. Global application styles.
  * 2. Application header.
  * 3. Navigation.
- * 3a. Toggles and Filters
+ * 3a. Toggles and Filters.
  * 4. Program.
  * 5. People.
  * 6. Informtion page.
@@ -22,6 +22,8 @@
   --navigation-button-bg: #ddd;
   --navigation-button-fg: #0d172a;
   --navigation-button-border: #e2e8f0;
+  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
+  --navigation-button-current-fg: #fff;
   --navigation-button-hover-bg: #1e293b;
   --navigation-button-hover-fg: #fff;
   --checkbox-switch-bg: white;
@@ -135,7 +137,13 @@ header h1 {
   white-space: nowrap;
 }
 
-.navigation li a:hover {
+.navigation li a.active {
+  background-color: var(--navigation-button-current-bg);
+  color: var(--navigation-button-current-fg);
+}
+
+.navigation li a:hover,
+.navigation li a.active:hover {
   background-color: var(--navigation-button-hover-bg);
   color: var(--navigation-button-hover-fg);
 }
@@ -166,7 +174,7 @@ header h1 {
   font-weight: bold;
 }
 
-/* 3a. Toggles and Filters
+/* 3a. Toggles and Filters.
    style all non-selection checkboxes as toggles
    based on https://www.sitepoint.com/css3-toggle-switch/ */
 

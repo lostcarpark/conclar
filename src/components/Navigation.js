@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import configData from "../config.json";
 
 const Navigation = () => {
@@ -16,16 +16,16 @@ const Navigation = () => {
     <nav className="navigation">
       <ul>
         <li>
-          <Link to="/">{configData.NAVIGATION.PROGRAM}</Link>
+          <NavLink to="/">{configData.NAVIGATION.PROGRAM}</NavLink>
         </li>
         <li>
-          <Link to="/people">{configData.NAVIGATION.PEOPLE}</Link>
+          <NavLink to="/people">{configData.NAVIGATION.PEOPLE}</NavLink>
         </li>
         <li>
-          <Link to="/myschedule">{configData.NAVIGATION.MYSCHEDULE}</Link>
+          <NavLink to="/myschedule">{configData.NAVIGATION.MYSCHEDULE}</NavLink>
         </li>
         <li>
-          <Link to="/info">{configData.NAVIGATION.INFO}</Link>
+          <NavLink to="/info">{configData.NAVIGATION.INFO}</NavLink>
         </li>
         {extraLinks}
       </ul>
