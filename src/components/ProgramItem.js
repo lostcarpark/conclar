@@ -1,6 +1,7 @@
 import DOMPurify from "dompurify";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Link } from "react-router-dom";
+import { Transition, animated } from "react-spring";
 import { HiLink } from "react-icons/hi";
 import Location from "./Location";
 import Tag from "./Tag";
@@ -111,27 +112,6 @@ const ProgramItem = ({ item, forceExpanded }) => {
 
   const itemExpandedClass =
     expanded || forceExpanded ? " item-details-expanded" : "";
-  const itemExpandedDetails =
-    expanded || forceExpanded ? (
-      <>
-        {permaLink}
-        <div className="item-people">
-          <ul>{people}</ul>
-        </div>
-        <div className="item-tags">{tags}</div>
-        <div
-          className="item-description"
-          dangerouslySetInnerHTML={{ __html: safeDesc }}
-        />
-        <div className="item-links">
-          {signupLink}
-          {meetingLink}
-          {recordingLink}
-        </div>
-      </>
-    ) : (
-      ""
-    );
 
   return (
     <div id={id} className="item">
@@ -151,9 +131,35 @@ const ProgramItem = ({ item, forceExpanded }) => {
           <div className="item-location">{locations}</div>
           {duration}
         </div>
-        <div className={"item-details" + itemExpandedClass}>
-          {itemExpandedDetails}
-        </div>
+        <Transition
+          native
+          items={expanded || forceExpanded}
+          from={{ outerHeight: 0 }}
+          enter={{ outerHeight: 100 }}
+          leave={{ outerHeight: 0 }}
+        >
+          {(show) =>
+            show &&
+            ((props) => (
+              <animated.div className={"item-details"} style={props}>
+                {permaLink}
+                <div className="item-people">
+                  <ul>{people}</ul>
+                </div>
+                <div className="item-tags">{tags}</div>
+                <div
+                  className="item-description"
+                  dangerouslySetInnerHTML={{ __html: safeDesc }}
+                />
+                <div className="item-links">
+                  {signupLink}
+                  {meetingLink}
+                  {recordingLink}
+                </div>
+              </animated.div>
+            ))
+          }
+        </Transition>
       </div>
     </div>
   );
