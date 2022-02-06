@@ -4,6 +4,7 @@
  * 1. Global application styles.
  * 2. Application header.
  * 3. Navigation.
+ * 3a. Toggles and Filters.
  * 4. Program.
  * 5. People.
  * 6. Informtion page.
@@ -21,6 +22,8 @@
   --navigation-button-bg: #ddd;
   --navigation-button-fg: #0d172a;
   --navigation-button-border: #e2e8f0;
+  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
+  --navigation-button-current-fg: #fff;
   --navigation-button-hover-bg: #1e293b;
   --navigation-button-hover-fg: #fff;
   --checkbox-switch-bg: white;
@@ -50,11 +53,12 @@
 }
 
 body {
-  margin: 0;
+  margin: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--main-bg);
   color: var(--main-fg);
+  max-width: 75rem;
 }
 
 .App {
@@ -103,7 +107,7 @@ header h1 {
 }
 
 .navigation li {
-  margin: 0;
+  margin: 0.25em 0;
 }
 
 /* CSS for button 81 from https://getcssscan.com/css-buttons-examples */
@@ -134,7 +138,13 @@ header h1 {
   white-space: nowrap;
 }
 
-.navigation li a:hover {
+.navigation li a.active {
+  background-color: var(--navigation-button-current-bg);
+  color: var(--navigation-button-current-fg);
+}
+
+.navigation li a:hover,
+.navigation li a.active:hover {
   background-color: var(--navigation-button-hover-bg);
   color: var(--navigation-button-hover-fg);
 }
@@ -147,6 +157,14 @@ header h1 {
   }
 }
 
+@media (max-width: 480px) {
+  .navigation li a {
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* page not founds */
 .error {
   text-align: center;
   color: var(--error-message-fg);
@@ -157,33 +175,15 @@ header h1 {
   font-weight: bold;
 }
 
-.filter-locations {
-  display: inline-block;
-  font-size: 0.8em;
-  padding: 0 0.5em 0.5em 0;
-}
-
-.filter-tags {
-  display: inline-block;
-  font-size: 0.8em;
-  padding: 0 0.5em 0.5em 0;
-}
-
-.filter-total {
-  margin: 0.3rem 0 1rem 0;
-}
-
-/* Removing for now to prevent odd display of checkboxes in middle of row, and weird display in Firefox.
-div.filter-options {
-  float: right;
-}
-*/
-
-/* style all non-selection checkboxes as toggles
+/* 3a. Toggles and Filters.
+   style all non-selection checkboxes as toggles
    based on https://www.sitepoint.com/css3-toggle-switch/ */
 
 div.switch-wrapper {
   font-size: smaller;
+}
+div.switch-wrapper label {
+  max-height: 2em;
 }
 
 div.switch-wrapper,
@@ -245,6 +245,62 @@ input.switch:checked ~ label:before {
 
 input.switch:checked ~ label:after {
   margin-left: 1.5em;
+}
+
+/* two rews on large screens, seven on tiny */
+.search-filters,
+.result-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-inline-start: 0;
+  margin: 0.25em;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-inline-start: 0;
+}
+
+.filter-tags, 
+.filter-locations,
+.filter-search,
+.filter-options {
+  flex-basis: 0;
+  flex-grow: 1;
+  margin: 0.25em;
+}
+
+.filter-tags, 
+.filter-locations,
+.filter-search {
+  font-size: 0.8em;
+  min-width: 20ch;
+  max-width: 50ch;
+}
+
+.stack {
+  flex-basis: 0;
+  flex-grow: 2;
+  margin: 0.25em;
+}
+
+.filter-expand, 
+.filter-options {
+  white-space: nowrap;
+}
+
+.filter-search {
+  max-width: 30ch;
+  margin: auto 0.25em;
+}
+
+.filter-expand {
+  margin-top: 0.5em;
+  max-width: 100ch;
 }
 
 /*
