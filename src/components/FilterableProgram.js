@@ -219,38 +219,44 @@ const FilterableProgram = () => {
   return (
     <div>
       <div className="filter">
-        <div className="filter-locations">
-          <ReactSelect
-            placeholder="Select locations"
-            options={locations}
-            isMulti
-            isSearchable={configData.LOCATIONS.SEARCHABLE}
-            value={selLoc}
-            onChange={handleLoc}
-          />
-        </div>
-        {tagFilters}
-        <div className="filter-search">
-          <input
-            type="text"
-            placeholder="Enter search text"
-            value={search}
-            onChange={handleSearch}
-          />
-        </div>
-        <div className="filter-total">{totalMessage}</div>
-        <div className="filter-expand">
-          <button disabled={allExpanded} onClick={expandAll}>
-            {configData.EXPAND.EXPAND_ALL_LABEL}
-          </button>
-          <button disabled={noneExpanded} onClick={collapseAll}>
-            {configData.EXPAND.COLLAPSE_ALL_LABEL}
-          </button>
-        </div>
-        <div className="filter-options">
-          {localTimeCheckbox}
-          {show12HourTimeCheckbox}
-          {pastItemsCheckbox}
+	<div className="search-filters">
+          <div className="filter-locations">
+            <ReactSelect
+              placeholder="Select locations"
+              options={locations}
+              isMulti
+              isSearchable={configData.LOCATIONS.SEARCHABLE}
+              value={selLoc}
+              onChange={handleLoc}
+            />
+          </div>
+          {tagFilters}
+          <div className="filter-search">
+            <input
+              type="text"
+              placeholder="Enter search text"
+              value={search}
+              onChange={handleSearch}
+            />
+          </div>
+	</div>
+	<div className="result-filters">
+	  <div className="stack">
+            <div className="filter-total">{totalMessage}</div>
+            <div className="filter-expand">
+              <button disabled={allExpanded} onClick={expandAll}>
+		{configData.EXPAND.EXPAND_ALL_LABEL}
+              </button>
+              <button disabled={noneExpanded} onClick={collapseAll}>
+		{configData.EXPAND.COLLAPSE_ALL_LABEL}
+              </button>
+            </div>
+	  </div>
+          <div className="filter-options">
+            {localTimeCheckbox}
+            {show12HourTimeCheckbox}
+            {pastItemsCheckbox}
+          </div>
         </div>
       </div>
       <div className="program-page">
