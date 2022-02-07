@@ -1,7 +1,9 @@
 import DOMPurify from "dompurify";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Link } from "react-router-dom";
-import { Transition, animated } from "react-spring";
+import useMeasure from "react-use-measure";
+import { useSpring, animated } from "react-spring";
+import { IoChevronDownCircle } from "react-icons/io5";
 import { HiLink } from "react-icons/hi";
 import Location from "./Location";
 import Tag from "./Tag";
@@ -110,8 +112,17 @@ const ProgramItem = ({ item, forceExpanded }) => {
       ""
     );
 
+  const [ref, bounds] = useMeasure();
+  const chevronExpandedClass =
+    expanded || forceExpanded ? " item-chevron-expanded" : "";
+  const chevronExpandedStyle = useSpring({
+    transform: expanded || forceExpanded ? "rotate(180deg)" : "rotate(0deg)",
+  });
   const itemExpandedClass =
     expanded || forceExpanded ? " item-details-expanded" : "";
+  const itemExpandedStyle = useSpring({
+    height: expanded || forceExpanded ? bounds.height : 0,
+  });
 
   return (
     <div id={id} className="item">
@@ -126,40 +137,37 @@ const ProgramItem = ({ item, forceExpanded }) => {
         </div>
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
-        <div className="item-title">{item.title}</div>
+        <div className="item-title">
+          <animated.div
+            className={"item-chevron" + chevronExpandedClass}
+            style={chevronExpandedStyle}
+          >
+            <IoChevronDownCircle />
+          </animated.div>
+          {item.title}
+        </div>
         <div className="item-line2">
           <div className="item-location">{locations}</div>
           {duration}
         </div>
-        <Transition
-          native
-          items={expanded || forceExpanded}
-          from={{ outerHeight: 0 }}
-          enter={{ outerHeight: 100 }}
-          leave={{ outerHeight: 0 }}
-        >
-          {(show) =>
-            show &&
-            ((props) => (
-              <animated.div className={"item-details"} style={props}>
-                {permaLink}
-                <div className="item-people">
-                  <ul>{people}</ul>
-                </div>
-                <div className="item-tags">{tags}</div>
-                <div
-                  className="item-description"
-                  dangerouslySetInnerHTML={{ __html: safeDesc }}
-                />
-                <div className="item-links">
-                  {signupLink}
-                  {meetingLink}
-                  {recordingLink}
-                </div>
-              </animated.div>
-            ))
-          }
-        </Transition>
+        <animated.div className="item-details" style={itemExpandedStyle}>
+          <div className="item-details-expanded" ref={ref}>
+            {permaLink}
+            <div className="item-people">
+              <ul>{people}</ul>
+            </div>
+            <div className="item-tags">{tags}</div>
+            <div
+              className="item-description"
+              dangerouslySetInnerHTML={{ __html: safeDesc }}
+            />
+            <div className="item-links">
+              {signupLink}
+              {meetingLink}
+              {recordingLink}
+            </div>
+          </div>
+        </animated.div>
       </div>
     </div>
   );
