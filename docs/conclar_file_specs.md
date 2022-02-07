@@ -41,7 +41,8 @@ var program = [
 		],
 		"desc": "",
 		"links": [
-			"meeting": "http://url.to,meeting/",
+			"signup": "http://url.to.signup/",
+			"meeting": "http://url.to.meeting/",
 			"recording": "http://url.to.recording/"
 		]
 	},
@@ -61,7 +62,7 @@ var program = [
 * `people` is an array that contains a list of the people assigned to the programme item. Each person is an array, containing `id` (required), `name` (optional) and `role` (optional). If name is present, it will get replaced by reference to the full `people` record when the file is loaded. The `role` item, if present, is checked for "Moderator" and used to set the moderator flag. The `name` item is also checked for "(moderator)" and will set the moderator flag.
 * `desc` is a description of the programme item.
     * Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which are not supported elsewhere.
-* `links` is an array that contains a set of url links for the programme item. Currently, `meeting` and `recording` are the valid link types.
+* `links` is an array that contains a set of url links for the programme item. Currently, `signup`, `meeting` and `recording` are the valid link types.
 
 
 ## People Object
