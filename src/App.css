@@ -267,7 +267,7 @@ input.switch:checked ~ label:after {
   padding-inline-start: 0;
 }
 
-.filter-tags,
+.filter-tags, 
 .filter-locations,
 .filter-search,
 .filter-options {
@@ -290,7 +290,7 @@ input.switch:checked ~ label:after {
   margin: 0.25em;
 }
 
-.filter-expand,
+.filter-expand, 
 .filter-options {
   white-space: nowrap;
 }
