@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
 import PropTypes from "prop-types";
+import { useStoreState, useStoreActions } from "easy-peasy";
+import { useTransition, animated } from "react-spring";
 import Participant from "./Participant";
 import configData from "../config.json";
 
@@ -17,7 +18,6 @@ const People = () => {
 
   const [search, setSearch] = useState("");
   //console.log(people);
-  const rows = [];
 
   // Make a copy of people array, and apply filtering and sorting.
   let displayPeople = [...people];
@@ -29,17 +29,15 @@ const People = () => {
       if (person.name.toLowerCase().includes(term)) return true;
       return false;
     });
-  for (const person of displayPeople) {
-    rows.push(
-      <Participant
-        key={person.id}
-        person={person}
-        thumbnails={
-          configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS && showThumbnails
-        }
-      />
-    );
-  }
+  const rows = displayPeople.map((person) => (
+    <Participant
+      key={person.id}
+      person={person}
+      thumbnails={
+        configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS && showThumbnails
+      }
+    />
+  ));
 
   const thumbnailCheckboxLabel =
     configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS ===
