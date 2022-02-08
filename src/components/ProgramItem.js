@@ -1,6 +1,9 @@
 import DOMPurify from "dompurify";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Link } from "react-router-dom";
+import useMeasure from "react-use-measure";
+import { useSpring, animated } from "react-spring";
+import { IoChevronDownCircle } from "react-icons/io5";
 import { HiLink } from "react-icons/hi";
 import Location from "./Location";
 import Tag from "./Tag";
@@ -109,6 +112,28 @@ const ProgramItem = ({ item, forceExpanded }) => {
       ""
     );
 
+  const [ref, bounds] = useMeasure();
+  const showExpanded = !configData.INTERACTIVE || expanded || forceExpanded;
+  const chevronExpandedClass = showExpanded ? " item-chevron-expanded" : "";
+  const chevronExpandedStyle = useSpring({
+    transform: showExpanded ? "rotate(180deg)" : "rotate(0deg)",
+  });
+  const itemExpandedStyle = useSpring({
+    height: showExpanded ? bounds.height : 0,
+  });
+
+  const chevron =
+    configData.INTERACTIVE && !forceExpanded ? (
+      <animated.div
+        className={"item-chevron" + chevronExpandedClass}
+        style={chevronExpandedStyle}
+      >
+        <IoChevronDownCircle />
+      </animated.div>
+    ) : (
+      ""
+    );
+
   return (
     <div id={id} className="item">
       <div className="item-selection">
@@ -122,33 +147,32 @@ const ProgramItem = ({ item, forceExpanded }) => {
         </div>
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
-        <div className="item-title">{item.title}</div>
+        <div className="item-title">
+          {chevron}
+          {item.title}
+        </div>
         <div className="item-line2">
           <div className="item-location">{locations}</div>
           {duration}
         </div>
-        <div
-          className={
-            expanded || forceExpanded
-              ? "item-details item-details-expanded"
-              : "item-details"
-          }
-        >
-          {permaLink}
-          <div className="item-people">
-            <ul>{people}</ul>
+        <animated.div className="item-details" style={itemExpandedStyle}>
+          <div className="item-details-expanded" ref={ref}>
+            {permaLink}
+            <div className="item-people">
+              <ul>{people}</ul>
+            </div>
+            <div className="item-tags">{tags}</div>
+            <div
+              className="item-description"
+              dangerouslySetInnerHTML={{ __html: safeDesc }}
+            />
+            <div className="item-links">
+              {signupLink}
+              {meetingLink}
+              {recordingLink}
+            </div>
           </div>
-          <div className="item-tags">{tags}</div>
-          <div
-            className="item-description"
-            dangerouslySetInnerHTML={{ __html: safeDesc }}
-          />
-          <div className="item-links">
-            {signupLink}
-            {meetingLink}
-            {recordingLink}
-          </div>
-        </div>
+        </animated.div>
       </div>
     </div>
   );

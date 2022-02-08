@@ -29,14 +29,16 @@
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: green;
   --checkbox-unselected-bg: red;
+  --program-item-chevron-collapsed: #ccc;
+  --program-item-chevron-expanded: #bbe;
   --program-time-local-message: grey;
   --program-date-line: #888;
   --program-time-line: #ccc;
   --program-item-line: #bbb;
   --program-tags-fg: #888;
   --program-expanded-bg: #eee;
-  --permalink-icon-fg: #265C83;
-  --permalink-icon-hover-fg: #7FDBFF;
+  --permalink-icon-fg: #265c83;
+  --permalink-icon-hover-fg: #7fdbff;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
   --footer-line: #888;
@@ -274,7 +276,7 @@ input.switch:checked ~ label:after {
   margin: 0.25em;
 }
 
-.filter-tags, 
+.filter-tags,
 .filter-locations,
 .filter-search {
   font-size: 0.8em;
@@ -382,6 +384,18 @@ input.switch:checked ~ label:after {
   word-break: break-word;
 }
 
+.item-chevron {
+  float: right;
+  color: var(--program-item-chevron-collapsed);
+  font-size: 1.5rem;
+  line-height: 1rem;
+  overflow: auto;
+}
+
+.item-chevron-expanded {
+  color: var(--program-item-chevron-expanded);
+}
+
 .item-title {
   font-weight: bold;
 }
@@ -411,13 +425,13 @@ input.switch:checked ~ label:after {
 }
 
 .item-permalink a {
-  transition: color .4s;
+  transition: color 0.4s;
   color: var(--permalink-icon-fg);
 }
 .item-permalink a:visited {
   color: var(--permalink-icon-fg);
 }
-.item-permalink a:hover   { 
+.item-permalink a:hover {
   color: var(--permalink-icon-hover-fg);
 }
 
@@ -453,19 +467,14 @@ input.switch:checked ~ label:after {
 }
 
 .item-details {
-  transition-property: max-height;
-  transition-duration: 0.5s;
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  max-height: 0;
   overflow: hidden;
 }
 
-.item-entry > .item-details.item-details-expanded {
-  background-color: var(--program-expanded-bg);
-}
+/* .item-entry > .item-details.item-details-expanded {
+} */
 
 .item-details-expanded {
-  max-height: 40rem;
+  background-color: var(--program-expanded-bg);
   padding: 0.5rem;
   border-radius: 0.5rem;
   overflow: auto;
