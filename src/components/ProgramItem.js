@@ -113,16 +113,26 @@ const ProgramItem = ({ item, forceExpanded }) => {
     );
 
   const [ref, bounds] = useMeasure();
-  const chevronExpandedClass =
-    expanded || forceExpanded ? " item-chevron-expanded" : "";
+  const showExpanded = !configData.INTERACTIVE || expanded || forceExpanded;
+  const chevronExpandedClass = showExpanded ? " item-chevron-expanded" : "";
   const chevronExpandedStyle = useSpring({
-    transform: expanded || forceExpanded ? "rotate(180deg)" : "rotate(0deg)",
+    transform: showExpanded ? "rotate(180deg)" : "rotate(0deg)",
   });
-  const itemExpandedClass =
-    expanded || forceExpanded ? " item-details-expanded" : "";
   const itemExpandedStyle = useSpring({
-    height: expanded || forceExpanded ? bounds.height : 0,
+    height: showExpanded ? bounds.height : 0,
   });
+
+  const chevron =
+    configData.INTERACTIVE && !forceExpanded ? (
+      <animated.div
+        className={"item-chevron" + chevronExpandedClass}
+        style={chevronExpandedStyle}
+      >
+        <IoChevronDownCircle />
+      </animated.div>
+    ) : (
+      ""
+    );
 
   return (
     <div id={id} className="item">
@@ -138,12 +148,7 @@ const ProgramItem = ({ item, forceExpanded }) => {
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
         <div className="item-title">
-          <animated.div
-            className={"item-chevron" + chevronExpandedClass}
-            style={chevronExpandedStyle}
-          >
-            <IoChevronDownCircle />
-          </animated.div>
+          {chevron}
           {item.title}
         </div>
         <div className="item-line2">
