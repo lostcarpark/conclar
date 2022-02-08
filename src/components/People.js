@@ -41,18 +41,6 @@ const People = () => {
     );
   }
 
-  function handleThumbnail(event) {
-    setShowThumbnails(event.target.checked);
-  }
-
-  function handleSort(event) {
-    setSortByFullName(event.target.checked);
-  }
-
-  function handleSearch(event) {
-    setSearch(event.target.value);
-  }
-
   const thumbnailCheckboxLabel =
     configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS ===
     configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX
@@ -66,7 +54,7 @@ const People = () => {
         className="switch"
         type="checkbox"
         checked={showThumbnails}
-        onChange={handleThumbnail}
+        onChange={(e) => setShowThumbnails(e.target.checked)}
       />
       <label htmlFor="thumbnails">{thumbnailCheckboxLabel}</label>
     </div>
@@ -82,7 +70,7 @@ const People = () => {
         className="switch"
         type="checkbox"
         checked={sortByFullName}
-        onChange={handleSort}
+        onChange={(e) => setSortByFullName(e.target.checked)}
       />
       <label htmlFor="sort_people">
         {configData.PEOPLE.SORT.CHECKBOX_LABEL}
@@ -97,7 +85,7 @@ const People = () => {
       <input
         type="text"
         value={search}
-        onChange={handleSearch}
+        onChange={(e) => setSearch(e.target.value)}
         placeholder={configData.PEOPLE.SEARCH.SEARCH_LABEL}
       />
     </div>
