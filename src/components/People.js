@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
 import PropTypes from "prop-types";
+import { useStoreState, useStoreActions } from "easy-peasy";
 import Participant from "./Participant";
 import configData from "../config.json";
 
@@ -17,7 +17,6 @@ const People = () => {
 
   const [search, setSearch] = useState("");
   //console.log(people);
-  const rows = [];
 
   // Make a copy of people array, and apply filtering and sorting.
   let displayPeople = [...people];
@@ -29,29 +28,15 @@ const People = () => {
       if (person.name.toLowerCase().includes(term)) return true;
       return false;
     });
-  for (const person of displayPeople) {
-    rows.push(
-      <Participant
-        key={person.id}
-        person={person}
-        thumbnails={
-          configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS && showThumbnails
-        }
-      />
-    );
-  }
-
-  function handleThumbnail(event) {
-    setShowThumbnails(event.target.checked);
-  }
-
-  function handleSort(event) {
-    setSortByFullName(event.target.checked);
-  }
-
-  function handleSearch(event) {
-    setSearch(event.target.value);
-  }
+  const rows = displayPeople.map((person) => (
+    <Participant
+      key={person.id}
+      person={person}
+      thumbnails={
+        configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS && showThumbnails
+      }
+    />
+  ));
 
   const thumbnailCheckboxLabel =
     configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS ===
@@ -66,7 +51,7 @@ const People = () => {
         className="switch"
         type="checkbox"
         checked={showThumbnails}
-        onChange={handleThumbnail}
+        onChange={(e) => setShowThumbnails(e.target.checked)}
       />
       <label htmlFor="thumbnails">{thumbnailCheckboxLabel}</label>
     </div>
@@ -82,7 +67,7 @@ const People = () => {
         className="switch"
         type="checkbox"
         checked={sortByFullName}
-        onChange={handleSort}
+        onChange={(e) => setSortByFullName(e.target.checked)}
       />
       <label htmlFor="sort_people">
         {configData.PEOPLE.SORT.CHECKBOX_LABEL}
@@ -97,7 +82,7 @@ const People = () => {
       <input
         type="text"
         value={search}
-        onChange={handleSearch}
+        onChange={(e) => setSearch(e.target.value)}
         placeholder={configData.PEOPLE.SEARCH.SEARCH_LABEL}
       />
     </div>
