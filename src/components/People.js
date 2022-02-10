@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useStoreState, useStoreActions } from "easy-peasy";
-import { useTransition, animated } from "react-spring";
 import Participant from "./Participant";
 import configData from "../config.json";
 
