@@ -31,7 +31,8 @@
   },
   "EXPAND": {
     "EXPAND_ALL_LABEL": "Expand All",
-    "COLLAPSE_ALL_LABEL": "Collapse All"
+    "COLLAPSE_ALL_LABEL": "Collapse All",
+    "SPRING_CONFIG": { "duration": 100 }
   },
   "ITEM_DESCRIPTION": {
     "PURIFY_OPTIONS": {}
