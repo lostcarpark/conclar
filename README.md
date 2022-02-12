@@ -70,7 +70,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
 - `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
 - `EXPAND.COLLAPSE_ALL_LABEL`: Label for Collapse All button.
-- `EXPAND.SPRING_CONFIG`: Config to apply to the configuration of the 'spring' when expanding items. This may be a simply duration, such as `{ "duration": 100 }` to expand in 100ms, or can configure more dynamic spring effects, such as `{ mass: 1, tension: 1000, friction: 30 }`. Full list of options in {react-spring documentation}[https://react-spring.io/common/configs].
+- `EXPAND.SPRING_CONFIG`: Config to apply to the configuration of the 'spring' when expanding items. This may be a simply duration, such as `{ "duration": 100 }` to expand in 100ms, or can configure more dynamic spring effects, such as `{ mass: 1, tension: 1000, friction: 30 }`. Full list of options in [react-spring documentation](https://react-spring.io/common/configs).
 - `ITEM_DESCRIPTION.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing item descriptions. For the available options, see [the DOMPurify documentation](https://github.com/cure53/DOMPurify#can-i-configure-dompurify). Format options as JSON, _e.g._, `{"FORBID_ATTR": ["style"]}`.
 - `LINKS.MEETING`: Text to display on meeting links.
 - `LINKS.RECORDING`: Text to display on recording links.
