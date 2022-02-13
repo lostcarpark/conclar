@@ -40,11 +40,11 @@ var program = [
 			{ "id": "2345", "name": "Just Sömeguy" }
 		],
 		"desc": "",
-		"links": [
+		"links": {
 			"signup": "http://url.to.signup/",
 			"meeting": "http://url.to.meeting/",
 			"recording": "http://url.to.recording/"
-		]
+		}
 	},
 	...
 ];
@@ -84,12 +84,12 @@ var people = [
 		"sortname": "Sir Galahad",
 		"tags": [ "GoH" ],
 		"prog": [ "416" ],
-		"links": [
+		"links": {
 			"img": "/images/galahad.jpg",
 			"photo": "/images/galahad.jpg",
 			"img_256_url": "/images/galahad.jpg",
 			"url": "http://en.wikipedia.org/wiki/Galahad"
-		],
+		},
 		"bio": "Sir Galahad (/ˈɡæləhæd/; Middle Welsh: Gwalchavad, sometimes referred to as Galeas /ɡəˈliːəs/ or Galath /ˈɡæləθ/), in Arthurian legend, is a knight of King Arthur's Round Table and one of the three achievers of the Holy Grail."
 	},
 	{
@@ -98,10 +98,10 @@ var people = [
 		"sortname": "Sömeguy Just",
 		"tags": [],
 		"prog": [ "1234", "416", "810" ],
-		"links": [
+		"links": {
 			"twitter": "justsomeguy9999",
 			"url": "http://example.com/just-someguys-blog"
-		],
+		},
 		"bio": "He was voted \"Worst Dressed Sentient Being in the Known Universe\" seven consecutive times. He's been described as \"the best Bang since the Big One\" by Eccentrica Gallumbits, and as \"one hoopy frood\" by others. In the seventh episode of the original radio series, the narrator describes Beeblebrox as being the \"owner of the hippest place in the universe\" (his own left cranium), as voted on in a poll of the readers of the fictional magazine Playbeing."
 	},
 	...
