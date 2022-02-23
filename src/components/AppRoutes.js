@@ -27,6 +27,7 @@ const TheApp = configData.INTERACTIVE ? (
     <Routes>
       <Route path="/">
         <Route index element={<FilterableProgram />} />
+	<Route path="/index.html" element={<FilterableProgram />} />
         <Route path="id/:id" element={<ItemById />} />
         <Route path="people">
           <Route index element={<People />} />
@@ -45,6 +46,7 @@ const TheApp = configData.INTERACTIVE ? (
     <Routes>
       <Route path="/">
         <Route index element={<UnfilterableProgram />} />
+	<Route path="/index.html" element={<UnfilterableProgram />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
