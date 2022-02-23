@@ -79,30 +79,18 @@ const ProgramItem = ({ item, forceExpanded }) => {
     item.desc,
     configData.ITEM_DESCRIPTION.PURIFY_OPTIONS
   );
-  const signupLink =
-    item.links && item.links.signup && item.links.signup.length ? (
-      <div className="item-links-signup">
-        <a href={item.links.signup}>{configData.LINKS.SIGNUP}</a>
+
+  const links = (configData.LINKS).map((link) => (
+    item.links && item.links[link.NAME] && item.links[link.NAME].length ? (
+      <div className="item-links-{link.NAME]}">
+        <a href={item.links[link.NAME]}>{link.TEXT}</a>
       </div>
     ) : (
       ""
-    );
-  const meetingLink =
-    item.links && item.links.meeting && item.links.meeting.length ? (
-      <div className="item-links-meeting">
-        <a href={item.links.meeting}>{configData.LINKS.MEETING}</a>
-      </div>
-    ) : (
-      ""
-    );
-  const recordingLink =
-    item.links && item.links.recording && item.links.recording.length ? (
-      <div className="item-links-recording">
-        <a href={item.links.recording}>{configData.LINKS.RECORDING}</a>
-      </div>
-    ) : (
-      ""
-    );
+    )
+  )
+  );
+
   const duration =
     configData.DURATION.SHOW_DURATION && item.mins ? (
       <div className="item-duration">
@@ -167,9 +155,7 @@ const ProgramItem = ({ item, forceExpanded }) => {
               dangerouslySetInnerHTML={{ __html: safeDesc }}
             />
             <div className="item-links">
-              {signupLink}
-              {meetingLink}
-              {recordingLink}
+              {links}
             </div>
           </div>
         </animated.div>
