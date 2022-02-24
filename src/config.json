@@ -43,11 +43,11 @@
     },
     {"NAME": "meeting",
      "TEXT": "Click to view stream",
-     "TAG": ""
+     "TAG": "type:Streaming"
     },
     {"NAME": "recording",
      "TEXT": "Click to view recording",
-     "TAG": "Recording available"
+     "TAG": ""
     }
   ],
   "LOCAL_TIME": {
