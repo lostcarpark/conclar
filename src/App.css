@@ -424,16 +424,25 @@ input.switch:checked ~ label:after {
   float: right;
 }
 
-.item-permalink a {
+.item-permalink a,
+.item-links a {
   transition: color 0.4s;
   color: var(--permalink-icon-fg);
 }
-.item-permalink a:visited {
+.item-permalink a:visited,
+.item-links a:visited {
   color: var(--permalink-icon-fg);
 }
-.item-permalink a:hover {
+.item-permalink a:hover,
+.item-links a:hover {
   color: var(--permalink-icon-hover-fg);
 }
+
+/* fix link spacing */
+
+ .item-links {
+   margin-top: 0.3rem;
+ }
 
 .item-people {
   margin: 0.5rem 0;
