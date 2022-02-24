@@ -5,6 +5,7 @@ import useMeasure from "react-use-measure";
 import { useSpring, animated } from "react-spring";
 import { IoChevronDownCircle } from "react-icons/io5";
 import { HiLink } from "react-icons/hi";
+import ItemLink from "./ItemLink";
 import Location from "./Location";
 import Tag from "./Tag";
 import Participant from "./Participant";
@@ -80,16 +81,21 @@ const ProgramItem = ({ item, forceExpanded }) => {
     configData.ITEM_DESCRIPTION.PURIFY_OPTIONS
   );
 
-  const links = (configData.LINKS).map((link) => (
-    item.links && item.links[link.NAME] && item.links[link.NAME].length ? (
-      <div className="item-links-{link.NAME]}">
-        <a href={item.links[link.NAME]}>{link.TEXT}</a>
-      </div>
-    ) : (
-      ""
-    )
-  )
-  );
+  const links = [];
+  if (configData.LINKS) {
+    configData.LINKS.forEach((link) => {
+      if (item.links && item.links[link.NAME] && item.links[link.NAME].length) {
+	links.push(
+          <ItemLink
+            key={link.NAME} 
+            name={"item-links-" + link.NAME}
+            link={item.links[link.NAME]}
+            text={link.TEXT}
+          />
+	);
+      }
+    });
+  };
 
   const duration =
     configData.DURATION.SHOW_DURATION && item.mins ? (
