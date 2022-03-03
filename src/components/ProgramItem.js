@@ -26,9 +26,12 @@ const ProgramItem = ({ item, forceExpanded }) => {
   }));
 
   function toggleExpanded() {
+    //console.log(window.getSelection().toString());
     if (configData.INTERACTIVE) {
-      if (expanded) collapseItem(item.id);
-      else expandItem(item.id);
+      if (expanded) {
+        // Check for selection text. Only collapse if empty so users can select items.
+        if (window.getSelection().toString() === "") collapseItem(item.id);
+      } else expandItem(item.id);
     }
   }
 
@@ -85,17 +88,17 @@ const ProgramItem = ({ item, forceExpanded }) => {
   if (configData.LINKS) {
     configData.LINKS.forEach((link) => {
       if (item.links && item.links[link.NAME] && item.links[link.NAME].length) {
-	links.push(
+        links.push(
           <ItemLink
-            key={link.NAME} 
+            key={link.NAME}
             name={"item-links-" + link.NAME}
             link={item.links[link.NAME]}
             text={link.TEXT}
           />
-	);
+        );
       }
     });
-  };
+  }
 
   const duration =
     configData.DURATION.SHOW_DURATION && item.mins ? (
@@ -161,9 +164,7 @@ const ProgramItem = ({ item, forceExpanded }) => {
               className="item-description"
               dangerouslySetInnerHTML={{ __html: safeDesc }}
             />
-            <div className="item-links">
-              {links}
-            </div>
+            <div className="item-links">{links}</div>
           </div>
         </animated.div>
       </div>
