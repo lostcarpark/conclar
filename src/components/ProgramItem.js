@@ -114,6 +114,7 @@ const ProgramItem = ({ item, forceExpanded }) => {
   });
   const itemExpandedStyle = useSpring({
     height: showExpanded ? bounds.height : 0,
+    config: configData.EXPAND.SPRING_CONFIG,
   });
 
   const chevron =

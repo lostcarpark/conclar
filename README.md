@@ -70,7 +70,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
 - `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
 - `EXPAND.COLLAPSE_ALL_LABEL`: Label for Collapse All button.
-- `ITEM_DESCRIPTION.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing item descriptions.  For the available options, see [the DOMPurify documentation](https://github.com/cure53/DOMPurify#can-i-configure-dompurify).  Format options as JSON, *e.g.*, `{"FORBID_ATTR": ["style"]}`.
+- `EXPAND.SPRING_CONFIG`: Config to apply to the configuration of the 'spring' when expanding items. This may be a simply duration, such as `{ "duration": 100 }` to expand in 100ms, or can configure more dynamic spring effects, such as `{ mass: 1, tension: 1000, friction: 30 }`. Full list of options in [react-spring documentation](https://react-spring.io/common/configs).
+- `ITEM_DESCRIPTION.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing item descriptions. For the available options, see [the DOMPurify documentation](https://github.com/cure53/DOMPurify#can-i-configure-dompurify). Format options as JSON, _e.g._, `{"FORBID_ATTR": ["style"]}`.
 - `LINKS`: An array of link types expected in the program data.  Individual entries should take the form `{"NAME": "signup", "TEXT": "Click to sign up", "TAG": ""}`.  `NAME` should be the name of the link as it appears in the links object in the program data.  `TEXT` is the text that should appear on this link in ConClár.  `TAG` is an optional tag to add to every program item which includes a matching link.  If using prefixed tags, include the prefix, *e.g.*, `"type:Workshop"`.
 - `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
 - `LOCAL_TIME.NOTICE`: Label for notie telling users how local time displayed.
@@ -93,7 +94,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PEOPLE.SORT.CHECKBOX_LABEL`: Label for "Sort by full name" checkbox.
 - `PEOPLE.SEARCH.SHOW_SEARCH`: Set to false to hide "people" search box.
 - `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
-- `PEOPLE.BIO.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing participant bios.  For more details, see `ITEM_DESCRIPTION.PURIFY_OPTIONS` above.
+- `PEOPLE.BIO.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing participant bios. For more details, see `ITEM_DESCRIPTION.PURIFY_OPTIONS` above.
 - `USELESS_CHECKBOX.CHECKBOX_LABEL`: Label for any useless checkboxes.
 - `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
 - `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
