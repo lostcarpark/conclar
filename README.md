@@ -72,8 +72,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `EXPAND.COLLAPSE_ALL_LABEL`: Label for Collapse All button.
 - `EXPAND.SPRING_CONFIG`: Config to apply to the configuration of the 'spring' when expanding items. This may be a simply duration, such as `{ "duration": 100 }` to expand in 100ms, or can configure more dynamic spring effects, such as `{ mass: 1, tension: 1000, friction: 30 }`. Full list of options in [react-spring documentation](https://react-spring.io/common/configs).
 - `ITEM_DESCRIPTION.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing item descriptions. For the available options, see [the DOMPurify documentation](https://github.com/cure53/DOMPurify#can-i-configure-dompurify). Format options as JSON, _e.g._, `{"FORBID_ATTR": ["style"]}`.
-- `LINKS.MEETING`: Text to display on meeting links.
-- `LINKS.RECORDING`: Text to display on recording links.
+- `LINKS`: An array of link types expected in the program data.  Individual entries should take the form `{"NAME": "signup", "TEXT": "Click to sign up", "TAG": ""}`.  `NAME` should be the name of the link as it appears in the links object in the program data.  `TEXT` is the text that should appear on this link in ConClár.  `TAG` is an optional tag to add to every program item which includes a matching link.  If using prefixed tags, include the prefix, *e.g.*, `"type:Workshop"`.
 - `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
 - `LOCAL_TIME.NOTICE`: Label for notie telling users how local time displayed.
 - `LOCAL_TIME.PREV_DAY`: Label appended to local time if local time is before start of advertised day.

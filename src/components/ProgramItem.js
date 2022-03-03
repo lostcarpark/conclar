@@ -5,6 +5,7 @@ import useMeasure from "react-use-measure";
 import { useSpring, animated } from "react-spring";
 import { IoChevronDownCircle } from "react-icons/io5";
 import { HiLink } from "react-icons/hi";
+import ItemLink from "./ItemLink";
 import Location from "./Location";
 import Tag from "./Tag";
 import Participant from "./Participant";
@@ -79,30 +80,23 @@ const ProgramItem = ({ item, forceExpanded }) => {
     item.desc,
     configData.ITEM_DESCRIPTION.PURIFY_OPTIONS
   );
-  const signupLink =
-    item.links && item.links.signup && item.links.signup.length ? (
-      <div className="item-links-signup">
-        <a href={item.links.signup}>{configData.LINKS.SIGNUP}</a>
-      </div>
-    ) : (
-      ""
-    );
-  const meetingLink =
-    item.links && item.links.meeting && item.links.meeting.length ? (
-      <div className="item-links-meeting">
-        <a href={item.links.meeting}>{configData.LINKS.MEETING}</a>
-      </div>
-    ) : (
-      ""
-    );
-  const recordingLink =
-    item.links && item.links.recording && item.links.recording.length ? (
-      <div className="item-links-recording">
-        <a href={item.links.recording}>{configData.LINKS.RECORDING}</a>
-      </div>
-    ) : (
-      ""
-    );
+
+  const links = [];
+  if (configData.LINKS) {
+    configData.LINKS.forEach((link) => {
+      if (item.links && item.links[link.NAME] && item.links[link.NAME].length) {
+	links.push(
+          <ItemLink
+            key={link.NAME} 
+            name={"item-links-" + link.NAME}
+            link={item.links[link.NAME]}
+            text={link.TEXT}
+          />
+	);
+      }
+    });
+  };
+
   const duration =
     configData.DURATION.SHOW_DURATION && item.mins ? (
       <div className="item-duration">
@@ -168,9 +162,7 @@ const ProgramItem = ({ item, forceExpanded }) => {
               dangerouslySetInnerHTML={{ __html: safeDesc }}
             />
             <div className="item-links">
-              {signupLink}
-              {meetingLink}
-              {recordingLink}
+              {links}
             </div>
           </div>
         </animated.div>
