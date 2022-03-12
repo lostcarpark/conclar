@@ -1,17 +1,19 @@
 {
   "BASE_PATH": "/",
-  "APP_ID": "O2021",
-  "APP_TITLE": "ConClár Programme Guide",
-  "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "TIMEZONE": "Europe/Dublin",
+  "APP_ID": "Rec2022",
+  "APP_TITLE": "Reclamation 2022 Programme Guide",
+  "PROGRAM_DATA_URL": "https://zambia.reclamation2022.co.uk/konOpasData.jsonp",
+  "PEOPLE_DATA_URL": "https://zambia.reclamation2022.co.uk/konOpasData.jsonp",
+  "TIMEZONE": "Europe/London",
   "INTERACTIVE": true,
   "NAVIGATION": {
     "PROGRAM": "Programme",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
-    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
+    "EXTRA": [
+      { "LABEL": "Reclamation Home", "URL": "https://reclamation2022.co.uk" }
+    ]
   },
   "LOCATIONS": {
     "SEARCHABLE": false
@@ -35,21 +37,16 @@
     "SPRING_CONFIG": { "duration": 100 }
   },
   "ITEM_DESCRIPTION": {
-    "PURIFY_OPTIONS": {}
+    "PURIFY_OPTIONS": { "FORBID_ATTR": ["style"] }
   },
   "LINKS": [
-    {"NAME": "signup",
-     "TEXT": "Click to sign up",
-     "TAG": ""
+    { "NAME": "signup", "TEXT": "Click to sign up", "TAG": "" },
+    {
+      "NAME": "meeting",
+      "TEXT": "Click to view stream",
+      "TAG": "type:Streaming"
     },
-    {"NAME": "meeting",
-     "TEXT": "Click to view stream",
-     "TAG": "type:Streaming"
-    },
-    {"NAME": "recording",
-     "TEXT": "Click to view recording",
-     "TAG": ""
-    }
+    { "NAME": "recording", "TEXT": "Click to view recording", "TAG": "" }
   ],
   "LOCAL_TIME": {
     "CHECKBOX_LABEL": "Show local time",
@@ -92,7 +89,7 @@
     },
     "PERSON_HEADER": "Person: ",
     "BIO": {
-      "PURIFY_OPTIONS": {}
+      "PURIFY_OPTIONS": { "FORBID_ATTR": ["style"] }
     }
   },
   "USELESS_CHECKBOX": {
