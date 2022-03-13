@@ -459,7 +459,9 @@ input.switch:checked ~ label:after {
 }
 
 .item-people .participant img {
-  max-width: 2rem;
+  object-fit: cover;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   vertical-align: middle;
   padding: 0.1rem;
