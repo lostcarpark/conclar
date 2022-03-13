@@ -17,7 +17,7 @@
  */
 
 :root {
-  --main-bg: #fff;
+  --main-bg: #9ac9e3;
   --main-fg: #000;
   --navigation-button-bg: #ddd;
   --navigation-button-fg: #0d172a;
@@ -89,7 +89,8 @@ code {
  */
 
 header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 header h1 {
