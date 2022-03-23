@@ -4,6 +4,7 @@ const Header = ({ title }) => {
   document.title = title;
   return (
     <header>
+      <img src="/logo-web-small.png" alt="Reclamation Logo" />
       <h1>{title}</h1>
     </header>
   );

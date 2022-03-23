@@ -17,7 +17,7 @@
  */
 
 :root {
-  --main-bg: #fff;
+  --main-bg: #9ac9e3;
   --main-fg: #000;
   --navigation-button-bg: #ddd;
   --navigation-button-fg: #0d172a;
@@ -89,7 +89,8 @@ code {
  */
 
 header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 header h1 {
@@ -459,7 +460,9 @@ input.switch:checked ~ label:after {
 }
 
 .item-people .participant img {
-  max-width: 2rem;
+  object-fit: cover;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   vertical-align: middle;
   padding: 0.1rem;
@@ -529,7 +532,9 @@ input.switch:checked ~ label:after {
 }
 
 .people .participant img {
-  max-width: 5rem;
+  object-fit: cover;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   vertical-align: middle;
   padding: 0.1rem;
