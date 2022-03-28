@@ -22,8 +22,8 @@
     "PLACEHOLDER": "Select tags",
     "SEARCHABLE": false,
     "SEPARATE": [
-      { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true },
-      { "PREFIX": "test", "PLACEHOLDER": "Select test", "SEARCHABLE": true }
+      { "PREFIX": "track", "PLACEHOLDER": "Select track", "SEARCHABLE": true },
+      { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true }
     ],
     "FORMAT_AS_TAG": false
   },
