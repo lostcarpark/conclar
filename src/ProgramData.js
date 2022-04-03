@@ -1,21 +1,21 @@
 import configData from "./config.json";
 import { JsonParse } from "./utils/JsonParse";
 import { Format } from "./utils/Format";
+import { Temporal } from "@js-temporal/polyfill";
 
 // Creating class for processing program and people data.
 // At present this is just a class for grouping static functions, but it may evolve.
 
 export class ProgramData {
   static processProgramData(program) {
+    program.map((item) => {
+      item.dateAndTime = Temporal.ZonedDateTime.from(
+        item.date + "T" + item.time + "[" + configData.TIMEZONE + "]"
+      );
+      return item;
+    });
     program.sort((a, b) => {
-      // First compare the dates.
-      if (a.date < b.date) return -1;
-      if (a.date > b.date) return +1;
-      // If we get here, date is the same, so check time.
-      if (a.time < b.time) return -1;
-      if (a.time > b.time) return +1;
-      // Finally, items are the same time and date, so treat as equal (we may add stream later).
-      return 0;
+      return Temporal.ZonedDateTime.compare(a.dateAndTime, b.dateAndTime);
     });
     return program;
   }
@@ -53,8 +53,11 @@ export class ProgramData {
             (fullPerson) => fullPerson.id === item.people[index].id
           );
           //Moderator check before nuking the item person data.
-          if (item.people[index].name.indexOf("(moderator)") > 0 || 
-              (item.people[index].hasOwnProperty("role") && item.people[index].role === "Moderator"))
+          if (
+            item.people[index].name.indexOf("(moderator)") > 0 ||
+            (item.people[index].hasOwnProperty("role") &&
+              item.people[index].role === "Moderator")
+          )
             item.moderator = item.people[index].id;
           if (fullPerson) {
             // Replace partial person with full person reference.
@@ -99,11 +102,14 @@ export class ProgramData {
   }
 
   static tagLinks(program) {
-    const linksToTag = configData.LINKS.filter(link => link.TAG.length > 0);
+    const linksToTag = configData.LINKS.filter((link) => link.TAG.length > 0);
     //TAG should include an appropriate prefix if using them.
     for (let linkToTag of linksToTag) {
       for (let item of program) {
-	if (item.hasOwnProperty("links") && item.links.hasOwnProperty(linkToTag.NAME))
+        if (
+          item.hasOwnProperty("links") &&
+          item.links.hasOwnProperty(linkToTag.NAME)
+        )
           item.tags.push(linkToTag.TAG);
       }
     }
@@ -166,9 +172,11 @@ export class ProgramData {
   // Process data from program and people.
   static processData(progData, pplData) {
     let program = this.processProgramData(progData);
-    if (configData.TAGS.FORMAT_AS_TAG)
-      program = this.reformatAsTag(program);
-    if (configData.LINKS && configData.LINKS.filter(link => link.TAG.length > 0).length > 0)
+    if (configData.TAGS.FORMAT_AS_TAG) program = this.reformatAsTag(program);
+    if (
+      configData.LINKS &&
+      configData.LINKS.filter((link) => link.TAG.length > 0).length > 0
+    )
       program = this.tagLinks(program);
     const people = this.processPeopleData(pplData);
     this.addProgramParticipantDetails(program, people);

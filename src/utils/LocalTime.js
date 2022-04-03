@@ -1,3 +1,4 @@
+import { Temporal, Intl } from "@js-temporal/polyfill";
 import configData from "../config.json";
 
 // Class containing finctions for formatting values for ConClár.
@@ -52,148 +53,72 @@ export class LocalTime {
   static formatDateForLocaleAsUTC(date) {
     let language = window.navigator.userLanguage || window.navigator.language;
     // Assume UTC timezone for purpose of formatting date headings.
-    let dateTime = new Date(date + "T00:00:00.000Z");
-    if (isNaN(dateTime.getTime())) return "";
-    return dateTime.toLocaleDateString(language, {
+    let dateTime = Temporal.PlainDate.from(date); //Date(date + "T00:00:00.000Z");
+    //if (isNaN(dateTime.getTime())) return "";
+    return dateTime.toLocaleString(language, {
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
-      timeZone: "UTC",
     });
   }
 
-  // Get the offset from the convention time to the user's local time in miliseconds.
-  // This is a bit messy, as it convers to a string and back again, but it's the best I've found so far.
+  // Get offset between local timezone and convention timezone in milliseconds.
+  // This used to be a mess, but rewritten to use Temporal API, which should be a lot more reliable.
+  // ToDo: Add UI for selecting any timezone to display.
   static getTimeZoneOffset() {
-    // Date conversion a bit precarious, so wrap in try...catch.
-    try {
-      let language = window.navigator.userLanguage || window.navigator.language;
-      let localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const date = new Date();
-      // Convert to string in user's timezone, then back to a date.
-      const localDate = new Date(
-        date.toLocaleString(language, {
-          year: "numeric",
-          month: "short",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          timeZone: localTimeZone,
-        })
-      );
-      // Convert to string in convention timezone, and also back to date.
-      const conDate = new Date(
-        date.toLocaleString(language, {
-          year: "numeric",
-          month: "short",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          timeZone: configData.TIMEZONE,
-        })
-      );
-      // Check if dates are valid. Return null if not.
-      if (
-        !(localDate instanceof Date) ||
-        isNaN(localDate) ||
-        !(conDate instanceof Date) ||
-        isNaN(conDate)
-      ) {
-        return null;
-      }
-      // Subtracting the dates returns the offset in milliseconds. Divide by 1000 because we only need seconds.
-      return (localDate - conDate) / 1000;
-    } catch (e) {
-      // Something went wrong. Return Null.
-      return null;
-    }
-  }
-
-  // Format with leading 0 if less than 10.
-  static FormatLeadingZero(num) {
-    return (num < 10 ? "0" : "") + num;
-  }
-
-  // Take date in "hh:mm" format, and return hours and minutes.
-  static parseTime(time) {
-    const matches = time.match(/^(\d{1,2})[^\d](\d{2})([^\d](\d{2}))?$/);
-    if (!matches) return [];
-    const hours = parseInt(matches[1]);
-    const mins = parseInt(matches[2]);
-    return [hours, mins];
-  }
-
-  // Use toLocaleString to generate a 12 hour time in user's locale.
-  static formatHoursMinsAs12Hour(hours, mins) {
-    let language = window.navigator.userLanguage || window.navigator.language;
-    let time = new Date();
-    time.setUTCHours(hours);
-    time.setUTCMinutes(mins);
-    return time.toLocaleString(language, {
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: true,
-      timeZone: "UTC",
-    });
-  }
-
-  // Format a time for 12 hour clock.
-  static formatTimeAs12Hour(time) {
-    let [hours, mins] = this.parseTime(time);
-    return this.formatHoursMinsAs12Hour(hours, mins);
-  }
-
-  // Use
-  static formatHoursMinsAs24Hour(hours, mins) {
-    let language = window.navigator.userLanguage || window.navigator.language;
-    let time = new Date();
-    time.setUTCHours(hours);
-    time.setUTCMinutes(mins);
-    return time.toLocaleString(language, {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      timeZone: "UTC",
-    });
+    const instant = Temporal.Now.instant();
+    const localTZ = new Temporal.TimeZone(
+      Intl.DateTimeFormat().resolvedOptions().timeZone
+    );
+    const localOffset = localTZ.getOffsetNanosecondsFor(instant);
+    const conventionTZ = new Temporal.TimeZone(configData.TIMEZONE);
+    const conventionOffset = conventionTZ.getOffsetNanosecondsFor(instant);
+    return (localOffset - conventionOffset) / 1000000;
   }
 
   // Format time for 24 clock.
-  static formatTimeAs24Hour(time) {
-    let [hours, mins] = this.parseTime(time);
-    return this.formatHoursMinsAs24Hour(hours, mins);
+  static formatTime(dateAndTime, ampm) {
+    let language = window.navigator.userLanguage || window.navigator.language;
+    const options = ampm
+      ? {
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: "h12",
+        }
+      : {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        };
+    return dateAndTime.toLocaleString(language, options);
   }
 
   // Format the time in the convention time zone. Currently this is not reformatted, but it may be in future.
-  static formatTimeInConventionTimeZone(time, ampm) {
-    if (ampm) {
-      return this.formatTimeAs12Hour(time);
-    }
-    return this.formatTimeAs24Hour(time);
+  static formatTimeInConventionTimeZone(dateAndTime, ampm) {
+    return this.formatTime(dateAndTime, ampm);
   }
 
-  static formatTimeInLocalTimeZone(time, offset, ampm) {
-    const HOUR = 3600;
-    const MINUTE = 60;
-    let [hours, mins] = this.parseTime(time);
-    const conTime = hours * HOUR + mins * MINUTE;
-    const localTime = conTime + offset;
-    let localHours = Math.floor(localTime / HOUR);
-    let note = "";
-    if (localHours < 0) {
-      localHours += 24;
-      note = configData.LOCAL_TIME.PREV_DAY;
+  static formatTimeInLocalTimeZone(dateAndTime, offset, ampm) {
+    // Get the timezone of the browser.
+    const localTZ = new Temporal.TimeZone(
+      Intl.DateTimeFormat().resolvedOptions().timeZone
+    );
+    // Convert the program item time into local time.
+    const localDateAndTime = dateAndTime.withTimeZone(localTZ);
+    const formattedTime = this.formatTime(localDateAndTime, ampm);
+    // Get the con and local dates with time stripped out.
+    const conDate = Temporal.PlainDate.from(dateAndTime);
+    const localDate = Temporal.PlainDate.from(localDateAndTime);
+    // Compare the dates without time to see if we're showing time on next or previous day, and if so attach label.
+    switch (Temporal.PlainDate.compare(localDate, conDate)) {
+      case -1:
+        return formattedTime + configData.LOCAL_TIME.PREV_DAY;
+      case 1:
+        return formattedTime + configData.LOCAL_TIME.NEXT_DAY;
+      default:
+        return formattedTime;
     }
-    if (localHours > 23) {
-      localHours -= 24;
-      note = configData.LOCAL_TIME.NEXT_DAY;
-    }
-    const localMins = Math.floor((localTime % HOUR) / MINUTE);
-
-    if (ampm) return this.formatHoursMinsAs12Hour(localHours, localMins) + note;
-    return this.formatHoursMinsAs24Hour(localHours, localMins) + note;
   }
 
   static dateToConTime(datetime) {
@@ -231,6 +156,8 @@ export class LocalTime {
     return conTimeFormatted;
   }
 
+  // Check if currently during the convention.
+  // ToDO: Rework using Temporal API.
   static inConTime(program) {
     //Expects the program items to have dates.
     const today = new Date();

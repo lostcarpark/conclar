@@ -3,20 +3,20 @@ import { useStoreState } from "easy-peasy";
 import ProgramItem from "./ProgramItem";
 import { LocalTime } from "../utils/LocalTime";
 
-const TimeSlot = ({ time, items, forceExpanded }) => {
+const TimeSlot = ({ dateAndTime, items, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const offset = useStoreState((state) => state.offset);
-  if (!time) return "";
+  if (!dateAndTime) return "";
   const conTime = (
     <div className="time-convention">
-      {LocalTime.formatTimeInConventionTimeZone(time, show12HourTime)}
+      {LocalTime.formatTimeInConventionTimeZone(dateAndTime, show12HourTime)}
     </div>
   );
   const localTime =
     offset !== null && offset !== 0 && showLocalTime ? (
       <div className="time-local">
-        {LocalTime.formatTimeInLocalTimeZone(time, offset, show12HourTime)}
+        {LocalTime.formatTimeInLocalTimeZone(dateAndTime, offset, show12HourTime)}
       </div>
     ) : (
       ""
@@ -29,7 +29,7 @@ const TimeSlot = ({ time, items, forceExpanded }) => {
   });
 
   return (
-    <div id={time} className="timeslot">
+    <div id={dateAndTime.toString()} className="timeslot">
       <div className="timeslot-time">
         {conTime}
         {localTime}
@@ -44,7 +44,6 @@ TimeSlot.defaultProps = {
 };
 
 TimeSlot.propTypes = {
-  time: PropTypes.string,
   items: PropTypes.array,
   forceExpanded: PropTypes.bool,
 };
