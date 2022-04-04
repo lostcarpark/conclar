@@ -53,8 +53,11 @@ export class ProgramData {
             (fullPerson) => fullPerson.id === item.people[index].id
           );
           //Moderator check before nuking the item person data.
-          if (item.people[index].name.indexOf("(moderator)") > 0 || 
-              (item.people[index].hasOwnProperty("role") && item.people[index].role === "Moderator"))
+          if (
+            item.people[index].name.indexOf("(moderator)") > 0 ||
+            (item.people[index].hasOwnProperty("role") &&
+              item.people[index].role === "Moderator")
+          )
             item.moderator = item.people[index].id;
           if (fullPerson) {
             // Replace partial person with full person reference.
@@ -99,11 +102,14 @@ export class ProgramData {
   }
 
   static tagLinks(program) {
-    const linksToTag = configData.LINKS.filter(link => link.TAG.length > 0);
+    const linksToTag = configData.LINKS.filter((link) => link.TAG.length > 0);
     //TAG should include an appropriate prefix if using them.
     for (let linkToTag of linksToTag) {
       for (let item of program) {
-	if (item.hasOwnProperty("links") && item.links.hasOwnProperty(linkToTag.NAME))
+        if (
+          item.hasOwnProperty("links") &&
+          item.links.hasOwnProperty(linkToTag.NAME)
+        )
           item.tags.push(linkToTag.TAG);
       }
     }
@@ -130,7 +136,7 @@ export class ProgramData {
     }
 
     // For each tag prefix we want to separate, add a property.
-    if ("SEPARATE" in configData.TAGS) {
+    if (configData.TAGS.hasOwnProperty("SEPARATE")) {
       for (const tag of configData.TAGS.SEPARATE) {
         tags[tag.PREFIX] = [];
       }
@@ -166,9 +172,11 @@ export class ProgramData {
   // Process data from program and people.
   static processData(progData, pplData) {
     let program = this.processProgramData(progData);
-    if (configData.TAGS.FORMAT_AS_TAG)
-      program = this.reformatAsTag(program);
-    if (configData.LINKS && configData.LINKS.filter(link => link.TAG.length > 0).length > 0)
+    if (configData.TAGS.FORMAT_AS_TAG) program = this.reformatAsTag(program);
+    if (
+      configData.LINKS &&
+      configData.LINKS.filter((link) => link.TAG.length > 0).length > 0
+    )
       program = this.tagLinks(program);
     const people = this.processPeopleData(pplData);
     this.addProgramParticipantDetails(program, people);

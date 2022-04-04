@@ -29,13 +29,13 @@
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: green;
   --checkbox-unselected-bg: red;
-  --program-item-chevron-collapsed: #ccc;
-  --program-item-chevron-expanded: #bbe;
+  --program-item-chevron-collapsed: #8c6a82;
+  --program-item-chevron-expanded: #be6e95;
   --program-time-local-message: grey;
   --program-date-line: #888;
   --program-time-line: #ccc;
   --program-item-line: #bbb;
-  --program-tags-fg: #888;
+  --program-tags-fg: #082c49;
   --program-expanded-bg: #eee;
   --permalink-icon-fg: #265c83;
   --permalink-icon-hover-fg: #7fdbff;
