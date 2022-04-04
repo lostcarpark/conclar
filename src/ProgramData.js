@@ -136,7 +136,7 @@ export class ProgramData {
     }
 
     // For each tag prefix we want to separate, add a property.
-    if ("SEPARATE" in configData.TAGS) {
+    if (configData.TAGS.hasOwnProperty("SEPARATE")) {
       for (const tag of configData.TAGS.SEPARATE) {
         tags[tag.PREFIX] = [];
       }
