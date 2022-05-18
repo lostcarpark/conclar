@@ -16,6 +16,7 @@ import ItemById from "./ItemById";
 import People from "./People";
 import Person from "./Person";
 import Info from "./Info";
+import Settings from "./Settings";
 import Footer from "./Footer";
 
 const TheApp = configData.INTERACTIVE ? (
@@ -27,7 +28,7 @@ const TheApp = configData.INTERACTIVE ? (
     <Routes>
       <Route path="/">
         <Route index element={<FilterableProgram />} />
-	<Route path="/index.html" element={<FilterableProgram />} />
+        <Route path="/index.html" element={<FilterableProgram />} />
         <Route path="id/:id" element={<ItemById />} />
         <Route path="people">
           <Route index element={<People />} />
@@ -35,6 +36,7 @@ const TheApp = configData.INTERACTIVE ? (
         </Route>
         <Route path="myschedule" element={<MySchedule />} />
         <Route path="info" element={<Info />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
@@ -46,7 +48,7 @@ const TheApp = configData.INTERACTIVE ? (
     <Routes>
       <Route path="/">
         <Route index element={<UnfilterableProgram />} />
-	<Route path="/index.html" element={<UnfilterableProgram />} />
+        <Route path="/index.html" element={<UnfilterableProgram />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

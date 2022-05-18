@@ -9,12 +9,7 @@ const FilterableProgram = () => {
   const program = useStoreState((state) => state.program);
   const locations = useStoreState((state) => state.locations);
   const tags = useStoreState((state) => state.tags);
-  const offset = useStoreState((state) => state.offset);
 
-  const showLocalTime = useStoreState((state) => state.showLocalTime);
-  const setShowLocalTime = useStoreActions(
-    (actions) => actions.setShowLocalTime
-  );
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const setShow12HourTime = useStoreActions(
     (actions) => actions.setShow12HourTime
@@ -37,25 +32,6 @@ const FilterableProgram = () => {
   const filtered = applyFilters(program);
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
-
-  const localTimeCheckbox =
-    offset === null || offset === 0 ? (
-      ""
-    ) : (
-      <div className="local-time-checkbox switch-wrapper">
-        <input
-          id={LocalTime.localTimeClass}
-          name={LocalTime.localTimeClass}
-          className="switch"
-          type="checkbox"
-          checked={showLocalTime}
-          onChange={handleShowLocalTime}
-        />
-        <label htmlFor="show_local_time">
-          {configData.LOCAL_TIME.CHECKBOX_LABEL}
-        </label>
-      </div>
-    );
 
   const show12HourTimeCheckbox = configData.TIME_FORMAT.SHOW_CHECKBOX ? (
     <div className={LocalTime.twelveHourTimeClass + "-checkbox switch-wrapper"}>
@@ -175,10 +151,6 @@ const FilterableProgram = () => {
     setSelTags(selections);
   }
 
-  function handleShowLocalTime(event) {
-    setShowLocalTime(event.target.checked);
-  }
-
   function handleShow12HourTime(event) {
     setShow12HourTime(event.target.checked);
   }
@@ -253,7 +225,6 @@ const FilterableProgram = () => {
             </div>
 	  </div>
           <div className="filter-options">
-            {localTimeCheckbox}
             {show12HourTimeCheckbox}
             {pastItemsCheckbox}
           </div>

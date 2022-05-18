@@ -11,6 +11,7 @@
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
+    "SETTINGS": "Settings",
     "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
   },
   "LOCATIONS": {

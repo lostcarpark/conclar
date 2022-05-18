@@ -8,8 +8,10 @@
  * 4. Program.
  * 5. People.
  * 6. Informtion page.
- * 7. Site footer.
- * 8. Print styles.
+ * 7. Settings page.
+ * 8. Site footer.
+ * 9. Print styles.
+ * 10. Debug styles.
  */
 
 /*
@@ -41,6 +43,7 @@
   --permalink-icon-hover-fg: #7fdbff;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
+  --settings-outline: #888;
   --footer-line: #888;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
@@ -267,7 +270,7 @@ input.switch:checked ~ label:after {
   padding-inline-start: 0;
 }
 
-.filter-tags, 
+.filter-tags,
 .filter-locations,
 .filter-search,
 .filter-options {
@@ -290,7 +293,7 @@ input.switch:checked ~ label:after {
   margin: 0.25em;
 }
 
-.filter-expand, 
+.filter-expand,
 .filter-options {
   white-space: nowrap;
 }
@@ -440,9 +443,9 @@ input.switch:checked ~ label:after {
 
 /* fix link spacing */
 
- .item-links {
-   margin-top: 0.3rem;
- }
+.item-links {
+  margin-top: 0.3rem;
+}
 
 .item-people {
   margin: 0.5rem 0;
@@ -575,7 +578,28 @@ input.switch:checked ~ label:after {
 }
 
 /*
- * 7. Site footer.
+ * 7. Settings page.
+ */
+
+.settings-group {
+  margin: .5em 0;
+  padding: .5rem;
+  border: 1px solid var(--settings-outline);
+  border-radius: .5rem;
+}
+
+.settings-head {
+  margin-bottom: .5em;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.settings-radio {
+  display: grid;
+}
+
+/*
+ * 8. Site footer.
  */
 
 footer {
@@ -586,7 +610,7 @@ footer {
 }
 
 /*
- * 8. Print styles.
+ * 9. Print styles.
  */
 
 @media print {
@@ -641,7 +665,7 @@ div.uninteractive div.info {
 }
 
 /*
- * 9. Debug mode styles.
+ * 10. Debug mode styles.
  */
 
 .debug {

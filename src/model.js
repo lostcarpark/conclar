@@ -13,6 +13,8 @@ const model = {
   timeSinceLastFetch: null,
   showLocalTime: LocalTime.getStoredLocalTime(),
   show12HourTime: LocalTime.getStoredTwelveHourTime(),
+  useTimezone: LocalTime.getStoredUseTimezone(),
+  selectedTimezone: LocalTime.getStoredSelectedTimezone(),
   showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
   mySelections: ProgramSelection.getAllSelections(),
@@ -49,6 +51,14 @@ const model = {
   setShow12HourTime: action((state, show12HourTime) => {
     state.show12HourTime = show12HourTime;
     LocalTime.setStoredTwelveHourTime(show12HourTime);
+  }),
+  setUseTimezone: action((state, useTimezone) => {
+    state.useTimezone = useTimezone;
+    LocalTime.setStoredUseTimezone(useTimezone);
+  }),
+  setSelectedTimezone: action((state, selectedTimezone) => {
+    state.selectedTimezone = selectedTimezone;
+    LocalTime.setStoredSelectedTimezone(selectedTimezone);
   }),
   setShowPastItems: action((state, showPastItems) => {
     state.showPastItems = showPastItems;

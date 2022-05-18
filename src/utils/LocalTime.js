@@ -8,16 +8,56 @@ export class LocalTime {
   }
 
   static getStoredLocalTime() {
-    const storedLocalTime = localStorage.getItem(this.localTimeClass);
-    return storedLocalTime === "false" ? false : true;
+    const storedShowLocalTime = localStorage.getItem(this.localTimeClass);
+    if (storedShowLocalTime === null) return "differs";
+    if (storedShowLocalTime === false) return "never"; // Handle legacy boolian values.
+    if (storedShowLocalTime === true) return "differs";
+    return storedShowLocalTime;
   }
 
   static setStoredLocalTime(showLocalTime) {
-    localStorage.setItem(this.localTimeClass, showLocalTime ? "true" : "false");
+    localStorage.setItem(this.localTimeClass, showLocalTime);
   }
 
   static get twelveHourTimeClass() {
     return "twelve_hour_time";
+  }
+
+  static getStoredUseTimezone() {
+    const storedUseTimezone = localStorage.getItem(this.useTimezoneClass);
+    if (storedUseTimezone === null || storedUseTimezone === "") {
+      return false;
+    }
+    return storedUseTimezone === "default" ? false : true;
+  }
+
+  static setStoredUseTimezone(useTimezone) {
+    localStorage.setItem(
+      this.useTimezoneClass,
+      useTimezone ? "select" : "default"
+    );
+  }
+
+  static get useTimezoneClass() {
+    return "use_timezone";
+  }
+
+  static getStoredSelectedTimezone() {
+    const storedSelectedTimezone = localStorage.getItem(
+      this.selectedTimezoneClass
+    );
+    if (storedSelectedTimezone === null || storedSelectedTimezone === "") {
+      return Temporal.Now.timeZone().toString();
+    }
+    return storedSelectedTimezone;
+  }
+
+  static setStoredSelectedTimezone(timezone) {
+    localStorage.setItem(this.selectedTimezoneClass, timezone);
+  }
+
+  static get selectedTimezoneClass() {
+    return "selected_timezone";
   }
 
   static getStoredTwelveHourTime() {
