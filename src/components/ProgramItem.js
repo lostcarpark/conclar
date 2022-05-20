@@ -26,7 +26,6 @@ const ProgramItem = ({ item, forceExpanded }) => {
   }));
 
   function toggleExpanded() {
-    //console.log(window.getSelection().toString());
     if (configData.INTERACTIVE) {
       if (expanded) {
         // Check for selection text. Only collapse if empty so users can select items.

@@ -3,6 +3,22 @@ import configData from "../config.json";
 
 // Class containing finctions for formatting values for ConClár.
 export class LocalTime {
+  static conventionTimezone = new Temporal.TimeZone(configData.TIMEZONE);
+  static localTimezone = null;
+
+  // Initialise local timezone.
+  static {
+    this.getLocalTimezone();
+  }
+
+  static getLocalTimezone() {
+    const useTimezone = this.getStoredUseTimezone();
+    const timezoneName = useTimezone
+      ? this.getStoredSelectedTimezone()
+      : Intl.DateTimeFormat().resolvedOptions().timeZone;
+    this.localTimezone = new Temporal.TimeZone(timezoneName);
+  }
+
   static get localTimeClass() {
     return "show_local_time";
   }
@@ -54,6 +70,7 @@ export class LocalTime {
 
   static setStoredSelectedTimezone(timezone) {
     localStorage.setItem(this.selectedTimezoneClass, timezone);
+    this.getLocalTimezone();
   }
 
   static get selectedTimezoneClass() {
@@ -93,7 +110,7 @@ export class LocalTime {
   static formatDateForLocaleAsUTC(date) {
     let language = window.navigator.userLanguage || window.navigator.language;
     // Assume UTC timezone for purpose of formatting date headings.
-    let dateTime = Temporal.PlainDate.from(date); //Date(date + "T00:00:00.000Z");
+    let dateTime = Temporal.PlainDate.from(date);
     //if (isNaN(dateTime.getTime())) return "";
     return dateTime.toLocaleString(language, {
       weekday: "long",
@@ -136,16 +153,15 @@ export class LocalTime {
 
   // Format the time in the convention time zone. Currently this is not reformatted, but it may be in future.
   static formatTimeInConventionTimeZone(dateAndTime, ampm) {
-    return this.formatTime(dateAndTime, ampm);
+    return this.formatTime(
+      dateAndTime.withTimeZone(this.conventionTimezone),
+      ampm
+    );
   }
 
   static formatTimeInLocalTimeZone(dateAndTime, offset, ampm) {
-    // Get the timezone of the browser.
-    const localTZ = new Temporal.TimeZone(
-      Intl.DateTimeFormat().resolvedOptions().timeZone
-    );
     // Convert the program item time into local time.
-    const localDateAndTime = dateAndTime.withTimeZone(localTZ);
+    const localDateAndTime = dateAndTime.withTimeZone(this.localTimezone);
     const formattedTime = this.formatTime(localDateAndTime, ampm);
     // Get the con and local dates with time stripped out.
     const conDate = Temporal.PlainDate.from(dateAndTime);

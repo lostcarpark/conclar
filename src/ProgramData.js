@@ -8,15 +8,18 @@ import { Temporal } from "@js-temporal/polyfill";
 
 export class ProgramData {
   static processProgramData(program) {
+    const utcTimezone = Temporal.TimeZone.from("UTC");
     program.map((item) => {
-      item.dateAndTime = Temporal.ZonedDateTime.from(
+      const startTime = Temporal.ZonedDateTime.from(
         item.date + "T" + item.time + "[" + configData.TIMEZONE + "]"
       );
+      item.dateAndTime = startTime.withTimeZone(utcTimezone);
       return item;
     });
     program.sort((a, b) => {
       return Temporal.ZonedDateTime.compare(a.dateAndTime, b.dateAndTime);
     });
+    //console.log(program);
     return program;
   }
 

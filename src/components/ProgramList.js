@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import { useStoreState } from "easy-peasy";
+import { LocalTime } from "../utils/LocalTime";
 import Day from "./Day";
 import configData from "../config.json";
+// import { Temporal } from "@js-temporal/polyfill";
 
 const ProgramList = ({ program, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
@@ -19,11 +21,15 @@ const ProgramList = ({ program, forceExpanded }) => {
     );
   }
   program.forEach((item) => {
-    if (item.date !== curDate) {
+    const itemDate = item.dateAndTime
+      .withTimeZone(LocalTime.conventionTimezone)
+      .round("day");
+
+    if (curDate === null || !itemDate.equals(curDate)) {
       if (itemRows.length > 0) {
         rows.push(
           <Day
-            key={curDate}
+            key={curDate.toString()}
             date={curDate}
             items={itemRows}
             forceExpanded={forceExpanded}
@@ -31,13 +37,13 @@ const ProgramList = ({ program, forceExpanded }) => {
         );
         itemRows = [];
       }
-      curDate = item.date;
+      curDate = itemDate;
     }
     itemRows.push(item);
   });
   rows.push(
     <Day
-      key={curDate}
+      key={curDate.toString()}
       date={curDate}
       items={itemRows}
       forceExpanded={forceExpanded}
