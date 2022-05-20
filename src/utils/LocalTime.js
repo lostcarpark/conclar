@@ -125,11 +125,9 @@ export class LocalTime {
   // ToDo: Add UI for selecting any timezone to display.
   static getTimeZoneOffset() {
     const instant = Temporal.Now.instant();
-    const localTZ = new Temporal.TimeZone(
-      Intl.DateTimeFormat().resolvedOptions().timeZone
-    );
+    const localTZ = this.localTimezone;
     const localOffset = localTZ.getOffsetNanosecondsFor(instant);
-    const conventionTZ = new Temporal.TimeZone(configData.TIMEZONE);
+    const conventionTZ = this.conventionTimezone;
     const conventionOffset = conventionTZ.getOffsetNanosecondsFor(instant);
     return (localOffset - conventionOffset) / 1000000;
   }

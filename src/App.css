@@ -33,6 +33,7 @@
   --checkbox-unselected-bg: red;
   --program-item-chevron-collapsed: #ccc;
   --program-item-chevron-expanded: #bbe;
+  --program-time-convention-message: grey;
   --program-time-local-message: grey;
   --program-date-line: #888;
   --program-time-line: #ccc;
@@ -326,6 +327,11 @@ input.switch:checked ~ label:after {
   clear: both;
   display: flex;
   flex-direction: column;
+}
+
+.time-convention-message {
+  font-weight: bold;
+  color: var(--program-time-convention-message);
 }
 
 .time-local-message {

@@ -49,16 +49,22 @@ const ProgramList = ({ program, forceExpanded }) => {
       forceExpanded={forceExpanded}
     />
   );
+  const conventionTime = (
+    <div className="time-convention-message">
+      {(configData.CONVENTION_TIME.NOTICE).replace("@timezone", configData.TIMEZONE)}
+    </div>
+  );
   const localTime =
     offset === null ? (
       <div className="time-local-message">{configData.LOCAL_TIME.FAILURE}</div>
     ) : offset !== 0 && showLocalTime ? (
-      <div className="time-local-message">{configData.LOCAL_TIME.NOTICE}</div>
+      <div className="time-local-message">{(configData.LOCAL_TIME.NOTICE).replace("@timezone", LocalTime.localTimezone)}</div>
     ) : (
       ""
     );
   return (
     <div className="program-container">
+      {conventionTime}
       {localTime}
       <div className="program">{rows}</div>
     </div>

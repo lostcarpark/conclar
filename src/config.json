@@ -4,7 +4,7 @@
   "APP_TITLE": "ConClár Programme Guide",
   "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "TIMEZONE": "Europe/Berlin",
+  "TIMEZONE": "Europe/Dublin",
   "INTERACTIVE": true,
   "NAVIGATION": {
     "PROGRAM": "Programme",
@@ -52,9 +52,12 @@
      "TAG": ""
     }
   ],
+  "CONVENTION_TIME": {
+    "NOTICE": "Convention time for @timezone, shown in bold."
+  },
   "LOCAL_TIME": {
     "CHECKBOX_LABEL": "Show local time",
-    "NOTICE": "Local time shown in italics.",
+    "NOTICE": "Local time for @timezone, shown in italics.",
     "PREV_DAY": " previous day",
     "NEXT_DAY": " next day",
     "FAILURE": "Unable to convert to local time."
