@@ -28,7 +28,7 @@ const Day = ({ date, items, forceExpanded }) => {
   rows.push(
     <TimeSlot
       key={curDateAndTime.toString()}
-      time={curDateAndTime}
+      dateAndTime={curDateAndTime}
       items={itemRows}
       forceExpanded={forceExpanded}
     />

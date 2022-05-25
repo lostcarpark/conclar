@@ -23,7 +23,7 @@ const ProgramList = ({ program, forceExpanded }) => {
   program.forEach((item) => {
     const itemDate = item.dateAndTime
       .withTimeZone(LocalTime.conventionTimezone)
-      .round("day");
+      .round({smallestUnit: "day", roundingMode: 'floor'});
 
     if (curDate === null || !itemDate.equals(curDate)) {
       if (itemRows.length > 0) {
