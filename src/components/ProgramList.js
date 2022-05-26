@@ -7,7 +7,8 @@ import configData from "../config.json";
 
 const ProgramList = ({ program, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
-  const offset = useStoreState((state) => state.offset);
+
+  LocalTime.checkTimezonesDiffer(program);
 
   const rows = [];
   let itemRows = [];
@@ -23,7 +24,7 @@ const ProgramList = ({ program, forceExpanded }) => {
   program.forEach((item) => {
     const itemDate = item.dateAndTime
       .withTimeZone(LocalTime.conventionTimezone)
-      .round({smallestUnit: "day", roundingMode: 'floor'});
+      .round({ smallestUnit: "day", roundingMode: "floor" });
 
     if (curDate === null || !itemDate.equals(curDate)) {
       if (itemRows.length > 0) {
@@ -51,14 +52,21 @@ const ProgramList = ({ program, forceExpanded }) => {
   );
   const conventionTime = (
     <div className="time-convention-message">
-      {(configData.CONVENTION_TIME.NOTICE).replace("@timezone", configData.TIMEZONE)}
+      {configData.CONVENTION_TIME.NOTICE.replace(
+        "@timezone",
+        configData.TIMEZONE
+      )}
     </div>
   );
   const localTime =
-    offset === null ? (
-      <div className="time-local-message">{configData.LOCAL_TIME.FAILURE}</div>
-    ) : offset !== 0 && showLocalTime ? (
-      <div className="time-local-message">{(configData.LOCAL_TIME.NOTICE).replace("@timezone", LocalTime.localTimezone)}</div>
+    showLocalTime === "always" ||
+    (showLocalTime === "differs" && LocalTime.timezonesDiffer) ? (
+      <div className="time-local-message">
+        {configData.LOCAL_TIME.NOTICE.replace(
+          "@timezone",
+          LocalTime.localTimezone
+        )}
+      </div>
     ) : (
       ""
     );

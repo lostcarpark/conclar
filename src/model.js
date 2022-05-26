@@ -20,7 +20,6 @@ const model = {
   mySelections: ProgramSelection.getAllSelections(),
   showThumbnails: localStorage.getItem("thumbnails") === "false" ? false : true,
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
-  offset: LocalTime.getTimeZoneOffset(),
   onLine: window.navigator.onLine,
   // Thunks
   fetchProgram: thunk(async (actions) => {

@@ -2,6 +2,7 @@ import configData from "./config.json";
 import { JsonParse } from "./utils/JsonParse";
 import { Format } from "./utils/Format";
 import { Temporal } from "@js-temporal/polyfill";
+import { LocalTime } from "./utils/LocalTime";
 
 // 
 
@@ -27,15 +28,17 @@ export class ProgramData {
       );
     }
 
+    // Apply regular expression to check if date includes timezone.
+    const matches = item.datetime.match(this.regex);
+
     // If time offset not included in datetime property, add convention timezone.
-    if (!item.datetime.match(this.regex)) {
+    if (matches === null) {
       return Temporal.ZonedDateTime.from(
         item.datetime + "[" + configData.TIMEZONE + "]"
       );
     }
 
     // Datetime with timezone offset.
-    const matches = item.datetime.match(this.regex);
     return Temporal.ZonedDateTime.from(matches[1] + "[" + matches[2] + "]");
   }
 
@@ -258,6 +261,7 @@ export class ProgramData {
     this.addProgramParticipantDetails(program, people);
     const locations = this.processLocations(program);
     const tags = this.processTags(program);
+    LocalTime.checkTimezonesDiffer(program);
 
     return {
       program: program,

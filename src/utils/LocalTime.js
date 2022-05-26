@@ -5,6 +5,7 @@ import configData from "../config.json";
 export class LocalTime {
   static conventionTimezone = new Temporal.TimeZone(configData.TIMEZONE);
   static localTimezone = null;
+  static timezonesDiffer = false;
 
   // Initialise local timezone.
   static {
@@ -120,16 +121,44 @@ export class LocalTime {
     });
   }
 
-  // Get offset between local timezone and convention timezone in milliseconds.
-  // This used to be a mess, but rewritten to use Temporal API, which should be a lot more reliable.
-  // ToDo: Add UI for selecting any timezone to display.
-  static getTimeZoneOffset() {
-    const instant = Temporal.Now.instant();
-    const localTZ = this.localTimezone;
-    const localOffset = localTZ.getOffsetNanosecondsFor(instant);
-    const conventionTZ = this.conventionTimezone;
-    const conventionOffset = conventionTZ.getOffsetNanosecondsFor(instant);
-    return (localOffset - conventionOffset) / 1000000;
+  /**
+   * Check a single date to see if different in convention and local timezone.
+   * @param {Temporal.ZonedDateTime} dateAndTime
+   * @returns {bool}
+   */
+  static checkTimezoneOffsetForDate(dateAndTime) {
+    const instant = Temporal.Instant.from(dateAndTime);
+    const localOffset = this.localTimezone.getOffsetNanosecondsFor(instant);
+    const conventionOffset =
+      this.conventionTimezone.getOffsetNanosecondsFor(instant);
+    if (localOffset !== conventionOffset) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Check if timezone offset different at either start or end of convention.
+   *
+   * @param {array} program
+   * @returns {bool}
+   */
+  static checkTimezonesDiffer(program) {
+    if (program.length===0) {
+      this.timezonesDiffer=false;
+      return false;
+    }
+    if (this.checkTimezoneOffsetForDate(program[0].dateAndTime)) {
+      this.timezonesDiffer = true;
+      return true;
+    }
+    const [lastItem] = program.slice(-1);
+    if (this.checkTimezoneOffsetForDate(lastItem.dateAndTime)) {
+      this.timezonesDiffer = true;
+      return true;
+    }
+    this.timezonesDiffer = false;
+    return false;
   }
 
   // Format time for 24 clock.
@@ -157,7 +186,7 @@ export class LocalTime {
     );
   }
 
-  static formatTimeInLocalTimeZone(dateAndTime, offset, ampm) {
+  static formatTimeInLocalTimeZone(dateAndTime, ampm) {
     // Convert the program item time into local time.
     const localDateAndTime = dateAndTime.withTimeZone(this.localTimezone);
     const formattedTime = this.formatTime(localDateAndTime, ampm);
