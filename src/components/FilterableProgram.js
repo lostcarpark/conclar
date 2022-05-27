@@ -80,19 +80,7 @@ const FilterableProgram = () => {
     return filtered;
   }
 
-  function handleSearch(event) {
-    setSearch(event.target.value);
-  }
-
-  function handleLoc(value) {
-    setSelLoc(value);
-  }
-
-  function handleTags(tag, value) {
-    let selections = { ...selTags };
-    selections[tag] = value;
-    setSelTags(selections);
-  }
+  // function handleTags(tag, value) 
 
   // TODO: Probably should move the tags filter to its own component.
   const tagFilters = [];
@@ -116,7 +104,11 @@ const FilterableProgram = () => {
             isMulti
             isSearchable={searchable}
             value={selTags[tag]}
-            onChange={(value) => handleTags(tag, value)}
+            onChange={(value) => {
+              let selections = { ...selTags };
+              selections[tag] = value;
+              setSelTags(selections);
+            }}
           />
         </div>
       );
@@ -134,7 +126,7 @@ const FilterableProgram = () => {
               isMulti
               isSearchable={configData.LOCATIONS.SEARCHABLE}
               value={selLoc}
-              onChange={handleLoc}
+              onChange={(value)=>setSelLoc(value)}
             />
           </div>
           {tagFilters}
@@ -143,7 +135,7 @@ const FilterableProgram = () => {
               type="text"
               placeholder="Enter search text"
               value={search}
-              onChange={handleSearch}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
