@@ -3,6 +3,7 @@ import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Temporal } from "@js-temporal/polyfill";
 import ProgramList from "./ProgramList";
+import ShowPastItems from "./ShowPastItems";
 import configData from "../config.json";
 import { LocalTime } from "../utils/LocalTime";
 
@@ -12,9 +13,6 @@ const FilterableProgram = () => {
   const tags = useStoreState((state) => state.tags);
 
   const showPastItems = useStoreState((state) => state.showPastItems);
-  const setShowPastItems = useStoreActions(
-    (actions) => actions.setShowPastItems
-  );
   const { expandAll, collapseAll } = useStoreActions((actions) => ({
     expandAll: actions.expandAll,
     collapseAll: actions.collapseAll,
@@ -29,26 +27,6 @@ const FilterableProgram = () => {
   const filtered = applyFilters(program);
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
-
-  //Nice to have a check here for whether it's during con right now.
-  const pastItemsCheckbox =
-    LocalTime.isDuringCon(program) && configData.SHOW_PAST_ITEMS.SHOW_CHECKBOX ? (
-      <div className="past-items-checkbox switch-wrapper">
-        <input
-          id={LocalTime.pastItemsClass}
-          name={LocalTime.pastItemsClass}
-          className="switch"
-          type="checkbox"
-          checked={showPastItems}
-          onChange={handleShowPastItems}
-        />
-        <label htmlFor={LocalTime.pastItemsClass}>
-          {configData.SHOW_PAST_ITEMS.CHECKBOX_LABEL}
-        </label>
-      </div>
-    ) : (
-      ""
-    );
 
   function applyFilters(program) {
     const term = search.trim().toLowerCase();
@@ -124,10 +102,6 @@ const FilterableProgram = () => {
     setSelTags(selections);
   }
 
-  function handleShowPastItems(event) {
-    setShowPastItems(event.target.checked);
-  }
-
   // TODO: Probably should move the tags filter to its own component.
   const tagFilters = [];
   for (const tag in tags) {
@@ -194,7 +168,7 @@ const FilterableProgram = () => {
             </div>
           </div>
           <div className="filter-options">
-            {pastItemsCheckbox}
+            <ShowPastItems />
           </div>
         </div>
       </div>

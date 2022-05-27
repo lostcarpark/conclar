@@ -206,8 +206,8 @@ export class LocalTime {
 
   /**
    * Check if currently during the convention.
-   * 
-   * @param {Array} program 
+   *
+   * @param {Array} program
    * @returns {bool}
    */
   static isDuringCon(program) {
