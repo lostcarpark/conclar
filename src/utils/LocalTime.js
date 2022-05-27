@@ -225,16 +225,12 @@ export class LocalTime {
         minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
       });
       return program.filter((item) => {
-        return (
-          Temporal.ZonedDateTime.compare(
-            cutOff,
-            item.dateAndTime.add({
-              minutes: item.hasOwnProperty("mins")
-                ? item.mins
-                : configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
-            })
-          ) <= 0
-        );
+        const itemNearEndTime = item.dateAndTime.add({
+          minutes: item.hasOwnProperty("mins")
+            ? item.mins
+            : configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
+        });
+        return Temporal.ZonedDateTime.compare(cutOff, itemNearEndTime) <= 0;
       });
     }
   }

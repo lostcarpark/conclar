@@ -5,10 +5,11 @@ import { LocalTime } from "../utils/LocalTime";
 
 const MySchedule = () => {
   const mySchedule = useStoreState((state) => state.getMySchedule);
+  const program = useStoreState((state) => state.program);
   const showPastItems = useStoreState((state) => state.showPastItems);
 
   const filtered =
-    LocalTime.isDuringCon(mySchedule) && !showPastItems
+    LocalTime.isDuringCon(program) && !showPastItems
       ? LocalTime.filterPastItems(mySchedule)
       : mySchedule;
 
