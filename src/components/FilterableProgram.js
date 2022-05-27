@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import { Temporal } from "@js-temporal/polyfill";
 import ProgramList from "./ProgramList";
 import configData from "../config.json";
 import { LocalTime } from "../utils/LocalTime";
@@ -53,7 +54,7 @@ const FilterableProgram = () => {
 
   //Nice to have a check here for whether it's during con right now.
   const pastItemsCheckbox =
-    isDuringCon(program) && configData.SHOW_PAST_ITEMS.SHOW_CHECKBOX ? (
+    LocalTime.isDuringCon(program) && configData.SHOW_PAST_ITEMS.SHOW_CHECKBOX ? (
       <div className="past-items-checkbox switch-wrapper">
         <input
           id={LocalTime.pastItemsClass}
@@ -118,22 +119,17 @@ const FilterableProgram = () => {
         });
       }
     }
-    if (isDuringCon(program) && !showPastItems) {
+    if (LocalTime.isDuringCon(program) && !showPastItems) {
       // Filter by past item state.  Quick hack to treat this as a filter.
-      const now = LocalTime.dateToConTime(new Date());
+      const cutOff = Temporal.Now.zonedDateTimeISO("UTC").add({
+        minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
+      });
       filtered = filtered.filter((item) => {
         // eslint-disable-next-line
-        return (
-          now.date < item.date ||
-          (now.date === item.date && now.time <= item.time)
-        );
+        return Temporal.ZonedDateTime.compare(cutOff, item.dateAndTime) <= 0;
       });
     }
     return filtered;
-  }
-
-  function isDuringCon(program) {
-    return program && program.length ? LocalTime.inConTime(program) : false;
   }
 
   function handleSearch(event) {
@@ -190,7 +186,7 @@ const FilterableProgram = () => {
   return (
     <div>
       <div className="filter">
-	<div className="search-filters">
+        <div className="search-filters">
           <div className="filter-locations">
             <ReactSelect
               placeholder="Select locations"
@@ -210,19 +206,19 @@ const FilterableProgram = () => {
               onChange={handleSearch}
             />
           </div>
-	</div>
-	<div className="result-filters">
-	  <div className="stack">
+        </div>
+        <div className="result-filters">
+          <div className="stack">
             <div className="filter-total">{totalMessage}</div>
             <div className="filter-expand">
               <button disabled={allExpanded} onClick={expandAll}>
-		{configData.EXPAND.EXPAND_ALL_LABEL}
+                {configData.EXPAND.EXPAND_ALL_LABEL}
               </button>
               <button disabled={noneExpanded} onClick={collapseAll}>
-		{configData.EXPAND.COLLAPSE_ALL_LABEL}
+                {configData.EXPAND.COLLAPSE_ALL_LABEL}
               </button>
             </div>
-	  </div>
+          </div>
           <div className="filter-options">
             {show12HourTimeCheckbox}
             {pastItemsCheckbox}

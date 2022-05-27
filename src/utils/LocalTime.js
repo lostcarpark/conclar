@@ -144,8 +144,8 @@ export class LocalTime {
    * @returns {bool}
    */
   static checkTimezonesDiffer(program) {
-    if (program.length===0) {
-      this.timezonesDiffer=false;
+    if (program.length === 0) {
+      this.timezonesDiffer = false;
       return false;
     }
     if (this.checkTimezoneOffsetForDate(program[0].dateAndTime)) {
@@ -204,53 +204,28 @@ export class LocalTime {
     }
   }
 
-  static dateToConTime(datetime) {
-    //SO: https://stackoverflow.com/a/53652131
-    //datetime is a javascript Date object
-
-    let invdate = new Date(
-      datetime.toLocaleString("en-US", {
-        timeZone: configData.TIMEZONE,
-      })
+  /**
+   * Check if currently during the convention.
+   * 
+   * @param {Array} program 
+   * @returns {bool}
+   */
+  static isDuringCon(program) {
+    //First check that program is an array.
+    if (!program || !(program instanceof Array) || program.length === 0) {
+      return false;
+    }
+    const now = Temporal.Now.zonedDateTimeISO("UTC");
+    const startTime = program[0].dateAndTime;
+    const [lastItem] = program.slice(-1);
+    const endTime = lastItem.dateAndTime.add({
+      minutes: lastItem.mins ? lastItem.mins : 0,
+    });
+    // True if between start of first item and end of last item.
+    // ToDo: consider edge case where the item with the latest end time is not the last item.
+    return (
+      Temporal.ZonedDateTime.compare(now, startTime) > 0 &&
+      Temporal.ZonedDateTime.compare(now, endTime) < 0
     );
-
-    var diff = datetime.getTime() - invdate.getTime();
-
-    var conTime = new Date(datetime.getTime() - diff);
-
-    //Make the adjustment.
-    conTime.setMinutes(
-      conTime.getMinutes() - (configData.SHOW_PAST_ITEMS.ADJUST_MINUTES || 0)
-    );
-
-    //parse into dates and times in KonOpas format (hopefully)
-    let conTimeFormatted = {};
-    conTimeFormatted.date =
-      conTime.getFullYear() +
-      "-" +
-      ("0" + (conTime.getMonth() + 1)).slice(-2) +
-      "-" +
-      ("0" + conTime.getDate()).slice(-2);
-    conTimeFormatted.time =
-      ("0" + conTime.getHours()).slice(-2) +
-      ":" +
-      ("0" + conTime.getMinutes()).slice(-2);
-
-    return conTimeFormatted;
-  }
-
-  // Check if currently during the convention.
-  // ToDO: Rework using Temporal API.
-  static inConTime(program) {
-    //Expects the program items to have dates.
-    const today = new Date();
-    const aDay = 3600 * 1000 * 24; //in  milliseconds
-    const firstItem = program[0];
-    const lastItem = program[program.length - 1];
-    //Pad by one day to avoid time zone issues.
-    const tomorrow = this.dateToConTime(new Date(Date.now(today) + aDay));
-    const yesterday = this.dateToConTime(new Date(Date.now(today) - aDay));
-    //Neither the first day of con is after tomorrow nor the last day of con is before yesterday.
-    return !(firstItem.date > tomorrow.date || lastItem.date < yesterday.date);
   }
 }
