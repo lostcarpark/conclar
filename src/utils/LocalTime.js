@@ -205,6 +205,41 @@ export class LocalTime {
   }
 
   /**
+   * Filter out program items that have already happened.
+   *
+   * @param {Array} program
+   * @param {bool} showPastItems
+   * @returns {Array}
+   */
+  static filterPastItems(program) {
+    if (configData.SHOW_PAST_ITEMS.FROM_START) {
+      // Filter by past item state.  Quick hack to treat this as a filter.
+      const cutOff = Temporal.Now.zonedDateTimeISO("UTC").add({
+        minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
+      });
+      return program.filter((item) => {
+        return Temporal.ZonedDateTime.compare(cutOff, item.dateAndTime) <= 0;
+      });
+    } else {
+      const cutOff = Temporal.Now.zonedDateTimeISO("UTC").subtract({
+        minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
+      });
+      return program.filter((item) => {
+        return (
+          Temporal.ZonedDateTime.compare(
+            cutOff,
+            item.dateAndTime.add({
+              minutes: item.hasOwnProperty("mins")
+                ? item.mins
+                : configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
+            })
+          ) <= 0
+        );
+      });
+    }
+  }
+
+  /**
    * Check if currently during the convention.
    *
    * @param {Array} program

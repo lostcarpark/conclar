@@ -74,7 +74,8 @@
   "SHOW_PAST_ITEMS": {
     "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show past items",
-    "ADJUST_MINUTES": 10
+    "ADJUST_MINUTES": 10,
+    "FROM_START": false
   },
   "PEOPLE": {
     "MODERATORS": {

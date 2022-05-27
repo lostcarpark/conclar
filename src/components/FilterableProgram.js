@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
-import { Temporal } from "@js-temporal/polyfill";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import configData from "../config.json";
@@ -76,14 +75,7 @@ const FilterableProgram = () => {
       }
     }
     if (LocalTime.isDuringCon(program) && !showPastItems) {
-      // Filter by past item state.  Quick hack to treat this as a filter.
-      const cutOff = Temporal.Now.zonedDateTimeISO("UTC").add({
-        minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
-      });
-      filtered = filtered.filter((item) => {
-        // eslint-disable-next-line
-        return Temporal.ZonedDateTime.compare(cutOff, item.dateAndTime) <= 0;
-      });
+      filtered = LocalTime.filterPastItems(filtered);
     }
     return filtered;
   }
