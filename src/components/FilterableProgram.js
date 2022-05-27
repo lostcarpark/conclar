@@ -11,10 +11,6 @@ const FilterableProgram = () => {
   const locations = useStoreState((state) => state.locations);
   const tags = useStoreState((state) => state.tags);
 
-  const show12HourTime = useStoreState((state) => state.show12HourTime);
-  const setShow12HourTime = useStoreActions(
-    (actions) => actions.setShow12HourTime
-  );
   const showPastItems = useStoreState((state) => state.showPastItems);
   const setShowPastItems = useStoreActions(
     (actions) => actions.setShowPastItems
@@ -33,24 +29,6 @@ const FilterableProgram = () => {
   const filtered = applyFilters(program);
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
-
-  const show12HourTimeCheckbox = configData.TIME_FORMAT.SHOW_CHECKBOX ? (
-    <div className={LocalTime.twelveHourTimeClass + "-checkbox switch-wrapper"}>
-      <input
-        id={LocalTime.twelveHourTimeClass}
-        name={LocalTime.twelveHourTimeClass}
-        className="switch"
-        type="checkbox"
-        checked={show12HourTime}
-        onChange={handleShow12HourTime}
-      />
-      <label htmlFor={LocalTime.twelveHourTimeClass}>
-        {configData.TIME_FORMAT.CHECKBOX_LABEL}
-      </label>
-    </div>
-  ) : (
-    ""
-  );
 
   //Nice to have a check here for whether it's during con right now.
   const pastItemsCheckbox =
@@ -146,10 +124,6 @@ const FilterableProgram = () => {
     setSelTags(selections);
   }
 
-  function handleShow12HourTime(event) {
-    setShow12HourTime(event.target.checked);
-  }
-
   function handleShowPastItems(event) {
     setShowPastItems(event.target.checked);
   }
@@ -220,7 +194,6 @@ const FilterableProgram = () => {
             </div>
           </div>
           <div className="filter-options">
-            {show12HourTimeCheckbox}
             {pastItemsCheckbox}
           </div>
         </div>
