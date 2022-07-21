@@ -4,6 +4,13 @@
   "APP_TITLE": "ConClár Programme Guide",
   "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
+  "FETCH_OPTIONS": {
+    "cache": "reload",
+    "credentials": "omit",
+    "headers": {
+      "Origin": "http://example.com"
+    }
+  },
   "TIMEZONE": "Europe/Dublin",
   "INTERACTIVE": true,
   "NAVIGATION": {

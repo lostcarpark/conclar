@@ -278,9 +278,9 @@ export class ProgramData {
    * @returns {object}
    */
   static async fetchUrl(url) {
-    const res = await fetch(url, { cache: "reload" });
-    const data = await res.text();
-    return JsonParse.extractJson(data);
+      const res = await fetch(url, configData.FETCH_OPTIONS);
+      const data = await res.text();
+      return JsonParse.extractJson(data);
   }
 
   /**

@@ -53,6 +53,10 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
 - `PROGRAM_DATA_URL`: The address of the file containing programme data.
 - `PEOPLE_DATA_URL`: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
+- `FETCH_OPTIONS`: A JSON object containing options to pass when fetching data. See JavaScript [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/fetch) documentation for available valies. Typical examples:
+  - `"cache": "reload"` - Should always be used so beck end program updates will be read.
+  - `"credentials": "omit"` - Use if source is not using a certificate from a recognised authority, e.g. a self signed cert.
+  - `"headers": { "Origin": "http://example.com" }` - Headers sent in the fetch. Origin may be required for Cross Origin Resource Sharing (CORS).
 - `TIMEZONE`: The name of the timezone where your convention takes place. Viewers outside convention timezone will see times in convention time, and their local time below it.
 - `INTERACTIVE`: Set to `false` to get a non-interactive, expanded view of the schedule. The info page is also included, but not the participant list, individual participant pages, or individual item pages (regardless of the `PERMALINK.SHOW_PERMALINK` setting).
 - `NAVIGATION`: Each value in this section sets the label that will appear on main navigation of the site. Useful for switching between different international spellings of "programme".
