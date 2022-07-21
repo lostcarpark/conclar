@@ -12,7 +12,7 @@ import { LocalTime } from "./utils/LocalTime";
  */
 
 export class ProgramData {
-  static regex = /(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})([+-]\d{2}):(\d{2})/;
+  static regex = /(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(\.\d{3})?(Z)?([+-]\d{2}:\d{2})?/;
 
   /**
    * Process a program item and return the date and time as a ZonedDateTime.
@@ -28,18 +28,32 @@ export class ProgramData {
       );
     }
 
+    console.log("Datetime", item.datetime)
     // Apply regular expression to check if date includes timezone.
     const matches = item.datetime.match(this.regex);
 
-    // If time offset not included in datetime property, add convention timezone.
+    console.log("Matches", matches)
+    // If datetime does not evaluate, try using it with convention timezone.
     if (matches === null) {
       return Temporal.ZonedDateTime.from(
         item.datetime + "[" + configData.TIMEZONE + "]"
       );
     }
 
+    // If time offset not included in datetime property, add convention timezone.
+    if (matches[3] === undefined && matches[4] === undefined) {
+      return Temporal.ZonedDateTime.from(
+        item.datetime + "[" + configData.TIMEZONE + "]"
+      );
+    }
+
+    // If datetime ends in Z, and no explicit offset, assume UTC.
+    if (matches[3] === "Z" && matches[4] === undefined) {
+      return Temporal.ZonedDateTime.from(matches[1] + "[+00:00]");
+    }
+
     // Datetime with timezone offset.
-    return Temporal.ZonedDateTime.from(matches[1] + "[" + matches[2] + "]");
+    return Temporal.ZonedDateTime.from(matches[1] + "[" + matches[4] + "]");
   }
 
   /**
