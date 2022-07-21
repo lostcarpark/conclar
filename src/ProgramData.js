@@ -28,11 +28,9 @@ export class ProgramData {
       );
     }
 
-    console.log("Datetime", item.datetime)
     // Apply regular expression to check if date includes timezone.
     const matches = item.datetime.match(this.regex);
 
-    console.log("Matches", matches)
     // If datetime does not evaluate, try using it with convention timezone.
     if (matches === null) {
       return Temporal.ZonedDateTime.from(
