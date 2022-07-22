@@ -100,6 +100,17 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
 - `PEOPLE.BIO.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing participant bios. For more details, see `ITEM_DESCRIPTION.PURIFY_OPTIONS` above.
 - `USELESS_CHECKBOX.CHECKBOX_LABEL`: Label for any useless checkboxes.
+- `SETTINGS.TITLE.LABEL`: Label for settings page.
+- `SETTINGS.TIME_FORMAT.LABEL`: Label for time format group.
+- `SETTINGS.TIME_FORMAT.T12_HOUR_LABEL`: Label for 12 hour option.
+- `SETTINGS.TIME_FORMAT.T24_HOUR_LABEL`: Label for 24 hour option.
+- `SETTINGS.SHOW_LOCAL_TIME.LABEL`: Label for Show Local Time option group.
+- `SETTINGS.SHOW_LOCAL_TIME.NEVER_LABEL`: Label for "Never show" option.
+- `SETTINGS.SHOW_LOCAL_TIME.DIFFERS_LABEL`: Label for "Display if different from Convention timezone".
+- `SETTINGS.SHOW_LOCAL_TIME.ALWAYS_LABEL`: Label for "Always display" option.
+- `SETTINGS.SELECT_TIMEZONE.LABEL`: Lable for select timezone group,
+- `SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL`: Label to use browser default timezone (will have name of timezone appended).
+- `SETTINGS.SELECT_TIMEZONE.SELECT_LABEL`: Label to select explicit timezone.
 - `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
 - `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
 - `FOOTER.SITE_NOTE_MARKDOWN`: General note displayed in the footer of the page. May use Markdown for encoding of links, emphesis, etc.
