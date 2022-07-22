@@ -114,6 +114,27 @@
     "MARKDOWN_URL": "info.md",
     "LOADING_MESSAGE": "Loading..."
   },
+  "SETTINGS": {
+    "TITLE": {
+      "LABEL": "Settings"
+    },
+    "TIME_FORMAT": {
+      "LABEL": "Time format",
+      "T12_HOUR_LABEL": "12 hour",
+      "T24_HOUR_LABEL": "24 hour"
+    },
+    "SHOW_LOCAL_TIME": {
+      "LABEL": "Show local time",
+      "NEVER_LABEL": "Never display",
+      "DIFFERS_LABEL": "Display if differs from convention time",
+      "ALWAYS_LABEL": "Always show"
+    },
+    "SELECT_TIMEZONE": {
+      "LABEL": "Select timezone",
+      "BROWSER_DEFAULT_LABEL": "Use browser default timezone:",
+      "SELECT_LABEL": "Select timezone to use"
+    }
+  },
   "FOOTER": {
     "SITE_NOTE_MARKDOWN": "",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"

@@ -1,3 +1,4 @@
+import configData from "../config.json";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Temporal } from "@js-temporal/polyfill";
 import TimezoneSelect from "react-timezone-select";
@@ -37,9 +38,9 @@ const Settings = () => {
 
   return (
     <div className="settings">
-      <h2>Settings</h2>
+      <h2>{ configData.SETTINGS.TITLE.LABEL }</h2>
       <div className="settings-group time-format">
-        <div className="settings-head">Time format</div>
+        <div className="settings-head">{ configData.SETTINGS.TIME_FORMAT.LABEL }</div>
         <div className="settings-radio">
           <label>
             <input
@@ -49,7 +50,7 @@ const Settings = () => {
               checked={show12HourTime}
               onChange={(e) => setShow12HourTime(e.target.value === "12hour")}
             />
-            12 hour
+            { configData.SETTINGS.TIME_FORMAT.T12_HOUR_LABEL }
           </label>
           <label>
             <input
@@ -59,12 +60,12 @@ const Settings = () => {
               checked={!show12HourTime}
               onChange={(e) => setShow12HourTime(e.target.value === "12hour")}
             />
-            24 hour
+            { configData.SETTINGS.TIME_FORMAT.T24_HOUR_LABEL }
           </label>
         </div>
       </div>
       <div className="settings-group select-show-localtime">
-        <div className="settings-head">Show local time</div>
+        <div className="settings-head">{ configData.SETTINGS.SHOW_LOCAL_TIME.LABEL }</div>
         <div className="settings-radio">
           <label>
             <input
@@ -74,7 +75,7 @@ const Settings = () => {
               checked={showLocalTime === "never"}
               onChange={(e) => setShowLocalTime(e.target.value)}
             />
-            Never display
+            { configData.SETTINGS.SHOW_LOCAL_TIME.NEVER_LABEL }
           </label>
           <label>
             <input
@@ -84,7 +85,7 @@ const Settings = () => {
               checked={showLocalTime === "differs"}
               onChange={(e) => setShowLocalTime(e.target.value)}
             />
-            Display if differs from convention time
+            { configData.SETTINGS.SHOW_LOCAL_TIME.DIFFERS_LABEL }
           </label>
           <label>
             <input
@@ -94,12 +95,12 @@ const Settings = () => {
               checked={showLocalTime === "always"}
               onChange={(e) => setShowLocalTime(e.target.value)}
             />
-            Always show
+            { configData.SETTINGS.SHOW_LOCAL_TIME.ALWAYS_LABEL }
           </label>
         </div>
       </div>
       <div className="settings-group select-timezone">
-        <div className="settings-head">Select timezone</div>
+        <div className="settings-head">{ configData.SETTINGS.SELECT_TIMEZONE.LABEL }</div>
         <div className="settings-radio">
           <label>
             <input
@@ -109,7 +110,7 @@ const Settings = () => {
               checked={!useTimezone}
               onChange={(e) => setUseTimezone(e.target.value === "select")}
             />
-            Use browser default timezone: {defaultTimezone}
+            { configData.SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL } {defaultTimezone}
           </label>
           <label>
             <input
@@ -119,7 +120,7 @@ const Settings = () => {
               checked={useTimezone}
               onChange={(e) => setUseTimezone(e.target.value === "select")}
             />
-            Select timezone to use
+            { configData.SETTINGS.SELECT_TIMEZONE.SELECT_LABEL }
           </label>
         </div>
         {timezoneSelect}
