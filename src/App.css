@@ -16,32 +16,34 @@
  * 1. Global application styles.
  */
 
+
+ 
 :root {
   --main-bg: #fff;
   --main-fg: #000;
-  --navigation-button-bg: #ddd;
-  --navigation-button-fg: #0d172a;
-  --navigation-button-border: #e2e8f0;
-  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
+  --navigation-button-bg: #619b40;
+  --navigation-button-fg: #fff;
+  --navigation-button-border: #619b40;
+  --navigation-button-current-bg: #0277b6;
   --navigation-button-current-fg: #fff;
-  --navigation-button-hover-bg: #1e293b;
+  --navigation-button-hover-bg: #0277b6;
   --navigation-button-hover-fg: #fff;
   --checkbox-switch-bg: white;
-  --checkbox-selected-bg: green;
-  --checkbox-unselected-bg: red;
-  --program-item-chevron-collapsed: #ccc;
-  --program-item-chevron-expanded: #bbe;
+  --checkbox-selected-bg: #619b40;
+  --checkbox-unselected-bg: grey;
+  --program-item-chevron-collapsed: #619b40;
+  --program-item-chevron-expanded: #0277b6;
   --program-time-local-message: grey;
-  --program-date-line: #888;
-  --program-time-line: #ccc;
-  --program-item-line: #bbb;
-  --program-tags-fg: #888;
-  --program-expanded-bg: #eee;
-  --permalink-icon-fg: #265c83;
-  --permalink-icon-hover-fg: #7fdbff;
+  --program-date-line: #619b40;
+  --program-time-line: #8ab770;
+  --program-item-line: #CDF3B8;
+  --program-tags-fg: #3C5B25;
+  --program-expanded-bg: #CDF3B8;
+  --permalink-icon-fg: #026AA2;
+  --permalink-icon-hover-fg: #3C5B25;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
-  --footer-line: #888;
+  --footer-line: #619b40;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
   --shadow-012: rgba(0, 0, 0, 0.12);
@@ -66,8 +68,18 @@ body {
 .App {
   text-align: left;
   margin: 1rem;
-  font-family: "Roboto", "Calibri", "Open Sans", "Lato", "Helvetica Neue", Arial,
+  font-size: 1.25rem;
+  font-family: "Open Sans", "Lato", "Helvetica Neue", "Calibri", Arial,
     sans-serif;
+}
+
+a {
+  color: var(--permalink-icon-fg);
+  
+}
+
+a:hover, a:focus {
+  color: var(--permalink-icon-hover-fg);
 }
 
 h1,

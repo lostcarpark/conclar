@@ -1,7 +1,7 @@
 {
   "BASE_PATH": "/",
   "APP_ID": "O2021",
-  "APP_TITLE": "ConClár Programme Guide",
+  "APP_TITLE": "Octocon 2022 Programme Guide",
   "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "TIMEZONE": "Europe/Dublin",
@@ -80,7 +80,7 @@
       "SHOW_THUMBNAILS": true,
       "SHOW_CHECKBOX": true,
       "CHECKBOX_LABEL": "Show thumbnails",
-      "DEFAULT_IMAGE": "head.svg"
+      "DEFAULT_IMAGE": "octo.png"
     },
     "SORT": {
       "SHOW_CHECKBOX": true,
