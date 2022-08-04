@@ -80,27 +80,30 @@ const FilterableProgram = () => {
     return filtered;
   }
 
+  function findTagData(tag) {
+    // Check for day tag.
+    if (tag === 'days' && configData.TAGS.DAY_TAG.GENERATE)
+      return configData.TAGS.DAY_TAG;
+    const tagData = configData.TAGS.SEPARATE.find((item) => item.PREFIX === tag );
+    if (tagData !== undefined)
+      return tagData;
+    // Tag not found in config, so return default.
+    return configData.TAGS;
+  }
+
   // TODO: Probably should move the tags filter to its own component.
   const tagFilters = [];
   for (const tag in tags) {
-    const tagData = configData.TAGS.SEPARATE.find((item) => {
-      return item.PREFIX === tag;
-    });
+    const tagData = findTagData(tag);
     // Only add drop-down if tag type actually contains elements.
     if (tags[tag].length) {
-      const placeholder = tagData
-        ? tagData.PLACEHOLDER
-        : configData.TAGS.PLACEHOLDER;
-      const searchable = tagData
-        ? tagData.SEARCHABLE
-        : configData.TAGS.SEARCHABLE;
       tagFilters.push(
         <div key={tag} className={"filter-tags filter-tags-" + tag}>
           <ReactSelect
-            placeholder={placeholder}
+            placeholder={tagData.PLACEHOLDER}
             options={tags[tag]}
             isMulti
-            isSearchable={searchable}
+            isSearchable={tagData.SEARCHABLE}
             value={selTags[tag]}
             onChange={(value) => {
               let selections = { ...selTags };

@@ -251,6 +251,22 @@ export class ProgramData {
     for (let tagList in tags) {
       tags[tagList].sort((a, b) => a.label.localeCompare(b.label));
     }
+
+    // If generating day tags, loop through days and add a tag for day in convention timezone.
+    if (configData.TAGS.DAY_TAG.GENERATE) {
+      tags.days = [];
+      for (const item of program) {
+        // Get the day of the program item.
+        const dayLabel = LocalTime.formatDayNameInConventionTimeZone(item.dateAndTime);
+        const dayValue = LocalTime.formatISODateInConventionTimeZone(item.dateAndTime);
+        item.tags.push(dayValue);
+        addTag(tags.days, dayValue, dayLabel);
+      }
+      // Sort days by value.
+      tags.days.sort((a, b) => a.value.localeCompare(b.value));
+    }
+
+    console.log(tags);
     return tags;
   }
 

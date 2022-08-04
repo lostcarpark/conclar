@@ -205,6 +205,37 @@ export class LocalTime {
   }
 
   /**
+   * Format the day name in convention time zone.
+   *
+   * @param {Temporal.ZonedDateTime} dateAndTime
+   * @returns {string}
+   */
+  static formatDayNameInConventionTimeZone(dateAndTime) {
+    let language = window.navigator.userLanguage || window.navigator.language;
+    return dateAndTime
+      .withTimeZone(this.conventionTimezone)
+      .toLocaleString(language, { weekday: "long" });
+  }
+
+  /**
+   * Format the day name in convention time zone.
+   *
+   * @param {Temporal.ZonedDateTime} dateAndTime
+   * @returns {string}
+   */
+  static formatISODateInConventionTimeZone(dateAndTime) {
+    const language = window.navigator.userLanguage || window.navigator.language;
+    const conDate = dateAndTime.withTimeZone(this.conventionTimezone);
+    return (
+      conDate.toLocaleString(language, { year: "numeric" }) +
+      "-" +
+      conDate.toLocaleString(language, { month: "2-digit" }) +
+      "-" +
+      conDate.toLocaleString(language, { day: "2-digit" })
+    );
+  }
+
+  /**
    * Filter out program items that have already happened.
    *
    * @param {Array} program

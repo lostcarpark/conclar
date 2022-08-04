@@ -31,7 +31,12 @@
       { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true },
       { "PREFIX": "test", "PLACEHOLDER": "Select test", "SEARCHABLE": true }
     ],
-    "FORMAT_AS_TAG": false
+    "FORMAT_AS_TAG": false,
+    "DAY_TAG": {
+      "GENERATE": true,
+      "PLACEHOLDER": "Select days",
+      "SEARCHABLE": true
+    }
   },
   "PERMALINK": {
     "SHOW_PERMALINK": true,
