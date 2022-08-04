@@ -80,8 +80,6 @@ const FilterableProgram = () => {
     return filtered;
   }
 
-  // function handleTags(tag, value) 
-
   // TODO: Probably should move the tags filter to its own component.
   const tagFilters = [];
   for (const tag in tags) {
@@ -126,7 +124,7 @@ const FilterableProgram = () => {
               isMulti
               isSearchable={configData.LOCATIONS.SEARCHABLE}
               value={selLoc}
-              onChange={(value)=>setSelLoc(value)}
+              onChange={(value) => setSelLoc(value)}
             />
           </div>
           {tagFilters}
