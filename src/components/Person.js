@@ -2,6 +2,7 @@ import React from "react";
 import { useStoreState } from "easy-peasy";
 import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
+import PersonLinks from "./PersonLinks";
 import ProgramList from "./ProgramList";
 import configData from "../config.json";
 
@@ -41,6 +42,7 @@ const Person = () => {
         className="person-bio"
         dangerouslySetInnerHTML={{ __html: safeBio }}
       />
+      <PersonLinks person={person} />
       <ProgramList program={filteredProgram} />
     </div>
   );
