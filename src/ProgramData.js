@@ -230,7 +230,7 @@ export class ProgramData {
       // Check item has at least one tag.
       if (item.tags && Array.isArray(item.tags) && item.tags.length) {
         for (const tag of item.tags) {
-          let matches = tag.match(/^(.+):(.+)/);
+          const matches = tag.match(/^(.+):(.+)/);
           if (matches && matches.length === 3) {
             const prefix = matches[1];
             const label = matches[2];
