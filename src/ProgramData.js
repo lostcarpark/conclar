@@ -120,7 +120,7 @@ export class ProgramData {
           if (
             item.people[index].name.indexOf("(moderator)") > 0 ||
             (item.people[index].hasOwnProperty("role") &&
-              item.people[index].role === "Moderator")
+              ( (item.people[index].role === "Moderator") || (item.people[index].role === "moderator")) )
           )
             item.moderator = item.people[index].id;
           if (fullPerson) {

@@ -59,7 +59,7 @@ var program = [
 * `mins` is the duration of the programme item in minutes.
     * Note: In order to avoid complications related to programme items that go on past midnight, or which have a starting time past midnight, is to include `time` for the start time and use `mins` for the duration in minutes (with 0 for unknown or n/a).
 * `loc` is the location of the programme item. There can be multiple items in this array.
-* `people` is an array that contains a list of the people assigned to the programme item. Each person is an array, containing `id` (required), `name` (optional) and `role` (optional). If name is present, it will get replaced by reference to the full `people` record when the file is loaded. The `role` item, if present, is checked for "Moderator" and used to set the moderator flag. The `name` item is also checked for "(moderator)" and will set the moderator flag.
+* `people` is an array that contains a list of the people assigned to the programme item. Each person is an array, containing `id` (required), `name` (optional) and `role` (optional). If name is present, it will get replaced by reference to the full `people` record when the file is loaded. The `role` item, if present, is checked for "Moderator" or "moderator" and used to set the moderator flag. The `name` item is also checked for "(moderator)" and will set the moderator flag.
 * `desc` is a description of the programme item.
     * Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which are not supported elsewhere.
 * `links` is an array that contains a set of url links for the programme item. Currently, `signup`, `meeting` and `recording` are the valid link types.
