@@ -134,7 +134,7 @@ const FilterableProgram = () => {
           <div className="filter-search">
             <input
               type="text"
-              placeholder="Enter search text"
+              placeholder={configData.PROGRAM.SEARCH.SEARCH_LABEL}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
