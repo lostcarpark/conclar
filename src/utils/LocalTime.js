@@ -13,6 +13,7 @@ export class LocalTime {
   }
 
   static getLocalTimezone() {
+    // Check if using browser default timezone, or user selected.
     const useTimezone = this.getStoredUseTimezone();
     const timezoneName = useTimezone
       ? this.getStoredSelectedTimezone()
@@ -54,6 +55,8 @@ export class LocalTime {
       this.useTimezoneClass,
       useTimezone ? "select" : "default"
     );
+    this.getLocalTimezone();
+
   }
 
   static get useTimezoneClass() {
