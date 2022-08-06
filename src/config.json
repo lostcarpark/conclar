@@ -4,6 +4,13 @@
   "APP_TITLE": "ConClár Programme Guide",
   "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
+  "FETCH_OPTIONS": {
+    "cache": "reload",
+    "credentials": "omit",
+    "headers": {
+      "Origin": "http://example.com"
+    }
+  },
   "TIMEZONE": "Europe/Dublin",
   "INTERACTIVE": true,
   "NAVIGATION": {
@@ -11,10 +18,16 @@
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
+    "SETTINGS": "Settings",
     "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
   },
   "LOCATIONS": {
     "SEARCHABLE": false
+  },
+  "PROGRAM": {
+    "SEARCH": {
+      "SEARCH_LABEL": "Search title, desc, or people"
+    }
   },
   "TAGS": {
     "PLACEHOLDER": "Select tags",
@@ -23,7 +36,12 @@
       { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true },
       { "PREFIX": "test", "PLACEHOLDER": "Select test", "SEARCHABLE": true }
     ],
-    "FORMAT_AS_TAG": false
+    "FORMAT_AS_TAG": false,
+    "DAY_TAG": {
+      "GENERATE": true,
+      "PLACEHOLDER": "Select days",
+      "SEARCHABLE": true
+    }
   },
   "PERMALINK": {
     "SHOW_PERMALINK": true,
@@ -51,9 +69,12 @@
      "TAG": ""
     }
   ],
+  "CONVENTION_TIME": {
+    "NOTICE": "Convention time for @timezone, shown in bold."
+  },
   "LOCAL_TIME": {
     "CHECKBOX_LABEL": "Show local time",
-    "NOTICE": "Local time shown in italics.",
+    "NOTICE": "Local time for @timezone, shown in italics.",
     "PREV_DAY": " previous day",
     "NEXT_DAY": " next day",
     "FAILURE": "Unable to convert to local time."
@@ -70,7 +91,8 @@
   "SHOW_PAST_ITEMS": {
     "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show past items",
-    "ADJUST_MINUTES": 10
+    "ADJUST_MINUTES": 10,
+    "FROM_START": false
   },
   "PEOPLE": {
     "MODERATORS": {
@@ -101,6 +123,27 @@
   "INFORMATION": {
     "MARKDOWN_URL": "info.md",
     "LOADING_MESSAGE": "Loading..."
+  },
+  "SETTINGS": {
+    "TITLE": {
+      "LABEL": "Settings"
+    },
+    "TIME_FORMAT": {
+      "LABEL": "Time format",
+      "T12_HOUR_LABEL": "12 hour",
+      "T24_HOUR_LABEL": "24 hour"
+    },
+    "SHOW_LOCAL_TIME": {
+      "LABEL": "Show local time",
+      "NEVER_LABEL": "Never display",
+      "DIFFERS_LABEL": "Display if differs from convention time",
+      "ALWAYS_LABEL": "Always show"
+    },
+    "SELECT_TIMEZONE": {
+      "LABEL": "Select timezone",
+      "BROWSER_DEFAULT_LABEL": "Use browser default timezone:",
+      "SELECT_LABEL": "Select timezone to use"
+    }
   },
   "FOOTER": {
     "SITE_NOTE_MARKDOWN": "",
