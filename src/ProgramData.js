@@ -266,7 +266,7 @@ export class ProgramData {
       tags.days.sort((a, b) => a.value.localeCompare(b.value));
     }
 
-    console.log(tags);
+    //console.log(tags);
     return tags;
   }
 

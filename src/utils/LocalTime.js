@@ -191,7 +191,7 @@ export class LocalTime {
     const localDateAndTime = dateAndTime.withTimeZone(this.localTimezone);
     const formattedTime = this.formatTime(localDateAndTime, ampm);
     // Get the con and local dates with time stripped out.
-    const conDate = Temporal.PlainDate.from(dateAndTime);
+    const conDate = Temporal.PlainDate.from(dateAndTime.withTimeZone(this.conventionTimezone));
     const localDate = Temporal.PlainDate.from(localDateAndTime);
     // Compare the dates without time to see if we're showing time on next or previous day, and if so attach label.
     switch (Temporal.PlainDate.compare(localDate, conDate)) {
