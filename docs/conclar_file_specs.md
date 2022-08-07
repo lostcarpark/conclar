@@ -108,7 +108,7 @@ Note: the "old" and "new" style files are not mutually exclusive, and it is poss
 * `title` is the title of the programme item.
 * `tags` may include any number of programme tracks or other classifying indicators in this array.
     * May be a single string. String tags can have optional prefixes (such as "Track:" or "Division:") to split out the category of tag.
-	  * Alternatively, may be an object in the form `{ "value": "tag ID", "category": "tag category", "label": "label to display" }`. `category` is optional. If using this form, the cagegory and label need only be specified once, and subsequent references to the tag need only specify the `value`.
+    * Alternatively, may be an object in the form `{ "value": "tag ID", "category": "tag category", "label": "label to display" }`. `category` is optional. If using this form, the cagegory and label need only be specified once, and subsequent references to the tag need only specify the `value`.
 * `format` optional field used by Grenadine. Treated as a `tag` if present.
 * `date` is the date of when the item will happen.
 * `time` is the time of when the programme item will start. It assumes that the timezone of the item is the same as the server.
