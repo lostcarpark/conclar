@@ -27,6 +27,11 @@ const FilterableProgram = () => {
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
 
+  /**
+   * Apply filters to the program array.
+   * @param {array} program Array of program items.
+   * @returns {array} The filtered array.
+   */
   function applyFilters(program) {
     const term = search.trim().toLowerCase();
 
@@ -67,7 +72,7 @@ const FilterableProgram = () => {
         filtered = filtered.filter((item) => {
           for (const tag of item.tags) {
             for (const selected of selTags[tagType]) {
-              if (selected.value === tag) return true;
+              if (selected.value === tag.value) return true;
             }
           }
           return false;
@@ -80,6 +85,11 @@ const FilterableProgram = () => {
     return filtered;
   }
 
+  /**
+   * Get the tag information for the tag category.
+   * @param {string} tag The tag category.
+   * @returns {object} The tag config information.
+   */
   function findTagData(tag) {
     // Check for day tag.
     if (tag === 'days' && configData.TAGS.DAY_TAG.GENERATE)
@@ -95,8 +105,8 @@ const FilterableProgram = () => {
   const tagFilters = [];
   for (const tag in tags) {
     const tagData = findTagData(tag);
-    // Only add drop-down if tag type actually contains elements.
-    if (tags[tag].length) {
+    // Only add drop-down if tag type actually contains elements, and isn't marked hidden in config.
+    if (tags[tag].length && !tagData.HIDE) {
       tagFilters.push(
         <div key={tag} className={"filter-tags filter-tags-" + tag}>
           <ReactSelect

@@ -59,7 +59,10 @@ var program = [
 	{
 		"id": "112eeabc-ef56-4197-9191-ce2aa3aea38e",
 		"title": "A Really Cool Item Title",
-		"tags": [ "Some track", "Another track" ],
+		"tags": [
+			{ "value": "tag01", "label": "Some track" },
+			{ "value": "tag02", "label": "Another track" }
+		],
 		"datetime": "2013-12-24T14:30:00+00:00",
 		"mins": "90",
 		"loc": [ "Some Room", "Some Area" ],
@@ -73,7 +76,13 @@ var program = [
 	{
 		"id": "29f103c8-d492-49c6-a971-6a4a69fe49ff",
 		"title": "An Interview with the Knight of Honour",
-		"tags": [ "Track: Art", "Division: Program", "Tag: GoH", "Tag: Another tag" ],
+		"tags": [
+			{ "value": "tag01" },
+			{ "value": "tag03", "category": "Track", "label": "Art" },
+			{ "value": "tag04", "category": "Division", "label": "Program" },
+			{ "value": "tag05", "category": "Tag", "label": "GoH" },
+			{ "value": "tag06", "category": "Tag", "label": "Another tag" }
+		],
 		"date": "2013-12-25T23:30:00+00:00",
 		"mins": "45",
 		"loc": [ "Another Room", "Some Area" ],
@@ -92,10 +101,14 @@ var program = [
 ]
 ```
 
+Note: the "old" and "new" style files are not mutually exclusive, and it is possible to mix elements of both. However, if compatibility with KonOpas is required, old style should be used.
+
 * `var program =` and the trailing semicolon are completely optional. They were needed by KonOpas, but ConClár ignores everything outside square brackets. `program` must be the first array in the file if multiple entries in file (discouraged).
 * `id` is a unique id to a programme item. This id is referred to by the `prog` field in the `people` array. There is no particular format it has to follow as long as each entry is unique.
 * `title` is the title of the programme item.
-* `tags` may include any number of programme tracks or other classifying indicators in this array. These different tags can have prefixes (such as "Track:" or "Division:" to split out the type of tag.
+* `tags` may include any number of programme tracks or other classifying indicators in this array.
+  * May be a single string. String tags can have optional prefixes (such as "Track:" or "Division:") to split out the category of tag.
+	* Alternatively, may be an object in the form `{ "value": "tag ID", "category": "tag category", "label": "label to display" }`. `category` is optional. If using this form, the cagegory and label need only be specified once, and subsequent references to the tag need only specify the `value`.
 * `format` optional field used by Grenadine. Treated as a `tag` if present.
 * `date` is the date of when the item will happen.
 * `time` is the time of when the programme item will start. It assumes that the timezone of the item is the same as the server.
