@@ -58,6 +58,11 @@
   --debug-offline-fg: white;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 body {
   margin: auto;
   -webkit-font-smoothing: antialiased;
@@ -94,6 +99,7 @@ code {
 
 header {
   text-align: center;
+  justify-content: center;
 }
 
 header h1 {
@@ -561,6 +567,21 @@ input.switch:checked ~ label:after {
   margin: 0 0.5rem 0.5rem 0;
   box-shadow: 0px 2px 2px 0px var(--shadow-014),
     0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
+}
+
+.person .person-links {
+  max-width: 60ch;
+  margin-top: 0.5rem;
+}
+
+.person .person-links a {
+  color: var(--participant-link-fg);
+}
+
+.person .person-links a:active,
+.person .person-links a:hover,
+.person .person-links a:visited {
+  color: var(--participant-link-visited-fg);
 }
 
 .person .person-bio {
