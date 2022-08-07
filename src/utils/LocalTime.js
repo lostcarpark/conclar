@@ -13,6 +13,7 @@ export class LocalTime {
   }
 
   static getLocalTimezone() {
+    // Check if using browser default timezone, or user selected.
     const useTimezone = this.getStoredUseTimezone();
     const timezoneName = useTimezone
       ? this.getStoredSelectedTimezone()
@@ -26,10 +27,11 @@ export class LocalTime {
 
   static getStoredLocalTime() {
     const storedShowLocalTime = localStorage.getItem(this.localTimeClass);
-    if (storedShowLocalTime === null) return "differs";
-    if (storedShowLocalTime === false) return "never"; // Handle legacy boolian values.
-    if (storedShowLocalTime === true) return "differs";
-    return storedShowLocalTime;
+    if (["never", "differs", "always"].includes(storedShowLocalTime))
+      return storedShowLocalTime;
+    if (storedShowLocalTime === false || storedShowLocalTime === "false")
+      return "never"; // Handle legacy boolian values.
+    return "differs";
   }
 
   static setStoredLocalTime(showLocalTime) {
@@ -53,6 +55,8 @@ export class LocalTime {
       this.useTimezoneClass,
       useTimezone ? "select" : "default"
     );
+    this.getLocalTimezone();
+
   }
 
   static get useTimezoneClass() {
@@ -191,7 +195,9 @@ export class LocalTime {
     const localDateAndTime = dateAndTime.withTimeZone(this.localTimezone);
     const formattedTime = this.formatTime(localDateAndTime, ampm);
     // Get the con and local dates with time stripped out.
-    const conDate = Temporal.PlainDate.from(dateAndTime);
+    const conDate = Temporal.PlainDate.from(
+      dateAndTime.withTimeZone(this.conventionTimezone)
+    );
     const localDate = Temporal.PlainDate.from(localDateAndTime);
     // Compare the dates without time to see if we're showing time on next or previous day, and if so attach label.
     switch (Temporal.PlainDate.compare(localDate, conDate)) {

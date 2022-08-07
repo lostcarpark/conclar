@@ -32,15 +32,17 @@
   "TAGS": {
     "PLACEHOLDER": "Select tags",
     "SEARCHABLE": false,
+    "HIDE": false,
     "SEPARATE": [
-      { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true },
-      { "PREFIX": "test", "PLACEHOLDER": "Select test", "SEARCHABLE": true }
+      { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true, "HIDE": false },
+      { "PREFIX": "test", "PLACEHOLDER": "Select test", "SEARCHABLE": true, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
       "GENERATE": true,
       "PLACEHOLDER": "Select days",
-      "SEARCHABLE": true
+      "SEARCHABLE": true,
+      "HIDE": false
     }
   },
   "PERMALINK": {

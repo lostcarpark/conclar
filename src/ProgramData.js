@@ -12,7 +12,8 @@ import { LocalTime } from "./utils/LocalTime";
  */
 
 export class ProgramData {
-  static regex = /(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(\.\d{3})?(Z)?([+-]\d{2}:\d{2})?/;
+  static regex =
+    /(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(\.\d{3})?(Z)?([+-]\d{2}:\d{2})?/;
 
   /**
    * Process a program item and return the date and time as a ZonedDateTime.
@@ -118,9 +119,9 @@ export class ProgramData {
           );
           //Moderator check before nuking the item person data.
           if (
-            item.people[index].name.indexOf("(moderator)") > 0 ||
+            item.people[index].name.includes("(moderator)") ||
             (item.people[index].hasOwnProperty("role") &&
-              ( (item.people[index].role === "Moderator") || (item.people[index].role === "moderator")) )
+              item.people[index].role.toLowerCase === "moderator")
           )
             item.moderator = item.people[index].id;
           if (fullPerson) {
@@ -205,19 +206,62 @@ export class ProgramData {
   static processTags(program) {
     //Pre-parse grenadine Format as konopas Type.
 
-    // Tags is an object with a property for each tag type. Default to one property for general tags.
-    const tags = { tags: [] };
+    // Tags is an object with a property for each tag type. Default to a property for general tags, and one for an index of all tags.
+    const tags = { tags: [], all: {} };
 
-    // Subfunction to push tag to tag list.
-    function addTag(tagList, value, label) {
+    /**
+     * Subfunction to push tag to tag list.
+     * @param {array} tagList The tag array to add tag to if not already present.
+     * @param {object} tag The tag object to add.
+     * @returns {object} The tag object added.
+     */
+    function addTag(tagList, tag) {
       // If item doesn't exist in tags array, add it.
       if (
         !tagList.find((entry) => {
-          return value === entry.value;
+          return tag.value === entry.value;
         })
       ) {
-        tagList.push({ value: value, label: label });
+        tagList.push(tag);
       }
+      return tag;
+    }
+
+    /**
+     * Takes a tag string and decodes into a tag object. Adds to tags.all array.
+     * @param {*} tag
+     * @returns
+     */
+    function decodeTag(tag) {
+      const hasProps = tag.hasOwnProperty("value");
+      const value = hasProps ? tag.value : tag;
+      const newTag = tags.all.hasOwnProperty(value)
+        ? tags.all[value]
+        : { value: value };
+      // If tag has properties, apply label and category to stored tag if present.
+      if (hasProps) {
+        if (tag.hasOwnProperty("label")) newTag.label = tag.label;
+        if (tag.hasOwnProperty("category")) newTag.category = tag.category;
+        tags.all[value] = newTag;
+        return newTag;
+      }
+      // If we get here, it's an old style tag.
+      const matches = tag.match(/^(.+):(.+)/);
+      if (matches && matches.length === 3) {
+        const prefix = matches[1];
+        const label = matches[2];
+        // Tag has a prefix. Check if it's one we're interested in.
+        if (prefix in tags) {
+          newTag.category = prefix;
+          newTag.label = Format.formatTag(label);
+        } else {
+          newTag.label = tag;
+        }
+      } else {
+        newTag.label = tag;
+      }
+      tags.all[value] = newTag;
+      return newTag;
     }
 
     // For each tag prefix we want to separate, add a property.
@@ -229,27 +273,31 @@ export class ProgramData {
     for (const item of program) {
       // Check item has at least one tag.
       if (item.tags && Array.isArray(item.tags) && item.tags.length) {
-        for (const tag of item.tags) {
-          let matches = tag.match(/^(.+):(.+)/);
-          if (matches && matches.length === 3) {
-            const prefix = matches[1];
-            const label = matches[2];
-            // Tag has a prefix. Check if it's one we're interested in.
-            if (prefix in tags) {
-              addTag(tags[prefix], tag, label);
-            } else {
-              addTag(tags.tags, tag, Format.formatTag(tag));
-            }
-          } else {
-            // Tag does not have a prefix, so add to default tags list.
-            addTag(tags.tags, tag, tag);
-          }
-        }
+        item.tags.forEach((tag, index) => {
+          item.tags[index] = decodeTag(tag);
+        });
       }
     }
+    // Now we've got tags in tags.all array, split them into categories.
+    for (const value in tags.all) {
+      const tag = tags.all[value];
+      if (tag.hasOwnProperty("category")) {
+        // If category has own drop-down, add to that drop-down.
+        if (tags.hasOwnProperty(tag.category)) {
+          tags[tag.category].push(tag);
+        } else {
+          tags.tags.push(tag);
+        }
+      } else {
+        // Otherwise add to generic tags.
+        tags.tags.push(tag);
+      }
+    }
+
     // Now sort each set of tags.
-    for (let tagList in tags) {
-      tags[tagList].sort((a, b) => a.label.localeCompare(b.label));
+    for (const tagList in tags) {
+      if (Array.isArray(tags[tagList]))
+        tags[tagList].sort((a, b) => a.label.localeCompare(b.label));
     }
 
     // If generating day tags, loop through days and add a tag for day in convention timezone.
@@ -257,16 +305,28 @@ export class ProgramData {
       tags.days = [];
       for (const item of program) {
         // Get the day of the program item.
-        const dayLabel = LocalTime.formatDayNameInConventionTimeZone(item.dateAndTime);
-        const dayValue = LocalTime.formatISODateInConventionTimeZone(item.dateAndTime);
-        item.tags.push(dayValue);
-        addTag(tags.days, dayValue, dayLabel);
+        const dayValue = LocalTime.formatISODateInConventionTimeZone(
+          item.dateAndTime
+        );
+        const dayTag = tags.days.includes(dayValue)
+          ? tags.days[dayValue]
+          : addTag(tags.days, {
+              value: dayValue,
+              label: LocalTime.formatDayNameInConventionTimeZone(
+                item.dateAndTime
+              ),
+              category: "days",
+            });
+        if (!tags.all.hasOwnProperty(dayValue)) {
+          tags.all[dayValue] = dayTag;
+        }
+        item.tags.push(dayTag);
       }
       // Sort days by value.
       tags.days.sort((a, b) => a.value.localeCompare(b.value));
     }
 
-    console.log(tags);
+    //console.log(tags);
     return tags;
   }
 
@@ -306,14 +366,14 @@ export class ProgramData {
    * @returns {object}
    */
   static async fetchUrl(url) {
-      const res = await fetch(url, configData.FETCH_OPTIONS);
-      const data = await res.text();
-      return JsonParse.extractJson(data);
+    const res = await fetch(url, configData.FETCH_OPTIONS);
+    const data = await res.text();
+    return JsonParse.extractJson(data);
   }
 
   /**
    * Work out whether to read one or two files, and read the data.
-   * 
+   *
    * @returns {array}
    */
   static async fetchData() {
