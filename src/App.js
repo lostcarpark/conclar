@@ -9,12 +9,6 @@ const store = createStore(model);
 
 const App = () => {
 
-  // if (data === null)
-  //   return (
-  //     <div>
-  //       <h1>Program data loading...</h1>
-  //     </div>
-  //   );
   return (
     <StoreProvider store={store}>
       <AppRoutes />

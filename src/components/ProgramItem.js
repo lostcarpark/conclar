@@ -26,7 +26,6 @@ const ProgramItem = ({ item, forceExpanded }) => {
   }));
 
   function toggleExpanded() {
-    //console.log(window.getSelection().toString());
     if (configData.INTERACTIVE) {
       if (expanded) {
         // Check for selection text. Only collapse if empty so users can select items.
@@ -63,8 +62,8 @@ const ProgramItem = ({ item, forceExpanded }) => {
     );
 
   const tags = [];
-  for (let tag of item.tags) {
-    tags.push(<Tag key={tag} tag={tag} />);
+  for (const tag of item.tags) {
+    tags.push(<Tag key={tag.value} tag={tag.label} />);
   }
 
   const people = [];
