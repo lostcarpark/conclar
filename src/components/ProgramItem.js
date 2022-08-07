@@ -62,8 +62,8 @@ const ProgramItem = ({ item, forceExpanded }) => {
     );
 
   const tags = [];
-  for (let tag of item.tags) {
-    tags.push(<Tag key={tag} tag={tag} />);
+  for (const tag of item.tags) {
+    tags.push(<Tag key={tag.value} tag={tag.label} />);
   }
 
   const people = [];
