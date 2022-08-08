@@ -109,7 +109,6 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PEOPLE.TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 - `PEOPLE.TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.
 - `PEOPLE.TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`.
-- `PEOPLE.TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 - `PEOPLE.SEARCH.SHOW_SEARCH`: Set to false to hide "people" search box.
 - `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
 - `PEOPLE.BIO.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing participant bios. For more details, see `ITEM_DESCRIPTION.PURIFY_OPTIONS` above.
