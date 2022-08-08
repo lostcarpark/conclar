@@ -28,14 +28,14 @@ const Day = ({ date, items, forceExpanded }) => {
   rows.push(
     <TimeSlot
       key={curDateAndTime.toString()}
-      time={curDateAndTime}
+      dateAndTime={curDateAndTime}
       items={itemRows}
       forceExpanded={forceExpanded}
     />
   );
 
   return (
-    <div id={date} className="date">
+    <div id={day} className="date">
       <div className="date-heading">{day}</div>
       <div className="date-items">{rows}</div>
     </div>
@@ -47,7 +47,6 @@ Day.defaultProps = {
 };
 
 Day.propTypes = {
-  date: PropTypes.string,
   items: PropTypes.array,
   forceExpanded: PropTypes.bool,
 };

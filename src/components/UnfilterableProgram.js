@@ -9,28 +9,10 @@ const UnfilterableProgram = () => {
 
   const showPastItems = useStoreState((state) => state.showPastItems);
 
-  const filtered = applyFilters(program);
-
-  function applyFilters(program) {
-    let filtered = program;
-
-    if (isDuringCon(program) && !showPastItems) {
-      // Filter by past item state.  Quick hack to treat this as a filter.
-      const now = LocalTime.dateToConTime(new Date());
-      filtered = filtered.filter((item) => {
-        // eslint-disable-next-line
-        return (
-          now.date < item.date ||
-          (now.date === item.date && now.time <= item.time)
-        );
-      });
-    }
-    return filtered;
-  }
-
-  function isDuringCon(program) {
-    return program && program.length ? LocalTime.inConTime(program) : false;
-  }
+  const filtered =
+    LocalTime.isDuringCon(program) && !showPastItems
+      ? LocalTime.filterPastItems(program)
+      : program;
 
   return (
     <div className="uninteractive">

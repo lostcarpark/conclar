@@ -53,19 +53,28 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
 - `PROGRAM_DATA_URL`: The address of the file containing programme data.
 - `PEOPLE_DATA_URL`: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
+- `FETCH_OPTIONS`: A JSON object containing options to pass when fetching data. See JavaScript [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/fetch) documentation for available valies. Typical examples:
+  - `"cache": "reload"` - Should always be used so beck end program updates will be read.
+  - `"credentials": "omit"` - Use if source is not using a certificate from a recognised authority, e.g. a self signed cert.
+  - `"headers": { "Origin": "http://example.com" }` - Headers sent in the fetch. Origin may be required for Cross Origin Resource Sharing (CORS).
 - `TIMEZONE`: The name of the timezone where your convention takes place. Viewers outside convention timezone will see times in convention time, and their local time below it.
 - `INTERACTIVE`: Set to `false` to get a non-interactive, expanded view of the schedule. The info page is also included, but not the participant list, individual participant pages, or individual item pages (regardless of the `PERMALINK.SHOW_PERMALINK` setting).
 - `NAVIGATION`: Each value in this section sets the label that will appear on main navigation of the site. Useful for switching between different international spellings of "programme".
 - `NAVIGATION.PROGRAM`: Label for program/programme menu.
 - `NAVIGATION.PEOPLE`: Label for people menu.
 - `NAVIGATION.MYSCHEDULE`: Label for user's personal schedule.
-- `NAVIGATION.INFO`: Label for the Information menu link.
+- `NAVIGATION.INFO`: Label for the Information menu link._
 - `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
 - `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
 - `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
-- `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type" }`.
+- `TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.
+- `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`.
 - `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
+- `TAGS.DAY_TAG.GENERATE`: If set to true, will generate tags for each day of the convention.
+- `TAGS.DAY_TAG.PLACEHOLDER`: The placeholder for the "day" tags drop down.
+- `TAGS.DAY_TAG.SEARCHABLE`: Whether day tag list can be searched by typing.
+- `TAGS.DAY_TAG.HIDE`: If true, hide day tags drop-down. Day tags still shown on items if GENERATE true.
 - `PERMALINK.SHOW_PERMALINK`: If true, display a "permalink" icon when each program item is expanded.
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
 - `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
@@ -96,6 +105,17 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
 - `PEOPLE.BIO.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing participant bios. For more details, see `ITEM_DESCRIPTION.PURIFY_OPTIONS` above.
 - `USELESS_CHECKBOX.CHECKBOX_LABEL`: Label for any useless checkboxes.
+- `SETTINGS.TITLE.LABEL`: Label for settings page.
+- `SETTINGS.TIME_FORMAT.LABEL`: Label for time format group.
+- `SETTINGS.TIME_FORMAT.T12_HOUR_LABEL`: Label for 12 hour option.
+- `SETTINGS.TIME_FORMAT.T24_HOUR_LABEL`: Label for 24 hour option.
+- `SETTINGS.SHOW_LOCAL_TIME.LABEL`: Label for Show Local Time option group.
+- `SETTINGS.SHOW_LOCAL_TIME.NEVER_LABEL`: Label for "Never show" option.
+- `SETTINGS.SHOW_LOCAL_TIME.DIFFERS_LABEL`: Label for "Display if different from Convention timezone".
+- `SETTINGS.SHOW_LOCAL_TIME.ALWAYS_LABEL`: Label for "Always display" option.
+- `SETTINGS.SELECT_TIMEZONE.LABEL`: Lable for select timezone group,
+- `SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL`: Label to use browser default timezone (will have name of timezone appended).
+- `SETTINGS.SELECT_TIMEZONE.SELECT_LABEL`: Label to select explicit timezone.
 - `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
 - `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
 - `FOOTER.SITE_NOTE_MARKDOWN`: General note displayed in the footer of the page. May use Markdown for encoding of links, emphesis, etc.

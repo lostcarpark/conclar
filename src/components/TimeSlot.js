@@ -6,7 +6,6 @@ import { LocalTime } from "../utils/LocalTime";
 const TimeSlot = ({ dateAndTime, items, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const show12HourTime = useStoreState((state) => state.show12HourTime);
-  const offset = useStoreState((state) => state.offset);
   if (!dateAndTime) return "";
   const conTime = (
     <div className="time-convention">
@@ -14,9 +13,13 @@ const TimeSlot = ({ dateAndTime, items, forceExpanded }) => {
     </div>
   );
   const localTime =
-    offset !== null && offset !== 0 && showLocalTime ? (
+    showLocalTime === "always" ||
+    (showLocalTime === "differs" && LocalTime.timezonesDiffer) ? (
       <div className="time-local">
-        {LocalTime.formatTimeInLocalTimeZone(dateAndTime, offset, show12HourTime)}
+        {LocalTime.formatTimeInLocalTimeZone(
+          dateAndTime,
+          show12HourTime
+        )}
       </div>
     ) : (
       ""
