@@ -115,6 +115,14 @@
       "SHOW_CHECKBOX": true,
       "CHECKBOX_LABEL": "Sort by full name"
     },
+    "TAGS": {
+      "PLACEHOLDER": "Select tags",
+      "SEARCHABLE": false,
+      "HIDE": false,
+      "SEPARATE": [
+      ],
+      "FORMAT_AS_TAG": false
+    },
     "SEARCH": {
       "SHOW_SEARCH": true,
       "SEARCH_LABEL": "Search people"

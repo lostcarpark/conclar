@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import TagSelectors from "./TagSelectors";
 import Participant from "./Participant";
 import configData from "../config.json";
 
 const People = () => {
   const people = useStoreState((state) => state.people);
+  const personTags = useStoreState((state) => state.personTags);
   const showThumbnails = useStoreState((state) => state.showThumbnails);
   const setShowThumbnails = useStoreActions(
     (actions) => actions.setShowThumbnails
@@ -16,12 +18,27 @@ const People = () => {
   );
 
   const [search, setSearch] = useState("");
-  //console.log(people);
+  const [selTags, setSelTags] = useState({});
 
   // Make a copy of people array, and apply filtering and sorting.
   let displayPeople = [...people];
   if (sortByFullName)
     displayPeople.sort((a, b) => a.name.localeCompare(b.name));
+  // Filter by each tag dropdown.
+  for (const tagType in selTags) {
+    if (selTags[tagType].length) {
+      displayPeople = displayPeople.filter((item) => {
+        if (item.hasOwnProperty("tags")) {
+          for (const tag of item.tags) {
+            for (const selected of selTags[tagType]) {
+              if (selected.value === tag.value) return true;
+            }
+          }
+        }
+        return false;
+      });
+    }
+  }
   const term = search.trim().toLowerCase();
   if (term.length > 0)
     displayPeople = displayPeople.filter((person) => {
@@ -95,6 +112,12 @@ const People = () => {
       <div className="people-settings">
         {thumbnailsCheckbox}
         {sortCheckbox}
+        <TagSelectors
+          tags={personTags}
+          selTags={selTags}
+          setSelTags={setSelTags}
+          tagConfig={configData.PEOPLE.TAGS}
+        />
         {searchInput}
       </div>
       <ul>{rows}</ul>

@@ -4,7 +4,7 @@ import { Format } from "./utils/Format";
 import { Temporal } from "@js-temporal/polyfill";
 import { LocalTime } from "./utils/LocalTime";
 
-// 
+//
 
 /**
  * Class for processing program and people data.
@@ -350,6 +350,8 @@ export class ProgramData {
     this.addProgramParticipantDetails(program, people);
     const locations = this.processLocations(program);
     const tags = this.processTags(program, configData.TAGS);
+    const personTags = this.processTags(people, configData.PEOPLE.TAGS);
+    console.log(personTags);
     LocalTime.checkTimezonesDiffer(program);
 
     return {
@@ -357,6 +359,7 @@ export class ProgramData {
       people: people,
       locations: locations,
       tags: tags,
+      personTags: personTags,
     };
   }
 
