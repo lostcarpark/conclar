@@ -13,6 +13,11 @@
   },
   "TIMEZONE": "Europe/Dublin",
   "INTERACTIVE": true,
+  "HEADER": {
+    "IMG_SRC": "",
+    "IMG_ALT_TEXT": "",
+    "LINEFEED_AFTER_URL": false
+  },
   "NAVIGATION": {
     "PROGRAM": "Programme",
     "PEOPLE": "People",
