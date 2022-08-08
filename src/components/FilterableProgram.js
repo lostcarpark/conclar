@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import TagSelectors from "./TagSelectors";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import configData from "../config.json";
@@ -22,7 +23,7 @@ const FilterableProgram = () => {
   const [search, setSearch] = useState("");
   const [selLoc, setSelLoc] = useState([]);
   const [selTags, setSelTags] = useState({});
-
+  
   const filtered = applyFilters(program);
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
@@ -85,46 +86,9 @@ const FilterableProgram = () => {
     return filtered;
   }
 
-  /**
-   * Get the tag information for the tag category.
-   * @param {string} tag The tag category.
-   * @returns {object} The tag config information.
-   */
-  function findTagData(tag) {
-    // Check for day tag.
-    if (tag === 'days' && configData.TAGS.DAY_TAG.GENERATE)
-      return configData.TAGS.DAY_TAG;
-    const tagData = configData.TAGS.SEPARATE.find((item) => item.PREFIX === tag );
-    if (tagData !== undefined)
-      return tagData;
-    // Tag not found in config, so return default.
-    return configData.TAGS;
-  }
 
   // TODO: Probably should move the tags filter to its own component.
-  const tagFilters = [];
-  for (const tag in tags) {
-    const tagData = findTagData(tag);
-    // Only add drop-down if tag type actually contains elements, and isn't marked hidden in config.
-    if (tags[tag].length && !tagData.HIDE) {
-      tagFilters.push(
-        <div key={tag} className={"filter-tags filter-tags-" + tag}>
-          <ReactSelect
-            placeholder={tagData.PLACEHOLDER}
-            options={tags[tag]}
-            isMulti
-            isSearchable={tagData.SEARCHABLE}
-            value={selTags[tag]}
-            onChange={(value) => {
-              let selections = { ...selTags };
-              selections[tag] = value;
-              setSelTags(selections);
-            }}
-          />
-        </div>
-      );
-    }
-  }
+
 
   return (
     <div>
@@ -140,7 +104,12 @@ const FilterableProgram = () => {
               onChange={(value) => setSelLoc(value)}
             />
           </div>
-          {tagFilters}
+          <TagSelectors
+            tags={tags}
+            selTags={selTags}
+            setSelTags={setSelTags}
+            tagConfig={configData.TAGS}
+          />
           <div className="filter-search">
             <input
               type="text"

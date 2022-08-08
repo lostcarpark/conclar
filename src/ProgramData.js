@@ -198,12 +198,13 @@ export class ProgramData {
   }
 
   /**
-   * Extract tags from program.
+   * Extract tags from program or participants.
    *
-   * @param {array} program
+   * @param {array} taggedItems The program or participant data to extract tags from.
+   * @param {object} tagConfig The config section to use.
    * @returns {array}
    */
-  static processTags(program) {
+  static processTags(taggedItems, tagConfig) {
     //Pre-parse grenadine Format as konopas Type.
 
     // Tags is an object with a property for each tag type. Default to a property for general tags, and one for an index of all tags.
@@ -265,12 +266,12 @@ export class ProgramData {
     }
 
     // For each tag prefix we want to separate, add a property.
-    if (configData.TAGS.hasOwnProperty("SEPARATE")) {
-      for (const tag of configData.TAGS.SEPARATE) {
+    if (tagConfig.hasOwnProperty("SEPARATE")) {
+      for (const tag of tagConfig.SEPARATE) {
         tags[tag.PREFIX] = [];
       }
     }
-    for (const item of program) {
+    for (const item of taggedItems) {
       // Check item has at least one tag.
       if (item.tags && Array.isArray(item.tags) && item.tags.length) {
         item.tags.forEach((tag, index) => {
@@ -301,10 +302,10 @@ export class ProgramData {
     }
 
     // If generating day tags, loop through days and add a tag for day in convention timezone.
-    if (configData.TAGS.DAY_TAG.GENERATE) {
+    if (tagConfig.hasOwnProperty("DAY_TAG") && tagConfig.DAY_TAG.GENERATE) {
       tags.days = [];
-      for (const item of program) {
-        // Get the day of the program item.
+      for (const item of taggedItems) {
+        // Get the day of the program (this shouldn't apply for participants) item.
         const dayValue = LocalTime.formatISODateInConventionTimeZone(
           item.dateAndTime
         );
@@ -348,7 +349,7 @@ export class ProgramData {
     const people = this.processPeopleData(pplData);
     this.addProgramParticipantDetails(program, people);
     const locations = this.processLocations(program);
-    const tags = this.processTags(program);
+    const tags = this.processTags(program, configData.TAGS);
     LocalTime.checkTimezonesDiffer(program);
 
     return {
