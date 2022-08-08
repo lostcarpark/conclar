@@ -2,8 +2,8 @@
   "BASE_PATH": "/",
   "APP_ID": "O2021",
   "APP_TITLE": "ConClár Programme Guide",
-  "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
+  "PROGRAM_DATA_URL": "schedule_tag.json",
+  "PEOPLE_DATA_URL": "participants_tag.json",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -11,7 +11,7 @@
       "Origin": "http://example.com"
     }
   },
-  "TIMEZONE": "Europe/Dublin",
+  "TIMEZONE": "America/Chicago",
   "INTERACTIVE": true,
   "HEADER": {
     "IMG_SRC": "",
@@ -114,6 +114,13 @@
     "SORT": {
       "SHOW_CHECKBOX": true,
       "CHECKBOX_LABEL": "Sort by full name"
+    },
+    "TAGS": {
+      "PLACEHOLDER": "Select tags",
+      "SEARCHABLE": false,
+      "HIDE": false,
+      "SEPARATE": [
+      ]
     },
     "SEARCH": {
       "SHOW_SEARCH": true,

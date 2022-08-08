@@ -521,6 +521,15 @@ input.switch:checked ~ label:after {
  * 5. people.
  */
 
+.people-settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-inline-start: 0;
+  margin: 0.25em;
+}
+
 .people ul {
   column-width: 25ch;
 }
@@ -536,10 +545,11 @@ input.switch:checked ~ label:after {
 }
 
 .people .participant {
+  display: inline-block;
   min-width: 10rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  break-inside: avoid;
+  break-inside: avoid-column;
 }
 
 .people .participant {
@@ -561,12 +571,25 @@ input.switch:checked ~ label:after {
   margin: 1rem 0;
 }
 
+.person-back-button {
+  border: none;
+  background: none;
+  font-size: .8em;
+  cursor: pointer;
+}
+
 .person .person-image img {
   max-width: 10rem;
   padding: 0.3rem;
   margin: 0 0.5rem 0.5rem 0;
   box-shadow: 0px 2px 2px 0px var(--shadow-014),
     0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
+}
+
+.person-tags {
+  font-size: 0.9em;
+  color: var(--program-tags-fg);
+  margin-bottom: .24rem;
 }
 
 .person .person-links {

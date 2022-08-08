@@ -9,6 +9,7 @@ const model = {
   people: [],
   locations: [],
   tags: [],
+  personTags: [],
   lastFetchTime: null,
   timeSinceLastFetch: null,
   showLocalTime: LocalTime.getStoredLocalTime(),
@@ -33,6 +34,7 @@ const model = {
     state.people = data.people;
     state.locations = data.locations;
     state.tags = data.tags;
+    state.personTags = data.personTags;
   }),
   resetLastFetchTime: action((state) => {
     state.lastFetchTime = new Date().getTime();

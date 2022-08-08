@@ -105,6 +105,10 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PEOPLE.THUMBNAILS.DEFAULT_IMAGE`: Set to default thumbnail for participants with no photo. Can be filename of image in public directory, or external URL. Leave blank for no default thumbnail.
 - `PEOPLE.SORT.SHOW_CHECKBOX`: Set to false to hide "Sort by full name" checkbox. Useful if your data only contains "name for publications".
 - `PEOPLE.SORT.CHECKBOX_LABEL`: Label for "Sort by full name" checkbox.
+- `PEOPLE.TAGS.PLACEHOLDER`: The placeholder when selecting person tags (unless separated).
+- `PEOPLE.TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
+- `PEOPLE.TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.
+- `PEOPLE.TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`.
 - `PEOPLE.SEARCH.SHOW_SEARCH`: Set to false to hide "people" search box.
 - `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
 - `PEOPLE.BIO.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing participant bios. For more details, see `ITEM_DESCRIPTION.PURIFY_OPTIONS` above.

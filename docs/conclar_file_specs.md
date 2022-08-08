@@ -155,7 +155,7 @@ var people = [
 		"id": "2345",
 		"name": [ "Just", "Sömeguy" ],
 		"sortname": "Sömeguy Just",
-		"tags": [],
+		"tags": [ "Virtual" ],
 		"prog": [ "1234", "416", "810" ],
 		"links": {
 			"twitter": "justsomeguy9999",
@@ -185,7 +185,7 @@ var people = [
 		"id": "972cf921-4831-4b16-a189-b5f1072ab950",
 		"name": [ "Galahad", "", "Sir" ],
 		"sortname": "Sir Galahad",
-		"tags": [ "GoH" ],
+		"tags": [ {"value": "G1", "label": "GoH"} ],
 		"prog": [ "416" ],
 		"links": {
 			"img": "/images/galahad.jpg",
@@ -199,7 +199,7 @@ var people = [
 		"id": "bf871858-39d4-4eeb-9f5f-611112262a9c",
 		"name": [ "Just", "Sömeguy" ],
 		"sortname": "Sömeguy Just",
-		"tags": [],
+		"tags": [ {"value": "v1", "label": "Virtual" } ],
 		"prog": [ "1234", "416", "810" ],
 		"links": {
 			"twitter": "justsomeguy9999",
@@ -216,12 +216,12 @@ var people = [
 * `name` is the name of the person. It can be an array in the following format: [ "First", "Last", "Prefix", "Suffix" ] or as [ "Full Name" ].
     *Note: The name field a different field in program.js’s `people` and in people.js; in the former it’s ready to print whereas in the latter it’s an array [ "First", "Last", "Prefix", "Suffix" ] with fields possibly left as empty strings or left out completely.
 * `sortname` is an alternate sort for the name field.
-* `tags` is NOT CURRENTLY IMPLEMENTED for ConClár.
+* `tags` work exactly like they do for program items. Can be either old style string or new style object, and can use categories.
 * `prog` is an array of programme ids to which the person is assigned.
 * `links` is an array of items for the person.  Currently implemented links are:
     * `img` - a link which is a path to a thumbnail image of the person;
     * `photo` - a link which is a path to a thumbnail image of the person;
-    * Not yet supported, but expect to be added soon: `url`, `fb`, and `twitter`.
+    * Other links will be displayed as icons under bio. Known link types are: `twitter`, `fb`, `facebook`, `instagram`, `twitch`, `youtube`, `tiktok`, `linkedin`, and will be shown with a suitable icon. A generic link icon will be used for other link types.
 * `img_256_url` - a link which is a path to a thumbnail image of the person (used by Grenadine). Note this is in the root level of the `people` record, not under `links`.
 * `bio` is the biography of the person.
     * Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which get sanitized for dangerous HTML, but all other fields must be plain text.
