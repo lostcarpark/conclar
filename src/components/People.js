@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import { MdClear } from "react-icons/md";
 import TagSelectors from "./TagSelectors";
 import Participant from "./Participant";
 import configData from "../config.json";
@@ -17,8 +17,17 @@ const People = () => {
     (actions) => actions.setSortByFullName
   );
 
-  const [search, setSearch] = useState("");
-  const [selTags, setSelTags] = useState({});
+  const selTags = useStoreState((state) => state.peopleSelectedTags);
+  const setSelTags = useStoreActions(
+    (actions) => actions.setPeopleSelectedTags
+  );
+  const search = useStoreState((state) => state.peopleSearch);
+  const setSearch = useStoreActions(
+    (actions) => actions.setPeopleSearch
+  );
+  const resetFilters = useStoreActions(
+    (actions) => actions.resetPeopleFilters
+  );
 
   // Make a copy of people array, and apply filtering and sorting.
   let displayPeople = [...people];
@@ -119,6 +128,7 @@ const People = () => {
           tagConfig={configData.PEOPLE.TAGS}
         />
         {searchInput}
+        <button className="reset-button" onClick={() => resetFilters()}><MdClear /></button>
       </div>
       <ul>{rows}</ul>
     </div>

@@ -19,6 +19,11 @@ const model = {
   showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
   mySelections: ProgramSelection.getAllSelections(),
+  programSelectedLocations: [],
+  programSelectedTags: {},
+  programSearch: "",
+  peopleSelectedTags: {},
+  peopleSearch: "",
   showThumbnails: localStorage.getItem("thumbnails") === "false" ? false : true,
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
   onLine: window.navigator.onLine,
@@ -89,6 +94,40 @@ const model = {
   }),
   collapseAll: action((state) => {
     state.expandedItems = [];
+  }),
+
+  // Actions for filtering program and people.
+  setProgramSelectedLocations: action((state, selectedLocations) => {
+    state.programSelectedLocations = selectedLocations;
+  }),
+  setProgramSelectedTags: action((state, selectedTags) => {
+    state.programSelectedTags = selectedTags;
+  }),
+  setProgramSearch: action((state, search) => {
+    state.programSearch = search;
+  }),
+  resetProgramFilters: action((state) => {
+    state.programSelectedLocations = [];
+    const newTags = {};
+    for (const tag in state.programSelectedTags) {
+      newTags[tag] = [];
+    }
+    state.programSelectedTags = newTags;
+    state.programSearch = "";
+  }),
+  setPeopleSelectedTags: action((state, selectedTags) => {
+    state.peopleSelectedTags = selectedTags;
+  }),
+  setPeopleSearch: action((state, search) => {
+    state.peopleSearch = search;
+  }),
+  resetPeopleFilters: action((state) => {
+    const newTags = {};
+    for (const tag in state.peopleSelectedTags) {
+      newTags[tag] = [];
+    }
+    state.peopleSelectedTags = newTags;
+    state.peopleSearch = "";
   }),
 
   // Actions for selected items.
