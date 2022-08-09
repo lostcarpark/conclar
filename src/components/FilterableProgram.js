@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import { MdClear } from "react-icons/md";
 import TagSelectors from "./TagSelectors";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
@@ -20,10 +20,20 @@ const FilterableProgram = () => {
   const noneExpanded = useStoreState((state) => state.noneExpanded);
   const allExpanded = useStoreState((state) => state.allExpanded);
 
-  const [search, setSearch] = useState("");
-  const [selLoc, setSelLoc] = useState([]);
-  const [selTags, setSelTags] = useState({});
-  
+  const selLoc = useStoreState((state) => state.programSelectedLocations);
+  const setSelLoc = useStoreActions(
+    (actions) => actions.setProgramSelectedLocations
+  );
+  const selTags = useStoreState((state) => state.programSelectedTags);
+  const setSelTags = useStoreActions(
+    (actions) => actions.setProgramSelectedTags
+  );
+  const search = useStoreState((state) => state.programSearch);
+  const setSearch = useStoreActions((actions) => actions.setProgramSearch);
+  const resetFilters = useStoreActions(
+    (actions) => actions.resetProgramFilters
+  );
+
   const filtered = applyFilters(program);
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
@@ -86,10 +96,6 @@ const FilterableProgram = () => {
     return filtered;
   }
 
-
-  // TODO: Probably should move the tags filter to its own component.
-
-
   return (
     <div>
       <div className="filter">
@@ -118,6 +124,7 @@ const FilterableProgram = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
+          <button className="reset-button" onClick={() => resetFilters()}><MdClear /></button>
         </div>
         <div className="result-filters">
           <div className="stack">

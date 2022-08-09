@@ -353,6 +353,13 @@ input.switch:checked ~ label:after {
   border-bottom: 1px solid var(--program-date-line);
 }
 
+.reset-button {
+  border: none;
+  background: none;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
 .timeslot {
   margin: 0.5rem;
   border-bottom: 1px solid var(--program-time-line);

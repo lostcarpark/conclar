@@ -351,7 +351,6 @@ export class ProgramData {
     const locations = this.processLocations(program);
     const tags = this.processTags(program, configData.TAGS);
     const personTags = this.processTags(people, configData.PEOPLE.TAGS);
-    console.log(personTags);
     LocalTime.checkTimezonesDiffer(program);
 
     return {
