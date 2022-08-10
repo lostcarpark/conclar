@@ -221,7 +221,7 @@ var people = [
 * `links` is an array of items for the person.  Currently implemented links are:
     * `img` - a link which is a path to a thumbnail image of the person;
     * `photo` - a link which is a path to a thumbnail image of the person;
-    * Other links will be displayed as icons under bio. Known link types are: `twitter`, `fb`, `facebook`, `instagram`, `twitch`, `youtube`, `tiktok`, `linkedin`, and will be shown with a suitable icon. A generic link icon will be used for other link types.
+    * Other links will be displayed as icons under bio. Known link types are: `twitter`, `fb`, `facebook`, `instagram`, `twitch`, `youtube`, `tiktok`, `linkedin`, `website`, and will be shown with a suitable icon. A generic link icon will be used for other link types.
 * `img_256_url` - a link which is a path to a thumbnail image of the person (used by Grenadine). Note this is in the root level of the `people` record, not under `links`.
 * `bio` is the biography of the person.
     * Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which get sanitized for dangerous HTML, but all other fields must be plain text.
