@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useStoreState, useStoreActions } from "easy-peasy";
-import { MdClear } from "react-icons/md";
 import TagSelectors from "./TagSelectors";
+import ResetButton from "./ResetButton";
 import Participant from "./Participant";
 import configData from "../config.json";
 
@@ -22,12 +22,10 @@ const People = () => {
     (actions) => actions.setPeopleSelectedTags
   );
   const search = useStoreState((state) => state.peopleSearch);
-  const setSearch = useStoreActions(
-    (actions) => actions.setPeopleSearch
-  );
-  const resetFilters = useStoreActions(
-    (actions) => actions.resetPeopleFilters
-  );
+  const setSearch = useStoreActions((actions) => actions.setPeopleSearch);
+  const peopleAreFiltered = useStoreState((state) => state.peopleAreFiltered);
+
+  const resetPeopleFilters = useStoreActions((actions) => actions.resetPeopleFilters);
 
   // Make a copy of people array, and apply filtering and sorting.
   let displayPeople = [...people];
@@ -128,7 +126,12 @@ const People = () => {
           tagConfig={configData.PEOPLE.TAGS}
         />
         {searchInput}
-        <button className="reset-button" onClick={() => resetFilters()}><MdClear /></button>
+      </div>
+      <div className="reset-filters">
+        <ResetButton
+          isFiltered={peopleAreFiltered}
+          resetFilters={resetPeopleFilters}
+        />
       </div>
       <ul>{rows}</ul>
     </div>
