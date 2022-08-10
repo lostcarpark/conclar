@@ -1,7 +1,7 @@
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
-import { MdClear } from "react-icons/md";
 import TagSelectors from "./TagSelectors";
+import ResetButton from "./ResetButton";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import configData from "../config.json";
@@ -30,9 +30,10 @@ const FilterableProgram = () => {
   );
   const search = useStoreState((state) => state.programSearch);
   const setSearch = useStoreActions((actions) => actions.setProgramSearch);
-  const resetFilters = useStoreActions(
+  const resetProgramFilters = useStoreActions(
     (actions) => actions.resetProgramFilters
   );
+  const programIsFiltered = useStoreState((state) => state.programIsFiltered);
 
   const filtered = applyFilters(program);
   const total = filtered.length;
@@ -124,7 +125,7 @@ const FilterableProgram = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <button className="reset-button" onClick={() => resetFilters()}><MdClear /></button>
+          <ResetButton isFiltered={programIsFiltered} resetFilters={resetProgramFilters} />
         </div>
         <div className="result-filters">
           <div className="stack">

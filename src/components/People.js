@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useStoreState, useStoreActions } from "easy-peasy";
-import { MdClear } from "react-icons/md";
 import TagSelectors from "./TagSelectors";
+import ResetButton from "./ResetButton";
 import Participant from "./Participant";
 import configData from "../config.json";
 
@@ -25,7 +25,8 @@ const People = () => {
   const setSearch = useStoreActions(
     (actions) => actions.setPeopleSearch
   );
-  const resetFilters = useStoreActions(
+  const peopleAreFiltered = useStoreState((state) => state.peopleAreFiltered);
+  const resetPeopleFilters = useStoreActions(
     (actions) => actions.resetPeopleFilters
   );
 
@@ -128,7 +129,7 @@ const People = () => {
           tagConfig={configData.PEOPLE.TAGS}
         />
         {searchInput}
-        <button className="reset-button" onClick={() => resetFilters()}><MdClear /></button>
+        <ResetButton isFiltered={peopleAreFiltered} resetFilters={resetPeopleFilters} />
       </div>
       <ul>{rows}</ul>
     </div>

@@ -50,6 +50,12 @@
       "HIDE": false
     }
   },
+  "FILTER": {
+    "RESET": {
+      "MESSAGE": "Click here to reset filters.",
+      "HIDE_MESSAGE": "Don't show again."
+    }
+  },
   "PERMALINK": {
     "SHOW_PERMALINK": true,
     "PERMALINK_TITLE": "Permalink"

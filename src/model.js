@@ -149,6 +149,19 @@ const model = {
   timeToNextFetch: computed((state) => {
     return configData.TIMER.FETCH_INTERVAL_MINS * 60 - state.timeSinceLastFetch;
   }),
+  programIsFiltered: computed((state) => {
+    if (state.programSelectedLocations.length > 0) return true;
+    for (const tag in state.programSelectedTags)
+      if (state.programSelectedTags[tag].length > 0) return true;
+    if (state.programSearch.length > 0) return true;
+    return false;
+  }),
+  peopleAreFiltered: computed((state) => {
+    for (const tag in state.peopleSelectedTags)
+      if (state.peopleSelectedTags[tag].length > 0) return true;
+    if (state.peopleSearch.length > 0) return true;
+    return false;
+  }),
   isSelected: computed((state) => {
     return (id) => state.mySelections.find((item) => item === id) || false;
   }),
