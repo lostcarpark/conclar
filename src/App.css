@@ -31,6 +31,7 @@
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: green;
   --checkbox-unselected-bg: red;
+  --search-border: hsl(0, 0%, 80%);
   --program-item-chevron-collapsed: #ccc;
   --program-item-chevron-expanded: #bbe;
   --program-time-convention-message: grey;
@@ -305,9 +306,17 @@ input.switch:checked ~ label:after {
   white-space: nowrap;
 }
 
-.filter-search {
+.filter-search,
+.people-search {
   max-width: 30ch;
   margin: auto 0.25em;
+}
+
+.filter-search input,
+.people-search input {
+  min-height: 38px;
+  border: 1px var(--search-border) solid;
+  border-radius: 4px;
 }
 
 .filter-expand {
