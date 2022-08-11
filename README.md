@@ -79,6 +79,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TAGS.DAY_TAG.PLACEHOLDER`: The placeholder for the "day" tags drop down.
 - `TAGS.DAY_TAG.SEARCHABLE`: Whether day tag list can be searched by typing.
 - `TAGS.DAY_TAG.HIDE`: If true, hide day tags drop-down. Day tags still shown on items if GENERATE true.
+- `FILTER.RESET.LABEL`: The label for the "Reset filters" button.
 - `PERMALINK.SHOW_PERMALINK`: If true, display a "permalink" icon when each program item is expanded.
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
 - `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.

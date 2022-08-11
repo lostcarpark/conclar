@@ -50,6 +50,11 @@
       "HIDE": false
     }
   },
+  "FILTER": {
+    "RESET": {
+      "LABEL": "Reset filters"
+    }
+  },
   "PERMALINK": {
     "SHOW_PERMALINK": true,
     "PERMALINK_TITLE": "Permalink"
