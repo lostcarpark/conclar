@@ -104,7 +104,7 @@ const People = () => {
   const searchInput = configData.PEOPLE.SEARCH.SHOW_SEARCH ? (
     <div className="people-search">
       <input
-        type="text"
+        type="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder={configData.PEOPLE.SEARCH.SEARCH_LABEL}
