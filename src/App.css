@@ -32,6 +32,8 @@
   --checkbox-selected-bg: green;
   --checkbox-unselected-bg: red;
   --search-border: hsl(0, 0%, 80%);
+  --reset-button-bg: #5b6473; /*#525e73; #343c4b;*/
+  --reset-button-fg: #fff;
   --program-item-chevron-collapsed: #ccc;
   --program-item-chevron-expanded: #bbe;
   --program-time-convention-message: grey;
@@ -324,6 +326,21 @@ input.switch:checked ~ label:after {
   max-width: 100ch;
 }
 
+.reset-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.reset-button {
+  background-color: var(--reset-button-bg);
+  color: var(--reset-button-fg);
+  font-size: 1rem;
+  padding: .5rem 1.5rem;
+  border: none;
+  border-radius: 1.5rem;
+}
+
 /*
  * 4. Program.
  */
@@ -360,13 +377,6 @@ input.switch:checked ~ label:after {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid var(--program-date-line);
-}
-
-.reset-button {
-  border: none;
-  background: none;
-  font-size: 1.1em;
-  cursor: pointer;
 }
 
 .timeslot {
@@ -590,7 +600,7 @@ input.switch:checked ~ label:after {
 .person-back-button {
   border: none;
   background: none;
-  font-size: .8em;
+  font-size: 0.8em;
   cursor: pointer;
 }
 
@@ -605,7 +615,7 @@ input.switch:checked ~ label:after {
 .person-tags {
   font-size: 0.9em;
   color: var(--program-tags-fg);
-  margin-bottom: .24rem;
+  margin-bottom: 0.24rem;
 }
 
 .person .person-links {
@@ -649,14 +659,14 @@ input.switch:checked ~ label:after {
  */
 
 .settings-group {
-  margin: .5em 0;
-  padding: .5rem;
+  margin: 0.5em 0;
+  padding: 0.5rem;
   border: 1px solid var(--settings-outline);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .settings-head {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   font-weight: bold;
   font-size: 1.1em;
 }
