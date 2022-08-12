@@ -9,6 +9,7 @@ const model = {
   people: [],
   locations: [],
   tags: [],
+  personTags: [],
   lastFetchTime: null,
   timeSinceLastFetch: null,
   showLocalTime: LocalTime.getStoredLocalTime(),
@@ -18,6 +19,11 @@ const model = {
   showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
   mySelections: ProgramSelection.getAllSelections(),
+  programSelectedLocations: [],
+  programSelectedTags: {},
+  programSearch: "",
+  peopleSelectedTags: {},
+  peopleSearch: "",
   showThumbnails: localStorage.getItem("thumbnails") === "false" ? false : true,
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
   onLine: window.navigator.onLine,
@@ -33,6 +39,7 @@ const model = {
     state.people = data.people;
     state.locations = data.locations;
     state.tags = data.tags;
+    state.personTags = data.personTags;
   }),
   resetLastFetchTime: action((state) => {
     state.lastFetchTime = new Date().getTime();
@@ -89,6 +96,40 @@ const model = {
     state.expandedItems = [];
   }),
 
+  // Actions for filtering program and people.
+  setProgramSelectedLocations: action((state, selectedLocations) => {
+    state.programSelectedLocations = selectedLocations;
+  }),
+  setProgramSelectedTags: action((state, selectedTags) => {
+    state.programSelectedTags = selectedTags;
+  }),
+  setProgramSearch: action((state, search) => {
+    state.programSearch = search;
+  }),
+  resetProgramFilters: action((state) => {
+    state.programSelectedLocations = [];
+    const newTags = {};
+    for (const tag in state.programSelectedTags) {
+      newTags[tag] = [];
+    }
+    state.programSelectedTags = newTags;
+    state.programSearch = "";
+  }),
+  setPeopleSelectedTags: action((state, selectedTags) => {
+    state.peopleSelectedTags = selectedTags;
+  }),
+  setPeopleSearch: action((state, search) => {
+    state.peopleSearch = search;
+  }),
+  resetPeopleFilters: action((state) => {
+    const newTags = {};
+    for (const tag in state.peopleSelectedTags) {
+      newTags[tag] = [];
+    }
+    state.peopleSelectedTags = newTags;
+    state.peopleSearch = "";
+  }),
+
   // Actions for selected items.
   setSelection: action((state, selection) => {
     state.mySelections = selection;
@@ -107,6 +148,19 @@ const model = {
   // Computed.
   timeToNextFetch: computed((state) => {
     return configData.TIMER.FETCH_INTERVAL_MINS * 60 - state.timeSinceLastFetch;
+  }),
+  programIsFiltered: computed((state) => {
+    if (state.programSelectedLocations.length > 0) return true;
+    for (const tag in state.programSelectedTags)
+      if (state.programSelectedTags[tag].length > 0) return true;
+    if (state.programSearch.length > 0) return true;
+    return false;
+  }),
+  peopleAreFiltered: computed((state) => {
+    for (const tag in state.peopleSelectedTags)
+      if (state.peopleSelectedTags[tag].length > 0) return true;
+    if (state.peopleSearch.length > 0) return true;
+    return false;
   }),
   isSelected: computed((state) => {
     return (id) => state.mySelections.find((item) => item === id) || false;

@@ -8,6 +8,7 @@ import {
   FaTiktok,
   FaTwitch,
   FaYoutube,
+  FaGlobe,
 } from "react-icons/fa";
 
 
@@ -22,7 +23,7 @@ const PersonLinks = ({ person }) => {
     switch (type) {
       case "twitter":
         return <FaTwitter />;
-      case "fa":
+      case "fb":
       case "facebook":
         return <FaFacebook />;
       case "instagram":
@@ -35,6 +36,8 @@ const PersonLinks = ({ person }) => {
         return <FaTiktok />;
       case "linkedin":
         return <FaLinkedin />;
+      case "website":
+        return <FaGlobe />;
       default:
         return <FaLink />;
     }

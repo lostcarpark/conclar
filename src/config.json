@@ -13,6 +13,11 @@
   },
   "TIMEZONE": "Europe/Dublin",
   "INTERACTIVE": true,
+  "HEADER": {
+    "IMG_SRC": "",
+    "IMG_ALT_TEXT": "",
+    "LINEFEED_AFTER_URL": false
+  },
   "NAVIGATION": {
     "PROGRAM": "Programme",
     "PEOPLE": "People",
@@ -43,6 +48,11 @@
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": true,
       "HIDE": false
+    }
+  },
+  "FILTER": {
+    "RESET": {
+      "LABEL": "Reset filters"
     }
   },
   "PERMALINK": {
@@ -109,6 +119,13 @@
     "SORT": {
       "SHOW_CHECKBOX": true,
       "CHECKBOX_LABEL": "Sort by full name"
+    },
+    "TAGS": {
+      "PLACEHOLDER": "Select tags",
+      "SEARCHABLE": false,
+      "HIDE": false,
+      "SEPARATE": [
+      ]
     },
     "SEARCH": {
       "SHOW_SEARCH": true,

@@ -58,6 +58,11 @@
   --debug-offline-fg: white;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 body {
   margin: auto;
   -webkit-font-smoothing: antialiased;
@@ -104,6 +109,7 @@ code {
 
 header {
   text-align: center;
+  justify-content: center;
 }
 
 header h1 {
@@ -309,14 +315,37 @@ input.switch:checked ~ label:after {
   white-space: nowrap;
 }
 
-.filter-search {
+.filter-search,
+.people-search {
   max-width: 30ch;
   margin: auto 0.25em;
+}
+
+.filter-search input,
+.people-search input {
+  min-height: 38px;
+  border: 1px var(--search-border) solid;
+  border-radius: 4px;
 }
 
 .filter-expand {
   margin-top: 0.5em;
   max-width: 100ch;
+}
+
+.reset-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.reset-button {
+  background-color: var(--reset-button-bg);
+  color: var(--reset-button-fg);
+  font-size: 1rem;
+  padding: .5rem 1.5rem;
+  border: none;
+  border-radius: 1.5rem;
 }
 
 /*
@@ -525,6 +554,15 @@ input.switch:checked ~ label:after {
  * 5. people.
  */
 
+.people-settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-inline-start: 0;
+  margin: 0.25em;
+}
+
 .people ul {
   column-width: 25ch;
 }
@@ -540,10 +578,11 @@ input.switch:checked ~ label:after {
 }
 
 .people .participant {
+  display: inline-block;
   min-width: 10rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  break-inside: avoid;
+  break-inside: avoid-column;
 }
 
 .people .participant {
@@ -565,12 +604,40 @@ input.switch:checked ~ label:after {
   margin: 1rem 0;
 }
 
+.person-back-button {
+  border: none;
+  background: none;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
 .person .person-image img {
   max-width: 10rem;
   padding: 0.3rem;
   margin: 0 0.5rem 0.5rem 0;
   box-shadow: 0px 2px 2px 0px var(--shadow-014),
     0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
+}
+
+.person-tags {
+  font-size: 0.9em;
+  color: var(--program-tags-fg);
+  margin-bottom: 0.24rem;
+}
+
+.person .person-links {
+  max-width: 60ch;
+  margin-top: 0.5rem;
+}
+
+.person .person-links a {
+  color: var(--participant-link-fg);
+}
+
+.person .person-links a:active,
+.person .person-links a:hover,
+.person .person-links a:visited {
+  color: var(--participant-link-visited-fg);
 }
 
 .person .person-bio {
@@ -599,14 +666,14 @@ input.switch:checked ~ label:after {
  */
 
 .settings-group {
-  margin: .5em 0;
-  padding: .5rem;
+  margin: 0.5em 0;
+  padding: 0.5rem;
   border: 1px solid var(--settings-outline);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .settings-head {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   font-weight: bold;
   font-size: 1.1em;
 }

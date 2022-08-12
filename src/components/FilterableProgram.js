@@ -1,10 +1,10 @@
-import React, { useState } from "react";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import configData from "../config.json";
 import TagSelectors from "./TagSelectors";
+import ResetButton from "./ResetButton";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
-import configData from "../config.json";
 import { LocalTime } from "../utils/LocalTime";
 
 const FilterableProgram = () => {
@@ -20,10 +20,21 @@ const FilterableProgram = () => {
   const noneExpanded = useStoreState((state) => state.noneExpanded);
   const allExpanded = useStoreState((state) => state.allExpanded);
 
-  const [search, setSearch] = useState("");
-  const [selLoc, setSelLoc] = useState([]);
-  const [selTags, setSelTags] = useState({});
-  
+  const selLoc = useStoreState((state) => state.programSelectedLocations);
+  const setSelLoc = useStoreActions(
+    (actions) => actions.setProgramSelectedLocations
+  );
+  const selTags = useStoreState((state) => state.programSelectedTags);
+  const setSelTags = useStoreActions(
+    (actions) => actions.setProgramSelectedTags
+  );
+  const search = useStoreState((state) => state.programSearch);
+  const setSearch = useStoreActions((actions) => actions.setProgramSearch);
+  const resetProgramFilters = useStoreActions(
+    (actions) => actions.resetProgramFilters
+  );
+  const programIsFiltered = useStoreState((state) => state.programIsFiltered);
+
   const filtered = applyFilters(program);
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
@@ -86,10 +97,6 @@ const FilterableProgram = () => {
     return filtered;
   }
 
-
-  // TODO: Probably should move the tags filter to its own component.
-
-
   return (
     <div>
       <div className="filter">
@@ -112,12 +119,15 @@ const FilterableProgram = () => {
           />
           <div className="filter-search">
             <input
-              type="text"
+              type="search"
               placeholder={configData.PROGRAM.SEARCH.SEARCH_LABEL}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
+        </div>
+        <div className="reset-filters">
+          <ResetButton isFiltered={programIsFiltered} resetFilters={resetProgramFilters} />
         </div>
         <div className="result-filters">
           <div className="stack">
