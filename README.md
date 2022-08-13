@@ -58,6 +58,7 @@ The main place customisations go is the `src/config.json` file. Settings current
   - `"credentials": "omit"` - Use if source is not using a certificate from a recognised authority, e.g. a self signed cert.
   - `"headers": { "Origin": "http://example.com" }` - Headers sent in the fetch. Origin may be required for Cross Origin Resource Sharing (CORS).
 - `TIMEZONE`: The name of the timezone where your convention takes place. Viewers outside convention timezone will see times in convention time, and their local time below it.
+- `TIMEZONE_CODE`: The short code for the convention timezone. Set to blank to get browser code for timezone (not recommended, as it may not select the most elegant short code).
 - `INTERACTIVE`: Set to `false` to get a non-interactive, expanded view of the schedule. The info page is also included, but not the participant list, individual participant pages, or individual item pages (regardless of the `PERMALINK.SHOW_PERMALINK` setting).
 - `HEADER`: Add an optional image to the header of the pages.
 - `HEADER.IMG_SRC`: Set to the image filename to display. May be a file in the public directory. Leave blank for no image.
@@ -122,6 +123,10 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `SETTINGS.SHOW_LOCAL_TIME.NEVER_LABEL`: Label for "Never show" option.
 - `SETTINGS.SHOW_LOCAL_TIME.DIFFERS_LABEL`: Label for "Display if different from Convention timezone".
 - `SETTINGS.SHOW_LOCAL_TIME.ALWAYS_LABEL`: Label for "Always display" option.
+- `SETTINGS.SHOW_TIMEZONE.LABEL`: Label for Show timezone after times option group.
+- `SETTINGS.SHOW_TIMEZONE.NEVER_LABEL`: Label for "Never show" option.
+- `SETTINGS.SHOW_TIMEZONE.IF_LOCAL_LABEL`: Label for "Show timezone if local time shown".
+- `SETTINGS.SHOW_TIMEZONE.ALWAYS_LABEL`: Label for "Always show" option.
 - `SETTINGS.SELECT_TIMEZONE.LABEL`: Lable for select timezone group,
 - `SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL`: Label to use browser default timezone (will have name of timezone appended).
 - `SETTINGS.SELECT_TIMEZONE.SELECT_LABEL`: Label to select explicit timezone.

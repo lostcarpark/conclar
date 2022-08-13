@@ -62,10 +62,10 @@ export class ProgramData {
    * @returns {array}
    */
   static processProgramData(program) {
-    const utcTimezone = Temporal.TimeZone.from("UTC");
+    const utcTimeZone = Temporal.TimeZone.from("UTC");
     program.map((item) => {
       const startTime = this.processDateAndTime(item);
-      item.dateAndTime = startTime.withTimeZone(utcTimezone);
+      item.dateAndTime = startTime.withTimeZone(utcTimeZone);
       return item;
     });
     program.sort((a, b) => {
@@ -351,7 +351,7 @@ export class ProgramData {
     const locations = this.processLocations(program);
     const tags = this.processTags(program, configData.TAGS);
     const personTags = this.processTags(people, configData.PEOPLE.TAGS);
-    LocalTime.checkTimezonesDiffer(program);
+    LocalTime.checkTimeZonesDiffer(program);
 
     return {
       program: program,

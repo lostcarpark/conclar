@@ -14,8 +14,9 @@ const model = {
   timeSinceLastFetch: null,
   showLocalTime: LocalTime.getStoredLocalTime(),
   show12HourTime: LocalTime.getStoredTwelveHourTime(),
-  useTimezone: LocalTime.getStoredUseTimezone(),
-  selectedTimezone: LocalTime.getStoredSelectedTimezone(),
+  showTimeZone: LocalTime.getStoredShowTimeZone(),
+  useTimeZone: LocalTime.getStoredUseTimeZone(),
+  selectedTimeZone: LocalTime.getStoredSelectedTimeZone(),
   showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
   mySelections: ProgramSelection.getAllSelections(),
@@ -58,13 +59,17 @@ const model = {
     state.show12HourTime = show12HourTime;
     LocalTime.setStoredTwelveHourTime(show12HourTime);
   }),
-  setUseTimezone: action((state, useTimezone) => {
-    state.useTimezone = useTimezone;
-    LocalTime.setStoredUseTimezone(useTimezone);
+  setShowTimeZone: action((state, showTimeZone) => {
+    state.showTimeZone = showTimeZone;
+    LocalTime.setStoredShowTimeZone(showTimeZone);
   }),
-  setSelectedTimezone: action((state, selectedTimezone) => {
-    state.selectedTimezone = selectedTimezone;
-    LocalTime.setStoredSelectedTimezone(selectedTimezone);
+  setUseTimeZone: action((state, useTimeZone) => {
+    state.useTimeZone = useTimeZone;
+    LocalTime.setStoredUseTimeZone(useTimeZone);
+  }),
+  setSelectedTimeZone: action((state, selectedTimeZone) => {
+    state.selectedTimeZone = selectedTimeZone;
+    LocalTime.setStoredSelectedTimeZone(selectedTimeZone);
   }),
   setShowPastItems: action((state, showPastItems) => {
     state.showPastItems = showPastItems;
@@ -148,6 +153,15 @@ const model = {
   // Computed.
   timeToNextFetch: computed((state) => {
     return configData.TIMER.FETCH_INTERVAL_MINS * 60 - state.timeSinceLastFetch;
+  }),
+  timeZoneIsShown: computed((state) => {
+    return (
+      state.showTimeZone === "always" ||
+      (state.showTimeZone === "if_local" &&
+        (state.showLocalTime === "always" ||
+          (state.showLocalTime === "differs" &&
+            LocalTime.timezonesDiffer)))
+    );
   }),
   programIsFiltered: computed((state) => {
     if (state.programSelectedLocations.length > 0) return true;

@@ -1,10 +1,10 @@
 import configData from "../config.json";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Temporal } from "@js-temporal/polyfill";
-import TimezoneSelect from "react-timezone-select";
+import TimeZoneSelect from "react-timezone-select";
 
 const Settings = () => {
-  const defaultTimezone = Temporal.Now.timeZone().toString();
+  const defaultTimeZone = Temporal.Now.timeZone().toString();
 
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const setShow12HourTime = useStoreActions(
@@ -16,19 +16,22 @@ const Settings = () => {
     (actions) => actions.setShowLocalTime
   );
 
-  const useTimezone = useStoreState((state) => state.useTimezone);
-  const setUseTimezone = useStoreActions((actions) => actions.setUseTimezone);
+  const showTimeZone = useStoreState((state) => state.showTimeZone);
+  const setShowTimeZone = useStoreActions((actions) => actions.setShowTimeZone);
 
-  const selectedTimezone = useStoreState((state) => state.selectedTimezone);
-  const setSelectedTimezone = useStoreActions(
-    (actions) => actions.setSelectedTimezone
+  const useTimeZone = useStoreState((state) => state.useTimeZone);
+  const setUseTimeZone = useStoreActions((actions) => actions.setUseTimeZone);
+
+  const selectedTimeZone = useStoreState((state) => state.selectedTimeZone);
+  const setSelectedTimeZone = useStoreActions(
+    (actions) => actions.setSelectedTimeZone
   );
 
-  const timezoneSelect = useTimezone ? (
+  const timezoneSelect = useTimeZone ? (
     <div>
-      <TimezoneSelect
-        value={selectedTimezone}
-        onChange={(e) => setSelectedTimezone(e.value)}
+      <TimeZoneSelect
+        value={selectedTimeZone}
+        onChange={(e) => setSelectedTimeZone(e.value)}
         labelStyle="abbrev"
       />
     </div>
@@ -99,6 +102,41 @@ const Settings = () => {
           </label>
         </div>
       </div>
+      <div className="settings-group select-show-timezone">
+        <div className="settings-head">{ configData.SETTINGS.SHOW_TIMEZONE.LABEL }</div>
+        <div className="settings-radio">
+          <label>
+            <input
+              type="radio"
+              value="never"
+              name="show_timezone"
+              checked={showTimeZone === "never"}
+              onChange={(e) => setShowTimeZone(e.target.value)}
+            />
+            { configData.SETTINGS.SHOW_TIMEZONE.NEVER_LABEL }
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="if_local"
+              name="show_timezone"
+              checked={showTimeZone === "if_local"}
+              onChange={(e) => setShowTimeZone(e.target.value)}
+            />
+            { configData.SETTINGS.SHOW_TIMEZONE.IF_LOCAL_LABEL }
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="always"
+              name="show_timezone"
+              checked={showTimeZone === "always"}
+              onChange={(e) => setShowTimeZone(e.target.value)}
+            />
+            { configData.SETTINGS.SHOW_TIMEZONE.ALWAYS_LABEL }
+          </label>
+        </div>
+      </div>
       <div className="settings-group select-timezone">
         <div className="settings-head">{ configData.SETTINGS.SELECT_TIMEZONE.LABEL }</div>
         <div className="settings-radio">
@@ -107,18 +145,18 @@ const Settings = () => {
               type="radio"
               value="default"
               name="method"
-              checked={!useTimezone}
-              onChange={(e) => setUseTimezone(e.target.value === "select")}
+              checked={!useTimeZone}
+              onChange={(e) => setUseTimeZone(e.target.value === "select")}
             />
-            { configData.SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL } {defaultTimezone}
+            { configData.SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL } {defaultTimeZone}
           </label>
           <label>
             <input
               type="radio"
               value="select"
               name="method"
-              checked={useTimezone}
-              onChange={(e) => setUseTimezone(e.target.value === "select")}
+              checked={useTimeZone}
+              onChange={(e) => setUseTimeZone(e.target.value === "select")}
             />
             { configData.SETTINGS.SELECT_TIMEZONE.SELECT_LABEL }
           </label>

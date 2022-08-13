@@ -12,6 +12,7 @@
     }
   },
   "TIMEZONE": "Europe/Dublin",
+  "TIMEZONECODE": "WEST",
   "INTERACTIVE": true,
   "HEADER": {
     "IMG_SRC": "",
@@ -156,6 +157,12 @@
       "LABEL": "Show local time",
       "NEVER_LABEL": "Never display",
       "DIFFERS_LABEL": "Display if differs from convention time",
+      "ALWAYS_LABEL": "Always show"
+    },
+    "SHOW_TIMEZONE": {
+      "LABEL": "Show timezone after times",
+      "NEVER_LABEL": "Never show",
+      "IF_LOCAL_LABEL": "Show timezone if local time shown",
       "ALWAYS_LABEL": "Always show"
     },
     "SELECT_TIMEZONE": {
