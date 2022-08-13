@@ -564,7 +564,11 @@ input.switch:checked ~ label:after {
 }
 
 .people ul {
-  column-width: 25ch;
+  /* column-width: 25ch; */
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
 }
 
 .participant a {
@@ -580,9 +584,14 @@ input.switch:checked ~ label:after {
 .people .participant {
   display: inline-block;
   min-width: 10rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   break-inside: avoid-column;
+  flex: 1 1 30%;
+  max-width: 30%;
+  padding: 0.5rem;
+  text-align: center;
+  background: var(--program-expanded-bg);
 }
 
 .people .participant {
@@ -598,6 +607,7 @@ input.switch:checked ~ label:after {
   padding: 0.1rem;
   box-shadow: 0px 2px 2px 0px var(--shadow-014),
     0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
+  background: #fff;
 }
 
 .person {
