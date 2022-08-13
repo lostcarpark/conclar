@@ -386,9 +386,28 @@ input.switch:checked ~ label:after {
 }
 
 .timeslot-time {
-  min-width: 8ch;
+  min-width: 9ch;
   vertical-align: top;
   flex-grow: 0;
+}
+
+.timeslot-wide {
+  min-width: 12ch;
+}
+
+.time-convention {
+  font-weight: bold;
+}
+
+.time-local {
+  font-style: italic;
+  font-size: 0.9em;
+  padding-left: 0.2em;
+  max-width: 9ch;
+}
+
+.timeslot-wide .time-local {
+  max-width: 12ch;
 }
 
 .timeslot-items {
@@ -530,17 +549,6 @@ input.switch:checked ~ label:after {
   padding: 0.5rem;
   border-radius: 0.5rem;
   overflow: auto;
-}
-
-.time-convention {
-  font-weight: bold;
-}
-
-.time-local {
-  font-style: italic;
-  font-size: 0.9em;
-  padding-left: 0.2em;
-  max-width: 10ch;
 }
 
 /*
