@@ -4,7 +4,7 @@ ConClár is an online Program Guide tool for conventions.
 
 It has been developed in ReactJS and is intended to work in all modern browsers (sorry, it probably won't work in Internet Explorer). It is designed to work equally well on mobile and desktop devices.
 
-ConClár is inspired by Eemeli Aro's [KonOpas](https://github.com/eemeli/konopas). As this uses a number of unsupported libraries, it was developed as a completely new application, rathering than trying to patch up the old code.
+ConClár is inspired by Eemeli Aro's [KonOpas](https://github.com/eemeli/konopas). As this uses a number of unsupported libraries, it was developed as a completely new application, rather than trying to patch up the old code.
 
 ConClár can be hosted on most webservers, and has been tested on Apache and Nginx. Some changes are required if your guide is not in the root directory of the website (see below). The programme data is read from JSON files, and is compatible with KonOpas files. There are several programme planning tools that should be compatible, though so far it has only been tested with Zambia.
 
@@ -58,6 +58,7 @@ The main place customisations go is the `src/config.json` file. Settings current
   - `"credentials": "omit"` - Use if source is not using a certificate from a recognised authority, e.g. a self signed cert.
   - `"headers": { "Origin": "http://example.com" }` - Headers sent in the fetch. Origin may be required for Cross Origin Resource Sharing (CORS).
 - `TIMEZONE`: The name of the timezone where your convention takes place. Viewers outside convention timezone will see times in convention time, and their local time below it.
+- `TIMEZONE_CODE`: The short code for the convention timezone. Set to blank to get browser code for timezone (not recommended, as it may not select the most elegant short code).
 - `INTERACTIVE`: Set to `false` to get a non-interactive, expanded view of the schedule. The info page is also included, but not the participant list, individual participant pages, or individual item pages (regardless of the `PERMALINK.SHOW_PERMALINK` setting).
 - `HEADER`: Add an optional image to the header of the pages.
 - `HEADER.IMG_SRC`: Set to the image filename to display. May be a file in the public directory. Leave blank for no image.
@@ -79,6 +80,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TAGS.DAY_TAG.PLACEHOLDER`: The placeholder for the "day" tags drop down.
 - `TAGS.DAY_TAG.SEARCHABLE`: Whether day tag list can be searched by typing.
 - `TAGS.DAY_TAG.HIDE`: If true, hide day tags drop-down. Day tags still shown on items if GENERATE true.
+- `FILTER.RESET.LABEL`: The label for the "Reset filters" button.
 - `PERMALINK.SHOW_PERMALINK`: If true, display a "permalink" icon when each program item is expanded.
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
 - `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
@@ -121,6 +123,10 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `SETTINGS.SHOW_LOCAL_TIME.NEVER_LABEL`: Label for "Never show" option.
 - `SETTINGS.SHOW_LOCAL_TIME.DIFFERS_LABEL`: Label for "Display if different from Convention timezone".
 - `SETTINGS.SHOW_LOCAL_TIME.ALWAYS_LABEL`: Label for "Always display" option.
+- `SETTINGS.SHOW_TIMEZONE.LABEL`: Label for Show timezone after times option group.
+- `SETTINGS.SHOW_TIMEZONE.NEVER_LABEL`: Label for "Never show" option.
+- `SETTINGS.SHOW_TIMEZONE.IF_LOCAL_LABEL`: Label for "Show timezone if local time shown".
+- `SETTINGS.SHOW_TIMEZONE.ALWAYS_LABEL`: Label for "Always show" option.
 - `SETTINGS.SELECT_TIMEZONE.LABEL`: Lable for select timezone group,
 - `SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL`: Label to use browser default timezone (will have name of timezone appended).
 - `SETTINGS.SELECT_TIMEZONE.SELECT_LABEL`: Label to select explicit timezone.

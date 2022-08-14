@@ -2,8 +2,8 @@
   "BASE_PATH": "/",
   "APP_ID": "O2021",
   "APP_TITLE": "ConClár Programme Guide",
-  "PROGRAM_DATA_URL": "schedule_tag.json",
-  "PEOPLE_DATA_URL": "participants_tag.json",
+  "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
+  "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -11,7 +11,8 @@
       "Origin": "http://example.com"
     }
   },
-  "TIMEZONE": "America/Chicago",
+  "TIMEZONE": "Europe/Dublin",
+  "TIMEZONECODE": "WEST",
   "INTERACTIVE": true,
   "HEADER": {
     "IMG_SRC": "",
@@ -48,6 +49,11 @@
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": true,
       "HIDE": false
+    }
+  },
+  "FILTER": {
+    "RESET": {
+      "LABEL": "Reset filters"
     }
   },
   "PERMALINK": {
@@ -151,6 +157,12 @@
       "LABEL": "Show local time",
       "NEVER_LABEL": "Never display",
       "DIFFERS_LABEL": "Display if differs from convention time",
+      "ALWAYS_LABEL": "Always show"
+    },
+    "SHOW_TIMEZONE": {
+      "LABEL": "Show timezone after times",
+      "NEVER_LABEL": "Never show",
+      "IF_LOCAL_LABEL": "Show timezone if local time shown",
       "ALWAYS_LABEL": "Always show"
     },
     "SELECT_TIMEZONE": {

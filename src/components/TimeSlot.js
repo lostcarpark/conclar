@@ -6,24 +6,24 @@ import { LocalTime } from "../utils/LocalTime";
 const TimeSlot = ({ dateAndTime, items, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const show12HourTime = useStoreState((state) => state.show12HourTime);
+  const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
   if (!dateAndTime) return "";
   const conTime = (
     <div className="time-convention">
-      {LocalTime.formatTimeInConventionTimeZone(dateAndTime, show12HourTime)}
+      {LocalTime.formatTimeInConventionTimeZone(dateAndTime, show12HourTime, timeZoneIsShown)}
     </div>
   );
   const localTime =
     showLocalTime === "always" ||
     (showLocalTime === "differs" && LocalTime.timezonesDiffer) ? (
       <div className="time-local">
-        {LocalTime.formatTimeInLocalTimeZone(
-          dateAndTime,
-          show12HourTime
-        )}
+        {LocalTime.formatTimeInLocalTimeZone(dateAndTime, show12HourTime, timeZoneIsShown)}
       </div>
     ) : (
       ""
     );
+  const timeSlotClass =
+    "timeslot-time" + (timeZoneIsShown ? " timeslot-wide" : "");
   const rows = [];
   items.forEach((item) => {
     rows.push(
@@ -33,7 +33,7 @@ const TimeSlot = ({ dateAndTime, items, forceExpanded }) => {
 
   return (
     <div id={dateAndTime.toString()} className="timeslot">
-      <div className="timeslot-time">
+      <div className={timeSlotClass}>
         {conTime}
         {localTime}
       </div>

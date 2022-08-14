@@ -1,24 +1,25 @@
 import { Temporal, Intl } from "@js-temporal/polyfill";
 import configData from "../config.json";
 
-// Class containing finctions for formatting values for ConClár.
+// Class containing functions for formatting values for ConClár.
 export class LocalTime {
-  static conventionTimezone = new Temporal.TimeZone(configData.TIMEZONE);
-  static localTimezone = null;
+  static conventionTimeZone = new Temporal.TimeZone(configData.TIMEZONE);
+  static localTimeZone = null;
   static timezonesDiffer = false;
+  static timeZoneIsShown = false;
 
   // Initialise local timezone.
   static {
-    this.getLocalTimezone();
+    this.getLocalTimeZone();
   }
 
-  static getLocalTimezone() {
+  static getLocalTimeZone() {
     // Check if using browser default timezone, or user selected.
-    const useTimezone = this.getStoredUseTimezone();
-    const timezoneName = useTimezone
-      ? this.getStoredSelectedTimezone()
+    const useTimeZone = this.getStoredUseTimeZone();
+    const timezoneName = useTimeZone
+      ? this.getStoredSelectedTimeZone()
       : Intl.DateTimeFormat().resolvedOptions().timeZone;
-    this.localTimezone = new Temporal.TimeZone(timezoneName);
+    this.localTimeZone = new Temporal.TimeZone(timezoneName);
   }
 
   static get localTimeClass() {
@@ -42,43 +43,61 @@ export class LocalTime {
     return "twelve_hour_time";
   }
 
-  static getStoredUseTimezone() {
-    const storedUseTimezone = localStorage.getItem(this.useTimezoneClass);
-    if (storedUseTimezone === null || storedUseTimezone === "") {
+  static getStoredShowTimeZone() {
+    const storedShowTimeZone = localStorage.getItem(this.showTimeZoneClass);
+    if (["never", "if_local", "always"].includes(storedShowTimeZone))
+      return storedShowTimeZone;
+    if (storedShowTimeZone === false || storedShowTimeZone === "false") {
+      return "never";
+    }
+    return "if_local";
+  }
+
+  static setStoredShowTimeZone(showTimeZone) {
+    localStorage.setItem(this.showTimeZoneClass, showTimeZone);
+    this.getLocalTimeZone();
+  }
+
+  static get showTimeZoneClass() {
+    return "show_timezone";
+  }
+
+  static getStoredUseTimeZone() {
+    const storedUseTimeZone = localStorage.getItem(this.useTimeZoneClass);
+    if (storedUseTimeZone === null || storedUseTimeZone === "") {
       return false;
     }
-    return storedUseTimezone === "default" ? false : true;
+    return storedUseTimeZone === "default" ? false : true;
   }
 
-  static setStoredUseTimezone(useTimezone) {
+  static setStoredUseTimeZone(useTimeZone) {
     localStorage.setItem(
-      this.useTimezoneClass,
-      useTimezone ? "select" : "default"
+      this.useTimeZoneClass,
+      useTimeZone ? "select" : "default"
     );
-    this.getLocalTimezone();
-
+    this.getLocalTimeZone();
   }
 
-  static get useTimezoneClass() {
+  static get useTimeZoneClass() {
     return "use_timezone";
   }
 
-  static getStoredSelectedTimezone() {
-    const storedSelectedTimezone = localStorage.getItem(
-      this.selectedTimezoneClass
+  static getStoredSelectedTimeZone() {
+    const storedSelectedTimeZone = localStorage.getItem(
+      this.selectedTimeZoneClass
     );
-    if (storedSelectedTimezone === null || storedSelectedTimezone === "") {
+    if (storedSelectedTimeZone === null || storedSelectedTimeZone === "") {
       return Temporal.Now.timeZone().toString();
     }
-    return storedSelectedTimezone;
+    return storedSelectedTimeZone;
   }
 
-  static setStoredSelectedTimezone(timezone) {
-    localStorage.setItem(this.selectedTimezoneClass, timezone);
-    this.getLocalTimezone();
+  static setStoredSelectedTimeZone(timezone) {
+    localStorage.setItem(this.selectedTimeZoneClass, timezone);
+    this.getLocalTimeZone();
   }
 
-  static get selectedTimezoneClass() {
+  static get selectedTimeZoneClass() {
     return "selected_timezone";
   }
 
@@ -130,11 +149,11 @@ export class LocalTime {
    * @param {Temporal.ZonedDateTime} dateAndTime
    * @returns {bool}
    */
-  static checkTimezoneOffsetForDate(dateAndTime) {
+  static checkTimeZoneOffsetForDate(dateAndTime) {
     const instant = Temporal.Instant.from(dateAndTime);
-    const localOffset = this.localTimezone.getOffsetNanosecondsFor(instant);
+    const localOffset = this.localTimeZone.getOffsetNanosecondsFor(instant);
     const conventionOffset =
-      this.conventionTimezone.getOffsetNanosecondsFor(instant);
+      this.conventionTimeZone.getOffsetNanosecondsFor(instant);
     if (localOffset !== conventionOffset) {
       return true;
     }
@@ -147,17 +166,17 @@ export class LocalTime {
    * @param {array} program
    * @returns {bool}
    */
-  static checkTimezonesDiffer(program) {
+  static checkTimeZonesDiffer(program) {
     if (program.length === 0) {
       this.timezonesDiffer = false;
       return false;
     }
-    if (this.checkTimezoneOffsetForDate(program[0].dateAndTime)) {
+    if (this.checkTimeZoneOffsetForDate(program[0].dateAndTime)) {
       this.timezonesDiffer = true;
       return true;
     }
     const [lastItem] = program.slice(-1);
-    if (this.checkTimezoneOffsetForDate(lastItem.dateAndTime)) {
+    if (this.checkTimeZoneOffsetForDate(lastItem.dateAndTime)) {
       this.timezonesDiffer = true;
       return true;
     }
@@ -165,8 +184,14 @@ export class LocalTime {
     return false;
   }
 
-  // Format time for 24 clock.
-  static formatTime(dateAndTime, ampm) {
+  /**
+   * Format time for 24 clock.
+   * @param {temporal.ZonedDateTime} dateAndTime The data and time to format.
+   * @param {bool} ampm If true, format as 12 hour clock.
+   * @param {bool} showTimeZone If true, include the short timezone code.
+   * @returns {string} The formatted time.
+   */
+  static formatTime(dateAndTime, ampm, showTimeZone = false) {
     let language = window.navigator.userLanguage || window.navigator.language;
     const options = ampm
       ? {
@@ -179,24 +204,51 @@ export class LocalTime {
           minute: "2-digit",
           hour12: false,
         };
-    return dateAndTime.toLocaleString(language, options);
+    if (
+      showTimeZone &&
+      configData.TIMEZONECODE.length > 0 &&
+      Temporal.TimeZone.from(dateAndTime) === this.conventionTimeZone
+    ) {
+      return (
+        dateAndTime.toLocaleString(language, options) +
+        " " +
+        configData.TIMEZONECODE
+      );
+    } else {
+      if (showTimeZone) options.timeZoneName = "short";
+      return dateAndTime.toLocaleString(language, options);
+    }
   }
 
-  // Format the time in the convention time zone. Currently this is not reformatted, but it may be in future.
-  static formatTimeInConventionTimeZone(dateAndTime, ampm) {
+  /**
+   * Format the time in the convention time zone.
+   * @param {Temporal.ZonedDateTime} dateAndTime The date and time to display.
+   * @param {bool} ampm If true, show 12 hour.
+   * @param {bool} showTimeZone  If true show the time zone code.
+   * @returns {string} The formatted time.
+   */
+  static formatTimeInConventionTimeZone(dateAndTime, ampm, showTimeZone) {
     return this.formatTime(
-      dateAndTime.withTimeZone(this.conventionTimezone),
-      ampm
+      dateAndTime.withTimeZone(this.conventionTimeZone),
+      ampm,
+      showTimeZone
     );
   }
 
-  static formatTimeInLocalTimeZone(dateAndTime, ampm) {
+  /**
+   * Format the time in the local time zone.
+   * @param {Temporal.ZonedDateTime} dateAndTime The date and time to display.
+   * @param {bool} ampm If true, show 12 hour.
+   * @param {bool} showTimeZone  If true show the time zone code.
+   * @returns {string} The formatted time.
+   */
+   static formatTimeInLocalTimeZone(dateAndTime, ampm, showTimeZone) {
     // Convert the program item time into local time.
-    const localDateAndTime = dateAndTime.withTimeZone(this.localTimezone);
-    const formattedTime = this.formatTime(localDateAndTime, ampm);
+    const localDateAndTime = dateAndTime.withTimeZone(this.localTimeZone);
+    const formattedTime = this.formatTime(localDateAndTime, ampm, showTimeZone);
     // Get the con and local dates with time stripped out.
     const conDate = Temporal.PlainDate.from(
-      dateAndTime.withTimeZone(this.conventionTimezone)
+      dateAndTime.withTimeZone(this.conventionTimeZone)
     );
     const localDate = Temporal.PlainDate.from(localDateAndTime);
     // Compare the dates without time to see if we're showing time on next or previous day, and if so attach label.
@@ -219,7 +271,7 @@ export class LocalTime {
   static formatDayNameInConventionTimeZone(dateAndTime) {
     let language = window.navigator.userLanguage || window.navigator.language;
     return dateAndTime
-      .withTimeZone(this.conventionTimezone)
+      .withTimeZone(this.conventionTimeZone)
       .toLocaleString(language, { weekday: "long" });
   }
 
@@ -231,7 +283,7 @@ export class LocalTime {
    */
   static formatISODateInConventionTimeZone(dateAndTime) {
     const language = window.navigator.userLanguage || window.navigator.language;
-    const conDate = dateAndTime.withTimeZone(this.conventionTimezone);
+    const conDate = dateAndTime.withTimeZone(this.conventionTimeZone);
     return (
       conDate.toLocaleString(language, { year: "numeric" }) +
       "-" +

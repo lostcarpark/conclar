@@ -31,6 +31,9 @@
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: green;
   --checkbox-unselected-bg: red;
+  --search-border: hsl(0, 0%, 80%);
+  --reset-button-bg: #5b6473; /*#525e73; #343c4b;*/
+  --reset-button-fg: #fff;
   --program-item-chevron-collapsed: #ccc;
   --program-item-chevron-expanded: #bbe;
   --program-time-convention-message: grey;
@@ -305,14 +308,37 @@ input.switch:checked ~ label:after {
   white-space: nowrap;
 }
 
-.filter-search {
+.filter-search,
+.people-search {
   max-width: 30ch;
   margin: auto 0.25em;
+}
+
+.filter-search input,
+.people-search input {
+  min-height: 38px;
+  border: 1px var(--search-border) solid;
+  border-radius: 4px;
 }
 
 .filter-expand {
   margin-top: 0.5em;
   max-width: 100ch;
+}
+
+.reset-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.reset-button {
+  background-color: var(--reset-button-bg);
+  color: var(--reset-button-fg);
+  font-size: 1rem;
+  padding: .5rem 1.5rem;
+  border: none;
+  border-radius: 1.5rem;
 }
 
 /*
@@ -353,13 +379,6 @@ input.switch:checked ~ label:after {
   border-bottom: 1px solid var(--program-date-line);
 }
 
-.reset-button {
-  border: none;
-  background: none;
-  font-size: 1.1em;
-  cursor: pointer;
-}
-
 .timeslot {
   margin: 0.5rem;
   border-bottom: 1px solid var(--program-time-line);
@@ -367,9 +386,28 @@ input.switch:checked ~ label:after {
 }
 
 .timeslot-time {
-  min-width: 8ch;
+  min-width: 9ch;
   vertical-align: top;
   flex-grow: 0;
+}
+
+.timeslot-wide {
+  min-width: 12ch;
+}
+
+.time-convention {
+  font-weight: bold;
+}
+
+.time-local {
+  font-style: italic;
+  font-size: 0.9em;
+  padding-left: 0.2em;
+  max-width: 9ch;
+}
+
+.timeslot-wide .time-local {
+  max-width: 12ch;
 }
 
 .timeslot-items {
@@ -513,17 +551,6 @@ input.switch:checked ~ label:after {
   overflow: auto;
 }
 
-.time-convention {
-  font-weight: bold;
-}
-
-.time-local {
-  font-style: italic;
-  font-size: 0.9em;
-  padding-left: 0.2em;
-  max-width: 10ch;
-}
-
 /*
  * 5. people.
  */
@@ -581,7 +608,7 @@ input.switch:checked ~ label:after {
 .person-back-button {
   border: none;
   background: none;
-  font-size: .8em;
+  font-size: 0.8em;
   cursor: pointer;
 }
 
@@ -596,7 +623,7 @@ input.switch:checked ~ label:after {
 .person-tags {
   font-size: 0.9em;
   color: var(--program-tags-fg);
-  margin-bottom: .24rem;
+  margin-bottom: 0.24rem;
 }
 
 .person .person-links {
@@ -640,14 +667,14 @@ input.switch:checked ~ label:after {
  */
 
 .settings-group {
-  margin: .5em 0;
-  padding: .5rem;
+  margin: 0.5em 0;
+  padding: 0.5rem;
   border: 1px solid var(--settings-outline);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .settings-head {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   font-weight: bold;
   font-size: 1.1em;
 }
