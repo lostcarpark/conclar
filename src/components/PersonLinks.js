@@ -10,6 +10,9 @@ import {
   FaYoutube,
   FaGlobe,
 } from "react-icons/fa";
+import {
+  IoLink,
+} from "react-icons/io5";
 
 
 const PersonLinks = ({ person }) => {
@@ -39,7 +42,7 @@ const PersonLinks = ({ person }) => {
       case "website":
         return <FaGlobe />;
       default:
-        return <FaLink />;
+        return <IoLink />;
     }
   };
 

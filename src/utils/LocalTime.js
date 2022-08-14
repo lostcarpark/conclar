@@ -1,7 +1,7 @@
 import { Temporal, Intl } from "@js-temporal/polyfill";
 import configData from "../config.json";
 
-// Class containing finctions for formatting values for ConClár.
+// Class containing functions for formatting values for ConClár.
 export class LocalTime {
   static conventionTimeZone = new Temporal.TimeZone(configData.TIMEZONE);
   static localTimeZone = null;
