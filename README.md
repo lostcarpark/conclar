@@ -84,6 +84,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`.
 - `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 - `TAGS.DAY_TAG.GENERATE`: If set to true, will generate tags for each day of the convention.
+- `TAGS.DAY_TAG.DAYS`: Object with key values pairs for day names. Keys are day numbers from 1 (Monday) to 7 (Sunday).
 - `TAGS.DAY_TAG.PLACEHOLDER`: The placeholder for the "day" tags drop down.
 - `TAGS.DAY_TAG.SEARCHABLE`: Whether day tag list can be searched by typing.
 - `TAGS.DAY_TAG.HIDE`: If true, hide day tags drop-down. Day tags still shown on items if GENERATE true.
