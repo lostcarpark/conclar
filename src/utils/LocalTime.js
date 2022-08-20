@@ -269,10 +269,9 @@ export class LocalTime {
    * @returns {string}
    */
   static formatDayNameInConventionTimeZone(dateAndTime) {
-    let language = window.navigator.userLanguage || window.navigator.language;
-    return dateAndTime
-      .withTimeZone(this.conventionTimeZone)
-      .toLocaleString(language, { weekday: "long" });
+    return configData.TAGS.DAY_TAG.DAYS[
+      dateAndTime.withTimeZone(this.conventionTimeZone).dayOfWeek.toString()
+    ];
   }
 
   /**
