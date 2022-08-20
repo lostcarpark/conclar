@@ -10,14 +10,22 @@ const TimeSlot = ({ dateAndTime, items, forceExpanded }) => {
   if (!dateAndTime) return "";
   const conTime = (
     <div className="time-convention">
-      {LocalTime.formatTimeInConventionTimeZone(dateAndTime, show12HourTime, timeZoneIsShown)}
+      {LocalTime.formatTimeInConventionTimeZone(
+        dateAndTime,
+        show12HourTime,
+        timeZoneIsShown
+      )}
     </div>
   );
   const localTime =
     showLocalTime === "always" ||
     (showLocalTime === "differs" && LocalTime.timezonesDiffer) ? (
       <div className="time-local">
-        {LocalTime.formatTimeInLocalTimeZone(dateAndTime, show12HourTime, timeZoneIsShown)}
+        {LocalTime.formatTimeInLocalTimeZone(
+          dateAndTime,
+          show12HourTime,
+          timeZoneIsShown
+        )}
       </div>
     ) : (
       ""

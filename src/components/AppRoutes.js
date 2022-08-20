@@ -9,6 +9,7 @@ import Debug from "./Debug";
 import Header from "./Header";
 import Navigation from "./Navigation";
 import NotFound from "./NotFound";
+import Loading from "./Loading";
 import FilterableProgram from "./FilterableProgram";
 import UnfilterableProgram from "./UnfilterableProgram";
 import MySchedule from "./MySchedule";
@@ -25,33 +26,37 @@ const TheApp = configData.INTERACTIVE ? (
     <Debug />
     <Header title={configData.APP_TITLE} />
     <Navigation />
-    <Routes>
-      <Route path="/">
-        <Route index element={<FilterableProgram />} />
-        <Route path="/index.html" element={<FilterableProgram />} />
-        <Route path="id/:id" element={<ItemById />} />
-        <Route path="people">
-          <Route index element={<People />} />
-          <Route path=":id" element={<Person />} />
+    <Loading>
+      <Routes>
+        <Route path="/">
+          <Route index element={<FilterableProgram />} />
+          <Route path="/index.html" element={<FilterableProgram />} />
+          <Route path="id/:id" element={<ItemById />} />
+          <Route path="people">
+            <Route index element={<People />} />
+            <Route path=":id" element={<Person />} />
+          </Route>
+          <Route path="myschedule" element={<MySchedule />} />
+          <Route path="info" element={<Info />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
-        <Route path="myschedule" element={<MySchedule />} />
-        <Route path="info" element={<Info />} />
-        <Route path="settings" element={<Settings />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Loading>
     <Footer />
   </div>
 ) : (
   <div className="App">
     <Header title={configData.APP_TITLE} />
-    <Routes>
-      <Route path="/">
-        <Route index element={<UnfilterableProgram />} />
-        <Route path="/index.html" element={<UnfilterableProgram />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Loading>
+      <Routes>
+        <Route path="/">
+          <Route index element={<UnfilterableProgram />} />
+          <Route path="/index.html" element={<UnfilterableProgram />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Loading>
     <Footer />
   </div>
 );

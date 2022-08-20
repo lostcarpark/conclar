@@ -236,9 +236,9 @@ export class ProgramData {
     function decodeTag(tag) {
       const hasProps = tag.hasOwnProperty("value");
       const value = hasProps ? tag.value : tag;
-      const newTag = tags.all.hasOwnProperty(value)
-        ? tags.all[value]
-        : { value: value };
+      // If tag already indexed, use that.
+      if (tags.all.hasOwnProperty(value)) return tags.all[value];
+      const newTag = { value: value };
       // If tag has properties, apply label and category to stored tag if present.
       if (hasProps) {
         if (tag.hasOwnProperty("label")) newTag.label = tag.label;
@@ -353,6 +353,7 @@ export class ProgramData {
     const personTags = this.processTags(people, configData.PEOPLE.TAGS);
     LocalTime.checkTimeZonesDiffer(program);
 
+    //setLoadingMessage("Processing Complete... Rendering...")
     return {
       program: program,
       people: people,
@@ -380,6 +381,7 @@ export class ProgramData {
    * @returns {array}
    */
   static async fetchData() {
+    //setLoadingMessage
     try {
       // If only one data source, we can use a single fetch.
       if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {

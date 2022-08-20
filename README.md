@@ -71,6 +71,13 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `NAVIGATION.INFO`: Label for the Information menu link._
 - `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
+- `APPLICATION.LOADING.MESSAGE`: Message to display while loading.
+- `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed.
+- `PROGRAM.LIMIT.LABEL`: Label for limit drop-down.
+- `PROGRAM.LIMIT.OPTIONS`: Options for limit drop-down - should be an array of integers.
+- `PROGRAM.LIMIT.ALL_LABEL`: Label to show for "All" entry.
+- `PROGRAM.LIMIT.DEFAULT`: Default for limit drop-down.
+- `PROGRAM.SEARCH.SEARCH_LABEL`: Label for search box.
 - `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
 - `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 - `TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.

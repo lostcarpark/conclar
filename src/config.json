@@ -30,7 +30,19 @@
   "LOCATIONS": {
     "SEARCHABLE": false
   },
+  "APPLICATION": {
+    "LOADING": {
+      "MESSAGE": "Loading... Please wait..."
+    }
+  },
   "PROGRAM": {
+    "LIMIT": {
+      "SHOW": true,
+      "LABEL": "Maximum items displayed",
+      "OPTIONS": [50, 100, 250, 500, 1000],
+      "ALL_LABEL": "Show all",
+      "DEFAULT": 100
+    },
     "SEARCH": {
       "SEARCH_LABEL": "Search title, desc, or people"
     }

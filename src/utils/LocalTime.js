@@ -242,7 +242,7 @@ export class LocalTime {
    * @param {bool} showTimeZone  If true show the time zone code.
    * @returns {string} The formatted time.
    */
-   static formatTimeInLocalTimeZone(dateAndTime, ampm, showTimeZone) {
+  static formatTimeInLocalTimeZone(dateAndTime, ampm, showTimeZone) {
     // Convert the program item time into local time.
     const localDateAndTime = dateAndTime.withTimeZone(this.localTimeZone);
     const formattedTime = this.formatTime(localDateAndTime, ampm, showTimeZone);
@@ -282,14 +282,16 @@ export class LocalTime {
    * @returns {string}
    */
   static formatISODateInConventionTimeZone(dateAndTime) {
-    const language = window.navigator.userLanguage || window.navigator.language;
+    //const language = window.navigator.userLanguage || window.navigator.language;
     const conDate = dateAndTime.withTimeZone(this.conventionTimeZone);
     return (
-      conDate.toLocaleString(language, { year: "numeric" }) +
+      conDate.year +
       "-" +
-      conDate.toLocaleString(language, { month: "2-digit" }) +
+      (conDate.month < 10 ? "0" : "") +
+      conDate.month +
       "-" +
-      conDate.toLocaleString(language, { day: "2-digit" })
+      (conDate.day < 10 ? "0" : "") +
+      conDate.day
     );
   }
 

@@ -5,6 +5,7 @@ import { LocalTime } from "./utils/LocalTime";
 import configData from "./config.json";
 
 const model = {
+  isLoading: true,
   program: [],
   people: [],
   locations: [],
@@ -19,6 +20,7 @@ const model = {
   selectedTimeZone: LocalTime.getStoredSelectedTimeZone(),
   showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
+  programDisplayLimit: localStorage.getItem("program_display_limit"),
   mySelections: ProgramSelection.getAllSelections(),
   programSelectedLocations: [],
   programSelectedTags: {},
@@ -33,8 +35,10 @@ const model = {
     actions.setData(await ProgramData.fetchData());
     actions.resetLastFetchTime();
     actions.updateTimeSinceLastFetch();
+    actions.setIsLoadingFalse();
   }),
   // Actions.
+  setIsLoadingFalse: action((state) => (state.isLoading = false)),
   setData: action((state, data) => {
     state.program = data.program;
     state.people = data.people;
@@ -101,6 +105,19 @@ const model = {
     state.expandedItems = [];
   }),
 
+  // Action for number of items displayed.
+  setProgramDisplayLimit: action((state, limit) => {
+    if (limit === "all") {
+      localStorage.setItem("program_display_limit", limit);
+      state.programDisplayLimit = limit;
+    }
+    if (!isNaN(limit)) {
+      localStorage.setItem("program_display_limit", limit);
+      state.programDisplayLimit = limit;
+    }
+    // Take no action if limit is not numeric or null.
+  }),
+
   // Actions for filtering program and people.
   setProgramSelectedLocations: action((state, selectedLocations) => {
     state.programSelectedLocations = selectedLocations;
@@ -159,8 +176,7 @@ const model = {
       state.showTimeZone === "always" ||
       (state.showTimeZone === "if_local" &&
         (state.showLocalTime === "always" ||
-          (state.showLocalTime === "differs" &&
-            LocalTime.timezonesDiffer)))
+          (state.showLocalTime === "differs" && LocalTime.timezonesDiffer)))
     );
   }),
   programIsFiltered: computed((state) => {

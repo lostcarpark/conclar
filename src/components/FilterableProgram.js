@@ -35,9 +35,23 @@ const FilterableProgram = () => {
   );
   const programIsFiltered = useStoreState((state) => state.programIsFiltered);
 
+  const programDisplayLimit = useStoreState(
+    (state) => state.programDisplayLimit
+  );
+  const setProgramDisplayLimit = useStoreActions(
+    (actions) => actions.setProgramDisplayLimit
+  );
+
   const filtered = applyFilters(program);
   const total = filtered.length;
-  const totalMessage = `Listing ${total} items`;
+  const displayLimit =
+    programDisplayLimit === null
+      ? configData.PROGRAM.LIMIT.DEFAULT
+      : programDisplayLimit;
+  const totalMessage =
+    displayLimit !== "all" && displayLimit < total
+      ? `Listing ${displayLimit} of ${total} items`
+      : `Listing ${total} items`;
 
   /**
    * Apply filters to the program array.
@@ -97,6 +111,44 @@ const FilterableProgram = () => {
     return filtered;
   }
 
+  function limitDropDown() {
+    function displayLimit(limit) {
+      if (limit === null) return configData.PROGRAM.LIMIT.DEFAULT;
+      if (limit === "all") return limit;
+      if (isNaN(limit)) return configData.PROGRAM.LIMIT.DEFAULT;
+      return limit;
+    }
+    if (configData.PROGRAM.LIMIT.SHOW) {
+      const options = configData.PROGRAM.LIMIT.OPTIONS.map((item) => (
+        <option key={item} value={item}>
+          {item}
+        </option>
+      ));
+      options.push(
+        <option key="all" value="all">
+          {configData.PROGRAM.LIMIT.ALL_LABEL}
+        </option>
+      );
+      return (
+        <div className="program-limit-select">
+          <label htmlFor="display_limit">
+            {configData.PROGRAM.LIMIT.LABEL}:{" "}
+          </label>
+          <select
+            name="display_limit"
+            value={displayLimit(programDisplayLimit)}
+            onChange={(e) => {
+              setProgramDisplayLimit(e.target.value);
+            }}
+          >
+            {options}
+          </select>
+        </div>
+      );
+    }
+    return "";
+  }
+
   return (
     <div>
       <div className="filter">
@@ -127,8 +179,12 @@ const FilterableProgram = () => {
           </div>
         </div>
         <div className="reset-filters">
-          <ResetButton isFiltered={programIsFiltered} resetFilters={resetProgramFilters} />
+          <ResetButton
+            isFiltered={programIsFiltered}
+            resetFilters={resetProgramFilters}
+          />
         </div>
+        {limitDropDown()}
         <div className="result-filters">
           <div className="stack">
             <div className="filter-total">{totalMessage}</div>
