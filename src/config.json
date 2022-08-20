@@ -114,7 +114,9 @@
   "TIME_FORMAT": {
     "DEFAULT_12HR": false,
     "SHOW_CHECKBOX": true,
-    "CHECKBOX_LABEL": "Show 12 hour time"
+    "CHECKBOX_LABEL": "Show 12 hour time",
+    "AM": "AM",
+    "PM": "PM"
   },
   "DURATION": {
     "SHOW_DURATION": true,

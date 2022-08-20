@@ -5,6 +5,7 @@ import configData from "../config.json";
 export class LocalTime {
   static conventionTimeZone = new Temporal.TimeZone(configData.TIMEZONE);
   static localTimeZone = null;
+  static localTimeZoneCode = null;
   static timezonesDiffer = false;
   static timeZoneIsShown = false;
 
@@ -20,6 +21,13 @@ export class LocalTime {
       ? this.getStoredSelectedTimeZone()
       : Intl.DateTimeFormat().resolvedOptions().timeZone;
     this.localTimeZone = new Temporal.TimeZone(timezoneName);
+    const language = window.navigator.userLanguage || window.navigator.language;
+    // This is a bit of a fudge. I haven't found a better way to get the local time zone short code.
+    // toLocaleString() can't produce just the timezone code, so need to add the hour and remove from string.
+    this.localTimeZoneCode = new Temporal.ZonedDateTime(0n, this.localTimeZone)
+      .toLocaleString(language, { timeZoneName: "short" })
+      .split(" ")
+      .at(-1);
   }
 
   static get localTimeClass() {
@@ -192,32 +200,44 @@ export class LocalTime {
    * @returns {string} The formatted time.
    */
   static formatTime(dateAndTime, ampm, showTimeZone = false) {
-    let language = window.navigator.userLanguage || window.navigator.language;
-    const options = ampm
-      ? {
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: "h12",
-        }
-      : {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        };
+    function formatTwoDigits(number) {
+      return `${number < 10 ? "0" : ""}${number}`;
+    }
+    function format12HourTime(dateAndTime) {
+      if (dateAndTime.hour === 0)
+        return `12:${formatTwoDigits(dateAndTime.minute)} ${
+          configData.TIME_FORMAT.AM
+        }`;
+      if (dateAndTime.hour < 12)
+        return `${dateAndTime.hour}:${formatTwoDigits(dateAndTime.minute)} ${
+          configData.TIME_FORMAT.AM
+        }`;
+      if (dateAndTime.hour === 12)
+        return `12:${formatTwoDigits(dateAndTime.minute)} ${
+          configData.TIME_FORMAT.PM
+        }`;
+      return `${dateAndTime.hour - 12}:${formatTwoDigits(dateAndTime.minute)} ${
+        configData.TIME_FORMAT.PM
+      }`;
+    }
+    //let language = window.navigator.userLanguage || window.navigator.language;
+    const formattedTime = ampm
+      ? `${format12HourTime(dateAndTime)}`
+      : `${formatTwoDigits(dateAndTime.hour)}:${formatTwoDigits(
+          dateAndTime.minute
+        )}`;
+    // If showing convention timezone, and timezone shown, show static timezone code.
     if (
       showTimeZone &&
       configData.TIMEZONECODE.length > 0 &&
       Temporal.TimeZone.from(dateAndTime) === this.conventionTimeZone
     ) {
-      return (
-        dateAndTime.toLocaleString(language, options) +
-        " " +
-        configData.TIMEZONECODE
-      );
-    } else {
-      if (showTimeZone) options.timeZoneName = "short";
-      return dateAndTime.toLocaleString(language, options);
+      return `${formattedTime} ${configData.TIMEZONECODE}`;
     }
+    // If showing timezone code, append preloaded local timezone code.
+    if (showTimeZone) return `${formattedTime} ${this.localTimeZoneCode}`;
+    // Not showing timezone code, so just return formatted time.
+    return formattedTime;
   }
 
   /**
