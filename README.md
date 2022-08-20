@@ -104,6 +104,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TIME_FORMAT.DEFAULT_12HR`: Set to true if you want time displayed in 12 hour format by default.
 - `TIME_FORMAT.SHOW_CHECKBOX`: If set to false, users will not be given option to change between 12 and 24 hour time.
 - `TIME_FORMAT.CHECKBOX_LABEL`: Label for the 12 hour time checkbox label.
+- `TIME_FORMAT.AM`: Label for AM times.
+- `TIME_FORMAT.PM`: Label for PM times.
 - `DURATION.SHOW_DURATION`: If true, `mins` from program data will be displayed.
 - `DURATION.DURATION_LABEL`: Format for duration. `@mins` will be replaced by number of minutes. Note: do not translate `@mins`.
 - `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
