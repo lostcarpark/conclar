@@ -15,6 +15,9 @@ export class LocalTime {
   }
 
   static getLocalTimeZone() {
+    function lastElement(array) {
+      return array[array.length - 1];
+    }
     // Check if using browser default timezone, or user selected.
     const useTimeZone = this.getStoredUseTimeZone();
     const timezoneName = useTimeZone
@@ -24,12 +27,11 @@ export class LocalTime {
     const language = window.navigator.userLanguage || window.navigator.language;
     // This is a bit of a fudge. I haven't found a better way to get the local time zone short code.
     // toLocaleString() can't produce just the timezone code, so need to add the hour and remove from string.
-    this.localTimeZoneCode = new Temporal.Now.zonedDateTimeISO(
-      this.localTimeZone
-    )
-      .toLocaleString(language, { timeZoneName: "short" })
-      .split(" ")
-      .at(-1);
+    this.localTimeZoneCode = lastElement(
+      new Temporal.Now.zonedDateTimeISO(this.localTimeZone)
+        .toLocaleString(language, { timeZoneName: "short" })
+        .split(" ")
+    );
   }
 
   static get localTimeClass() {
