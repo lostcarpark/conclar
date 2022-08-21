@@ -56,9 +56,9 @@ const PersonLinks = ({ person }) => {
   // Loop through links, indexed by link type.
   for (const type in person.links) {
     // Don't add image links to link display.
-    if (type === "img" || type === "photo" || type === "img_256_url") break;
+    if (type === "img" || type === "photo" || type === "img_256_url") continue;
     // If link not fitting web url template, ignore.
-    if (!person.links[type].match(regex)) break;
+    if (!person.links[type].match(regex)) continue;
     // Look up the correct icon.
     const icon = getLinkIcon(type);
     // Add link HTML to array.
