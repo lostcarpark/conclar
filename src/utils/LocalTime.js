@@ -24,7 +24,9 @@ export class LocalTime {
     const language = window.navigator.userLanguage || window.navigator.language;
     // This is a bit of a fudge. I haven't found a better way to get the local time zone short code.
     // toLocaleString() can't produce just the timezone code, so need to add the hour and remove from string.
-    this.localTimeZoneCode = new Temporal.ZonedDateTime(0n, this.localTimeZone)
+    this.localTimeZoneCode = new Temporal.Now.zonedDateTimeISO(
+      this.localTimeZone
+    )
       .toLocaleString(language, { timeZoneName: "short" })
       .split(" ")
       .at(-1);
