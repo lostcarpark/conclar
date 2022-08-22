@@ -30,7 +30,19 @@
   "LOCATIONS": {
     "SEARCHABLE": false
   },
+  "APPLICATION": {
+    "LOADING": {
+      "MESSAGE": "Loading... Please wait..."
+    }
+  },
   "PROGRAM": {
+    "LIMIT": {
+      "SHOW": true,
+      "LABEL": "Maximum items displayed",
+      "OPTIONS": [50, 100, 250, 500, 1000],
+      "ALL_LABEL": "Show all",
+      "DEFAULT": 100
+    },
     "SEARCH": {
       "SEARCH_LABEL": "Search title, desc, or people"
     }
@@ -46,6 +58,13 @@
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
       "GENERATE": true,
+      "DAYS": {
+        "4": "Thursday",
+        "5": "Friday",
+        "6": "Saturday",
+        "7": "Sunday",
+        "1": "Monday"
+      },
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": true,
       "HIDE": false
@@ -95,7 +114,9 @@
   "TIME_FORMAT": {
     "DEFAULT_12HR": false,
     "SHOW_CHECKBOX": true,
-    "CHECKBOX_LABEL": "Show 12 hour time"
+    "CHECKBOX_LABEL": "Show 12 hour time",
+    "AM": "AM",
+    "PM": "PM"
   },
   "DURATION": {
     "SHOW_DURATION": true,

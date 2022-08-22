@@ -71,12 +71,20 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `NAVIGATION.INFO`: Label for the Information menu link._
 - `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
+- `APPLICATION.LOADING.MESSAGE`: Message to display while loading.
+- `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed.
+- `PROGRAM.LIMIT.LABEL`: Label for limit drop-down.
+- `PROGRAM.LIMIT.OPTIONS`: Options for limit drop-down - should be an array of integers.
+- `PROGRAM.LIMIT.ALL_LABEL`: Label to show for "All" entry.
+- `PROGRAM.LIMIT.DEFAULT`: Default for limit drop-down.
+- `PROGRAM.SEARCH.SEARCH_LABEL`: Label for search box.
 - `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
 - `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 - `TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.
 - `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`.
 - `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 - `TAGS.DAY_TAG.GENERATE`: If set to true, will generate tags for each day of the convention.
+- `TAGS.DAY_TAG.DAYS`: Object with key values pairs for day names. Keys are day numbers from 1 (Monday) to 7 (Sunday).
 - `TAGS.DAY_TAG.PLACEHOLDER`: The placeholder for the "day" tags drop down.
 - `TAGS.DAY_TAG.SEARCHABLE`: Whether day tag list can be searched by typing.
 - `TAGS.DAY_TAG.HIDE`: If true, hide day tags drop-down. Day tags still shown on items if GENERATE true.
@@ -96,6 +104,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TIME_FORMAT.DEFAULT_12HR`: Set to true if you want time displayed in 12 hour format by default.
 - `TIME_FORMAT.SHOW_CHECKBOX`: If set to false, users will not be given option to change between 12 and 24 hour time.
 - `TIME_FORMAT.CHECKBOX_LABEL`: Label for the 12 hour time checkbox label.
+- `TIME_FORMAT.AM`: Label for AM times.
+- `TIME_FORMAT.PM`: Label for PM times.
 - `DURATION.SHOW_DURATION`: If true, `mins` from program data will be displayed.
 - `DURATION.DURATION_LABEL`: Format for duration. `@mins` will be replaced by number of minutes. Note: do not translate `@mins`.
 - `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
