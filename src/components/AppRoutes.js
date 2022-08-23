@@ -14,6 +14,7 @@ import FilterableProgram from "./FilterableProgram";
 import UnfilterableProgram from "./UnfilterableProgram";
 import MySchedule from "./MySchedule";
 import ItemById from "./ItemById";
+import ItemByIdList from "./ItemByIdList";
 import People from "./People";
 import Person from "./Person";
 import Info from "./Info";
@@ -32,6 +33,7 @@ const TheApp = configData.INTERACTIVE ? (
           <Route index element={<FilterableProgram />} />
           <Route path="/index.html" element={<FilterableProgram />} />
           <Route path="id/:id" element={<ItemById />} />
+          <Route path="ids/:idList" element={<ItemByIdList />} />
           <Route path="people">
             <Route index element={<People />} />
             <Route path=":id" element={<Person />} />
