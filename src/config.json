@@ -45,6 +45,22 @@
     },
     "SEARCH": {
       "SEARCH_LABEL": "Search title, desc, or people"
+    },
+    "MY_SCHEDULE": {
+      "TITLE": "My Schedule",
+      "SHARE": {
+        "LABEL": "Share program selection",
+        "DESCRIPTION": "Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
+        "LINK_LABEL": "Shareable link",
+        "MAX_LENGTH": 2500,
+        "MULTIPLE_DESCRIPTION": "Because you have selected a large number of items, you will need to use multiple links/QR codes to transfer to your other devices.",
+        "MULTIPLE_LINK_LABEL": "Shareable link #@number"
+      }
+    },
+    "SHARED": {
+      "TITLE": "Shared Program Items",
+      "DESCRIPTION": "The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.",
+      "BUTTON_LABEL": "Add all to My Schedule"
     }
   },
   "TAGS": {

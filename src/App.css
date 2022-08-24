@@ -34,6 +34,8 @@
   --search-border: hsl(0, 0%, 80%);
   --reset-button-bg: #5b6473; /*#525e73; #343c4b;*/
   --reset-button-fg: #fff;
+  --add-all-button-bg: #5b6473; /*#525e73; #343c4b;*/
+  --add-all-button-fg: #fff;
   --program-item-chevron-collapsed: #ccc;
   --program-item-chevron-expanded: #bbe;
   --program-time-convention-message: grey;
@@ -549,6 +551,41 @@ input.switch:checked ~ label:after {
   padding: 0.5rem;
   border-radius: 0.5rem;
   overflow: auto;
+}
+
+/* Sharing on My Schedule. */
+.share-group {
+  margin: 0.5em 0;
+  padding: 0.5rem;
+  border: 1px solid var(--settings-outline);
+  border-radius: 0.5rem;
+}
+
+.share-head {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.share-body {
+  margin-bottom: 0.25em;
+}
+
+/* ItemIDs page, showing shared items. */
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.button-add-all {
+  background-color: var(--add-all-button-bg);
+  color: var(--add-all-button-fg);
+  font-size: 1rem;
+  padding: .5rem 1.5rem;
+  border: none;
+  border-radius: 1.5rem;
 }
 
 /*

@@ -77,7 +77,17 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PROGRAM.LIMIT.OPTIONS`: Options for limit drop-down - should be an array of integers.
 - `PROGRAM.LIMIT.ALL_LABEL`: Label to show for "All" entry.
 - `PROGRAM.LIMIT.DEFAULT`: Default for limit drop-down.
-- `PROGRAM.SEARCH.SEARCH_LABEL`: Label for search box.
+- `PROGRAM.MY_SCHEDULE.TITLE`: Title of My Schedule page.
+- `PROGRAM.MY_SCHEDULE.SEARCH.SEARCH_LABEL`: Label for search box.
+- `PROGRAM.MY_SCHEDULE.SHARE.LABEL`: Heading for shared link section on MySchedule.
+- `PROGRAM.MY_SCHEDULE.SHARE.DESCRIPTION`: Descriptive message for link sharing section.
+- `PROGRAM.MY_SCHEDULE.SHARE.LINK_LABEL`: Label for link when single sharing link on page.
+- `PROGRAM.MY_SCHEDULE.SHARE.MAX_LENGTH`: Maximum number of characters in each link.
+- `PROGRAM.MY_SCHEDULE.SHARE.MULTIPLE_DESCRIPTION`: Description to display when multiple links displayed.
+- `PROGRAM.MY_SCHEDULE.SHARE.MULTIPLE_LINK_LABEL`: Label for link when multiple links shown. @number replaced by number of link.
+- `PROGRAM.SHARED.TITLE`: Title of Shared Programme Items page.
+- `PROGRAM.SHARED.DESCRIPTION`: Descriptive text for page showing shared links.
+- `PROGRAM.SHARED.BUTTON_LABEL`: Text for label of "Add all to My Schedule" button.
 - `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
 - `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 - `TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.
