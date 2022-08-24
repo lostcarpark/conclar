@@ -562,13 +562,17 @@ input.switch:checked ~ label:after {
 }
 
 .share-head {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
   font-weight: bold;
   font-size: 1.1em;
 }
 
 .share-body {
-  margin-bottom: 0.25em;
+  margin-bottom: 0.25rem;
+}
+
+.share-qr-code {
+  margin: 0.25rem;
 }
 
 /* ItemIDs page, showing shared items. */
