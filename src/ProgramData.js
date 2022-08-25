@@ -84,7 +84,7 @@ export class ProgramData {
   static processPeopleData(people) {
     for (let person of people) {
       // If SortName not in file, create from name. If name is array, put last element first for sorting.
-      if (!person.sortname) {
+      if (!person.sortname || person.sortname.trim().length === 0) {
         person.sortname = Array.isArray(person.name)
           ? [...person.name].reverse().join(" ")
           : person.name;
@@ -113,10 +113,14 @@ export class ProgramData {
     // Add extra participant info to program participants.
     for (let item of program) {
       if (item.people) {
-        for (let index = 0; index < item.people.length; index++) {
+        // Loop through people backwards, so we don't miss anyone if entries are removed.
+        for (let index = item.people.length - 1; index >= 0; index--) {
           let fullPerson = people.find(
             (fullPerson) => fullPerson.id === item.people[index].id
           );
+          if (!fullPerson) {
+            item.people.splice(index, 1);
+          }
           //Moderator check before nuking the item person data.
           if (item.people[index].name.indexOf("(moderator)") > 0 || 
               (item.people[index].hasOwnProperty("role") && item.people[index].role === "moderator"))
