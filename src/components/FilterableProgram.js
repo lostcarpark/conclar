@@ -205,6 +205,11 @@ const FilterableProgram = () => {
       <div className="program-page">
         <ProgramList program={filtered} />
       </div>
+      <div className="result-filters">
+        <div className="stack">
+          <div className="filter-total">{totalMessage}</div>
+        </div>
+      </div>
     </div>
   );
 };
