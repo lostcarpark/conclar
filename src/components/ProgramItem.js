@@ -1,3 +1,4 @@
+//import React, { useState, useImperativeHandle } from "react";
 import DOMPurify from "dompurify";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Link } from "react-router-dom";
@@ -33,6 +34,12 @@ const ProgramItem = ({ item, forceExpanded }) => {
       } else expandItem(item.id);
     }
   }
+  // const [expanded, setExpanded] = useState(forceExpanded);
+  // function toggleExpanded() {
+  //   setExpanded(!expanded);
+  // }
+
+  // useImperativeHandle(expander, (expand) => setExpanded(expand));
 
   function handleSelected(event) {
     if (event.target.checked) addSelection(item.id);
