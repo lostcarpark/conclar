@@ -36,6 +36,8 @@
   --reset-button-fg: var(--navigation-button-current-fg);
   --add-all-button-bg: var(--navigation-button-current-bg);
   --add-all-button-fg: var(--navigation-button-current-fg);
+  --add-more-button-bg: var(--navigation-button-current-bg);
+  --add-more-button-fg: var(--navigation-button-current-fg);
   --program-item-chevron-collapsed: #ccc;
   --program-item-chevron-expanded: #bbe;
   --program-time-convention-message: grey;
@@ -573,6 +575,23 @@ input.switch:checked ~ label:after {
 
 .share-qr-code {
   margin: 0.25rem;
+}
+
+/* When limit on displayed items, show more button. */
+
+.result-more-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.show-more-button {
+  background-color: var(--add-more-button-bg);
+  color: var(--add-more-button-fg);
+  font-size: 1rem;
+  padding: .5rem 1.5rem;
+  border: none;
+  border-radius: 1.5rem;
 }
 
 /* ItemIDs page, showing shared items. */

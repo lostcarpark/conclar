@@ -77,6 +77,9 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PROGRAM.LIMIT.OPTIONS`: Options for limit drop-down - should be an array of integers.
 - `PROGRAM.LIMIT.ALL_LABEL`: Label to show for "All" entry.
 - `PROGRAM.LIMIT.DEFAULT`: Default for limit drop-down.
+- `PROGRAM.LIMIT.SHOW_MORE.LABEL`: Label for the "Show more" button.
+- `PROGRAM.LIMIT.SHOW_MORE.NO_MORE`: Message to display when no more items available.
+- `PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA`: Number of items to add when "Show more" pressed.
 - `PROGRAM.MY_SCHEDULE.TITLE`: Title of My Schedule page.
 - `PROGRAM.MY_SCHEDULE.SEARCH.SEARCH_LABEL`: Label for search box.
 - `PROGRAM.MY_SCHEDULE.SHARE.LABEL`: Heading for shared link section on MySchedule.

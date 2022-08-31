@@ -72,7 +72,7 @@ export class ProgramData {
     program.sort((a, b) => {
       return Temporal.ZonedDateTime.compare(a.dateAndTime, b.dateAndTime);
     });
-    //console.log(program);
+    //console.log("Program data", program);
     return program;
   }
 

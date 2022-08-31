@@ -1,6 +1,6 @@
 import TagSelect from "./TagSelect";
 
-const TagSelectors = ({ tags, selTags, setSelTags, tagConfig }) => {
+const TagSelectors = ({ tags, selTags, setSelTags, tagConfig, resetLimit }) => {
   /**
    * Get the tag information for the tag category.
    * @param {string} tag The tag category.
@@ -31,6 +31,7 @@ const TagSelectors = ({ tags, selTags, setSelTags, tagConfig }) => {
             selTags={selTags}
             setSelTags={setSelTags}
             tagData={tagData}
+            resetLimit={resetLimit}
           />
         </div>
       );
