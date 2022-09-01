@@ -15,9 +15,9 @@
   "TIMEZONECODE": "IST",
   "INTERACTIVE": true,
   "HEADER": {
-    "IMG_SRC": "",
-    "IMG_ALT_TEXT": "",
-    "LINEFEED_AFTER_URL": false
+    "IMG_SRC": "/logo-web-small.png",
+    "IMG_ALT_TEXT": "Octocon, the National Irish Science Fiction Convention",
+    "LINEFEED_AFTER_URL": true
   },
   "NAVIGATION": {
     "PROGRAM": "Programme",

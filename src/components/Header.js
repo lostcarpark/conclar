@@ -8,7 +8,8 @@ const Header = ({ title }) => {
   document.title = title;
   return (
     <header>
-      <img src="/logo-web-small.png" alt="Octocon Logo" />
+      {headerImg}
+      {showBreak}
       <h1>{title}</h1>
     </header>
   );
