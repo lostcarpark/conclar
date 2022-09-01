@@ -1,19 +1,20 @@
 import PropTypes from "prop-types";
 import TimeSlot from "./TimeSlot";
 import { LocalTime } from "../utils/LocalTime";
-//import { IoSyncCircleOutline } from "react-icons/io5";
 
 const Day = ({ date, items, forceExpanded }) => {
   const day = LocalTime.formatDateForLocaleAsUTC(date);
   const rows = [];
   let itemRows = [];
+  let curTimeSlot = null;
   let curDateAndTime = null;
   items.forEach((item) => {
-    if (curDateAndTime === null || !item.dateAndTime.equals(curDateAndTime)) {
+    if (curTimeSlot === null || item.timeSlot !== curTimeSlot) {
       if (itemRows.length > 0) {
         rows.push(
           <TimeSlot
-            key={curDateAndTime.toString()}
+            key={curTimeSlot}
+            timeSlot={curTimeSlot}
             dateAndTime={curDateAndTime}
             items={itemRows}
             forceExpanded={forceExpanded}
@@ -21,13 +22,15 @@ const Day = ({ date, items, forceExpanded }) => {
         );
         itemRows = [];
       }
+      curTimeSlot = item.timeSlot;
       curDateAndTime = item.dateAndTime;
     }
     itemRows.push(item);
   });
   rows.push(
     <TimeSlot
-      key={curDateAndTime.toString()}
+      key={curTimeSlot}
+      timeSlot={curTimeSlot}
       dateAndTime={curDateAndTime}
       items={itemRows}
       forceExpanded={forceExpanded}

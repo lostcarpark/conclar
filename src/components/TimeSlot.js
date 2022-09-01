@@ -3,7 +3,7 @@ import { useStoreState } from "easy-peasy";
 import ProgramItem from "./ProgramItem";
 import { LocalTime } from "../utils/LocalTime";
 
-const TimeSlot = ({ dateAndTime, items, forceExpanded }) => {
+const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
@@ -11,6 +11,7 @@ const TimeSlot = ({ dateAndTime, items, forceExpanded }) => {
   const conTime = (
     <div className="time-convention">
       {LocalTime.formatTimeInConventionTimeZone(
+        timeSlot,
         dateAndTime,
         show12HourTime,
         timeZoneIsShown
@@ -22,6 +23,7 @@ const TimeSlot = ({ dateAndTime, items, forceExpanded }) => {
     (showLocalTime === "differs" && LocalTime.timezonesDiffer) ? (
       <div className="time-local">
         {LocalTime.formatTimeInLocalTimeZone(
+          timeSlot,
           dateAndTime,
           show12HourTime,
           timeZoneIsShown

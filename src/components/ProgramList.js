@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import PropTypes from "prop-types";
 import { useStoreState } from "easy-peasy";
 import { LocalTime } from "../utils/LocalTime";
@@ -10,6 +11,9 @@ const ProgramList = ({ program, forceExpanded }) => {
   const programDisplayLimit = useStoreState(
     (state) => state.programDisplayLimit
   );
+  useEffect(() => {
+    LocalTime.storeCachedTimes();
+  });
 
   LocalTime.checkTimeZonesDiffer(program);
 
@@ -83,7 +87,8 @@ const ProgramList = ({ program, forceExpanded }) => {
     ) : (
       ""
     );
-  return (
+
+    return (
     <div className="program-container">
       {conventionTime}
       {localTime}

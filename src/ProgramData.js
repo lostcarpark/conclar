@@ -66,6 +66,7 @@ export class ProgramData {
     program.map((item) => {
       const startTime = this.processDateAndTime(item);
       item.dateAndTime = startTime.withTimeZone(utcTimeZone);
+      item.timeSlot = LocalTime.getTimeSlot(item.dateAndTime);
       return item;
     });
     program.sort((a, b) => {

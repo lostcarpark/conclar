@@ -8,6 +8,9 @@ export class LocalTime {
   static localTimeZoneCode = null;
   static timezonesDiffer = false;
   static timeZoneIsShown = false;
+  static timeSlotCache = {};
+  static conventionTimeCache = [];
+  static localTimeCache = [];
 
   // Initialise local timezone.
   static {
@@ -32,6 +35,15 @@ export class LocalTime {
         .toLocaleString(language, { timeZoneName: "short" })
         .split(" ")
     );
+    // Load cached times.
+    const tsCache = localStorage.getItem("time_slot_cache");
+    this.timeSlotCache = tsCache ? JSON.parse(tsCache) : {};
+    const conTimeCache = localStorage.getItem("convention_time_cache");
+    this.conventionTimeCache = conTimeCache ? JSON.parse(conTimeCache) : [];
+    const locTimeCache = localStorage.getItem(
+      "local_time_cache_" + this.localTimeZone
+    );
+    this.localTimeCache = locTimeCache ? JSON.parse(locTimeCache) : [];
   }
 
   static get localTimeClass() {
@@ -142,6 +154,36 @@ export class LocalTime {
     localStorage.setItem(this.pastItemsClass, showPastItems ? "true" : "false");
   }
 
+  /**
+   * Get time slot for time.
+   */
+  static getTimeSlot(dateAndTime) {
+    if (this.timeSlotCache.hasOwnProperty(dateAndTime))
+      return this.timeSlotCache[dateAndTime];
+
+    const newIndex = this.conventionTimeCache.length;
+    const newEntry = { dateAndTime: dateAndTime.toString() };
+    this.timeSlotCache[dateAndTime] = newIndex;
+    this.conventionTimeCache[newIndex] = newEntry;
+    this.localTimeCache[newIndex] = newEntry;
+    return newIndex;
+  }
+
+  /**
+   * Save cached times to Local Storage.
+   */
+  static storeCachedTimes() {
+    localStorage.setItem("time_slot_cache", JSON.stringify(this.timeSlotCache));
+    localStorage.setItem(
+      "convention_time_cache",
+      JSON.stringify(this.conventionTimeCache)
+    );
+    localStorage.setItem(
+      "local_time_cache_" + this.localTimeZone,
+      JSON.stringify(this.localTimeCache)
+    );
+  }
+
   // Format the date as a string in user's language.
   static formatDateForLocaleAsUTC(date) {
     let language = window.navigator.userLanguage || window.navigator.language;
@@ -246,17 +288,36 @@ export class LocalTime {
 
   /**
    * Format the time in the convention time zone.
+   * @param {int} timeSlot The numeric index of the timeslot.
    * @param {Temporal.ZonedDateTime} dateAndTime The date and time to display.
    * @param {bool} ampm If true, show 12 hour.
    * @param {bool} showTimeZone  If true show the time zone code.
    * @returns {string} The formatted time.
    */
-  static formatTimeInConventionTimeZone(dateAndTime, ampm, showTimeZone) {
-    return this.formatTime(
+  static formatTimeInConventionTimeZone(
+    timeSlot,
+    dateAndTime,
+    ampm,
+    showTimeZone
+  ) {
+    // Check if entry cached for timeslot. Create two dimensional array if not.
+    const cacheValue =
+      this.conventionTimeCache.indexOf(timeSlot) >= 0
+        ? this.conventionTimeCache[timeSlot]
+        : { dateAndTime: dateAndTime };
+    //console.log (cacheValue, intAmPm, showTimeZone, cacheValue.indexOf(intAmPm))
+    const cacheKey = (ampm ? "h12_" : "h24_") + (showTimeZone ? "tz" : "no");
+    if (cacheValue.hasOwnProperty(cacheKey)) {
+      return cacheValue[cacheKey];
+    }
+
+    cacheValue[cacheKey] = this.formatTime(
       dateAndTime.withTimeZone(this.conventionTimeZone),
       ampm,
       showTimeZone
     );
+    this.conventionTimeCache[timeSlot] = cacheValue;
+    return cacheValue[cacheKey];
   }
 
   /**
@@ -266,7 +327,22 @@ export class LocalTime {
    * @param {bool} showTimeZone  If true show the time zone code.
    * @returns {string} The formatted time.
    */
-  static formatTimeInLocalTimeZone(dateAndTime, ampm, showTimeZone) {
+  static formatTimeInLocalTimeZone(timeSlot, dateAndTime, ampm, showTimeZone) {
+    const dateAndTimeStr = dateAndTime.toString();
+    // Check if entry cached for timeslot. Create two dimensional array if not.
+    let cacheValue =
+      this.localTimeCache.indexOf(timeSlot) >= 0
+        ? this.localTimeCache[timeSlot]
+        : { dateAndTime: dateAndTimeStr };
+    // Make sure we have the correct cached item.
+    if (cacheValue.dateAndTime !== dateAndTimeStr)
+      cacheValue = { dateAndTime: dateAndTimeStr };
+    //console.log("Local time slot: ", timeSlot, dateAndTime.toString(), cacheValue);
+    const cacheKey = (ampm ? "h12_" : "h24_") + (showTimeZone ? "tz" : "no");
+    if (cacheValue.hasOwnProperty(cacheKey)) {
+      return cacheValue[cacheKey];
+    }
+
     // Convert the program item time into local time.
     const localDateAndTime = dateAndTime.withTimeZone(this.localTimeZone);
     const formattedTime = this.formatTime(localDateAndTime, ampm, showTimeZone);
@@ -275,15 +351,20 @@ export class LocalTime {
       dateAndTime.withTimeZone(this.conventionTimeZone)
     );
     const localDate = Temporal.PlainDate.from(localDateAndTime);
+
     // Compare the dates without time to see if we're showing time on next or previous day, and if so attach label.
     switch (Temporal.PlainDate.compare(localDate, conDate)) {
       case -1:
-        return formattedTime + configData.LOCAL_TIME.PREV_DAY;
+        cacheValue[cacheKey] = formattedTime + configData.LOCAL_TIME.PREV_DAY;
+        break;
       case 1:
-        return formattedTime + configData.LOCAL_TIME.NEXT_DAY;
+        cacheValue[cacheKey] = formattedTime + configData.LOCAL_TIME.NEXT_DAY;
+        break;
       default:
-        return formattedTime;
+        cacheValue[cacheKey] = formattedTime;
     }
+    this.localTimeCache[timeSlot] = cacheValue;
+    return cacheValue[cacheKey];
   }
 
   /**
