@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  FaLink,
   FaTwitter,
   FaFacebook,
   FaLinkedin,
@@ -10,6 +9,9 @@ import {
   FaYoutube,
   FaGlobe,
 } from "react-icons/fa";
+import {
+  IoLink,
+} from "react-icons/io5";
 
 
 const PersonLinks = ({ person }) => {
@@ -39,7 +41,7 @@ const PersonLinks = ({ person }) => {
       case "website":
         return <FaGlobe />;
       default:
-        return <FaLink />;
+        return <IoLink />;
     }
   };
 
@@ -53,9 +55,9 @@ const PersonLinks = ({ person }) => {
   // Loop through links, indexed by link type.
   for (const type in person.links) {
     // Don't add image links to link display.
-    if (type === "img" || type === "photo" || type === "img_256_url") break;
+    if (type === "img" || type === "photo" || type === "img_256_url") continue;
     // If link not fitting web url template, ignore.
-    if (!person.links[type].match(regex)) break;
+    if (!person.links[type].match(regex)) continue;
     // Look up the correct icon.
     const icon = getLinkIcon(type);
     // Add link HTML to array.

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import configData from "../config.json";
@@ -35,9 +36,45 @@ const FilterableProgram = () => {
   );
   const programIsFiltered = useStoreState((state) => state.programIsFiltered);
 
+  // User selected display limit.
+  const programDisplayLimit = useStoreState(
+    (state) => state.programDisplayLimit
+  );
+  const setProgramDisplayLimit = useStoreActions(
+    (actions) => actions.setProgramDisplayLimit
+  );
+  // Current display limit, changes when user presses "show more". Resets whenever filters change.
+  const [displayLimit, setDisplayLimit] = useState(
+    programDisplayLimit === null
+      ? configData.PROGRAM.LIMIT.DEFAULT
+      : programDisplayLimit
+  );
+  console.log(displayLimit);
+
   const filtered = applyFilters(program);
   const total = filtered.length;
-  const totalMessage = `Listing ${total} items`;
+  const totalMessage =
+    displayLimit !== "all" && displayLimit < total
+      ? `Listing ${displayLimit} of ${total} items`
+      : `Listing ${total} items`;
+  const display = configData.PROGRAM.LIMIT.SHOW && !isNaN(displayLimit)
+    ? filtered.slice(0, displayLimit)
+    : filtered;
+
+  /**
+   * When filters change, set the display limit back to the selection.
+   */
+  function resetDisplayLimit() {
+    setDisplayLimit(programDisplayLimit);
+  }
+
+  /**
+   * When reset filters pressed, reset the display limit and the program filters.
+   */
+  function resetLimitsAndFilters() {
+    resetDisplayLimit();
+    resetProgramFilters();
+  }
 
   /**
    * Apply filters to the program array.
@@ -97,6 +134,54 @@ const FilterableProgram = () => {
     return filtered;
   }
 
+  function limitDropDown() {
+    function displayLimit(limit) {
+      if (limit === null) return configData.PROGRAM.LIMIT.DEFAULT;
+      if (limit === "all") return limit;
+      if (isNaN(limit)) return configData.PROGRAM.LIMIT.DEFAULT;
+      return limit;
+    }
+    if (configData.PROGRAM.LIMIT.SHOW) {
+      const options = configData.PROGRAM.LIMIT.OPTIONS.map((item) => (
+        <option key={item} value={item}>
+          {item}
+        </option>
+      ));
+      options.push(
+        <option key="all" value="all">
+          {configData.PROGRAM.LIMIT.ALL_LABEL}
+        </option>
+      );
+      return (
+        <div className="program-limit-select">
+          <label htmlFor="display_limit">
+            {configData.PROGRAM.LIMIT.LABEL}:{" "}
+          </label>
+          <select
+            name="display_limit"
+            value={displayLimit(programDisplayLimit)}
+            onChange={(e) => {
+              setProgramDisplayLimit(e.target.value);
+              setDisplayLimit(e.target.value);
+            }}
+          >
+            {options}
+          </select>
+        </div>
+      );
+    }
+    return "";
+  }
+
+  const moreButton =
+    displayLimit < total ? (
+      <button className="show-more-button" onClick={() => setDisplayLimit(parseInt(displayLimit) + configData.PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA)}>
+        {configData.PROGRAM.LIMIT.SHOW_MORE.LABEL}
+      </button>
+    ) : (
+      <span>{configData.PROGRAM.LIMIT.SHOW_MORE.NO_MORE}</span>
+    );
+
   return (
     <div>
       <div className="filter">
@@ -108,7 +193,10 @@ const FilterableProgram = () => {
               isMulti
               isSearchable={configData.LOCATIONS.SEARCHABLE}
               value={selLoc}
-              onChange={(value) => setSelLoc(value)}
+              onChange={(value) => {
+                resetDisplayLimit();
+                setSelLoc(value);
+              }}
             />
           </div>
           <TagSelectors
@@ -116,19 +204,27 @@ const FilterableProgram = () => {
             selTags={selTags}
             setSelTags={setSelTags}
             tagConfig={configData.TAGS}
+            resetLimit={resetDisplayLimit}
           />
           <div className="filter-search">
             <input
               type="search"
               placeholder={configData.PROGRAM.SEARCH.SEARCH_LABEL}
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => {
+                resetDisplayLimit();
+                setSearch(e.target.value);
+              }}
             />
           </div>
         </div>
         <div className="reset-filters">
-          <ResetButton isFiltered={programIsFiltered} resetFilters={resetProgramFilters} />
+          <ResetButton
+            isFiltered={programIsFiltered}
+            resetFilters={resetLimitsAndFilters}
+          />
         </div>
+        {limitDropDown()}
         <div className="result-filters">
           <div className="stack">
             <div className="filter-total">{totalMessage}</div>
@@ -147,8 +243,14 @@ const FilterableProgram = () => {
         </div>
       </div>
       <div className="program-page">
-        <ProgramList program={filtered} />
+        <ProgramList program={display} />
       </div>
+      <div className="result-filters">
+        <div className="stack">
+          <div className="filter-total">{totalMessage}</div>
+        </div>
+      </div>
+      <div className="result-more-button">{moreButton}</div>
     </div>
   );
 };
