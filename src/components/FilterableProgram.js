@@ -45,9 +45,9 @@ const FilterableProgram = () => {
   );
   // Current display limit, changes when user presses "show more". Resets whenever filters change.
   const [displayLimit, setDisplayLimit] = useState(
-    programDisplayLimit === null
+    parseInt(programDisplayLimit === null
       ? configData.PROGRAM.LIMIT.DEFAULT
-      : programDisplayLimit
+      : programDisplayLimit)
   );
   console.log(displayLimit);
 
@@ -65,7 +65,7 @@ const FilterableProgram = () => {
    * When filters change, set the display limit back to the selection.
    */
   function resetDisplayLimit() {
-    setDisplayLimit(programDisplayLimit);
+    setDisplayLimit(parseInt(programDisplayLimit));
   }
 
   /**
@@ -162,7 +162,7 @@ const FilterableProgram = () => {
             value={displayLimit(programDisplayLimit)}
             onChange={(e) => {
               setProgramDisplayLimit(e.target.value);
-              setDisplayLimit(e.target.value);
+              setDisplayLimit(parseInt(e.target.value));
             }}
           >
             {options}
