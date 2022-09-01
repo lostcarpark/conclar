@@ -104,6 +104,12 @@ const model = {
   collapseAll: action((state) => {
     state.expandedItems = [];
   }),
+  expandSelected: action((state) => {
+    state.expandedItems = [...state.mySelections];
+  }),
+  collapseSelected: action((state) => {
+    state.expandedItems = [];
+  }),
 
   // Action for number of items displayed.
   setProgramDisplayLimit: action((state, limit) => {
@@ -203,6 +209,13 @@ const model = {
     // Loop through all items in progrm. If any not found in expanded list, return false.
     for (let item of state.program)
       if (!state.expandedItems.find((id) => item.id === id)) return false;
+    // All found, so can return true.
+    return true;
+  }),
+  allSelectedExpanded: computed((state) => {
+    // Loop through all items in progrm. If any not found in expanded list, return false.
+    for (let item of state.mySelections)
+      if (!state.expandedItems.find((id) => item === id)) return false;
     // All found, so can return true.
     return true;
   }),
