@@ -124,6 +124,11 @@ header h1 {
   margin: 1rem 0;
 }
 
+header img {
+  border-radius: 1rem;
+}
+
+
 /*
  * 3. Navigation.
  */
@@ -434,7 +439,7 @@ input.switch:checked ~ label:after {
 
 .item {
   margin-bottom: 0.25rem;
-  max-width: 60ch;
+  max-width: 100%;
   display: flex;
 }
 
@@ -452,7 +457,7 @@ input.switch:checked ~ label:after {
 
 .item-entry {
   display: flex;
-  max-width: 55ch;
+  max-width: 100%;
   flex-grow: 1;
   flex-direction: column;
   flex-wrap: wrap;
