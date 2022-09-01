@@ -31,8 +31,8 @@
   --navigation-button-hover-bg: #0277b6;
   --navigation-button-hover-fg: #fff;
   --checkbox-switch-bg: white;
-  --checkbox-selected-bg: green;
-  --checkbox-unselected-bg: red;
+  --checkbox-selected-bg: #619b40;
+  --checkbox-unselected-bg: grey;
   --search-border: hsl(0, 0%, 80%);
   --reset-button-bg: var(--navigation-button-current-bg);
   --reset-button-fg: var(--navigation-button-current-fg);
@@ -40,8 +40,8 @@
   --add-all-button-fg: var(--navigation-button-current-fg);
   --add-more-button-bg: var(--navigation-button-current-bg);
   --add-more-button-fg: var(--navigation-button-current-fg);
-  --program-item-chevron-collapsed: #ccc;
-  --program-item-chevron-expanded: #bbe;
+  --program-item-chevron-collapsed: #619b40;
+  --program-item-chevron-expanded: #0277b6;
   --program-time-convention-message: grey;
   --program-time-local-message: grey;
   --program-date-line: #619b40;
