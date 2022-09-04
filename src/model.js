@@ -31,9 +31,9 @@ const model = {
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
   onLine: window.navigator.onLine,
   // Thunks
-  fetchProgram: thunk(async (actions) => {
-    actions.setData(await ProgramData.fetchData());
-    actions.resetLastFetchTime();
+  fetchProgram: thunk(async (actions, firstTime) => {
+    actions.setData(await ProgramData.fetchData(firstTime));
+    actions.resetLastFetchTime(firstTime);
     actions.updateTimeSinceLastFetch();
     actions.setIsLoadingFalse();
   }),
@@ -46,8 +46,10 @@ const model = {
     state.tags = data.tags;
     state.personTags = data.personTags;
   }),
-  resetLastFetchTime: action((state) => {
-    state.lastFetchTime = new Date().getTime();
+  resetLastFetchTime: action((state, firstTime) => {
+    const milisecondsPerMinute = 60000;
+    const offset = firstTime ? configData.TIMER.FETCH_INTERVAL_MINS * milisecondsPerMinute : 0;
+    state.lastFetchTime = new Date(new Date() - offset).getTime();
   }),
   updateTimeSinceLastFetch: action((state) => {
     const milisecondsPerSec = 1000;

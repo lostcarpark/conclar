@@ -67,7 +67,7 @@ const AppRoutes = () => {
   const fetchProgram = useStoreActions((actions) => actions.fetchProgram);
 
   useEffect(() => {
-    fetchProgram();
+    fetchProgram(true);
     // eslint-disable-next-line
   }, []);
 
