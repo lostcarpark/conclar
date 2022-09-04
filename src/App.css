@@ -376,11 +376,19 @@ input.switch:checked ~ label:after {
 }
 
 .date-heading {
+  position: sticky;
+  top: 0;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 1rem;
+  margin-top: 0rem;
   margin-bottom: 0.5rem;
+  padding-top: 1rem;
   border-bottom: 1px solid var(--program-date-line);
+  background-color: var(--main-bg);
+}
+
+.debug-mode .date-heading {
+  padding-top: 3rem;
 }
 
 .timeslot {
@@ -397,6 +405,17 @@ input.switch:checked ~ label:after {
 
 .timeslot-wide {
   min-width: 12ch;
+}
+
+.time-wrapper {
+  position: sticky;
+  top: 3rem;
+  z-index: -1;
+}
+
+.debug-mode .time-wrapper {
+  position: sticky;
+  top: 5rem;
 }
 
 .time-convention {
