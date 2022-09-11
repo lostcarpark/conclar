@@ -21,49 +21,50 @@ import Info from "./Info";
 import Settings from "./Settings";
 import Footer from "./Footer";
 
-const TheApp = configData.INTERACTIVE ? (
-  <div className="App">
-    <Timer tick={configData.TIMER.TIMER_TICK_SECS} />
-    <Debug />
-    <Header title={configData.APP_TITLE} />
-    <Navigation />
-    <Loading>
-      <Routes>
-        <Route path="/">
-          <Route index element={<FilterableProgram />} />
-          <Route path="/index.html" element={<FilterableProgram />} />
-          <Route path="id/:id" element={<ItemById />} />
-          <Route path="ids/:idList" element={<ItemByIdList />} />
-          <Route path="people">
-            <Route index element={<People />} />
-            <Route path=":id" element={<Person />} />
-          </Route>
-          <Route path="myschedule" element={<MySchedule />} />
-          <Route path="info" element={<Info />} />
-          <Route path="settings" element={<Settings />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Loading>
-    <Footer />
-  </div>
-) : (
-  <div className="App">
-    <Header title={configData.APP_TITLE} />
-    <Loading>
-      <Routes>
-        <Route path="/">
-          <Route index element={<UnfilterableProgram />} />
-          <Route path="/index.html" element={<UnfilterableProgram />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Loading>
-    <Footer />
-  </div>
-);
-
 const AppRoutes = () => {
+  const appClasses = "App" + (configData.DEBUG_MODE.ENABLE ? " debug-mode" : "");
+  const theApp = configData.INTERACTIVE ? (
+    <div className={appClasses}>
+      <Timer tick={configData.TIMER.TIMER_TICK_SECS} />
+      <Debug />
+      <Header title={configData.APP_TITLE} />
+      <Navigation />
+      <Loading>
+        <Routes>
+          <Route path="/">
+            <Route index element={<FilterableProgram />} />
+            <Route path="/index.html" element={<FilterableProgram />} />
+            <Route path="id/:id" element={<ItemById />} />
+            <Route path="ids/:idList" element={<ItemByIdList />} />
+            <Route path="people">
+              <Route index element={<People />} />
+              <Route path=":id" element={<Person />} />
+            </Route>
+            <Route path="myschedule" element={<MySchedule />} />
+            <Route path="info" element={<Info />} />
+            <Route path="settings" element={<Settings />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Loading>
+      <Footer />
+    </div>
+  ) : (
+    <div className="App">
+      <Header title={configData.APP_TITLE} />
+      <Loading>
+        <Routes>
+          <Route path="/">
+            <Route index element={<UnfilterableProgram />} />
+            <Route path="/index.html" element={<UnfilterableProgram />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Loading>
+      <Footer />
+    </div>
+  );
+
   const fetchProgram = useStoreActions((actions) => actions.fetchProgram);
 
   useEffect(() => {
@@ -73,7 +74,7 @@ const AppRoutes = () => {
 
   return (
     <Router basename={configData.BASE_PATH}>
-      <ScrollToTop>{TheApp}</ScrollToTop>
+      <ScrollToTop>{theApp}</ScrollToTop>
     </Router>
   );
 };
