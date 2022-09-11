@@ -11,6 +11,12 @@
       "Origin": "http://example.com"
     }
   },
+  "FETCH_OPTIONS_FIRST": {
+    "credentials": "omit",
+    "headers": {
+      "Origin": "http://example.com"
+    }
+  },
   "TIMEZONE": "America/Chicago",
   "TIMEZONECODE": "CDT",
   "INTERACTIVE": true,

@@ -17,7 +17,7 @@ const Timer = ({ tick }) => {
       setOnLine(window.navigator.onLine);
 
       if (onLine && timeToNextFetch <= 0) {
-        fetchProgram();
+        fetchProgram(false);
       }
     }, tick * 1000);
 
