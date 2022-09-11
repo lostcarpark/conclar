@@ -38,7 +38,7 @@ const Day = ({ date, items, forceExpanded }) => {
   );
 
   return (
-    <div id={day} className="date">
+    <div className="date">
       <div className="date-heading">{day}</div>
       <div className="date-items">{rows}</div>
     </div>
