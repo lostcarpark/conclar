@@ -21,7 +21,7 @@
 
  
 :root {
-  --main-bg: #fffcee;
+  --main-bg: #D6EBF8;
   --main-fg: #000;
   --navigation-button-bg: #619b40;
   --navigation-button-fg: #fff;
@@ -53,8 +53,8 @@
   --program-date-line: #619b40;
   --program-time-line: #8ab770;
   --program-item-line: #CDF3B8;
-  --program-tags-fg: #3C5B25;
-  --program-expanded-bg: #CDF3B8;
+  --program-tags-fg: #444;
+  --program-expanded-bg: #fffcee;
   --permalink-icon-fg: #026AA2;
   --permalink-icon-hover-fg: #3C5B25;
   --participant-link-fg: #000;
