@@ -220,7 +220,7 @@
     }
   },
   "FOOTER": {
-    "SITE_NOTE_MARKDOWN": "",
+    "SITE_NOTE_MARKDOWN": "[Octocon Website](https://2022.octocon.com) | [Privacy Policy](https://2022.octocon.com/privacy-policy/)",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "TIMER": {
