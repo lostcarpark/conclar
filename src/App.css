@@ -59,6 +59,7 @@
   --permalink-icon-hover-fg: #3C5B25;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
+  --participant-bg: #A9D2EA;
   --footer-line: #619b40;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
@@ -742,7 +743,7 @@ input.switch:checked ~ label:after {
   max-width: 30%;
   padding: 0.5rem;
   text-align: center;
-  background: var(--program-expanded-bg);
+  background: var(--participant-bg);
 }
 
 .people .participant {
