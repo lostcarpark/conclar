@@ -55,7 +55,7 @@
   --program-item-line: #CDF3B8;
   --program-tags-fg: #444;
   --program-expanded-bg: #fffcee;
-  --permalink-icon-fg: #026AA2;
+  --permalink-icon-fg: #024F79;
   --permalink-icon-hover-fg: #3C5B25;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
@@ -451,7 +451,7 @@ input.switch:checked ~ label:after {
   margin-top: 0rem;
   margin-bottom: 0.5rem;
   padding-top: 1rem;
-  border-bottom: 1px solid var(--program-date-line);
+  border-bottom: 2px solid var(--program-date-line);
   background-color: var(--main-bg);
 }
 
