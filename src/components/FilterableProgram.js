@@ -45,11 +45,12 @@ const FilterableProgram = () => {
   );
   // Current display limit, changes when user presses "show more". Resets whenever filters change.
   const [displayLimit, setDisplayLimit] = useState(
-    programDisplayLimit === null
-      ? configData.PROGRAM.LIMIT.DEFAULT
-      : programDisplayLimit
+    parseInt(
+      programDisplayLimit === null
+        ? configData.PROGRAM.LIMIT.DEFAULT
+        : programDisplayLimit
+    )
   );
-  console.log(displayLimit);
 
   const filtered = applyFilters(program);
   const total = filtered.length;
@@ -57,15 +58,22 @@ const FilterableProgram = () => {
     displayLimit !== "all" && displayLimit < total
       ? `Listing ${displayLimit} of ${total} items`
       : `Listing ${total} items`;
-  const display = configData.PROGRAM.LIMIT.SHOW && !isNaN(displayLimit)
-    ? filtered.slice(0, displayLimit)
-    : filtered;
+  const display =
+    configData.PROGRAM.LIMIT.SHOW && !isNaN(displayLimit)
+      ? filtered.slice(0, displayLimit)
+      : filtered;
 
   /**
    * When filters change, set the display limit back to the selection.
    */
   function resetDisplayLimit() {
-    setDisplayLimit(programDisplayLimit);
+    setDisplayLimit(
+      parseInt(
+        programDisplayLimit === null
+          ? configData.PROGRAM.LIMIT.DEFAULT
+          : programDisplayLimit
+      )
+    );
   }
 
   /**
@@ -162,7 +170,7 @@ const FilterableProgram = () => {
             value={displayLimit(programDisplayLimit)}
             onChange={(e) => {
               setProgramDisplayLimit(e.target.value);
-              setDisplayLimit(e.target.value);
+              setDisplayLimit(parseInt(e.target.value));
             }}
           >
             {options}
@@ -175,7 +183,15 @@ const FilterableProgram = () => {
 
   const moreButton =
     displayLimit < total ? (
-      <button className="show-more-button" onClick={() => setDisplayLimit(parseInt(displayLimit) + configData.PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA)}>
+      <button
+        className="show-more-button"
+        onClick={() =>
+          setDisplayLimit(
+            parseInt(displayLimit) +
+              configData.PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA
+          )
+        }
+      >
         {configData.PROGRAM.LIMIT.SHOW_MORE.LABEL}
       </button>
     ) : (

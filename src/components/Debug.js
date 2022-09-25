@@ -9,7 +9,7 @@ const Debug = () => {
   if (!configData.DEBUG_MODE.ENABLE) return "";
 
   const handleFetch = () => {
-    fetchProgram();
+    fetchProgram(false);
   };
 
   const onlineClass = onLine ? "debug-online" : "debug-offline";

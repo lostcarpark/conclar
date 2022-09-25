@@ -44,8 +44,10 @@ const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded }) => {
   return (
     <div id={dateAndTime.toString()} className="timeslot">
       <div className={timeSlotClass}>
-        {conTime}
-        {localTime}
+        <div className="time-wrapper">
+          {conTime}
+          {localTime}
+        </div>
       </div>
       <div className="timeslot-items">{rows}</div>
     </div>
