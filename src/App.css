@@ -36,6 +36,12 @@
   --search-border: hsl(0, 0%, 80%);
   --reset-button-bg: var(--navigation-button-current-bg);
   --reset-button-fg: var(--navigation-button-current-fg);
+  --reset-button-hover-bg: var(--navigation-button-bg);
+  --reset-button-hover-fg: var(--navigation-button-fg);
+  --expand-button-bg: var(--navigation-button-current-bg);
+  --expand-button-fg: var(--navigation-button-current-fg);
+  --expand-button-hover-bg: var(--navigation-button-bg);
+  --expand-button-hover-fg: var(--navigation-button-fg);
   --add-all-button-bg: var(--navigation-button-current-bg);
   --add-all-button-fg: var(--navigation-button-current-fg);
   --add-more-button-bg: var(--navigation-button-current-bg);
@@ -291,6 +297,7 @@ input.switch:checked ~ label:after {
   flex-wrap: wrap;
   padding-inline-start: 0;
   margin: 0.25em;
+  margin-bottom: 1rem;
 }
 
 .stack {
@@ -315,6 +322,20 @@ input.switch:checked ~ label:after {
   font-size: 0.8em;
   min-width: 20ch;
   max-width: 50ch;
+}
+
+.filter-search input,
+.people-search input
+{
+  font-size: 1rem;
+}
+
+.program-limit-select {
+  margin: 0.5em;
+}
+
+.program-limit-select select {
+  font-size: 1rem;
 }
 
 .stack {
@@ -346,6 +367,29 @@ input.switch:checked ~ label:after {
   max-width: 100ch;
 }
 
+.filter-expand button {
+    background-color: var(--expand-button-bg);
+    color: var(--expand-button-fg);
+    font-size: 0.85rem;
+    padding: .5rem 1.5rem;
+    border: none;
+    border-radius: 1.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+
+.filter-expand button:hover,
+.filter-expand button:focus {
+  background-color: var(--expand-button-hover-bg);
+  color: var(--expand-button-hover-fg);
+}
+
+.filter-expand button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .reset-filters {
   display: flex;
   flex-direction: row;
@@ -359,6 +403,13 @@ input.switch:checked ~ label:after {
   padding: .5rem 1.5rem;
   border: none;
   border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+.reset-button:hover,
+.reset-button:focus {
+  background-color: var(--reset-button-hover-bg);
+  color: var(--reset-button-hover-fg);
 }
 
 /*
