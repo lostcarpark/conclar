@@ -21,7 +21,7 @@
 
  
 :root {
-  --main-bg: #fff;
+  --main-bg: #fffcee;
   --main-fg: #000;
   --navigation-button-bg: #619b40;
   --navigation-button-fg: #fff;
@@ -621,6 +621,10 @@ input.switch:checked ~ label:after {
 
 .item-people div.participant-image {
   display: inline-block;
+}
+
+.item-people div.participant-image img {
+  background: #fff;
 }
 
 .program-container .participant .participant-image ~ span {
