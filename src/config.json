@@ -79,7 +79,7 @@
     "SEARCHABLE": false,
     "HIDE": false,
     "SEPARATE": [
-      { "PREFIX": "track", "PLACEHOLDER": "Select track", "SEARCHABLE": true, "HIDE": false },
+      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
@@ -93,7 +93,7 @@
         "1": "Monday"
       },
       "PLACEHOLDER": "Select days",
-      "SEARCHABLE": true,
+      "SEARCHABLE": false,
       "HIDE": false
     }
   },
