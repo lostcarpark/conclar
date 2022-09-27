@@ -308,6 +308,11 @@ input.switch:checked ~ label:after {
   padding-inline-start: 0;
 }
 
+.filter {
+  position: relative;
+  z-index: 2;
+}
+
 .filter-tags,
 .filter-locations,
 .filter-search,
@@ -453,6 +458,7 @@ input.switch:checked ~ label:after {
   padding-top: 1rem;
   border-bottom: 2px solid var(--program-date-line);
   background-color: var(--main-bg);
+  z-index: 1;
 }
 
 .debug-mode .date-heading {
@@ -920,7 +926,7 @@ div.uninteractive div.info {
   left: 0;
   width: 100%;
   padding: 0.25rem;
-  z-index: 2;
+  z-index: 3;
 }
 
 .debug-online {
