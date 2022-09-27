@@ -148,8 +148,14 @@ header img {
   list-style-type: none;
 }
 
+@media (max-width: 768px) {
+  .navigation ul {
+    justify-content: center;
+  }
+} 
+
 .navigation li {
-  margin: 0.25em 0;
+  margin: 0.25em 0.25em;
 }
 
 /* CSS for button 81 from https://getcssscan.com/css-buttons-examples */
@@ -157,17 +163,17 @@ header img {
   background-color: var(--navigation-button-bg);
   color: var(--navigation-button-fg);
   border: 0 solid var(--navigation-button-border);
-  border-radius: 1rem;
+  border-radius: 2rem;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
   font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1;
-  padding: 0.6rem 1.1rem;
+  padding: 1rem 1.5rem;
   text-align: center;
   text-decoration: none;
   text-decoration-thickness: auto;
@@ -191,7 +197,8 @@ header img {
   color: var(--navigation-button-hover-fg);
 }
 
-@media (min-width: 768px) {
+
+/* @media (min-width: 768px) {
   .navigation li a {
     font-size: 1rem;
     padding: 1rem 1.5rem;
@@ -204,7 +211,7 @@ header img {
     padding: 0.5rem 0.7rem;
     border-radius: 0.5rem;
   }
-}
+} */
 
 /* page not founds */
 .error {
@@ -941,4 +948,9 @@ div.uninteractive div.info {
 
 .debug span {
   padding: 0 1em;
+}
+
+span[data-sheets-userformat] {
+  font-size: unset !important;
+  font-family: unset !important;  
 }
