@@ -2,8 +2,8 @@
   "BASE_PATH": "/",
   "APP_ID": "O2021",
   "APP_TITLE": "Octocon 2022 Programme Guide",
-  "PROGRAM_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
-  "PEOPLE_DATA_URL": "https://zambia.octocon.com/konOpasData.jsonp",
+  "PROGRAM_DATA_URL": "2022/program.js",
+  "PEOPLE_DATA_URL": "2022/people.js",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
