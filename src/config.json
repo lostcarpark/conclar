@@ -79,8 +79,9 @@
     "SEARCHABLE": false,
     "HIDE": false,
     "SEPARATE": [
-      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true, "HIDE": false }
+      { "PREFIX": "Division", "PLACEHOLDER": "Select division", "SEARCHABLE": false, "HIDE": true },
+      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
