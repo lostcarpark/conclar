@@ -97,7 +97,8 @@
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": false,
       "HIDE": false
-    }
+    },
+    "DONTLIST": ["Division", "days"]
   },
   "FILTER": {
     "RESET": {

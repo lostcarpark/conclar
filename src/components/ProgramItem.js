@@ -62,16 +62,10 @@ const ProgramItem = ({ item, forceExpanded }) => {
     );
 
   const tags = [];
-  let tagData, hidden;
+  const itemTags = item.tags.filter((tag => !configData.TAGS.DONTLIST.includes(tag.category)));
 
-  for (const tag of item.tags) {
-    tagData = configData.TAGS.SEPARATE.find(
-      (item) => item.PREFIX === tag.category
-    );
-    hidden = tagData && tagData.HIDE;    
-    if (!hidden) {
-      tags.push(<Tag key={tag.value} tag={tag.label} />);
-    }
+  for (const tag of itemTags) {
+    tags.push(<Tag key={tag.value} tag={tag.label} />);
   }
 
   const people = [];
