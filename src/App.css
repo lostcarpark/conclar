@@ -51,8 +51,8 @@
   --program-time-convention-message: grey;
   --program-time-local-message: grey;
   --program-date-line: #619b40;
-  --program-time-line: #8ab770;
-  --program-item-line: #CDF3B8;
+  --program-time-line: #56a6d1;
+  --program-item-line: #fff;
   --program-tags-fg: #444;
   --program-expanded-bg: #fffcee;
   --permalink-icon-fg: #024F79;
@@ -212,6 +212,37 @@ header img {
     border-radius: 0.5rem;
   }
 } */
+
+@media (max-width: 480px) {
+  .date-heading {
+    margin-bottom: 0 !important;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 2rem;
+  }
+  .timeslot {
+    flex-direction: column;
+    margin: 0 !important;
+  }
+  .timeslot-time {
+    position: sticky;
+    top: 3rem;    
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    background:var(--participant-bg);
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    z-index: 1;
+  }
+
+  .time-convention, .time-local {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+
+} 
 
 /* page not founds */
 .error {
@@ -457,15 +488,16 @@ input.switch:checked ~ label:after {
 
 .date-heading {
   position: sticky;
-  top: 0;
+  top: -1px;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 0rem;
+  margin-top: 0;
   margin-bottom: 0.5rem;
   padding-top: 1rem;
+  padding-bottom: 1px;
   border-bottom: 2px solid var(--program-date-line);
   background-color: var(--main-bg);
-  z-index: 1;
+  z-index: 2;
 }
 
 .debug-mode .date-heading {
