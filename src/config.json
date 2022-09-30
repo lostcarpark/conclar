@@ -8,13 +8,13 @@
     "cache": "reload",
     "credentials": "omit",
     "headers": {
-      "Origin": "http://example.com"
+      "Origin": "https://octocon.com"
     }
   },
   "FETCH_OPTIONS_FIRST": {
     "credentials": "omit",
     "headers": {
-      "Origin": "http://example.com"
+      "Origin": "https://octocon.com"
     }
   },
   "TIMEZONE": "Europe/Dublin",
@@ -23,7 +23,7 @@
   "HEADER": {
     "IMG_SRC": "/Octocon-programme-banner.jpg",
     "IMG_ALT_TEXT": "Octocon, the National Irish Science Fiction Convention banner. Logo on top, Octo in the middle, emerges from stone portal | Croke Park & Online, 15-16 October 2022, www.octocon.com. Supported-by logos: Dublin UNESCO city of literature, Dublin City Council",
-    "LINEFEED_AFTER_URL": true
+    "LINEFEED_AFTER_URL": true 
   },
   "NAVIGATION": {
     "PROGRAM": "Programme",
@@ -80,8 +80,9 @@
     "HIDE": false,
     "SEPARATE": [
       { "PREFIX": "Division", "PLACEHOLDER": "Select division", "SEARCHABLE": false, "HIDE": true },
-      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
+      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Type", "PLACEHOLDER": "Select type", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
