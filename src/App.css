@@ -818,12 +818,18 @@ input.switch:checked ~ label:after {
   cursor: pointer;
 }
 
-.person .person-image img {
-  max-width: 10rem;
-  padding: 0.3rem;
+.person .person-image {
+  max-width: 25rem;
+  display: inline-flex;
+  background: #fff;
+  padding: 0.5rem;
   margin: 0 0.5rem 0.5rem 0;
   box-shadow: 0px 2px 2px 0px var(--shadow-014),
     0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
+}
+.person .person-image img {
+  max-width: 100%;
+  height:auto;
 }
 
 .person-tags {
@@ -848,7 +854,7 @@ input.switch:checked ~ label:after {
 }
 
 .person .person-bio {
-  max-width: 60ch;
+  max-width: 70ch;
 }
 
 .person .time-local-message {
