@@ -116,7 +116,7 @@
   },
   "ITEM_DESCRIPTION": {
     "PURIFY_OPTIONS": {
-      "FORBID_ATTR": ["style"]
+      "FORBID_ATTR": ["style", "data-sheets-userformat", "data-sheets-value"]
     }
   },
   "LINKS": [

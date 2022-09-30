@@ -949,8 +949,3 @@ div.uninteractive div.info {
 .debug span {
   padding: 0 1em;
 }
-
-span[data-sheets-userformat] {
-  font-size: unset !important;
-  font-family: unset !important;  
-}
