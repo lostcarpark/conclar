@@ -349,7 +349,7 @@ input.switch:checked ~ label:after {
 
 .filter {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .filter-tags,
@@ -976,7 +976,7 @@ div.uninteractive div.info {
   left: 0;
   width: 100%;
   padding: 0.25rem;
-  z-index: 3;
+  z-index: 4;
 }
 
 .debug-online {
