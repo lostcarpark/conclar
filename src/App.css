@@ -373,6 +373,8 @@ input.switch:checked ~ label:after {
 .people-search input
 {
   font-size: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .program-limit-select {
