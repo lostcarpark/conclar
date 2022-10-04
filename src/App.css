@@ -54,6 +54,7 @@
   --program-time-line: #56a6d1;
   --program-item-line: #fff;
   --program-tags-fg: #444;
+  --program-time-bg: #A9D2EA;
   --program-expanded-bg: #fffcee;
   --permalink-icon-fg: #024F79;
   --permalink-icon-hover-fg: #3C5B25;
@@ -230,7 +231,7 @@ header img {
     margin-bottom: 0.5rem;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
-    background:var(--participant-bg);
+    background:var(--program-time-bg);
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     z-index: 1;
