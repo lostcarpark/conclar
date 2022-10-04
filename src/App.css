@@ -832,6 +832,10 @@ input.switch:checked ~ label:after {
   height:auto;
 }
 
+.person .person-image:empty {
+  display: none;
+}
+
 .person-tags {
   font-size: 0.9em;
   color: var(--program-tags-fg);
