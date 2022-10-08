@@ -198,23 +198,7 @@ header img {
   color: var(--navigation-button-hover-fg);
 }
 
-
-/* @media (min-width: 768px) {
-  .navigation li a {
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-    border-radius: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .navigation li a {
-    padding: 0.5rem 0.7rem;
-    border-radius: 0.5rem;
-  }
-} */
-
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .date-heading {
     margin-bottom: 0 !important;
     overflow: hidden;
