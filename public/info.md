@@ -41,13 +41,11 @@ All times are listed in Irish time (UTC+1) and your local time - you can change 
 ## Online
 Panels are streamed on a webpage embedded in our Member Portal. Workshops, talks, readings and chats all take place on Zoom, and we also have a Discord server for information and a social space.
 
-Note that the links aren't yet available! We aim to have them ready for Thursday 13th October, and will send email confirmation and additional joining information once they are there.
-
 To access all our online content:
 
-1. Log into the Member Portal by visiting the [Check Membership page](https://registration.octocon.com/2022/members/check) and entering the email address you're registered with. 
+1. Log into the Member Portal by visiting the [Log in to the Member Portal page](https://registration.octocon.com/2022/members/check) and entering the email address you're registered with. 
 2. You'll receive an email with a link that will log you into the Member Portal - click this! You should stay logged in for the whole weekend (as long as you use the same browser - if you change devices, you'll need to request another link).
-3. On the Member Portal, you can watch our streamed panels and find the links to our Discord server and the various Zoom meetings for talks, workshops, readings, chats and our Saturday evening social.
+3. On the Member Portal, you can watch our streamed panels and find links to the various Zoom meetings for talks, workshops, readings, chats and our Saturday evening social.
 
 ### Opening Hours
 All times are listed in Irish time (UTC+1) and your local time - you can change the timezone displayed in ConClár on the **Settings** page.
