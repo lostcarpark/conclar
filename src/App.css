@@ -748,7 +748,6 @@ input.switch:checked ~ label:after {
 }
 
 .people ul {
-  /* column-width: 25ch; */
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -767,15 +766,18 @@ input.switch:checked ~ label:after {
 
 .people .participant {
   display: inline-block;
-  min-width: 10rem;
+  min-width: 9.5rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   break-inside: avoid-column;
+  font-size: 1.125rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
   flex: 1 1 30%;
   max-width: 30%;
   padding: 0.5rem;
   text-align: center;
-  background: var(--participant-bg);
+  background: var(--participant-bg);  
 }
 
 .people .participant {
