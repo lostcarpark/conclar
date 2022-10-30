@@ -21,17 +21,17 @@
 
  
 :root {
-  --main-bg: #D6EBF8;
+  --main-bg: #fff;
   --main-fg: #000;
-  --navigation-button-bg: #619b40;
-  --navigation-button-fg: #fff;
-  --navigation-button-border: #619b40;
-  --navigation-button-current-bg: #0277b6;
+  --navigation-button-bg: #ddd;
+  --navigation-button-fg: #0d172a;
+  --navigation-button-border: #e2e8f0;
+  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
   --navigation-button-current-fg: #fff;
-  --navigation-button-hover-bg: #0277b6;
+  --navigation-button-hover-bg: #1e293b;
   --navigation-button-hover-fg: #fff;
   --checkbox-switch-bg: white;
-  --checkbox-selected-bg: #619b40;
+  --checkbox-selected-bg: green;
   --checkbox-unselected-bg: grey;
   --search-border: hsl(0, 0%, 80%);
   --reset-button-bg: var(--navigation-button-current-bg);
@@ -46,22 +46,23 @@
   --add-all-button-fg: var(--navigation-button-current-fg);
   --add-more-button-bg: var(--navigation-button-current-bg);
   --add-more-button-fg: var(--navigation-button-current-fg);
-  --program-item-chevron-collapsed: #619b40;
-  --program-item-chevron-expanded: #0277b6;
+  --program-item-chevron-collapsed: #ccc;
+  --program-item-chevron-expanded: #bbe;
   --program-time-convention-message: grey;
   --program-time-local-message: grey;
-  --program-date-line: #619b40;
-  --program-time-line: #56a6d1;
-  --program-item-line: #fff;
-  --program-tags-fg: #444;
-  --program-time-bg: #A9D2EA;
-  --program-expanded-bg: #fffcee;
-  --permalink-icon-fg: #024F79;
-  --permalink-icon-hover-fg: #3C5B25;
+  --program-date-line: #888;
+  --program-time-line: #ccc;
+  --program-item-line: #bbb;
+  --program-time-bg: #ddd;
+  --program-tags-fg: #555;
+  --program-expanded-bg: #eee;
+  --permalink-icon-fg: #265c83;
+  --permalink-icon-hover-fg: #193c56;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
-  --participant-bg: #A9D2EA;
-  --footer-line: #619b40;
+  --settings-outline: #888;
+  --participant-bg: #eee;
+  --footer-line: #888;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
   --shadow-012: rgba(0, 0, 0, 0.12);
@@ -748,6 +749,7 @@ input.switch:checked ~ label:after {
 }
 
 .people ul {
+  /* column-width: 25ch; */
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -766,18 +768,15 @@ input.switch:checked ~ label:after {
 
 .people .participant {
   display: inline-block;
-  min-width: 9.5rem;
+  min-width: 10rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   break-inside: avoid-column;
-  font-size: 1.125rem;
-  word-break: break-word;
-  overflow-wrap: break-word;
   flex: 1 1 30%;
   max-width: 30%;
   padding: 0.5rem;
   text-align: center;
-  background: var(--participant-bg);  
+  background: var(--participant-bg);
 }
 
 .people .participant {
