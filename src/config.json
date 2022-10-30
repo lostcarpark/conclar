@@ -1,29 +1,29 @@
 {
   "BASE_PATH": "/",
   "APP_ID": "O2021",
-  "APP_TITLE": "Octocon 2022 Programme Guide",
+  "APP_TITLE": "ConClár Programme Guide",
   "PROGRAM_DATA_URL": "/2022/program.js",
   "PEOPLE_DATA_URL": "/2022/people.js",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
     "headers": {
-      "Origin": "https://octocon.com"
+      "Origin": "http://example.com"
     }
   },
   "FETCH_OPTIONS_FIRST": {
     "credentials": "omit",
     "headers": {
-      "Origin": "https://octocon.com"
+      "Origin": "http://example.com"
     }
   },
   "TIMEZONE": "Europe/Dublin",
   "TIMEZONECODE": "IST",
   "INTERACTIVE": true,
   "HEADER": {
-    "IMG_SRC": "/Octocon-programme-banner.jpg",
-    "IMG_ALT_TEXT": "Octocon, the National Irish Science Fiction Convention banner. Logo on top, Octo in the middle, emerges from stone portal | Croke Park & Online, 15-16 October 2022, www.octocon.com. Supported-by logos: Dublin UNESCO city of literature, Dublin City Council",
-    "LINEFEED_AFTER_URL": true 
+    "IMG_SRC": "",
+    "IMG_ALT_TEXT": "",
+    "LINEFEED_AFTER_URL": false
   },
   "NAVIGATION": {
     "PROGRAM": "Programme",
@@ -79,10 +79,8 @@
     "SEARCHABLE": false,
     "HIDE": false,
     "SEPARATE": [
-      { "PREFIX": "Division", "PLACEHOLDER": "Select division", "SEARCHABLE": false, "HIDE": true },
-      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Type", "PLACEHOLDER": "Select type", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false }
+      { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true, "HIDE": false },
+      { "PREFIX": "test", "PLACEHOLDER": "Select test", "SEARCHABLE": true, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
@@ -168,7 +166,7 @@
       "SHOW_THUMBNAILS": true,
       "SHOW_CHECKBOX": true,
       "CHECKBOX_LABEL": "Show thumbnails",
-      "DEFAULT_IMAGE": "octo-160.png"
+      "DEFAULT_IMAGE": "head.svg"
     },
     "SORT": {
       "SHOW_CHECKBOX": true,
@@ -227,7 +225,7 @@
     }
   },
   "FOOTER": {
-    "SITE_NOTE_MARKDOWN": "[Octocon Website](https://2022.octocon.com) | [Privacy Policy](https://2022.octocon.com/privacy-policy/)",
+    "SITE_NOTE_MARKDOWN": "",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "TIMER": {
