@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import PropTypes from "prop-types";
 import { useStoreState } from "easy-peasy";
 import { LocalTime } from "../utils/LocalTime";
@@ -7,8 +8,11 @@ import configData from "../config.json";
 
 const ProgramList = ({ program, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
+  useEffect(() => {
+    LocalTime.storeCachedTimes();
+  });
 
-  LocalTime.checkTimezonesDiffer(program);
+  LocalTime.checkTimeZonesDiffer(program);
 
   const rows = [];
   let itemRows = [];
@@ -21,9 +25,10 @@ const ProgramList = ({ program, forceExpanded }) => {
       </div>
     );
   }
+
   program.forEach((item) => {
     const itemDate = item.dateAndTime
-      .withTimeZone(LocalTime.conventionTimezone)
+      .withTimeZone(LocalTime.conventionTimeZone)
       .round({ smallestUnit: "day", roundingMode: "floor" });
 
     if (curDate === null || !itemDate.equals(curDate)) {
@@ -64,12 +69,13 @@ const ProgramList = ({ program, forceExpanded }) => {
       <div className="time-local-message">
         {configData.LOCAL_TIME.NOTICE.replace(
           "@timezone",
-          LocalTime.localTimezone
+          LocalTime.localTimeZone
         )}
       </div>
     ) : (
       ""
     );
+
   return (
     <div className="program-container">
       {conventionTime}

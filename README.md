@@ -4,7 +4,7 @@ ConClár is an online Program Guide tool for conventions.
 
 It has been developed in ReactJS and is intended to work in all modern browsers (sorry, it probably won't work in Internet Explorer). It is designed to work equally well on mobile and desktop devices.
 
-ConClár is inspired by Eemeli Aro's [KonOpas](https://github.com/eemeli/konopas). As this uses a number of unsupported libraries, it was developed as a completely new application, rathering than trying to patch up the old code.
+ConClár is inspired by Eemeli Aro's [KonOpas](https://github.com/eemeli/konopas). As this uses a number of unsupported libraries, it was developed as a completely new application, rather than trying to patch up the old code.
 
 ConClár can be hosted on most webservers, and has been tested on Apache and Nginx. Some changes are required if your guide is not in the root directory of the website (see below). The programme data is read from JSON files, and is compatible with KonOpas files. There are several programme planning tools that should be compatible, though so far it has only been tested with Zambia.
 
@@ -58,6 +58,7 @@ The main place customisations go is the `src/config.json` file. Settings current
   - `"credentials": "omit"` - Use if source is not using a certificate from a recognised authority, e.g. a self signed cert.
   - `"headers": { "Origin": "http://example.com" }` - Headers sent in the fetch. Origin may be required for Cross Origin Resource Sharing (CORS).
 - `TIMEZONE`: The name of the timezone where your convention takes place. Viewers outside convention timezone will see times in convention time, and their local time below it.
+- `TIMEZONE_CODE`: The short code for the convention timezone. Set to blank to get browser code for timezone (not recommended, as it may not select the most elegant short code).
 - `INTERACTIVE`: Set to `false` to get a non-interactive, expanded view of the schedule. The info page is also included, but not the participant list, individual participant pages, or individual item pages (regardless of the `PERMALINK.SHOW_PERMALINK` setting).
 - `HEADER`: Add an optional image to the header of the pages.
 - `HEADER.IMG_SRC`: Set to the image filename to display. May be a file in the public directory. Leave blank for no image.
@@ -70,15 +71,37 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `NAVIGATION.INFO`: Label for the Information menu link._
 - `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
+- `APPLICATION.LOADING.MESSAGE`: Message to display while loading.
+- `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed.
+- `PROGRAM.LIMIT.LABEL`: Label for limit drop-down.
+- `PROGRAM.LIMIT.OPTIONS`: Options for limit drop-down - should be an array of integers.
+- `PROGRAM.LIMIT.ALL_LABEL`: Label to show for "All" entry.
+- `PROGRAM.LIMIT.DEFAULT`: Default for limit drop-down.
+- `PROGRAM.LIMIT.SHOW_MORE.LABEL`: Label for the "Show more" button.
+- `PROGRAM.LIMIT.SHOW_MORE.NO_MORE`: Message to display when no more items available.
+- `PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA`: Number of items to add when "Show more" pressed.
+- `PROGRAM.MY_SCHEDULE.TITLE`: Title of My Schedule page.
+- `PROGRAM.MY_SCHEDULE.SEARCH.SEARCH_LABEL`: Label for search box.
+- `PROGRAM.MY_SCHEDULE.SHARE.LABEL`: Heading for shared link section on MySchedule.
+- `PROGRAM.MY_SCHEDULE.SHARE.DESCRIPTION`: Descriptive message for link sharing section.
+- `PROGRAM.MY_SCHEDULE.SHARE.LINK_LABEL`: Label for link when single sharing link on page.
+- `PROGRAM.MY_SCHEDULE.SHARE.MAX_LENGTH`: Maximum number of characters in each link.
+- `PROGRAM.MY_SCHEDULE.SHARE.MULTIPLE_DESCRIPTION`: Description to display when multiple links displayed.
+- `PROGRAM.MY_SCHEDULE.SHARE.MULTIPLE_LINK_LABEL`: Label for link when multiple links shown. @number replaced by number of link.
+- `PROGRAM.SHARED.TITLE`: Title of Shared Programme Items page.
+- `PROGRAM.SHARED.DESCRIPTION`: Descriptive text for page showing shared links.
+- `PROGRAM.SHARED.BUTTON_LABEL`: Text for label of "Add all to My Schedule" button.
 - `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
 - `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 - `TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.
 - `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`.
 - `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 - `TAGS.DAY_TAG.GENERATE`: If set to true, will generate tags for each day of the convention.
+- `TAGS.DAY_TAG.DAYS`: Object with key values pairs for day names. Keys are day numbers from 1 (Monday) to 7 (Sunday).
 - `TAGS.DAY_TAG.PLACEHOLDER`: The placeholder for the "day" tags drop down.
 - `TAGS.DAY_TAG.SEARCHABLE`: Whether day tag list can be searched by typing.
 - `TAGS.DAY_TAG.HIDE`: If true, hide day tags drop-down. Day tags still shown on items if GENERATE true.
+- `FILTER.RESET.LABEL`: The label for the "Reset filters" button.
 - `PERMALINK.SHOW_PERMALINK`: If true, display a "permalink" icon when each program item is expanded.
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
 - `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
@@ -94,6 +117,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TIME_FORMAT.DEFAULT_12HR`: Set to true if you want time displayed in 12 hour format by default.
 - `TIME_FORMAT.SHOW_CHECKBOX`: If set to false, users will not be given option to change between 12 and 24 hour time.
 - `TIME_FORMAT.CHECKBOX_LABEL`: Label for the 12 hour time checkbox label.
+- `TIME_FORMAT.AM`: Label for AM times.
+- `TIME_FORMAT.PM`: Label for PM times.
 - `DURATION.SHOW_DURATION`: If true, `mins` from program data will be displayed.
 - `DURATION.DURATION_LABEL`: Format for duration. `@mins` will be replaced by number of minutes. Note: do not translate `@mins`.
 - `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
@@ -121,6 +146,10 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `SETTINGS.SHOW_LOCAL_TIME.NEVER_LABEL`: Label for "Never show" option.
 - `SETTINGS.SHOW_LOCAL_TIME.DIFFERS_LABEL`: Label for "Display if different from Convention timezone".
 - `SETTINGS.SHOW_LOCAL_TIME.ALWAYS_LABEL`: Label for "Always display" option.
+- `SETTINGS.SHOW_TIMEZONE.LABEL`: Label for Show timezone after times option group.
+- `SETTINGS.SHOW_TIMEZONE.NEVER_LABEL`: Label for "Never show" option.
+- `SETTINGS.SHOW_TIMEZONE.IF_LOCAL_LABEL`: Label for "Show timezone if local time shown".
+- `SETTINGS.SHOW_TIMEZONE.ALWAYS_LABEL`: Label for "Always show" option.
 - `SETTINGS.SELECT_TIMEZONE.LABEL`: Lable for select timezone group,
 - `SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL`: Label to use browser default timezone (will have name of timezone appended).
 - `SETTINGS.SELECT_TIMEZONE.SELECT_LABEL`: Label to select explicit timezone.

@@ -62,16 +62,17 @@ export class ProgramData {
    * @returns {array}
    */
   static processProgramData(program) {
-    const utcTimezone = Temporal.TimeZone.from("UTC");
+    const utcTimeZone = Temporal.TimeZone.from("UTC");
     program.map((item) => {
       const startTime = this.processDateAndTime(item);
-      item.dateAndTime = startTime.withTimeZone(utcTimezone);
+      item.dateAndTime = startTime.withTimeZone(utcTimeZone);
+      item.timeSlot = LocalTime.getTimeSlot(item.dateAndTime);
       return item;
     });
     program.sort((a, b) => {
       return Temporal.ZonedDateTime.compare(a.dateAndTime, b.dateAndTime);
     });
-    //console.log(program);
+    //console.log("Program data", program);
     return program;
   }
 
@@ -84,7 +85,7 @@ export class ProgramData {
   static processPeopleData(people) {
     for (let person of people) {
       // If SortName not in file, create from name. If name is array, put last element first for sorting.
-      if (!person.sortname) {
+      if (!person.sortname || person.sortname.trim().length === 0) {
         person.sortname = Array.isArray(person.name)
           ? [...person.name].reverse().join(" ")
           : person.name;
@@ -113,15 +114,19 @@ export class ProgramData {
     // Add extra participant info to program participants.
     for (let item of program) {
       if (item.people) {
-        for (let index = 0; index < item.people.length; index++) {
+        // Loop through people backwards, so we don't miss anyone if entries are removed.
+        for (let index = item.people.length - 1; index >= 0; index--) {
           let fullPerson = people.find(
             (fullPerson) => fullPerson.id === item.people[index].id
           );
+          if (!fullPerson) {
+            item.people.splice(index, 1);
+          }
           //Moderator check before nuking the item person data.
           if (
-            item.people[index].name.includes("(moderator)") ||
+            item.people[index].name.indexOf("(moderator)") > 0 ||
             (item.people[index].hasOwnProperty("role") &&
-              item.people[index].role.toLowerCase === "moderator")
+              item.people[index].role === "moderator")
           )
             item.moderator = item.people[index].id;
           if (fullPerson) {
@@ -236,9 +241,9 @@ export class ProgramData {
     function decodeTag(tag) {
       const hasProps = tag.hasOwnProperty("value");
       const value = hasProps ? tag.value : tag;
-      const newTag = tags.all.hasOwnProperty(value)
-        ? tags.all[value]
-        : { value: value };
+      // If tag already indexed, use that.
+      if (tags.all.hasOwnProperty(value)) return tags.all[value];
+      const newTag = { value: value };
       // If tag has properties, apply label and category to stored tag if present.
       if (hasProps) {
         if (tag.hasOwnProperty("label")) newTag.label = tag.label;
@@ -351,8 +356,9 @@ export class ProgramData {
     const locations = this.processLocations(program);
     const tags = this.processTags(program, configData.TAGS);
     const personTags = this.processTags(people, configData.PEOPLE.TAGS);
-    LocalTime.checkTimezonesDiffer(program);
+    LocalTime.checkTimeZonesDiffer(program);
 
+    //setLoadingMessage("Processing Complete... Rendering...")
     return {
       program: program,
       people: people,
@@ -368,8 +374,8 @@ export class ProgramData {
    * @param {string} url
    * @returns {object}
    */
-  static async fetchUrl(url) {
-    const res = await fetch(url, configData.FETCH_OPTIONS);
+  static async fetchUrl(url, fetchOptions) {
+    const res = await fetch(url, fetchOptions);
     const data = await res.text();
     return JsonParse.extractJson(data);
   }
@@ -379,19 +385,24 @@ export class ProgramData {
    *
    * @returns {array}
    */
-  static async fetchData() {
+  static async fetchData(firstTime) {
+    //setLoadingMessage
     try {
+      console.log("Fetching:", firstTime ? "First time" : "Refreshing");
+      const fetchOptions = firstTime
+        ? configData.FETCH_OPTIONS_FIRST
+        : configData.FETCH_OPTIONS;
       // If only one data source, we can use a single fetch.
       if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
         const [rawProgram, rawPeople] = await this.fetchUrl(
-          configData.PROGRAM_DATA_URL
+          configData.PROGRAM_DATA_URL, fetchOptions
         );
         return ProgramData.processData(rawProgram, rawPeople);
       } else {
         // Separate program and people sources, so need to create promise for each fetch.
         const [[rawProgram], [rawPeople]] = await Promise.all([
-          this.fetchUrl(configData.PROGRAM_DATA_URL),
-          this.fetchUrl(configData.PEOPLE_DATA_URL),
+          this.fetchUrl(configData.PROGRAM_DATA_URL, fetchOptions),
+          this.fetchUrl(configData.PEOPLE_DATA_URL, fetchOptions),
         ]);
         // Called with an array containing result of each promise.
         return ProgramData.processData(rawProgram, rawPeople);

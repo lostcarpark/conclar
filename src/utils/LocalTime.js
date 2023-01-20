@@ -1,24 +1,49 @@
 import { Temporal, Intl } from "@js-temporal/polyfill";
 import configData from "../config.json";
 
-// Class containing finctions for formatting values for ConClár.
+// Class containing functions for formatting values for ConClár.
 export class LocalTime {
-  static conventionTimezone = new Temporal.TimeZone(configData.TIMEZONE);
-  static localTimezone = null;
+  static conventionTimeZone = new Temporal.TimeZone(configData.TIMEZONE);
+  static localTimeZone = null;
+  static localTimeZoneCode = null;
   static timezonesDiffer = false;
+  static timeZoneIsShown = false;
+  static timeSlotCache = {};
+  static conventionTimeCache = [];
+  static localTimeCache = [];
 
   // Initialise local timezone.
   static {
-    this.getLocalTimezone();
+    this.getLocalTimeZone();
   }
 
-  static getLocalTimezone() {
+  static getLocalTimeZone() {
+    function lastElement(array) {
+      return array[array.length - 1];
+    }
     // Check if using browser default timezone, or user selected.
-    const useTimezone = this.getStoredUseTimezone();
-    const timezoneName = useTimezone
-      ? this.getStoredSelectedTimezone()
+    const useTimeZone = this.getStoredUseTimeZone();
+    const timezoneName = useTimeZone
+      ? this.getStoredSelectedTimeZone()
       : Intl.DateTimeFormat().resolvedOptions().timeZone;
-    this.localTimezone = new Temporal.TimeZone(timezoneName);
+    this.localTimeZone = new Temporal.TimeZone(timezoneName);
+    const language = window.navigator.userLanguage || window.navigator.language;
+    // This is a bit of a fudge. I haven't found a better way to get the local time zone short code.
+    // toLocaleString() can't produce just the timezone code, so need to add the hour and remove from string.
+    this.localTimeZoneCode = lastElement(
+      new Temporal.Now.zonedDateTimeISO(this.localTimeZone)
+        .toLocaleString(language, { timeZoneName: "short" })
+        .split(" ")
+    );
+    // Load cached times.
+    const tsCache = localStorage.getItem("time_slot_cache");
+    this.timeSlotCache = tsCache ? JSON.parse(tsCache) : {};
+    const conTimeCache = localStorage.getItem("convention_time_cache");
+    this.conventionTimeCache = conTimeCache ? JSON.parse(conTimeCache) : [];
+    const locTimeCache = localStorage.getItem(
+      "local_time_cache_" + this.localTimeZone
+    );
+    this.localTimeCache = locTimeCache ? JSON.parse(locTimeCache) : [];
   }
 
   static get localTimeClass() {
@@ -42,43 +67,61 @@ export class LocalTime {
     return "twelve_hour_time";
   }
 
-  static getStoredUseTimezone() {
-    const storedUseTimezone = localStorage.getItem(this.useTimezoneClass);
-    if (storedUseTimezone === null || storedUseTimezone === "") {
+  static getStoredShowTimeZone() {
+    const storedShowTimeZone = localStorage.getItem(this.showTimeZoneClass);
+    if (["never", "if_local", "always"].includes(storedShowTimeZone))
+      return storedShowTimeZone;
+    if (storedShowTimeZone === false || storedShowTimeZone === "false") {
+      return "never";
+    }
+    return "if_local";
+  }
+
+  static setStoredShowTimeZone(showTimeZone) {
+    localStorage.setItem(this.showTimeZoneClass, showTimeZone);
+    this.getLocalTimeZone();
+  }
+
+  static get showTimeZoneClass() {
+    return "show_timezone";
+  }
+
+  static getStoredUseTimeZone() {
+    const storedUseTimeZone = localStorage.getItem(this.useTimeZoneClass);
+    if (storedUseTimeZone === null || storedUseTimeZone === "") {
       return false;
     }
-    return storedUseTimezone === "default" ? false : true;
+    return storedUseTimeZone === "default" ? false : true;
   }
 
-  static setStoredUseTimezone(useTimezone) {
+  static setStoredUseTimeZone(useTimeZone) {
     localStorage.setItem(
-      this.useTimezoneClass,
-      useTimezone ? "select" : "default"
+      this.useTimeZoneClass,
+      useTimeZone ? "select" : "default"
     );
-    this.getLocalTimezone();
-
+    this.getLocalTimeZone();
   }
 
-  static get useTimezoneClass() {
+  static get useTimeZoneClass() {
     return "use_timezone";
   }
 
-  static getStoredSelectedTimezone() {
-    const storedSelectedTimezone = localStorage.getItem(
-      this.selectedTimezoneClass
+  static getStoredSelectedTimeZone() {
+    const storedSelectedTimeZone = localStorage.getItem(
+      this.selectedTimeZoneClass
     );
-    if (storedSelectedTimezone === null || storedSelectedTimezone === "") {
+    if (storedSelectedTimeZone === null || storedSelectedTimeZone === "") {
       return Temporal.Now.timeZone().toString();
     }
-    return storedSelectedTimezone;
+    return storedSelectedTimeZone;
   }
 
-  static setStoredSelectedTimezone(timezone) {
-    localStorage.setItem(this.selectedTimezoneClass, timezone);
-    this.getLocalTimezone();
+  static setStoredSelectedTimeZone(timezone) {
+    localStorage.setItem(this.selectedTimeZoneClass, timezone);
+    this.getLocalTimeZone();
   }
 
-  static get selectedTimezoneClass() {
+  static get selectedTimeZoneClass() {
     return "selected_timezone";
   }
 
@@ -111,6 +154,36 @@ export class LocalTime {
     localStorage.setItem(this.pastItemsClass, showPastItems ? "true" : "false");
   }
 
+  /**
+   * Get time slot for time.
+   */
+  static getTimeSlot(dateAndTime) {
+    if (this.timeSlotCache.hasOwnProperty(dateAndTime))
+      return this.timeSlotCache[dateAndTime];
+
+    const newIndex = this.conventionTimeCache.length;
+    const newEntry = { dateAndTime: dateAndTime.toString() };
+    this.timeSlotCache[dateAndTime] = newIndex;
+    this.conventionTimeCache[newIndex] = newEntry;
+    this.localTimeCache[newIndex] = newEntry;
+    return newIndex;
+  }
+
+  /**
+   * Save cached times to Local Storage.
+   */
+  static storeCachedTimes() {
+    localStorage.setItem("time_slot_cache", JSON.stringify(this.timeSlotCache));
+    localStorage.setItem(
+      "convention_time_cache",
+      JSON.stringify(this.conventionTimeCache)
+    );
+    localStorage.setItem(
+      "local_time_cache_" + this.localTimeZone,
+      JSON.stringify(this.localTimeCache)
+    );
+  }
+
   // Format the date as a string in user's language.
   static formatDateForLocaleAsUTC(date) {
     let language = window.navigator.userLanguage || window.navigator.language;
@@ -130,11 +203,11 @@ export class LocalTime {
    * @param {Temporal.ZonedDateTime} dateAndTime
    * @returns {bool}
    */
-  static checkTimezoneOffsetForDate(dateAndTime) {
+  static checkTimeZoneOffsetForDate(dateAndTime) {
     const instant = Temporal.Instant.from(dateAndTime);
-    const localOffset = this.localTimezone.getOffsetNanosecondsFor(instant);
+    const localOffset = this.localTimeZone.getOffsetNanosecondsFor(instant);
     const conventionOffset =
-      this.conventionTimezone.getOffsetNanosecondsFor(instant);
+      this.conventionTimeZone.getOffsetNanosecondsFor(instant);
     if (localOffset !== conventionOffset) {
       return true;
     }
@@ -147,17 +220,17 @@ export class LocalTime {
    * @param {array} program
    * @returns {bool}
    */
-  static checkTimezonesDiffer(program) {
+  static checkTimeZonesDiffer(program) {
     if (program.length === 0) {
       this.timezonesDiffer = false;
       return false;
     }
-    if (this.checkTimezoneOffsetForDate(program[0].dateAndTime)) {
+    if (this.checkTimeZoneOffsetForDate(program[0].dateAndTime)) {
       this.timezonesDiffer = true;
       return true;
     }
     const [lastItem] = program.slice(-1);
-    if (this.checkTimezoneOffsetForDate(lastItem.dateAndTime)) {
+    if (this.checkTimeZoneOffsetForDate(lastItem.dateAndTime)) {
       this.timezonesDiffer = true;
       return true;
     }
@@ -165,49 +238,133 @@ export class LocalTime {
     return false;
   }
 
-  // Format time for 24 clock.
-  static formatTime(dateAndTime, ampm) {
-    let language = window.navigator.userLanguage || window.navigator.language;
-    const options = ampm
-      ? {
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: "h12",
-        }
-      : {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        };
-    return dateAndTime.toLocaleString(language, options);
+  /**
+   * Format time for 24 clock.
+   * @param {temporal.ZonedDateTime} dateAndTime The data and time to format.
+   * @param {bool} ampm If true, format as 12 hour clock.
+   * @param {bool} showTimeZone If true, include the short timezone code.
+   * @returns {string} The formatted time.
+   */
+  static formatTime(dateAndTime, ampm, showTimeZone = false) {
+    function formatTwoDigits(number) {
+      return `${number < 10 ? "0" : ""}${number}`;
+    }
+    function format12HourTime(dateAndTime) {
+      if (dateAndTime.hour === 0)
+        return `12:${formatTwoDigits(dateAndTime.minute)} ${
+          configData.TIME_FORMAT.AM
+        }`;
+      if (dateAndTime.hour < 12)
+        return `${dateAndTime.hour}:${formatTwoDigits(dateAndTime.minute)} ${
+          configData.TIME_FORMAT.AM
+        }`;
+      if (dateAndTime.hour === 12)
+        return `12:${formatTwoDigits(dateAndTime.minute)} ${
+          configData.TIME_FORMAT.PM
+        }`;
+      return `${dateAndTime.hour - 12}:${formatTwoDigits(dateAndTime.minute)} ${
+        configData.TIME_FORMAT.PM
+      }`;
+    }
+    //let language = window.navigator.userLanguage || window.navigator.language;
+    const formattedTime = ampm
+      ? `${format12HourTime(dateAndTime)}`
+      : `${formatTwoDigits(dateAndTime.hour)}:${formatTwoDigits(
+          dateAndTime.minute
+        )}`;
+    // If showing convention timezone, and timezone shown, show static timezone code.
+    if (
+      showTimeZone &&
+      configData.TIMEZONECODE.length > 0 &&
+      Temporal.TimeZone.from(dateAndTime) === this.conventionTimeZone
+    ) {
+      return `${formattedTime} ${configData.TIMEZONECODE}`;
+    }
+    // If showing timezone code, append preloaded local timezone code.
+    if (showTimeZone) return `${formattedTime} ${this.localTimeZoneCode}`;
+    // Not showing timezone code, so just return formatted time.
+    return formattedTime;
   }
 
-  // Format the time in the convention time zone. Currently this is not reformatted, but it may be in future.
-  static formatTimeInConventionTimeZone(dateAndTime, ampm) {
-    return this.formatTime(
-      dateAndTime.withTimeZone(this.conventionTimezone),
-      ampm
+  /**
+   * Format the time in the convention time zone.
+   * @param {int} timeSlot The numeric index of the timeslot.
+   * @param {Temporal.ZonedDateTime} dateAndTime The date and time to display.
+   * @param {bool} ampm If true, show 12 hour.
+   * @param {bool} showTimeZone  If true show the time zone code.
+   * @returns {string} The formatted time.
+   */
+  static formatTimeInConventionTimeZone(
+    timeSlot,
+    dateAndTime,
+    ampm,
+    showTimeZone
+  ) {
+    // Check if entry cached for timeslot. Create two dimensional array if not.
+    const cacheValue =
+      this.conventionTimeCache.indexOf(timeSlot) >= 0
+        ? this.conventionTimeCache[timeSlot]
+        : { dateAndTime: dateAndTime };
+    //console.log (cacheValue, intAmPm, showTimeZone, cacheValue.indexOf(intAmPm))
+    const cacheKey = (ampm ? "h12_" : "h24_") + (showTimeZone ? "tz" : "no");
+    if (cacheValue.hasOwnProperty(cacheKey)) {
+      return cacheValue[cacheKey];
+    }
+
+    cacheValue[cacheKey] = this.formatTime(
+      dateAndTime.withTimeZone(this.conventionTimeZone),
+      ampm,
+      showTimeZone
     );
+    this.conventionTimeCache[timeSlot] = cacheValue;
+    return cacheValue[cacheKey];
   }
 
-  static formatTimeInLocalTimeZone(dateAndTime, ampm) {
+  /**
+   * Format the time in the local time zone.
+   * @param {Temporal.ZonedDateTime} dateAndTime The date and time to display.
+   * @param {bool} ampm If true, show 12 hour.
+   * @param {bool} showTimeZone  If true show the time zone code.
+   * @returns {string} The formatted time.
+   */
+  static formatTimeInLocalTimeZone(timeSlot, dateAndTime, ampm, showTimeZone) {
+    const dateAndTimeStr = dateAndTime.toString();
+    // Check if entry cached for timeslot. Create two dimensional array if not.
+    let cacheValue =
+      this.localTimeCache.indexOf(timeSlot) >= 0
+        ? this.localTimeCache[timeSlot]
+        : { dateAndTime: dateAndTimeStr };
+    // Make sure we have the correct cached item.
+    if (cacheValue.dateAndTime !== dateAndTimeStr)
+      cacheValue = { dateAndTime: dateAndTimeStr };
+    //console.log("Local time slot: ", timeSlot, dateAndTime.toString(), cacheValue);
+    const cacheKey = (ampm ? "h12_" : "h24_") + (showTimeZone ? "tz" : "no");
+    if (cacheValue.hasOwnProperty(cacheKey)) {
+      return cacheValue[cacheKey];
+    }
+
     // Convert the program item time into local time.
-    const localDateAndTime = dateAndTime.withTimeZone(this.localTimezone);
-    const formattedTime = this.formatTime(localDateAndTime, ampm);
+    const localDateAndTime = dateAndTime.withTimeZone(this.localTimeZone);
+    const formattedTime = this.formatTime(localDateAndTime, ampm, showTimeZone);
     // Get the con and local dates with time stripped out.
     const conDate = Temporal.PlainDate.from(
-      dateAndTime.withTimeZone(this.conventionTimezone)
+      dateAndTime.withTimeZone(this.conventionTimeZone)
     );
     const localDate = Temporal.PlainDate.from(localDateAndTime);
+
     // Compare the dates without time to see if we're showing time on next or previous day, and if so attach label.
     switch (Temporal.PlainDate.compare(localDate, conDate)) {
       case -1:
-        return formattedTime + configData.LOCAL_TIME.PREV_DAY;
+        cacheValue[cacheKey] = formattedTime + configData.LOCAL_TIME.PREV_DAY;
+        break;
       case 1:
-        return formattedTime + configData.LOCAL_TIME.NEXT_DAY;
+        cacheValue[cacheKey] = formattedTime + configData.LOCAL_TIME.NEXT_DAY;
+        break;
       default:
-        return formattedTime;
+        cacheValue[cacheKey] = formattedTime;
     }
+    this.localTimeCache[timeSlot] = cacheValue;
+    return cacheValue[cacheKey];
   }
 
   /**
@@ -217,10 +374,9 @@ export class LocalTime {
    * @returns {string}
    */
   static formatDayNameInConventionTimeZone(dateAndTime) {
-    let language = window.navigator.userLanguage || window.navigator.language;
-    return dateAndTime
-      .withTimeZone(this.conventionTimezone)
-      .toLocaleString(language, { weekday: "long" });
+    return configData.TAGS.DAY_TAG.DAYS[
+      dateAndTime.withTimeZone(this.conventionTimeZone).dayOfWeek.toString()
+    ];
   }
 
   /**
@@ -230,14 +386,16 @@ export class LocalTime {
    * @returns {string}
    */
   static formatISODateInConventionTimeZone(dateAndTime) {
-    const language = window.navigator.userLanguage || window.navigator.language;
-    const conDate = dateAndTime.withTimeZone(this.conventionTimezone);
+    //const language = window.navigator.userLanguage || window.navigator.language;
+    const conDate = dateAndTime.withTimeZone(this.conventionTimeZone);
     return (
-      conDate.toLocaleString(language, { year: "numeric" }) +
+      conDate.year +
       "-" +
-      conDate.toLocaleString(language, { month: "2-digit" }) +
+      (conDate.month < 10 ? "0" : "") +
+      conDate.month +
       "-" +
-      conDate.toLocaleString(language, { day: "2-digit" })
+      (conDate.day < 10 ? "0" : "") +
+      conDate.day
     );
   }
 

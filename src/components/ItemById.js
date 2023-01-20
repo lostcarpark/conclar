@@ -3,9 +3,8 @@ import { useParams } from "react-router-dom";
 import ProgramList from "./ProgramList";
 
 const ItemById = () => {
-  const params = useParams();
   const program = useStoreState((state) => state.program);
-  if (program.length === 0) return <></>;
+  const params = useParams();
 
   // Filter to select only the specified ID.
   const filteredProgram = program.filter(
