@@ -31,6 +31,13 @@
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: green;
   --checkbox-unselected-bg: red;
+  --filter-bg: var(--main-bg);
+  --filter-fg: var(--main-fg);
+  --filter-border: var(--search-border);
+  --filter-select-bg: #bbe;
+  --filter-select-fg: #000;
+  --search-bg: var(--main-bg);
+  --search-fg: var(--main-fg);
   --search-border: hsl(0, 0%, 80%);
   --reset-button-bg: var(--navigation-button-current-bg);
   --reset-button-fg: var(--navigation-button-current-fg);
@@ -301,6 +308,47 @@ input.switch:checked ~ label:after {
   max-width: 50ch;
 }
 
+.filter-container .filter-select__control {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+  border: 1px var(--filter-border) solid;
+  border-radius: 4px;
+}
+
+.filter-container .filter-select__control--is-focused {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+}
+
+.filter-container .filter-select__menu {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+  border: 1px var(--filter-border) solid;
+  border-radius: 4px;
+}
+
+.filter-container .filter-select__option {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+}
+
+.filter-container .filter-select__option--is-focused {
+  background-color: var(--filter-select-bg);
+  color: var(--filter-select-fg);
+}
+
+.filter-container .filter-select__indicator-separator {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+}
+
+.filter-container .filter-select__input-container,
+.filter-container .filter-select__placeholder,
+.filter-container .filter-select__single-value {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+}
+
 .stack {
   flex-basis: 0;
   flex-grow: 2;
@@ -321,6 +369,8 @@ input.switch:checked ~ label:after {
 .filter-search input,
 .people-search input {
   min-height: 38px;
+  background-color: var(--search-bg);
+  color: var(--search-fg);
   border: 1px var(--search-border) solid;
   border-radius: 4px;
 }

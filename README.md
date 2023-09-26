@@ -150,9 +150,15 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `SETTINGS.SHOW_TIMEZONE.NEVER_LABEL`: Label for "Never show" option.
 - `SETTINGS.SHOW_TIMEZONE.IF_LOCAL_LABEL`: Label for "Show timezone if local time shown".
 - `SETTINGS.SHOW_TIMEZONE.ALWAYS_LABEL`: Label for "Always show" option.
-- `SETTINGS.SELECT_TIMEZONE.LABEL`: Lable for select timezone group,
+- `SETTINGS.SELECT_TIMEZONE.LABEL`: Label for select timezone group,
 - `SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL`: Label to use browser default timezone (will have name of timezone appended).
 - `SETTINGS.SELECT_TIMEZONE.SELECT_LABEL`: Label to select explicit timezone.
+- `SETTINGS.DARK_MODE.LABEL`: Label for dark mode settings group.
+- `SETTINGS.DARK_MODE.BROWSER_DEFAULT_LABEL`: Label for default browser dark mode preference.
+- `SETTINGS.DARK_MODE.BROWSER_LIGHT_LABEL`: Label to indicate browser is currently in light mode.
+- `SETTINGS.DARK_MODE.BROWSER_DARK_LABEL`: Label to indicate browser is currently in dark mode.
+- `SETTINGS.DARK_MODE.LIGHT_MODE_LABEL`: Label for forcing light mode.
+- `SETTINGS.DARK_MODE.DARK_MODE_LABEL`: Label for forcing dark mode.
 - `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
 - `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
 - `FOOTER.SITE_NOTE_MARKDOWN`: General note displayed in the footer of the page. May use Markdown for encoding of links, emphesis, etc.
