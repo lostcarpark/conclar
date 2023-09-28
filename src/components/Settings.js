@@ -36,6 +36,8 @@ const Settings = () => {
         value={selectedTimeZone}
         onChange={(e) => setSelectedTimeZone(e.value)}
         labelStyle="abbrev"
+        className="filter-container"
+        classNamePrefix="filter-select"
       />
     </div>
   ) : (
@@ -176,10 +178,18 @@ const Settings = () => {
         {timezoneSelect}
       </div>
       <div className="settings-group select-dark-mode">
-        <div className="settings-head">{configData.SETTINGS.DARK_MODE.LABEL}</div>
+        <div className="settings-head">
+          {configData.SETTINGS.DARK_MODE.LABEL}
+        </div>
         <div className="settings-radio">
           <label>
-            <input type="radio" value="browser" name="darkmode" checked={darkMode === 'browser'} onChange={(e) => setDarkMode(e.target.value)} />
+            <input
+              type="radio"
+              value="browser"
+              name="darkmode"
+              checked={darkMode === "browser"}
+              onChange={(e) => setDarkMode(e.target.value)}
+            />
             {configData.SETTINGS.DARK_MODE.BROWSER_DEFAULT_LABEL}{" "}
             {window.matchMedia &&
             window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -189,13 +199,25 @@ const Settings = () => {
         </div>
         <div className="settings-radio">
           <label>
-            <input type="radio" value="light" name="darkmode" checked={darkMode === 'light'} onChange={(e) => setDarkMode(e.target.value)} />
+            <input
+              type="radio"
+              value="light"
+              name="darkmode"
+              checked={darkMode === "light"}
+              onChange={(e) => setDarkMode(e.target.value)}
+            />
             {configData.SETTINGS.DARK_MODE.LIGHT_MODE_LABEL}
           </label>
         </div>
         <div className="settings-radio">
           <label>
-            <input type="radio" value="dark" name="darkmode" checked={darkMode === 'dark'} onChange={(e) => setDarkMode(e.target.value)} />
+            <input
+              type="radio"
+              value="dark"
+              name="darkmode"
+              checked={darkMode === "dark"}
+              onChange={(e) => setDarkMode(e.target.value)}
+            />
             {configData.SETTINGS.DARK_MODE.DARK_MODE_LABEL}
           </label>
         </div>
