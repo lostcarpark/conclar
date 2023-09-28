@@ -19,7 +19,7 @@
  */
 
 
- 
+
 :root {
   --main-bg: #D6EBF8;
   --main-fg: #000;
@@ -33,6 +33,13 @@
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: #619b40;
   --checkbox-unselected-bg: grey;
+  --filter-bg: var(--main-bg);
+  --filter-fg: var(--main-fg);
+  --filter-border: var(--search-border);
+  --filter-select-bg: #bbe;
+  --filter-select-fg: #000;
+  --search-bg: var(--main-bg);
+  --search-fg: var(--main-fg);
   --search-border: hsl(0, 0%, 80%);
   --reset-button-bg: var(--navigation-button-current-bg);
   --reset-button-fg: var(--navigation-button-current-fg);
@@ -98,7 +105,7 @@ body {
 
 a {
   color: var(--permalink-icon-fg);
-  
+
 }
 
 a:hover, a:focus {
@@ -153,7 +160,7 @@ header img {
   .navigation ul {
     justify-content: center;
   }
-} 
+}
 
 .navigation li {
   margin: 0.25em 0.25em;
@@ -211,7 +218,7 @@ header img {
   }
   .timeslot-time {
     position: sticky;
-    top: 3rem;    
+    top: 3rem;
     margin-bottom: 0.5rem;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
@@ -227,7 +234,7 @@ header img {
     margin-right: 0.5rem;
   }
 
-} 
+}
 
 /* page not founds */
 .error {
@@ -369,6 +376,47 @@ input.switch:checked ~ label:after {
   font-size: 1rem;
 }
 
+.filter-container .filter-select__control {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+  border: 1px var(--filter-border) solid;
+  border-radius: 4px;
+}
+
+.filter-container .filter-select__control--is-focused {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+}
+
+.filter-container .filter-select__menu {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+  border: 1px var(--filter-border) solid;
+  border-radius: 4px;
+}
+
+.filter-container .filter-select__option {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+}
+
+.filter-container .filter-select__option--is-focused {
+  background-color: var(--filter-select-bg);
+  color: var(--filter-select-fg);
+}
+
+.filter-container .filter-select__indicator-separator {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+}
+
+.filter-container .filter-select__input-container,
+.filter-container .filter-select__placeholder,
+.filter-container .filter-select__single-value {
+  background-color: var(--filter-bg);
+  color: var(--filter-fg);
+}
+
 .stack {
   flex-basis: 0;
   flex-grow: 2;
@@ -389,6 +437,8 @@ input.switch:checked ~ label:after {
 .filter-search input,
 .people-search input {
   min-height: 38px;
+  background-color: var(--search-bg);
+  color: var(--search-fg);
   border: 1px var(--search-border) solid;
   border-radius: 4px;
 }
@@ -777,7 +827,7 @@ input.switch:checked ~ label:after {
   max-width: 30%;
   padding: 0.5rem;
   text-align: center;
-  background: var(--participant-bg);  
+  background: var(--participant-bg);
 }
 
 .people .participant {
