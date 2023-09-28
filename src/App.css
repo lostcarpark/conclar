@@ -410,10 +410,11 @@ input.switch:checked ~ label:after {
   color: var(--filter-fg);
 }
 
+.filter-container .filter-select__input,
 .filter-container .filter-select__input-container,
 .filter-container .filter-select__placeholder,
 .filter-container .filter-select__single-value {
-  background-color: var(--filter-bg);
+  background-color: none;
   color: var(--filter-fg);
 }
 
