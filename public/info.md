@@ -2,7 +2,7 @@
 [Octocon](https://2023.octocon.com) is the Irish National Science Fiction Convention, held continuously since 1990.
 
 Octocon 2023 takes place on Saturday 7th and Sunday 8th October, in-person at the Gibson Hotel, Dublin, and online via our Member Portal.
-Our Guest of Honour is Sarah Rees Brennan. [Learn more about them and our other guests.](https://2023.octocon.com/octocon-guests/)
+Our Guest of Honour is Sarah Rees Brennan. [Learn more about her and our other guests.](https://2023.octocon.com/octocon-guests/)
 
 All members of Octocon must abide by our [Code of Conduct](https://2023.octocon.com/code-of-conduct/). Members attending in-person must follow our [Covid-19 policy](https://2023.octocon.com/covid-19-policy/). Face masks are required.
 
@@ -23,16 +23,16 @@ You can find Octocon in the Gibson Hotel, Point Square, North Dock, Dublin, D01 
 All times are listed in Irish time (UTC+1) and your local time - you can change the timezone displayed in ConClár on the **Settings** page.
 
 **Registration and Info**
-* Saturday: 9am - 8pm
-* Sunday: 9am - 6pm
+* Saturday: from 9am
+* Sunday: from 9am
 
 **Trade Hall**
 * Saturday: 10am - 6pm
-* Sunday: 10am - 5pm
+* Sunday: 10am - 6pm
 
 **Programme**
-* Saturday: 10am (Opening Ceremony) – 9:30pm
-* Saturday night social: 8pm – late, including the Great Octocon Table Quiz from 8:30pm
+* Saturday: from 10am (Opening Ceremony)
+* Saturday night social: 8:30pm – till late, including the Great Octocon Table Quiz 
 * Sunday: 10:30am – 7:30pm (Closing Ceremony begins at 7pm)
 
 ## Online
