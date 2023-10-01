@@ -213,6 +213,8 @@ const FilterableProgram = () => {
                 resetDisplayLimit();
                 setSelLoc(value);
               }}
+              className="filter-container"
+              classNamePrefix="filter-select"
             />
           </div>
           <TagSelectors
