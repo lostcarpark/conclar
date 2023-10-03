@@ -22,7 +22,7 @@
   "INTERACTIVE": true,
   "HEADER": {
     "IMG_SRC": "/Octocon2023-programme-banner.jpg",
-    "IMG_ALT_TEXT": "Octocon, the National Irish Science Fiction Convention banner. Logo on top, Octo in the middle, emerges from stone portal | Croke Park & Online, 15-16 October 2022, www.octocon.com. Supported-by logos: Dublin UNESCO city of literature, Dublin City Council",
+    "IMG_ALT_TEXT": "Octocon, the National Irish Science Fiction Convention banner.",
     "LINEFEED_AFTER_URL": true
   },
   "NAVIGATION": {
@@ -235,7 +235,7 @@
     }
   },
   "FOOTER": {
-    "SITE_NOTE_MARKDOWN": "[Octocon Website](https://2022.octocon.com) | [Privacy Policy](https://2022.octocon.com/privacy-policy/)",
+    "SITE_NOTE_MARKDOWN": "[Octocon Website](https://2023.octocon.com) | [Privacy Policy](https://2023.octocon.com/privacy-policy/)",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "TIMER": {
