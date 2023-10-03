@@ -33,12 +33,12 @@
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: #619b40;
   --checkbox-unselected-bg: grey;
-  --filter-bg: var(--main-bg);
+  --filter-bg: #fff;
   --filter-fg: var(--main-fg);
   --filter-border: var(--search-border);
-  --filter-select-bg: #bbe;
+  --filter-select-bg: var(--main-bg);
   --filter-select-fg: #000;
-  --search-bg: var(--main-bg);
+  --search-bg: var(--filter-bg);
   --search-fg: var(--main-fg);
   --search-border: hsl(0, 0%, 80%);
   --reset-button-bg: var(--navigation-button-current-bg);
@@ -59,7 +59,7 @@
   --program-time-local-message: grey;
   --program-date-line: #619b40;
   --program-time-line: #56a6d1;
-  --program-item-line: #fff;
+  --program-item-line: #bbb;
   --program-tags-fg: #444;
   --program-time-bg: #A9D2EA;
   --program-expanded-bg: #fffcee;
