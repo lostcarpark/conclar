@@ -387,6 +387,10 @@ input.switch:checked ~ label:after {
 
 .filter-container .filter-select__control--is-focused {
   background-color: var(--filter-bg);
+  color: var(--filter-select-control-fg);
+}
+
+.filter-container .filter-select__control--is-focused .filter-select__indicator {
   color: var(--filter-fg);
 }
 
