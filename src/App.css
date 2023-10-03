@@ -38,6 +38,7 @@
   --filter-border: var(--search-border);
   --filter-select-bg: var(--main-bg);
   --filter-select-fg: #000;
+  --filter-select-control-fg: #000;
   --search-bg: var(--filter-bg);
   --search-fg: var(--main-fg);
   --search-border: hsl(0, 0%, 80%);
@@ -67,6 +68,7 @@
   --permalink-icon-hover-fg: #3C5B25;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
+  --participant-back-button-fg: var(--main-fg);
   --participant-bg: #A9D2EA;
   --footer-line: #619b40;
   --error-message-fg: tomato;
@@ -378,7 +380,7 @@ input.switch:checked ~ label:after {
 
 .filter-container .filter-select__control {
   background-color: var(--filter-bg);
-  color: var(--filter-fg);
+  color: var(--filter-select-control-fg);
   border: 1px var(--filter-border) solid;
   border-radius: 4px;
 }
@@ -854,6 +856,7 @@ input.switch:checked ~ label:after {
 .person-back-button {
   border: none;
   background: none;
+  color: var(--participant-back-button-fg);
   font-size: 0.8em;
   cursor: pointer;
 }
