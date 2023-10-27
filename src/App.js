@@ -8,7 +8,6 @@ import "./App.css";
 const store = createStore(model);
 
 const App = () => {
-
   return (
     <StoreProvider store={store}>
       <AppRoutes />

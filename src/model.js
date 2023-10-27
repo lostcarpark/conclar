@@ -30,6 +30,7 @@ const model = {
   showThumbnails: localStorage.getItem("thumbnails") === "false" ? false : true,
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
   onLine: window.navigator.onLine,
+  darkMode: localStorage.getItem("dark_mode") ? localStorage.getItem("dark_mode") : 'browser',
   // Thunks
   fetchProgram: thunk(async (actions, firstTime) => {
     actions.setData(await ProgramData.fetchData(firstTime));
@@ -91,6 +92,10 @@ const model = {
   }),
   setOnLine: action((state, onLine) => {
     state.onLine = onLine;
+  }),
+  setDarkMode: action((state, darkMode) => {
+    state.darkMode = darkMode;
+    localStorage.setItem("dark_mode", darkMode);
   }),
 
   // Actions for expanding program items.

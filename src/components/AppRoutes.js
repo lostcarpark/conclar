@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useStoreActions } from "easy-peasy";
+import { useStoreState, useStoreActions } from "easy-peasy";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import configData from "../config.json";
+import ThemeSelector from "./ThemeSelector";
 import ScrollToTop from "./ScrollToTop";
 import Timer from "./Timer";
 import Debug from "./Debug";
@@ -22,7 +23,9 @@ import Settings from "./Settings";
 import Footer from "./Footer";
 
 const AppRoutes = () => {
-  const appClasses = "App" + (configData.DEBUG_MODE.ENABLE ? " debug-mode" : "");
+  const appClasses =
+    "App" + (configData.DEBUG_MODE.ENABLE ? " debug-mode" : "");
+  const darkMode = useStoreState((state) => state.darkMode);
   const theApp = configData.INTERACTIVE ? (
     <div className={appClasses}>
       <Timer tick={configData.TIMER.TIMER_TICK_SECS} />
@@ -73,9 +76,18 @@ const AppRoutes = () => {
   }, []);
 
   return (
-    <Router basename={configData.BASE_PATH}>
-      <ScrollToTop>{theApp}</ScrollToTop>
-    </Router>
+    <ThemeSelector
+      isDark={
+        darkMode === "dark" ||
+        (darkMode === "browser" &&
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      }
+    >
+      <Router basename={configData.BASE_PATH}>
+        <ScrollToTop>{theApp}</ScrollToTop>
+      </Router>
+    </ThemeSelector>
   );
 };
 
