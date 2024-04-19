@@ -18,6 +18,8 @@
  * 1. Global application styles.
  */
 
+
+ 
 :root {
   --main-bg: #fff;
   --main-fg: #000;
@@ -41,6 +43,12 @@
   --search-border: hsl(0, 0%, 80%);
   --reset-button-bg: var(--navigation-button-current-bg);
   --reset-button-fg: var(--navigation-button-current-fg);
+  --reset-button-hover-bg: var(--navigation-button-bg);
+  --reset-button-hover-fg: var(--navigation-button-fg);
+  --expand-button-bg: var(--navigation-button-current-bg);
+  --expand-button-fg: var(--navigation-button-current-fg);
+  --expand-button-hover-bg: var(--navigation-button-bg);
+  --expand-button-hover-fg: var(--navigation-button-fg);
   --add-all-button-bg: var(--navigation-button-current-bg);
   --add-all-button-fg: var(--navigation-button-current-fg);
   --add-more-button-bg: var(--navigation-button-current-bg);
@@ -52,13 +60,15 @@
   --program-date-line: #888;
   --program-time-line: #ccc;
   --program-item-line: #bbb;
-  --program-tags-fg: #888;
+  --program-time-bg: #ddd;
+  --program-tags-fg: #555;
   --program-expanded-bg: #eee;
   --permalink-icon-fg: #265c83;
-  --permalink-icon-hover-fg: #7fdbff;
+  --permalink-icon-hover-fg: #193c56;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
   --settings-outline: #888;
+  --participant-bg: #eee;
   --footer-line: #888;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
@@ -73,7 +83,7 @@
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -89,8 +99,18 @@ body {
 .App {
   text-align: left;
   margin: 1rem;
-  font-family: "Roboto", "Calibri", "Open Sans", "Lato", "Helvetica Neue", Arial,
+  font-size: 1.25rem;
+  font-family: "Open Sans", "Lato", "Helvetica Neue", "Calibri", Arial,
     sans-serif;
+}
+
+a {
+  color: var(--permalink-icon-fg);
+  
+}
+
+a:hover, a:focus {
+  color: var(--permalink-icon-hover-fg);
 }
 
 h1,
@@ -120,6 +140,11 @@ header h1 {
   margin: 1rem 0;
 }
 
+header img {
+  border-radius: 1rem;
+}
+
+
 /*
  * 3. Navigation.
  */
@@ -132,8 +157,14 @@ header h1 {
   list-style-type: none;
 }
 
+@media (max-width: 768px) {
+  .navigation ul {
+    justify-content: center;
+  }
+} 
+
 .navigation li {
-  margin: 0.25em 0;
+  margin: 0.25em 0.25em;
 }
 
 /* CSS for button 81 from https://getcssscan.com/css-buttons-examples */
@@ -141,17 +172,17 @@ header h1 {
   background-color: var(--navigation-button-bg);
   color: var(--navigation-button-fg);
   border: 0 solid var(--navigation-button-border);
-  border-radius: 1rem;
+  border-radius: 2rem;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
   font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1;
-  padding: 0.6rem 1.1rem;
+  padding: 1rem 1.5rem;
   text-align: center;
   text-decoration: none;
   text-decoration-thickness: auto;
@@ -175,20 +206,36 @@ header h1 {
   color: var(--navigation-button-hover-fg);
 }
 
-@media (min-width: 768px) {
-  .navigation li a {
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-    border-radius: 2rem;
+@media (max-width: 768px) {
+  .date-heading {
+    margin-bottom: 0 !important;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 2rem;
   }
-}
+  .timeslot {
+    flex-direction: column;
+    margin: 0 !important;
+  }
+  .timeslot-time {
+    position: sticky;
+    top: 3rem;    
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    background:var(--program-time-bg);
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    z-index: 1;
+  }
 
-@media (max-width: 480px) {
-  .navigation li a {
-    padding: 0.5rem 0.7rem;
-    border-radius: 0.5rem;
+  .time-convention, .time-local {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 0.5rem;
   }
-}
+
+} 
 
 /* page not founds */
 .error {
@@ -282,6 +329,7 @@ input.switch:checked ~ label:after {
   flex-wrap: wrap;
   padding-inline-start: 0;
   margin: 0.25em;
+  margin-bottom: 1rem;
 }
 
 .stack {
@@ -289,6 +337,11 @@ input.switch:checked ~ label:after {
   flex-direction: column;
   justify-content: space-around;
   padding-inline-start: 0;
+}
+
+.filter {
+  position: relative;
+  z-index: 3;
 }
 
 .filter-tags,
@@ -350,6 +403,22 @@ input.switch:checked ~ label:after {
   color: var(--filter-fg);
 }
 
+.filter-search input,
+.people-search input
+{
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.program-limit-select {
+  margin: 0.5em;
+}
+
+.program-limit-select select {
+  font-size: 1rem;
+}
+
 .stack {
   flex-basis: 0;
   flex-grow: 2;
@@ -381,6 +450,29 @@ input.switch:checked ~ label:after {
   max-width: 100ch;
 }
 
+.filter-expand button {
+    background-color: var(--expand-button-bg);
+    color: var(--expand-button-fg);
+    font-size: 0.85rem;
+    padding: .5rem 1.5rem;
+    border: none;
+    border-radius: 1.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+
+.filter-expand button:hover,
+.filter-expand button:focus {
+  background-color: var(--expand-button-hover-bg);
+  color: var(--expand-button-hover-fg);
+}
+
+.filter-expand button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .reset-filters {
   display: flex;
   flex-direction: row;
@@ -394,6 +486,13 @@ input.switch:checked ~ label:after {
   padding: .5rem 1.5rem;
   border: none;
   border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+.reset-button:hover,
+.reset-button:focus {
+  background-color: var(--reset-button-hover-bg);
+  color: var(--reset-button-hover-fg);
 }
 
 /*
@@ -428,14 +527,16 @@ input.switch:checked ~ label:after {
 
 .date-heading {
   position: sticky;
-  top: 0;
+  top: -1px;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 0rem;
+  margin-top: 0;
   margin-bottom: 0.5rem;
   padding-top: 1rem;
-  border-bottom: 1px solid var(--program-date-line);
+  padding-bottom: 1px;
+  border-bottom: 2px solid var(--program-date-line);
   background-color: var(--main-bg);
+  z-index: 2;
 }
 
 .debug-mode .date-heading {
@@ -493,7 +594,7 @@ input.switch:checked ~ label:after {
 
 .item {
   margin-bottom: 0.25rem;
-  max-width: 60ch;
+  max-width: 100%;
   display: flex;
 }
 
@@ -511,7 +612,7 @@ input.switch:checked ~ label:after {
 
 .item-entry {
   display: flex;
-  max-width: 55ch;
+  max-width: 100%;
   flex-grow: 1;
   flex-direction: column;
   flex-wrap: wrap;
@@ -607,6 +708,10 @@ input.switch:checked ~ label:after {
   display: inline-block;
 }
 
+.item-people div.participant-image img {
+  background: #fff;
+}
+
 .program-container .participant .participant-image ~ span {
   padding-left: 0.3rem;
 }
@@ -695,7 +800,11 @@ input.switch:checked ~ label:after {
 }
 
 .people ul {
-  column-width: 25ch;
+  /* column-width: 25ch; */
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
 }
 
 .participant a {
@@ -711,9 +820,14 @@ input.switch:checked ~ label:after {
 .people .participant {
   display: inline-block;
   min-width: 10rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   break-inside: avoid-column;
+  flex: 1 1 30%;
+  max-width: 30%;
+  padding: 0.5rem;
+  text-align: center;
+  background: var(--participant-bg);
 }
 
 .people .participant {
@@ -729,6 +843,7 @@ input.switch:checked ~ label:after {
   padding: 0.1rem;
   box-shadow: 0px 2px 2px 0px var(--shadow-014),
     0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
+  background: #fff;
 }
 
 .person {
@@ -742,12 +857,22 @@ input.switch:checked ~ label:after {
   cursor: pointer;
 }
 
-.person .person-image img {
-  max-width: 10rem;
-  padding: 0.3rem;
+.person .person-image {
+  max-width: 25rem;
+  display: inline-flex;
+  background: #fff;
+  padding: 0.5rem;
   margin: 0 0.5rem 0.5rem 0;
   box-shadow: 0px 2px 2px 0px var(--shadow-014),
     0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
+}
+.person .person-image img {
+  max-width: 100%;
+  height:auto;
+}
+
+.person .person-image:empty {
+  display: none;
 }
 
 .person-tags {
@@ -772,7 +897,7 @@ input.switch:checked ~ label:after {
 }
 
 .person .person-bio {
-  max-width: 60ch;
+  max-width: 70ch;
 }
 
 .person .time-local-message {
@@ -889,7 +1014,7 @@ div.uninteractive div.info {
   left: 0;
   width: 100%;
   padding: 0.25rem;
-  z-index: 2;
+  z-index: 4;
 }
 
 .debug-online {

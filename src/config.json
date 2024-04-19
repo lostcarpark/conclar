@@ -11,6 +11,12 @@
       "Origin": "http://example.com"
     }
   },
+  "FETCH_OPTIONS_FIRST": {
+    "credentials": "omit",
+    "headers": {
+      "Origin": "http://example.com"
+    }
+  },
   "TIMEZONE": "Europe/Dublin",
   "TIMEZONECODE": "IST",
   "INTERACTIVE": true,
@@ -91,7 +97,8 @@
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": false,
       "HIDE": false
-    }
+    },
+    "DONTLIST": ["Division", "days"]
   },
   "FILTER": {
     "RESET": {
@@ -108,7 +115,9 @@
     "SPRING_CONFIG": { "duration": 100 }
   },
   "ITEM_DESCRIPTION": {
-    "PURIFY_OPTIONS": {}
+    "PURIFY_OPTIONS": {
+      "FORBID_ATTR": ["style", "data-sheets-userformat", "data-sheets-value"]
+    }
   },
   "LINKS": [
     {"NAME": "signup",
@@ -178,7 +187,9 @@
     },
     "PERSON_HEADER": "Person: ",
     "BIO": {
-      "PURIFY_OPTIONS": {}
+      "PURIFY_OPTIONS": {
+        "FORBID_ATTR": ["style"]
+      }
     }
   },
   "USELESS_CHECKBOX": {
