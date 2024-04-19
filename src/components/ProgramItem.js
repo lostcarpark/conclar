@@ -62,7 +62,9 @@ const ProgramItem = ({ item, forceExpanded }) => {
     );
 
   const tags = [];
-  for (const tag of item.tags) {
+  const itemTags = item.tags.filter((tag => !configData.TAGS.DONTLIST.includes(tag.category)));
+
+  for (const tag of itemTags) {
     tags.push(<Tag key={tag.value} tag={tag.label} />);
   }
 

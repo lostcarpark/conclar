@@ -2,8 +2,8 @@
   "BASE_PATH": "/",
   "APP_ID": "O2021",
   "APP_TITLE": "ConClár Programme Guide",
-  "PROGRAM_DATA_URL": "/schedule.jsonp",
-  "PEOPLE_DATA_URL": "/participants.jsonp",
+  "PROGRAM_DATA_URL": "/2022/program.js",
+  "PEOPLE_DATA_URL": "/2022/people.js",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -17,8 +17,8 @@
       "Origin": "http://example.com"
     }
   },
-  "TIMEZONE": "America/Chicago",
-  "TIMEZONECODE": "CDT",
+  "TIMEZONE": "Europe/Dublin",
+  "TIMEZONECODE": "IST",
   "INTERACTIVE": true,
   "HEADER": {
     "IMG_SRC": "",
@@ -93,9 +93,10 @@
         "1": "Monday"
       },
       "PLACEHOLDER": "Select days",
-      "SEARCHABLE": true,
+      "SEARCHABLE": false,
       "HIDE": false
-    }
+    },
+    "DONTLIST": ["Division", "days"]
   },
   "FILTER": {
     "RESET": {
@@ -112,7 +113,9 @@
     "SPRING_CONFIG": { "duration": 100 }
   },
   "ITEM_DESCRIPTION": {
-    "PURIFY_OPTIONS": {}
+    "PURIFY_OPTIONS": {
+      "FORBID_ATTR": ["style", "data-sheets-userformat", "data-sheets-value"]
+    }
   },
   "LINKS": [
     {"NAME": "signup",
@@ -182,7 +185,9 @@
     },
     "PERSON_HEADER": "Person: ",
     "BIO": {
-      "PURIFY_OPTIONS": {}
+      "PURIFY_OPTIONS": {
+        "FORBID_ATTR": ["style"]
+      }
     }
   },
   "USELESS_CHECKBOX": {
