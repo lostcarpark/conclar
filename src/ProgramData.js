@@ -124,9 +124,11 @@ export class ProgramData {
           }
           //Moderator check before nuking the item person data.
           if (
-            item.people[index].name.indexOf("(moderator)") > 0 ||
+            item.people.length > 0 &&
+            ((item.people[index].hasOwnProperty("name") &&
+              item.people[index].name.indexOf("(moderator)") > 0) ||
             (item.people[index].hasOwnProperty("role") &&
-              item.people[index].role === "moderator")
+              item.people[index].role === "moderator"))
           )
             item.moderator = item.people[index].id;
           if (fullPerson) {
