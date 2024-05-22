@@ -1,28 +1,28 @@
 {
   "BASE_PATH": "/",
-  "APP_ID": "O2021",
-  "APP_TITLE": "ConClár Programme Guide",
-  "PROGRAM_DATA_URL": "/2022/program.js",
-  "PEOPLE_DATA_URL": "/2022/people.js",
+  "APP_ID": "Fun1",
+  "APP_TITLE": "FunCon One Programme Guide",
+  "PROGRAM_DATA_URL": "/programme.json",
+  "PEOPLE_DATA_URL": "/people.json",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
     "headers": {
-      "Origin": "http://example.com"
+      "Origin": "https://guide.funcon.lol"
     }
   },
   "FETCH_OPTIONS_FIRST": {
     "credentials": "omit",
     "headers": {
-      "Origin": "http://example.com"
+      "Origin": "https://guide.funcon.lol"
     }
   },
-  "TIMEZONE": "Europe/Dublin",
-  "TIMEZONECODE": "IST",
+  "TIMEZONE": "Europe/London",
+  "TIMEZONECODE": "BST",
   "INTERACTIVE": true,
   "HEADER": {
-    "IMG_SRC": "",
-    "IMG_ALT_TEXT": "",
+    "IMG_SRC": "funcon_logo_150.png",
+    "IMG_ALT_TEXT": "FunCon One",
     "LINEFEED_AFTER_URL": false
   },
   "NAVIGATION": {
@@ -31,7 +31,7 @@
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
     "SETTINGS": "Settings",
-    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
+    "EXTRA": [{ "LABEL": "Funcon Home", "URL": "https://funcon.lol" }]
   },
   "LOCATIONS": {
     "SEARCHABLE": false
@@ -43,7 +43,7 @@
   },
   "PROGRAM": {
     "LIMIT": {
-      "SHOW": true,
+      "SHOW": false,
       "LABEL": "Maximum items displayed",
       "OPTIONS": [50, 100, 250, 500, 1000],
       "ALL_LABEL": "Show all",
@@ -88,11 +88,9 @@
     "DAY_TAG": {
       "GENERATE": true,
       "DAYS": {
-        "4": "Thursday",
         "5": "Friday",
         "6": "Saturday",
-        "7": "Sunday",
-        "1": "Monday"
+        "7": "Sunday"
       },
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": false,
@@ -165,13 +163,13 @@
       "MODERATOR_LABEL": "(moderator)"
     },
     "THUMBNAILS": {
-      "SHOW_THUMBNAILS": true,
-      "SHOW_CHECKBOX": true,
+      "SHOW_THUMBNAILS": false,
+      "SHOW_CHECKBOX": false,
       "CHECKBOX_LABEL": "Show thumbnails",
       "DEFAULT_IMAGE": "head.svg"
     },
     "SORT": {
-      "SHOW_CHECKBOX": true,
+      "SHOW_CHECKBOX": false,
       "CHECKBOX_LABEL": "Sort by full name"
     },
     "TAGS": {
@@ -196,7 +194,7 @@
     "CHECKBOX_LABEL": "Useless checkbox"
   },
   "INFORMATION": {
-    "MARKDOWN_URL": "info.md",
+    "MARKDOWN_URL": "funcon.md",
     "LOADING_MESSAGE": "Loading..."
   },
   "SETTINGS": {
