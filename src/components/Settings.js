@@ -47,10 +47,10 @@ const Settings = () => {
   return (
     <div className="settings">
       <h2>{configData.SETTINGS.TITLE.LABEL}</h2>
-      <div className="settings-group time-format">
-        <div className="settings-head">
+      <fieldset className="settings-group time-format">
+        <legend className="settings-head">
           {configData.SETTINGS.TIME_FORMAT.LABEL}
-        </div>
+        </legend>
         <div className="settings-radio">
           <label>
             <input
@@ -73,11 +73,11 @@ const Settings = () => {
             {configData.SETTINGS.TIME_FORMAT.T24_HOUR_LABEL}
           </label>
         </div>
-      </div>
-      <div className="settings-group select-show-localtime">
-        <div className="settings-head">
+      </fieldset>
+      <fieldset className="settings-group select-show-localtime">
+        <legend className="settings-head">
           {configData.SETTINGS.SHOW_LOCAL_TIME.LABEL}
-        </div>
+        </legend>
         <div className="settings-radio">
           <label>
             <input
@@ -110,11 +110,11 @@ const Settings = () => {
             {configData.SETTINGS.SHOW_LOCAL_TIME.ALWAYS_LABEL}
           </label>
         </div>
-      </div>
-      <div className="settings-group select-show-timezone">
-        <div className="settings-head">
+      </fieldset>
+      <fieldset className="settings-group select-show-timezone">
+        <legend className="settings-head">
           {configData.SETTINGS.SHOW_TIMEZONE.LABEL}
-        </div>
+        </legend>
         <div className="settings-radio">
           <label>
             <input
@@ -147,11 +147,11 @@ const Settings = () => {
             {configData.SETTINGS.SHOW_TIMEZONE.ALWAYS_LABEL}
           </label>
         </div>
-      </div>
-      <div className="settings-group select-timezone">
-        <div className="settings-head">
+      </fieldset>
+      <fieldset className="settings-group select-timezone">
+        <legend className="settings-head">
           {configData.SETTINGS.SELECT_TIMEZONE.LABEL}
-        </div>
+        </legend>
         <div className="settings-radio">
           <label>
             <input
@@ -176,11 +176,11 @@ const Settings = () => {
           </label>
         </div>
         {timezoneSelect}
-      </div>
-      <div className="settings-group select-dark-mode">
-        <div className="settings-head">
+      </fieldset>
+      <fieldset className="settings-group select-dark-mode">
+        <legend className="settings-head">
           {configData.SETTINGS.DARK_MODE.LABEL}
-        </div>
+        </legend>
         <div className="settings-radio">
           <label>
             <input
@@ -221,7 +221,7 @@ const Settings = () => {
             {configData.SETTINGS.DARK_MODE.DARK_MODE_LABEL}
           </label>
         </div>
-      </div>
+      </fieldset>
     </div>
   );
 };

@@ -166,6 +166,7 @@ const FilterableProgram = () => {
             {configData.PROGRAM.LIMIT.LABEL}:{" "}
           </label>
           <select
+            id="display_limit"
             name="display_limit"
             value={displayLimit(programDisplayLimit)}
             onChange={(e) => {
@@ -225,7 +226,9 @@ const FilterableProgram = () => {
             resetLimit={resetDisplayLimit}
           />
           <div className="filter-search">
+            <label htmlFor="search">Search</label>
             <input
+              id="search"
               type="search"
               placeholder={configData.PROGRAM.SEARCH.SEARCH_LABEL}
               value={search}
