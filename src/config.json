@@ -79,8 +79,10 @@
     "SEARCHABLE": false,
     "HIDE": false,
     "SEPARATE": [
-      { "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true, "HIDE": false },
-      { "PREFIX": "test", "PLACEHOLDER": "Select test", "SEARCHABLE": true, "HIDE": false }
+      { "PREFIX": "Division", "PLACEHOLDER": "Select division", "SEARCHABLE": false, "HIDE": true },
+      { "PREFIX": "Type", "PLACEHOLDER": "Select type", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
@@ -222,6 +224,14 @@
       "LABEL": "Select timezone",
       "BROWSER_DEFAULT_LABEL": "Use browser default timezone:",
       "SELECT_LABEL": "Select timezone to use"
+    },
+    "DARK_MODE": {
+      "LABEL": "Dark mode (may require refresh after changing)",
+      "BROWSER_DEFAULT_LABEL": "Use browser default - ",
+      "BROWSER_LIGHT_LABEL": "Light mode",
+      "BROWSER_DARK_LABEL": "Dark mode",
+      "LIGHT_MODE_LABEL": "Always light mode",
+      "DARK_MODE_LABEL": "Always dark mode"
     }
   },
   "FOOTER": {
@@ -230,7 +240,7 @@
   },
   "TIMER": {
     "FETCH_INTERVAL_MINS": 30,
-    "TIMER_TICK_SECS": 300
+    "TIMER_TICK_SECS": 15
   },
   "DEBUG_MODE": {
     "ENABLE": false,

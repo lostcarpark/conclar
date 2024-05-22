@@ -14,7 +14,9 @@ const TagSelect = ({ options, tag, selTags, setSelTags, tagData, resetLimit }) =
         selections[tag] = value;
         setSelTags(selections);
       }}
-    />
+      className="filter-container"
+      classNamePrefix="filter-select"
+/>
   );
 };
 
