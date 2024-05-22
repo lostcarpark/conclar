@@ -361,6 +361,10 @@ input.switch:checked ~ label:after {
   max-width: 50ch;
 }
 
+.filter-search label {
+  display: none;
+}
+
 .filter-container .filter-select__control {
   background-color: var(--filter-bg);
   color: var(--filter-fg);
@@ -592,6 +596,10 @@ input.switch:checked ~ label:after {
   flex-direction: column;
 }
 
+.selection label {
+  display: none;
+}
+
 .item {
   margin-bottom: 0.25rem;
   max-width: 100%;
@@ -797,6 +805,10 @@ input.switch:checked ~ label:after {
   flex-wrap: wrap;
   padding-inline-start: 0;
   margin: 0.25em;
+}
+
+.people-search label {
+  display: none;
 }
 
 .people ul {

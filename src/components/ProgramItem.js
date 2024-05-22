@@ -138,11 +138,13 @@ const ProgramItem = ({ item, forceExpanded }) => {
       <div className="item-selection">
         <div className="selection">
           <input
+            id={'select_' + id}
             type="checkbox"
             className="selection-control"
             checked={selected}
             onChange={handleSelected}
           />
+          <label htmlFor={'select_' + id}>{'Click to select ' + item.title}</label>
         </div>
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
