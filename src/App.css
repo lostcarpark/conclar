@@ -19,14 +19,7 @@
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,500;1,300;1,500&family=Life+Savers:wght@400;700;800&display=swap');
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 4a973eb (FunCon config and theming.)
-
->>>>>>> 99e685e (Correct participant background for dark mode.)
 :root {
   --main-bg: #fff;
   --main-fg: #000;
