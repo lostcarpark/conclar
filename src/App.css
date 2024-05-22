@@ -19,7 +19,7 @@
  */
 
 
- 
+
 :root {
   --main-bg: #fff;
   --main-fg: #000;
@@ -65,10 +65,10 @@
   --program-expanded-bg: #eee;
   --permalink-icon-fg: #265c83;
   --permalink-icon-hover-fg: #193c56;
+  --participant-bg: #eee;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
   --settings-outline: #888;
-  --participant-bg: #eee;
   --footer-line: #888;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
@@ -106,7 +106,7 @@ body {
 
 a {
   color: var(--permalink-icon-fg);
-  
+
 }
 
 a:hover, a:focus {
@@ -161,7 +161,7 @@ header img {
   .navigation ul {
     justify-content: center;
   }
-} 
+}
 
 .navigation li {
   margin: 0.25em 0.25em;
@@ -219,7 +219,7 @@ header img {
   }
   .timeslot-time {
     position: sticky;
-    top: 3rem;    
+    top: 3rem;
     margin-bottom: 0.5rem;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
@@ -235,7 +235,7 @@ header img {
     margin-right: 0.5rem;
   }
 
-} 
+}
 
 /* page not founds */
 .error {
