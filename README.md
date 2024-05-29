@@ -14,11 +14,24 @@ ConClár requires `npm` to install its dependencies. This is part of [Node.js](h
 
 Next create a local directory for your ConClár project. You can put this anywhere in your filesystem.
 
-Next you need to get the code from GitHub. You can either use the download link to get a Zip file, or clone the project with the `git` command. If you are customising for your convention, you should consider creating a fork so that you can merge in future changes.
+Next you need to get the code from GitHub. You can either use the download link
+to get a Zip file, or clone the project with the `git` command. If you are
+customising for your convention, you should consider creating a fork so that you
+can merge in future changes.
+
+ConClár requires a configuration file called in the `/src/` directory called
+`config.json`. To avoid local customizations getting pushed to the main
+repository, this not included. Instead, there is a sample config file that is a
+good starting point. You should copy this to the correct name. If you have a
+fork of the project, you may want to remove `/src/config.json` from
+`.gitignore`, to track your convention's customizations. You can copy the
+example with the following command:
+
+```cp src/config_example.json src/config.json```
 
 Once you've done that, run the following from a command prompt in the directory you created above:
 
-### `npm install`
+```npm install```
 
 This will install everything needed to run the project.
 
@@ -26,7 +39,7 @@ This will install everything needed to run the project.
 
 In the project directory, you can run:
 
-### `npm start`
+```npm start```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -34,7 +47,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm run build`
+```npm run build```
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
