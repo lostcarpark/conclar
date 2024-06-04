@@ -1,9 +1,9 @@
 {
-  "BASE_PATH": "/",
+  "BASE_PATH": "/program",
   "APP_ID": "bazyl2024",
-  "APP_TITLE": "Program - Bazyliszek 2024 - ConClar",
-  "PROGRAM_DATA_URL": "/conclar/program.js",
-  "PEOPLE_DATA_URL": "/conclar/people.js",
+  "APP_TITLE": "Program - Bazyliszek 2024",
+  "PROGRAM_DATA_URL": "/program/program.js",
+  "PEOPLE_DATA_URL": "/program/people.js",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -132,7 +132,7 @@
     }
   ],
   "CONVENTION_TIME": {
-    "NOTICE": "Convention time for @timezone, shown in bold."
+    "NOTICE": "Godziny wydarzeń według strefy czasowej @timezone."
   },
   "LOCAL_TIME": {
     "CHECKBOX_LABEL": "Show local time",
@@ -207,21 +207,29 @@
       "T24_HOUR_LABEL": "24-godzinny"
     },
     "SHOW_LOCAL_TIME": {
-      "LABEL": "Show local time",
-      "NEVER_LABEL": "Never display",
-      "DIFFERS_LABEL": "Display if differs from convention time",
-      "ALWAYS_LABEL": "Always show"
+      "LABEL": "Czas lokalny",
+      "NEVER_LABEL": "Nie pokazuj",
+      "DIFFERS_LABEL": "Pokaż jeśli jest inny od czasu konwentu",
+      "ALWAYS_LABEL": "Zawsze pokazuj"
     },
     "SHOW_TIMEZONE": {
-      "LABEL": "Show timezone after times",
-      "NEVER_LABEL": "Never show",
-      "IF_LOCAL_LABEL": "Show timezone if local time shown",
-      "ALWAYS_LABEL": "Always show"
+      "LABEL": "Pokaż strefę czasową",
+      "NEVER_LABEL": "Nie pokazuj",
+      "IF_LOCAL_LABEL": "Pokaż jeśli jest inna od strefy czasowej konwentu",
+      "ALWAYS_LABEL": "Zawsze pokazuj"
     },
     "SELECT_TIMEZONE": {
-      "LABEL": "Select timezone",
-      "BROWSER_DEFAULT_LABEL": "Use browser default timezone:",
-      "SELECT_LABEL": "Select timezone to use"
+      "LABEL": "Wybierz strefę czasową",
+      "BROWSER_DEFAULT_LABEL": "Domyślna systemowa strefa czasowa:",
+      "SELECT_LABEL": "Wybierz strefę czasową:"
+    },
+    "DARK_MODE": {
+      "LABEL": "Tryb ciemny (może wymagać odświeżenia strony)",
+      "BROWSER_DEFAULT_LABEL": "Motyw systemowy - ",
+      "BROWSER_LIGHT_LABEL": "Motyw jasny",
+      "BROWSER_DARK_LABEL": "Motyw ciemny",
+      "LIGHT_MODE_LABEL": "Wymuś motyw jasny",
+      "DARK_MODE_LABEL": "Wymuś motyw ciemny"
     }
   },
   "FOOTER": {

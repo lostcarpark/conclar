@@ -16,8 +16,8 @@ import UnfilterableProgram from "./UnfilterableProgram";
 import MySchedule from "./MySchedule";
 import ItemById from "./ItemById";
 import ItemByIdList from "./ItemByIdList";
-import People from "./People";
-import Person from "./Person";
+//import People from "./People";
+//import Person from "./Person";
 import Info from "./Info";
 import Settings from "./Settings";
 import Footer from "./Footer";
@@ -39,10 +39,10 @@ const AppRoutes = () => {
             <Route path="/index.html" element={<FilterableProgram />} />
             <Route path="id/:id" element={<ItemById />} />
             <Route path="ids/:idList" element={<ItemByIdList />} />
-            <Route path="people">
+            {/* <Route path="people">
               <Route index element={<People />} />
               <Route path=":id" element={<Person />} />
-            </Route>
+            </Route> */}
             <Route path="myschedule" element={<MySchedule />} />
             <Route path="info" element={<Info />} />
             <Route path="settings" element={<Settings />} />
