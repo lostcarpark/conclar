@@ -1,0 +1,241 @@
+{
+  "BASE_PATH": "/",
+  "APP_ID": "bazyl2024",
+  "APP_TITLE": "Program - Bazyliszek 2024 - ConClar",
+  "PROGRAM_DATA_URL": "/conclar/program.js",
+  "PEOPLE_DATA_URL": "/conclar/people.js",
+  "FETCH_OPTIONS": {
+    "cache": "reload",
+    "credentials": "omit",
+    "headers": {
+      "Origin": "http://example.com"
+    }
+  },
+  "FETCH_OPTIONS_FIRST": {
+    "credentials": "omit",
+    "headers": {
+      "Origin": "http://example.com"
+    }
+  },
+  "TIMEZONE": "Europe/Warsaw",
+  "TIMEZONECODE": "CEST",
+  "INTERACTIVE": true,
+  "HEADER": {
+    "IMG_SRC": "",
+    "IMG_ALT_TEXT": "",
+    "LINEFEED_AFTER_URL": false
+  },
+  "NAVIGATION": {
+    "PROGRAM": "Program",
+    "PEOPLE": "Prowadzący",
+    "MYSCHEDULE": "Mój harmonogram",
+    "INFO": "Punkt info",
+    "SETTINGS": "Ustawienia",
+    "EXTRA": [{ "LABEL": "Strona główna", "URL": "https://bazyliszek.ava.waw.pl" }]
+  },
+  "LOCATIONS": {
+    "SEARCHABLE": false
+  },
+  "APPLICATION": {
+    "LOADING": {
+      "MESSAGE": "Bazyliszek odczytuje program, ale nie umie czytać. Czekaj cierpliwie..."
+    }
+  },
+  "PROGRAM": {
+    "LIMIT": {
+      "SHOW": true,
+      "LABEL": "Liczba wyświetlanych atrakcji",
+      "OPTIONS": [50, 100, 250, 500, 1000],
+      "ALL_LABEL": "Pokaż wszystko",
+      "DEFAULT": 100,
+      "SHOW_MORE": {
+        "LABEL": "Pokaż więcej",
+        "NO_MORE": "Nic nie znaleziono.",
+        "NUM_EXTRA": 50
+      }
+    },
+    "SEARCH": {
+      "SEARCH_LABEL": "Wyszukaj po tytule lub opisie"
+    },
+    "MY_SCHEDULE": {
+      "TITLE": "Mój Harmonogram",
+      "SHARE": {
+        "LABEL": "Udostępnij wybrane punkty programu",
+        "DESCRIPTION": "Skopiuj i wkej ten link aby udostępnić swoje wybory na inne urządzenia. Lub zeskanuj poniższy kod QR.",
+        "LINK_LABEL": "Link do udostępniania",
+        "MAX_LENGTH": 2500,
+        "MULTIPLE_DESCRIPTION": "Musimy użyć wielu linków/kodów QR, ponieważ zostało wybranych za dużo opcji",
+        "MULTIPLE_LINK_LABEL": "Link do udostępniania #@number"
+      }
+    },
+    "SHARED": {
+      "TITLE": "Udostępnione punkty programu",
+      "DESCRIPTION": "Udostępniono Ci poniższe punkty programu. Aby dodać je do swojego harmonogramu kliknij przycisk na końcu strony.",
+      "BUTTON_LABEL": "Dodaj wszystko do Mojego Harmonogramu"
+    }
+  },
+  "TAGS": {
+    "PLACEHOLDER": "Wybierz tagi",
+    "SEARCHABLE": false,
+    "HIDE": false,
+    "SEPARATE": [
+      { "PREFIX": "type", "PLACEHOLDER": "Wybierz typ", "SEARCHABLE": true, "HIDE": false },
+      { "PREFIX": "test", "PLACEHOLDER": "Wybierz test", "SEARCHABLE": true, "HIDE": false }
+    ],
+    "FORMAT_AS_TAG": false,
+    "DAY_TAG": {
+      "GENERATE": true,
+      "DAYS": {
+        "4": "Czwartek",
+        "5": "Piątek",
+        "6": "Sobota",
+        "7": "Niedziela",
+        "1": "Poniedziałek"
+      },
+      "PLACEHOLDER": "Wybierz dni",
+      "SEARCHABLE": false,
+      "HIDE": false
+    },
+    "DONTLIST": ["Division", "days"]
+  },
+  "FILTER": {
+    "RESET": {
+      "LABEL": "Wyczyść filtry"
+    }
+  },
+  "PERMALINK": {
+    "SHOW_PERMALINK": true,
+    "PERMALINK_TITLE": "Permalink"
+  },
+  "EXPAND": {
+    "EXPAND_ALL_LABEL": "Rozwiń wszystko",
+    "COLLAPSE_ALL_LABEL": "Zwiń wszystko",
+    "SPRING_CONFIG": { "duration": 100 }
+  },
+  "ITEM_DESCRIPTION": {
+    "PURIFY_OPTIONS": {
+      "FORBID_ATTR": ["style", "data-sheets-userformat", "data-sheets-value"]
+    }
+  },
+  "LINKS": [
+    {"NAME": "signup",
+     "TEXT": "Zapisz się",
+     "TAG": ""
+    },
+    {"NAME": "meeting",
+     "TEXT": "Dołącz do transmisji",
+     "TAG": "type:Streaming"
+    },
+    {"NAME": "recording",
+     "TEXT": "Odtwórz nagranie",
+     "TAG": ""
+    }
+  ],
+  "CONVENTION_TIME": {
+    "NOTICE": "Convention time for @timezone, shown in bold."
+  },
+  "LOCAL_TIME": {
+    "CHECKBOX_LABEL": "Show local time",
+    "NOTICE": "Local time for @timezone, shown in italics.",
+    "PREV_DAY": " poprzedni dzień",
+    "NEXT_DAY": " następny dzień",
+    "FAILURE": "Unable to convert to local time."
+  },
+  "TIME_FORMAT": {
+    "DEFAULT_12HR": false,
+    "SHOW_CHECKBOX": true,
+    "CHECKBOX_LABEL": "Show 12 hour time",
+    "AM": "AM",
+    "PM": "PM"
+  },
+  "DURATION": {
+    "SHOW_DURATION": true,
+    "DURATION_LABEL": "Czas trwania: @mins minut"
+  },
+  "SHOW_PAST_ITEMS": {
+    "SHOW_CHECKBOX": true,
+    "CHECKBOX_LABEL": "Pokaż minione",
+    "ADJUST_MINUTES": 10,
+    "FROM_START": false
+  },
+  "PEOPLE": {
+    "MODERATORS": {
+      "MODERATOR_LABEL": "(moderator)"
+    },
+    "THUMBNAILS": {
+      "SHOW_THUMBNAILS": true,
+      "SHOW_CHECKBOX": true,
+      "CHECKBOX_LABEL": "Pokaż miniaturki",
+      "DEFAULT_IMAGE": "head.svg"
+    },
+    "SORT": {
+      "SHOW_CHECKBOX": true,
+      "CHECKBOX_LABEL": "Sort by full name"
+    },
+    "TAGS": {
+      "PLACEHOLDER": "Wybierz tagi",
+      "SEARCHABLE": false,
+      "HIDE": false,
+      "SEPARATE": [
+      ]
+    },
+    "SEARCH": {
+      "SHOW_SEARCH": true,
+      "SEARCH_LABEL": "Search people"
+    },
+    "PERSON_HEADER": "Prowadzący: ",
+    "BIO": {
+      "PURIFY_OPTIONS": {
+        "FORBID_ATTR": ["style"]
+      }
+    }
+  },
+  "USELESS_CHECKBOX": {
+    "CHECKBOX_LABEL": "Bardzo ważna rzecz"
+  },
+  "INFORMATION": {
+    "MARKDOWN_URL": "info.md",
+    "LOADING_MESSAGE": "Czekaj cierpliwie..."
+  },
+  "SETTINGS": {
+    "TITLE": {
+      "LABEL": "Ustawienia"
+    },
+    "TIME_FORMAT": {
+      "LABEL": "Format godziny",
+      "T12_HOUR_LABEL": "12-godzinny",
+      "T24_HOUR_LABEL": "24-godzinny"
+    },
+    "SHOW_LOCAL_TIME": {
+      "LABEL": "Show local time",
+      "NEVER_LABEL": "Never display",
+      "DIFFERS_LABEL": "Display if differs from convention time",
+      "ALWAYS_LABEL": "Always show"
+    },
+    "SHOW_TIMEZONE": {
+      "LABEL": "Show timezone after times",
+      "NEVER_LABEL": "Never show",
+      "IF_LOCAL_LABEL": "Show timezone if local time shown",
+      "ALWAYS_LABEL": "Always show"
+    },
+    "SELECT_TIMEZONE": {
+      "LABEL": "Select timezone",
+      "BROWSER_DEFAULT_LABEL": "Use browser default timezone:",
+      "SELECT_LABEL": "Select timezone to use"
+    }
+  },
+  "FOOTER": {
+    "SITE_NOTE_MARKDOWN": "",
+    "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
+  },
+  "TIMER": {
+    "FETCH_INTERVAL_MINS": 30,
+    "TIMER_TICK_SECS": 300
+  },
+  "DEBUG_MODE": {
+    "ENABLE": false,
+    "ONLINE_LABEL": "Currently Online",
+    "OFFLINE_LABEL": "Currently Offline",
+    "FETCH_BUTTON_LABEL": "Fetch Data Now"
+  }
+}
