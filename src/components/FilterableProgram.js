@@ -56,8 +56,8 @@ const FilterableProgram = () => {
   const total = filtered.length;
   const totalMessage =
     displayLimit !== "all" && displayLimit < total
-      ? `Listing ${displayLimit} of ${total} items`
-      : `Listing ${total} items`;
+      ? `wyświetlam ${displayLimit} z ${total} punktów programu`
+      : `wyświetlam ${total} punktów programu`;
   const display =
     configData.PROGRAM.LIMIT.SHOW && !isNaN(displayLimit)
       ? filtered.slice(0, displayLimit)
@@ -205,7 +205,7 @@ const FilterableProgram = () => {
         <div className="search-filters">
           <div className="filter-locations">
             <ReactSelect
-              placeholder="Select locations"
+              placeholder="Wybierz miejsce"
               options={locations}
               isMulti
               isSearchable={configData.LOCATIONS.SEARCHABLE}
