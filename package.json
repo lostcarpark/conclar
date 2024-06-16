@@ -2,7 +2,7 @@
   "name": "conclar",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/conclar",
+  "homepage": "/program",
   "dependencies": {
     "@js-temporal/polyfill": "^0.4.0",
     "@testing-library/jest-dom": "^5.16.1",
