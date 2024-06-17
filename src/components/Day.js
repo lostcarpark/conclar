@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import TimeSlot from "./TimeSlot";
 import { LocalTime } from "../utils/LocalTime";
+import { Temporal } from "@js-temporal/polyfill";
 
-const Day = ({ date, items, forceExpanded }) => {
+const Day = ({ date, items, forceExpanded, now }) => {
   const day = LocalTime.formatDateForLocaleAsUTC(date);
   const rows = [];
   let itemRows = [];
@@ -18,12 +19,13 @@ const Day = ({ date, items, forceExpanded }) => {
             dateAndTime={curDateAndTime}
             items={itemRows}
             forceExpanded={forceExpanded}
+            now={now}
           />
         );
         itemRows = [];
       }
       curTimeSlot = item.timeSlot;
-      curDateAndTime = item.dateAndTime;
+      curDateAndTime = item.startDateAndTime;
     }
     itemRows.push(item);
   });
@@ -34,6 +36,7 @@ const Day = ({ date, items, forceExpanded }) => {
       dateAndTime={curDateAndTime}
       items={itemRows}
       forceExpanded={forceExpanded}
+      now={now}
     />
   );
 
@@ -52,6 +55,7 @@ Day.defaultProps = {
 Day.propTypes = {
   items: PropTypes.array,
   forceExpanded: PropTypes.bool,
+  now: PropTypes.instanceOf(Temporal.ZonedDateTime),
 };
 
 export default Day;

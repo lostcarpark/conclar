@@ -1,16 +1,23 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from "prop-types";
 import { useStoreState } from "easy-peasy";
 import { LocalTime } from "../utils/LocalTime";
 import Day from "./Day";
 import configData from "../config.json";
-// import { Temporal } from "@js-temporal/polyfill";
+import { Temporal } from "@js-temporal/polyfill";
 
 const ProgramList = ({ program, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   useEffect(() => {
     LocalTime.storeCachedTimes();
   });
+
+  const [now, setNow] = useState(Temporal.Now.zonedDateTimeISO("UTC"));
+  useEffect(() => {
+    setInterval(() => {
+      setNow(Temporal.Now.zonedDateTimeISO("UTC"));
+    }, 10000);
+  }, []);
 
   LocalTime.checkTimeZonesDiffer(program);
 
@@ -27,7 +34,7 @@ const ProgramList = ({ program, forceExpanded }) => {
   }
 
   program.forEach((item) => {
-    const itemDate = item.dateAndTime
+    const itemDate = item.startDateAndTime
       .withTimeZone(LocalTime.conventionTimeZone)
       .round({ smallestUnit: "day", roundingMode: "floor" });
 
@@ -39,6 +46,7 @@ const ProgramList = ({ program, forceExpanded }) => {
             date={curDate}
             items={itemRows}
             forceExpanded={forceExpanded}
+            now={now}
           />
         );
         itemRows = [];
@@ -53,6 +61,7 @@ const ProgramList = ({ program, forceExpanded }) => {
       date={curDate}
       items={itemRows}
       forceExpanded={forceExpanded}
+      now={now}
     />
   );
   const conventionTime = (

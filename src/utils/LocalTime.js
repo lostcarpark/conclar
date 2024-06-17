@@ -225,12 +225,12 @@ export class LocalTime {
       this.timezonesDiffer = false;
       return false;
     }
-    if (this.checkTimeZoneOffsetForDate(program[0].dateAndTime)) {
+    if (this.checkTimeZoneOffsetForDate(program[0].startDateAndTime)) {
       this.timezonesDiffer = true;
       return true;
     }
     const [lastItem] = program.slice(-1);
-    if (this.checkTimeZoneOffsetForDate(lastItem.dateAndTime)) {
+    if (this.checkTimeZoneOffsetForDate(lastItem.startDateAndTime)) {
       this.timezonesDiffer = true;
       return true;
     }
@@ -413,14 +413,14 @@ export class LocalTime {
         minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
       });
       return program.filter((item) => {
-        return Temporal.ZonedDateTime.compare(cutOff, item.dateAndTime) <= 0;
+        return Temporal.ZonedDateTime.compare(cutOff, item.startDateAndTime) <= 0;
       });
     } else {
       const cutOff = Temporal.Now.zonedDateTimeISO("UTC").subtract({
         minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
       });
       return program.filter((item) => {
-        const itemNearEndTime = item.dateAndTime.add({
+        const itemNearEndTime = item.startDateAndTime.add({
           minutes: item.hasOwnProperty("mins")
             ? item.mins
             : configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
@@ -442,11 +442,9 @@ export class LocalTime {
       return false;
     }
     const now = Temporal.Now.zonedDateTimeISO("UTC");
-    const startTime = program[0].dateAndTime;
+    const startTime = program[0].startDateAndTime;
     const [lastItem] = program.slice(-1);
-    const endTime = lastItem.dateAndTime.add({
-      minutes: lastItem.mins ? lastItem.mins : 0,
-    });
+    const endTime = lastItem.endDateAndTime;
     // True if between start of first item and end of last item.
     // ToDo: consider edge case where the item with the latest end time is not the last item.
     return (

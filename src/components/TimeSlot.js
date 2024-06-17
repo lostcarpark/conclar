@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import { useStoreState } from "easy-peasy";
 import ProgramItem from "./ProgramItem";
 import { LocalTime } from "../utils/LocalTime";
+import { Temporal } from "@js-temporal/polyfill";
 
-const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded }) => {
+const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded, now }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
@@ -37,7 +38,7 @@ const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded }) => {
   const rows = [];
   items.forEach((item) => {
     rows.push(
-      <ProgramItem key={item.id} item={item} forceExpanded={forceExpanded} />
+      <ProgramItem key={item.id} item={item} forceExpanded={forceExpanded} now={now} />
     );
   });
 
@@ -61,6 +62,7 @@ TimeSlot.defaultProps = {
 TimeSlot.propTypes = {
   items: PropTypes.array,
   forceExpanded: PropTypes.bool,
+  now: PropTypes.instanceOf(Temporal.ZonedDateTime),
 };
 
 export default TimeSlot;
