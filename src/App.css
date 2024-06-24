@@ -58,9 +58,9 @@
   --program-time-convention-message: grey;
   --program-time-local-message: grey;
   --program-date-line: #2266B1;
-  --program-time-line: #ccc;
-  --program-item-line: #bbb;
-  --program-time-bg: #ddd;
+  --program-time-line: #aed2fa;
+  --program-item-line: #aed2fa;
+  --program-time-bg: #aed2fa;
   --program-tags-fg: #555;
   --program-expanded-bg: #dfe3ff;
   --permalink-icon-fg: #265c83;
