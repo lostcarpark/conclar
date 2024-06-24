@@ -23,12 +23,12 @@
 :root {
   --main-bg: #fff;
   --main-fg: #000;
-  --navigation-button-bg: #ddd;
+  --navigation-button-bg: #b9da91;
   --navigation-button-fg: #0d172a;
-  --navigation-button-border: #e2e8f0;
-  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
+  --navigation-button-border: #b9da91;
+  --navigation-button-current-bg: #2266B1;
   --navigation-button-current-fg: #fff;
-  --navigation-button-hover-bg: #1e293b;
+  --navigation-button-hover-bg: #07733B;
   --navigation-button-hover-fg: #fff;
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: green;
@@ -43,29 +43,29 @@
   --search-border: hsl(0, 0%, 80%);
   --reset-button-bg: var(--navigation-button-current-bg);
   --reset-button-fg: var(--navigation-button-current-fg);
-  --reset-button-hover-bg: var(--navigation-button-bg);
-  --reset-button-hover-fg: var(--navigation-button-fg);
+  --reset-button-hover-bg: var(--navigation-button-hover-bg);
+  --reset-button-hover-fg: var(--navigation-button-hover-fg);
   --expand-button-bg: var(--navigation-button-current-bg);
   --expand-button-fg: var(--navigation-button-current-fg);
-  --expand-button-hover-bg: var(--navigation-button-bg);
-  --expand-button-hover-fg: var(--navigation-button-fg);
+  --expand-button-hover-bg: var(--navigation-button-hover-bg);
+  --expand-button-hover-fg: var(--navigation-button-hover-fg);
   --add-all-button-bg: var(--navigation-button-current-bg);
   --add-all-button-fg: var(--navigation-button-current-fg);
   --add-more-button-bg: var(--navigation-button-current-bg);
   --add-more-button-fg: var(--navigation-button-current-fg);
-  --program-item-chevron-collapsed: #ccc;
-  --program-item-chevron-expanded: #bbe;
+  --program-item-chevron-collapsed: var(--navigation-button-current-bg);
+  --program-item-chevron-expanded: var(--navigation-button-hover-bg);
   --program-time-convention-message: grey;
   --program-time-local-message: grey;
-  --program-date-line: #888;
+  --program-date-line: #2266B1;
   --program-time-line: #ccc;
   --program-item-line: #bbb;
   --program-time-bg: #ddd;
   --program-tags-fg: #555;
-  --program-expanded-bg: #eee;
+  --program-expanded-bg: #e1ebf6;
   --permalink-icon-fg: #265c83;
   --permalink-icon-hover-fg: #193c56;
-  --participant-bg: #eee;
+  --participant-bg: #e1ebf6;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
   --settings-outline: #888;
@@ -80,6 +80,7 @@
   --debug-online-fg: white;
   --debug-offline-bg: red;
   --debug-offline-fg: white;
+  --btn-border-radius: 3px;
 }
 
 img {
@@ -172,7 +173,7 @@ header img {
   background-color: var(--navigation-button-bg);
   color: var(--navigation-button-fg);
   border: 0 solid var(--navigation-button-border);
-  border-radius: 2rem;
+  border-radius: var(--btn-border-radius);
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
@@ -460,7 +461,7 @@ input.switch:checked ~ label:after {
     font-size: 0.85rem;
     padding: .5rem 1.5rem;
     border: none;
-    border-radius: 1.5rem;
+    border-radius: var(--btn-border-radius);
     margin-right: 0.5rem;
     cursor: pointer;
 }
