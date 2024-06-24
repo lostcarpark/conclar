@@ -55,54 +55,63 @@ var program = [
 ### New style - not KonOpas compatible.
 
 ```javascript
-[
-	{
-		"id": "112eeabc-ef56-4197-9191-ce2aa3aea38e",
-		"title": "A Really Cool Item Title",
-		"tags": [
-			{ "value": "tag01", "label": "Some track" },
-			{ "value": "tag02", "label": "Another track" }
-		],
-		"datetime": "2013-12-24T14:30:00+00:00",
-		"mins": "90",
-		"loc": [ "Some Room", "Some Area" ],
-		"people": [
-			{ "id": "bf871858-39d4-4eeb-9f5f-611112262a9c", "role": "moderator" },
-			{ "id": "837debde-9b9b-48ef-97f0-0c73002a398e" }
-		],
-		"desc": "Every prögrammé item really ought to have an explanation, unless it's really evident from the title itself what it'll be about.",
-		"links": []
+{
+	"info": {
+		"version": "1.0.0",
+		"publish-date": "2024-06-24 18:29:00",
+		"comment": "The first publish",
 	},
-	{
-		"id": "29f103c8-d492-49c6-a971-6a4a69fe49ff",
-		"title": "An Interview with the Knight of Honour",
-		"tags": [
-			{ "value": "tag01" },
-			{ "value": "tag03", "category": "Track", "label": "Art" },
-			{ "value": "tag04", "category": "Division", "label": "Program" },
-			{ "value": "tag05", "category": "Tag", "label": "GoH" },
-			{ "value": "tag06", "category": "Tag", "label": "Another tag" }
-		],
-		"date": "2013-12-25T23:30:00+00:00",
-		"mins": "45",
-		"loc": [ "Another Room", "Some Area" ],
-		"people": [
-			{ "id": "972cf921-4831-4b16-a189-b5f1072ab950", "role": "moderator" },
-			{ "id": "bf871858-39d4-4eeb-9f5f-611112262a9c" }
-		],
-		"desc": "",
-		"links": {
-			"signup": "http://url.to.signup/",
-			"meeting": "http://url.to.meeting/",
-			"recording": "http://url.to.recording/"
-		}
-	},
-	...
-]
+	"items": [
+		{
+			"id": "112eeabc-ef56-4197-9191-ce2aa3aea38e",
+			"title": "A Really Cool Item Title",
+			"tags": [
+				{ "value": "tag01", "label": "Some track" },
+				{ "value": "tag02", "label": "Another track" }
+			],
+			"datetime": "2013-12-24T14:30:00+00:00",
+			"mins": "90",
+			"loc": [ "Some Room", "Some Area" ],
+			"people": [
+				{ "id": "bf871858-39d4-4eeb-9f5f-611112262a9c", "role": "moderator" },
+				{ "id": "837debde-9b9b-48ef-97f0-0c73002a398e" }
+			],
+			"desc": "Every prögrammé item really ought to have an explanation, unless it's really evident from the title itself what it'll be about.",
+			"links": []
+		},
+		{
+			"id": "29f103c8-d492-49c6-a971-6a4a69fe49ff",
+			"title": "An Interview with the Knight of Honour",
+			"tags": [
+				{ "value": "tag01" },
+				{ "value": "tag03", "category": "Track", "label": "Art" },
+				{ "value": "tag04", "category": "Division", "label": "Program" },
+				{ "value": "tag05", "category": "Tag", "label": "GoH" },
+				{ "value": "tag06", "category": "Tag", "label": "Another tag" }
+			],
+			"date": "2013-12-25T23:30:00+00:00",
+			"mins": "45",
+			"loc": [ "Another Room", "Some Area" ],
+			"people": [
+				{ "id": "972cf921-4831-4b16-a189-b5f1072ab950", "role": "moderator" },
+				{ "id": "bf871858-39d4-4eeb-9f5f-611112262a9c" }
+			],
+			"desc": "",
+			"links": {
+				"signup": "http://url.to.signup/",
+				"meeting": "http://url.to.meeting/",
+				"recording": "http://url.to.recording/"
+			}
+		},
+		...
+	]
+}
 ```
 
 Note: the "old" and "new" style files are not mutually exclusive, and it is possible to mix elements of both. However, if compatibility with KonOpas is required, old style should be used.
 
+* The root can either be an object with an `items` array, or an array of programme items.
+* `info` is optional. If present, the entire object is logged out to the console.
 * `var program =` and the trailing semicolon are completely optional. They were needed by KonOpas, but ConClár ignores everything outside square brackets. `program` must be the first array in the file if multiple entries in file (discouraged).
 * `id` is a unique id to a programme item. This id is referred to by the `prog` field in the `people` array. There is no particular format it has to follow as long as each entry is unique.
 * `title` is the title of the programme item.
@@ -171,46 +180,55 @@ var people = [
 ### New Style - Not KonOpas Compatible
 
 ```javascript
-[
-	{
-		"id": "837debde-9b9b-48ef-97f0-0c73002a398e",
-		"name": [ "Friend Andhis Jr." ],
-		"sortname" : "Andhis Jr., Friend",
-		"tags": [],
-		"prog": [ "1234", "614", "801" ],
-		"links": [],
-		"bio": "Prior art for Adams's satirical point – that humans attach such importance to their automobiles that a visiting extraterrestrial might reasonably mistake them for the planet's dominant life form – can be found in a widely reprinted article from <i>The Rockefeller Institute Review</i> titled <i>Life on Earth (by a Martian)</i> by Paul Weiss. The idea was also expounded by Carl Sagan, though this may have postdated Adams's creation of the character of Ford. The 1967 Oscar-nominated animated film <i>What on Earth!</i> from the National Film Board of Canada is also based on this premise."
+{
+	"info": {
+		"version": "1.0.0",
+		"publish-date": "2024-06-24 18:29:00",
+		"comment": "The first publish",
 	},
-	{
-		"id": "972cf921-4831-4b16-a189-b5f1072ab950",
-		"name": [ "Galahad", "", "Sir" ],
-		"sortname": "Sir Galahad",
-		"tags": [ {"value": "G1", "label": "GoH"} ],
-		"prog": [ "416" ],
-		"links": {
-			"img": "/images/galahad.jpg",
-			"photo": "/images/galahad.jpg",
-			"img_256_url": "/images/galahad.jpg",
-			"url": "http://en.wikipedia.org/wiki/Galahad"
+	"items": [
+		{
+			"id": "837debde-9b9b-48ef-97f0-0c73002a398e",
+			"name": [ "Friend Andhis Jr." ],
+			"sortname" : "Andhis Jr., Friend",
+			"tags": [],
+			"prog": [ "1234", "614", "801" ],
+			"links": [],
+			"bio": "Prior art for Adams's satirical point – that humans attach such importance to their automobiles that a visiting extraterrestrial might reasonably mistake them for the planet's dominant life form – can be found in a widely reprinted article from <i>The Rockefeller Institute Review</i> titled <i>Life on Earth (by a Martian)</i> by Paul Weiss. The idea was also expounded by Carl Sagan, though this may have postdated Adams's creation of the character of Ford. The 1967 Oscar-nominated animated film <i>What on Earth!</i> from the National Film Board of Canada is also based on this premise."
 		},
-		"bio": "Sir Galahad (/ˈɡæləhæd/; Middle Welsh: Gwalchavad, sometimes referred to as Galeas /ɡəˈliːəs/ or Galath /ˈɡæləθ/), in Arthurian legend, is a knight of King Arthur's Round Table and one of the three achievers of the Holy Grail."
-	},
-	{
-		"id": "bf871858-39d4-4eeb-9f5f-611112262a9c",
-		"name": [ "Just", "Sömeguy" ],
-		"sortname": "Sömeguy Just",
-		"tags": [ {"value": "v1", "label": "Virtual" } ],
-		"prog": [ "1234", "416", "810" ],
-		"links": {
-			"twitter": "justsomeguy9999",
-			"url": "http://example.com/just-someguys-blog"
+		{
+			"id": "972cf921-4831-4b16-a189-b5f1072ab950",
+			"name": [ "Galahad", "", "Sir" ],
+			"sortname": "Sir Galahad",
+			"tags": [ {"value": "G1", "label": "GoH"} ],
+			"prog": [ "416" ],
+			"links": {
+				"img": "/images/galahad.jpg",
+				"photo": "/images/galahad.jpg",
+				"img_256_url": "/images/galahad.jpg",
+				"url": "http://en.wikipedia.org/wiki/Galahad"
+			},
+			"bio": "Sir Galahad (/ˈɡæləhæd/; Middle Welsh: Gwalchavad, sometimes referred to as Galeas /ɡəˈliːəs/ or Galath /ˈɡæləθ/), in Arthurian legend, is a knight of King Arthur's Round Table and one of the three achievers of the Holy Grail."
 		},
-		"bio": "He was voted \"Worst Dressed Sentient Being in the Known Universe\" seven consecutive times. He's been described as \"the best Bang since the Big One\" by Eccentrica Gallumbits, and as \"one hoopy frood\" by others. In the seventh episode of the original radio series, the narrator describes Beeblebrox as being the \"owner of the hippest place in the universe\" (his own left cranium), as voted on in a poll of the readers of the fictional magazine Playbeing."
-	},
-	...
-]
+		{
+			"id": "bf871858-39d4-4eeb-9f5f-611112262a9c",
+			"name": [ "Just", "Sömeguy" ],
+			"sortname": "Sömeguy Just",
+			"tags": [ {"value": "v1", "label": "Virtual" } ],
+			"prog": [ "1234", "416", "810" ],
+			"links": {
+				"twitter": "justsomeguy9999",
+				"url": "http://example.com/just-someguys-blog"
+			},
+			"bio": "He was voted \"Worst Dressed Sentient Being in the Known Universe\" seven consecutive times. He's been described as \"the best Bang since the Big One\" by Eccentrica Gallumbits, and as \"one hoopy frood\" by others. In the seventh episode of the original radio series, the narrator describes Beeblebrox as being the \"owner of the hippest place in the universe\" (his own left cranium), as voted on in a poll of the readers of the fictional magazine Playbeing."
+		},
+		...
+	]
+}
 ```
 
+* The root can either be an object with an `items` array, or an array of programme items.
+* `info` is optional. If present, the entire object is logged out to the console.
 * `var people =` and the trailing semicolon were required by KonOpas, but are optional for ConClár. Everything outside square brackets is ignored. If `program` and `people` are in a single file, `program` must come first. 
 * `id` is a unique id to a people item. This id is referenced by the `people` field in the `program` array.
 * `name` is the name of the person. It can be an array in the following format: [ "First", "Last", "Prefix", "Suffix" ] or as [ "Full Name" ].

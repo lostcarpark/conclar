@@ -62,18 +62,27 @@ export class ProgramData {
    * @returns {array}
    */
   static processProgramData(program) {
+    let programItems;
+    if (Array.isArray(program)) {
+      programItems = program;
+    } else {
+      if (program.hasOwnProperty('info')) {
+        console.log('Fetched program:', program.info);
+      }
+      programItems = program.items;
+    }
     const utcTimeZone = Temporal.TimeZone.from("UTC");
-    program.map((item) => {
+    programItems.map((item) => {
       const startTime = this.processDateAndTime(item);
       item.dateAndTime = startTime.withTimeZone(utcTimeZone);
       item.timeSlot = LocalTime.getTimeSlot(item.dateAndTime);
       return item;
     });
-    program.sort((a, b) => {
+    programItems.sort((a, b) => {
       return Temporal.ZonedDateTime.compare(a.dateAndTime, b.dateAndTime);
     });
     //console.log("Program data", program);
-    return program;
+    return programItems;
   }
 
   /**
@@ -83,7 +92,16 @@ export class ProgramData {
    * @returns {array}
    */
   static processPeopleData(people) {
-    for (let person of people) {
+    let peopleItems;
+    if (Array.isArray(people)) {
+      peopleItems = people;
+    } else {
+      if (people.hasOwnProperty('info')) {
+        console.log('Fetched people:', people.info);
+      }
+      peopleItems = people.items;
+    }
+    for (let person of peopleItems) {
       // If SortName not in file, create from name. If name is array, put last element first for sorting.
       if (!person.sortname || person.sortname.trim().length === 0) {
         person.sortname = Array.isArray(person.name)
@@ -100,8 +118,8 @@ export class ProgramData {
       // Hoping to use in future for nicer URLs of form "/person/name". However caused problems with unicode chars, so using ID for now.
       person.uri = encodeURIComponent(person.name.replace(/[ ]/g, "_"));
     }
-    people.sort((a, b) => a.sortname.localeCompare(b.sortname));
-    return people;
+    peopleItems.sort((a, b) => a.sortname.localeCompare(b.sortname));
+    return peopleItems;
   }
 
   /**
