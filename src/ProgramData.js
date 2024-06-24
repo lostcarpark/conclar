@@ -387,53 +387,128 @@ export class ProgramData {
   }
 
   /**
-   * Fetch JSON from URL.
-   *
-   * @param {string} url
-   * @returns {object}
+   * Validate that DATA_URLS and the legacy PROGRAM_DATA_URL/PEOPLE_DATA_URL
+   * keys aren't ambiguously combined, and that DATA_URLS itself specifies
+   * exactly one of COMBINED or the SCHEDULE+PEOPLE pair.
    */
-  static async fetchUrl(url, fetchOptions) {
-    const res = await fetch(url, fetchOptions);
-    const data = await res.text();
-    return JsonParse.extractJson(data);
+  static validateDataSourceConfig() {
+    const hasLegacyUrls =
+      configData.PROGRAM_DATA_URL !== undefined ||
+      configData.PEOPLE_DATA_URL !== undefined;
+    const hasDataUrls = configData.DATA_URLS !== undefined;
+
+    if (hasLegacyUrls && hasDataUrls) {
+      throw new Error(
+        "config.json cannot specify both DATA_URLS and PROGRAM_DATA_URL/PEOPLE_DATA_URL."
+      );
+    }
+
+    if (hasDataUrls) {
+      const { COMBINED, SCHEDULE, PEOPLE } = configData.DATA_URLS;
+      const hasCombined = COMBINED !== undefined;
+      const hasSchedule = SCHEDULE !== undefined;
+      const hasPeople = PEOPLE !== undefined;
+
+      if (hasCombined && (hasSchedule || hasPeople)) {
+        throw new Error(
+          "DATA_URLS cannot specify both COMBINED and SCHEDULE/PEOPLE."
+        );
+      }
+      if (!hasCombined && hasSchedule !== hasPeople) {
+        throw new Error(
+          "DATA_URLS must specify both SCHEDULE and PEOPLE, or COMBINED alone."
+        );
+      }
+      if (!hasCombined && !hasSchedule && !hasPeople) {
+        throw new Error(
+          "DATA_URLS must specify COMBINED, or both SCHEDULE and PEOPLE."
+        );
+      }
+    }
   }
 
   /**
-   * Work out whether to read one or two files, and read the data.
+   * Parse a fetched DATA_URLS source. The file self-describes its shape via
+   * a required top-level schemaVersion; a combined file has both "schedule"
+   * and "people" properties, while a single-purpose file has just one.
    *
-   * @returns {array}
+   * @param {string} raw Raw text of the source.
+   * @param {string} label Source label (e.g. "data", "schedule", "people") for the log line.
+   * @returns {{program: (array|undefined), people: (array|undefined)}}
+   */
+  static parseSchemaVersionedData(raw, label) {
+    const parsed = JSON.parse(raw);
+    switch (parsed.schemaVersion) {
+      case 2: {
+        if (parsed.hasOwnProperty("info")) {
+          console.log(`Fetched ${label}:`, parsed.info);
+        }
+        return { program: parsed.schedule, people: parsed.people };
+      }
+      default:
+        throw new Error("Unknown schema version: " + parsed.schemaVersion);
+    }
+  }
+
+  /**
+   * Fetch and parse program, people, and info.
+   *
+   * Throws on fetch, parse, or configuration errors; the caller is responsible
+   * for surfacing the failure to the user.
+   *
+   * @returns {object}
    */
   static async fetchData(firstTime) {
-    //setLoadingMessage
-    try {
-      console.log("Fetching:", firstTime ? "First time" : "Refreshing");
-      const fetchOptions = firstTime
-        ? configData.FETCH_OPTIONS_FIRST
-        : configData.FETCH_OPTIONS;
-      // If only one data source, we can use a single fetch.
-      if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
-        const [rawData, info] = await Promise.all([
-          this.fetchUrl(configData.PROGRAM_DATA_URL, fetchOptions),
+    this.validateDataSourceConfig();
+
+    console.log("Fetching:", firstTime ? "First time" : "Refreshing");
+    const fetchOptions = firstTime
+      ? configData.FETCH_OPTIONS_FIRST
+      : configData.FETCH_OPTIONS;
+
+    let program, people, info;
+    if (configData.DATA_URLS) {
+      const { COMBINED, SCHEDULE, PEOPLE } = configData.DATA_URLS;
+      if (COMBINED) {
+        let raw;
+        [raw, info] = await Promise.all([
+          this.fetchText(COMBINED, fetchOptions),
           this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
-        const [rawProgram, rawPeople] = rawData;
-        const data =  ProgramData.processData(rawProgram, rawPeople);
-        data.info = info;
-        return data;
+        ({ program, people } = this.parseSchemaVersionedData(raw, "data"));
       } else {
-        // Separate program and people sources, so need to create promise for each fetch.
-        const [[rawProgram], [rawPeople], info] = await Promise.all([
-          this.fetchUrl(configData.PROGRAM_DATA_URL, fetchOptions),
-          this.fetchUrl(configData.PEOPLE_DATA_URL, fetchOptions),
+        let rawSchedule, rawPeople;
+        [rawSchedule, rawPeople, info] = await Promise.all([
+          this.fetchText(SCHEDULE, fetchOptions),
+          this.fetchText(PEOPLE, fetchOptions),
           this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
-        // Called with an array containing result of each promise.
-        const data =  ProgramData.processData(rawProgram, rawPeople);
-        data.info = info;
-        return data;
+        program = this.parseSchemaVersionedData(rawSchedule, "schedule").program;
+        people = this.parseSchemaVersionedData(rawPeople, "people").people;
       }
-    } catch (e) {
-      console.log("Fetch error", e);
+    } else {
+      // Legacy path: always the v1 bare-array format.
+      if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
+        let raw;
+        [raw, info] = await Promise.all([
+          this.fetchText(configData.PROGRAM_DATA_URL, fetchOptions),
+          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
+        ]);
+        [program, people] = JsonParse.extractJson(raw);
+      } else {
+        let rawProgram, rawPeople;
+        [rawProgram, rawPeople, info] = await Promise.all([
+          this.fetchText(configData.PROGRAM_DATA_URL, fetchOptions),
+          this.fetchText(configData.PEOPLE_DATA_URL, fetchOptions),
+          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
+        ]);
+        program = JsonParse.extractJson(rawProgram)[0];
+        people = JsonParse.extractJson(rawPeople)[0];
+      }
     }
+
+    const data = ProgramData.processData(program, people);
+    data.info = info;
+    return data;
   }
 }
