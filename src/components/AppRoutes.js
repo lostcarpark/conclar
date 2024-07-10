@@ -84,7 +84,7 @@ const AppRoutes = () => {
           window.matchMedia("(prefers-color-scheme: dark)").matches)
       }
     >
-      <Router basename={configData.BASE_PATH}>
+      <Router basename={window.publicUrl}>
         <ScrollToTop>{theApp}</ScrollToTop>
       </Router>
     </ThemeSelector>

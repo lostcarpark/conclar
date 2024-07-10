@@ -27,7 +27,7 @@ const Participant = ({ person, thumbnails, moderator }) => {
           <div className="participant-image participant-default-image">
             <img
               src={
-                configData.BASE_PATH +
+                window.publicUrl +
                 configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE
               }
               alt={person.name}
