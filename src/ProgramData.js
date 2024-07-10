@@ -66,7 +66,9 @@ export class ProgramData {
     program.map((item) => {
       const startTime = this.processDateAndTime(item);
       item.startDateAndTime = startTime.withTimeZone(utcTimeZone);
+      item.bufferedStartDateAndTime = item.startDateAndTime.subtract({ minutes: 20});
       item.endDateAndTime = item.startDateAndTime.add({ minutes: item.mins ? item.mins : 0});
+      item.bufferedEndDateAndTime = item.endDateAndTime.add({ minutes: 10});
       item.timeSlot = LocalTime.getTimeSlot(item.startDateAndTime);
       return item;
     });
