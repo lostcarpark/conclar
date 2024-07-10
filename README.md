@@ -61,7 +61,6 @@ See the section about [React app deployment](https://facebook.github.io/create-r
 
 The main place customisations go is the `src/config.json` file. Settings currently available include:
 
-- `BASE_PATH`: The path to ConClár within your webserver. Set to '/' to run in the root directory. See below for running in a subdirectory.
 - `APP_ID`: A unique id to distinguish between instances of multi-year conventions.
 - `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
 - `PROGRAM_DATA_URL`: The address of the file containing programme data.
@@ -215,10 +214,9 @@ After running `npm run build` just copy the build directory to the public direct
 
 If you need to put ConClár in a subdirectory on your webserver, you'll need to carry out the following additional steps:
 
-1. Edit the `BASE_PATH` setting in your `config.json` file. To put in a directory called "guide", set `BASE_PATH` to "/guide/".
-2. Edit the `package.json` file and add a `homepage` setting as shown below.
-3. Set appropriate settings for the webserver to find the `index.html` in the subdirectory.
-4. Use `npm run build` to prepare the application to upload.
+1. Edit the `package.json` file and add a `homepage` setting as shown below.
+2. Set appropriate settings for the webserver to find the `index.html` in the subdirectory.
+3. Use `npm run build` to prepare the application to upload.
 
 The `package.json` file should start as follows:
 
