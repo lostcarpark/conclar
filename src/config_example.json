@@ -1,5 +1,4 @@
 {
-  "BASE_PATH": "/",
   "APP_ID": "O2021",
   "APP_TITLE": "ConClár Programme Guide",
   "PROGRAM_DATA_URL": "/2022/program.js",
@@ -126,11 +125,13 @@
     },
     {"NAME": "meeting",
      "TEXT": "Click to view stream",
-     "TAG": "type:Streaming"
+     "TAG": "type:Streaming",
+     "WHEN": ["during"]
     },
     {"NAME": "recording",
      "TEXT": "Click to view recording",
-     "TAG": ""
+     "TAG": "",
+     "WHEN": ["after"]
     }
   ],
   "CONVENTION_TIME": {

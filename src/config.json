@@ -1,9 +1,8 @@
 {
-  "BASE_PATH": "/",
   "APP_ID": "O2021",
   "APP_TITLE": "Glasgow 2024 Programme Guide",
-  "PROGRAM_DATA_URL": "/2022/program.js",
-  "PEOPLE_DATA_URL": "/2022/people.js",
+  "PROGRAM_DATA_URL": "/2024/program.js",
+  "PEOPLE_DATA_URL": "/2024/people.js",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -17,8 +16,8 @@
       "Origin": "http://example.com"
     }
   },
-  "TIMEZONE": "Europe/Dublin",
-  "TIMEZONECODE": "IST",
+  "TIMEZONE": "Europe/London",
+  "TIMEZONECODE": "BST",
   "INTERACTIVE": true,
   "HEADER": {
     "IMG_SRC": "online-banner_glasgow.png",
@@ -31,7 +30,7 @@
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
     "SETTINGS": "Settings",
-    "EXTRA": [{ "LABEL": "Glasgow 2024", "URL": "https://glasgow2024.org/" }]
+    "EXTRA": [{ "LABEL": "Member portal", "URL": "https://portal.glasgow2024.org/" }]
   },
   "LOCATIONS": {
     "SEARCHABLE": false
@@ -75,14 +74,15 @@
     }
   },
   "TAGS": {
-    "PLACEHOLDER": "Select tags",
+    "PLACEHOLDER": "Select tag",
     "SEARCHABLE": false,
     "HIDE": false,
     "SEPARATE": [
       { "PREFIX": "Division", "PLACEHOLDER": "Select division", "SEARCHABLE": false, "HIDE": true },
-      { "PREFIX": "Type", "PLACEHOLDER": "Select type", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Area", "PLACEHOLDER": "Select area", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
+      { "PREFIX": "Environment", "PLACEHOLDER": "Select environment", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Note", "PLACEHOLDER": "Select note", "SEARCHABLE": false, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
@@ -120,17 +120,34 @@
     }
   },
   "LINKS": [
-    {"NAME": "signup",
-     "TEXT": "Click to sign up",
-     "TAG": ""
+    {
+      "NAME": "chat",
+      "TEXT": "Chat about this item",
+      "TAG": ""
     },
-    {"NAME": "meeting",
-     "TEXT": "Click to view stream",
-     "TAG": "type:Streaming"
+    {
+      "NAME": "signup",
+      "TEXT": "Sign-up for this item",
+      "WHEN": ["before"],
+      "TAG": ""
     },
-    {"NAME": "recording",
-     "TEXT": "Click to view recording",
-     "TAG": ""
+    {
+      "NAME": "stage",
+      "TEXT": "Watch the stream",
+      "WHEN": ["during"],
+      "TAG": ""
+    },
+    {
+      "NAME": "session",
+      "TEXT": "Join this session",
+      "WHEN": ["during"],
+      "TAG": ""
+    },
+    {
+      "NAME": "replay",
+      "TEXT": "Watch the replay",
+      "WHEN": ["after"],
+      "TAG": ""
     }
   ],
   "CONVENTION_TIME": {

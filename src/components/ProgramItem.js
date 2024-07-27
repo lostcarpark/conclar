@@ -11,8 +11,9 @@ import Tag from "./Tag";
 import Participant from "./Participant";
 import configData from "../config.json";
 import PropTypes from "prop-types";
+import { Temporal } from "@js-temporal/polyfill";
 
-const ProgramItem = ({ item, forceExpanded }) => {
+const ProgramItem = ({ item, forceExpanded, now }) => {
   const selected = useStoreState((state) => state.isSelected(item.id));
   const { addSelection, removeSelection } = useStoreActions((actions) => ({
     addSelection: actions.addSelection,
@@ -37,6 +38,16 @@ const ProgramItem = ({ item, forceExpanded }) => {
   function handleSelected(event) {
     if (event.target.checked) addSelection(item.id);
     else removeSelection(item.id);
+  }
+
+  function getRelativeTime(item) {
+    if (Temporal.ZonedDateTime.compare(now, item.bufferedStartDateAndTime) < 0) {
+      return "before";
+    } else if (Temporal.ZonedDateTime.compare(now, item.bufferedEndDateAndTime) < 0) {
+      return "during";
+    } else {
+      return "after";
+    }
   }
 
   let id = "item_" + item.id;
@@ -89,12 +100,14 @@ const ProgramItem = ({ item, forceExpanded }) => {
   if (configData.LINKS) {
     configData.LINKS.forEach((link) => {
       if (item.links && item.links[link.NAME] && item.links[link.NAME].length) {
+        const enabled = !link.WHEN || link.WHEN.indexOf(getRelativeTime(item)) >= 0;
         links.push(
           <ItemLink
             key={link.NAME}
             name={"item-links-" + link.NAME}
             link={item.links[link.NAME]}
             text={link.TEXT}
+            enabled={enabled}
           />
         );
       }
@@ -181,6 +194,7 @@ ProgramItem.defaultProps = {
 
 ProgramItem.propTypes = {
   forceExpanded: PropTypes.bool,
+  now: PropTypes.instanceOf(Temporal.ZonedDateTime),
 };
 
 export default ProgramItem;

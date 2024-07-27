@@ -63,8 +63,9 @@
   --program-time-bg: #aed2fa;
   --program-tags-fg: #555;
   --program-expanded-bg: #dfe3ff;
-  --permalink-icon-fg: #265c83;
-  --permalink-icon-hover-fg: #193c56;
+  --link-fg: #265c83;
+  --link-hover-fg: #193c56;
+  --link-disabled: #888;
   --participant-bg: #dfe3ff;
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
@@ -106,12 +107,12 @@ body {
 }
 
 a {
-  color: var(--permalink-icon-fg);
+  color: var(--link-fg);
 
 }
 
 a:hover, a:focus {
-  color: var(--permalink-icon-hover-fg);
+  color: var(--link-hover-fg);
 }
 
 h1,
@@ -671,16 +672,21 @@ input.switch:checked ~ label:after {
 .item-permalink a,
 .item-links a {
   transition: color 0.4s;
-  color: var(--permalink-icon-fg);
+  color: var(--link-fg);
 }
 .item-permalink a:visited,
 .item-links a:visited {
-  color: var(--permalink-icon-fg);
+  color: var(--link-fg);
 }
 .item-permalink a:hover,
 .item-links a:hover {
-  color: var(--permalink-icon-hover-fg);
+  color: var(--link-hover-fg);
 }
+.item-links a:not([href]),
+.item-links a:not([href]):hover {
+  color: var(--link-disabled);
+}
+
 
 /* fix link spacing */
 
