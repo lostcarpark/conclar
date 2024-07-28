@@ -71,6 +71,8 @@
   --participant-link-visited-fg: #444;
   --settings-outline: #888;
   --footer-line: #888;
+  --footer-bg-color: #424242;
+  --footer-fg-color: #F5F5F5;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
   --shadow-012: rgba(0, 0, 0, 0.12);
@@ -966,9 +968,20 @@ input.switch:checked ~ label:after {
 
 footer {
   margin-top: 2rem;
-  /* often there is already a border before this element so omit:
-  border-top: 1px solid var(--footer-line); */
-  text-align: right;
+  padding: 0 .5rem;
+  background-color: var(--footer-bg-color);
+  border-top: 1px solid var(--footer-line);
+  color: var(--footer-fg-color);
+}
+
+footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer a,
+footer a:hover {
+  color: var(--footer-fg-color);
 }
 
 /*

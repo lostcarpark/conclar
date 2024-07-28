@@ -252,7 +252,8 @@
     }
   },
   "FOOTER": {
-    "SITE_NOTE_MARKDOWN": "",
+    "SITE_NOTE_MARKDOWN": "“World Science Fiction Society”, “WSFS”, “World Science Fiction Convention”, “Worldcon”, “NASFiC”, “Lodestar Award”, “Hugo Award”, the Hugo Award Logo, and the distinctive design of the Hugo Award Rocket are service marks of Worldcon Intellectual Property, a California non-profit corporation managed by the Mark Protection Committee of the World Science Fiction Society, an unincorporated literary society.",
+    "COPYRIGHT_MARKDOWN": "© 2024 Glasgow 2024.",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "TIMER": {
