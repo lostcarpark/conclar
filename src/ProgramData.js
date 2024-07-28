@@ -128,6 +128,7 @@ export class ProgramData {
           //Moderator check before nuking the item person data.
           if (
             item.people.length > 0 &&
+            typeof(item.people[index]) !== 'undefined' &&
             ((item.people[index].hasOwnProperty("name") &&
               item.people[index].name.indexOf("(moderator)") > 0) ||
             (item.people[index].hasOwnProperty("role") &&
