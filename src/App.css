@@ -368,6 +368,22 @@ input.switch:checked ~ label:after {
   max-width: 50ch;
 }
 
+.filter-hide-before {
+  max-width: 30ch;
+  margin: auto 0.25em;
+}
+
+.filter-hide-before label {
+  display: none;
+}
+
+.filter-hide-before select
+{
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .filter-search label {
   display: none;
 }

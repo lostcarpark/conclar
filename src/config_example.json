@@ -99,6 +99,18 @@
     },
     "DONTLIST": ["Division", "days"]
   },
+  "HIDE_BEFORE": {
+    "HIDE": false,
+    "PLACEHOLDER": "Hide before",
+    "TIMES": [
+      { "TIME": "10:00:00", "LABEL_24H": "10:00", "LABEL_12H": "10am" },
+      { "TIME": "12:00:00", "LABEL_24H": "12:00", "LABEL_12H": "12 noon" },
+      { "TIME": "14:00:00", "LABEL_24H": "14:00", "LABEL_12H": "2pm" },
+      { "TIME": "16:00:00", "LABEL_24H": "16:00", "LABEL_12H": "4pm" },
+      { "TIME": "18:00:00", "LABEL_24H": "18:00", "LABEL_12H": "6pm" },
+      { "TIME": "20:00:00", "LABEL_24H": "20:00", "LABEL_12H": "8pm" }
+    ]
+  },
   "FILTER": {
     "RESET": {
       "LABEL": "Reset filters"
