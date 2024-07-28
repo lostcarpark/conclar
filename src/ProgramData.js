@@ -117,8 +117,10 @@ export class ProgramData {
     // Add extra participant info to program participants.
     for (let item of program) {
       if (item.people) {
+        console.log(item.id, item.title);
         // Loop through people backwards, so we don't miss anyone if entries are removed.
         for (let index = item.people.length - 1; index >= 0; index--) {
+          console.log(index);
           let fullPerson = people.find(
             (fullPerson) => fullPerson.id === item.people[index].id
           );
@@ -126,6 +128,7 @@ export class ProgramData {
             item.people.splice(index, 1);
           }
           //Moderator check before nuking the item person data.
+          console.log(index, item.people.length, item.people[index]);
           if (
             item.people.length > 0 &&
             typeof(item.people[index]) !== 'undefined' &&
