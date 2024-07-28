@@ -98,6 +98,9 @@ body {
 }
 
 .App {
+  display: grid;
+  height: 100dvh;
+  grid-template-rows: auto 1fr auto;
   text-align: left;
   margin: 1rem;
   font-size: 1.25rem;
