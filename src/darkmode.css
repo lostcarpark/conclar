@@ -5,12 +5,12 @@
 :root {
   --main-bg: #000;
   --main-fg: #fff;
-  --navigation-button-bg: #444;
-  --navigation-button-fg: #ddd;
+  --navigation-button-bg: #066534;
+  --navigation-button-fg: #fff;
   --navigation-button-border: #e2e8f0;
-  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
+  --navigation-button-current-bg: #2B3990;
   --navigation-button-current-fg: #fff;
-  --navigation-button-hover-bg: #1e293b;
+  --navigation-button-hover-bg: #04341B;
   --navigation-button-hover-fg: #fff;
   --checkbox-switch-bg: #444;
   --checkbox-selected-bg: green;
@@ -21,19 +21,19 @@
   --filter-select-bg: #bbe;
   --filter-select-fg: #000;
   --search-border: hsl(0, 0%, 40%);
-  --program-item-chevron-collapsed: #ccc;
-  --program-item-chevron-expanded: #bbe;
+  --program-item-chevron-collapsed: #7fdbff;
+  --program-item-chevron-expanded: #b9da91;
   --program-time-convention-message: grey;
   --program-time-local-message: grey;
-  --program-date-line: #888;
-  --program-time-line: #ccc;
-  --program-item-line: #bbb;
+  --program-date-line: #7fdbff;
+  --program-time-line: #6fb6d2;
+  --program-item-line: #689aad;
   --program-time-bg: #444;
   --program-tags-fg: #bbb;
-  --program-expanded-bg: #333;
-  --permalink-icon-fg: #7fdbff;
-  --permalink-icon-hover-fg: #b9da91;
-  --participant-bg: #333;
+  --program-expanded-bg: #011f3e;
+  --link-fg: #7fdbff;
+  --link-hover-fg: #b9da91;
+  --participant-bg: #011f3e;
   --participant-link-fg: #eee;
   --participant-link-visited-fg: #ccc;
 }
