@@ -1,8 +1,8 @@
 {
-  "APP_ID": "O2021",
+  "APP_ID": "G2024",
   "APP_TITLE": "Glasgow 2024 Programme Guide",
-  "PROGRAM_DATA_URL": "/2024/program.js",
-  "PEOPLE_DATA_URL": "/2024/people.js",
+  "PROGRAM_DATA_URL": "/schedule.json",
+  "PEOPLE_DATA_URL": "/participants.json",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
