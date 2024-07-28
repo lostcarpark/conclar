@@ -70,8 +70,8 @@
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
   --settings-outline: #888;
-  --footer-line: #888;
-  --footer-bg-color: #424242;
+  --footer-line: transparent;
+  --footer-bg-color: #161d48;
   --footer-fg-color: #F5F5F5;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
@@ -968,10 +968,12 @@ input.switch:checked ~ label:after {
 
 footer {
   margin-top: 2rem;
-  padding: 0 .5rem;
+  padding: .5rem;
   background-color: var(--footer-bg-color);
   border-top: 1px solid var(--footer-line);
   color: var(--footer-fg-color);
+  box-shadow: 0 0 0 100vmax var(--footer-bg-color);
+  clip-path: inset(0 -100vmax); 
 }
 
 footer .footer-bottom {
