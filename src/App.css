@@ -354,7 +354,9 @@ input.switch:checked ~ label:after {
 .filter-tags,
 .filter-locations,
 .filter-search,
-.filter-options {
+.filter-options,
+.filter-hide-before
+{
   flex-basis: 0;
   flex-grow: 1;
   margin: 0.25em;
@@ -362,14 +364,16 @@ input.switch:checked ~ label:after {
 
 .filter-tags,
 .filter-locations,
-.filter-search {
+.filter-search,
+.filter-hide-before
+ {
   font-size: 0.8em;
-  min-width: 20ch;
+  min-width: 21ch;
   max-width: 50ch;
 }
 
 .filter-hide-before {
-  max-width: 30ch;
+  /* max-width: 30ch; */
   margin: auto 0.25em;
 }
 
