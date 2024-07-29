@@ -453,6 +453,7 @@ input.switch:checked ~ label:after {
   font-size: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  width: 100%;
 }
 
 .program-limit-select {
