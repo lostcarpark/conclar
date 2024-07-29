@@ -239,10 +239,10 @@ const FilterableProgram = () => {
 
   // create list of options for hide before time drop-down.
   const hideBeforeOptions = [
-    <option value="">{configData.HIDE_BEFORE.PLACEHOLDER}</option>,
+    <option value="" key="0">{configData.HIDE_BEFORE.PLACEHOLDER}</option>,
   ];
   for (const time of configData.HIDE_BEFORE.TIMES) {
-    hideBeforeOptions.push(<option value={time.TIME}>{show12HourTime ? time.LABEL_12H : time.LABEL_24H}</option>);
+    hideBeforeOptions.push(<option value={time.TIME} key={time.TIME}>{show12HourTime ? time.LABEL_12H : time.LABEL_24H}</option>);
   }
   const hideBeforeSelect = configData.HIDE_BEFORE.HIDE ? (
     <></>
@@ -253,7 +253,7 @@ const FilterableProgram = () => {
         id="hide-before"
         placeholder={configData.HIDE_BEFORE.PLACEHOLDER}
         value={hideBefore}
-        onClick={(e) => {
+        onChange={(e) => {
           resetDisplayLimit();
           setHideBefore(e.target.value);
         }}
