@@ -96,13 +96,9 @@ const FilterableProgram = () => {
    * @param {array} days Days to choose earliest from.
    * @returns {array} The program with items before start removed.
    */
-  function filterHideBefore(program, days) {
-    const minDate = days.reduce(
-      (acc, curr) => (curr.value < acc ? curr.value : acc),
-      days[0].value
-    );
+  function filterHideBefore(program, minDay) {
     const beforeDate = Temporal.ZonedDateTime.from(
-      minDate + "T" + hideBefore + "[" + configData.TIMEZONE + "]"
+      minDay + "T" + hideBefore + "[" + configData.TIMEZONE + "]"
     );
     return program.filter(
       (item) =>
@@ -123,18 +119,6 @@ const FilterableProgram = () => {
       return program;
 
     let filtered = program;
-
-    if (!configData.HIDE_BEFORE.HIDE && hideBefore) {
-      if (
-        "days" in selTags &&
-        Array.isArray(selTags.days) &&
-        selTags.days.length > 0
-      ) {
-        filtered = filterHideBefore(filtered, selTags.days);
-      } else {
-        filtered = filterHideBefore(filtered, tags.days);
-      }
-    }
 
     // Filter by search term.
     if (term.length) {
@@ -176,6 +160,22 @@ const FilterableProgram = () => {
     }
     if (LocalTime.isDuringCon(program) && !showPastItems) {
       filtered = LocalTime.filterPastItems(filtered);
+    }
+    if (!configData.HIDE_BEFORE.HIDE && hideBefore) {
+      if (
+        "days" in selTags &&
+        Array.isArray(selTags.days) &&
+        selTags.days.length > 0
+      ) {
+        const minDay = selTags.days.reduce(
+          (acc, curr) => (curr.value < acc ? curr.value : acc),
+          selTags.days[0].value
+        );
+        filtered = filterHideBefore(filtered, minDay);
+      } else {
+        const minDay = filtered[0].tags.find((item) => item.category === "days").value
+        filtered = filterHideBefore(filtered, minDay);
+      }
     }
     return filtered;
   }
@@ -239,10 +239,16 @@ const FilterableProgram = () => {
 
   // create list of options for hide before time drop-down.
   const hideBeforeOptions = [
-    <option value="" key="0">{configData.HIDE_BEFORE.PLACEHOLDER}</option>,
+    <option value="" key="0">
+      {configData.HIDE_BEFORE.PLACEHOLDER}
+    </option>,
   ];
   for (const time of configData.HIDE_BEFORE.TIMES) {
-    hideBeforeOptions.push(<option value={time.TIME} key={time.TIME}>{show12HourTime ? time.LABEL_12H : time.LABEL_24H}</option>);
+    hideBeforeOptions.push(
+      <option value={time.TIME} key={time.TIME}>
+        {show12HourTime ? time.LABEL_12H : time.LABEL_24H}
+      </option>
+    );
   }
   const hideBeforeSelect = configData.HIDE_BEFORE.HIDE ? (
     <></>
