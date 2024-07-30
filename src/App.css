@@ -23,6 +23,7 @@
 :root {
   --main-bg: #fff;
   --main-fg: #000;
+  --header-fg: #2B3990;
   --navigation-button-bg: #b9da91;
   --navigation-button-fg: #0d172a;
   --navigation-button-border: #b9da91;
@@ -38,8 +39,8 @@
   --filter-border: var(--search-border);
   --filter-select-bg: #bbe;
   --filter-select-fg: #000;
-  --filter-select-single-caret: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ccc' stroke='%23ccc' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
-  --filter-select-single-hover-caret: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23999' stroke='%23999' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
+  --filter-select-single-indicator: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ccc' stroke='%23ccc' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
+  --filter-select-single-hover-indicator: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23999' stroke='%23999' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
   --search-bg: var(--main-bg);
   --search-fg: var(--main-fg);
   --search-border: hsl(0, 0%, 80%);
@@ -55,6 +56,8 @@
   --add-all-button-fg: var(--navigation-button-current-fg);
   --add-more-button-bg: var(--navigation-button-current-bg);
   --add-more-button-fg: var(--navigation-button-current-fg);
+  --add-more-button-hover-bg: var(--navigation-button-hover-bg);
+  --add-more-button-hover-fg: var(--navigation-button-hover-fg);
   --program-item-chevron-collapsed: var(--navigation-button-current-bg);
   --program-item-chevron-expanded: var(--navigation-button-hover-bg);
   --program-time-convention-message: grey;
@@ -147,6 +150,7 @@ header {
 
 header h1 {
   margin: 1rem 0;
+  color: var(--header-fg);
 }
 
 header img {
@@ -356,6 +360,7 @@ input.switch:checked ~ label:after {
 .filter-tags,
 .filter-locations,
 .filter-search,
+.people-search,
 .filter-options,
 .filter-hide-before
 {
@@ -367,6 +372,7 @@ input.switch:checked ~ label:after {
 .filter-tags,
 .filter-locations,
 .filter-search,
+.people-search,
 .filter-hide-before
  {
   font-size: 0.8em;
@@ -392,7 +398,7 @@ input.switch:checked ~ label:after {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image: var(--filter-select-single-caret);
+  background-image: var(--filter-select-single-indicator);
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
@@ -401,7 +407,7 @@ input.switch:checked ~ label:after {
 .filter-hide-before select:focus,
 .filter-hide-before select:active
 {
-  background-image: var(--filter-select-single-hover-caret);
+  background-image: var(--filter-select-single-hover-indicator);
 }
 
 .filter-search label {
@@ -478,12 +484,6 @@ input.switch:checked ~ label:after {
 .filter-expand,
 .filter-options {
   white-space: nowrap;
-}
-
-.filter-search,
-.people-search {
-  max-width: 30ch;
-  margin: auto 0.25em;
 }
 
 .filter-search input,
@@ -826,6 +826,13 @@ input.switch:checked ~ label:after {
   padding: .5rem 1.5rem;
   border: none;
   border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+.show-more-button:hover,
+.show-more-button:focus {
+  background-color: var(--expand-button-hover-bg);
+  color: var(--expand-button-hover-fg);
 }
 
 /* ItemIDs page, showing shared items. */
