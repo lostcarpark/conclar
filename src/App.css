@@ -58,8 +58,10 @@
   --add-all-button-fg: var(--navigation-button-current-fg);
   --add-more-button-bg: var(--navigation-button-current-bg);
   --add-more-button-fg: var(--navigation-button-current-fg);
-  --program-item-chevron-collapsed: #ccc;
-  --program-item-chevron-expanded: #bbe;
+  --add-more-button-hover-bg: var(--navigation-button-hover-bg);
+  --add-more-button-hover-fg: var(--navigation-button-hover-fg);
+  --program-item-chevron-collapsed: var(--navigation-button-current-bg);
+  --program-item-chevron-expanded: var(--navigation-button-hover-bg);
   --program-time-convention-message: grey;
   --program-time-local-message: grey;
   --program-date-line: #888;
@@ -841,6 +843,13 @@ input.switch:checked ~ label:after {
   padding: .5rem 1.5rem;
   border: none;
   border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+.show-more-button:hover,
+.show-more-button:focus {
+  background-color: var(--expand-button-hover-bg);
+  color: var(--expand-button-hover-fg);
 }
 
 /* ItemIDs page, showing shared items. */
