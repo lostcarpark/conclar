@@ -23,6 +23,7 @@
 :root {
   --main-bg: #fff;
   --main-fg: #000;
+  --header-fg: #2B3990;
   --navigation-button-bg: #b9da91;
   --navigation-button-fg: #0d172a;
   --navigation-button-border: #b9da91;
@@ -147,6 +148,7 @@ header {
 
 header h1 {
   margin: 1rem 0;
+  color: var(--header-fg);
 }
 
 header img {
