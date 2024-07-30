@@ -373,6 +373,7 @@ input.switch:checked ~ label:after {
 .filter-tags,
 .filter-locations,
 .filter-search,
+.people-search,
 .filter-options,
 .filter-hide-before
 {
@@ -384,6 +385,7 @@ input.switch:checked ~ label:after {
 .filter-tags,
 .filter-locations,
 .filter-search,
+.people-search,
 .filter-hide-before
  {
   font-size: 0.8em;
@@ -495,12 +497,6 @@ input.switch:checked ~ label:after {
 .filter-expand,
 .filter-options {
   white-space: nowrap;
-}
-
-.filter-search,
-.people-search {
-  max-width: 30ch;
-  margin: auto 0.25em;
 }
 
 .filter-search input,
