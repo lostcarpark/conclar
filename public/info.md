@@ -1,5 +1,5 @@
-# Glasgow 2024, a Worldcon for Our Futures
+# Programme grids
 
-This page will have info abou the con.
+We are working on making PDFs of the printable programme grids available here.
 
-Maps, opening times, links, etc.
+They will also be available form the info desk at the convention.
