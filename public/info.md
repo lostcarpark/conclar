@@ -1,4 +1,4 @@
-# Programme grids
+# Printable Programme
 
 We are working on making PDFs of the printable programme grids available here.
 
