@@ -28,7 +28,6 @@
     "PROGRAM": "Programme",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
-    "INFO": "Information",
     "SETTINGS": "Settings",
     "EXTRA": [{ "LABEL": "Member portal", "URL": "https://portal.glasgow2024.org/" }]
   },
