@@ -172,8 +172,18 @@ const FilterableProgram = () => {
           selTags.days[0].value
         );
         filtered = filterHideBefore(filtered, minDay);
+      } else if (filtered[0] && "tags" in filtered[0]) {
+        const tag = filtered[0].tags.find((item) => item.category === "days");
+        if (tag && "value" in tag) {
+          const minDay = tag.value;
+          filtered = filterHideBefore(filtered, minDay);
+        }
       } else {
-        const minDay = filtered[0].tags.find((item) => item.category === "days").value
+        const labelledDays = tags.days.filter((item) => typeof item.label !== "undefined");
+        const minDay = labelledDays.reduce(
+          (acc, curr) => (curr.value < acc ? curr.value : acc),
+          labelledDays[0].value
+        );
         filtered = filterHideBefore(filtered, minDay);
       }
     }
