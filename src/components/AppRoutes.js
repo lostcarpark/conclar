@@ -66,6 +66,12 @@ const AppRoutes = () => {
     </div>
   );
 
+  const darken =
+    darkMode === "dark" ||
+    (darkMode === "browser" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+
   const fetchProgram = useStoreActions((actions) => actions.fetchProgram);
 
   useEffect(() => {
@@ -74,14 +80,7 @@ const AppRoutes = () => {
   }, []);
 
   return (
-    <ThemeSelector
-      isDark={
-        darkMode === "dark" ||
-        (darkMode === "browser" &&
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      }
-    >
+    <ThemeSelector isDark={darken}>
       <Router basename={configData.BASE_PATH}>
         <ScrollToTop>{theApp}</ScrollToTop>
       </Router>
