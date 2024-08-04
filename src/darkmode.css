@@ -24,8 +24,8 @@
   --search-border: hsl(0, 0%, 40%);
   --program-item-chevron-collapsed: #7fdbff;
   --program-item-chevron-expanded: #b9da91;
-  --program-time-convention-message: grey;
-  --program-time-local-message: grey;
+  --program-time-convention-message: #bbb;
+  --program-time-local-message: #888;
   --program-date-line: #7fdbff;
   --program-time-line: #6fb6d2;
   --program-item-line: #689aad;
@@ -34,6 +34,7 @@
   --program-expanded-bg: #011f3e;
   --link-fg: #7fdbff;
   --link-hover-fg: #b9da91;
+  --link-disabled: #bbb;
   --participant-bg: #011f3e;
   --participant-link-fg: #eee;
   --participant-link-visited-fg: #ccc;
