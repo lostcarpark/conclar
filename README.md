@@ -83,6 +83,10 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `NAVIGATION.MYSCHEDULE`: Label for user's personal schedule.
 - `NAVIGATION.INFO`: Label for the Information menu link._
 - `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
+- `HELP_TEXT.WELCOME`: Text to display to new visitors who haven't selected any programme items.
+- `HELP_TEXT.SHARING`: Text to display when user has selected items, informing them of sharing options.
+- `HELP_TEXT.CLOSE_LABEL`: Label for button to dismiss help text.
+- `HELP_TEXT.CLOSE_ARIA_LABEL`: Label to describe dismiss button.
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
 - `APPLICATION.LOADING.MESSAGE`: Message to display while loading.
 - `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed.

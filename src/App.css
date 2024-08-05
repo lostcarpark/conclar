@@ -30,6 +30,8 @@
   --navigation-button-current-fg: #fff;
   --navigation-button-hover-bg: #1e293b;
   --navigation-button-hover-fg: #fff;
+  --help-text-bg: green;
+  --help-text-fg: #fff;
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: green;
   --checkbox-unselected-bg: red;
@@ -208,6 +210,18 @@ header img {
 .navigation li a.active:hover {
   background-color: var(--navigation-button-hover-bg);
   color: var(--navigation-button-hover-fg);
+}
+
+.help-text {
+  width: 100%;
+  padding: .75rem;
+  border-radius: .75rem;
+  background-color: var(--help-text-bg);
+  color: var(--help-text-fg);
+}
+
+.help-text button {
+  float: right;
 }
 
 @media (max-width: 768px) {
