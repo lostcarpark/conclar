@@ -13,6 +13,10 @@ const model = {
   personTags: [],
   lastFetchTime: null,
   timeSinceLastFetch: null,
+  helpTextDismissed: () => {
+    const dismissed = localStorage.getItem("help_text_dismissed_" + configData.APP_ID);
+    return (dismissed) ? JSON.parse(dismissed) : [];
+  },
   showLocalTime: LocalTime.getStoredLocalTime(),
   show12HourTime: LocalTime.getStoredTwelveHourTime(),
   showTimeZone: LocalTime.getStoredShowTimeZone(),
@@ -58,6 +62,10 @@ const model = {
     state.timeSinceLastFetch = Math.floor(
       (new Date().getTime() - state.lastFetchTime) / milisecondsPerSec
     );
+  }),
+  setHelpTextDismissed: action((state, helpTextDismissed) => {
+    state.helpTextDismissed = helpTextDismissed;
+    localStorage.setItem("help_text_dismissed_" + configData.APP_ID, JSON.stringify(helpTextDismissed));
   }),
   setShowLocalTime: action((state, showLocalTime) => {
     state.showLocalTime = showLocalTime;
