@@ -33,8 +33,8 @@
     "EXTRA": [{ "LABEL": "Member portal", "URL": "https://portal.glasgow2024.org/" }]
   },
   "HELP_TEXT": {
-    "WELCOME": "Welcome to the Glasgow 2024 Programme Guide. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
-    "SHARING": "You may share your personal schedule to other devices using the QR codes on the My Schedule page.",
+    "WELCOME": "Welcome to the Glasgow 2024 Programme Guide. Use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
+    "SHARING": "Share your personal schedule to other devices using the QR codes on the My Schedule page.",
     "CLOSE_LABEL": "Close",
     "CLOSE_ARIA_LABEL": "Dismiss help text"
   },
@@ -67,9 +67,10 @@
       "EMPTY": {
         "TEXT": "This page will show your personal convention schedule. To activate it, click the checkboxes next to items you are interested in on the programme page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
       },
+      "INTRO": "Your personal schedule is shown below. It is not automatically synced with other devices, but you can use the links or QR codes at the bottom of this page to share your selections to your other devices.",
       "SHARE": {
-        "LABEL": "Share program selection",
-        "DESCRIPTION": "Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
+        "LABEL": "Share programme selection",
+        "DESCRIPTION": "Your programme selection doesn't sync across devices automatically, but you can sync manually sync here. Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
         "LINK_LABEL": "Shareable link",
         "MAX_LENGTH": 2500,
         "MULTIPLE_DESCRIPTION": "Because you have selected a large number of items, you will need to use multiple links/QR codes to transfer to your other devices.",
