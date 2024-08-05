@@ -14,7 +14,24 @@ const MySchedule = () => {
     collapseSelected: actions.collapseSelected,
   }));
   const noneExpanded = useStoreState((state) => state.noneExpanded);
-  const allSelectedExpanded = useStoreState((state) => state.allSelectedExpanded);
+  const allSelectedExpanded = useStoreState(
+    (state) => state.allSelectedExpanded
+  );
+
+  const pageHeading = (
+    <div className="page-heading">
+      <h2>{configData.PROGRAM.MY_SCHEDULE.TITLE}</h2>
+    </div>
+  );
+
+  if (mySchedule.length === 0) {
+    return (
+      <div className="my-schedule">
+        {pageHeading}
+        <div>{configData.PROGRAM.MY_SCHEDULE.EMPTY.TEXT}</div>
+      </div>
+    );
+  }
 
   const filtered =
     LocalTime.isDuringCon(program) && !showPastItems
@@ -23,9 +40,7 @@ const MySchedule = () => {
 
   return (
     <div className="my-schedule">
-      <div className="page-heading">
-        <h2>{configData.PROGRAM.MY_SCHEDULE.TITLE}</h2>
-      </div>
+      {pageHeading}
       <div className="result-filters">
         <div className="stack">
           <div className="filter-expand">

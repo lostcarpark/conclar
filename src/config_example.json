@@ -65,6 +65,9 @@
     },
     "MY_SCHEDULE": {
       "TITLE": "My Schedule",
+      "EMPTY": {
+        "TEXT": "This page will show your personal convention schedule. To activate it, click the checkboxes next to items you are interested in on the programme page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
+      },
       "SHARE": {
         "LABEL": "Share program selection",
         "DESCRIPTION": "Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
