@@ -41,6 +41,9 @@ const MySchedule = () => {
   return (
     <div className="my-schedule">
       {pageHeading}
+      <div className="introduction">
+        {configData.PROGRAM.MY_SCHEDULE.INTRO}
+      </div>
       <div className="result-filters">
         <div className="stack">
           <div className="filter-expand">
