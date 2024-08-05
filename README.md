@@ -98,6 +98,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PROGRAM.LIMIT.SHOW_MORE.NO_MORE`: Message to display when no more items available.
 - `PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA`: Number of items to add when "Show more" pressed.
 - `PROGRAM.MY_SCHEDULE.TITLE`: Title of My Schedule page.
+- `PROGRAM.MY_SCHEDULE.EMPTY.TEXT`: Text to display on My Schedule when no programme items selected.
 - `PROGRAM.MY_SCHEDULE.SEARCH.SEARCH_LABEL`: Label for search box.
 - `PROGRAM.MY_SCHEDULE.SHARE.LABEL`: Heading for shared link section on MySchedule.
 - `PROGRAM.MY_SCHEDULE.SHARE.DESCRIPTION`: Descriptive message for link sharing section.
