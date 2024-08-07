@@ -11,8 +11,6 @@ const HelpText = () => {
     setHelpTextDismissed({ ...helpTextDismissed, [item]: true });
   };
   const selector = mySchedule.length > 0 ? "SHARING" : "WELCOME";
-  console.log(selector);
-  console.log(helpTextDismissed);
   if (selector in helpTextDismissed && helpTextDismissed[selector]) {
     return <></>;
   }
