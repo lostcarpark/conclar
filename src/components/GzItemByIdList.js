@@ -11,7 +11,7 @@ const ItemByIdList = () => {
   })); 
 
   const params = useParams();
-  const gzids = base32.decode(params.idList);
+  const gzids = base32.decode(params.idList.replaceAll("-","="));
   const rawList = inflate(gzids, {to: 'string'});
   console.log(rawList);
   const itemIds = rawList.split("~");

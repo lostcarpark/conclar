@@ -18,7 +18,7 @@ const ShareLink = () => {
     } else {
         // const deflator= new Deflate();
         // deflator.push(linkItems,true)
-        const param=base32.encode(deflate(linkItems));
+        const param=base32.encode(deflate(linkItems)).replaceAll("=","-");
         return configData.BASE_PATH.toUpperCase() + "GZIDS/" + param;
     }
   }
