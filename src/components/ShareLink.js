@@ -46,6 +46,7 @@ const ShareLink = () => {
         <div className="share-qr-code">
           <QrCode
                 value={absLink}
+                resize="265px"
                 mode={qrmode}
            />
         </div>
