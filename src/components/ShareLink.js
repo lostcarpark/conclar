@@ -14,7 +14,7 @@ const ShareLink = () => {
 
   function makeLink(linkItems, compress) {
     if (!compress) {
-        return  "IDS/" + linkItems;
+        return  "ids/" + linkItems;
     } else {
         // const deflator= new Deflate();
         // deflator.push(linkItems,true)
@@ -24,8 +24,11 @@ const ShareLink = () => {
   }
 
   function addLink(linkItems, multi) {
-    const link = makeLink(linkItems,true);
-    const hostOrigin = String(window.location.origin).toUpperCase();
+    const compress = configData.PROGRAM.MY_SCHEDULE.SHARE.COMPRESS;
+    const link = makeLink(linkItems,compress);
+    console.log("Link=", link);
+    const hostOrigin = compress ? String(window.location.origin).toUpperCase() :
+                                  window.location.origin;
     const absLink = `${hostOrigin}${link}`;
     links.push(
       <div key={key++} className="share-body">

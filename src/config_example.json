@@ -64,6 +64,7 @@
         "DESCRIPTION": "Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
         "LINK_LABEL": "Shareable link",
         "MAX_LENGTH": 2500,
+        "COMPRESS": false,
         "MULTIPLE_DESCRIPTION": "Because you have selected a large number of items, you will need to use multiple links/QR codes to transfer to your other devices.",
         "MULTIPLE_LINK_LABEL": "Shareable link #@number"
       }
