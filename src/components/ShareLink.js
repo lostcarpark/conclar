@@ -2,7 +2,7 @@ import { useStoreState } from "easy-peasy";
 import { Link } from "react-router-dom";
 import { deflate } from "pako";
 import { base32 } from '@scure/base';
-import QRCode from "react-qr-code";
+import { QrCode } from "react-qrcode-pretty";
 import configData from "../config.json";
 
 const ShareLink = () => {
@@ -26,10 +26,11 @@ const ShareLink = () => {
   function addLink(linkItems, multi) {
     const compress = configData.PROGRAM.MY_SCHEDULE.SHARE.COMPRESS;
     const link = makeLink(linkItems,compress);
-    console.log("Link=", link);
     const hostOrigin = compress ? String(window.location.origin).toUpperCase() :
                                   window.location.origin;
+ 
     const absLink = `${hostOrigin}${link}`;
+    const qrmode = compress ? "Alphanumeric" :"Byte";
     links.push(
       <div key={key++} className="share-body">
         <div className="share-link">
@@ -43,7 +44,10 @@ const ShareLink = () => {
           </Link>
         </div>
         <div className="share-qr-code">
-          <QRCode value={absLink} />
+          <QrCode
+                value={absLink}
+                mode={qrmode}
+           />
         </div>
       </div>
     );

@@ -16,7 +16,7 @@
     "react-icons": "^4.3.1",
     "react-infinite-scroll-component": "^6.1.0",
     "react-markdown": "^7.1.2",
-    "react-qr-code": "^2.0.7",
+    "react-qrcode-pretty": "^1.3.2",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.1",
     "react-select": "^5.2.2",
