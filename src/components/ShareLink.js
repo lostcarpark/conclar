@@ -1,6 +1,8 @@
 import { useStoreState } from "easy-peasy";
 import { Link } from "react-router-dom";
-import QRCode from "react-qr-code";
+import { deflate } from "pako";
+import { base32 } from '@scure/base';
+import { QrCode } from "react-qrcode-pretty";
 import configData from "../config.json";
 
 const ShareLink = () => {
@@ -9,9 +11,26 @@ const ShareLink = () => {
   if (mySchedule.length === 0) return <></>;
   const links = [];
   let key = 0;
+
+  function makeLink(linkItems, compress) {
+    if (!compress) {
+        return  "ids/" + linkItems;
+    } else {
+        // const deflator= new Deflate();
+        // deflator.push(linkItems,true)
+        const param=base32.encode(deflate(linkItems)).replaceAll("=","-");
+        return configData.BASE_PATH.toUpperCase() + "GZIDS/" + param;
+    }
+  }
+
   function addLink(linkItems, multi) {
-    const link = configData.BASE_PATH + "ids/" + linkItems;
-    const absLink = `${window.location.origin}${link}`;
+    const compress = configData.PROGRAM.MY_SCHEDULE.SHARE.COMPRESS;
+    const link = makeLink(linkItems,compress);
+    const hostOrigin = compress ? String(window.location.origin).toUpperCase() :
+                                  window.location.origin;
+ 
+    const absLink = `${hostOrigin}${link}`;
+    const qrmode = compress ? "Alphanumeric" :"Byte";
     links.push(
       <div key={key++} className="share-body">
         <div className="share-link">
@@ -25,7 +44,11 @@ const ShareLink = () => {
           </Link>
         </div>
         <div className="share-qr-code">
-          <QRCode value={absLink} />
+          <QrCode
+                value={absLink}
+                resize="265px"
+                mode={qrmode}
+           />
         </div>
       </div>
     );
