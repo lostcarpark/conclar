@@ -55,6 +55,29 @@ export class ProgramData {
     return Temporal.ZonedDateTime.from(matches[1] + "[" + matches[4] + "]");
   }
 
+  static generateIcsEvent(item) {
+    // Generate ICS format data to alow people to add items to their calendar
+    var desc = ""
+
+    const parser = new DOMParser();
+    if (item.people) {
+      var p = []
+      for (let person of item.people) {
+        p.push(person.name.toString())
+      }
+      desc = "Panel: " + p.join(', ') + '\n\n'
+    }
+    desc = parser.parseFromString(desc + item.desc, 'text/html').body.textContent
+    return({
+      title: item.title,
+      description: desc.replace(/\n/g, '\\n'),
+      startTime: item.startDateAndTime.toString({timeZoneName: 'never'}),
+      endTime: item.endDateAndTime.toString({timeZoneName: 'never'}),
+      location: String(item.loc)
+      // url: ??
+   });
+  }
+
   /**
    * Read program and convert dates to ZonedDateTime, then sort by date.
    *
@@ -68,6 +91,7 @@ export class ProgramData {
       item.startDateAndTime = startTime.withTimeZone(utcTimeZone);
       item.endDateAndTime = item.startDateAndTime.add({ minutes: item.mins ? item.mins : 0});
       item.timeSlot = LocalTime.getTimeSlot(item.startDateAndTime);
+      item.icsEvent = this.generateIcsEvent(item);
       return item;
     });
     program.sort((a, b) => {
