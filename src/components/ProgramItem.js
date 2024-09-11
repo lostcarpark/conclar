@@ -5,6 +5,7 @@ import useMeasure from "react-use-measure";
 import { useSpring, animated } from "react-spring";
 import { IoChevronDownCircle } from "react-icons/io5";
 import { HiLink } from "react-icons/hi";
+import { HiCalendarDays } from "react-icons/hi2";
 import ItemLink from "./ItemLink";
 import Location from "./Location";
 import Tag from "./Tag";
@@ -12,6 +13,7 @@ import Participant from "./Participant";
 import configData from "../config.json";
 import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
+import ICalendarLink from "react-icalendar-link";
 
 const ProgramItem = ({ item, forceExpanded, now }) => {
   const selected = useStoreState((state) => state.isSelected(item.id));
@@ -57,6 +59,15 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
       locations.push(<Location key={loc} loc={loc} />);
     }
   else locations.push(<Location key={item.loc} loc={item.loc} />);
+
+  const calendarLink =
+    configData.CALENDARLINK.SHOW_CALENDARLINK && configData.INTERACTIVE ? (
+        <div className="item-calendarlink">
+          <ICalendarLink filename={"conclar_" + id + ".ics"} event={item.icsEvent}>
+            <HiCalendarDays />
+          </ICalendarLink>
+        </div>
+    ) : null;
 
   const permaLink =
     configData.PERMALINK.SHOW_PERMALINK && configData.INTERACTIVE ? (
@@ -171,6 +182,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
         </div>
         <animated.div className="item-details" style={itemExpandedStyle}>
           <div className="item-details-expanded" ref={ref}>
+            {calendarLink}
             {permaLink}
             <div className="item-people">
               <ul>{people}</ul>
