@@ -168,7 +168,7 @@
       "SHOW_THUMBNAILS": true,
       "SHOW_CHECKBOX": true,
       "CHECKBOX_LABEL": "Show thumbnails",
-      "DEFAULT_IMAGE": "octo-160.png"
+      "DEFAULT_IMAGE": "Octo-160.png"
     },
     "SORT": {
       "SHOW_CHECKBOX": true,
