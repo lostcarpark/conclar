@@ -34,7 +34,7 @@
     "EXTRA": [{ "LABEL": "Octocon Website", "URL": "https://octocon.com/" }]
   },
   "HELP_TEXT": {
-    "WELCOME": "Welcome to the Glasgow 2024 Programme Guide. Use the checkboxes next to programme items to make a personal schedule. Automatic syncing is not available. You can manually share to other devices in the My Schedule page.",
+    "WELCOME": "Welcome to the Octocon 2024 Programme Guide. Use the checkboxes next to programme items to make a personal schedule. Automatic syncing is not available. You can manually share to other devices in the My Schedule page.",
     "SHARING": "Share your personal schedule to other devices using the QR codes on the My Schedule page.",
     "CLOSE_LABEL": "Close",
     "CLOSE_ARIA_LABEL": "Dismiss help text"
