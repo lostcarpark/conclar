@@ -2,8 +2,8 @@
   "BASE_PATH": "/",
   "APP_ID": "OCTO24",
   "APP_TITLE": "Octocon 2024 Programme Guide",
-  "PROGRAM_DATA_URL": "/2023/program.js",
-  "PEOPLE_DATA_URL": "/2023/people.js",
+  "PROGRAM_DATA_URL": "/2024/program.js",
+  "PEOPLE_DATA_URL": "/2024/people.js",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -29,9 +29,9 @@
     "PROGRAM": "Programme",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
-    "INFO": "Printable programme",
+    "INFO": "Information",
     "SETTINGS": "Settings",
-    "EXTRA": [{ "LABEL": "Member portal", "URL": "https://portal.glasgow2024.org/" }]
+    "EXTRA": [{ "LABEL": "Octocon Website", "URL": "https://octocon.com/" }]
   },
   "HELP_TEXT": {
     "WELCOME": "Welcome to the Glasgow 2024 Programme Guide. Use the checkboxes next to programme items to make a personal schedule. Automatic syncing is not available. You can manually share to other devices in the My Schedule page.",
@@ -274,8 +274,8 @@
     }
   },
   "FOOTER": {
-    "SITE_NOTE_MARKDOWN": "[Octocon Website](https://2023.octocon.com) | [Privacy Policy](https://2023.octocon.com/privacy-policy/)",
-    "COPYRIGHT_MARKDOWN": "© 2024 Glasgow 2024.",
+    "SITE_NOTE_MARKDOWN": "[Octocon Website](https://octocon.com) | [Privacy Policy](https://octocon.com/privacy-policy/)",
+    "COPYRIGHT_MARKDOWN": "© 2024 Octocon",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "TIMER": {
