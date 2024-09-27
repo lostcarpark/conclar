@@ -1010,8 +1010,8 @@ input.switch:checked ~ label:after {
  */
 
 .info {
-  margin: 1rem;
-  max-width: 60ch;
+  margin: 1rem auto;
+  max-width: 70ch;
 }
 
 /*
