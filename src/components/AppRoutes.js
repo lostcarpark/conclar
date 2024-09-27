@@ -8,7 +8,6 @@ import ScrollToTop from "./ScrollToTop";
 import Timer from "./Timer";
 import Debug from "./Debug";
 import Header from "./Header";
-import Navigation from "./Navigation";
 import NotFound from "./NotFound";
 import Loading from "./Loading";
 import FilterableProgram from "./FilterableProgram";
@@ -30,8 +29,7 @@ const AppRoutes = () => {
     <div className={appClasses}>
       <Timer tick={configData.TIMER.TIMER_TICK_SECS} />
       <Debug />
-      <Header title={configData.APP_TITLE} />
-      <Navigation />
+      <Header title={configData.APP_TITLE} showNavigation={true} />
       <Loading>
         <Routes>
           <Route path="/">
@@ -54,7 +52,7 @@ const AppRoutes = () => {
     </div>
   ) : (
     <div className="App">
-      <Header title={configData.APP_TITLE} />
+      <Header title={configData.APP_TITLE} showNavigation={false} />
       <Loading>
         <Routes>
           <Route path="/">
@@ -84,7 +82,7 @@ const AppRoutes = () => {
           window.matchMedia("(prefers-color-scheme: dark)").matches)
       }
     >
-      <Router basename={configData.BASE_PATH}>
+      <Router basename={window.publicUrl}>
         <ScrollToTop>{theApp}</ScrollToTop>
       </Router>
     </ThemeSelector>

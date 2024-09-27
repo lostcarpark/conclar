@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import { Temporal } from "@js-temporal/polyfill";
 import configData from "../config.json";
 import TagSelectors from "./TagSelectors";
 import ResetButton from "./ResetButton";
@@ -29,6 +30,11 @@ const FilterableProgram = () => {
   const setSelTags = useStoreActions(
     (actions) => actions.setProgramSelectedTags
   );
+  const hideBefore = useStoreState((state) => state.programHideBefore);
+  const setHideBefore = useStoreActions(
+    (actions) => actions.setProgramHideBefore
+  );
+  const show12HourTime = useStoreState((state) => state.show12HourTime);
   const search = useStoreState((state) => state.programSearch);
   const setSearch = useStoreActions((actions) => actions.setProgramSearch);
   const resetProgramFilters = useStoreActions(
@@ -82,6 +88,22 @@ const FilterableProgram = () => {
   function resetLimitsAndFilters() {
     resetDisplayLimit();
     resetProgramFilters();
+  }
+
+  /**
+   * Apply hide before time filter.
+   * @param {array} program Program to filter.
+   * @param {array} days Days to choose earliest from.
+   * @returns {array} The program with items before start removed.
+   */
+  function filterHideBefore(program, minDay) {
+    const beforeDate = Temporal.ZonedDateTime.from(
+      minDay + "T" + hideBefore + "[" + configData.TIMEZONE + "]"
+    );
+    return program.filter(
+      (item) =>
+        Temporal.ZonedDateTime.compare(beforeDate, item.startDateAndTime) <= 0
+    );
   }
 
   /**
@@ -139,6 +161,32 @@ const FilterableProgram = () => {
     if (LocalTime.isDuringCon(program) && !showPastItems) {
       filtered = LocalTime.filterPastItems(filtered);
     }
+    if (!configData.HIDE_BEFORE.HIDE && hideBefore) {
+      if (
+        "days" in selTags &&
+        Array.isArray(selTags.days) &&
+        selTags.days.length > 0
+      ) {
+        const minDay = selTags.days.reduce(
+          (acc, curr) => (curr.value < acc ? curr.value : acc),
+          selTags.days[0].value
+        );
+        filtered = filterHideBefore(filtered, minDay);
+      } else if (filtered[0] && "tags" in filtered[0]) {
+        const tag = filtered[0].tags.find((item) => item.category === "days");
+        if (tag && "value" in tag) {
+          const minDay = tag.value;
+          filtered = filterHideBefore(filtered, minDay);
+        }
+      } else {
+        const labelledDays = tags.days.filter((item) => typeof item.label !== "undefined");
+        const minDay = labelledDays.reduce(
+          (acc, curr) => (curr.value < acc ? curr.value : acc),
+          labelledDays[0].value
+        );
+        filtered = filterHideBefore(filtered, minDay);
+      }
+    }
     return filtered;
   }
 
@@ -166,6 +214,7 @@ const FilterableProgram = () => {
             {configData.PROGRAM.LIMIT.LABEL}:{" "}
           </label>
           <select
+            id="display_limit"
             name="display_limit"
             value={displayLimit(programDisplayLimit)}
             onChange={(e) => {
@@ -198,6 +247,38 @@ const FilterableProgram = () => {
       <span>{configData.PROGRAM.LIMIT.SHOW_MORE.NO_MORE}</span>
     );
 
+  // create list of options for hide before time drop-down.
+  const hideBeforeOptions = [
+    <option value="" key="0">
+      {configData.HIDE_BEFORE.PLACEHOLDER}
+    </option>,
+  ];
+  for (const time of configData.HIDE_BEFORE.TIMES) {
+    hideBeforeOptions.push(
+      <option value={time.TIME} key={time.TIME}>
+        {show12HourTime ? time.LABEL_12H : time.LABEL_24H}
+      </option>
+    );
+  }
+  const hideBeforeSelect = configData.HIDE_BEFORE.HIDE ? (
+    <></>
+  ) : (
+    <div className="filter-hide-before">
+      <label htmlFor="hide-before">{configData.HIDE_BEFORE.PLACEHOLDER}</label>
+      <select
+        id="hide-before"
+        placeholder={configData.HIDE_BEFORE.PLACEHOLDER}
+        value={hideBefore}
+        onChange={(e) => {
+          resetDisplayLimit();
+          setHideBefore(e.target.value);
+        }}
+      >
+        {hideBeforeOptions}
+      </select>
+    </div>
+  );
+
   return (
     <div>
       <div className="filter">
@@ -224,8 +305,11 @@ const FilterableProgram = () => {
             tagConfig={configData.TAGS}
             resetLimit={resetDisplayLimit}
           />
+          {hideBeforeSelect}
           <div className="filter-search">
+            <label htmlFor="search">Search</label>
             <input
+              id="search"
               type="search"
               placeholder={configData.PROGRAM.SEARCH.SEARCH_LABEL}
               value={search}

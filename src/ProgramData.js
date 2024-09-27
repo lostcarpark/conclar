@@ -65,12 +65,15 @@ export class ProgramData {
     const utcTimeZone = Temporal.TimeZone.from("UTC");
     program.map((item) => {
       const startTime = this.processDateAndTime(item);
-      item.dateAndTime = startTime.withTimeZone(utcTimeZone);
-      item.timeSlot = LocalTime.getTimeSlot(item.dateAndTime);
+      item.startDateAndTime = startTime.withTimeZone(utcTimeZone);
+      item.bufferedStartDateAndTime = item.startDateAndTime.subtract({ minutes: 20});
+      item.endDateAndTime = item.startDateAndTime.add({ minutes: item.mins ? item.mins : 0});
+      item.bufferedEndDateAndTime = item.endDateAndTime.add({ minutes: 10});
+      item.timeSlot = LocalTime.getTimeSlot(item.startDateAndTime);
       return item;
     });
     program.sort((a, b) => {
-      return Temporal.ZonedDateTime.compare(a.dateAndTime, b.dateAndTime);
+      return Temporal.ZonedDateTime.compare(a.startDateAndTime, b.startDateAndTime);
     });
     //console.log("Program data", program);
     return program;
@@ -124,9 +127,12 @@ export class ProgramData {
           }
           //Moderator check before nuking the item person data.
           if (
-            item.people[index].name.indexOf("(moderator)") > 0 ||
+            item.people.length > 0 &&
+            typeof(item.people[index]) !== 'undefined' &&
+            ((item.people[index].hasOwnProperty("name") &&
+              item.people[index].name.indexOf("(moderator)") > 0) ||
             (item.people[index].hasOwnProperty("role") &&
-              item.people[index].role === "moderator")
+              item.people[index].role === "moderator"))
           )
             item.moderator = item.people[index].id;
           if (fullPerson) {
@@ -312,14 +318,14 @@ export class ProgramData {
       for (const item of taggedItems) {
         // Get the day of the program (this shouldn't apply for participants) item.
         const dayValue = LocalTime.formatISODateInConventionTimeZone(
-          item.dateAndTime
+          item.startDateAndTime
         );
         const dayTag = tags.days.includes(dayValue)
           ? tags.days[dayValue]
           : addTag(tags.days, {
               value: dayValue,
               label: LocalTime.formatDayNameInConventionTimeZone(
-                item.dateAndTime
+                item.startDateAndTime
               ),
               category: "days",
             });

@@ -1,9 +1,8 @@
 {
-  "BASE_PATH": "/",
-  "APP_ID": "OCTO24",
-  "APP_TITLE": "Octocon 2024 Programme Guide",
-  "PROGRAM_DATA_URL": "/2023/program.js",
-  "PEOPLE_DATA_URL": "/2023/people.js",
+  "APP_ID": "O2021",
+  "APP_TITLE": "ConClár Programme Guide",
+  "PROGRAM_DATA_URL": "/2022/program.js",
+  "PEOPLE_DATA_URL": "/2022/people.js",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -21,21 +20,21 @@
   "TIMEZONECODE": "IST",
   "INTERACTIVE": true,
   "HEADER": {
-    "IMG_SRC": "/Octocon2023-programme-banner.jpg",
-    "IMG_ALT_TEXT": "Octocon, the National Irish Science Fiction Convention banner.",
-    "LINEFEED_AFTER_URL": true
+    "IMG_SRC": "",
+    "IMG_ALT_TEXT": "",
+    "LINEFEED_AFTER_URL": false
   },
   "NAVIGATION": {
     "PROGRAM": "Programme",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
-    "INFO": "Printable programme",
+    "INFO": "Information",
     "SETTINGS": "Settings",
-    "EXTRA": [{ "LABEL": "Member portal", "URL": "https://portal.glasgow2024.org/" }]
+    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
   },
   "HELP_TEXT": {
-    "WELCOME": "Welcome to the Glasgow 2024 Programme Guide. Use the checkboxes next to programme items to make a personal schedule. Automatic syncing is not available. You can manually share to other devices in the My Schedule page.",
-    "SHARING": "Share your personal schedule to other devices using the QR codes on the My Schedule page.",
+    "WELCOME": "Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
+    "SHARING": "You may share your personal schedule to other devices using the QR codes on the My Schedule page.",
     "CLOSE_LABEL": "Close",
     "CLOSE_ARIA_LABEL": "Dismiss help text"
   },
@@ -70,8 +69,8 @@
       },
       "INTRO": "Your personal schedule is shown below. It is not automatically synced with other devices, but you can use the links or QR codes at the bottom of this page to share your selections to your other devices.",
       "SHARE": {
-        "LABEL": "Share programme selection",
-        "DESCRIPTION": "Your programme selection doesn't sync across devices automatically, but you can sync manually sync here. Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
+        "LABEL": "Share program selection",
+        "DESCRIPTION": "Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
         "LINK_LABEL": "Shareable link",
         "MAX_LENGTH": 2500,
         "MULTIPLE_DESCRIPTION": "Because you have selected a large number of items, you will need to use multiple links/QR codes to transfer to your other devices.",
@@ -85,24 +84,24 @@
     }
   },
   "TAGS": {
-    "PLACEHOLDER": "Select tag",
+    "PLACEHOLDER": "Select tags",
     "SEARCHABLE": false,
     "HIDE": false,
     "SEPARATE": [
       { "PREFIX": "Division", "PLACEHOLDER": "Select division", "SEARCHABLE": false, "HIDE": true },
-      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Type", "PLACEHOLDER": "Select type", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false }
-      { "PREFIX": "Area", "PLACEHOLDER": "Select area", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Environment", "PLACEHOLDER": "Select environment", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Note", "PLACEHOLDER": "Select note", "SEARCHABLE": false, "HIDE": false }
+      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
     ],
-    "FORMAT_AS_TAG": true,
+    "FORMAT_AS_TAG": false,
     "DAY_TAG": {
       "GENERATE": true,
       "DAYS": {
+        "4": "Thursday",
+        "5": "Friday",
         "6": "Saturday",
-        "7": "Sunday"
+        "7": "Sunday",
+        "1": "Monday"
       },
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": false,
@@ -112,7 +111,7 @@
   },
   "HIDE_BEFORE": {
     "HIDE": false,
-    "PLACEHOLDER": "Select time",
+    "PLACEHOLDER": "Hide before",
     "TIMES": [
       { "TIME": "10:00:00", "LABEL_24H": "10:00", "LABEL_12H": "10am" },
       { "TIME": "12:00:00", "LABEL_24H": "12:00", "LABEL_12H": "12 noon" },
@@ -142,34 +141,19 @@
     }
   },
   "LINKS": [
-    {
-      "NAME": "chat",
-      "TEXT": "Chat about this item",
-      "TAG": ""
+    {"NAME": "signup",
+     "TEXT": "Click to sign up",
+     "TAG": ""
     },
-    {
-      "NAME": "signup",
-      "TEXT": "Sign-up for this item",
-      "WHEN": ["before"],
-      "TAG": ""
+    {"NAME": "meeting",
+     "TEXT": "Click to view stream",
+     "TAG": "type:Streaming",
+     "WHEN": ["during"]
     },
-    {
-      "NAME": "stage",
-      "TEXT": "Watch the stream",
-      "WHEN": ["during"],
-      "TAG": ""
-    },
-    {
-      "NAME": "session",
-      "TEXT": "Join this session",
-      "WHEN": ["during"],
-      "TAG": ""
-    },
-    {
-      "NAME": "replay",
-      "TEXT": "Watch the replay",
-      "WHEN": ["after"],
-      "TAG": ""
+    {"NAME": "recording",
+     "TEXT": "Click to view recording",
+     "TAG": "",
+     "WHEN": ["after"]
     }
   ],
   "CONVENTION_TIME": {
@@ -207,7 +191,7 @@
       "SHOW_THUMBNAILS": true,
       "SHOW_CHECKBOX": true,
       "CHECKBOX_LABEL": "Show thumbnails",
-      "DEFAULT_IMAGE": "Octo-160.png"
+      "DEFAULT_IMAGE": "head.svg"
     },
     "SORT": {
       "SHOW_CHECKBOX": true,
@@ -235,7 +219,7 @@
     "CHECKBOX_LABEL": "Useless checkbox"
   },
   "INFORMATION": {
-    "MARKDOWN_URL": "info.md?ver=2",
+    "MARKDOWN_URL": "info.md",
     "LOADING_MESSAGE": "Loading..."
   },
   "SETTINGS": {
@@ -274,8 +258,7 @@
     }
   },
   "FOOTER": {
-    "SITE_NOTE_MARKDOWN": "[Octocon Website](https://2023.octocon.com) | [Privacy Policy](https://2023.octocon.com/privacy-policy/)",
-    "COPYRIGHT_MARKDOWN": "© 2024 Glasgow 2024.",
+    "SITE_NOTE_MARKDOWN": "",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "TIMER": {

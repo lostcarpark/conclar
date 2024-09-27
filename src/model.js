@@ -13,6 +13,10 @@ const model = {
   personTags: [],
   lastFetchTime: null,
   timeSinceLastFetch: null,
+  helpTextDismissed: () => {
+    const dismissed = localStorage.getItem("help_text_dismissed_" + configData.APP_ID);
+    return (dismissed) ? JSON.parse(dismissed) : [];
+  },
   showLocalTime: LocalTime.getStoredLocalTime(),
   show12HourTime: LocalTime.getStoredTwelveHourTime(),
   showTimeZone: LocalTime.getStoredShowTimeZone(),
@@ -24,6 +28,7 @@ const model = {
   mySelections: ProgramSelection.getAllSelections(),
   programSelectedLocations: [],
   programSelectedTags: {},
+  programHideBefore: "",
   programSearch: "",
   peopleSelectedTags: {},
   peopleSearch: "",
@@ -57,6 +62,10 @@ const model = {
     state.timeSinceLastFetch = Math.floor(
       (new Date().getTime() - state.lastFetchTime) / milisecondsPerSec
     );
+  }),
+  setHelpTextDismissed: action((state, helpTextDismissed) => {
+    state.helpTextDismissed = helpTextDismissed;
+    localStorage.setItem("help_text_dismissed_" + configData.APP_ID, JSON.stringify(helpTextDismissed));
   }),
   setShowLocalTime: action((state, showLocalTime) => {
     state.showLocalTime = showLocalTime;
@@ -138,6 +147,9 @@ const model = {
   setProgramSelectedTags: action((state, selectedTags) => {
     state.programSelectedTags = selectedTags;
   }),
+  setProgramHideBefore: action((state, hideBefore) => {
+    state.programHideBefore = hideBefore;
+  }),
   setProgramSearch: action((state, search) => {
     state.programSearch = search;
   }),
@@ -148,6 +160,7 @@ const model = {
       newTags[tag] = [];
     }
     state.programSelectedTags = newTags;
+    state.programHideBefore = "";
     state.programSearch = "";
   }),
   setPeopleSelectedTags: action((state, selectedTags) => {
@@ -196,6 +209,7 @@ const model = {
     if (state.programSelectedLocations.length > 0) return true;
     for (const tag in state.programSelectedTags)
       if (state.programSelectedTags[tag].length > 0) return true;
+    if (state.programHideBefore.length > 0) return true;
     if (state.programSearch.length > 0) return true;
     return false;
   }),

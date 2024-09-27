@@ -10,7 +10,7 @@ const Participant = ({ person, thumbnails, moderator }) => {
           <div className="participant-image">
             <img
               src={person.img}
-              alt={person.name}
+              alt=""
               onError={({ currentTarget }) => {
                 currentTarget.onerror = null;
                 currentTarget.style.display = "none";
@@ -27,10 +27,10 @@ const Participant = ({ person, thumbnails, moderator }) => {
           <div className="participant-image participant-default-image">
             <img
               src={
-                configData.BASE_PATH +
+                window.publicUrl +
                 configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE
               }
-              alt={person.name}
+              alt=""
             />
           </div>
         );

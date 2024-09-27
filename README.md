@@ -14,11 +14,24 @@ ConClár requires `npm` to install its dependencies. This is part of [Node.js](h
 
 Next create a local directory for your ConClár project. You can put this anywhere in your filesystem.
 
-Next you need to get the code from GitHub. You can either use the download link to get a Zip file, or clone the project with the `git` command. If you are customising for your convention, you should consider creating a fork so that you can merge in future changes.
+Next you need to get the code from GitHub. You can either use the download link
+to get a Zip file, or clone the project with the `git` command. If you are
+customising for your convention, you should consider creating a fork so that you
+can merge in future changes.
+
+ConClár requires a configuration file called in the `/src/` directory called
+`config.json`. To avoid local customizations getting pushed to the main
+repository, this not included. Instead, there is a sample config file that is a
+good starting point. You should copy this to the correct name. If you have a
+fork of the project, you may want to remove `/src/config.json` from
+`.gitignore`, to track your convention's customizations. You can copy the
+example with the following command:
+
+```cp src/config_example.json src/config.json```
 
 Once you've done that, run the following from a command prompt in the directory you created above:
 
-### `npm install`
+```npm install```
 
 This will install everything needed to run the project.
 
@@ -26,7 +39,7 @@ This will install everything needed to run the project.
 
 In the project directory, you can run:
 
-### `npm start`
+```npm start```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -34,7 +47,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm run build`
+```npm run build```
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -48,7 +61,6 @@ See the section about [React app deployment](https://facebook.github.io/create-r
 
 The main place customisations go is the `src/config.json` file. Settings currently available include:
 
-- `BASE_PATH`: The path to ConClár within your webserver. Set to '/' to run in the root directory. See below for running in a subdirectory.
 - `APP_ID`: A unique id to distinguish between instances of multi-year conventions.
 - `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
 - `PROGRAM_DATA_URL`: The address of the file containing programme data.
@@ -70,6 +82,10 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `NAVIGATION.MYSCHEDULE`: Label for user's personal schedule.
 - `NAVIGATION.INFO`: Label for the Information menu link._
 - `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
+- `HELP_TEXT.WELCOME`: Text to display to new visitors who haven't selected any programme items.
+- `HELP_TEXT.SHARING`: Text to display when user has selected items, informing them of sharing options.
+- `HELP_TEXT.CLOSE_LABEL`: Label for button to dismiss help text.
+- `HELP_TEXT.CLOSE_ARIA_LABEL`: Label to describe dismiss button.
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
 - `APPLICATION.LOADING.MESSAGE`: Message to display while loading.
 - `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed.
@@ -81,6 +97,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `PROGRAM.LIMIT.SHOW_MORE.NO_MORE`: Message to display when no more items available.
 - `PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA`: Number of items to add when "Show more" pressed.
 - `PROGRAM.MY_SCHEDULE.TITLE`: Title of My Schedule page.
+- `PROGRAM.MY_SCHEDULE.EMPTY.TEXT`: Text to display on My Schedule when no programme items selected.
+- `PROGRAM.MY_SCHEDULE.INTRO`: Introduction text for My Schedule page.
 - `PROGRAM.MY_SCHEDULE.SEARCH.SEARCH_LABEL`: Label for search box.
 - `PROGRAM.MY_SCHEDULE.SHARE.LABEL`: Heading for shared link section on MySchedule.
 - `PROGRAM.MY_SCHEDULE.SHARE.DESCRIPTION`: Descriptive message for link sharing section.
@@ -102,6 +120,9 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TAGS.DAY_TAG.SEARCHABLE`: Whether day tag list can be searched by typing.
 - `TAGS.DAY_TAG.HIDE`: If true, hide day tags drop-down. Day tags still shown on items if GENERATE true.
 - `TAGS.DONTLIST`: An array of tags not to list in the drop-downs and programme item tag lists.
+- `HIDE_BEFORE.HIDE`: If true hide "hide before" dropdown. If false, show dropdown containing times to hide items before.
+- `HIDE_BEFORE.PLACEHOLDER`: Placeholder text for hide before drop-down.
+- `HIDE_BEFORE.TIMES`: Array of times to list in hide before drop-down. Each entry should be specified as follows: { "TIME": "time in hh:mm:ss format", "LABEL_24H": "24 hour label", "LABEL_12H": "12 hour label" }. Time should be in convention timezone.
 - `FILTER.RESET.LABEL`: The label for the "Reset filters" button.
 - `PERMALINK.SHOW_PERMALINK`: If true, display a "permalink" icon when each program item is expanded.
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
@@ -191,10 +212,9 @@ After running `npm run build` just copy the build directory to the public direct
 
 If you need to put ConClár in a subdirectory on your webserver, you'll need to carry out the following additional steps:
 
-1. Edit the `BASE_PATH` setting in your `config.json` file. To put in a directory called "guide", set `BASE_PATH` to "/guide/".
-2. Edit the `package.json` file and add a `homepage` setting as shown below.
-3. Set appropriate settings for the webserver to find the `index.html` in the subdirectory.
-4. Use `npm run build` to prepare the application to upload.
+1. Edit the `package.json` file and add a `homepage` setting as shown below.
+2. Set appropriate settings for the webserver to find the `index.html` in the subdirectory.
+3. Use `npm run build` to prepare the application to upload.
 
 The `package.json` file should start as follows:
 
