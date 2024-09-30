@@ -6,7 +6,7 @@
     "format": "Ceremony",
     "datetime": "2024-10-05T10:00:00.000Z",
     "mins": 15,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -46,7 +46,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -101,7 +101,7 @@
     "format": "Fan Chat",
     "datetime": "2024-10-05T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -129,7 +129,7 @@
     "format": "Workshop",
     "datetime": "2024-10-05T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -166,7 +166,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -225,7 +225,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -280,7 +280,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -334,7 +334,7 @@
     "format": "Guest Chat",
     "datetime": "2024-10-05T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -361,7 +361,7 @@
     "format": "Other",
     "datetime": "2024-10-05T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -407,7 +407,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -466,7 +466,7 @@
     "format": "Talk",
     "datetime": "2024-10-05T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -503,7 +503,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -562,7 +562,7 @@
     "format": "Guest Chat",
     "datetime": "2024-10-05T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -589,7 +589,7 @@
     "format": "Workshop",
     "datetime": "2024-10-05T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -636,7 +636,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -701,7 +701,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -751,7 +751,7 @@
     "format": "Guest Chat",
     "datetime": "2024-10-05T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Zoom 2 - Member Portal"],
+    "loc": "Zoom 2 - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -778,7 +778,7 @@
     "format": "Fan Chat",
     "datetime": "2024-10-05T15:00:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -816,7 +816,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T15:00:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -861,7 +861,7 @@
     "format": "Workshop",
     "datetime": "2024-10-05T15:00:00.000Z",
     "mins": 45,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -898,7 +898,7 @@
     "format": "Interview",
     "datetime": "2024-10-05T15:00:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -940,7 +940,7 @@
     "format": "Workshop",
     "datetime": "2024-10-05T15:45:00.000Z",
     "mins": 45,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -977,7 +977,7 @@
     "format": "Guest Chat",
     "datetime": "2024-10-05T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1004,7 +1004,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1058,7 +1058,7 @@
     "format": "Workshop",
     "datetime": "2024-10-05T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -1104,7 +1104,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1173,7 +1173,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -1228,7 +1228,7 @@
     "format": "Guest Chat",
     "datetime": "2024-10-05T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Zoom 2 - Member Portal"],
+    "loc": "Zoom 2 - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -1255,7 +1255,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T18:00:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1314,7 +1314,7 @@
     "format": "Workshop",
     "datetime": "2024-10-05T18:00:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -1351,7 +1351,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T18:00:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -1396,7 +1396,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T19:30:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1451,7 +1451,7 @@
     "format": "Guest Chat",
     "datetime": "2024-10-05T19:30:00.000Z",
     "mins": 60,
-    "loc": ["Zoom 2 - Member Portal"],
+    "loc": "Zoom 2 - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -1478,7 +1478,7 @@
     "format": "Other",
     "datetime": "2024-10-05T20:30:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -1515,7 +1515,7 @@
     "format": "Other",
     "datetime": "2024-10-05T20:30:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1547,7 +1547,7 @@
     "format": "Panel",
     "datetime": "2024-10-05T20:30:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -1614,7 +1614,7 @@
     "format": "Guest Chat",
     "datetime": "2024-10-06T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1641,7 +1641,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1695,7 +1695,7 @@
     "format": "Workshop",
     "datetime": "2024-10-06T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -1732,7 +1732,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1790,7 +1790,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T10:30:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -1849,7 +1849,7 @@
     "format": "Fan Chat",
     "datetime": "2024-10-06T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1887,7 +1887,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -1946,7 +1946,7 @@
     "format": "Workshop",
     "datetime": "2024-10-06T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -1983,7 +1983,7 @@
     "format": "Book Launch",
     "datetime": "2024-10-06T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2015,7 +2015,7 @@
     "format": "Guest Chat",
     "datetime": "2024-10-06T12:00:00.000Z",
     "mins": 60,
-    "loc": ["Zoom 2 - Member Portal"],
+    "loc": "Zoom 2 - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -2042,7 +2042,7 @@
     "format": "Fan Chat",
     "datetime": "2024-10-06T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2080,7 +2080,7 @@
     "format": "Book Launch",
     "datetime": "2024-10-06T13:30:00.000Z",
     "mins": 30,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2107,7 +2107,7 @@
     "format": "Workshop",
     "datetime": "2024-10-06T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -2144,7 +2144,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2204,7 +2204,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T13:30:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -2258,7 +2258,7 @@
     "format": "Reading",
     "datetime": "2024-10-06T14:00:00.000Z",
     "mins": 30,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2285,7 +2285,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T15:00:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2343,7 +2343,7 @@
     "format": "Workshop",
     "datetime": "2024-10-06T15:00:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -2376,11 +2376,11 @@
   {
     "id":"64",
     "title": "Cosplay Parade",
-    "desc": "Show off your cosplay and strut your stuff on the Octocon red carpet in the Cosplay Parade around the convention! All ages and skill levels are welcome to participate, including commissioned and homemade costumes.\nYou can sign up in advance <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSf9y7S_uA4esmYUGXNndpGC2PDaiMKPbmI5lS0g6Vlx2Za6TQ/viewform?usp=sf_link\" target=\"blank\">online</a> or at the registration desk before 2pm on Sunday. Make sure you complete your video release form (at registration) so we know if you are happy being recorded or not.\nPlease arrive at the main panel room by 2:45pm, and let us know if you need any type of accommodations. \nAlthough we've allocated an hour and a half to the Parade, it's unlikely to take the full timeslot.\nStreamed live to the Member Portal.",
+    "desc": "Show off your cosplay and strut your stuff on the Octocon red carpet in the Cosplay Parade around the convention! All ages and skill levels are welcome to participate, including commissioned and homemade costumes.\nYou can sign up in advance online or at the registration desk before 2pm on Sunday. Make sure you complete your video release form (at registration) so we know if you are happy being recorded or not.\nPlease arrive at the main panel room by 2:45pm, and let us know if you need any type of accommodations. \nAlthough we've allocated an hour and a half to the Parade, it's unlikely to take the full timeslot.\nStreamed live to the Member Portal.",
     "format": "Other",
     "datetime": "2024-10-06T15:00:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2417,7 +2417,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T15:00:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -2467,7 +2467,7 @@
     "format": "Fan Chat",
     "datetime": "2024-10-06T15:00:00.000Z",
     "mins": 60,
-    "loc": ["Zoom 2 - Member Portal"],
+    "loc": "Zoom 2 - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -2505,7 +2505,7 @@
     "format": "Guest Chat",
     "datetime": "2024-10-06T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2532,7 +2532,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2590,7 +2590,7 @@
     "format": "Workshop",
     "datetime": "2024-10-06T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -2636,7 +2636,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2695,7 +2695,7 @@
     "format": "Workshop",
     "datetime": "2024-10-06T16:30:00.000Z",
     "mins": 60,
-    "loc": ["Zoom 2 - Member Portal"],
+    "loc": "Zoom 2 - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -2722,7 +2722,7 @@
     "format": "Fan Chat",
     "datetime": "2024-10-06T18:00:00.000Z",
     "mins": 60,
-    "loc": ["Chat area - Gibson"],
+    "loc": "Chat area - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2759,7 +2759,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T18:00:00.000Z",
     "mins": 60,
-    "loc": ["Alhambra - Gibson"],
+    "loc": "Alhambra - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2818,7 +2818,7 @@
     "format": "Workshop",
     "datetime": "2024-10-06T18:00:00.000Z",
     "mins": 60,
-    "loc": ["Cordoba - Gibson (upstairs)"],
+    "loc": "Cordoba - Gibson (upstairs)",
     "tags": [
       {
         "label": "In Person",
@@ -2865,7 +2865,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T18:00:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In Person",
@@ -2929,7 +2929,7 @@
     "format": "Panel",
     "datetime": "2024-10-06T18:00:00.000Z",
     "mins": 60,
-    "loc": ["Streamed online - Member Portal"],
+    "loc": "Streamed online - Member Portal",
     "tags": [
       {
         "label": "Online",
@@ -2993,7 +2993,7 @@
     "format": "Ceremony",
     "datetime": "2024-10-06T19:00:00.000Z",
     "mins": 60,
-    "loc": ["Stratocaster (main room) - Gibson"],
+    "loc": "Stratocaster (main room) - Gibson",
     "tags": [
       {
         "label": "In-person",
