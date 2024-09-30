@@ -1,0 +1,1321 @@
+[
+  {
+    "id": "117",
+    "title": "Opening Ceremony",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Ceremony/Event"
+    ],
+    "date": "2023-10-07",
+    "time": "10:00",
+    "mins": "15",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0002", "name": "Sarah Rees Brennan" },
+      { "id": "Z0055", "name": "Paul Carroll" }
+    ],
+    "desc": "<p>Octocon Chair Paul Carroll welcomes everyone to Octocon. Whether you're in our new home of the Gibson Park Hotel, or with us online from near and far, we're delighted that you could join us!<br /><br />Streamed live to the Member Portal.</p>",
+    "links": []
+  },
+  {
+    "id": "118",
+    "title": "Closing Ceremony",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Ceremony/Event"
+    ],
+    "date": "2023-10-08",
+    "time": "19:00",
+    "mins": "30",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0002", "name": "Sarah Rees Brennan" },
+      { "id": "Z0055", "name": "Paul Carroll" }
+    ],
+    "desc": "<p>We bid farewell to another Octocon and look forward to 2024!</p>\r\n<p>Streamed live to the Member Portal.</p>",
+    "links": []
+  },
+  {
+    "id": "119",
+    "title": "Cosplay Parade",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Ceremony/Event",
+      "Tag:Cosplay"
+    ],
+    "date": "2023-10-07",
+    "time": "15:00",
+    "mins": "90",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [{ "id": "M0091", "name": "Kat Dodd (moderator)" }],
+    "desc": "<p>Show off your cosplay and strut your stuff on the Octocon red carpet in the Cosplay Parade around the convention! All ages and skill levels are welcome to participate, including commissioned and homemade costumes.</p>\r\n<p>You can sign up in advance <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSd-gQ0ICihRvKETOvHsqiEYl5StlEPudpJA2HajdKjDl-COeA/viewform\" target=\"_blank\" rel=\"noopener\">online</a> or at the registration desk before 2pm on Saturday. Make sure you complete your video release form (at registration) so we know if you are happy being recorded or not.</p>\r\n<p>Please arrive at the main panel room by 2:45pm, and let us know if you need any type of accommodations. <br />Although we've allocated an hour and a half to the Parade, it's unlikely to take the full timeslot.</p>\r\n<p>Streamed live to the Member Portal.</p>",
+    "links": []
+  },
+  {
+    "id": "120",
+    "title": "Glasgow 2024 Book Club: Lagoon",
+    "tags": ["Track:In-person", "Division:Programming", "Type:Other"],
+    "date": "2023-10-08",
+    "time": "16:30",
+    "mins": "60",
+    "loc": ["Chat Area - Gibson (residents bar)"],
+    "people": [{ "id": "Z0052", "name": "Noelle Ameijenda (moderator)" }],
+    "desc": "<p>The Octocon book club is once again hosted by Glasgow 2024, a Worldcon for Our Futures. Join us in-person and online on Zoom for a discussion of <em>Lagoon</em> by Nnedi Okorafor, a Guest of Honour for Glasgow 2024.</p>",
+    "links": []
+  },
+  {
+    "id": "121",
+    "title": "Glasgow 2024 Book Club - join online",
+    "tags": ["Track:Online", "Division:Programming", "Type:Other"],
+    "date": "2023-10-08",
+    "time": "16:30",
+    "mins": "60",
+    "loc": ["Zoom 2 - Online"],
+    "people": [{ "id": "Z0052", "name": "Noelle Ameijenda" }],
+    "desc": "<p>The Octocon book club is once again hosted by Glasgow 2024, a Worldcon for Our Futures. Join us in-person and online on Zoom for a discussion of <em>Lagoon</em> by Nnedi Okorafor, a Guest of Honour for Glasgow 2024.</p>\r\n<p>&nbsp;</p>",
+    "links": []
+  },
+  {
+    "id": "124",
+    "title": "Teddy Bear Tea Party",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Ceremony/Event",
+      "Tag:Fun Stuff",
+      "Tag:Kids"
+    ],
+    "date": "2023-10-08",
+    "time": "13:00",
+    "mins": "90",
+    "loc": ["Chat Area - Gibson (residents bar)"],
+    "people": [{ "id": "Z0076", "name": "Daniella Bella (moderator)" }],
+    "desc": "<p>Bring your stuffies, your teddies, your plushies, your dolls, and your action figures to the tea party of the season! Whether you attended our pre-party Cuddly Cosplay Couture workshop to make little outfits, your teddy brought their own costume from home, or they're coming in their natural fluffy states, we're excited to see you all to catch up on all the latest stuffed animal gossip! Tea and coffee provided.</p>\r\n<p>Join the tea party in person or online (bring your own beverage)!</p>",
+    "links": []
+  },
+  {
+    "id": "125",
+    "title": "Cuddly Cosplay Couture Workshop",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Fun Stuff",
+      "Tag:Cosplay",
+      "Tag:Crafting & Making",
+      "Tag:Kids"
+    ],
+    "date": "2023-10-08",
+    "time": "12:00",
+    "mins": "60",
+    "loc": ["Alhambra (workshops) - Gibson"],
+    "people": [
+      { "id": "Z0073", "name": "Rowan Daly (moderator)" },
+      { "id": "Z0076", "name": "Daniella Bella" }
+    ],
+    "desc": "<p>If you want to make a costume for your stuffed animal or doll of choice for the Teddy Bear Tea Party, this is your chance! Join us as we work on little things that can make a big difference for glamming up your stuffies!</p>\r\n<p>Take part in-person or online! No sign-ups required.</p>",
+    "links": []
+  },
+  {
+    "id": "128",
+    "title": "Irish Comics vs. the World: Working for the (Super)Man or Making Your Own",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Comics",
+      "Tag:Creatives",
+      "Tag:Ireland"
+    ],
+    "date": "2023-10-08",
+    "time": "15:00",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "M0091", "name": "Kat Dodd (moderator)" },
+      { "id": "Z0006", "name": "Triona Farrell" },
+      { "id": "Z0016", "name": "Michael Carroll" },
+      { "id": "Z0055", "name": "Paul Carroll" },
+      { "id": "Z0076", "name": "Daniella Bella" }
+    ],
+    "desc": "<p>Irish comic creators populate every sphere of the industry, from indie books at comic cons, webcomics online, and wider distribution through international publishers and bookshops worldwide. With emerging platforms and new options opening up to comic creators, where does someone find their place in comics? Is publisher distribution even the goal anymore? When has someone &lsquo;made it&rsquo; in comics in the 2020s? Our panel of indie and pro creators cross the gutters between their worlds to discuss what success in comics means to them, and what they would do differently if they were starting over today.</p>\r\n<p>Streamed live to the Member Portal.</p>",
+    "links": []
+  },
+  {
+    "id": "130",
+    "title": "Rise of the Gothic",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Horror"
+    ],
+    "date": "2023-10-07",
+    "time": "10:30",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0071", "name": "Samuel Poots (moderator)" },
+      { "id": "Z0002", "name": "Sarah Rees Brennan" },
+      { "id": "Z0004", "name": "Jog Brogzin" },
+      { "id": "Z0050", "name": "Niall Kitson" },
+      { "id": "Z0070", "name": "Ygraine Hackett-Cantabrana" }
+    ],
+    "desc": "<p>Mike Flanagan says, &ldquo;Gothic horror relies on shadows, but also on being able to see the architecture and use it as an accomplice in a scare.&rdquo; With audiences returning to Gothic in their masses, our panel seeks to explain what makes the sense of haunting so compelling? Why has the genre come back into the zeitgeist? When did modern horror fans tire of jump scares? Is Gothic the future of new horror?</p>",
+    "links": []
+  },
+  {
+    "id": "131",
+    "title": "Stories for the Strong at Heart",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Society",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-08",
+    "time": "12:00",
+    "mins": "60",
+    "loc": ["Streamed - Online"],
+    "people": [
+      { "id": "M0091", "name": "Kat Dodd (moderator)" },
+      { "id": "M0163", "name": "RB Kelly" },
+      { "id": "Z0003", "name": "Ryan Cahill" },
+      { "id": "Z0028", "name": "Gillian Polack" },
+      { "id": "Z0043", "name": "Lucy A. McLaren" }
+    ],
+    "desc": "<p>Do you get tired when characters aren't allowed to be anything other than their trauma? And yet we still love broken characters, perhaps because broken mirrors still cast a reflection. Characters don't have to recover from their trauma to succeed beyond it, and we want to talk about how to let them succeed instead of continually tying them to the things that have happened to them so they don't have a chance to form the emotional scar tissue.</p>",
+    "links": []
+  },
+  {
+    "id": "132",
+    "title": "Culturally Irish Stories",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Creatives",
+      "Tag:Ireland",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-07",
+    "time": "12:00",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0023", "name": "Deirdre Thornton (moderator)" },
+      { "id": "Z0006", "name": "Triona Farrell" },
+      { "id": "Z0055", "name": "Paul Carroll" },
+      { "id": "Z0061", "name": "Ruth Long" },
+      { "id": "Z0071", "name": "Samuel Poots" }
+    ],
+    "desc": "<p>Ireland has always been a land of storytellers, with a great deal of our history being passed down through an oral tradition of passing on those stories. Through writing, comics, filmmaking and animation, contemporary Irish creators have expanded on the national pastime to tell Irish stories in their own way. What makes a story uniquely Irish? What is it about our oral tradition of storytelling that influences creators today? How much do our myths and legends, consciously or unconsciously, influence our writing and stories today?</p>",
+    "links": []
+  },
+  {
+    "id": "133",
+    "title": "Agents of Chaos",
+    "tags": [
+      "Track:Undecided",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:TV/Film",
+      "Tag:Society",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-08",
+    "time": "10:30",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0061", "name": "Ruth Long (moderator)" },
+      { "id": "M0173", "name": "Harun \u0160iljak" },
+      { "id": "Z0002", "name": "Sarah Rees Brennan" },
+      { "id": "Z0005", "name": "CK (Caimh) McDonnell" }
+    ],
+    "desc": "<p>Some people just want to watch the world burn, and it seems that most of us want to watch that person burn it. So many of the stories we love are exactly that: the lone voice screaming at the dark, upending the cabbage cart, gritting their teeth looking at the established order and dedicating themselves to tearing it all apart, damn the consequences. Join us as we climb the ladder and explore the power of chaos.</p>",
+    "links": []
+  },
+  {
+    "id": "134",
+    "title": "How Do We Solve a Problem Like YA?",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Literature",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-08",
+    "time": "18:00",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0023", "name": "Deirdre Thornton (moderator)" },
+      { "id": "Z0047", "name": "MaryBrigid Turner" },
+      { "id": "Z0055", "name": "Paul Carroll" },
+      { "id": "Z0061", "name": "Ruth Long" },
+      { "id": "Z0071", "name": "Samuel Poots" }
+    ],
+    "desc": "<p>Young Adult fiction is both a genre and a marketing ploy, but where does the line get drawn? What does YA look like today, and is it being held back as a genre by public misconceptions? Are adults trying to change the genre for themselves? Our panel of YA experts and authors explore what makes YA the collection of genres that it is, and attempt to address the ultimate question: Why can&rsquo;t people just let young readers enjoy things?&nbsp;</p>",
+    "links": []
+  },
+  {
+    "id": "135",
+    "title": "Approaching the End",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Comics",
+      "Tag:Creatives",
+      "Tag:Literature",
+      "Tag:TV/Film"
+    ],
+    "date": "2023-10-07",
+    "time": "10:30",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0029", "name": "Gwen Frazer (moderator)" },
+      { "id": "Z0005", "name": "CK (Caimh) McDonnell" },
+      { "id": "Z0016", "name": "Michael Carroll" },
+      { "id": "Z0037", "name": "Antiqueight" },
+      { "id": "Z0054", "name": "Paul Anthony Shortt" }
+    ],
+    "desc": "<p>All things must eventually come to an end but what makes an ending memorable? How a book, film or series wraps up can give us closure and emotional satisfaction but what happens when it crashes and burns instead? Our panel discusses endings good, bad and ugly.</p>",
+    "links": []
+  },
+  {
+    "id": "138",
+    "title": "Enabling Representation: Including Disabled Voices and Bodies in Gaming",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Society",
+      "Tag:Gaming"
+    ],
+    "date": "2023-10-07",
+    "time": "18:00",
+    "mins": "60",
+    "loc": ["Streamed - Online"],
+    "people": [
+      { "id": "Z0073", "name": "Rowan Daly (moderator)" },
+      { "id": "Z0013", "name": "April Steenburgh" },
+      { "id": "Z0074", "name": "Faranae" }
+    ],
+    "desc": "<p>We are increasingly talking about the accessibility of games, both video and TTRPG. But what about disability in the games themselves? Representation in secondary characters and NPCs is important but fosters the impression that people with disabilities can only have supporting roles. What do we need for people to realise that disabled people can be heroes, too, without objectifying them?</p>",
+    "links": []
+  },
+  {
+    "id": "143",
+    "title": "You Can't Handle the Truth",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Creatives",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-07",
+    "time": "12:00",
+    "mins": "60",
+    "loc": ["Streamed - Online"],
+    "people": [
+      { "id": "Z0034", "name": "Jean B\u00fcrlesk (moderator)" },
+      { "id": "Z0003", "name": "Ryan Cahill" },
+      { "id": "Z0008", "name": "Sin Blach\u00e9" },
+      { "id": "Z0009", "name": "Helen Macdonald" },
+      { "id": "Z0065", "name": "Shauna Lawless" }
+    ],
+    "desc": "<p>Objective truth, if there is such a thing, is dangerous &ndash; it can set a protagonist against a world that relies on fiction, both small and large. How do you construct a story in which someone always knows the truth from a lie? What can and can't you do in this story that isn't otherwise possible? What is lost in a story where you can't leave any lies alive?</p>",
+    "links": []
+  },
+  {
+    "id": "144",
+    "title": "Every Film, Everywhere, All At Once",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:TV/Film"
+    ],
+    "date": "2023-10-07",
+    "time": "13:30",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0031", "name": "James Brophy (moderator)" },
+      { "id": "M0163", "name": "RB Kelly" },
+      { "id": "Z0029", "name": "Gwen Frazer" },
+      { "id": "Z0037", "name": "Antiqueight" },
+      { "id": "Z0050", "name": "Niall Kitson" }
+    ],
+    "desc": "<p>We are spoiled for choice with all the movies and television shows that are readily available on the streaming platforms. But how do we keep up with everything without being overwhelmed? Are we too entertained these days? How do we make better choices about what to watch without feeling even more guilty about our existing pile of To Be Watched that we'll <em>eventually</em> get around to? <em>Should </em>we feel guilty about not watching things?</p>",
+    "links": []
+  },
+  {
+    "id": "148",
+    "title": "Points of View: Writing With a Partner",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Creatives",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-08",
+    "time": "16:30",
+    "mins": "60",
+    "loc": ["Streamed - Online"],
+    "people": [
+      { "id": "Z0013", "name": "April Steenburgh (moderator)" },
+      { "id": "Z0008", "name": "Sin Blach\u00e9" },
+      { "id": "Z0009", "name": "Helen Macdonald" },
+      { "id": "Z0040", "name": "Laura Anne Gilman" },
+      { "id": "Z0068", "name": "Vanessa MacLaren-Wray" }
+    ],
+    "desc": "<p>Sometimes when working with other people, lightning in a bottle happens and together we become more than the sum of our parts. How does working with or for others make us better creators and help us grow beyond what we might have thought possible, and how do you approach the challenges of collaboration?</p>",
+    "links": []
+  },
+  {
+    "id": "149",
+    "title": "The Work After the Inspiration: Writing Tie-In Novels",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Creatives",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-08",
+    "time": "12:00",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0071", "name": "Samuel Poots (moderator)" },
+      { "id": "Z0002", "name": "Sarah Rees Brennan" },
+      { "id": "Z0016", "name": "Michael Carroll" },
+      { "id": "Z0061", "name": "Ruth Long" },
+      { "id": "Z0062", "name": "Ryann Fletcher" }
+    ],
+    "desc": "<p>Aldous Huxley once wrote: \"To write fiction, one needs a whole series of inspirations about people in an actual environment, and then a whole lot of work on the basis of those inspirations.\" The business of sharing a universe with others and tending to your corner of it can be surprisingly complex when the media you are tying into is still in the process of being created. Come and learn the hidden battles, the minor tragedies and the almost triumphs of creating a world inside someone else's.</p>",
+    "links": []
+  },
+  {
+    "id": "150",
+    "title": "Villains: The Allure of Evil",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Writing/Editing/Publishing",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-07",
+    "time": "16:30",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0031", "name": "James Brophy (moderator)" },
+      { "id": "Z0002", "name": "Sarah Rees Brennan" },
+      { "id": "Z0005", "name": "CK (Caimh) McDonnell" },
+      { "id": "Z0045", "name": "Maire Brophy" }
+    ],
+    "desc": "<p>Everyone is at least a little curious about their own darkside, the permission that evil grants us, but writers take us past the line into the experience of being evil, being so close to it that we can revel in the spoils. Are great villains the ones we can relate to without feeling our own guilt? Is villainy in entertainment really about the permission to live deliciously?</p>",
+    "links": []
+  },
+  {
+    "id": "156",
+    "title": "Reading Between the Lines: Writing While on the Spectrum",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Creatives",
+      "Tag:Society",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-07",
+    "time": "12:00",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0054", "name": "Paul Anthony Shortt (moderator)" },
+      { "id": "M0091", "name": "Kat Dodd" },
+      { "id": "M0163", "name": "RB Kelly" },
+      { "id": "Z0021", "name": "David Green" },
+      { "id": "Z0027", "name": "Legendgerry" }
+    ],
+    "desc": "<p>Neurodivergent writers talk about their writing process, including how they write ND characters, and if they write ND characters. They also talk as readers -- how their neurodivergences affect how they read and absorb stories, and how they relate to characters.</p>",
+    "links": []
+  },
+  {
+    "id": "157",
+    "title": "Surviving Your Villain Redemption Arc",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Creatives",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-08",
+    "time": "10:30",
+    "mins": "60",
+    "loc": ["Streamed - Online"],
+    "people": [
+      { "id": "Z0036", "name": "Karina Steffens (moderator)" },
+      { "id": "Z0028", "name": "Gillian Polack" },
+      { "id": "Z0043", "name": "Lucy A. McLaren" },
+      { "id": "Z0060", "name": "Russell Smith" },
+      { "id": "Z0079", "name": "Dove Cooper" }
+    ],
+    "desc": "<p>You've looked to your hands, decided not to do the terrible thing &ndash; but what now? Redemption comes in many forms, sometimes from the self, sometimes externally, when you have to seek forgiveness from the protagonists you've wronged. If you're in that point of your arc storytelling, come along to our panel of experts to help you navigate the rocky waters of managing a whole new set of ethics &ndash; and maybe even a much hotter haircut.</p>",
+    "links": []
+  },
+  {
+    "id": "158",
+    "title": "Who Reviews the Reviewers: Current Trends in Review Culture",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Fandom"
+    ],
+    "date": "2023-10-08",
+    "time": "13:30",
+    "mins": "60",
+    "loc": ["Streamed - Online"],
+    "people": [
+      { "id": "M0025", "name": "Catherine Sharp (moderator)" },
+      { "id": "Z0014", "name": "Cheryl Morgan" },
+      { "id": "Z0047", "name": "MaryBrigid Turner" },
+      { "id": "Z0051", "name": "Nick Hubble" },
+      { "id": "Z0074", "name": "Faranae" }
+    ],
+    "desc": "<p>From 30 second BookToks to 2 hour video essays on Fallout 76, no part of media is experiencing more fluctuation in its form than reviewing. Nobody can write in a vacuum, and the same is true for reviewers. How is the current culture affecting the way that reviewers write, and how in turn do those reviews affect the art they critique?</p>",
+    "links": []
+  },
+  {
+    "id": "161",
+    "title": "One Root Can Grow Many Flowers",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Literature",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-07",
+    "time": "10:30",
+    "mins": "60",
+    "loc": ["Streamed - Online"],
+    "people": [
+      { "id": "Z0034", "name": "Jean B\u00fcrlesk (moderator)" },
+      { "id": "Z0003", "name": "Ryan Cahill" },
+      { "id": "Z0028", "name": "Gillian Polack" },
+      { "id": "Z0060", "name": "Russell Smith" },
+      { "id": "Z0065", "name": "Shauna Lawless" }
+    ],
+    "desc": "<p>Some authors can&rsquo;t get it all into one book. Surprisingly, the Best Series category for the Hugo Awards has only been around since 2017, but series have been part of storytelling for far longer. When is a series overwhelming and too much, and when is it not enough? When are the spinoffs more interesting than the original? What is it like to write novellas and short stories with other writers that tie into a bigger world? Do fans like shorter tie-ins or would they prefer a next full instalment in the story? How do you write a large canon and keep it all coherent? Does writing lots of novels mean more to work with or more to miss and mess up when the canon literalists come after you for missing a key fact?</p>",
+    "links": []
+  },
+  {
+    "id": "162",
+    "title": "Beyond the Comfy Chair, Warm Drinks Await: Cosy Fantasy",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Fantasy",
+      "Tag:Literature",
+      "Tag:TV/Film",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-08",
+    "time": "15:00",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0073", "name": "Rowan Daly (moderator)" },
+      { "id": "Z0021", "name": "David Green" },
+      { "id": "Z0022", "name": "Declan Meenagh" },
+      { "id": "Z0023", "name": "Deirdre Thornton" },
+      { "id": "Z0047", "name": "MaryBrigid Turner" }
+    ],
+    "desc": "<p>A genre beloved of various marginalised communities has broken into the mainstream with Travis Baldree&rsquo;s <em>Legends &amp; Lattes</em>. It&rsquo;s arrived with warm drinks, pillows, quiet chats and characters that are always easy to look forward to rejoining. Join us as we take a look at the distinction between the comforting and the cosy, explore the origins of the genre and discuss why it&rsquo;s important to let ourselves take it easy from time to time.</p>",
+    "links": []
+  },
+  {
+    "id": "163",
+    "title": "Your Dragon is in Another Dungeon",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Gaming"
+    ],
+    "date": "2023-10-08",
+    "time": "13:30",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0027", "name": "Legendgerry (moderator)" },
+      { "id": "Z0004", "name": "Jog Brogzin" },
+      { "id": "Z0033", "name": "Janet O'Sullivan" },
+      { "id": "Z0045", "name": "Maire Brophy" },
+      { "id": "Z0071", "name": "Samuel Poots" }
+    ],
+    "desc": "<p>Parties are not just adventuring beyond their homelands, but beyond the rules of the D&amp;D universe itself. From mainstream to homebrew, there are new game systems to torment tantalise you! Join us as we explore the ways how D&amp;D is in flux among the gaming community and what the advantages of the alternatives are.</p>",
+    "links": []
+  },
+  {
+    "id": "166",
+    "title": "Cartography and Storytelling: A Creator's Guide To Worldbuilding",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Art",
+      "Tag:Creatives",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-07",
+    "time": "15:00",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0045", "name": "Maire Brophy (moderator)" },
+      { "id": "Z0004", "name": "Jog Brogzin" },
+      { "id": "Z0015", "name": "Clare O'Beara" },
+      { "id": "Z0021", "name": "David Green" },
+      { "id": "Z0023", "name": "Deirdre Thornton" }
+    ],
+    "desc": "<p>Who doesn&rsquo;t love a good map? Especially a fantasy map? Join our panel as we talk about the importance of a map to a good story, their role in the creation of a narrative and world, and maps from books we adore.</p>",
+    "links": []
+  },
+  {
+    "id": "167",
+    "title": "The Classics Are Here To Stay!",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Fandom"
+    ],
+    "date": "2023-10-08",
+    "time": "12:00",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0021", "name": "David Green (moderator)" },
+      { "id": "Z0029", "name": "Gwen Frazer" },
+      { "id": "Z0072", "name": "Brian Nisbet" }
+    ],
+    "desc": "<p>Genre fans aren&rsquo;t short of new books, TV shows, comics, video games and movies to fall in love with&hellip;so why do we always go back to the classics? From Lord of the Rings to the original Star Trek, and from Zelda: Ocarina of Time to Sailor Moon, why do our cherished tales of old have such a hold on us? Is it just nostalgia? What makes them comforting to us when the world seems so bleak sometimes?</p>",
+    "links": []
+  },
+  {
+    "id": "168",
+    "title": "Sympathy for the Adaptation: Why They Ruined What You Love",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Comics",
+      "Tag:Literature",
+      "Tag:TV/Film"
+    ],
+    "date": "2023-10-08",
+    "time": "13:30",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0050", "name": "Niall Kitson (moderator)" },
+      { "id": "Z0021", "name": "David Green" },
+      { "id": "Z0031", "name": "James Brophy" },
+      { "id": "Z0036", "name": "Karina Steffens" }
+    ],
+    "desc": "<p>Films aren't screen plays, screenplays aren't novels, comics aren't short stories and none of these are easy to convert into a 10 episode drama that you will want to watch twice in its first month. This hour we take a look at the challenges and choices when valiant writers set about the thankless work of adapting your favourite stories to another medium.</p>",
+    "links": []
+  },
+  {
+    "id": "169",
+    "title": "There's People Inside Me!!!!",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Science & Technology",
+      "Tag:Science Fiction"
+    ],
+    "date": "2023-10-08",
+    "time": "16:30",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "M0025", "name": "Catherine Sharp (moderator)" },
+      { "id": "M0021", "name": "James Shields" },
+      { "id": "M0173", "name": "Harun \u0160iljak" },
+      { "id": "Z0036", "name": "Karina Steffens" },
+      { "id": "Z0057", "name": "Rachel  Handley" }
+    ],
+    "desc": "<p>We get it, driving a starship is hard. What do all those buttons do and why is that thing beeping all the time? Wouldn&rsquo;t it be better to get some help? While series like Battlestar Galactica rebel against the big computer and go back to print-outs and wired phones, while in Star Trek, the ship is so smart it begs the question why they bother with consoles. In Farscape the ship is alive, paired with a pilot for life, but in 2000: A Space Odyssey, HAL isn&rsquo;t the perfect work mate he was designed to be. What are the ethics of a sentient computer and an organic ship that is alive? Will AI bring us to Mars or be the cause of the next space disaster?</p>",
+    "links": []
+  },
+  {
+    "id": "170",
+    "title": "Soap Operas... IN SPACE!!!!",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Science Fiction",
+      "Tag:Writing/Editing/Publishing",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-07",
+    "time": "16:30",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0061", "name": "Ruth Long (moderator)" },
+      { "id": "Z0016", "name": "Michael Carroll" },
+      { "id": "Z0022", "name": "Declan Meenagh" },
+      { "id": "Z0062", "name": "Ryann Fletcher" },
+      { "id": "Z0067", "name": "Tommy Ferguson" }
+    ],
+    "desc": "<p>From Star Trek to the Wayfinder series, science fiction writers have told compelling stories with characters we all love on the way to, or on, alien planets. We talk about this important sub genre and ask how it has changed? Who is doing interesting things with it? What stories work well as a space opera? What hasn&rsquo;t been done in the genre yet? Join us as we discuss all of this and more, including how space operas work with other genres like hopepunk.</p>",
+    "links": []
+  },
+  {
+    "id": "171",
+    "title": "Slice-of-Life Anime: Why Does Everyone Want to Stay Home?",
+    "tags": ["Track:Online", "Division:Programming", "Type:Panel", "Tag:Anime"],
+    "date": "2023-10-08",
+    "time": "18:00",
+    "mins": "60",
+    "loc": ["Streamed - Online"],
+    "people": [
+      { "id": "Z0073", "name": "Rowan Daly (moderator)" },
+      { "id": "Z0068", "name": "Vanessa MacLaren-Wray" },
+      { "id": "Z0074", "name": "Faranae" },
+      { "id": "Z0079", "name": "Dove Cooper" }
+    ],
+    "desc": "<p>\"I wanted to go on an adventure but I decided to be an ordinary high school student instead.\" Tired of fighting demons and saving the world, or getting thrown into a whole new universe? From the life of an ordinary cell in your body, to the daily life of high school girls, slice-of-life anime give viewers a little piece of someone else&rsquo;s routine. Come chill with our panellists as they celebrate the mundane together.&nbsp;</p>",
+    "links": []
+  },
+  {
+    "id": "172",
+    "title": "An Interview with Sarah Rees Brennan",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Interview",
+      "Tag:Guest of Honour"
+    ],
+    "date": "2023-10-07",
+    "time": "13:30",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0061", "name": "Ruth Long (moderator)" },
+      { "id": "Z0002", "name": "Sarah Rees Brennan" }
+    ],
+    "desc": "<p>Guest of Honour Sarah Rees Brennan chats to Ruth Long about.... well, who knows? Come along and hear Sarah's stories and thoughts!</p>\r\n<p>Streamed live to the Member Portal.</p>",
+    "links": []
+  },
+  {
+    "id": "173",
+    "title": " Glasgow 2024 Gin Tasting",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Ceremony/Event",
+      "Tag:Fun Stuff"
+    ],
+    "date": "2023-10-07",
+    "time": "18:00",
+    "mins": "60",
+    "loc": ["Concourse - Gibson"],
+    "people": [{ "id": "Z0052", "name": "Noelle Ameijenda (moderator)" }],
+    "desc": "<p>Come taste GIn2024, the official gin of Glasgow 2024, a Worldcon for Our Futures!</p>\r\n<p><a href=\"https://www.pixelspiritsltd.co.uk/product/gin2024/\">https://www.pixelspiritsltd.co.uk/product/gin2024/</a></p>\r\n<p>Over 18s only.</p>",
+    "links": []
+  },
+  {
+    "id": "174",
+    "title": "Sunday Service with James and Janet",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Fun Stuff",
+      "Tag:TV/Film"
+    ],
+    "date": "2023-10-08",
+    "time": "10:30",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0031", "name": "James Brophy" },
+      { "id": "Z0033", "name": "Janet O'Sullivan" }
+    ],
+    "desc": "<p>A comedy round-up of the past year in film, TV, and genre fiction in general.</p>",
+    "links": []
+  },
+  {
+    "id": "175",
+    "title": "Saturday Night Social ",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Other",
+      "Tag:Fun Stuff"
+    ],
+    "date": "2023-10-07",
+    "time": "20:00",
+    "mins": "180",
+    "loc": ["Concourse - Gibson"],
+    "people": null,
+    "desc": "<p>If you're not taking part in the Great Octocon Quiz or going to a game or a panel, why not join us in for a Saturday night social in the open area of the Gibson?&nbsp;</p>\r\n<p>Masks still required except when eating and drinking. </p>",
+    "links": []
+  },
+  {
+    "id": "176",
+    "title": "Geomorph Mega-Dungeon Workshop",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Crafting & Making",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-07",
+    "time": "12:00",
+    "mins": "300",
+    "loc": ["Trade Hall - Gibson"],
+    "people": [{ "id": "Z0004", "name": "Jog Brogzin (moderator)" }],
+    "desc": "<p><strong>Who:</strong> Beginners welcome!<br /><strong>Where</strong>: Next to Jog's trade table <br /><strong>When</strong>: During trade hours + periodic tutorials (see times displayed at Jog's table)</p>\r\n<p>Grab a template and start drawing, or wait for a tutorial and learn how to make dungeon maps. All the maps will be stuck together into one mega dungeon.<br /><br /><strong>What is a Geomorph Mega-Dungeon?</strong><br />A geomorph is a type of map with predefined entrances and exits that line up with other geomorphs. So all the maps connect together to make one large (or MEGA) dungeon. This can be of any style, so include sci-fi, fantasy and horror elements to your map, whatever you like.</p>\r\n<p>No sign-up required.</p>",
+    "links": []
+  },
+  {
+    "id": "177",
+    "title": "RPG: Dakka and Fungeons",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Scheduled Game",
+      "Tag:Fun Stuff",
+      "Tag:Gaming"
+    ],
+    "date": "2023-10-07",
+    "time": "20:00",
+    "mins": "180",
+    "loc": ["Alhambra (workshops) - Gibson"],
+    "people": [{ "id": "Z0027", "name": "Legendgerry (moderator)" }],
+    "desc": "<p><em>In the grim darkness of the far future, there is only war, but in between there's time to kill and games... </em></p>\r\n<p>In the Warhammer 40k universe, Orks' belief is an elemental force. So what happens if they start playing an RPGand really get into character?</p>\r\n<p><a href=\"https://2023.octocon.com/rpg-dakka-and-fungeons/\" target=\"_blank\" rel=\"noopener\">Find out more</a><br /><br />The system is homebrew but uses the same range of dice as D&amp;D 5E.</p>\r\n<p>Suitable for age 11+.</p>\r\n<p>Space for 5 players, but people are welcome to come and watch. Sign up <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSfy7AC-ipp9-soWDl_lBAJ4KcrROUb-3aQiP_WfJpWWVTzWvQ/viewform?usp=sf_link\" target=\"_blank\" rel=\"noopener\">online</a> or at the registration desk to play; we'll accept names for a waitlist.</p>",
+    "links": []
+  },
+  {
+    "id": "178",
+    "title": "Guest Chat: Sarah Rees Brennan",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Guest Chat",
+      "Tag:Guest of Honour"
+    ],
+    "date": "2023-10-08",
+    "time": "15:00",
+    "mins": "60",
+    "loc": ["Chat Area - Gibson (residents bar)"],
+    "people": [{ "id": "Z0002", "name": "Sarah Rees Brennan" }],
+    "desc": "<p>Gather round a table with Octocon 2023 Guest of Honour Sarah Rees Brennan for an in-person chat!</p>\r\n<p>Sign up <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSfy7AC-ipp9-soWDl_lBAJ4KcrROUb-3aQiP_WfJpWWVTzWvQ/viewform?usp=sf_link\" target=\"_blank\" rel=\"noopener\">online</a> or at the registration desk.</p>",
+    "links": []
+  },
+  {
+    "id": "181",
+    "title": "A History of Violence: Andor and the Cost of Rebellion",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Science Fiction",
+      "Tag:Society"
+    ],
+    "date": "2023-10-08",
+    "time": "16:30",
+    "mins": "60",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [
+      { "id": "Z0072", "name": "Brian Nisbet (moderator)" },
+      { "id": "M0090", "name": "Colm Dodd" },
+      { "id": "Z0031", "name": "James Brophy" },
+      { "id": "Z0045", "name": "Maire Brophy" },
+      { "id": "Z0062", "name": "Ryann Fletcher" }
+    ],
+    "desc": "<p>In recent years we have celebrated the centenary of the founding of our state; Andor itself is massively informed by historical political inflection points both Irish and beyond. The response to Andor has been phenomenal with almost universal praise from critics, we take apart its rich mix of political references and ask what makes the count down to rebellion tick. From the outside, when the cause is worthy enough, it&rsquo;s easy to romanticise violence. In Star Wars Andor, we see the toll that a rebellion can truly take on those who engage in it. In Ireland, many of us are all too aware of the cost of violence to our very being, no matter if we agree with the reasons or not. We look to Andor from the perspective of a nation which can truly understand it.</p>",
+    "links": []
+  },
+  {
+    "id": "182",
+    "title": "The Barbie Movie: From Plastic to Celluloid",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:TV/Film",
+      "Tag:Society",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-07",
+    "time": "19:30",
+    "mins": "60",
+    "loc": ["Cordoba (2nd panel room) - Gibson (upstairs)"],
+    "people": [
+      { "id": "Z0076", "name": "Daniella Bella (moderator)" },
+      { "id": "M0091", "name": "Kat Dodd" },
+      { "id": "Z0055", "name": "Paul Carroll" },
+      { "id": "Z0077", "name": "Entity" }
+    ],
+    "desc": "<p>Established brands and properties aren't just free marketing that make the job of establishing your story easier, they are also the permission to talk about certain subjects and aspects of our world which can, for some, be hidden or controversial. Barbie is the radical idea of a woman who is uncritically, unashamedly, identifiably female and the movie brings her into direct conflict with a world that has a lot to say about that and a great need to both define and limit her. The journey she and Ken take is informed by gender related stereotypes, the innocence of childhood and the weirdness of modern doublespeak informed by patriarchy. A pure absurdist fantasy that allows for a deeper discussion about who men and women are and what they owe to each other. Join us for the life in plastic, it&rsquo;s fantastic.</p>",
+    "links": []
+  },
+  {
+    "id": "185",
+    "title": "Icebreaker: Create Your Own Bookmark",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Fun Stuff",
+      "Tag:Crafting & Making",
+      "Tag:Kids"
+    ],
+    "date": "2023-10-07",
+    "time": "10:30",
+    "mins": "60",
+    "loc": ["Alhambra (workshops) - Gibson"],
+    "people": [
+      { "id": "Z0073", "name": "Rowan Daly (moderator)" },
+      { "id": "Z0077", "name": "Entity" }
+    ],
+    "desc": "<p>Would you like a gentle introduction to Octocon? And have you seen those little bookmarks that fit over the corner of the page? <br />Join us to learn how to make those, and to maybe make some new Octocon friends too!</p>\r\n<p>We'll also teach you various methods to decorate your bookmark, including some doodling styles that can help calm down the anxious or overwhelmed mind. And if you have any questions about Octocon, we'll happily answer them all.</p>\r\n<p>We'll provide coloured paper for the bookmarks, and tools to decorate your bookmark.</p>\r\n<p>No sign-up required.</p>",
+    "links": []
+  },
+  {
+    "id": "186",
+    "title": "Writing Workshop: Do You Want to Build A Snowball (or Maybe Just a Novel)",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Creatives",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-08",
+    "time": "10:30",
+    "mins": "70",
+    "loc": ["Alhambra (workshops) - Gibson"],
+    "people": [{ "id": "M0091", "name": "Kat Dodd (moderator)" }],
+    "desc": "<p>Have you ever said \"There's a novel inside me, if only I had the time\" or \"I wish I could write, I have ideas, but I just don't know if I'm good enough\" or \"sometimes I think about writing but I just don't know\", or anything else along those lines? I believe in you and want to help you get ideas and words out of your head and onto the page!<br /><br />The workshop covers Kat Dodd's Snowball Method, a process of preparing and planning your novel, as well as navigating the world of Writer's Block and the messiness of time when you just don&rsquo;t seem to have any. Suitable for writers with any level of experience; perfect for those who want to learn how to get started and maintain momentum. Please bring the writing utensils of your choice.</p>\r\n<p>The workshop takes place both in-person and online! You can sign up in advance <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSfy7AC-ipp9-soWDl_lBAJ4KcrROUb-3aQiP_WfJpWWVTzWvQ/viewform?usp=sf_link\" target=\"_blank\" rel=\"noopener\">online</a> (no matter how you're attending) or on the sign-up sheet at the registration desk until 15 minutes before the start of the workshop.</p>",
+    "links": []
+  },
+  {
+    "id": "187",
+    "title": "Writing Workshop: Understand Your Characters Using Mental Health and Counselling Theory",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Creatives",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-07",
+    "time": "15:00",
+    "mins": "60",
+    "loc": ["Zoom 1 - Online"],
+    "people": [{ "id": "Z0043", "name": "Lucy A. McLaren (moderator)" }],
+    "desc": "<p>This workshop will cover attachment theory and aspects of Transactional Analysis and Person-Centred Theory, considering how each of these elements can play a role in allowing authors to gain a deeper understanding of their characters. And if you want to learn how a potato can be a part of gaining that insight, you won&rsquo;t want to miss out!</p>\r\n<p>Sign up in advance <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSfy7AC-ipp9-soWDl_lBAJ4KcrROUb-3aQiP_WfJpWWVTzWvQ/viewform?usp=sf_link\" target=\"_blank\" rel=\"noopener\">online</a>.</p>",
+    "links": []
+  },
+  {
+    "id": "189",
+    "title": "The Great Octocon Table Quiz (for Charity!)",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Other",
+      "Tag:Fun Stuff"
+    ],
+    "date": "2023-10-07",
+    "time": "20:30",
+    "mins": "120",
+    "loc": ["Stratocaster (main room) - Gibson"],
+    "people": [{ "id": "M0025", "name": "Catherine Sharp" }],
+    "desc": "<p>Do you think you know everything about all things science fiction, fantasy and horror, books, TV, film and comics? Come and test your knowledge in the Great Octocon Table Quiz, and win some of our excellent prizes!</p>\r\n<p>Teams of 4(ish); &euro;5 per team member as a donation to Octocon's 2023 charity, The Irish Deaf Society.<br />Prizes are presented per team.</p>",
+    "links": []
+  },
+  {
+    "id": "193",
+    "title": "Icebreaker: Create Your Own Bookmark - join online",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Fun Stuff",
+      "Tag:Crafting & Making",
+      "Tag:Kids"
+    ],
+    "date": "2023-10-07",
+    "time": "10:30",
+    "mins": "60",
+    "loc": ["Zoom 1 - Online"],
+    "people": [
+      { "id": "Z0073", "name": "Rowan Daly (moderator)" },
+      { "id": "Z0077", "name": "Entity" }
+    ],
+    "desc": "<p>Would you like a gentle introduction to Octocon? And have you seen those little bookmarks that fit over the corner of the page? <br />Join us to learn how to make those, and to maybe make some new Octocon friends too!</p>\r\n<p>We'll also teach you various methods to decorate your bookmark, including some doodling styles that can help calm down the anxious or overwhelmed mind. And if you have any questions about Octocon, we'll happily answer them all.</p>\r\n<p>You will need to provide square paper for the bookmarks, and tools to decorate your bookmark.</p>\r\n<p>No sign-up required.</p>",
+    "links": []
+  },
+  {
+    "id": "194",
+    "title": "An Interview with Sarah Rees Brennan - streamed live from Dublin",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Interview",
+      "Tag:Guest of Honour"
+    ],
+    "date": "2023-10-07",
+    "time": "13:30",
+    "mins": "60",
+    "loc": ["Streamed from Dublin - Online"],
+    "people": [
+      { "id": "Z0061", "name": "Ruth Long (moderator)" },
+      { "id": "Z0002", "name": "Sarah Rees Brennan" }
+    ],
+    "desc": "<p>Guest of Honour Sarah Rees Brennan chats to Ruth Long about.... well, who knows? Come along and hear Sarah's stories and thoughts!</p>\r\n<p>Streamed live to the Member Portal (subject to recording permission).</p>\r\n<p>&nbsp;</p>",
+    "links": []
+  },
+  {
+    "id": "195",
+    "title": "Opening Ceremony - streamed live from Dublin",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Ceremony/Event"
+    ],
+    "date": "2023-10-07",
+    "time": "10:00",
+    "mins": "15",
+    "loc": ["Streamed from Dublin - Online"],
+    "people": null,
+    "desc": "<p>Octocon Chair Paul O'Carroll welcomes everyone to Octocon. Whether you're in our new home of the Gibson Park Hotel, or with us online from near and far, we're delighted that you could join us!<br /><br />Streamed live to the Member Portal.</p>",
+    "links": []
+  },
+  {
+    "id": "196",
+    "title": "Closing Ceremony - streamed live from Dublin",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Ceremony/Event"
+    ],
+    "date": "2023-10-08",
+    "time": "19:00",
+    "mins": "30",
+    "loc": ["Streamed from Dublin - Online"],
+    "people": null,
+    "desc": "<p>We bid farewell to another Octocon and look forward to 2024!</p>\r\n<p>Streamed live to the Member Portal.</p>\r\n<p>&nbsp;</p>",
+    "links": []
+  },
+  {
+    "id": "197",
+    "title": "Writing Workshop: Do You Want to Build A Snowball (or Maybe Just a Novel) - join online",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Creatives",
+      "Tag:Writing/Editing/Publishing"
+    ],
+    "date": "2023-10-08",
+    "time": "10:30",
+    "mins": "90",
+    "loc": ["Zoom 1 - Online"],
+    "people": [{ "id": "M0091", "name": "Kat Dodd (moderator)" }],
+    "desc": "<p>Have you ever said \"There's a novel inside me, if only I had the time\" or \"I wish I could write, I have ideas, but I just don't know if I'm good enough\" or \"sometimes I think about writing but I just don't know\", or anything else along those lines? I believe in you and want to help you get ideas and words out of your head and onto the page!<br /><br />The workshop covers Kat Dodd's Snowball Method, a process of preparing and planning your novel, as well as navigating the world of Writer's Block and the messiness of time when you just don&rsquo;t seem to have any. Suitable for writers with any level of experience; perfect for those who want to learn how to get started and maintain momentum. And taking place both in-person and online! Please bring the writing utensils of your choice.</p>",
+    "links": []
+  },
+  {
+    "id": "198",
+    "title": "Irish Comics vs. the World - streamed live from Dublin",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Panel",
+      "Tag:Comics",
+      "Tag:Ireland"
+    ],
+    "date": "2023-10-08",
+    "time": "15:00",
+    "mins": "60",
+    "loc": ["Streamed from Dublin - Online"],
+    "people": [
+      { "id": "M0091", "name": "Kat Dodd (moderator)" },
+      { "id": "Z0006", "name": "Triona Farrell" },
+      { "id": "Z0016", "name": "Michael Carroll" },
+      { "id": "Z0055", "name": "Paul Carroll" },
+      { "id": "Z0076", "name": "Daniella Bella" }
+    ],
+    "desc": "<p>Irish comic creators populate every sphere of the industry, from indie books at comic cons, webcomics online, and wider distribution through international publishers and bookshops worldwide. With emerging platforms and new options opening up to comic creators, where does someone find their place in comics? Is publisher distribution even the goal anymore? When has someone &lsquo;made it&rsquo; in comics in the 2020s? Our panel of indie and pro creators cross the gutters between their worlds to discuss what success in comics means to them, and what they would do differently if they were starting over today.</p>\r\n<p>Streamed live to the Member Portal (subject to recording permission).</p>\r\n<p>&nbsp;</p>",
+    "links": []
+  },
+  {
+    "id": "199",
+    "title": "Cosplay Parade - streamed live from Dublin",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Ceremony/Event",
+      "Tag:Cosplay"
+    ],
+    "date": "2023-10-07",
+    "time": "15:00",
+    "mins": "90",
+    "loc": ["Streamed from Dublin - Online"],
+    "people": null,
+    "desc": "<p>Watch as our cosplayers show off their costumes and strut their stuff on the Octocon red carpet in the Cosplay Parade around the convention! All ages and skill levels are welcome to participate, including commissioned and homemade costumes.</p>\r\n<p>Although we've allocated an hour and a half to the Parade, it's unlikely to take the full timeslot.</p>\r\n<p>Streamed live to the Member Portal.</p>",
+    "links": []
+  },
+  {
+    "id": "200",
+    "title": "Cuddly Cosplay Couture Workshop - join online",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Fun Stuff",
+      "Tag:Cosplay",
+      "Tag:Crafting & Making",
+      "Tag:Kids"
+    ],
+    "date": "2023-10-08",
+    "time": "12:00",
+    "mins": "60",
+    "loc": ["Zoom 1 - Online"],
+    "people": [
+      { "id": "Z0073", "name": "Rowan Daly (moderator)" },
+      { "id": "Z0076", "name": "Daniella Bella" }
+    ],
+    "desc": "<p>If you want to make a costume for your stuffed animal or doll of choice for the Teddy Bear Tea Party, this is your chance! Join us as we work on little things that can make a big difference for glamming up your stuffies!</p>\r\n<p>Take part in-person or online!</p>\r\n<p>&nbsp;</p>",
+    "links": []
+  },
+  {
+    "id": "201",
+    "title": "Teddy Bear Tea Party - join online",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Ceremony/Event",
+      "Tag:Fun Stuff",
+      "Tag:Kids"
+    ],
+    "date": "2023-10-08",
+    "time": "13:00",
+    "mins": "90",
+    "loc": ["Zoom 1 - Online"],
+    "people": [{ "id": "Z0076", "name": "Daniella Bella (moderator)" }],
+    "desc": "<p>Bring your stuffies, your teddies, your plushies, your dolls, and your action figures to the tea party of the season! Whether you attended our pre-party Cuddly Cosplay Couture workshop to make little outfits, your teddy brought their own costume from home, or they're coming in their natural fluffy states, we're excited to see you all to catch up on all the latest stuffed animal gossip!</p>\r\n<p>Join the tea party in person or online (bring your own beverage)!</p>\r\n<p>&nbsp;</p>",
+    "links": []
+  },
+  {
+    "id": "204",
+    "title": "Fan Chat: Doctor Who's 60th Anniversary",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Fan Chat",
+      "Tag:Science Fiction",
+      "Tag:TV/Film"
+    ],
+    "date": "2023-10-07",
+    "time": "18:00",
+    "mins": "60",
+    "loc": ["Chat Area - Gibson (residents bar)"],
+    "people": [{ "id": "Z0020", "name": "David Ferguson (moderator)" }],
+    "desc": "<p>Can you believe that it has actually been a decade since the 50th Anniversary? A very weird decade to boot! Join us to discuss your favourite things about Doctor Who in general, your favourite things from the past decade, and what you look forward to in the next decade.</p>",
+    "links": []
+  },
+  {
+    "id": "213",
+    "title": "Reading: Sarah Rees Brennan",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Reading",
+      "Tag:Guest of Honour"
+    ],
+    "date": "2023-10-08",
+    "time": "16:30",
+    "mins": "30",
+    "loc": ["Alhambra (workshops) - Gibson"],
+    "people": [{ "id": "Z0002", "name": "Sarah Rees Brennan" }],
+    "desc": "<p>Sarah Rees Brennan reads from her as yet unreleased portal fantasy, <em>Long Live Evil</em>.</p>",
+    "links": []
+  },
+  {
+    "id": "215",
+    "title": "Lockpicking Workshop (session 2)",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Fun Stuff",
+      "Tag:Crafting & Making",
+      "Tag:Kids"
+    ],
+    "date": "2023-10-07",
+    "time": "15:45",
+    "mins": "45",
+    "loc": ["Alhambra (workshops) - Gibson"],
+    "people": [{ "id": "Z0078", "name": "TOG" }],
+    "desc": "<p>As soon as the lock was invented, so was the way to get past it for rogues who need to get through the door at the last minute or hackers breaking into the server room to save the world. TOG, Dublin&rsquo;s Hackerspace, brings their free lockpicking class to Octocon. Learn about physical security and protective technology, and how to defeat them.</p>\r\n<p>This workshop will run as two sessions of roughly 45 minutes each.</p>\r\n<p>There's only space for 30 people per session, so sign up in advance <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSfy7AC-ipp9-soWDl_lBAJ4KcrROUb-3aQiP_WfJpWWVTzWvQ/viewform?usp=sf_link\" target=\"_blank\" rel=\"noopener\">online</a> or at the registration desk.</p>",
+    "links": []
+  },
+  {
+    "id": "216",
+    "title": "Geomorph Mega-Dungeon Workshop",
+    "tags": [
+      "Track:In-person",
+      "Division:Programming",
+      "Type:Workshop",
+      "Tag:Crafting & Making",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-08",
+    "time": "12:00",
+    "mins": "300",
+    "loc": ["Trade Hall - Gibson"],
+    "people": [{ "id": "Z0004", "name": "Jog Brogzin (moderator)" }],
+    "desc": "<p><strong>Who:</strong> Beginners welcome!<br /><strong>Where</strong>: Next to Jog's trade table <br /><strong>When</strong>: During trade hours + periodic tutorials (see times displayed at Jog's table)</p>\r\n<p>Grab a template and start drawing, or wait for a tutorial and learn how to make dungeon maps. All the maps will be stuck together into one mega dungeon.<br /><br /><strong>What is a Geomorph Mega-Dungeon?</strong><br />A geomorph is a type of map with predefined entrances and exits that line up with other geomorphs. So all the maps connect together to make one large (or MEGA) dungeon. This can be of any style, so include sci-fi, fantasy and horror elements to your map, whatever you like.</p>\r\n<p>No sign-up required.</p>\r\n<p>&nbsp;</p>",
+    "links": []
+  },
+  {
+    "id": "218",
+    "title": "Talk: Get Out of Your Own Way and Cosplay!",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Talk",
+      "Tag:Cosplay",
+      "Tag:Crafting & Making"
+    ],
+    "date": "2023-10-07",
+    "time": "12:00",
+    "mins": "60",
+    "loc": ["Zoom 1 - Online"],
+    "people": [{ "id": "M0091", "name": "Kat Dodd" }],
+    "desc": "<p>Disabled and neurodivergent cosplayer Kat Dodd encourages you to get out of your own way and cosplay to your heart's content. It's easy to get overwhelmed, or get down on yourself and wonder if you should even try. Kat's here to tell you: yes, you should! The cosplay community as a whole is accepting and excited to see people's interpretations of character, and we want to see yours! Whether you know how to sew or you're holding your costume together with hot glue and bubblegum, you are a cosplayer.<br /><br />You'll also hear a peptalk from Batman. Or at least a retelling of a peptalk from Batman.</p>",
+    "links": []
+  },
+  {
+    "id": "220",
+    "title": "Talk: Philosophy in Science Fiction",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Talk",
+      "Tag:Science Fiction",
+      "Tag:Philosophy & Religion"
+    ],
+    "date": "2023-10-07",
+    "time": "13:30",
+    "mins": "60",
+    "loc": ["Zoom 1 - Online"],
+    "people": [{ "id": "Z0057", "name": "Rachel  Handley" }],
+    "desc": "<p>Rachel Handley brings us insights how philosophy can be brought into science fiction, and how science fiction can be used as a tool for philosophical exploration.</p>",
+    "links": []
+  },
+  {
+    "id": "221",
+    "title": "Talk: Space and Boundaries in Modern Fantasy",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Talk",
+      "Tag:Fantasy",
+      "Tag:Worldbuilding"
+    ],
+    "date": "2023-10-08",
+    "time": "16:30",
+    "mins": "60",
+    "loc": ["Zoom 1 - Online"],
+    "people": [{ "id": "Z0028", "name": "Gillian Polack" }],
+    "desc": "<p>When Sam Gamgee left the Shire in The Lord of the Rings, he had a moment when he felt that he was crossing a boundary and that things might never be the same. In this talk Gillian will discuss the importance of moments in space especially those where boundaries are crossed and where landscape shifts. She will talk about how these moments underpin novels and also why they are important to how culture is shared through the novel. The chief writers whose work will be used to illuminate this will be Peadar &Oacute; Guil&iacute;n, Naomi Novik and Leife Shallcross.</p>",
+    "links": []
+  },
+  {
+    "id": "222",
+    "title": "Reclaiming the Leprechaun: Irish Folklore Beyond the Stereotypes",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Talk",
+      "Tag:Ireland",
+      "Tag:Literature",
+      "Tag:TV/Film"
+    ],
+    "date": "2023-10-07",
+    "time": "18:00",
+    "mins": "60",
+    "loc": ["Zoom 1 - Online"],
+    "people": [
+      { "id": "Z0071", "name": "Samuel Poots" },
+      { "id": "Z0080", "name": "F\u00e1in Cullen" }
+    ],
+    "desc": "<p>Samuel Poots and and F&aacute;in Cullen discuss Irish folklore: what exactly is it, and how can we approach it in modern media, and how do we handle the common stereotypes?</p>",
+    "links": []
+  },
+  {
+    "id": "224",
+    "title": "Found Family Fortunes!",
+    "tags": [
+      "Track:Online",
+      "Division:Programming",
+      "Type:Other",
+      "Tag:Fun Stuff"
+    ],
+    "date": "2023-10-06",
+    "time": "20:00",
+    "mins": "75",
+    "loc": ["Streamed - Online"],
+    "people": [{ "id": "Z0031", "name": "James Brophy" }],
+    "desc": "<p>Once again, we present an episode of our epic panel quiz, Found Family Fortunes, with your host James Brophy! This time two-time losers Octocon are taking on the Gaelcon family of Pat, Zoe and Rory to see who knows our audience the best (or maybe just the least worst).</p>\r\n<p>Pre-recorded.</p>",
+    "links": []
+  },
+  {
+    "id": "225",
+    "title": "Watch Party & Zoom Social",
+    "tags": [
+      "Track:Hybrid (in-person, streamed live)",
+      "Division:Programming",
+      "Type:Ceremony/Event",
+      "Tag:Fun Stuff"
+    ],
+    "date": "2023-10-07",
+    "time": "21:00",
+    "mins": "90",
+    "loc": ["Zoom 2 - Online"],
+    "people": null,
+    "desc": "<p>In a sequel to last year's online Nosferatu watch party, we're once again streaming a film to be enjoyed together in Zoom. Breakout rooms will be available for anyone who doesn't want to contribute to the critique and commentary, and we'll also be streaming the film to the Gibson Hotel.</p>\r\n<p>Streamed live to Cordoba or log into the Member Portal to join the party. Chat about it on Discord!</p>",
+    "links": []
+  }
+]
