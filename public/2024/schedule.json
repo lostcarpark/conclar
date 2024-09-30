@@ -179,8 +179,8 @@
         "category": "Environment"
       },
 	  {	
-		"label": "Recording information pending",
-		"value": "session_pending",
+		"label": "Recorded",
+		"value": "session_recorded",
 		"category": "Note"
 	  },
 	  {	
@@ -806,51 +806,6 @@
 		"id": "21",
 		"name": "Karina Steffens",
 		"role": "moderator"
-	  }
-	]
-  },
-  {
-    "id": "23",
-    "title": "Comics Panel",
-    "desc": "",
-    "format": "Panel",
-    "datetime": "2024-10-05T15:00:00.000Z",
-    "mins": 60,
-    "loc": ["Alhambra - Gibson"],
-    "tags": [
-      {
-        "label": "In Person",
-        "value": "session_in_person",
-        "category": "Environment"
-      },
-	  {	
-		"label": "Not Recorded",
-		"value": "session_not_recorded",
-		"category": "Note"
-	  },
-	  {	
-		"label": "Comics",
-		"value": "tag_comics",
-		"category": "Tag"
-	  }
-],
-    "people": [
-	  {
-		"id": "12",
-		"name": "Paul Carroll",
-		"role": "moderator"
-	  },
-	  {
-		"id": "19",
-		"name": "Daniella Bella"
-	  },
-	  {
-		"id": "2",
-		"name": "Gary Moloney"
-	  },
-	  {
-		"id": "6",
-		"name": "Robert Cullen"
 	  }
 	]
   },
@@ -1942,7 +1897,7 @@
   {
     "id": "51",
     "title": "Scrapheap Cosplay Workshop",
-    "desc": "We bring the trash, you create your cosplay masterpiece out of scraps, junk, and duct tape. Who says you need a sewing machine to create cosplay?\nNo sign-up required.",
+    "desc": "We bring the trash, you create your cosplay masterpiece out of scraps, junk, and duct tape. Who says you need a sewing machine to create cosplay?\nSign up in advance <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSc9UrNlz5tDWObLN2TjYWBSOYabY4ESPOTJUa1IAD7sXhPxvQ/viewform?usp=sf_link\" target=\"blank\">online</a> or at the registration desk.",
     "format": "Workshop",
     "datetime": "2024-10-06T12:00:00.000Z",
     "mins": 60,
