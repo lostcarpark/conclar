@@ -1,0 +1,809 @@
+[
+  {
+    "id": "1",
+    "name": "Ruth Frances Long / Jessica Thorne",
+    "sortname": "Ruth Frances Long / Jessica Thorne",
+    "bio": "Ruth Frances Long/Jessica Thorne writes romance and fantasy from the heart which often strays into weird and wonderful liminal places. She works in a specialized library of rare & occasionally crazy books.\nShe writes young adult fantasy such as The Treachery of Beautiful Things (Dial, 2012) and The Dubh Linn trilogy set in the world of demons, angels and fairies that exists alongside our own in modern day Dublin (A Crack in Everything (O’Brien, 2014) , A Hollow in the Hills (O’Brien, 2015) and A Darkness at the End (O’Brien, 2016).\nIn 2015 she was the winner of The European Science Fiction Society Spirit of Dedication Award For Best Author of Children’s Science Fiction and Fantasy for A Crack in Everything. \nAs Jessica Thorne she writes fantasy romance – The Queen’s Wing (Bookouture, 2018) and The Stone’s Heart (Bookouture, 2019), which was shortlisted for the RNA Fantasy Romantic Novel of the Year Award in 2020, and the Hollow King Duology Mageborn (2020) and Nightborn (2020). She likes to wander between genres, but always with a fantasy twist. Her recent books The Lost Girls of Foxfield Hall (2021), The Bookbinder’s Daughter (2021) and The Water Witch (2022) blend magic, time travel and women’s fiction.  In her upcoming series, Kingdom Will Fall, which will be released from Bookouture in the Summer of 2024, she revisits epic fantasy with a fairytale twist. \nRecently she has been working alongside the music festival Tomorrowland, and her first book with them The Rise of Adscendo features the origin story of its 2023 festival theme.",
+    "links": {
+      "twitter": "https://twitter.com/RFLong",
+      "website": "http://www.rflong.com",
+      "othersocialmedia": "https://bsky.app/profile/rflong.bsky.social"
+    },
+    "prog": [
+      "1",
+      "6",
+      "12",
+      "25",
+      "38",
+      "46",
+      "52",
+      "71",
+      "77",
+      "80"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Gary Moloney",
+    "sortname": "Gary Moloney",
+    "bio": "Gary Moloney is a comic writer from Cork, Ireland, and co-founder of the Limit Break Comics collective. Gary writes across multiple genres, acting as co-editor on the mythology mashup anthologies, Down Below and Fractured Realms. When he’s not obsessing over the morphology of the Irish language or the political dystopia we seem headed towards, Gary can usually be found on the water, windsurfing until the frostbite sets in.",
+    "links": "",
+    "prog": [
+      "3",
+      "23",
+      "57",
+      "62",
+      "68"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Helen Corcoran",
+    "sortname": "Helen Corcoran",
+    "bio": "Helen Corcoran grew up in Cork, Ireland, dreaming of scheming queens and dashing lady knights. After graduating from Trinity College, Dublin, she worked as a bookseller for over a decade. She lives in Dublin, writing fantasy novels and haunting coffee shops in search of the perfect latte.",
+    "links": "",
+    "prog": [
+      "15",
+      "38",
+      "61",
+      "71"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Jack Fennell",
+    "sortname": "Jack Fennell",
+    "bio": "Jack Fennell is a writer, editor, translator and researcher whose academic publications include pieces on science fiction, utopian and dystopian literature, monsters, Irish literature, and the legal philosophy of comic books. He is the author of Irish Science Fiction (2014), a contributing translator for The Short Fiction of Flann O’Brien (2013), editor of A Brilliant Void (2018), and a former Visiting Fellow at the Moore Institute in NUI Galway. He lives in Limerick.",
+    "links": "",
+    "prog": [
+      "3",
+      "16",
+      "58",
+      "62"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Kel Menton",
+    "sortname": "Kel Menton",
+    "bio": "Kel Menton (they/them) is a non-binary writer from Cork. They did both their degree in English literature and MA in Medieval literature at UCC. When they’re not writing, Kel is a freelance drama and creative writing facilitator and mentor. They enjoy collecting fox paraphernalia, reading tarot, and dying their hair peculiar colours.You can find some of their work (articles, prose, and poetry) published in the Irish Examiner, Good Day Cork, and the ROPES literary journal. Their first novel, A Fix of Light, is out February 2025.",
+    "links": "",
+    "prog": [
+      "12",
+      "15",
+      "43",
+      "71"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Robert Cullen",
+    "sortname": "Robert Cullen",
+    "bio": "Robert Cullen is an Emmy nominated Director based in Dublin, Ireland.\n He founded the animation studio Boulder Media in 2000 and has worked as a Director and Animation Director on shows such as Foster’s Home for Imaginary Friends, Danger Mouse, The Amazing World of Gumball and Transformers.\nIn 2021 Robert received the Murakami Award for outstanding achievement in the field of animation. Previous recipients include Jimmy Murakami, Don Bluth and Tomm Moore.\nMore recently, Robert has moved into the comic scene, writing, and illustrating a series of graphic short stories. His debut book, Ligne de fuite (Fault Lines) was published in August by Blueman in French.",
+    "links": "",
+    "prog": [
+      "10",
+      "23",
+      "29",
+      "35"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Ryann Fletcher",
+    "sortname": "Ryann Fletcher",
+    "bio": "Ryann Fletcher is a writer who lives in Glasgow with too many books and craft supplies. She writes science fiction and fantasy novels because real life is boring without spaceships or magic. She loves to cook and go for long hikes in the wilderness, searching for the meaning of life and probably the keys she lost three days ago.",
+    "links": "",
+    "prog": [
+      "9",
+      "15",
+      "28",
+      "50",
+      "58"
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Seth Haddon",
+    "sortname": "Seth Haddon",
+    "bio": "Seth Haddon is a queer Australian writer of fantasy. He is a video game designer and producer, has a degree in Ancient History from the University of Sydney. Seth lives in Sydney with a deaf 18-year-old cat. He's been selected as an Emerging Artist 2024 for the Chateau Dorquevaux Artist and Writers Residency Some of his previous adventures include exploring Pompeii with a famous archaeologist and being chased through a train station by a nun.\nHis new book RECLAIMED comes out in October 2024. VOLATILE MEMORY will be out in 2025, published by Tordotcom.",
+    "links": {
+      "othersocialmedia": "https://linktr.ee/sethhaddon"
+    },
+    "prog": [
+      "48",
+      "54"
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Theresa Jean Tanenbaum ('Tess')",
+    "sortname": "Theresa Jean Tanenbaum ('Tess')",
+    "bio": "Dr. Theresa Jean Tanenbaum ('Tess') is a songwriter, performer, game designer, artist, activist, and practicing witch. She recently left a tenured position as an Associate Professor in the Department of Informatics at UC Irvine where she was a founding member of the Transformative Play Lab. Her most recent book on Playful Wearable Technologies, co-authored with Katherine Isbister, Elena Marquez-Segura, Ella Dagan, and Oguz Burak, was released by The MIT Press in early 2024. \nDr. Tanenbaum’s work is playful, provocative, and interdisciplinary, frequently straddling the line between art, design, research, and activism. In her work she seeks to create possibilities for social and individual change, using participatory narrative to highlight how the identities that we inhabit in the world are contingent and negotiated. These experiences of transformative play create possibility models that are emancipatory, allowing oppressed and marginalized people to inhabit new identities that create possibilities where there were none before and reclaim power and agency denied to them. Recently she has incorporated her magical practice into her scholarship and activism, teaching a graduate seminar on Identity, Magic, and Social Change Through Play, and speaking on 'Restorying Game Studies: Playing with memory, fiction, and magic as sites for transformative identity work' at venues throughout the US and Europe.\nDuring the COVID-19 pandemic Tess wrote an autobiographical musical about marriage, gender transition, and self-discovery that is currently under production at Omniverse Media, to be distributed by the Fable and Folly network as a serialized audio drama. She is also the co-creator of Etude of the Storm, an upcoming historical fantasy audio drama of mythic proportions that puts the 'trans' into 'transdimensional narrative', also under production at Omniverse, due for release in 2025. \nAn experienced game designer, Tess’s work incorporates physical objects, wearable technology, and interactive tabletops to explore embodied interactions with digital games and stories. Her forthcoming game, Alchemist's Ink, is a handcrafted boutique analog gaming experience for four players that combines ritual, gameplay, theater, and narrative. Players draw magical tattoos on themselves and each other using a black walnut ink that she brewed on the winter solstice out of nuts that she foraged from her land.\nShe has developed new gaming technologies that push the boundaries of personal fabrication, using 3D printers and laser cutters as platforms for hybrid digital/physical games.  Her game, Magia Transformo: The Dance of Transformation, was an official selection of IndieCade in 2017: the largest festival of independent games in the world. It uses costumes and movement to help players adopt the personas of witches and warlocks to uncover the secret magical history of the world. Tess was also active as a 'Steampunk' artist, and maker, whose work on DiY culture appears in the book Vintage Tomorrows and the documentary film of the same name.\nDr. Tanenbaum has been instrumental in helping create new, more inclusive, policies within the academic publishing world that make it possible for people to correct their names on previously published scholarship. She joined an ACM working group in June of 2019 to help develop a trans inclusive name change policy for the ACM Digital Library. Working with two other volunteers, she led the writing and revision process of a new policy that was adopted by the ACM in November of 2019. This policy, the first of its kind to be adopted by a major publisher, allows transgender authors to correct their names on previously published work. In July of 2020 she published a worldview article in Nature advocating for these policies in the academic publishing world. In 2020 she co- founded the Name Change Policy Working Group to support other transgender people in advocating for inclusive identity policies within publishing and beyond. She has worked with Committee on Publication Ethics (COPE), the ACM, SAGE, Springer, Taylor & Francis, Elsevier, and many other publishers to develop identity practices in publishing that safeguard the privacy of transgender authors seeking to update their scholarly records to reflect their correct names. ",
+    "links": {
+      "tiktok": "",
+      "twitter": "",
+      "facebook": "",
+      "website": "",
+      "instagram": "",
+      "youtube": "",
+      "othersocialmedia": ""
+    },
+    "prog": [
+      "33",
+      "39",
+      "66",
+      "79"
+    ]
+  },
+  {
+    "id": "10",
+    "name": "AK Faulkner",
+    "sortname": "AK Faulkner",
+    "bio": "AK Faulkner is the author of the Inheritance series of contemporary fantasy novels, which begins with Jack of Thorns.\nAK lives just outside of London, England, with a charismatic Corgi and a violent three-legged cat. \nAK is agender, demisexual, and demiromantic. Any pronouns will suffice, though she/they/he are preferred.",
+    "links": {
+      "website": "https://discoverinheritance.com"
+    },
+    "prog": [
+      "8",
+      "34",
+      "48",
+      "66",
+      "79"
+    ]
+  },
+  {
+    "id": "11",
+    "name": "J E Hannaford",
+    "sortname": "J E Hannaford",
+    "bio": "J E Hannaford is powered by coffee, dragons and whisky. She teaches Biology in the real world and invents fantasy beasts to populate her own.\nShe lives in Suffolk, UK, and pines for the coast and mountains of Wales.\nA love of nature, biology and the ocean permeates the pages of J E Hannaford's stories and pours out of the characters who live in it. She lives with her family and a young dog who believes she is a Moonhound. She is the author of The Black Hind's Wake Duology, a journey into alt-future folklore fantasy. The Aulirean Gates trilogy sees her take a detour from the ocean, into an epic fantasy with complex world-building, portals and telepathic hounds.\nJ E Hannaford’s newest adventure is Unfamiliared, the first Two Chasm’s novella. This cosy, humorous fantasy has a sprinkling of witches, familiars and a sentient cafe.",
+    "links": {
+      "twitter": "https://twitter.com/hannaford_jenny",
+      "facebook": "https://www.facebook.com/blazingwrenbooks/",
+      "website": "www.jehannaford.com ",
+      "instagram": "https://www.instagram.com/jeh.book"
+    },
+    "prog": [
+      "8",
+      "21",
+      "48",
+      "60"
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Paul Carroll",
+    "sortname": "Paul Carroll",
+    "bio": "Paul Carroll is a writer and comic creator from Dublin. His work primarily focuses on the extraordinary, be that through magic, science or just downright chaotic. He is a founding member of both Limit Break Comics and Cupán Fae, Dublin-based creative groups.\nHe helps manage IrishComics.ie, and currently works in Children’s Books Ireland as Book-Gifting Manager. His obsessions include tea, foxes and spreadsheets.\nFun Fact: Paul has an enamel pin collection numbering in the hundreds.",
+    "links": {
+      "twitter": "https://twitter.com/writeranonymous"
+    },
+    "prog": [
+      "1",
+      "23",
+      "31",
+      "41",
+      "44",
+      "60",
+      "63",
+      "80"
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Kat Dodd",
+    "sortname": "Kat Dodd",
+    "bio": "Kat Dodd is an American transplant that escaped from a small town in Arkansas right between Toad Suck, Pickles Gap, and Wooster. The first story they ever wrote was in a purple crayon in their journal, and Kat hasn’t stopped writing since. Their typical genres are a conglomeration of fantasy/sci-fi, LGBTQI+, and YA, with a thread of romance going through them. Kat lives with their Spouse-Type-Creature, though Kat frequently forgets to feed him.",
+    "links": {
+      "twitter": "https://twitter.com/thekatdodd"
+    },
+    "prog": [
+      "1",
+      "17",
+      "30",
+      "42",
+      "55",
+      "64",
+      "70",
+      "80"
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Catherine Sharp",
+    "sortname": "Catherine Sharp",
+    "bio": "Catherine’s first conventions were in 2011/2012; in 2013 she offered herself up on the Octocon altar of volunteering and moderation and hasn’t stopped since. As well as running programme for Octocon for several years, she’s also worked on a few Worldcons, including Glasgow 2024. In her other life, she’s a technical writer, cat wrangler and frequent baker of banana bread.",
+    "links": "",
+    "prog": [
+      "33",
+      "48",
+      "60",
+      "80"
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Faranae",
+    "sortname": "Faranae",
+    "bio": "HONK",
+    "links": "",
+    "prog": [
+      "20",
+      "37",
+      "42",
+      "66",
+      "79"
+    ]
+  },
+  {
+    "id": "16",
+    "name": "David Green",
+    "sortname": "David Green",
+    "bio": "David Green (he/they) is a neurodivergent writer of the epic and the urban, the fantastical, the cosy and the mysterious.\nWith his character-driven dark fantasy series Empire Of Ruin, or urban fantasy noir Hell In Haven, David takes readers on emotional, action-packed thrill rides.\nHailing from the north-west of England, David now lives in County Galway on the west coast of Ireland with his wife and Godzilla-obsessed son.\nWhen not writing, David can be found wondering why he chooses to live in places where it constantly rains.\nDavid's Path Of War was nominated for Best Novel at the 2023 BFS Awards. He is repped by Laura Bennett of LLA, and has an own voice neurodivergent cosy fantasy novel on submission.",
+    "links": {
+      "website": "www.davidgreenwriter.com"
+    },
+    "prog": [
+      "5",
+      "46",
+      "50",
+      "69"
+    ]
+  },
+  {
+    "id": "17",
+    "name": "MaryBrigid Turner",
+    "sortname": "MaryBrigid Turner",
+    "bio": "MaryBrigid is a bookseller at Ireland's oldest bookstore Hodges Figgis, where agmonst other things she currently hosts a monthly SFF bookclub. She has been involved with Octocon for several years and is currently our membership officer.",
+    "links": "",
+    "prog": [
+      "30",
+      "42",
+      "70"
+    ]
+  },
+  {
+    "id": "18",
+    "name": "Colm Dodd",
+    "sortname": "Colm Dodd",
+    "bio": "Engineer by trade, RPG player and DM of over 20 years, occasional game designer, and general-purpose nerd.",
+    "links": "",
+    "prog": [
+      "45",
+      "76"
+    ]
+  },
+  {
+    "id": "19",
+    "name": "Daniella Bella",
+    "sortname": "Daniella Bella",
+    "bio": "Daniella Bella is a queer disabled activist, organiser, and artist who makes comics, activist art, fiction, events, and bad decisions. She primarily takes care of her disabilities, and has a strong focus on neurodivergence, as well as disabled, and queer justice in general",
+    "links": {
+      "othersocialmedia": "https://wheretofind.me/@daniemililly"
+    },
+    "prog": [
+      "11",
+      "23",
+      "29",
+      "38",
+      "69"
+    ]
+  },
+  {
+    "id": "20",
+    "name": "James Brophy",
+    "sortname": "James Brophy",
+    "bio": "A photographer and graphic designer based in Dublin, James has also worked in Visual effects and film development while writing materials and making art for Octocon on and off for the last 20 years.",
+    "links": "",
+    "prog": [
+      "6",
+      "9",
+      "29",
+      "69"
+    ]
+  },
+  {
+    "id": "21",
+    "name": "Karina Steffens",
+    "sortname": "Karina Steffens",
+    "bio": "Karina Steffens lives in Dublin and co-owns a boutique web design agency. Born in Ukraine, she emigrated twice and settled down in Ireland at the turn of the millennium. A lifelong bookwyrm, she devoured science fiction, fantasy, and Slavic folklore and amassed a small hoard of books, which is yet to achieve L-Space or open a portal to another world. To help it along, she turned her hand to writing. Her studies include BAs in Communication and Journalism and International Relations. Her work has appeared in The Fairy Tale Magazine, Empyreome, Gathering Storm, and the anthology Runs Like Clockwork from Wyldblood Press, and is forthcoming from Penumbric Spec Fiction Mag.",
+    "links": {
+      "twitter": "https://x.com/KarinaSteffens",
+      "website": "https://neo-archaic.ie/"
+    },
+    "prog": [
+      "6",
+      "9",
+      "22",
+      "29"
+    ]
+  },
+  {
+    "id": "22",
+    "name": "Sarah Rees Brennan",
+    "sortname": "Sarah Rees Brennan",
+    "bio": "Sarah is an Irish writer of dark fantasy and light-hearted jokes, whose books have been New York Times bestsellers, shortlisted for the Mythopoieac, Locus and Lodestar awards, and nominated for the Carnegie. Her newest portal fantasy novel, Long Live Evil, came out recently.",
+    "links": {
+      "website": "https://www.sarahreesbrennan.com/",
+      "othersocialmedia": "https://linktr.ee/srbrennan"
+    },
+    "prog": [
+      "25",
+      "35",
+      "71"
+    ]
+  },
+  {
+    "id": "23",
+    "name": "Michael Carroll",
+    "sortname": "Michael Carroll",
+    "bio": "Irish-born writer Lord Michael Carroll is the author of <i>Judge Dredd: Every Empire Falls</i> (the #1 best-selling cult graphic novel on Amazon.co.uk) and loads of other comics, thirtyish books including the internationally acclaimed New Heroes series of young adult superhero novels, and the screenplay for the award-winning short film Judge Minty.\nIn the past Michael has dabbled in both horror and romance, as well as writing in those fields. Michael and his wife Leonia used to live in Dublin, Ireland, and they still do. Michael owns an LP called 'Earth' and currently holds the world record. He likes puns and corny jokes, and some of his favourite punchlines are 'Douglas', 'Pink fluff', 'It’s deep, too', 'After that he went downhill very quickly', and 'Yeah, and it's the *widest*!'",
+    "links": {
+      "website": "http://www.michaelowencarroll.com/"
+    },
+    "prog": [
+      "9",
+      "44",
+      "58"
+    ]
+  },
+  {
+    "id": "24",
+    "name": "Brian Nisbet",
+    "sortname": "Brian Nisbet",
+    "bio": "Brian Nisbet started running running gaming (Leprecon, Gaelcon, K2) and SF conventions in Ireland in the mid-90s. In 1998 he got involved in the International Discworld Convention, held in the UK, and went on to chair it twice in 2010 & 2012. He co-chaired Shamrokon, the 2014 Eurocon. Since then he's mostly been on the committees of Worldcons (Helsinki, San Jose, Dublin, Washington DC, Chicago, Glasgow) or Worldcon bids (Dublin in 2029) in a variety of roles, including substantial work (along with many others) to implement and improve codes of conduct. He has written for a number of published TTRPGs as well as many, many convention scenarios. He's been a huge fan of fantasy, sci-fi and gaming for over 30 years and he's so looking forward to all the things to come!",
+    "links": {
+      "othersocialmedia": "@natural20.bsky.social"
+    },
+    "prog": [
+      "50",
+      "62",
+      "75"
+    ]
+  },
+  {
+    "id": "25",
+    "name": "Cheryl Morgan",
+    "sortname": "Cheryl Morgan",
+    "bio": "",
+    "links": "",
+    "prog": [
+      "42"
+    ]
+  },
+  {
+    "id": "26",
+    "name": "Cír Doyle",
+    "sortname": "Cír Doyle",
+    "bio": "",
+    "links": "",
+    "prog": [
+      "69"
+    ]
+  },
+  {
+    "id": "27",
+    "name": "Clare O'Beara",
+    "sortname": "Clare O'Beara",
+    "bio": "Clare O'Beara is a tree surgeon and expert witness, and a former national standard showjumper. She has qualified in multimedia journalism, data visualisation, media law, ESG law, and ecology, and writes on environmental themes. She has independently published 19 books to date, including four SF and several YA books.\nClare is an award–winning writer, award-winning blogger, and award-winning photojournalist, whose journalism work has been published in more than thirty countries. Her credits include Writing.ie, The Register.com, Mensa Magazine and Mensa International Journal. Editor of Inside DBS, the official blog website of Dublin Business School. Photo credits include the Daily Mail and Extra.ie.\nClare reviews books for Fresh Fiction, a media website based in Texas, USA. Top 1% Goodreads Reviewer.",
+    "links": {
+      "othersocialmedia": "https://www.goodreads.com/author/show/7244400.Clare_O_Beara"
+    },
+    "prog": [
+      "50"
+    ]
+  },
+  {
+    "id": "28",
+    "name": "Craig Walsh",
+    "sortname": "Craig Walsh",
+    "bio": "",
+    "links": {
+      "othersocialmedia": "https://linktr.ee/officialwuxiawerewolf"
+    },
+    "prog": [
+      "46",
+      "75"
+    ]
+  },
+  {
+    "id": "29",
+    "name": "Dave Clarke",
+    "sortname": "Dave Clarke",
+    "bio": "",
+    "links": "",
+    "prog": [
+      "50"
+    ]
+  },
+  {
+    "id": "30",
+    "name": "Deirdre Thornton",
+    "sortname": "Deirdre Thornton",
+    "bio": "",
+    "links": "",
+    "prog": [
+      "12",
+      "46",
+      "62"
+    ]
+  },
+  {
+    "id": "31",
+    "name": "Entity",
+    "sortname": "Entity",
+    "bio": "",
+    "links": "",
+    "prog": [
+      "11",
+      "40"
+    ]
+  },
+  {
+    "id": "32",
+    "name": "Eóin Dooley",
+    "sortname": "Eóin Dooley",
+    "bio": "Eóin Dooley (he/him) is a writer from central Ireland. Having completed a master's in cognitive science and philosophy, he turned to creative fiction, primarily to stave off a PhD. This appears to be working. His previous work can be found in Red Futures, Solar Press, Elegant Literature Magazine and elsewhere. His debut urban fantasy novella, No Sympathy, is coming out on September 17th with Android Press. Find him on Bluesky, @eoindooley.bsky.social.",
+    "links": {
+      "othersocialmedia": "https://bsky.app/profile/eoindooley.bsky.social"
+    },
+    "prog": [
+      "56",
+      "75"
+    ]
+  },
+  {
+    "id": "33",
+    "name": "Finn McLellan",
+    "sortname": "Finn McLellan",
+    "bio": "Finn McLellan (they/he) is an autistic disabled transmasc butch fantasy writer, hailing from the wilds of the northern UK.\nWhen they’re not writing they’re busy immersing themselves in a variety of ridiculous hobbies, most of which also involve disappearing into fantasy worlds and/or waving swords at people.",
+    "links": {
+      "othersocialmedia": "https://bsky.app/profile/house-of-five.bsky.social"
+    },
+    "prog": [
+      "8",
+      "33"
+    ]
+  },
+  {
+    "id": "34",
+    "name": "G.T. Korbin",
+    "sortname": "G.T. Korbin",
+    "bio": "G.T. Korbin is a SFF-H author from Greece, currently living in Ireland to work as a medical researcher. While primarily a novelist, her short stories have previously appeared in the NoSleep Podcast, Andromeda Spaceways as well as various anthologies. When they're not writing, you might find them playing videogames or trying to bake, both with similar success!",
+    "links": {
+      "twitter": "g_korbin",
+      "instagram": "g_korbin"
+    },
+    "prog": [
+      "15",
+      "31",
+      "77"
+    ]
+  },
+  {
+    "id": "35",
+    "name": "Gareth Kavanagh",
+    "sortname": "Gareth Kavanagh",
+    "bio": "Gareth is currently on hiatus from Con running, but in the past has been involved in running Octocon and other Irish conventions.",
+    "links": "",
+    "prog": [
+      "49"
+    ]
+  },
+  {
+    "id": "36",
+    "name": "Gillian Polack",
+    "sortname": "Gillian Polack",
+    "bio": "",
+    "links": "",
+    "prog": [
+      "8",
+      "14",
+      "20",
+      "60"
+    ]
+  },
+  {
+    "id": "37",
+    "name": "Gwen Frazer",
+    "sortname": "Gwen Frazer",
+    "bio": "Greetings from Galway! I'm Gwen, an avid sci-fi and fantasy enthusiast with a love for reading and exploring literary realms. My passion for conventions has taken me on thrilling adventures, meeting fellow enthusiasts from around the globe. I'm also on a journey to enhance my communication and leadership skills, aiming to become a confident program panelist and moderator. I'm excited to bring my love for sci-fi, my enthusiasm for engaging discussions, and my Toastmasters experience to the table. Let's explore the vast universe of imagination together!",
+    "links": "",
+    "prog": [
+      "4",
+      "18"
+    ]
+  },
+  {
+    "id": "38",
+    "name": "Harun Šiljak",
+    "sortname": "Harun Šiljak",
+    "bio": "Harun is passionate about technology, society, and everything in-between. He once added 3 words to the Doctor Who canon, and some people actually liked his short story collection when it was published.",
+    "links": {
+      "twitter": "x.com/CumannApart"
+    },
+    "prog": [
+      "3"
+    ]
+  },
+  {
+    "id": "39",
+    "name": "Imogen Howson",
+    "sortname": "Imogen Howson",
+    "bio": "As a child, Imogen Howson loved reading so much that she not only read in bed, at the table and in the bath, but in the shower and—not so successfully—on her bicycle.\nShe enjoyed books in a slightly unorthodox way, too: many of her childhood books have ragged edges where she tore paper from the margins in order to eat it.\nImogen lives with her partner, one fussy cat, and two tiny dogs, in Cambridgeshire in England, where she works as a freelance copy editor, bakes, runs, drinks coffee, and sustains an amateur but enthusiastic interest in all things make-up and skincare.\nShe no longer eats paper.",
+    "links": {
+      "facebook": "https://www.facebook.com/imogenhowson",
+      "othersocialmedia": "https://bsky.app/profile/imogenhowson.bsky.social"
+    },
+    "prog": [
+      "31",
+      "77"
+    ]
+  },
+  {
+    "id": "40",
+    "name": "James Bacon",
+    "sortname": "James Bacon",
+    "bio": "James Bacon (He/Him) is an Irish fan living in London who drives trains. He enjoys comics, writing about comics, giving papers on comics, running conventions, and editing fanzines. James has won two Hugos with Chris Garcia and they edit Journey Planet with many co-editors from around the world. He chaired Dublin 2019 An Irish Worldcon, and  is co-chair of the 2025 Belfast Eastercon, the first to be held in Ireland in its 75 year history. Fanzines he has edited have covered Star Wars, Andor, Nineteen Eighty Four, the intersection between railways and fiction and comics, from Irish Comics to V for Vendetta.",
+    "links": "",
+    "prog": [
+      "9"
+    ]
+  },
+  {
+    "id": "41",
+    "name": "Jean Bürlesk",
+    "sortname": "Jean Bürlesk",
+    "bio": "Jean Bürlesk is a storyteller. He writes, he reads, he acts, he makes jokes nobody understands. He would sing and dance, but he has no sense of rhythm or melody. Sometimes he still sings and dances. As a Luxembourger and a lover of words, he expresses himself in five recognizable languages, as well as the usual nonsense.\nHe’s a terrific guide, unless of course he’s not and people just don’t have the heart to tell him.\nHis debut short story collection 'The Pleasure of Drowning' won the Prix d’Encouragement de la Fondation Servais 2019 and he was awarded a Chrysalis Award at Eurocon 2020.",
+    "links": {
+      "facebook": "https://www.facebook.com/people/Jean-B%C3%BCrlesk/100045573849195/"
+    },
+    "prog": [
+      "3",
+      "18",
+      "35",
+      "71"
+    ]
+  },
+  {
+    "id": "42",
+    "name": "Jeevani Charika/ Rhoda Baxter",
+    "sortname": "Jeevani Charika/ Rhoda Baxter",
+    "bio": "Jeevani Charika (also known as Rhoda Baxter) writes award nominated romantic women’s fiction and romcoms. She has a YouTube channel teaching authors how to use Canva to make fun graphics.\nShe is a ‘resting’ microbiologist - which is why, when she needed a pen name, she chose one that sounded like Rhodobacter. She lives in Yorkshire in the UK, where she enjoys eating cake, playing with Lego and, when she’s run out of excuses, writing.\nYou can find out more about her (and get a free book) on her website. Her latest book The Winner Bakes It All is out now.",
+    "links": {
+      "tiktok": "https://www.tiktok.com/@jeevanicharikaauthor",
+      "facebook": "https://www.facebook.com/rhoda.baxter.5/",
+      "website": "www.jeevanicharika.com",
+      "instagram": "https://www.instagram.com/jeevanicharika/",
+      "youtube": "https://www.youtube.com/@jeevanicharika"
+    },
+    "prog": [
+      "12",
+      "44",
+      "58",
+      "77"
+    ]
+  },
+  {
+    "id": "43",
+    "name": "John Kirwan",
+    "sortname": "John Kirwan",
+    "bio": "Jack Kirwan worked in theatre and film across Ireland before pursuing a doctorate in media studying distributed creativity online, specifically Twitch Play's Pokémon. Having written and staged a number of historical scripts, his main creative interest is in science fiction and the sci-fi fandom. This may be a trauma response due to The Borg on Star Trek being his first memory of television.\nWhile pursuing his own writing Jack Kirwan has reigned in his expectations from a great science fiction writer, to Ireland's greatest science fiction writer, to Jack Kirwan's favourite science fiction writer. In pursuit of being Ireland's greatest science fiction writer he became enamored with the Islan's own James White, and his Station General series. What started as a rivalry with a writer who has long since passed morphed into creating a comprehensive physical and electronic fan archive of James White's works, and a renewed passion for science fiction that is less interested in conflict and more interested in life.\nHaving finished his doctoral work his intention is to publish the trilogy 'The Gaia Starship' he wrote during that work online in both text and audio format, and continue work on a space soap-opera. Alongside this goal is the less mentally healthy aim of finally watching everything related to the Gundam franchise.",
+    "links": "",
+    "prog": [
+      "33",
+      "75"
+    ]
+  },
+  {
+    "id": "44",
+    "name": "Juliet E McKenna",
+    "sortname": "Juliet E McKenna",
+    "bio": "Juliet E McKenna is a British fantasy author living in the Cotswolds, UK. Loving history, myth and other worlds since she first learned to read, she has written fifteen epic fantasy novels so far. Her debut, The Thief’s Gamble, began The Tales of Einarinn in 1999, followed by The Aldabreshin Compass sequence, The Chronicles of the Lescari Revolution, and The Hadrumal Crisis trilogy. The Green Man’s Heir was her first modern fantasy inspired by British folklore in 2018, and The Green Man’s Quarry in 2023 is the sixth title in this ongoing series. The seventh is coming soon!\nHer 2023 novel The Cleaving is a female-centred retelling of the story of King Arthur, while her shorter fiction includes forays into dark fantasy, steampunk and science fiction. She promotes SF&Fantasy by reviewing, by blogging on book trade issues, attending conventions and teaching creative writing. She has served as a judge for major genre awards. As J M Alvey, she has written historical murder mysteries set in ancient Greece.",
+    "links": {
+      "facebook": "https://www.facebook.com/jemck",
+      "othersocialmedia": "@julietemckenna.bsky.social"
+    },
+    "prog": [
+      "20",
+      "60",
+      "67"
+    ]
+  },
+  {
+    "id": "45",
+    "name": "Kat Chant",
+    "sortname": "Kat Chant",
+    "bio": "Kat Chant is an international award-winning writer of sizzling romances about complex couples falling inconveniently in love. Very often her characters are something more than human.\nShe has been writing historical and romantic fiction ever since Robin Hood swept her off her feet and carried her into Nottingham Castle. (She has photographic evidence this really happened. She also has a black belt in karate should he try that again.)\nHer debut novel featured the Irish god of love and real life is not so different. Originally from Australia, she met and married an Irish historian. They live in the heart of Ireland with their two children and a rescue hound named Beetlejuice.\nKat will happily speak in public on just about any topic but gets shy on social media. She lurks on most platforms as @katchantauthor. She shares her adventures foraging in fields, wrangling ravens, and keeping fighting fit at www.katchant.com.",
+    "links": {
+      "tiktok": "https://www.tiktok.com/@katchantauthor",
+      "instagram": "https://www.instagram.com/katchantauthor/"
+    },
+    "prog": [
+      "12",
+      "18"
+    ]
+  },
+  {
+    "id": "46",
+    "name": "Kate Johnson",
+    "sortname": "Kate Johnson",
+    "bio": "Kate Johnson was born in the 1980s in Yorkshire and now lives in Essex, where she belongs to a small pride of cats. She has a second cousin who made the Guinness Book of Records for brewing the world’s strongest beer and she also once ran over herself with a Segway scooter. These two things are not related. Kate has worked in an airport, a lab, and various shops, but much prefers writing because mornings are definitely not her best friend. In 2017 she won Paranormal Romantic Novel of the Year with Max Seventeen, a space opera action adventure romance.",
+    "links": {
+      "twitter": "@k8johnsonauthor",
+      "instagram": "@k8johnsonauthor"
+    },
+    "prog": [
+      "35",
+      "77"
+    ]
+  },
+  {
+    "id": "47",
+    "name": "Kris Taylor",
+    "sortname": "Kris Taylor",
+    "bio": "Kris Taylor was born in England (he's very sorry about that!) near the end of the 20th century and has been living in Ireland for over 10 years (he's very happy about that!) He has worked in Film and TV for over 20 years and is an international award winning writer and producer (he's still in a bit of shock about that). Somewhere in there he managed to graduate with an Honours Degree in Modern History that is signed by Brian May of Queen! He also LOVES foxes!",
+    "links": {
+      "instagram": "https://www.instagram.com/freelancer_films"
+    },
+    "prog": [
+      "6",
+      "18"
+    ]
+  },
+  {
+    "id": "48",
+    "name": "Liz Bourke",
+    "sortname": "Liz Bourke",
+    "bio": "Liz Bourke is a cranky queer person who reads books. She holds a Ph.D in Classics from Trinity College, Dublin. Her first book, Sleeping With Monsters, a collection of reviews and criticism, was published in 2017 by Aqueduct Press. It was a finalist for the 2018 Locus Awards and was nominated for a 2018 Hugo Award in Best Related Work. She was a finalist for the inaugural 2020 Ignyte Critic Award, and has also been a finalist for the BSFA nonfiction award. She reviews regularly for Locus magazine and Reactor. She lives in Ireland with her wife, their energetic small child, and two very put-upon cats.",
+    "links": {
+      "othersocialmedia": "@hawkwing_lb.bsky.social"
+    },
+    "prog": [
+      "15",
+      "31"
+    ]
+  },
+  {
+    "id": "49",
+    "name": "Niall Kitson",
+    "sortname": "Niall Kitson",
+    "bio": "Niall Kitson is a journalist based in Dublin. He co-hosts the weekly podcast, TechRadio, which aired it's 1,000th episode last January.",
+    "links": "",
+    "prog": [
+      "31"
+    ]
+  },
+  {
+    "id": "50",
+    "name": "Nick Hubble",
+    "sortname": "Nick Hubble",
+    "bio": "I'm an academic, critic, reviewer and writer who lives in Aberystwyth. I have written or edited 15 books. I have written reviews and articles for LA Review of Books, Tribune, Jacobin, Strange Horizons, ParSec, BSFA Review, Foundation and others. In 2020-21 and 2022-23, I was one of the judges of the Arthur C. Clarke Award. I'm nonbinary.",
+    "links": {
+      "othersocialmedia": "@thehubble101.bsky.social"
+    },
+    "prog": [
+      "20",
+      "42"
+    ]
+  },
+  {
+    "id": "51",
+    "name": "Paul Anthony Shortt",
+    "sortname": "Paul Anthony Shortt",
+    "bio": "Paul is a longtime gamer, recent video essayist, and author-in-progress. He writes novels with a horror and fantasy adventure slant, and hosts the YouTube channel, Wordmaker's Workshop.",
+    "links": {
+      "twitter": "https://x.com/PAShortt",
+      "facebook": "https://www.facebook.com/paulanthonyshortt",
+      "youtube": "https://www.youtube.com/@wordmakersworkshop"
+    },
+    "prog": [
+      "35"
+    ]
+  },
+  {
+    "id": "52",
+    "name": "Rachel Handley",
+    "sortname": "Rachel Handley",
+    "bio": "Rachel is a queer, non-binary, and disabled SFF author, poet and philosopher based in Dublin, Ireland. Their debut short story collection, Possible Worlds and Other Stories, was published in 2022 by Ellipsis Imprints. Their writing has been published by Poetry Ireland, Arlen House, 365 Tomorrows, Martian Magazine, Sonder Lit, Full House Literary, among others. They are currently working on a second short story collection and a novel.",
+    "links": {
+      "instagram": "https://www.instagram.com/_rachelhandley/",
+      "othersocialmedia": "https://bsky.app/profile/rachelhandley.bsky.social"
+    },
+    "prog": [
+      "36",
+      "46",
+      "69",
+      "75"
+    ]
+  },
+  {
+    "id": "53",
+    "name": "Richard Sparks",
+    "sortname": "Richard Sparks",
+    "bio": "Born in England, and a graduate of Oxford University (Exeter College, where, like both JRR Tolkien and Philip Pullman before him, he read English Lang and Lit), Richard started out as a writer of stage plays, comedy revues and TV, for such shows as Not the Nine o’clock News. Rowan Atkinson performed his Schoolmaster sketch in John Cleese’s The Secret Policeman’s Ball. UK TV credits include The Famous Five, The Flying Kiwi, The Optimist, The Worst of Hollywood, and a lot of script editing. On being hired by Columbia Pictures TV, Richard moved with his family to Los Angeles in 1992. His lyrics have been recorded by talents as diverse as Dom de Luise, Eric Idle, Vanessa Williams and Plácido Domingo. He directed Jack Black in Stravinsky’s The Soldier’s Tale (LACMA). Richard has written libretti for several new operas composed by Lee Holdridge (TV’s Beauty and the Beast, et al.), produced by the LA Opera, as well writing new English versions of German and Italian classics. His non-fiction books, Diary of a Mad Poker Player, and its sequel, Getting Lucky, chronicle his adventures in the poker boom of the 2000’s. Along the Cherry Lane is his biography of the music producer, Milt Okun. Inspired by his love of online role-playing games, New Rock New Role is the first of four volumes Richard has written so far in the New Rock fantasy adventure series, and is his fiction debut.",
+    "links": {
+      "website": "www.richardsparks.com"
+    },
+    "prog": [
+      "38",
+      "44"
+    ]
+  },
+  {
+    "id": "54",
+    "name": "Russell A Smith",
+    "sortname": "Russell A Smith",
+    "bio": "Russell is a historian, fiction author and games writer, when he remembers half of these things. At other times, he can be found gaming, whether via a table or a computer. Loves a bunch of fandoms and will talk about just about anything. It will surprise nobody who knows him that he likes planes too.",
+    "links": {
+      "twitter": "@RASmithPSL",
+      "othersocialmedia": "@rswings.bsky.social"
+    },
+    "prog": [
+      "6",
+      "29",
+      "74"
+    ]
+  },
+  {
+    "id": "55",
+    "name": "S.L. Dove Cooper",
+    "sortname": "S.L. Dove Cooper",
+    "bio": "",
+    "links": "",
+    "prog": [
+      "37",
+      "48",
+      "66"
+    ]
+  },
+  {
+    "id": "56",
+    "name": "Sakura Perez",
+    "sortname": "Sakura Perez",
+    "bio": "",
+    "links": "",
+    "prog": [
+      "37",
+      "51"
+    ]
+  },
+  {
+    "id": "57",
+    "name": "Susan Maxwell",
+    "sortname": "Susan Maxwell",
+    "bio": "Susan Maxwell is an independent author and scholar who writes literary/slipstream fiction for adults and fantasy literature suitable for younger readers. She has published four novels and a collection of short stories, with short stories and poetry also appearing in magazines and anthologies.\nMaxwell’s short story 'Necrologue' was the title story of the 2004 Lambda Award-winning SFFH anthology, and her first published novel Good Red Herring was included in the Irish Times Best books of 2014 for children and young adults.\nMaxwell has fitted her writing activities around work as a professional archivist in Ireland, England, and The Netherlands. She also fitted in a PhD on archives and the margins.\nIn 2014 Little Island Books published the novel Good Red Herring, set in a fictional low-fantasy world that is both imaginary and deeply rooted in Ireland. The sequel, A WIld Goose Hunt, was self-published, as was And the Wildness, set in the same overarching 'Hibernia Altera' universe. The short story collection Fluctuation in Disorder and the novel Hollowmen are slipstream works aimed at an adult rather than a universal readership.\nMaxwell writes non-fiction material on themes related to archives and literature; her chapter on the short stories of M.R. James and Henry James' The Turn of the Screw is included in a forthcoming academic volume from Routledge.\nMaxwell is a regular juror for the British Fantasy Awards and reviewer for Inis, the magazine of Children’s Books Ireland. Literary influences come mostly from speculative and modernist fiction.",
+    "links": {
+      "othersocialmedia": "https://linktr.ee/dr.susan.maxwell"
+    },
+    "prog": [
+      "44"
+    ]
+  },
+  {
+    "id": "58",
+    "name": "TOG",
+    "sortname": "TOG",
+    "bio": "",
+    "links": "",
+    "prog": [
+      "24",
+      "27"
+    ]
+  },
+  {
+    "id": "59",
+    "name": "Vanessa MacLaren-Wray",
+    "sortname": "Vanessa MacLaren-Wray",
+    "bio": "Vanessa MacLaren-Wray writes science fiction and fantasy about people—human and otherwise—making connections in this complex universe. She’s the author of the Patchwork Universe series, including All That Was Asked, Shadows of Insurrection, and Flames of Attrition. She also writes for the Truck Stop at the Center of the Galaxy shared-universe consortium. Her short fiction has appeared with Dragon Gems and in the award-winning anthology Fault Zone: Reverse.\nVanessa is an active SFWA member—look for her among the crew aboard Airship Nebula. She also hosts (and techs) regular online open mics for the California Writers Club and guest-hosts for the podcast Small Publishing in a Big Universe. As an energy engineer, she’s written extensively on alternative energy, changes in the electric power industry, and responding to the climate crisis. When not arguing with her cats, she works on new stories, her email journal Messages from the Oort Cloud, and her website, cometarytales.com.",
+    "links": {
+      "facebook": "https://www.facebook.com/CometaryTales",
+      "instagram": "https://www.instagram.com/cometarytales/"
+    },
+    "prog": [
+      "37",
+      "73",
+      "79"
+    ]
+  }
+]

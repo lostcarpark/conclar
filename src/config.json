@@ -2,8 +2,8 @@
   "BASE_PATH": "/",
   "APP_ID": "OCTO24",
   "APP_TITLE": "Octocon 2024 Programme Guide",
-  "PROGRAM_DATA_URL": "/2024/program.js",
-  "PEOPLE_DATA_URL": "/2024/people.js",
+  "PROGRAM_DATA_URL": "/2024/schedule.json",
+  "PEOPLE_DATA_URL": "/2024/participants.json",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -21,7 +21,7 @@
   "TIMEZONECODE": "IST",
   "INTERACTIVE": true,
   "HEADER": {
-    "IMG_SRC": "/Octocon2023-programme-banner.jpg",
+    "IMG_SRC": "/Octocon-logo-960x240.png",
     "IMG_ALT_TEXT": "Octocon, the National Irish Science Fiction Convention banner.",
     "LINEFEED_AFTER_URL": true
   },

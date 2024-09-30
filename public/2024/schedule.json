@@ -1,0 +1,3035 @@
+[
+  {
+	
+    "id": 1,
+    "title": "Opening Ceremony",
+    "desc": "Octocon Co-chairs Kat Dodd and Paul Carroll welcome everyone to Octocon. Whether you're in Dublin at the Gibson Hotel or online with us from near and far, we're delighted that you could join us!\nStreamed live to the Member Portal.",
+    "format": "Ceremony",
+    "datetime": "2024-10-05T10:00:00.000Z",
+    "mins": 15,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },	  
+	  {	
+		"label": "Recorded",
+		"value": "session_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  { "id": "Z0052", "name": "Noelle Ameijenda (moderator)" },
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  },
+	  {
+		"id": "12",
+		"name": "Paul Carroll"
+	  },
+	  {
+		"id": "13",
+		"name": "Kat Dodd"
+	  }
+	]
+  },
+  {
+    "id": 3,
+    "title": "Idioms Are the Enemy: The Art of Translation",
+    "desc": "In a medium where your word choice and phrasing matters a great deal, how do you bring context alongside the words, when those words and phrases are from other cultures or other ages? Come along and learn the challenges faced in communicating an artefact without the culture that created it.",
+    "format": "Panel",
+    "datetime": "2024-10-05T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Creatives",
+		"value": "tag_creatives",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "38",
+		"name": "Harun Šiljak",
+		"role": "moderator"
+	  },
+	  {
+		"id": "41",
+		"name": "Jean Bürlesk"
+	  },
+	  {
+		"id": "2",
+		"name": "Gary Moloney"
+	  },
+	  {
+		"id": "4",
+		"name": "Jack Fennell"
+	  }
+	]
+  },
+  {
+    "id": 4,
+    "title": "Ice Breaker",
+    "desc": "We're all fans here together - come and get to know some of your fellow Octocon attendees and learn what to expect at Octocon! Warning: There may be shenanigans.",
+    "format": "Fan Chat",
+    "datetime": "2024-10-05T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "37",
+		"name": "Gwen Frazer",
+		"role": "moderator"
+	  }
+	]
+  },
+  {
+    "id": 5,
+    "title": "Cosy Fantasy Worldbuilding Workshop",
+    "desc": "Join the 2023 and 2024 Robert Holdstock-nominated author David Green as he guides you through crafting a cosy fantasy story. This workshop will take you through the process of establishing stakes in a low-threat narrative and designing character-driven plot, to writing personal tales that promote found families and happy endings. All best read in the reader’s favourite, comfiest chair, under their warmest blanket and with a cup of tea in hand. And don't forget the steady supply of biscuits.",
+    "format": "Workshop",
+    "datetime": "2024-10-05T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "16",
+		"name": "David Green"
+	  }
+	]
+  },
+  {
+    "id": 6,
+    "title": "Heists: the Radical Idea That We Might Know What We're Doing",
+    "desc": "From the jewel heists that came in the wake of 1955's Noir film classic Rififi to sneaking into a dungeon past a dragon to open the gate, heists - while a recent invention - have become a new way to interpret and retell tales of yore like Robin Hood and imagine solutions to impossible circumstances. We gather a crew of heist experts for one last job, to talk through the best and boldest.\nStreamed live to the Member Portal.",
+    "format": "Panel",
+    "datetime": "2024-10-05T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "47",
+		"name": "Kris Taylor",
+		"role": "moderator"
+	  },
+	  {
+		"id": "20",
+		"name": "James Brophy"
+	  },
+	  {
+		"id": "21",
+		"name": "Karina Steffens"
+	  },
+	  {
+		"id": "54",
+		"name": "Russell A Smith"
+	  },
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  }
+	]
+  },
+  {
+    "id": 8,
+    "title": "Don't Let History Get in the Way of Telling a Good Story",
+    "desc": "We can't always know what happened in a specific time and place, no matter the facts, testimony and evidence we may be presented with. In addition, distance and modern sensibilities can bring new meaning to historical events, putting new focus on what were seen as minor details. Join our panel as they discuss how to balance the knowns, the unknowns and the assumptions when writing historical fantasy.",
+    "format": "Panel",
+    "datetime": "2024-10-05T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "History",
+		"value": "tag_history",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "10",
+		"name": "AK Faulkner",
+		"role": "moderator"
+	  },
+	  {
+		"id": "33",
+		"name": "Finn McLellan"
+	  },
+	  {
+		"id": "36",
+		"name": "Gillian Polack"
+	  },
+	  {
+		"id": "11",
+		"name": "J E Hannaford"
+	  }
+	]
+  },
+  {
+    "id": 9,
+    "title": "The Star Wars to Come",
+    "desc": "The Acolyte opened up a previously unseen depth of the Force and the world of the Sith. Does its cancellation mean these will remain shrouded in mystery as our attention turns to the kids on speeder bikes of the Skeleton Crew or is everyone waiting for Ahsoka and Thrawn to actually DO something out in the unknown regions and turn up to make the Mandalorian's day?",
+    "format": "Panel",
+    "datetime": "2024-10-05T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Science Fiction",
+		"value": "tag_scifi",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "21",
+		"name": "Karina Steffens",
+		"role": "moderator"
+	  },
+	  {
+		"id": "40",
+		"name": "James Bacon"
+	  },
+	  {
+		"id": "20",
+		"name": "James Brophy"
+	  },
+	  {
+		"id": "23",
+		"name": "Michael Carroll"
+	  },
+	  {
+		"id": "7",
+		"name": "Ryann Fletcher"
+	  }
+	]
+  },
+  {
+    "id": 10,
+    "title": "Meet the Creator: Robert Cullen",
+    "desc": "Gather round a table with Robert Cullen for an in-person chat!\nSign-up required; the sign-up sheet will be at the registration desk until 15 minutes before the start of the chat or check your latest Octocon newsletter or on Discord to get a link to sign-up in advance!",
+    "format": "Guest Chat",
+    "datetime": "2024-10-05T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "6",
+		"name": "Robert Cullen"
+	  }
+	]
+  },
+  {
+    "id": 11,
+    "title": "Teddy Bear Tea Party",
+    "desc": "Back by popular demand! Bring your stuffies, your teddies, your plushies, your dolls, and your action figures to the tea party of the season! Whether your teddy brought their own costume from home, you choose to make something for them to wear during the tea party, or they're coming in their natural fluffy states, we're excited to see you all to catch up on all the latest stuffed animal gossip! Tea and coffee provided.",
+    "format": "Other",
+    "datetime": "2024-10-05T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Fun",
+		"value": "tag_fun",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Children's Programme",
+		"value": "tag_children",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Adults Welcome",
+		"value": "tag_adults_welcome",
+		"category": "Tag"
+	  }
+],
+	"people": [
+	  {
+		"id": "19",
+		"name": "Daniella Bella"
+	  },
+	  {
+		"id": "31",
+		"name": "Entity"
+	  }
+	]
+  },
+  {
+    "id": 12,
+    "title": "Endless Love: Why Romance Matters",
+    "desc": "Romance can be a way to safely and privately explore our desires and needs, and learn about ourselves, as well as to get the happy high of a Happy Ever After (or a Happy For Now). But we're just so tired of having to defend reading and writing Romance, so instead let's talk about what we like and expect in Romance stories, and why they're so valuable and important for so many people.\nStreamed live to the Member Portal.",
+    "format": "Panel",
+    "datetime": "2024-10-05T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "30",
+		"name": "Deirdre Thornton",
+		"role": "moderator"
+	  },
+	  {
+		"id": "42",
+		"name": "Jeevani Charika / Rhoda Baxter"
+	  },
+	  {
+		"id": "45",
+		"name": "Kat Chant"
+	  },
+	  {
+		"id": "5",
+		"name": "Kel Menton"
+	  },
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  }
+	]
+  },
+  {
+    "id": 14,
+    "title": "Writing from History - From the Head, the Heart, or Somewhere Very Different?",
+    "desc": "Fiction can be used to address problems with how we interpret the past. Writing fictional history can also make those problems worse. Gillian will talk about actual Jewish history (mainly in Germany, because Gillian recently went there to research history and write a book) and compare it with the material SFF writers often rely on. This talk is mostly not about the Holocaust. It's about red-haired Medieval Jews, and scratches on slates in Cologne, and quite possibly about toilets. It's about how towns are built, about very long histories, and how expulsion is not always what it seems. Gillian's story about building bridges in York was shortlisted for the Sidewise awards and is discussed in TVTropes, and this talk may address why she didn't write the story from the point of view of a Jewish character... but only if the audience is interested.",
+    "format": "Talk",
+    "datetime": "2024-10-05T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "History",
+		"value": "tag_history",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "36",
+		"name": "Gillian Polack"
+	  }
+	]
+  },
+  {
+    "id": 15,
+    "title": "Writing Queer Fantasy",
+    "desc": "Fantasy… but make it gay! What makes queer fantasy different from the traditionally published, straight-marketed fantasy? Are there differences beyond the identities of the creators and their characters? How do writers develop societies for their queer fantasy books? Our panel of writers discuss the making of the genre with queerness baked in.\nWe are also running an online version of this panel with different panellists.",
+    "format": "Panel",
+    "datetime": "2024-10-05T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"
+		},
+	  {	
+		"label": "Identity",
+		"value": "tag_identity",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "48",
+		"name": "Liz Bourke",
+		"role": "moderator"
+	  },
+	  {
+		"id": "34",
+		"name": "G.T. Korbin"
+	  },
+	  {
+		"id": "3",
+		"name": "Helen Corcoran"
+	  },
+	  {
+		"id": "5",
+		"name": "Kel Menton"
+	  },
+	  {
+		"id": "7",
+		"name": "Ryann Fletcher"
+	  }
+	]
+  },
+  {
+    "id": 16,
+    "title": "Meet the Author: Jack Fennell",
+    "desc": "",
+    "format": "Guest Chat",
+    "datetime": "2024-10-05T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "4",
+		"name": "Jack Fennell"
+	  }
+	]
+  },
+  {
+    "id": 17,
+    "title": "Build Our Cardboard City",
+    "desc": "Come create our cardboard city which will live forever and ever encounter any monster attacks, ever. This city will stand forever, monstrous in its tiny massive stature. We shall name it Kaiju City!",
+    "format": "Workshop",
+    "datetime": "2024-10-05T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Crafting and Making",
+		"value": "tag_maker",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fun",
+		"value": "tag_fun",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Children's Programme",
+		"value": "tag_children",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Adults Welcome",
+		"value": "tag_adults_welcome",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "13",
+		"name": "Kat Dodd"
+	  }
+	]
+  },
+  {
+    "id": 18,
+    "title": "The Disneyification of History and Mythology",
+    "desc": "How frustrating is it to see the things you love, from history or lore and mythology, be taken by outsiders and made more palatable for modern audiences? Even worse when that new version is presented as the real version! Join us as we talk about the times we've seen that happen and what we want to do about it. There will also be a showing of the short film \"Ór Na Banríona (The Queen's Gold)\" at the beginning.\nStreamed live to the Member Portal.",
+    "format": "Panel",
+    "datetime": "2024-10-05T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"
+		},
+	  {	
+		"label": "Myths/Legends/Folklore",
+		"value": "tag_myth",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "37",
+		"name": "Gwen Frazer",
+		"role": "moderator"
+	  },
+	  {
+		"id": "41",
+		"name": "Jean Bürlesk"
+	  },
+	  {
+		"id": "45",
+		"name": "Kat Chant"
+	  },
+	  {
+		"id": "47",
+		"name": "Kris Taylor"
+	  }
+	]
+  },
+  {
+    "id": 20,
+    "title": "The Relationship Between The Writer and the Reader: Who Owns the Text (Online)",
+    "desc": "We are also running an in-person version of this panel with different panellists.",
+    "format": "Panel",
+    "datetime": "2024-10-05T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fandom",
+		"value": "tag_fandom",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "36",
+		"name": "Gillian Polack",
+		"role": "moderator"
+	  },
+	  {
+		"id": "15",
+		"name": "Faranae"
+	  },
+	  {
+		"id": "44",
+		"name": "Juliet E McKenna"
+	  },
+	  {
+		"id": "50",
+		"name": "Nick Hubble"
+	  }
+	]
+  },
+  {
+    "id": 21,
+    "title": "Meet the Author: J E Hannaford",
+    "desc": "",
+    "format": "Guest Chat",
+    "datetime": "2024-10-05T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Zoom 2 - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "11",
+		"name": "J E Hannaford"
+	  }
+	]
+  },
+  {
+    "id": 22,
+    "title": "Fan Chat: Cosplayers Unite",
+    "desc": "Come talk to each other about your cosplays, how you did them, the work you put into them, and the little extras that go a long way. Talk about the cosplays you loved and the ones that seemed like you'd never get them right. Talk about the cosplays you want to do, and what inspires you. Talk about your love of cosplay with other people that also love cosplay!",
+    "format": "Fan Chat",
+    "datetime": "2024-10-05T15:00:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Cosplay",
+		"value": "tag_cosplay",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Crafting and Making",
+		"value": "tag_maker",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "21",
+		"name": "Karina Steffens",
+		"role": "moderator"
+	  }
+	]
+  },
+  {
+    "id": 23,
+    "title": "Comics Panel",
+    "desc": "",
+    "format": "Panel",
+    "datetime": "2024-10-05T15:00:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Comics",
+		"value": "tag_comics",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "12",
+		"name": "Paul Carroll",
+		"role": "moderator"
+	  },
+	  {
+		"id": "19",
+		"name": "Daniella Bella"
+	  },
+	  {
+		"id": "2",
+		"name": "Gary Moloney"
+	  },
+	  {
+		"id": "6",
+		"name": "Robert Cullen"
+	  }
+	]
+  },
+  {
+    "id": 24,
+    "title": "TOG Lockpicking (session 1)",
+    "desc": "As soon as the lock was invented, so was the way to get past it for rogues who need to get through the door at the last minute or hackers breaking into the server room to save the world. TOG, Dublin's Hackerspace, brings their free lockpicking class to Octocon. Learn about physical security and protective technology, and how to defeat them.\nThis workshop will run as two sessions of roughly 45 minutes each.\nThere's only space for 30 people per session, so sign up in advance online or at the registration desk.",
+    "format": "Workshop",
+    "datetime": "2024-10-05T15:00:00.000Z",
+    "mins": 45,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Crafting and Making",
+		"value": "tag_maker",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fun",
+		"value": "tag_fun",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "58",
+		"name": "TOG"
+	  }
+	]
+  },
+  {
+    "id": 25,
+    "title": "Guest of Honour Interview",
+    "desc": "Reversing their roles from Octocon 2023, this year's Guest of Honour Ruth Frances Long / Jessica Thorne chats to last year's Guest of Dishonour Sarah Rees Brennan about her career, books, multiple writing personas, and who knows what else!\nStreamed live to the Member Portal.",
+    "format": "Interview",
+    "datetime": "2024-10-05T15:00:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Guest of Honour",
+		"value": "tag_goh",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "22",
+		"name": "Sarah Rees Brennan",
+		"role": "moderator"
+	  },
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  }
+	]
+  },
+  {
+    "id": 27,
+    "title": "TOG Lockpicking (session 2)",
+    "desc": "As soon as the lock was invented, so was the way to get past it for rogues who need to get through the door at the last minute or hackers breaking into the server room to save the world. TOG, Dublin's Hackerspace, brings their free lockpicking class to Octocon. Learn about physical security and protective technology, and how to defeat them.\nThis workshop will run as two sessions of roughly 45 minutes each.\nThere's only space for 30 people per session, so sign up in advance online or at the registration desk.",
+    "format": "Workshop",
+    "datetime": "2024-10-05T15:45:00.000Z",
+    "mins": 45,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Crafting and Making",
+		"value": "tag_maker",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fun",
+		"value": "tag_fun",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "58",
+		"name": "TOG"
+	  }
+	]
+  },
+  {
+    "id": 28,
+    "title": "Meet the Author: Ryann Fletcher",
+    "desc": "",
+    "format": "Guest Chat",
+    "datetime": "2024-10-05T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "7",
+		"name": "Ryann Fletcher"
+	  }
+	]
+  },
+  {
+    "id": 29,
+    "title": "Who Are Children's Shows Actually For?",
+    "desc": "From Doctor Who to She-Ra: Princesses of Power and My Little Pony, it's become more common for media aimed at children to have a large adult following. How does this affect kids' relationships with their media? When many children's shows such as Avatar: The Last Airbender write serious subject matter in an age-appropriate way, does this influence who people think the target audience must be? Can fandoms make room for both adults and children while keeping things kid-friendly?",
+    "format": "Panel",
+    "datetime": "2024-10-05T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Fandom",
+		"value": "tag_fandom",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "21",
+		"name": "Karina Steffens",
+		"role": "moderator"
+	  },
+	  {
+		"id": "19",
+		"name": "Daniella Bella"
+	  },
+	  {
+		"id": "20",
+		"name": "James Brophy"
+	  },
+	  {
+		"id": "54",
+		"name": "Russell A Smith"
+	  },
+	  {
+		"id": "6",
+		"name": "Robert Cullen"
+	  }
+	]
+  },
+  {
+    "id": 30,
+    "title": "Learn to Crochet",
+    "desc": "Learn the basics of crochet, including the stitches you will need to know for the Octo pattern, and work with you on how to adapt for your own needs (because the right way to hold a crochet hook is the way that works for you).",
+    "format": "Workshop",
+    "datetime": "2024-10-05T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Fun",
+		"value": "tag_fun",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Children Welcome",
+		"value": "tag_children_welcome",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Crafting and Making",
+		"value": "tag_maker",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "13",
+		"name": "Kat Dodd"
+	  },
+	  {
+		"id": "17",
+		"name": "MaryBrigid Turner"
+	  }
+	]
+  },
+  {
+    "id": 31,
+    "title": "Olympus has Risen: Modern Takes on Ancient Gods",
+    "desc": "Greek gods and myths have long been a rich source of inspiration, but the past few years have seen a cornucopia of TV, books and video games all with their own takes on the high drama of the ancient Olympians: from Hadestown to Kaos, Percy Jackson to Hades the video game(s). We take a look at what keeps writers and creators coming back time and time again like Prometheus' eagle.\nStreamed live to the Member Portal.",
+    "format": "Panel",
+    "datetime": "2024-10-05T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Onlie",
+        "value": "session_online",
+        "category": "Environment"
+      },	  
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Comics",
+		"value": "tags_comics",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Myths/Legends/Folklore",
+		"value": "tags_myths",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "49",
+		"name": "Niall Kitson",
+		"role": "moderator"
+	  },
+	  {
+		"id": "34",
+		"name": "G.T. Korbin"
+	  },
+	  {
+		"id": "39",
+		"name": "Imogen Howson"
+	  },
+	  {
+		"id": "48",
+		"name": "Liz Bourke"
+	  },
+	  {
+		"id": "12",
+		"name": "Paul Carroll"
+	  }
+	]
+  },
+  {
+    "id": 33,
+    "title": "You are in a Panel Room: The Topic is Interactive Fiction",
+    "desc": "You enter a room. To the right is a door that appears locked. To the left is a staircase leading into darkness... Interactive storytelling has been part of the reading and gaming experience for decades while immersive theatre, haunted houses and escape rooms have given writers, performers and the audience unique opportunities for innovation and experimentation. What draws people to interactive narratives time and time again? And what delights await in the theatre of the mind that cannot be found elsewhere?",
+    "format": "Panel",
+    "datetime": "2024-10-05T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Creatives",
+		"value": "tag_creatives",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Gaming",
+		"value": "tag_gaming",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "14",
+		"name": "Catherine Sharp",
+		"role": "moderator"
+	  },
+	  {
+		"id": "33",
+		"name": "Finn McLellan"
+	  },
+	  {
+		"id": "43",
+		"name": "John Kirwan"
+	  },
+	  {
+		"id": "9",
+		"name": "Theresa Jean Tanenbaum ('Tess')"
+	  }
+	]
+  },
+  {
+    "id": 34,
+    "title": "Meet the Author: AK Faulkner",
+    "desc": "",
+    "format": "Guest Chat",
+    "datetime": "2024-10-05T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Zoom 2 - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "10",
+		"name": "AK Faulkner"
+		}
+	]
+  },
+  {
+    "id": 35,
+    "title": "Where's The Line When It Comes To Redemption Arcs",
+    "desc": "We all love a villain who comes good in the end, and gets their redemption. Or do we? Should villains be redeemed? Can they be? Where's the line and who decides where the line is?",
+    "format": "Panel",
+    "datetime": "2024-10-05T18:00:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "46",
+		"name": "Kate Johnson",
+		"role": "moderator"
+	  },
+	  {
+		"id": "41",
+		"name": "Jean Bürlesk"
+	  },
+	  {
+		"id": "51",
+		"name": "Paul Anthony Shortt"
+	  },
+	  {
+		"id": "22",
+		"name": "Sarah Rees Brennan"
+	  },
+	  {
+		"id": "6",
+		"name": "Robert Cullen"
+	  }
+	]
+  },
+  {
+    "id": 36,
+    "title": "Philosophical SF Flash Fiction Workshop",
+    "desc": "This workshop run by SFF author and philosopher Dr Rachel Handley (they/them) will guide you through character and setting creation before introducing a series of sci-fi writing prompts on unlikely gods, bizarre mirror universes, and all the possible weirdness we can imagine in-between. The workshop will be very interactive and its main aims are to spark the imagination and get some writing done all within an inclusive and non-pressured environment. For anyone eager to share what they’ve written in response to the prompts (and to receive a little feedback on it from Rachel) there will be several opportunities for participants to share their work throughout the workshop.",
+    "format": "Workshop",
+    "datetime": "2024-10-05T18:00:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Science Fiction",
+		"value": "tag_scifi",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "writing",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "52",
+		"name": "Rachel Handley"
+	  }
+	]
+  },
+  {
+    "id": 37,
+    "title": "The Annual Octocon Anime Panel",
+    "desc": "Our regular line-up of anime enthusiasts are let loose once more to talk about... who knows? But it's sure to be informative and entertaining! If you love anime or are just curious, do not miss this panel!",
+    "format": "Panel",
+    "datetime": "2024-10-05T18:00:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Anime",
+		"value": "tag_anime",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "59",
+		"name": "Vanessa MacLaren-Wray",
+		"role": "moderator"
+	  },
+	  {
+		"id": "15",
+		"name": "Faranae"
+	  },
+	  {
+		"id": "55",
+		"name": "S.L. Dove Cooper"
+	  },
+	  {
+		"id": "56",
+		"name": "Sakura Perez"
+	  }
+	]
+  },
+  {
+    "id": 38,
+    "title": "The Vulnerability of Writing/Drawing Desire",
+    "desc": "It's easy to talk about what you don't want but to talk about need and desire and lust and love in a personal way can be a vulnerable act. How do writers get comfortable with communicating not just things their characters want to prevent, but objectives their characters want to achieve and intimacy they want to engage in?",
+    "format": "Panel",
+    "datetime": "2024-10-05T19:30:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Creatives",
+		"value": "tag_creatives",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "18+",
+		"value": "tag_18",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "19",
+		"name": "Daniella Bella",
+		"role": "moderator"
+	  },
+	  {
+		"id": "53",
+		"name": "Richard Sparks"
+	  },
+	  {
+		"id": "3",
+		"name": "Helen Corcoran"
+	  },
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  }
+	]
+  },
+  {
+    "id": 39,
+    "title": "Meet the Creator: Theresa Jean Tanenbaum",
+    "desc": "",
+    "format": "Guest Chat",
+    "datetime": "2024-10-05T19:30:00.000Z",
+    "mins": 60,
+    "loc": "Zoom 2 - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "9",
+		"name": "Theresa Jean Tanenbaum ('Tess')"
+	  }
+	]
+  },
+  {
+    "id": 40,
+    "title": "Cosy Cartoon Watch Party",
+    "desc": "Saturday morning cartoons at night! Come in your cosiest clothes or change into them there; perhaps just bring a blanket and a teddy to curl up and watch along.",
+    "format": "Other",
+    "datetime": "2024-10-05T20:30:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Fun",
+		"value": "tag_fun",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Children Welcome",
+		"value": "tag_children_welcome",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "31",
+		"name": "Entity"
+	  }
+	]
+  },
+  {
+    "id": 41,
+    "title": "The Greater Octocon Table Quiz",
+    "desc": "It's back and it's better! (We hope.) Come and test your knowledge on all things science fiction, fantasy and horror, books, TV, film and comics in the Greater Octocon Table Quiz, and win some of our excellent prizes!\nTeams of 4(ish); €5 per team member as a donation to Octocon's 2024 charity, St Michael's House. Sign up in advance at the registration desk on Saturday, or just show up with your teammates and find a table!\nPrizes are presented per team (and are based on teams of 4).",
+    "format": "Other",
+    "datetime": "2024-10-05T20:30:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Fun",
+		"value": "tags_fun",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "12",
+		"name": "Paul Carroll"
+	  }
+	]
+  },
+  {
+    "id": 42,
+    "title": "Stop Passing the Buck: Consent in Historical Fantasy (18+)",
+    "desc": "So often in historical fantasy, we are bombarded with violence we didn't ask for, particularly sexual violence against women. When this concern is raised, the authors frequently hide behind \"I want to stay true to the time period\" and \"we can't judge the past by today's standards\". But why are authors bound to a period that didn't exist when they're creating a new society? Why do they hold to this, instead of creating their own? And why does the adherence to the past only seem to show up in violence against women and not to the beauty standards of the time? Why is assault more palatable to an audience than unshaved armpits? How do we go about demanding that this change, or do we have to abandon a genre we otherwise love?",
+    "format": "Panel",
+    "datetime": "2024-10-05T20:30:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "18+",
+		"value": "tag_18",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"	  },
+	  {	
+		"label": "History",
+		"value": "tag_history",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Sensitive Topic",
+		"value": "tag_sensitive",
+		"category": "Tag"	  }
+],
+    "people": [
+	  {
+		"id": "17",
+		"name": "MaryBrigid Turner",
+		"role": "moderator"
+	  },
+	  {
+		"id": "25",
+		"name": "Cheryl Morgan"
+	  },
+	  {
+		"id": "15",
+		"name": "Faranae"
+	  },
+	  {
+		"id": "13",
+		"name": "Kat Dodd"
+	  },
+	  {
+		"id": "50",
+		"name": "Nick Hubble"
+	  }
+	]
+  },
+  {
+    "id": 43,
+    "title": "Meet the Author: Kel Menton",
+    "desc": "",
+    "format": "Guest Chat",
+    "datetime": "2024-10-06T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "5",
+		"name": "Kel Menton"
+	  }
+	]
+  },
+  {
+    "id": 44,
+    "title": "The Relationship Between The Writer and the Reader: Who Owns the Text",
+    "desc": "Once the story is written and is out in the world, who does the tale belong to - the writer, or the reader? Join us as we discuss fan fiction to author intent and everything in between!\nWe are also running an online version of this panel with different panellists.",
+    "format": "Panel",
+    "datetime": "2024-10-06T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fandom",
+		"value": "tag_fandom",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "42",
+		"name": "Jeevani Charika / Rhoda Baxter",
+		"role": "moderator"
+	  },
+	  {
+		"id": "23",
+		"name": "Michael Carroll"
+	  },
+	  {
+		"id": "12",
+		"name": "Paul Carroll"
+	  },
+	  {
+		"id": "53",
+		"name": "Richard Sparks"
+	  },
+	  {
+		"id": "57",
+		"name": "Susan Maxwell"
+	  }
+	]
+  },
+  {
+    "id": 45,
+    "title": "Workshop: How to Pitch Your RPG Campaign",
+    "desc": "Experienced GM Colm Dodd describes how to pitch your new RPG campaign in a way that captures the interest and imagination of your players and introduces the game's style, setting and tone. There will be exercises!",
+    "format": "Workshop",
+    "datetime": "2024-10-06T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Gaming",
+		"value": "tag_gaming",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Community",
+		"value": "tag_community",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "18",
+		"name": "Colm Dodd"
+	  }
+	]
+  },
+  {
+    "id": 46,
+    "title": "Home is Where the Hearth Is: Cosy Fantasy",
+    "desc": "What exactly is cosy fantasy, and what isn't – and is that static, or is that currently in flux? It seems as though everything around us is changing, even our beloved Cosy Fantasy. Are we open to that change or are we clinging to the old, not necessarily because it's better but because that's where our comfort lies? How much of the change is reader led, and how much is agents and publisher led, and do they understand what we love about cosy while trying to change it?\nStreamed live to the Member Portal.",
+    "format": "Panel",
+    "datetime": "2024-10-06T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },	  {	
+		"label": "Recorded",
+		"value": "session_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "52",
+		"name": "Rachel Handley",
+		"role": "moderator"
+	  },
+	  {
+		"id": "28",
+		"name": "Craig Walsh"
+	  },
+	  {
+		"id": "16",
+		"name": "David Green"
+	  },
+	  {
+		"id": "30",
+		"name": "Deirdre Thornton"
+	  },
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  }
+	]
+  },
+  {
+    "id": 48,
+    "title": "Writing Queer Fantasy (Online)",
+    "desc": "Fantasy… but make it gay! What makes queer fantasy different from the traditionally published, straight-marketed fantasy? Are there differences beyond the identities of the creators and their characters? How do writers develop societies for their queer fantasy books? Our panel of writers discuss the making of the genre with queerness baked in.\nWe are also running an in-person version of this panel with different panellists.",
+    "format": "Panel",
+    "datetime": "2024-10-06T10:30:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"
+		},
+	  {	
+		"label": "Identity",
+		"value": "tag_identity",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "14",
+		"name": "Catherine Sharp",
+		"role": "moderator"
+	  },
+	  {
+		"id": "55",
+		"name": "S.L. Dove Cooper"
+	  },
+	  {
+		"id": "8",
+		"name": "Seth Haddon"
+	  },
+	  {
+		"id": "10",
+		"name": "AK Faulkner"
+	  },
+	  {
+		"id": "11",
+		"name": "J E Hannaford"
+	  }
+	]
+  },
+  {
+    "id": 49,
+    "title": "Fan Chat: Star Trek",
+    "desc": "Whether you like The Original Series, The Next Generation, Deep Space Nine, Voyager, the Kelvin universe, Picard, Lower Decks, Discovery, Strange New Worlds, or something completely different, you have space here to talk about what you love! The ideals of Star Trek tell us that everyone matters, there's space for everyone, and that there's hope for humanity. Let's talk about what we've read or watched since last Octocon, what we're excited for, and what strange new worlds we're going to next!",
+    "format": "Fan Chat",
+    "datetime": "2024-10-06T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Science Fiction",
+		"value": "tag_scifi",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "35",
+		"name": "Gareth Kavanagh",
+		"role": "moderator"
+	  }
+	]
+  },
+  {
+    "id": 50,
+    "title": "70 Years of The Lord of the Rings",
+    "desc": "The Fellowship of the Ring was released in 1954, and the world of fantasy has never been the same… And all-things Middle-Earth are going from strength-to-strength. With more books consisting of Tolkien's plethora of notes forthcoming, new movies on the way, and the Rings Of Power season two in the bag and a third season filming, there are many more trips to Middle-Earth planned. Join us as we explore the world of Tolkien's never-ending appeal.",
+    "format": "Panel",
+    "datetime": "2024-10-06T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "7",
+		"name": "Ryann Fletcher",
+		"role": "moderator"
+	  },
+	  {
+		"id": "24",
+		"name": "Brian Nisbet"
+	  },
+	  {
+		"id": "27",
+		"name": "Clare O'Beara"
+	  },
+	  {
+		"id": "29",
+		"name": "Dave Clarke"
+	  },
+	  {
+		"id": "16",
+		"name": "David Green"
+	  }
+	]
+  },
+  {
+    "id": 51,
+    "title": "Scrapheap Cosplay Workshop",
+    "desc": "We bring the trash, you create your cosplay masterpiece out of scraps, junk, and duct tape. Who says you need a sewing machine to create cosplay?",
+    "format": "Workshop",
+    "datetime": "2024-10-06T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Cosplay",
+		"value": "tag_cosplay",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Crafting and Making",
+		"value": "tag_maker",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "56",
+		"name": "Sakura Perez"
+	  }
+	]
+  },
+  {
+    "id": 52,
+    "title": "Book Launch: 'The Lost Queen' Series by Jessica Thorne",
+    "desc": "Guest of Honour Ruth Frances Long writing as Jessica Thorne launches her latest romantic fantasy series, The Lost Queen. Book 1, A Touch of Shadows, and book 2, A Kiss of Flame, are already out, and book 3, A Crown of Darkness comes out right after Octocon!\nStreamed live to the Member Portal.",
+    "format": "Book Launch",
+    "datetime": "2024-10-06T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  }
+	]
+  },
+  {
+    "id": 54,
+    "title": "Meet the Author: Seth Haddon",
+    "desc": "",
+    "format": "Guest Chat",
+    "datetime": "2024-10-06T12:00:00.000Z",
+    "mins": 60,
+    "loc": "Zoom 2 - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "8",
+		"name": "Seth Haddon"
+	  }
+	]
+  },
+  {
+    "id": 55,
+    "title": "Fan Chat: What We Love About Fanfic",
+    "desc": "Do you enjoy watching other people play tabletop games? Come talk to other people that also enjoy them! Maybe your liveplay of choice is Matt Coville, but maybe it's Dimension 20, or Critical Role, or one of the many others out there! Whatever your pick, come share why you like them with other people, and talk to them about why they love what they love, too!",
+    "format": "Fan Chat",
+    "datetime": "2024-10-06T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Fandom",
+		"value": "tag_fandom",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "13",
+		"name": "Kat Dodd",
+		"role": "moderator"
+	  }
+	]
+  },
+  {
+    "id": 56,
+    "title": "Book Launch: \"No Sympathy\" by Eóin Dooley",
+    "desc": "Eóin Dooley launches his debut, No Sympathy, billed as a fresh, philosophical take on urban fantasy that follows the story of Theo, a self-centered, alcoholic nobody who craves status and significance, and accidentally falls into a world of magic that allows to immediately transport himself anywhere across the globe - as long as society doesn't care about him.",
+    "format": "Book Launch",
+    "datetime": "2024-10-06T13:30:00.000Z",
+    "mins": 30,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "32",
+		"name": "Eóin Dooley"
+	  }
+	]
+  },
+  {
+    "id": 57,
+    "title": "Workshop: How to Write a Comic in 60 Minutes",
+    "desc": "Comics creator Gary Moloney walks us through how to break down a one page comic from script to final product.",
+    "format": "Workshop",
+    "datetime": "2024-10-06T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Comics",
+		"value": "tags_comics",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "2",
+		"name": "Gary Moloney"
+	  }
+	]
+  },
+  {
+    "id": 58,
+    "title": "Frankenstein vs Alien",
+    "desc": "Science fiction has its origins in the works of Mary Shelley, Jules Verne, and H.G. Wells - and there's horror abound in the early examples, particularly since some people consider Mary Shelley's Frankenstein to be both the first horror and science fiction novel. How much influence, or even overlap, is there between the two genres? Why are these two flavours of storytelling so compatible with each other? Is this partnership going to continue into the future? Join our panel as they discuss where science fiction and horror came from, and where they're going.\nStreamed live to the Member Portal.",
+    "format": "Panel",
+    "datetime": "2024-10-06T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Horror",
+		"value": "tag_horror",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Science Fiction",
+		"value": "tag_scifi",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "42",
+		"name": "Jeevani Charika / Rhoda Baxter",
+		"role": "moderator"
+	  },
+	  {
+		"id": "23",
+		"name": "Michael Carroll"
+	  },
+	  {
+		"id": "4",
+		"name": "Jack Fennell"
+	  },
+	  {
+		"id": "7",
+		"name": "Ryann Fletcher"
+	  }
+	]
+  },
+  {
+    "id": 60,
+    "title": "Into the Woods: Exploring Lesser Known Fairy Tales",
+    "desc": "Long before printing presses, the oral tradition of folklore stories and fairy tales provided comfort, entertainment and valuable life lessons. From the stories of Aesop and the Brothers Grimm, to the Arabian tales of One Thousand and One Nights and Ireland's own tradition of the Seanchaí, people have always been fascinated with tales that sought to explain the world around them through a mystical and mysterious lens. Where does this fascination come from? What are people doing today to keep these stories alive? And how can writers employ them in the stories we tell today?",
+    "format": "Panel",
+    "datetime": "2024-10-06T13:30:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Myths/Legends/Folklore",
+		"value": "tag_myth",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "14",
+		"name": "Catherine Sharp",
+		"role": "moderator"
+	  },
+	  {
+		"id": "36",
+		"name": "Gillian Polack"
+	  },
+	  {
+		"id": "44",
+		"name": "Juliet E McKenna"
+	  },
+	  {
+		"id": "12",
+		"name": "Paul Carroll"
+	  },
+	  {
+		"id": "11",
+		"name": "J E Hannaford"
+	  }
+	]
+  },
+  {
+    "id": 61,
+    "title": "Reading: Helen Corcoran",
+    "desc": "",
+    "format": "Reading",
+    "datetime": "2024-10-06T14:00:00.000Z",
+    "mins": 30,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "3",
+		"name": "Helen Corcoran"
+	  }
+	]
+  },
+  {
+    "id": 62,
+    "title": "What Has D&D Ever Done For Us?",
+    "desc": "Fifty years since Dungeons and Dragons was first released, there's no sign of the game's popularity taking a critical hit. Streamed liveplays, D&D-based video games such as Baldur's Gate 3, and the latest film Honor Among Thieves - never mind the countless other TTRPGs available - also show that the audience isn't limited to the more than fifty million D&D players who've rolled for initiative. Our panellists discuss what D&D means to them, and how it has enriched their gaming lives and beyond.",
+    "format": "Panel",
+    "datetime": "2024-10-06T15:00:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"	  },
+	  {	
+		"label": "Gaming",
+		"value": "tag_gaming",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Community",
+		"value": "tag_community",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fandom",
+		"value": "tag_fandom",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "24",
+		"name": "Brian Nisbet",
+		"role": "moderator"
+	  },
+	  {
+		"id": "30",
+		"name": "Deirdre Thornton"
+	  },
+	  {
+		"id": "2",
+		"name": "Gary Moloney"
+	  },
+	  {
+		"id": "4",
+		"name": "Jack Fennell"
+	  },
+	  {
+		"id": "5",
+		"name": "Kel Menton"
+	  }
+	]
+  },
+  {
+    "id": 63,
+    "title": "Making a Monster: A Horror Writing Workshop",
+    "desc": "From Paul Carroll, comes a new workshop on how to write horror.",
+    "format": "Workshop",
+    "datetime": "2024-10-06T15:00:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Horror",
+		"value": "tag_horror",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "12",
+		"name": "Paul Carroll"
+	  }
+	]
+  },
+  {
+    "id": 64,
+    "title": "Cosplay Parade",
+    "desc": "Show off your cosplay and strut your stuff on the Octocon red carpet in the Cosplay Parade around the convention! All ages and skill levels are welcome to participate, including commissioned and homemade costumes.\nYou can sign up in advance online or at the registration desk before 2pm on Sunday. Make sure you complete your video release form (at registration) so we know if you are happy being recorded or not.\nPlease arrive at the main panel room by 2:45pm, and let us know if you need any type of accommodations. \nAlthough we've allocated an hour and a half to the Parade, it's unlikely to take the full timeslot.\nStreamed live to the Member Portal.",
+    "format": "Other",
+    "datetime": "2024-10-06T15:00:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recorded",
+		"value": "session_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Cosplay",
+		"value": "tag_cosplay",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "13",
+		"name": "Kat Dodd"
+	  }
+	]
+  },
+  {
+    "id": 66,
+    "title": "Handle With Care: Writing Trauma in Your Fiction",
+    "desc": "When telling the story of a character experiencing Trauma and its effects, writers can experience unique challenges, struggles, opportunities and beauty. How much can they take from their own experiences and where should they draw the line on incorporating other people's without misrepresenting them? Our panel looks at some best practices for writing about Trauma in a respectful and successful way.",
+    "format": "Panel",
+    "datetime": "2024-10-06T15:00:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Sensitive Topic",
+		"value": "tag_sensitive",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "15",
+		"name": "Faranae",
+		"role": "moderator"
+	  },
+	  {
+		"id": "55",
+		"name": "S.L. Dove Cooper"
+	  },
+	  {
+		"id": "9",
+		"name": "Theresa Jean Tanenbaum ('Tess')"
+	  },
+	  {
+		"id": "10",
+		"name": "AK Faulkner"
+	  }
+	]
+  },
+  {
+    "id": 67,
+    "title": "Fan Chat: Star Trek (Online)",
+    "desc": "Whether you like The Original Series, The Next Generation, Deep Space Nine, Voyager, the Kelvin universe, Picard, Lower Decks, Discovery, Strange New Worlds, or something completely different, you have space here to talk about what you love! The ideals of Star Trek tell us that everyone matters, there's space for everyone, and that there's hope for humanity. Let's talk about what we've read or watched since last Octocon, what we're excited for, and what strange new worlds we're going to next!",
+    "format": "Fan Chat",
+    "datetime": "2024-10-06T15:00:00.000Z",
+    "mins": 60,
+    "loc": "Zoom 2 - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Science Fiction",
+		"value": "tag_scifi",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "44",
+		"name": "Juliet E McKenna",
+		"role": "moderator"
+	  }
+	]
+  },
+  {
+    "id": 68,
+    "title": "Meet the Creator: Gary Moloney",
+    "desc": "",
+    "format": "Guest Chat",
+    "datetime": "2024-10-06T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "2",
+		"name": "Gary Moloney"
+	  }
+	]
+  },
+  {
+    "id": 69,
+    "title": "Creating While Neurodivergent",
+    "desc": "When you're used to masking, and maybe even trying to figure out how to communicate without the rulebook everyone else seems to have gotten, it can be really powerful to get to create without a filter. Making art with your anger, your trauma, your sense of exclusion, and not having to hold back can be freeing, but it doesn't stop them from affecting your life. How do neurodivergent creators care for themselves, their families, and push forward with their craft while managing the challenges that come with living in a neurotypical society?",
+    "format": "Panel",
+    "datetime": "2024-10-06T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Creatives",
+		"value": "tag_creatives",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Identity",
+		"value": "tag_identity",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "26",
+		"name": "Cír Doyle",
+		"role": "moderator"
+	  },
+	  {
+		"id": "19",
+		"name": "Daniella Bella"
+	  },
+	  {
+		"id": "16",
+		"name": "David Green"
+	  },
+	  {
+		"id": "20",
+		"name": "James Brophy"
+	  },
+	  {
+		"id": "52",
+		"name": "Rachel Handley"
+	  }
+	]
+  },
+  {
+    "id": 70,
+    "title": "Crochet Your Very Own Octo",
+    "desc": "Join us as we teach you how to crochet your very own Octo! You will need about 25g of yarn (DK if possible, but any scrap yarn will do) and a crochet hook between 3mm and 5mm or one to match the weight of the yarn you use (some yarn and hooks will be provided, but you are welcome to bring your own that you picked out). If you don't know how to crochet yet, we will have a Learn to Crochet workshop on Saturday that you are welcome to attend!",
+    "format": "Workshop",
+    "datetime": "2024-10-06T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Fun",
+		"value": "tag_fun",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Children Welcome",
+		"value": "tag_children_welcome",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Crafting and Making",
+		"value": "tag_maker",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "13",
+		"name": "Kat Dodd"
+	  },
+	  {
+		"id": "17",
+		"name": "MaryBrigid Turner"
+	  }
+	]
+  },
+  {
+    "id": 71,
+    "title": "Gods, Faith and Religion in SFF",
+    "desc": "Whether your gods are distant memories, hands-off benevolent (or malevolent) influences, or maybe even living directly among their people, how do they direct and drive your stories and characters? In a world with magic or sufficiently advanced technology, what meaning and impact do the gods even have? Our panel discusses the purpose of faith and religion - or its lack - within science fiction and fantasy.\nStreamed live to the Member Portal.",
+    "format": "Panel",
+    "datetime": "2024-10-06T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Science Fiction",
+		"value": "tag_scifi",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "22",
+		"name": "Sarah Rees Brennan",
+		"role": "moderator"
+	  },
+	  {
+		"id": "41",
+		"name": "Jean Bürlesk"
+	  },
+	  {
+		"id": "3",
+		"name": "Helen Corcoran"
+	  },
+	  {
+		"id": "5",
+		"name": "Kel Menton"
+	  },
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  }
+	]
+  },
+  {
+    "id": 73,
+    "title": "Workshop: Love That Book? Do Tell!",
+    "desc": "The simplest, easiest thing that a reader can do for writers, especially less-represented authors, indie authors, and niche storytellers, is to post reviews. We're not talking about a deep literary analysis on your blog... just a short-and-sweet \"what I liked (or didn't) about this\" note on your favorite digital bookselling sites. Let's get together for a brief chat about what does and does not belong in a review, how to anonymize your reviews if you want to, and a little Q&A. Sure, we can talk about the difference between a negative review and a bad one. But then let's unlock our phones or computers and post a few reviews, live, then return to the rest of the con having crossed a few items off our to-be-reviewed lists.",
+    "format": "Workshop",
+    "datetime": "2024-10-06T16:30:00.000Z",
+    "mins": 60,
+    "loc": "Zoom 2 - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "59",
+		"name": "Vanessa MacLaren-Wray"
+	  }
+	]
+  },
+  {
+    "id": 74,
+    "title": "Fan Chat: Baldur's Gate 3",
+    "desc": "Video game press outlets said that Baldur's Gate 3 sets a new bar for scale of ambition and for executing that vision so well. One year on, gamers are still losing weeks to their adventures in Faerûn, and then when they finish the game, losing even more weeks to playing again. We get together to talk about the talking cats we've met, the NPCs we've romanced, and the classes we just can't bring ourselves to play.",
+    "format": "Fan Chat",
+    "datetime": "2024-10-06T18:00:00.000Z",
+    "mins": 60,
+    "loc": "Chat area - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Gaming",
+		"value": "tag_gaming",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fantasy",
+		"value": "tag_fantasy",
+		"category": "Tag"	  }
+],
+    "people": [
+	  {
+		"id": "54",
+		"name": "Russell A Smith",
+		"role": "moderator"
+	  }
+	]
+  },
+  {
+    "id": 75,
+    "title": "The Past, Present and Future of Science Fiction Short Stories",
+    "desc": "The importance of the short story - once the thrilling bleeding edge of communicating original ideas in science fiction - was diminished as novels became easier and easier to produce. The short story became somewhat of a second-class citizen until new distribution methods brought it back into the limelight and reinvented its discoverability through online magazines, podcasts and e-readers. Join us as we try to predict the future by delving into the rich past of the science fiction short story.",
+    "format": "Panel",
+    "datetime": "2024-10-06T18:00:00.000Z",
+    "mins": 60,
+    "loc": "Alhambra - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Science Fiction",
+		"value": "tag_scifi",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "24",
+		"name": "Brian Nisbet",
+		"role": "moderator"
+	  },
+	  {
+		"id": "28",
+		"name": "Craig Walsh"
+	  },
+	  {
+		"id": "32",
+		"name": "Eóin Dooley"
+	  },
+	  {
+		"id": "43",
+		"name": "John Kirwan"
+	  },
+	  {
+		"id": "52",
+		"name": "Rachel Handley"
+	  }
+	]
+  },
+  {
+    "id": 76,
+    "title": "Destroy Octocon's Kaiju City",
+    "desc": "Ever wanted to rampage through a city, being the best Monster you can be? This year at Octocon we are giving you a chance to do just that. Our Cardboard City, having been built in a previous workshop, will be taken apart by you for style points. Costumes and cool roars encouraged!",
+    "format": "Workshop",
+    "datetime": "2024-10-06T18:00:00.000Z",
+    "mins": 60,
+    "loc": "Cordoba - Gibson (upstairs)",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Not Recorded",
+		"value": "session_not_recorded",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Crafting and Making",
+		"value": "tag_maker",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Fun",
+		"value": "tag_fun",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Children's Programme",
+		"value": "tag_children",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Adults Welcome",
+		"value": "tag_adults_welcome",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "18",
+		"name": "Colm Dodd"
+	  }
+	]
+  },
+  {
+    "id": 77,
+    "title": "Writers Supporting Writers",
+    "desc": "Spending time alone with the characters in your head is the traditional experience of sitting down to write, but the life of a writer can even involve friends we didn't make up! Other writers can be a vital support network when your life involves more biscuits and swears than the average person's.\nStreamed live to the Member Portal.",
+    "format": "Panel",
+    "datetime": "2024-10-06T18:00:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In Person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Community",
+		"value": "tag_community",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Creatives",
+		"value": "tag_creatives",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "34",
+		"name": "G.T. Korbin",
+		"role": "moderator"
+	  },
+	  {
+		"id": "39",
+		"name": "Imogen Howson"
+	  },
+	  {
+		"id": "42",
+		"name": "Jeevani Charika / Rhoda Baxter"
+	  },
+	  {
+		"id": "46",
+		"name": "Kate Johnson"
+	  },
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  }
+	]
+  },
+  {
+    "id": 79,
+    "title": "Tech vs Suspense: Are There Any Winners?",
+    "desc": "Our world has changed massively since the advent of mobile phones and even more so since smartphones became commonplace. Creators have often shied away from telling contemporary stories while they catch up with how they can tell stories with the new technologies. We ask if access to more information is the enemy of suspenseful storytelling, and why creators often don't want to tell stories with modern tech.",
+    "format": "Panel",
+    "datetime": "2024-10-06T18:00:00.000Z",
+    "mins": 60,
+    "loc": "Streamed online - Member Portal",
+    "tags": [
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recording information pending",
+		"value": "session_pending",
+		"category": "Note"
+	  },
+	  {	
+		"label": "Science and Technology",
+		"value": "tag_scitech",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Writing",
+		"value": "tag_writing",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "Creatives",
+		"value": "tag_creatives",
+		"category": "Tag"
+	  },
+	  {	
+		"label": "TV/Film",
+		"value": "tag_tv_film",
+		"category": "Tag"
+	  },	  {	
+		"label": "Literature",
+		"value": "tag_literature",
+		"category": "Tag"
+	  }
+],
+    "people": [
+	  {
+		"id": "59",
+		"name": "Vanessa MacLaren-Wray",
+		"role": "moderator"
+	  },
+	  {
+		"id": "15",
+		"name": "Faranae"
+	  },
+	  {
+		"id": "9",
+		"name": "Theresa Jean Tanenbaum ('Tess')"
+	  },
+	  {
+		"id": "10",
+		"name": "AK Faulkner"
+	  }
+	]
+  },
+  {
+    "id": 80,
+    "title": "Closing Ceremony",
+    "desc": "We bid farewell to another Octocon and talk about our plans and hopes for 2025. \n(Charity raffle will be drawn during the closing ceremony.)\nStreamed live to the Member Portal.",
+    "format": "Ceremony",
+    "datetime": "2024-10-06T19:00:00.000Z",
+    "mins": 60,
+    "loc": "Stratocaster (main room) - Gibson",
+    "tags": [
+      {
+        "label": "In-person",
+        "value": "session_in_person",
+        "category": "Environment"
+      },
+      {
+        "label": "Online",
+        "value": "session_online",
+        "category": "Environment"
+      },
+	  {	
+		"label": "Recorded",
+		"value": "session_recorded",
+		"category": "Note"
+	  }
+],
+    "people": [
+	  {
+		"id": "1",
+		"name": "Ruth Frances Long / Jessica Thorne"
+	  },
+	  {
+		"id": "12",
+		"name": "Paul Carroll"
+	  },
+	  {
+		"id": "13",
+		"name": "Kat Dodd"
+	  },
+	  {
+		"id": "14",
+		"name": "Catherine Sharp"
+	  }
+	]
+  }
+]
