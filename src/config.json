@@ -2,8 +2,8 @@
   "BASE_PATH": "/",
   "APP_ID": "OCTO24",
   "APP_TITLE": "Octocon 2024 Programme Guide",
-  "PROGRAM_DATA_URL": "/2024/schedule.json",
-  "PEOPLE_DATA_URL": "/2024/participants.json",
+  "PROGRAM_DATA_URL": "/2023/program.json",
+  "PEOPLE_DATA_URL": "/2023/people.js",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -18,7 +18,7 @@
     }
   },
   "TIMEZONE": "Europe/Dublin",
-  "TIMEZONECODE": "IST",
+  "TIMEZONECODE": "GMT+1",
   "INTERACTIVE": true,
   "HEADER": {
     "IMG_SRC": "/Octocon-logo-960x240.png",
