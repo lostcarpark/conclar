@@ -39,7 +39,11 @@
     "CLOSE_ARIA_LABEL": "Dismiss help text"
   },
   "LOCATIONS": {
-    "SEARCHABLE": false
+    "SEARCHABLE": false,
+    "LABEL": "Show on map",
+    "MAPPING": [
+      { "KEY": "Davin - Croke Park", "MAP_URL": "https://map.octocon.com" }
+    ]
   },
   "APPLICATION": {
     "LOADING": {
