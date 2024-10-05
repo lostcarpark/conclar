@@ -114,6 +114,22 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     });
   }
 
+  if ('MAPPING' in configData.LOCATIONS) {
+    for (const location of configData.LOCATIONS.MAPPING) {
+      if (item.loc.toString() === location.KEY) {
+        links.push(
+          <ItemLink
+            key="map"
+            name="item-links-map"
+            link={location.MAP_URL}
+            text={configData.LOCATIONS.LABEL}
+            enabled={true}
+          />
+        )
+      }
+    }
+  }
+
   const duration =
     configData.DURATION.SHOW_DURATION && item.mins ? (
       <div className="item-duration">

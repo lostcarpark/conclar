@@ -88,6 +88,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `HELP_TEXT.CLOSE_LABEL`: Label for button to dismiss help text.
 - `HELP_TEXT.CLOSE_ARIA_LABEL`: Label to describe dismiss button.
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
+- `LOCATIONS.LABEL`: Label to show on map links.
+- `LOCATIONS.MAPPING`: Array of locations, with links to show on map. Each room should be specified as: `{ "KEY": "Room name", "MAP_URL": "link to map" }`.
 - `APPLICATION.LOADING.MESSAGE`: Message to display while loading.
 - `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed.
 - `PROGRAM.LIMIT.LABEL`: Label for limit drop-down.
