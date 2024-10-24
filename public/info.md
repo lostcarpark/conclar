@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # About Octocon
 [Octocon](https://2023.octocon.com) is the Irish National Science Fiction Convention, held continuously since 1990.
 
@@ -69,4 +70,78 @@ It has been developed in ReactJS and is intended to work in all modern browsers.
 * If you want to only see in-person or online items, select from the **Track** filter:
 	* At Croke Park: select *Hybrid* and *In-person*
 	* Online: select *Hybrid* and *Online*
+=======
+# About Octocon
+[Octocon](https://octocon.com) is the Irish National Science Fiction Convention, held continuously since 1990.
+
+Octocon 2024 takes place on Saturday 5th and Sunday 6th October, in-person at the Gibson Hotel, Dublin, and online via our Member Portal.
+Our Guest of Honour is Ruth Frances Long, aka Jessica Thorne. [Learn more about her and our other guests.](https://2024.octocon.com/octocon-guests/)
+
+All members of Octocon must abide by our [Code of Conduct](https://2024.octocon.com/code-of-conduct/). Members attending in-person must follow our [Disease Mitigation policy](https://2024.octocon.com/covid-19-policy/). Face masks are required.
+
+## Join Us!
+If you're coming in-person, you need an Attending membership (which also gets you access to our online programme). Concession rates and YA (aged 13-21) memberships are available, and children (12 and under) can attend for free. Day memberships are also available.
+
+If you're going to be joining us exclusively online, you need a Virtual & Supporting membership.
+
+[Get your membership now!](https://registration.octocon.com)
+
+## At the Gibson Hotel
+You can find Octocon in the Gibson Hotel, Point Square, North Dock, Dublin, D01 X2P2.
+
+[More transport and parking information](https://2024.octocon.com/venue/)
+
+
+### Opening Hours 
+All times are listed in Irish time (UTC+1) and your local time - you can change the timezone displayed in ConClár on the **Settings** page.
+
+**Registration and Info**
+* Saturday: from 9:30am
+* Sunday: from 9:30am
+
+**Trade Hall**
+* Saturday: 10am - 6pm
+* Sunday: 10am - 5pm
+
+**Programme**
+* Saturday: from 10am (Opening Ceremony) to 8:30pm
+* Saturday night social: from 8:30pm, including the Greater Octocon Table Quiz
+* Sunday: 10:30am – 7:30pm (Closing Ceremony begins at 7pm)
+
+## Online
+Panels are streamed on a webpage embedded in our Member Portal. Workshops, talks and chats all take place on Zoom, and we also have a Discord server for information and a social space.
+As well as online-only programme, we are also streaming as much as possible from the main programme room in the Gibson Hotel, Stratocaster. Filter the programme by **Online** to show everything you can watch online.
+
+To access all our online content:
+
+1. Log into the Member Portal by visiting the [Log in to the Member Portal page](https://registration.octocon.com/2024/members/check) and entering the email address you're registered with. 
+2. You'll receive an email with a link that will log you into the Member Portal - click this! You should stay logged in for the whole weekend (as long as you use the same browser - if you change devices, you'll need to request another link).
+3. On the Member Portal, you can watch our streamed panels and find links to the various Zoom meetings for talks, workshops, readings, chats and our Saturday evening social.
+
+### Opening Hours
+All times are listed in Irish time (UTC+1) and your local time - you can change the timezone displayed in ConClár on the **Settings** page.
+
+**Programme**
+* Saturday: 10am (Opening Ceremony, streamed live from the Gibson Hotel) - 8:30pm
+* Saturday night social: 9pm - late (includes a watch party)
+* Sunday: 10:30am – 7:30pm (Closing Ceremony begins at 7pm, streamed live from the Gibson Hotel)
+Breakout rooms will be available in Zoom 2 throughout the weekend as social space.
+
+## Programme Notes
+* If you've been to Octocon before, you may be used to programme items starting on the hour, every hour, and lasting 50 minutes. Octocon has a different schedule nowadays. Most items will last an hour with a half-hour break in between, so take care to note the start times!
+* Many of our online and streamed panels are being recorded to watch back later. Flter the programme by **Recorded** to find them. (Note that some may be listed as **Recording information pending**.
+
+# About ConClár
+ConClár is an online programme guide tool for conventions.
+It has been developed in ReactJS and is intended to work in all modern browsers. It is designed to work equally well on mobile and desktop devices. No application needs to be downloaded and installed as it works in a browser. It does need a network connection to work.
+
+## Tips for Using ConClár
+
+* See more information about each programme item by clicking/tapping the item title or the down arrow to the right.
+* Use the checkboxes on the **Programme** page to select the items you want to appear in your personalised programme on the **My Schedule** page.
+* Use filters to search for topics or types of items. You can use multiple filters at the same time.
+* If you want to only see in-person or online items, select from the **Select environment** filter:
+	* At the Gibson Hotel: select *In-person*
+	* Online: select *Online*
+>>>>>>> Stashed changes
 * You can show the programme in your own timezone by changing your **Settings**. By default, the programme is displayed in Irish time (UTC+1 during the convention) and your browser's default timezone (if it differs from convention time).

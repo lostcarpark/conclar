@@ -1,9 +1,16 @@
 {
   "BASE_PATH": "/",
+<<<<<<< Updated upstream
   "APP_ID": "O2021",
   "APP_TITLE": "Octocon 2023 Programme Guide",
   "PROGRAM_DATA_URL": "/2023/program.js",
   "PEOPLE_DATA_URL": "/2023/people.js",
+=======
+  "APP_ID": "OCTO24",
+  "APP_TITLE": "Octocon 2024 Programme Guide",
+  "PROGRAM_DATA_URL": "/2024/schedule.json",
+  "PEOPLE_DATA_URL": "/2024/participants.json",
+>>>>>>> Stashed changes
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -34,7 +41,14 @@
     "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
   },
   "LOCATIONS": {
-    "SEARCHABLE": false
+    "SEARCHABLE": false,
+    "LABEL": "Show on map",
+    "MAPPING": [
+      { "KEY": "Alhambra - Gibson", "MAP_URL": "https://map.octocon.com/room/panelroom2" },
+      { "KEY": "Stratocaster (main room) - Gibson", "MAP_URL": "https://map.octocon.com/room/mainprog" },
+      { "KEY": "Cordoba - Gibson (upstairs)", "MAP_URL": "https://map.octocon.com/room/workshop" },
+      { "KEY": "Chat area - Gibson", "MAP_URL": "https://map.octocon.com/room/chatarea" }
+    ]
   },
   "APPLICATION": {
     "LOADING": {
