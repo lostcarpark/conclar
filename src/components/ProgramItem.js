@@ -41,9 +41,9 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   }
 
   function getRelativeTime(item) {
-    if (Temporal.ZonedDateTime.compare(now, item.startDateAndTime) < 0) {
+    if (Temporal.ZonedDateTime.compare(now, item.bufferedStartDateAndTime) < 0) {
       return "before";
-    } else if (Temporal.ZonedDateTime.compare(now, item.endDateAndTime) < 0) {
+    } else if (Temporal.ZonedDateTime.compare(now, item.bufferedEndDateAndTime) < 0) {
       return "during";
     } else {
       return "after";

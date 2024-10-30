@@ -10,7 +10,7 @@ const ShareLink = () => {
   const links = [];
   let key = 0;
   function addLink(linkItems, multi) {
-    const link = configData.BASE_PATH + "ids/" + linkItems;
+    const link = window.publicUrl + "ids/" + linkItems;
     const absLink = `${window.location.origin}${link}`;
     links.push(
       <div key={key++} className="share-body">

@@ -23,6 +23,7 @@
 :root {
   --main-bg: #fff;
   --main-fg: #000;
+  --header-fg: #444;
   --navigation-button-bg: #ddd;
   --navigation-button-fg: #0d172a;
   --navigation-button-border: #e2e8f0;
@@ -40,6 +41,8 @@
   --filter-border: var(--search-border);
   --filter-select-bg: #bbe;
   --filter-select-fg: #000;
+  --filter-select-single-caret: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ccc' stroke='%23ccc' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
+  --filter-select-single-hover-caret: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23999' stroke='%23999' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
   --search-bg: var(--main-bg);
   --search-fg: var(--main-fg);
   --search-border: hsl(0, 0%, 80%);
@@ -55,8 +58,10 @@
   --add-all-button-fg: var(--navigation-button-current-fg);
   --add-more-button-bg: var(--navigation-button-current-bg);
   --add-more-button-fg: var(--navigation-button-current-fg);
-  --program-item-chevron-collapsed: #ccc;
-  --program-item-chevron-expanded: #bbe;
+  --add-more-button-hover-bg: var(--navigation-button-hover-bg);
+  --add-more-button-hover-fg: var(--navigation-button-hover-fg);
+  --program-item-chevron-collapsed: var(--navigation-button-current-bg);
+  --program-item-chevron-expanded: var(--navigation-button-hover-bg);
   --program-time-convention-message: grey;
   --program-time-local-message: grey;
   --program-date-line: #888;
@@ -73,6 +78,8 @@
   --participant-link-visited-fg: #444;
   --settings-outline: #888;
   --footer-line: #888;
+  --footer-bg-color: #424242;
+  --footer-fg-color: #F5F5F5;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
   --shadow-012: rgba(0, 0, 0, 0.12);
@@ -144,6 +151,7 @@ header {
 
 header h1 {
   margin: 1rem 0;
+  color: var(--header-fg);
 }
 
 header img {
@@ -365,7 +373,10 @@ input.switch:checked ~ label:after {
 .filter-tags,
 .filter-locations,
 .filter-search,
-.filter-options {
+.people-search,
+.filter-options,
+.filter-hide-before
+{
   flex-basis: 0;
   flex-grow: 1;
   margin: 0.25em;
@@ -373,15 +384,18 @@ input.switch:checked ~ label:after {
 
 .filter-tags,
 .filter-locations,
-.filter-search {
+.filter-search,
+.people-search,
+.filter-hide-before
+ {
   font-size: 0.8em;
-  min-width: 20ch;
+  min-width: 21ch;
   max-width: 50ch;
 }
 
 .filter-hide-before {
-  max-width: 30ch;
-  margin: auto 0.25em;
+  margin: 0.25em;
+  display: flex;
 }
 
 .filter-hide-before label {
@@ -390,16 +404,32 @@ input.switch:checked ~ label:after {
 
 .filter-hide-before select
 {
+  width: 100%;
+  height: 100%;
   font-size: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 0.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: var(--filter-select-single-caret);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+.filter-hide-before select:hover,
+.filter-hide-before select:focus,
+.filter-hide-before select:active
+{
+  background-image: var(--filter-select-single-hover-caret);
 }
 
 .filter-search label {
   display: none;
 }
 
-.filter-container .filter-select__control {
+.filter-container .filter-select__control,
+.filter-hide-before select
+{
   background-color: var(--filter-bg);
   color: var(--filter-fg);
   border: 1px var(--filter-border) solid;
@@ -447,6 +477,7 @@ input.switch:checked ~ label:after {
   font-size: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  width: 100%;
 }
 
 .program-limit-select {
@@ -466,12 +497,6 @@ input.switch:checked ~ label:after {
 .filter-expand,
 .filter-options {
   white-space: nowrap;
-}
-
-.filter-search,
-.people-search {
-  max-width: 30ch;
-  margin: auto 0.25em;
 }
 
 .filter-search input,
@@ -814,6 +839,13 @@ input.switch:checked ~ label:after {
   padding: .5rem 1.5rem;
   border: none;
   border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+.show-more-button:hover,
+.show-more-button:focus {
+  background-color: var(--expand-button-hover-bg);
+  color: var(--expand-button-hover-fg);
 }
 
 /* ItemIDs page, showing shared items. */
@@ -995,9 +1027,22 @@ input.switch:checked ~ label:after {
 
 footer {
   margin-top: 2rem;
-  /* often there is already a border before this element so omit:
-  border-top: 1px solid var(--footer-line); */
-  text-align: right;
+  padding: .5rem;
+  background-color: var(--footer-bg-color);
+  border-top: 1px solid var(--footer-line);
+  color: var(--footer-fg-color);
+  box-shadow: 0 0 0 100vmax var(--footer-bg-color);
+  clip-path: inset(0 -100vmax);
+}
+
+footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer a,
+footer a:hover {
+  color: var(--footer-fg-color);
 }
 
 /*

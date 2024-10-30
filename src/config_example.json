@@ -1,5 +1,4 @@
 {
-  "BASE_PATH": "/",
   "APP_ID": "O2021",
   "APP_TITLE": "ConClár Programme Guide",
   "PROGRAM_DATA_URL": "/2022/program.js",
@@ -116,7 +115,7 @@
   },
   "HIDE_BEFORE": {
     "HIDE": false,
-    "PLACEHOLDER": "Hide before",
+    "PLACEHOLDER": "Select time",
     "TIMES": [
       { "TIME": "10:00:00", "LABEL_24H": "10:00", "LABEL_12H": "10am" },
       { "TIME": "12:00:00", "LABEL_24H": "12:00", "LABEL_12H": "12 noon" },
@@ -264,6 +263,7 @@
   },
   "FOOTER": {
     "SITE_NOTE_MARKDOWN": "",
+    "COPYRIGHT_MARKDOWN": "",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "TIMER": {
