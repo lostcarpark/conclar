@@ -115,7 +115,7 @@
   },
   "HIDE_BEFORE": {
     "HIDE": false,
-    "PLACEHOLDER": "Hide before",
+    "PLACEHOLDER": "Select time",
     "TIMES": [
       { "TIME": "10:00:00", "LABEL_24H": "10:00", "LABEL_12H": "10am" },
       { "TIME": "12:00:00", "LABEL_24H": "12:00", "LABEL_12H": "12 noon" },
