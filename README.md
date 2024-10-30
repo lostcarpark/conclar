@@ -186,6 +186,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
 - `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
 - `FOOTER.SITE_NOTE_MARKDOWN`: General note displayed in the footer of the page. May use Markdown for encoding of links, emphesis, etc.
+- `FOOTER.COPYRIGHT_MARKDOWN`: Copyright notice if required. May include Markdown.
 - `FOOTER.CONCLAR_NOTE_MARKDOWN`: Note crediting ConClár. You are free to remove or modify this, but we politely request retaining to help promote this free tool.
 - `TIMER.FETCH_INTERVAL_MINS`: Number of minutes between refreshes of program data.
 - `TIMER.TIMER_TICK_SECS`: Number of seconds between checks of timer.

@@ -263,6 +263,7 @@
   },
   "FOOTER": {
     "SITE_NOTE_MARKDOWN": "",
+    "COPYRIGHT_MARKDOWN": "",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "TIMER": {
