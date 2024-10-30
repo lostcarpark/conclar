@@ -1,0 +1,283 @@
+{
+  "BASE_PATH": "/",
+  "APP_ID": "F2024",
+  "APP_TITLE": "Fantastika Programme Guide",
+  "PROGRAM_DATA_URL": "/program.js",
+  "PEOPLE_DATA_URL": "/people.js",
+  "FETCH_OPTIONS": {
+    "cache": "reload",
+    "credentials": "omit",
+    "headers": {
+      "Origin": "https://fantastika2024.com"
+    }
+  },
+  "FETCH_OPTIONS_FIRST": {
+    "credentials": "omit",
+    "headers": {
+      "Origin": "https://fantastika2024.com"
+    }
+  },
+  "TIMEZONE": "Europe/Stockholm",
+  "TIMEZONECODE": "CET",
+  "INTERACTIVE": true,
+  "HEADER": {
+    "IMG_SRC": "/fantastika2024.svg",
+    "IMG_ALT_TEXT": "Fantastika - Swecon 2024",
+    "LINEFEED_AFTER_URL": false
+  },
+  "NAVIGATION": {
+    "PROGRAM": "Programme",
+    "PEOPLE": "People",
+    "MYSCHEDULE": "My Schedule",
+    "INFO": "Information",
+    "SETTINGS": "Settings",
+    "EXTRA": [{ "LABEL": "Fantastika Home", "URL": "https://fantastika2024.com" }]
+  },
+  "HELP_TEXT": {
+    "WELCOME": "Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
+    "SHARING": "You may share your personal schedule to other devices using the QR codes on the My Schedule page.",
+    "CLOSE_LABEL": "Close",
+    "CLOSE_ARIA_LABEL": "Dismiss help text"
+  },
+  "LOCATIONS": {
+    "SEARCHABLE": false,
+    "LABEL": "Show on map",
+    "MAPPING": [
+      { "KEY": "Kafeet - 1", "MAP_URL": "https://map.fantastika2024.com/room/kafeet" },
+      { "KEY": "Lilla scen - 2", "MAP_URL": "https://map.fantastika2024.com/room/lillascen2" },
+      { "KEY": "Luigi - 3", "MAP_URL": "https://map.fantastika2024.com/room/luigi3" },
+      { "KEY": "Spelrummet - 3", "MAP_URL": "https://map.fantastika2024.com/room/spelrummet3" },
+      { "KEY": "Stora scen - 2", "MAP_URL": "https://map.fantastika2024.com/room/storascen2" }
+    ]
+  },
+  "APPLICATION": {
+    "LOADING": {
+      "MESSAGE": "Loading... Please wait..."
+    }
+  },
+  "PROGRAM": {
+    "LIMIT": {
+      "SHOW": false,
+      "LABEL": "Maximum items displayed",
+      "OPTIONS": [50, 100, 250, 500, 1000],
+      "ALL_LABEL": "Show all",
+      "DEFAULT": 100,
+      "SHOW_MORE": {
+        "LABEL": "Show more items",
+        "NO_MORE": "No more items to display",
+        "NUM_EXTRA": 50
+      }
+    },
+    "SEARCH": {
+      "SEARCH_LABEL": "Search title, desc, or people"
+    },
+    "MY_SCHEDULE": {
+      "TITLE": "My Schedule",
+      "EMPTY": {
+        "TEXT": "This page will show your personal convention schedule. To activate it, click the checkboxes next to items you are interested in on the programme page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
+      },
+      "INTRO": "Your personal schedule is shown below. It is not automatically synced with other devices, but you can use the links or QR codes at the bottom of this page to share your selections to your other devices.",
+      "SHARE": {
+        "LABEL": "Share program selection",
+        "DESCRIPTION": "Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
+        "LINK_LABEL": "Shareable link",
+        "MAX_LENGTH": 2500,
+        "MULTIPLE_DESCRIPTION": "Because you have selected a large number of items, you will need to use multiple links/QR codes to transfer to your other devices.",
+        "MULTIPLE_LINK_LABEL": "Shareable link #@number"
+      }
+    },
+    "SHARED": {
+      "TITLE": "Shared Program Items",
+      "DESCRIPTION": "The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.",
+      "BUTTON_LABEL": "Add all to My Schedule"
+    }
+  },
+  "TAGS": {
+    "PLACEHOLDER": "Select tags",
+    "SEARCHABLE": false,
+    "HIDE": false,
+    "SEPARATE": [
+      { "PREFIX": "Division", "PLACEHOLDER": "Select division", "SEARCHABLE": false, "HIDE": true },
+      { "PREFIX": "Type", "PLACEHOLDER": "Select type", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
+    ],
+    "FORMAT_AS_TAG": false,
+    "DAY_TAG": {
+      "GENERATE": true,
+      "DAYS": {
+        "4": "Thursday",
+        "5": "Friday",
+        "6": "Saturday",
+        "7": "Sunday",
+        "1": "Monday"
+      },
+      "PLACEHOLDER": "Select days",
+      "SEARCHABLE": false,
+      "HIDE": false
+    },
+    "DONTLIST": ["Division", "days"]
+  },
+  "HIDE_BEFORE": {
+    "HIDE": false,
+    "PLACEHOLDER": "Hide before",
+    "TIMES": [
+      { "TIME": "10:00:00", "LABEL_24H": "10:00", "LABEL_12H": "10am" },
+      { "TIME": "12:00:00", "LABEL_24H": "12:00", "LABEL_12H": "12 noon" },
+      { "TIME": "14:00:00", "LABEL_24H": "14:00", "LABEL_12H": "2pm" },
+      { "TIME": "16:00:00", "LABEL_24H": "16:00", "LABEL_12H": "4pm" },
+      { "TIME": "18:00:00", "LABEL_24H": "18:00", "LABEL_12H": "6pm" },
+      { "TIME": "20:00:00", "LABEL_24H": "20:00", "LABEL_12H": "8pm" }
+    ]
+  },
+  "FILTER": {
+    "RESET": {
+      "LABEL": "Reset filters"
+    }
+  },
+  "PERMALINK": {
+    "SHOW_PERMALINK": true,
+    "PERMALINK_TITLE": "Permalink"
+  },
+  "EXPAND": {
+    "EXPAND_ALL_LABEL": "Expand All",
+    "COLLAPSE_ALL_LABEL": "Collapse All",
+    "SPRING_CONFIG": { "duration": 100 }
+  },
+  "ITEM_DESCRIPTION": {
+    "PURIFY_OPTIONS": {
+      "FORBID_ATTR": ["style", "data-sheets-userformat", "data-sheets-value"]
+    }
+  },
+  "LINKS": [
+    {"NAME": "signup",
+     "TEXT": "Click to sign up",
+     "TAG": ""
+    },
+    {"NAME": "meeting",
+     "TEXT": "Click to view stream",
+     "TAG": "type:Streaming",
+     "WHEN": ["during"]
+    },
+    {"NAME": "recording",
+     "TEXT": "Click to view recording",
+     "TAG": "",
+     "WHEN": ["after"]
+    }
+  ],
+  "CONVENTION_TIME": {
+    "NOTICE": "Convention time for @timezone, shown in bold."
+  },
+  "LOCAL_TIME": {
+    "CHECKBOX_LABEL": "Show local time",
+    "NOTICE": "Local time for @timezone, shown in italics.",
+    "PREV_DAY": " previous day",
+    "NEXT_DAY": " next day",
+    "FAILURE": "Unable to convert to local time."
+  },
+  "TIME_FORMAT": {
+    "DEFAULT_12HR": false,
+    "SHOW_CHECKBOX": true,
+    "CHECKBOX_LABEL": "Show 12 hour time",
+    "AM": "AM",
+    "PM": "PM"
+  },
+  "DURATION": {
+    "SHOW_DURATION": true,
+    "DURATION_LABEL": "Duration: @mins mins"
+  },
+  "SHOW_PAST_ITEMS": {
+    "SHOW_CHECKBOX": true,
+    "CHECKBOX_LABEL": "Show past items",
+    "ADJUST_MINUTES": 10,
+    "FROM_START": false
+  },
+  "PEOPLE": {
+    "MODERATORS": {
+      "MODERATOR_LABEL": "(moderator)"
+    },
+    "THUMBNAILS": {
+      "SHOW_THUMBNAILS": true,
+      "SHOW_CHECKBOX": true,
+      "CHECKBOX_LABEL": "Show thumbnails",
+      "DEFAULT_IMAGE": "head.svg"
+    },
+    "SORT": {
+      "SHOW_CHECKBOX": true,
+      "CHECKBOX_LABEL": "Sort by full name"
+    },
+    "TAGS": {
+      "PLACEHOLDER": "Select tags",
+      "SEARCHABLE": false,
+      "HIDE": false,
+      "SEPARATE": [
+      ]
+    },
+    "SEARCH": {
+      "SHOW_SEARCH": true,
+      "SEARCH_LABEL": "Search people"
+    },
+    "PERSON_HEADER": "Person: ",
+    "BIO": {
+      "PURIFY_OPTIONS": {
+        "FORBID_ATTR": ["style"]
+      }
+    }
+  },
+  "USELESS_CHECKBOX": {
+    "CHECKBOX_LABEL": "Useless checkbox"
+  },
+  "INFORMATION": {
+    "MARKDOWN_URL": "fantastika.md",
+    "LOADING_MESSAGE": "Loading..."
+  },
+  "SETTINGS": {
+    "TITLE": {
+      "LABEL": "Settings"
+    },
+    "TIME_FORMAT": {
+      "LABEL": "Time format",
+      "T12_HOUR_LABEL": "12 hour",
+      "T24_HOUR_LABEL": "24 hour"
+    },
+    "SHOW_LOCAL_TIME": {
+      "LABEL": "Show local time",
+      "NEVER_LABEL": "Never display",
+      "DIFFERS_LABEL": "Display if differs from convention time",
+      "ALWAYS_LABEL": "Always show"
+    },
+    "SHOW_TIMEZONE": {
+      "LABEL": "Show timezone after times",
+      "NEVER_LABEL": "Never show",
+      "IF_LOCAL_LABEL": "Show timezone if local time shown",
+      "ALWAYS_LABEL": "Always show"
+    },
+    "SELECT_TIMEZONE": {
+      "LABEL": "Select timezone",
+      "BROWSER_DEFAULT_LABEL": "Use browser default timezone:",
+      "SELECT_LABEL": "Select timezone to use"
+    },
+    "DARK_MODE": {
+      "LABEL": "Dark mode (may require refresh after changing)",
+      "BROWSER_DEFAULT_LABEL": "Use browser default - ",
+      "BROWSER_LIGHT_LABEL": "Light mode",
+      "BROWSER_DARK_LABEL": "Dark mode",
+      "LIGHT_MODE_LABEL": "Always light mode",
+      "DARK_MODE_LABEL": "Always dark mode"
+    }
+  },
+  "FOOTER": {
+    "SITE_NOTE_MARKDOWN": "",
+    "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
+  },
+  "TIMER": {
+    "FETCH_INTERVAL_MINS": 30,
+    "TIMER_TICK_SECS": 15
+  },
+  "DEBUG_MODE": {
+    "ENABLE": false,
+    "ONLINE_LABEL": "Currently Online",
+    "OFFLINE_LABEL": "Currently Offline",
+    "FETCH_BUTTON_LABEL": "Fetch Data Now"
+  }
+}

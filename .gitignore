@@ -11,8 +11,8 @@
 # production
 /build
 
-# config
-/src/config.json
+# config - we want this in convention branch.
+# /src/config.json
 
 # misc
 .DS_Store
