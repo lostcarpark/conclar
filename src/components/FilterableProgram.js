@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Temporal } from "@js-temporal/polyfill";
@@ -10,6 +11,8 @@ import ShowPastItems from "./ShowPastItems";
 import { LocalTime } from "../utils/LocalTime";
 
 const FilterableProgram = () => {
+  const navigate = useNavigate();
+
   const program = useStoreState((state) => state.program);
   const locations = useStoreState((state) => state.locations);
   const tags = useStoreState((state) => state.tags);
@@ -294,8 +297,16 @@ const FilterableProgram = () => {
               isSearchable={configData.LOCATIONS.SEARCHABLE}
               value={selLoc}
               onChange={(value) => {
+                console.log(value);
                 resetDisplayLimit();
                 setSelLoc(value);
+                if (value.length) {
+                  const locList = value.map((location) => location.value).join('~');
+                  navigate('/loc/' + locList);
+                }
+                else {
+                  navigate('/');
+                }
               }}
               className="filter-container"
               classNamePrefix="filter-select"
