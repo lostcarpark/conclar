@@ -134,6 +134,10 @@
     "SHOW_PERMALINK": true,
     "PERMALINK_TITLE": "Permalink"
   },
+  "CALENDARLINK": {
+    "SHOW_CALENDARLINK": true,
+    "CALENDARLINK_TITLE": "Add To Calendar"
+  },
   "EXPAND": {
     "EXPAND_ALL_LABEL": "Expand All",
     "COLLAPSE_ALL_LABEL": "Collapse All",
