@@ -7,7 +7,7 @@ const Info = () => {
   const [info, setInfo] = useState(null);
   useEffect(() => {
     // Fetch the information page.
-    fetch(configData.INFORMATION.MARKDOWN_URL)
+    fetch(configData.INFORMATION.MARKDOWN_URL, configData.INFORMATION.FETCH_OPTIONS)
       .then((res) => res.text())
       .then((info) => {
         setInfo(info);
