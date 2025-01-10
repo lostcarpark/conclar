@@ -11,6 +11,7 @@ const model = {
   locations: [],
   tags: [],
   personTags: [],
+  info: "",
   lastFetchTime: null,
   timeSinceLastFetch: null,
   helpTextDismissed: () => {
@@ -51,7 +52,9 @@ const model = {
     state.locations = data.locations;
     state.tags = data.tags;
     state.personTags = data.personTags;
+    state.info = data.info;
   }),
+  setInfo: action((state, info) => state.info = info),
   resetLastFetchTime: action((state, firstTime) => {
     const milisecondsPerMinute = 60000;
     const offset = firstTime ? configData.TIMER.FETCH_INTERVAL_MINS * milisecondsPerMinute : 0;

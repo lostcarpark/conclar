@@ -224,14 +224,7 @@
   },
   "INFORMATION": {
     "MARKDOWN_URL": "info.md",
-    "LOADING_MESSAGE": "Loading...",
-    "FETCH_OPTIONS": {
-      "cache": "reload",
-      "credentials": "omit",
-      "headers": {
-        "Origin": "http://example.com"
-      }
-    }
+    "LOADING_MESSAGE": "Loading..."
   },
   "SETTINGS": {
     "TITLE": {

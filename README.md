@@ -185,7 +185,6 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `SETTINGS.DARK_MODE.DARK_MODE_LABEL`: Label for forcing dark mode.
 - `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
 - `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
-- `INFORMATION.FETCH_OPTIONS`: A JSON object containing options to pass when fetching the information MD file. See `FETCH_OPTIONS` above for details.
 - `FOOTER.SITE_NOTE_MARKDOWN`: General note displayed in the footer of the page. May use Markdown for encoding of links, emphesis, etc.
 - `FOOTER.COPYRIGHT_MARKDOWN`: Copyright notice if required. May include Markdown.
 - `FOOTER.CONCLAR_NOTE_MARKDOWN`: Note crediting ConClár. You are free to remove or modify this, but we politely request retaining to help promote this free tool.
