@@ -412,10 +412,14 @@ export class ProgramData {
         : configData.FETCH_OPTIONS;
       // If only one data source, we can use a single fetch.
       if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
-        const [rawProgram, rawPeople] = await this.fetchUrl(
-          configData.PROGRAM_DATA_URL, fetchOptions
-        );
-        return ProgramData.processData(rawProgram, rawPeople);
+        const [rawData, info] = await Promise.all([
+          this.fetchUrl(configData.PROGRAM_DATA_URL, fetchOptions),
+          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
+        ]);
+        const [rawProgram, rawPeople] = rawData;
+        const data =  ProgramData.processData(rawProgram, rawPeople);
+        data.info = info;
+        return data;
       } else {
         // Separate program and people sources, so need to create promise for each fetch.
         const [[rawProgram], [rawPeople], info] = await Promise.all([
