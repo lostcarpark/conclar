@@ -722,20 +722,24 @@ input.switch:checked ~ label:after {
   white-space: nowrap;
 }
 
-.item-permalink {
+.item-permalink,
+.item-calendarlink {
   float: right;
 }
 
 .item-permalink a,
+.item-calendarlink a,
 .item-links a {
   transition: color 0.4s;
   color: var(--link-fg);
 }
 .item-permalink a:visited,
+.item-calendarlink a,
 .item-links a:visited {
   color: var(--link-fg);
 }
 .item-permalink a:hover,
+.item-calendarlink a,
 .item-links a:hover {
   color: var(--link-hover-fg);
 }

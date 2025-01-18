@@ -128,6 +128,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `FILTER.RESET.LABEL`: The label for the "Reset filters" button.
 - `PERMALINK.SHOW_PERMALINK`: If true, display a "permalink" icon when each program item is expanded.
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
+- `CALENDARLINK.SHOW_CALENDARLINK`: If true, display a calendar download icon when each program item is expanded.
+- `CALENDARLINK.CALENDARLINK`: "Title" text displayed when mouse is hovered over calendar download icon.
 - `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
 - `EXPAND.COLLAPSE_ALL_LABEL`: Label for Collapse All button.
 - `EXPAND.SPRING_CONFIG`: Config to apply to the configuration of the 'spring' when expanding items. This may be a simply duration, such as `{ "duration": 100 }` to expand in 100ms, or can configure more dynamic spring effects, such as `{ mass: 1, tension: 1000, friction: 30 }`. Full list of options in [react-spring documentation](https://react-spring.io/common/configs).
