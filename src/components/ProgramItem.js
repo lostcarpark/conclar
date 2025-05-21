@@ -197,16 +197,18 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
         </div>
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
-        <div className="item-title">
-          {chevron}
-          {item.title}
-        </div>
-        <div className="item-line2">
-          <div className="item-location">{locations}</div>
-          {duration}
-        </div>
-         {detailsVisible && (
-          <animated.div className="item-details" style={itemExpandedStyle}>
+        <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>
+          <div className="item-title">
+            {chevron}
+            {item.title}
+          </div>
+          <div className="item-line2">
+            <div className="item-location">{locations}</div>
+            {duration}
+          </div>
+        </button>
+        {detailsVisible && (
+          <animated.div className="item-details" style={itemExpandedStyle} id={'details-' + id} role="region" aria-labelledby={'header-' + id}>
             <div className="item-details-expanded" ref={ref}>
               {permaLink}
               <div className="item-people">

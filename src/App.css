@@ -707,6 +707,22 @@ input.switch:checked ~ label:after {
   word-break: break-word;
 }
 
+.item-header {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+    text-align: inherit;
+}
+
 .item-chevron {
   float: right;
   color: var(--program-item-chevron-collapsed);
@@ -811,6 +827,8 @@ input.switch:checked ~ label:after {
 
 .item-details {
   overflow: hidden;
+  /* Give enough space for the focus ring on the header above. */
+  margin-top: 3px;
 }
 
 /* .item-entry > .item-details.item-details-expanded {
