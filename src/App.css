@@ -226,6 +226,7 @@ header img {
   border-radius: .75rem;
   background-color: var(--help-text-bg);
   color: var(--help-text-fg);
+  box-sizing: border-box;
 }
 
 .help-text button {
