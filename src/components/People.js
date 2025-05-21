@@ -3,6 +3,7 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import TagSelectors from "./TagSelectors";
 import ResetButton from "./ResetButton";
 import Participant from "./Participant";
+import Switch from "./Switch";
 import configData from "../config.json";
 
 const People = () => {
@@ -68,35 +69,21 @@ const People = () => {
       ? configData.PEOPLE.THUMBNAILS.CHECKBOX_LABEL
       : configData.USELESS_CHECKBOX.CHECKBOX_LABEL;
   const thumbnailsCheckbox = configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX ? (
-    <div className="people-thumbnails switch-wrapper">
-      <input
-        id="thumbnails"
-        name="thumbnails"
-        className="switch"
-        type="checkbox"
-        checked={showThumbnails}
-        onChange={(e) => setShowThumbnails(e.target.checked)}
-      />
-      <label htmlFor="thumbnails">{thumbnailCheckboxLabel}</label>
-    </div>
+    <Switch
+      id="thumbnails"
+      label={thumbnailCheckboxLabel}
+      checked={showThumbnails}
+      onChange={setShowThumbnails} />
   ) : (
     ""
   );
 
   const sortCheckbox = configData.PEOPLE.SORT.SHOW_CHECKBOX ? (
-    <div className="people-sort switch-wrapper">
-      <input
-        id="sort_people"
-        name="sort_people"
-        className="switch"
-        type="checkbox"
-        checked={sortByFullName}
-        onChange={(e) => setSortByFullName(e.target.checked)}
-      />
-      <label htmlFor="sort_people">
-        {configData.PEOPLE.SORT.CHECKBOX_LABEL}
-      </label>
-    </div>
+    <Switch
+      id="sort_people"
+      label={configData.PEOPLE.SORT.CHECKBOX_LABEL}
+      checked={sortByFullName}
+      onChange={setSortByFullName} />
   ) : (
     ""
   );
@@ -118,24 +105,28 @@ const People = () => {
 
   return (
     <div className="people">
-      <div className="people-settings">
-        {thumbnailsCheckbox}
-        {sortCheckbox}
-        <TagSelectors
-          tags={personTags}
-          selTags={selTags}
-          setSelTags={setSelTags}
-          tagConfig={configData.PEOPLE.TAGS}
-        />
-        {searchInput}
+      <div role="search">
+        <div className="people-settings">
+          {thumbnailsCheckbox}
+          {sortCheckbox}
+          <TagSelectors
+            tags={personTags}
+            selTags={selTags}
+            setSelTags={setSelTags}
+            tagConfig={configData.PEOPLE.TAGS}
+          />
+          {searchInput}
+        </div>
+        <div className="reset-filters">
+          <ResetButton
+            isFiltered={peopleAreFiltered}
+            resetFilters={resetPeopleFilters}
+          />
+        </div>
       </div>
-      <div className="reset-filters">
-        <ResetButton
-          isFiltered={peopleAreFiltered}
-          resetFilters={resetPeopleFilters}
-        />
-      </div>
-      <ul>{rows}</ul>
+      <main>
+        <ul>{rows}</ul>
+      </main>
     </div>
   );
 };
