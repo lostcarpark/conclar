@@ -399,7 +399,14 @@ input.switch:checked ~ label:after {
 }
 
 .filter-hide-before label {
-  display: none;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .filter-hide-before select
@@ -424,7 +431,14 @@ input.switch:checked ~ label:after {
 }
 
 .filter-search label {
-  display: none;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .filter-container .filter-select__control,
@@ -656,7 +670,14 @@ input.switch:checked ~ label:after {
 }
 
 .selection label {
-  display: none;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .item {
@@ -879,7 +900,14 @@ input.switch:checked ~ label:after {
 }
 
 .people-search label {
-  display: none;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .people ul {
