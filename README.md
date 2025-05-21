@@ -145,6 +145,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TIME_FORMAT.PM`: Label for PM times.
 - `DURATION.SHOW_DURATION`: If true, `mins` from program data will be displayed.
 - `DURATION.DURATION_LABEL`: Format for duration. `@mins` will be replaced by number of minutes. Note: do not translate `@mins`.
+- `START_TIME.START_TIME_LABEL`: Format for start time with just con time, when read by screen readers. `@con_time` will be replaced by the start time. Note: do not translate `@con_time`.
+- `START_TIME.START_TIME_WITH_LOCAL_LABEL`: Format for start time with both con and local time, when read by screen readers. `@con_time` and `@local_time` will be replaced by the start time. Note: do not translate `@con_time` or `@local_time`.
 - `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
 - `SHOW_PAST_ITEMS.CHECKBOX_LABEL`: Label for the show past items checkbox.
 - `SHOW_PAST_ITEMS.ADJUST_MINUTES`: Some wiggle room (in minutes) in order not to hide past items immediately as they start.

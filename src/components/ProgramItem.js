@@ -13,8 +13,13 @@ import configData from "../config.json";
 import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
 import { useState, useEffect } from "react";
+import { LocalTime } from "../utils/LocalTime";
 
 const ProgramItem = ({ item, forceExpanded, now }) => {
+  const showLocalTime = useStoreState((state) => state.showLocalTime);
+  const show12HourTime = useStoreState((state) => state.show12HourTime);
+  const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
+
   const selected = useStoreState((state) => state.isSelected(item.id));
   const { addSelection, removeSelection } = useStoreActions((actions) => ({
     addSelection: actions.addSelection,
@@ -147,6 +152,36 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
       ""
     );
 
+  const conTime = LocalTime.formatTimeInConventionTimeZone(
+    item.timeSlot,
+    item.startDateAndTime,
+    show12HourTime,
+    timeZoneIsShown
+  );
+  const localTime =
+    showLocalTime === "always" ||
+    (showLocalTime === "differs" && LocalTime.timezonesDiffer)
+      ? LocalTime.formatTimeInLocalTimeZone(
+          item.timeSlot,
+          item.startDateAndTime,
+          show12HourTime,
+          timeZoneIsShown
+        )
+      : null;
+  console.log(localTime);
+  let startTime;
+  if (localTime) {
+    startTime = configData.START_TIME.START_TIME_WITH_LOCAL_LABEL.replace(
+      "@local_time",
+      localTime
+    ).replace("@con_time", conTime);
+  } else {
+    startTime = configData.START_TIME.START_TIME_LABEL.replace(
+      "@con_time",
+      conTime
+    );
+  }
+
   const [ref, bounds] = useMeasure();
   const showExpanded = !configData.INTERACTIVE || expanded || forceExpanded;
   const [detailsVisible, setDetailsVisible] = useState(showExpanded);
@@ -204,6 +239,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
           </div>
           <div className="item-line2">
             <div className="item-location">{locations}</div>
+            <div className="item-start-time">{startTime}</div>
             {duration}
           </div>
         </button>

@@ -181,6 +181,10 @@
     "SHOW_DURATION": true,
     "DURATION_LABEL": "Duration: @mins mins"
   },
+  "START_TIME": {
+    "START_TIME_LABEL": "Starts: @con_time",
+    "START_TIME_WITH_LOCAL_LABEL": "Starts: @con_time con time, @local_time local time"
+  },
   "SHOW_PAST_ITEMS": {
     "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show past items",
