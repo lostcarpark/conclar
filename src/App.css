@@ -733,6 +733,8 @@ div.switch-wrapper {
 
 .item-title {
   font-weight: bold;
+  margin: 0;
+  font-size: inherit;
 }
 
 .item-duration,

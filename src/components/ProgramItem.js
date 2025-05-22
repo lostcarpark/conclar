@@ -233,10 +233,10 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
         <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>
-          <div className="item-title">
-            {chevron}
+          <h3 className="item-title">
             {item.title}
-          </div>
+            {chevron}
+          </h3>
           <div className="item-line2">
             <div className="item-location">{locations}</div>
             <div className="item-start-time">{startTime}</div>
