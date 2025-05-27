@@ -289,29 +289,7 @@ const FilterableProgram = () => {
     <div>
       <div className="filter">
         <div className="search-filters">
-          <div className="filter-locations">
-            <ReactSelect
-              placeholder="Select locations"
-              options={locations}
-              isMulti
-              isSearchable={configData.LOCATIONS.SEARCHABLE}
-              value={selLoc}
-              onChange={(value) => {
-                console.log(value);
-                resetDisplayLimit();
-                setSelLoc(value);
-                if (value.length) {
-                  const locList = value.map((location) => location.value).join('~');
-                  navigate('/loc/' + locList);
-                }
-                else {
-                  navigate('/');
-                }
-              }}
-              className="filter-container"
-              classNamePrefix="filter-select"
-            />
-          </div>
+          
           <TagSelectors
             tags={tags}
             selTags={selTags}
