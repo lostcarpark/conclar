@@ -1,9 +1,35 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import fs from "fs";
+import path from "path";
+
+function injectDataPreloads() {
+  return {
+    name: "inject-data-preloads",
+    transformIndexHtml(html) {
+      const configPath = path.resolve(__dirname, "src/config.json");
+      const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+
+      const preloads = [config.PROGRAM_DATA_URL, config.PEOPLE_DATA_URL]
+        .filter(Boolean)
+        .map((url) => ({
+          tag: "link",
+          attrs: {
+            rel: "preload",
+            href: url,
+            as: "fetch",
+            crossorigin: "anonymous",
+          },
+        }));
+
+      return preloads;
+    },
+  };
+}
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), injectDataPreloads()],
   server: {
     port: 3000,
     open: true,
