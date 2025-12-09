@@ -15,7 +15,7 @@ import { Temporal } from "@js-temporal/polyfill";
 import { useState, useEffect } from "react";
 import { LocalTime } from "../utils/LocalTime";
 
-const ProgramItem = ({ item, forceExpanded, now }) => {
+const ProgramItem = ({ item, forceExpanded = false, now }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
@@ -196,7 +196,12 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   const itemExpandedStyle = useSpring({
     height: showExpanded ? bounds.height : 0,
     display: "block",
-    config: configData.EXPAND.SPRING_CONFIG,
+    config: {
+      tension: 300,
+      friction: 15,
+      clamp: true, 
+      ...configData.EXPAND.SPRING_CONFIG
+    },
     onRest: () => {
       if (!showExpanded) setDetailsVisible(false);
     },
@@ -231,7 +236,12 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
         </div>
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
-        <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>
+        <button
+          id={"header-" + id}
+          className="item-header"
+          aria-expanded={showExpanded}
+          aria-controls={"details-" + id}
+        >
           <h3 className="item-title">
             {item.title}
             {chevron}
@@ -243,7 +253,13 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
           </div>
         </button>
         {detailsVisible && (
-          <animated.div className="item-details" style={itemExpandedStyle} id={'details-' + id} role="region" aria-labelledby={'header-' + id}>
+          <animated.div
+            className="item-details"
+            style={itemExpandedStyle}
+            id={"details-" + id}
+            role="region"
+            aria-labelledby={"header-" + id}
+          >
             <div className="item-details-expanded" ref={ref}>
               {permaLink}
               <div className="item-people">
@@ -261,10 +277,6 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
       </div>
     </div>
   );
-};
-
-ProgramItem.defaultProps = {
-  forceExpanded: false,
 };
 
 ProgramItem.propTypes = {

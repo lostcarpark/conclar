@@ -3,7 +3,7 @@ import TimeSlot from "./TimeSlot";
 import { LocalTime } from "../utils/LocalTime";
 import { Temporal } from "@js-temporal/polyfill";
 
-const Day = ({ date, items, forceExpanded, now }) => {
+const Day = ({ date, items, forceExpanded = false, now }) => {
   const day = LocalTime.formatDateForLocaleAsUTC(date);
   const rows = [];
   let itemRows = [];
@@ -46,10 +46,6 @@ const Day = ({ date, items, forceExpanded, now }) => {
       <div className="date-items">{rows}</div>
     </div>
   );
-};
-
-Day.defaultProps = {
-  forceExpanded: false,
 };
 
 Day.propTypes = {

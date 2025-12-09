@@ -4,38 +4,25 @@
   "private": true,
   "dependencies": {
     "@js-temporal/polyfill": "^0.5.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.0.0",
-    "@testing-library/user-event": "^14.6.1",
     "dompurify": "^3.3.1",
     "easy-peasy": "^6.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
-    "react-infinite-scroll-component": "^6.1.1",
     "react-markdown": "^10.1.0",
     "react-qr-code": "^2.0.18",
     "react-router-dom": "^7.10.1",
-    "react-scripts": "^5.0.1",
     "react-select": "^5.10.2",
     "react-spring": "^10.0.3",
     "react-timezone-select": "^3.2.8",
     "react-use-measure": "^2.1.7",
     "remark-gfm": "^4.0.1",
-    "timezone-soft": "^1.5.2",
-    "web-vitals": "^5.1.0"
+    "timezone-soft": "^1.5.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [
@@ -48,5 +35,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "terser": "^5.44.1",
+    "vite": "^7.2.7"
+  },
+  "overrides": {
+    "@react-spring/zdog": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0"
+    }
   }
 }

@@ -6,7 +6,7 @@ import HelpText from "./HelpText";
 const headerImg = configData.HEADER.IMG_SRC ? <img src={configData.HEADER.IMG_SRC} alt={configData.HEADER.IMG_ALT_TEXT}></img> : "";
 const showBreak = configData.HEADER.LINEFEED_AFTER_URL ? <br /> : "";
 
-const Header = ({ title, showNavigation = true }) => {
+const Header = ({ title = "Programme Guide", showNavigation = true }) => {
   document.title = title;
   return (
     <header>
@@ -17,10 +17,6 @@ const Header = ({ title, showNavigation = true }) => {
       <HelpText />
     </header>
   );
-};
-
-Header.defaultProps = {
-  title: "Programme Guide",
 };
 
 Header.propTypes = {
