@@ -168,7 +168,6 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
           timeZoneIsShown
         )
       : null;
-  console.log(localTime);
   let startTime;
   if (localTime) {
     startTime = configData.START_TIME.START_TIME_WITH_LOCAL_LABEL.replace(

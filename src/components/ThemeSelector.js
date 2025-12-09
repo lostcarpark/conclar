@@ -5,7 +5,7 @@ const DarkStyle = React.lazy(() => import("./DarkStyle"));
 
 const ThemeSelector = ({ isDark, children }) => (
   <>
-    <React.Suspense fallback={() => null}>
+    <React.Suspense fallback={null}>
       {!isDark && <LightStyle />}
       {isDark && <DarkStyle />}
     </React.Suspense>

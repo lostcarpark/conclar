@@ -62,7 +62,7 @@ export class ProgramData {
    * @returns {array}
    */
   static processProgramData(program) {
-    const utcTimeZone = Temporal.TimeZone.from("UTC");
+    const utcTimeZone = "UTC";
     program.map((item) => {
       const startTime = this.processDateAndTime(item);
       item.startDateAndTime = startTime.withTimeZone(utcTimeZone);
