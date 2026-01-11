@@ -199,6 +199,8 @@ export class ProgramData {
       for (const item of program) {
         if (
           item.hasOwnProperty("links") &&
+          // handle null links property
+          item.links &&
           item.links.hasOwnProperty(linkToTag.NAME)
         ) {
           item.tags.push(linkToTag.TAG);
