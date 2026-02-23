@@ -69,9 +69,11 @@ const AppRoutes = () => {
   );
 
   const fetchProgram = useStoreActions((actions) => actions.fetchProgram);
+  const fetchProfile = useStoreActions((actions) => actions.fetchProfile);
 
   useEffect(() => {
     fetchProgram(true);
+    fetchProfile();
     // eslint-disable-next-line
   }, []);
 

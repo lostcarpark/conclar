@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import configData from "../config.json";
+import UserStatus from "./UserStatus";
 
 const Navigation = () => {
   const infoLink =
@@ -37,6 +38,7 @@ const Navigation = () => {
           <NavLink to="/settings">{configData.NAVIGATION.SETTINGS}</NavLink>
         </li>
         {extraLinks}
+        <UserStatus />
       </ul>
     </nav>
   );

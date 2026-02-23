@@ -209,6 +209,11 @@ header img {
   white-space: nowrap;
 }
 
+.navigation li a.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .navigation li a.active {
   background-color: var(--navigation-button-current-bg);
   color: var(--navigation-button-current-fg);
@@ -218,6 +223,11 @@ header img {
 .navigation li a.active:hover {
   background-color: var(--navigation-button-hover-bg);
   color: var(--navigation-button-hover-fg);
+}
+
+.navigation li a.disabled:hover {
+  background-color: var(--navigation-button-bg);
+  color: var(--navigation-button-fg);
 }
 
 .help-text {
