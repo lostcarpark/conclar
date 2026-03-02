@@ -13,6 +13,8 @@ function getSelectedIdsFromStore(selectionStore) {
 
 let pushInFlight = null;
 let pushNeeded = false;
+const SYNC_WARNING_KEY = "sync_warning_dismissed_" + configData.APP_ID;
+let syncWarningShown = !!localStorage.getItem(SYNC_WARNING_KEY);
 
 async function coalescedSync(actions) {
   if (pushInFlight) {
@@ -80,6 +82,7 @@ const model = {
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
   onLine: window.navigator.onLine,
   darkMode: localStorage.getItem("dark_mode") ? localStorage.getItem("dark_mode") : 'browser',
+  showSyncWarning: false,
   // Thunks
   fetchProgram: thunk(async (actions, firstTime) => {
     actions.setData(await ProgramData.fetchData(firstTime));
@@ -343,13 +346,35 @@ const model = {
     updateLocalStore(state.selectionStore, state.currentUserId);
   }),
 
+  setShowSyncWarning: action((state, show) => {
+    state.showSyncWarning = show;
+    if (!show) {
+      localStorage.setItem(SYNC_WARNING_KEY, "true");
+      syncWarningShown = true;
+    }
+  }),
+
   // Thunks for sync-aware selection changes.
-  addSelectionAndSync: thunk(async (actions, id) => {
+  addSelectionAndSync: thunk(async (actions, id, { getState }) => {
     actions.addSelection(id);
+    if (SyncService.isSyncEnabled() && !syncWarningShown) {
+      const state = getState();
+      if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {
+        syncWarningShown = true;
+        actions.setShowSyncWarning(true);
+      }
+    }
     await coalescedSync(actions);
   }),
-  removeSelectionAndSync: thunk(async (actions, id) => {
+  removeSelectionAndSync: thunk(async (actions, id, { getState }) => {
     actions.removeSelection(id);
+    if (SyncService.isSyncEnabled() && !syncWarningShown) {
+      const state = getState();
+      if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {
+        syncWarningShown = true;
+        actions.setShowSyncWarning(true);
+      }
+    }
     await coalescedSync(actions);
   }),
 
