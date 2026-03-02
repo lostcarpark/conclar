@@ -2,7 +2,7 @@
  * Table of contents
  *
  * 1. Global application styles.
- * 2. Application header.
+ * 2. Sidebar.
  * 3. Navigation.
  * 3a. Toggles and Filters.
  * 4. Program.
@@ -24,9 +24,13 @@
   --main-bg: #fff;
   --main-fg: #000;
   --header-fg: #444;
+  --sidebar-bg: #f4f5f7;
+  --sidebar-border: #e2e8f0;
+  --sidebar-width: 16rem;
   --navigation-button-bg: #ddd;
   --navigation-button-fg: #0d172a;
   --navigation-button-border: #e2e8f0;
+  --star-color: #5b6473;
   --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
   --navigation-button-current-fg: #fff;
   --navigation-button-hover-bg: #1e293b;
@@ -99,23 +103,28 @@ img {
 }
 
 body {
-  margin: auto;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--main-bg);
   color: var(--main-fg);
-  max-width: 75rem;
 }
 
 .App {
   display: grid;
-  height: 100dvh;
-  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  align-items: start;
   text-align: left;
-  margin: 1rem;
   font-size: 1.25rem;
   font-family: "Open Sans", "Lato", "Helvetica Neue", "Calibri", Arial,
     sans-serif;
+}
+
+.content-area {
+  min-width: 0;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
 }
 
 a {
@@ -142,7 +151,7 @@ code {
 }
 
 /*
- * 2. Application header.
+ * 2. Sidebar.
  */
 
 header {
@@ -159,60 +168,107 @@ header img {
   border-radius: 1rem;
 }
 
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  width: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  box-shadow: 2px 0 12px var(--shadow-012);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.sidebar-close-btn {
+  display: none;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--header-fg);
+  overflow: hidden;
+  text-align: center;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
+.sidebar-footer footer {
+  margin-top: 0;
+  font-size: 0.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  box-shadow: none;
+  clip-path: none;
+  color: inherit;
+}
+
+.sidebar-footer footer a,
+.sidebar-footer footer a:hover {
+  color: var(--link-fg);
+}
+
+.sidebar-footer .footer-bottom {
+  flex-direction: column;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+.mobile-nav-header {
+  display: none;
+}
 
 /*
  * 3. Navigation.
  */
 
-.navigation ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-inline-start: 0;
-  list-style-type: none;
+.navigation {
+  padding: 0.5rem;
 }
 
-@media (max-width: 768px) {
-  .navigation ul {
-    justify-content: center;
-  }
+.navigation ul {
+  display: flex;
+  flex-direction: column;
+  padding-inline-start: 0;
+  list-style-type: none;
+  margin: 0;
+  gap: 0.125rem;
 }
 
 .navigation li {
-  margin: 0.25em 0.25em;
+  margin: 0;
 }
 
-/* CSS for button 81 from https://getcssscan.com/css-buttons-examples */
 .navigation li a {
-  background-color: var(--navigation-button-bg);
-  color: var(--navigation-button-fg);
-  border: 0 solid var(--navigation-button-border);
-  border-radius: 2rem;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1;
-  padding: 1rem 1.5rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.6rem 0.875rem;
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   text-decoration: none;
-  text-decoration-thickness: auto;
-  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 1px 2px var(--shadow-gray);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  /* don't line-break individual links */
+  color: var(--navigation-button-fg);
+  background: transparent;
+  box-sizing: border-box;
+  transition: background-color 0.1s ease, color 0.1s ease;
   white-space: nowrap;
-}
-
-.navigation li a.disabled {
-  opacity: 0.5;
-  cursor: default;
 }
 
 .navigation li a.active {
@@ -226,9 +282,18 @@ header img {
   color: var(--navigation-button-hover-fg);
 }
 
+.navigation li a.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .navigation li a.disabled:hover {
-  background-color: var(--navigation-button-bg);
+  background-color: transparent;
   color: var(--navigation-button-fg);
+}
+
+.navigation li.user-status {
+  margin-top: 1rem;
 }
 
 .help-text {
@@ -379,35 +444,88 @@ header img {
 }
 
 @media (max-width: 768px) {
-  .date-heading {
-    margin-bottom: 0 !important;
-    overflow: hidden;
-    white-space: nowrap;
-    height: 2rem;
+  :root {
+    --mobile-header-height: calc(3.2rem - 2px);
   }
-  .timeslot {
-    flex-direction: column;
-    margin: 0 !important;
+
+  .App {
+    grid-template-columns: 1fr;
   }
-  .timeslot-time {
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-close-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    color: var(--main-fg);
+    font-size: 1.25rem;
+    border-radius: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  .sidebar-close-btn:hover {
+    background-color: var(--navigation-button-bg);
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+
+  .mobile-nav-header {
     position: sticky;
-    top: 3rem;
+    top: 0;
+    z-index: 10;
+    background-color: var(--main-bg);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.5rem 0.5rem 0;
     margin-bottom: 0.5rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    background:var(--program-time-bg);
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-    z-index: 1;
   }
 
-  .time-convention, .time-local {
-    display: inline;
-    vertical-align: middle;
-    margin-right: 0.5rem;
+  .mobile-nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 0.4rem;
+    color: var(--main-fg);
+    display: flex;
+    align-items: center;
+    border-radius: 0.4rem;
   }
 
+  .mobile-nav-toggle:hover {
+    background-color: var(--navigation-button-bg);
+  }
+
+  .mobile-nav-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-fg);
+  }
 }
+
 
 /* page not founds */
 .error {
@@ -781,6 +899,7 @@ div.switch-wrapper {
 .time-wrapper {
   position: sticky;
   top: 3rem;
+  padding-top: 0.25rem;
   z-index: -1;
 }
 
@@ -811,15 +930,34 @@ div.switch-wrapper {
   flex-direction: column;
 }
 
-.selection label {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+.selection-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: -0.2rem -0.5rem;
+  color: var(--star-color);
+  opacity: 0.3;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.selection-btn:hover {
+  opacity: 0.6;
+}
+
+.selection-btn.selection-btn-selected {
+  opacity: 1;
+}
+
+.selection-btn svg {
+  fill: transparent;
+  stroke: currentColor;
+}
+
+.selection-btn.selection-btn-selected svg {
+  fill: currentColor;
 }
 
 .item {
@@ -1057,6 +1195,39 @@ div.switch-wrapper {
   padding: .5rem 1.5rem;
   border: none;
   border-radius: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .date-heading {
+    top: var(--mobile-header-height);
+    margin-bottom: 0 !important;
+    padding-top: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 2rem;
+  }
+  .timeslot {
+    flex-direction: column;
+    margin: 0 !important;
+  }
+  .timeslot-time {
+    position: sticky;
+    top: calc(var(--mobile-header-height) + 2rem);
+    margin-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    background: var(--program-time-bg);
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    z-index: 1;
+  }
+
+  .time-convention, .time-local {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
 }
 
 /*

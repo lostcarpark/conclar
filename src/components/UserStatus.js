@@ -13,7 +13,7 @@ const UserStatus = () => {
 
   if (!userProfile) {
     return (
-      <li>
+      <li className="user-status">
         <a className="disabled" aria-disabled="true">
           {syncConfig.LOADING_LABEL || "Loading..."}
         </a>
@@ -24,7 +24,7 @@ const UserStatus = () => {
   if (userProfile.error) {
     const errorMessage = syncConfig.ERROR_LABEL || "Could not connect to sync server";
     return (
-      <li>
+      <li className="user-status">
         <a className="disabled" aria-disabled="true"
            role="alert"
            title={errorMessage}
@@ -47,14 +47,14 @@ const UserStatus = () => {
       displayName
     );
     return (
-      <li>
+      <li className="user-status">
         <a href={userProfile.logout_url}>{label}</a>
       </li>
     );
   }
 
   return (
-    <li>
+    <li className="user-status">
       <a href={userProfile.login_url}>
         {syncConfig.LOGIN_LABEL || "Log in"}
       </a>

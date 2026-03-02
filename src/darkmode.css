@@ -5,6 +5,8 @@
 :root {
   --main-bg: #000;
   --main-fg: #fff;
+  --sidebar-bg: #1e2130;
+  --sidebar-border: #2d3148;
   --navigation-button-bg: #444;
   --navigation-button-fg: #ddd;
   --header-fg: #ccc;

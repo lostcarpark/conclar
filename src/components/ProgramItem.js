@@ -5,6 +5,7 @@ import useMeasure from "react-use-measure";
 import { useSpring, animated } from "react-spring";
 import { IoChevronDownCircle } from "react-icons/io5";
 import { HiLink } from "react-icons/hi";
+import { FiStar } from "react-icons/fi";
 import ItemLink from "./ItemLink";
 import Location from "./Location";
 import Tag from "./Tag";
@@ -41,9 +42,9 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     }
   }
 
-  function handleSelected(event) {
-    if (event.target.checked) addSelection(item.id);
-    else removeSelection(item.id);
+  function handleSelected() {
+    if (selected) removeSelection(item.id);
+    else addSelection(item.id);
   }
 
   function getRelativeTime(item) {
@@ -218,18 +219,14 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   return (
     <div id={id} className="item">
       <div className="item-selection">
-        <div className="selection">
-          <input
-            id={"select_" + id}
-            type="checkbox"
-            className="selection-control"
-            checked={selected}
-            onChange={handleSelected}
-          />
-          <label htmlFor={"select_" + id}>
-            {"Click to select " + item.title}
-          </label>
-        </div>
+        <button
+          className={"selection-btn" + (selected ? " selection-btn-selected" : "")}
+          onClick={handleSelected}
+          aria-label={(selected ? "Remove from schedule: " : "Add to schedule: ") + item.title}
+          aria-pressed={selected}
+        >
+          <FiStar />
+        </button>
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
         <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>

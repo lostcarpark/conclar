@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { FiMenu } from "react-icons/fi";
 
 import configData from "../config.json";
 import { isSyncEnabled } from "../SyncService";
@@ -10,6 +11,8 @@ import ScrollToTop from "./ScrollToTop";
 import Timer from "./Timer";
 import Debug from "./Debug";
 import Header from "./Header";
+import Sidebar from "./Sidebar";
+import HelpText from "./HelpText";
 import NotFound from "./NotFound";
 import Loading from "./Loading";
 import FilterableProgram from "./FilterableProgram";
@@ -31,13 +34,27 @@ const AppRoutes = () => {
   const showSyncWarning = useStoreState((state) => state.showSyncWarning);
   const userProfile = useStoreState((state) => state.userProfile);
   const setShowSyncWarning = useStoreActions((actions) => actions.setShowSyncWarning);
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
+
   const theApp = configData.INTERACTIVE ? (
     <div className={appClasses}>
       <Timer tick={configData.TIMER.TIMER_TICK_SECS} />
       <Debug />
-      <Header title={configData.APP_TITLE} showNavigation={true} />
-      <Loading>
-        <Routes>
+      <Sidebar isOpen={sidebarOpen} onToggle={toggleSidebar} title={configData.APP_TITLE} />
+      {sidebarOpen && <div className="sidebar-backdrop" onClick={toggleSidebar} aria-hidden="true" />}
+      <div className="content-area">
+        <div className="mobile-nav-header">
+          <button className="mobile-nav-toggle" onClick={toggleSidebar} aria-label="Open navigation">
+            <FiMenu />
+          </button>
+          <span className="mobile-nav-title">{configData.APP_TITLE}</span>
+        </div>
+        <HelpText />
+        <Loading>
+          <Routes>
           <Route path="/">
             <Route index element={<FilterableProgram />} />
             <Route path="/index.html" element={<FilterableProgram />} />
@@ -54,7 +71,8 @@ const AppRoutes = () => {
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Loading>
+        </Loading>
+      </div>
       {isSyncEnabled() && (
         <InfoPopup
           isOpen={showSyncWarning}
@@ -100,7 +118,6 @@ const AppRoutes = () => {
           onDismiss={() => setShowSyncWarning(false)}
         />
       )}
-      <Footer />
     </div>
   ) : (
     <div className="App">
