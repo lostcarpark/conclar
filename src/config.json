@@ -61,7 +61,7 @@
     "LABEL": "Show on map",
     "MAPPING": [
       { "KEY": "Balmoral", "MAP_URL": "https://map.eastercon2026.org/room/balmoral" },
-      { "KEY": "Balmoral", "MAP_URL": "https://map.eastercon2026.org/room/balmoral" },
+      { "KEY": "Fan Lounge", "MAP_URL": "https://map.eastercon2026.org/room/arden" },
       { "KEY": "Gladstone-Churchill", "MAP_URL": "https://map.eastercon2026.org/room/gladstone-churchill" },
       { "KEY": "London (Open)", "MAP_URL": "https://map.eastercon2026.org/room/london" },
       { "KEY": "London (Scheduled)", "MAP_URL": "https://map.eastercon2026.org/room/london" },
