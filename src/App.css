@@ -27,13 +27,18 @@
   --sidebar-bg: #f4f5f7;
   --sidebar-border: #e2e8f0;
   --sidebar-width: 16rem;
-  --navigation-button-bg: #ddd;
-  --navigation-button-fg: #0d172a;
+  --sidebar-link-fg: #333;
+  --sidebar-link-current-bg: rgb(77, 74, 186);
+  --sidebar-link-current-fg: #fff;
+  --sidebar-link-hover-bg: rgb(43, 40, 112);
+  --sidebar-link-hover-fg: #fff;
+  --navigation-button-bg: rgb(77, 74, 186);
+  --navigation-button-fg: rgb(14, 13, 13);
   --navigation-button-border: #e2e8f0;
-  --star-color: #5b6473;
-  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
+  --star-color: rgb(77, 74, 186);
+  --navigation-button-current-bg: rgb(77, 74, 186);
   --navigation-button-current-fg: #fff;
-  --navigation-button-hover-bg: #1e293b;
+  --navigation-button-hover-bg: rgb(43, 40, 112);
   --navigation-button-hover-fg: #fff;
   --help-text-bg: green;
   --help-text-fg: #fff;
@@ -56,8 +61,8 @@
   --reset-button-hover-fg: var(--navigation-button-fg);
   --expand-button-bg: var(--navigation-button-current-bg);
   --expand-button-fg: var(--navigation-button-current-fg);
-  --expand-button-hover-bg: var(--navigation-button-bg);
-  --expand-button-hover-fg: var(--navigation-button-fg);
+  --expand-button-hover-bg: var(--navigation-button-hover-bg);
+  --expand-button-hover-fg: var(--navigation-button-hover-fg);
   --add-all-button-bg: var(--navigation-button-current-bg);
   --add-all-button-fg: var(--navigation-button-current-fg);
   --add-more-button-bg: var(--navigation-button-current-bg);
@@ -74,8 +79,8 @@
   --program-time-bg: #ddd;
   --program-tags-fg: #555;
   --program-expanded-bg: #eee;
-  --link-fg: #265c83;
-  --link-hover-fg: #193c56;
+  --link-fg: rgb(77, 74, 186);
+  --link-hover-fg: rgb(43, 40, 112);
   --link-disabled: #888;
   --participant-bg: #eee;
   --participant-link-fg: #000;
@@ -264,7 +269,7 @@ header img {
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
-  color: var(--navigation-button-fg);
+  color: var(--sidebar-link-fg);
   background: transparent;
   box-sizing: border-box;
   transition: background-color 0.1s ease, color 0.1s ease;
@@ -272,14 +277,14 @@ header img {
 }
 
 .navigation li a.active {
-  background-color: var(--navigation-button-current-bg);
-  color: var(--navigation-button-current-fg);
+  background: var(--sidebar-link-current-bg);
+  color: var(--sidebar-link-current-fg);
 }
 
 .navigation li a:hover,
 .navigation li a.active:hover {
-  background-color: var(--navigation-button-hover-bg);
-  color: var(--navigation-button-hover-fg);
+  background-color: var(--sidebar-link-hover-bg);
+  color: var(--sidebar-link-hover-fg);
 }
 
 .navigation li a.disabled {
@@ -289,7 +294,7 @@ header img {
 
 .navigation li a.disabled:hover {
   background-color: transparent;
-  color: var(--navigation-button-fg);
+  color: var(--sidebar-link-fg);
 }
 
 .navigation li.user-status {
@@ -397,7 +402,7 @@ header img {
 }
 
 .info-popup-primary {
-  background-color: var(--navigation-button-current-bg);
+  background: var(--navigation-button-current-bg);
   color: var(--navigation-button-current-fg);
   border: none;
   border-radius: 2rem;
@@ -788,7 +793,7 @@ div.switch-wrapper {
 }
 
 .filter-expand button {
-    background-color: var(--expand-button-bg);
+    background: var(--expand-button-bg);
     color: var(--expand-button-fg);
     font-size: 0.85rem;
     padding: .5rem 1.5rem;
@@ -817,7 +822,7 @@ div.switch-wrapper {
 }
 
 .reset-button {
-  background-color: var(--reset-button-bg);
+  background: var(--reset-button-bg);
   color: var(--reset-button-fg);
   font-size: 1rem;
   padding: .5rem 1.5rem;
@@ -1165,7 +1170,7 @@ div.switch-wrapper {
 }
 
 .show-more-button {
-  background-color: var(--add-more-button-bg);
+  background: var(--add-more-button-bg);
   color: var(--add-more-button-fg);
   font-size: 1rem;
   padding: .5rem 1.5rem;
@@ -1189,7 +1194,7 @@ div.switch-wrapper {
 }
 
 .button-add-all {
-  background-color: var(--add-all-button-bg);
+  background: var(--add-all-button-bg);
   color: var(--add-all-button-fg);
   font-size: 1rem;
   padding: .5rem 1.5rem;
