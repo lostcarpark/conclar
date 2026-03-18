@@ -416,7 +416,13 @@ export class ProgramData {
           this.fetchUrl(configData.PROGRAM_DATA_URL, fetchOptions),
           this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
-        const [rawProgram, rawPeople] = rawData;
+        let rawProgram, rawPeople;
+        if (rawData.length === 1 && rawData[0].program) {
+          rawProgram = rawData[0].program;
+          rawPeople = rawData[0].people;
+        } else {
+          [rawProgram, rawPeople] = rawData;
+        }
         const data =  ProgramData.processData(rawProgram, rawPeople);
         data.info = info;
         return data;
