@@ -5,7 +5,7 @@
   "PEOPLE_DATA_URL": "/data/conclardata.json",
   "CONTACT_EMAIL": "info@eastercon2026.org",
   "SYNC": {
-    "API_URL": "https://portal-staging.eastercon2026.org/api/conclar",
+    "API_URL": "https://portal.eastercon2026.org/api/conclar",
     "LOADING_LABEL": "Loading...",
     "LOGIN_LABEL": "Log in",
     "LOGOUT_LABEL": "Log out @display_name",
@@ -36,9 +36,9 @@
   "TIMEZONECODE": "BST",
   "INTERACTIVE": true,
   "HEADER": {
-    "IMG_SRC": "",
-    "IMG_ALT_TEXT": "",
-    "LINEFEED_AFTER_URL": false
+    "IMG_SRC": "logo192.png",
+    "IMG_ALT_TEXT": "Iridescence Phoenix Logo",
+    "LINEFEED_AFTER_URL": true
   },
   "NAVIGATION": {
     "PROGRAM": "Programme",
@@ -78,11 +78,11 @@
   },
   "PROGRAM": {
     "LIMIT": {
-      "SHOW": true,
+      "SHOW": false,
       "LABEL": "Maximum items displayed",
       "OPTIONS": [50, 100, 250, 500, 1000],
       "ALL_LABEL": "Show all",
-      "DEFAULT": 100,
+      "DEFAULT": 250,
       "SHOW_MORE": {
         "LABEL": "Show more items",
         "NO_MORE": "No more items to display",
@@ -133,6 +133,12 @@
       {
         "PREFIX": "Tag",
         "PLACEHOLDER": "Select tag",
+        "SEARCHABLE": false,
+        "HIDE": false
+      },
+      {
+        "PREFIX": "Tag:StreamReplay",
+        "PLACEHOLDER": "Select Stream/Replay",
         "SEARCHABLE": false,
         "HIDE": false
       },
