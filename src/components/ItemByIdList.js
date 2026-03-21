@@ -5,7 +5,7 @@ import ProgramList from "./ProgramList";
 
 const ItemByIdList = () => {
   const { addSelection } = useStoreActions((actions) => ({
-    addSelection: actions.addSelection,
+    addSelection: actions.addSelectionAndSync,
   }));
 
   const params = useParams();

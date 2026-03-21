@@ -22,8 +22,8 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
 
   const selected = useStoreState((state) => state.isSelected(item.id));
   const { addSelection, removeSelection } = useStoreActions((actions) => ({
-    addSelection: actions.addSelection,
-    removeSelection: actions.removeSelection,
+    addSelection: actions.addSelectionAndSync,
+    removeSelection: actions.removeSelectionAndSync,
   }));
 
   const expanded = useStoreState((state) => state.isExpanded(item.id));
