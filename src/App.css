@@ -189,7 +189,7 @@ header img {
 
 .sidebar-header {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
   padding: 1rem;
 }
@@ -474,7 +474,7 @@ header img {
 
   .sidebar-close-btn {
     display: flex;
-    align-items: center;
+    align-items: start;
     background: none;
     border: none;
     cursor: pointer;

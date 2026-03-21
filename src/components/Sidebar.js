@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import HeaderImage from "./HeaderImage";
 import { FiX } from "react-icons/fi";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
@@ -8,7 +9,10 @@ const Sidebar = ({ isOpen, onToggle, title }) => {
   return (
     <aside className={"sidebar" + (isOpen ? " sidebar-open" : "")}>
       <div className="sidebar-header">
-        <h1 className="sidebar-title">{title}</h1>
+        <h1 className="sidebar-title">
+          <HeaderImage />
+          {title}
+        </h1>
         <button className="sidebar-close-btn" onClick={onToggle} aria-label="Close navigation">
           <FiX />
         </button>
