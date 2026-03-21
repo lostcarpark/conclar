@@ -13,7 +13,7 @@ const Sidebar = ({ isOpen, onToggle, title }) => {
           <FiX />
         </button>
       </div>
-      <Navigation />
+      <Navigation onNavigate={onToggle} />
       <div className="sidebar-footer">
         <Footer />
       </div>
