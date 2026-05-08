@@ -913,7 +913,8 @@ div.switch-wrapper {
 }
 
 /* Item Type pill (Poster / Talk / Symposium / etc.) shown next to the
-   title in the always-visible header. */
+   title in the always-visible header. Default colors are overridden by
+   the [data-type="..."] rules below, grouped by activity family. */
 .item-type-badge {
   display: inline-block;
   margin-left: 0.5rem;
@@ -925,10 +926,38 @@ div.switch-wrapper {
   white-space: nowrap;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--navigation-button-current-fg);
+  color: #fff;
   background-color: var(--navigation-button-current-bg);
   border-radius: 1em;
 }
+
+/* Talk family — blues / purple / red for the most prominent sessions. */
+.item-type-badge[data-type="Talk"]         { background-color: #1d4ed8; }
+.item-type-badge[data-type="TalkSession"]  { background-color: #1e40af; }
+.item-type-badge[data-type="Symposium"]    { background-color: #6d28d9; }
+.item-type-badge[data-type="Keynote"]      { background-color: #b91c1c; }
+.item-type-badge[data-type="Workshop"]     { background-color: #0d9488; }
+
+/* Poster family — amber. */
+.item-type-badge[data-type="Poster"]        { background-color: #d97706; }
+.item-type-badge[data-type="PosterSession"] { background-color: #b45309; }
+
+/* Other event categories. */
+.item-type-badge[data-type="Satellite"]    { background-color: #4338ca; }
+.item-type-badge[data-type="Exhibits"]     { background-color: #15803d; }
+.item-type-badge[data-type="Award"]        { background-color: #ca8a04; }
+.item-type-badge[data-type="Student"]      { background-color: #0284c7; }
+
+/* Social, break, lounge — warmer tones for the people / downtime slots. */
+.item-type-badge[data-type="Social"]       { background-color: #db2777; }
+.item-type-badge[data-type="Networking"]   { background-color: #e11d48; }
+.item-type-badge[data-type="Lounge"]       { background-color: #9a3412; }
+.item-type-badge[data-type="Break"]        { background-color: #4b5563; }
+
+/* Admin / catch-all. */
+.item-type-badge[data-type="Registration"] { background-color: #475569; }
+.item-type-badge[data-type="Business"]     { background-color: #52525b; }
+.item-type-badge[data-type="Other"]        { background-color: #6b7280; }
 
 .item-duration,
 .item-location,

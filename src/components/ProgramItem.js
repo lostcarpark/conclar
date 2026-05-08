@@ -129,7 +129,9 @@ const parentTitle = parentItem ? parentItem.title : null;
     (tag) => tag && typeof tag === "object" && tag.category === "Type"
   );
   const typeBadge = typeTag ? (
-    <span className="item-type-badge">{typeTag.label}</span>
+    <span className="item-type-badge" data-type={typeTag.label}>
+      {typeTag.label}
+    </span>
   ) : null;
 
   const people = [];
