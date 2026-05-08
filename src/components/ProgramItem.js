@@ -102,13 +102,26 @@ const isChild = !!parentId;
     );
 
   const tags = [];
+  // Hide Type tags from the expanded tag list — they're surfaced as the
+  // always-visible item-type-badge on the title row instead.
   const itemTags = item.tags.filter(
-    (tag) => !configData.TAGS.DONTLIST.includes(tag.category)
+    (tag) =>
+      !configData.TAGS.DONTLIST.includes(tag.category) &&
+      tag.category !== "Type"
   );
 
   for (const tag of itemTags) {
     tags.push(<Tag key={tag.value} tag={tag.label} />);
   }
+
+  // Surface the item Type (Poster / Talk / Symposium / etc.) as an
+  // always-visible badge inline with the title.
+  const typeTag = (item.tags || []).find(
+    (tag) => tag && typeof tag === "object" && tag.category === "Type"
+  );
+  const typeBadge = typeTag ? (
+    <span className="item-type-badge">{typeTag.label}</span>
+  ) : null;
 
   const people = [];
   if (item.people) {
@@ -254,6 +267,7 @@ const isChild = !!parentId;
         <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>
           <h3 className="item-title">
             {item.title}
+            {typeBadge}
             {chevron}
           </h3>
           <div className="item-line2">

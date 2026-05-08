@@ -903,6 +903,24 @@ div.switch-wrapper {
   font-size: inherit;
 }
 
+/* Item Type pill (Poster / Talk / Symposium / etc.) shown next to the
+   title in the always-visible header. */
+.item-type-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1em 0.6em;
+  font-size: 0.7em;
+  font-weight: 600;
+  line-height: 1.4;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--navigation-button-current-fg);
+  background-color: var(--navigation-button-current-bg);
+  border-radius: 1em;
+}
+
 .item-duration,
 .item-location,
 .item-tags {
