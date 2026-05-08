@@ -14,33 +14,43 @@
  * 10. Debug styles.
  */
 
+/* Match visionsciences.org typography (Raleway for headings, Open Sans for body). */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;500;600;700&display=swap');
+
 /*
  * 1. Global application styles.
+ *
+ * VSS palette:
+ *   navy        #1e4d8c (site title, primary brand)
+ *   navy-dark   #163c70 (hover/darker)
+ *   teal        #2bafbb (default link in VSS theme)
+ *   gold        #c6b274 (link hover in VSS theme)
+ *   charcoal    #40494e (h1-h6 in VSS theme)
+ *   body        #333333
  */
-
-
 
 :root {
   --main-bg: #fff;
-  --main-fg: #000;
-  --header-fg: #444;
-  --navigation-button-bg: #ddd;
-  --navigation-button-fg: #0d172a;
+  --main-fg: #333;
+  --heading-fg: #40494e;
+  --header-fg: #1e4d8c;
+  --navigation-button-bg: #f5f5f5;
+  --navigation-button-fg: #1e4d8c;
   --navigation-button-border: #e2e8f0;
-  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
+  --navigation-button-current-bg: #1e4d8c;
   --navigation-button-current-fg: #fff;
-  --navigation-button-hover-bg: #1e293b;
+  --navigation-button-hover-bg: #163c70;
   --navigation-button-hover-fg: #fff;
-  --help-text-bg: green;
+  --help-text-bg: #1e4d8c;
   --help-text-fg: #fff;
   --checkbox-switch-bg: white;
-  --checkbox-selected-bg: green;
-  --checkbox-unselected-bg: red;
+  --checkbox-selected-bg: #258e8f;
+  --checkbox-unselected-bg: #b04a3c;
   --filter-bg: var(--main-bg);
   --filter-fg: var(--main-fg);
   --filter-border: var(--search-border);
-  --filter-select-bg: #bbe;
-  --filter-select-fg: #000;
+  --filter-select-bg: #d5e3f3;
+  --filter-select-fg: #1e4d8c;
   --filter-select-single-caret: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ccc' stroke='%23ccc' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
   --filter-select-single-hover-caret: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23999' stroke='%23999' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
   --search-bg: var(--main-bg);
@@ -62,34 +72,34 @@
   --add-more-button-hover-fg: var(--navigation-button-hover-fg);
   --program-item-chevron-collapsed: var(--navigation-button-current-bg);
   --program-item-chevron-expanded: var(--navigation-button-hover-bg);
-  --program-time-convention-message: grey;
-  --program-time-local-message: grey;
-  --program-date-line: #888;
-  --program-time-line: #ccc;
-  --program-item-line: #bbb;
-  --program-time-bg: #ddd;
-  --program-tags-fg: #555;
-  --program-expanded-bg: #eee;
-  --link-fg: #265c83;
-  --link-hover-fg: #193c56;
-  --link-disabled: #888;
-  --participant-bg: #eee;
-  --participant-link-fg: #000;
-  --participant-link-visited-fg: #444;
-  --settings-outline: #888;
-  --footer-line: #eee;
-  --footer-bg-color: #424242;
-  --footer-fg-color: #F5F5F5;
-  --info-popup-details-fg: #555;
-  --error-message-fg: tomato;
+  --program-time-convention-message: #40494e;
+  --program-time-local-message: #818181;
+  --program-date-line: #1e4d8c;
+  --program-time-line: #d6d6d6;
+  --program-item-line: #e2e5e7;
+  --program-time-bg: #e8eef6;
+  --program-tags-fg: #5c646b;
+  --program-expanded-bg: #f3f3f3;
+  --link-fg: #1e4d8c;
+  --link-hover-fg: #c6b274;
+  --link-disabled: #a4abb3;
+  --participant-bg: #f3f3f3;
+  --participant-link-fg: #1e4d8c;
+  --participant-link-visited-fg: #163c70;
+  --settings-outline: #a4abb3;
+  --footer-line: #163c70;
+  --footer-bg-color: #1e4d8c;
+  --footer-fg-color: #ffffff;
+  --info-popup-details-fg: #40494e;
+  --error-message-fg: #b04a3c;
   --shadow-014: rgba(0, 0, 0, 0.14);
   --shadow-012: rgba(0, 0, 0, 0.12);
   --shadow-02: rgba(0, 0, 0, 0.2);
   --shadow-03: rgba(0, 0, 0, 0.3);
   --shadow-gray: rgba(166, 175, 195, 0.25);
-  --debug-online-bg: green;
+  --debug-online-bg: #258e8f;
   --debug-online-fg: white;
-  --debug-offline-bg: red;
+  --debug-offline-bg: #b04a3c;
   --debug-offline-fg: white;
 }
 
@@ -131,9 +141,19 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6 {
+  color: var(--heading-fg);
+}
+
+h1,
+h2,
+h3,
+h4,
 .item-title,
 .date-heading {
-  font-family: Candara, Optima, Segoe, "Segoe UI", sans-serif;
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
 }
 
 code {
@@ -191,7 +211,7 @@ header img {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
+  font-family: "Open Sans", -apple-system, system-ui, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
