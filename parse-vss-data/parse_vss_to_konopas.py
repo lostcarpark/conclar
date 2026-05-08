@@ -62,6 +62,12 @@ HERE = Path(__file__).resolve().parent
 TXT_PATH = HERE / "VSS_2026_Abstracts.txt"
 PROGRAM_PATH = HERE / "program.json"
 PEOPLE_PATH = HERE / "people.json"
+# Mirror outputs into the deployed location so a parser run is self-sufficient.
+# The site reads from public/2026/ — without these copies, a fresh program.json
+# stays in parse-vss-data/ and never reaches the build.
+DEPLOY_DIR = HERE.parent / "public" / "2026"
+DEPLOY_PROGRAM_PATH = DEPLOY_DIR / "program.json"
+DEPLOY_PEOPLE_PATH = DEPLOY_DIR / "people.json"
 
 # ---------------------------------------------------------------------------
 # CLI
@@ -2102,6 +2108,80 @@ n_merged = len(auto_remap) + len(alias_remap)
 # Step 11. Write outputs.
 # ---------------------------------------------------------------------------
 
+# --- Tag individual posters with parent:<session_id> by time-window match. -
+# Some posters slip past the upstream (date, time, room) lookup in
+# abstract_to_program -- typically because the schedule row's room name
+# differs from the individual poster's loc (e.g., "Banyan Breezeway and
+# Pavilion" vs. just "Banyan").  Catch them here by matching on date +
+# time-falls-within-session-window instead of room.
+def _t_to_min(t: str) -> int:
+    h, m = t.split(":")
+    return int(h) * 60 + int(m)
+
+_poster_sessions: list[dict] = []
+for _it in program:
+    _title = _it.get("title", "")
+    _tags = _it.get("tags", [])
+    _is_individual = "Type:Poster" in _tags
+    _looks_like_session = "Posters" in _title or "Poster Session" in _title
+    if _looks_like_session and not _is_individual:
+        _start = _t_to_min(_it["time"])
+        _end = _start + int(_it.get("mins", 0))
+        _poster_sessions.append({
+            "id": _it["id"],
+            "date": _it["date"],
+            "start": _start,
+            "end": _end,
+        })
+
+_n_late_tagged = 0
+_n_already_tagged = 0
+_n_no_match = 0
+_unmatched_samples: list[tuple[str, str, str]] = []  # (date, time, title) of misses
+for _it in program:
+    if "Type:Poster" not in _it.get("tags", []):
+        continue
+    if any(t.startswith("parent:") for t in _it["tags"]):
+        _n_already_tagged += 1
+        continue
+    _p_min = _t_to_min(_it["time"])
+    _matched = False
+    for _s in _poster_sessions:
+        if _it["date"] == _s["date"] and _s["start"] <= _p_min < _s["end"]:
+            _it["tags"].append(f"parent:{_s['id']}")
+            _n_late_tagged += 1
+            _matched = True
+            break
+    if not _matched:
+        _n_no_match += 1
+        if len(_unmatched_samples) < 5:
+            _unmatched_samples.append((_it["date"], _it["time"], _it.get("title", "")[:60]))
+
+print(
+    f"poster-session post-pass: tagged {_n_late_tagged} posters | "
+    f"already tagged upstream: {_n_already_tagged} | "
+    f"no matching session: {_n_no_match} | "
+    f"sessions found: {len(_poster_sessions)}",
+    file=sys.stderr,
+)
+if _unmatched_samples:
+    print("  unmatched poster samples:", file=sys.stderr)
+    for _d, _t, _ttl in _unmatched_samples:
+        print(f"    {_d} {_t}  {_ttl!r}", file=sys.stderr)
+if _poster_sessions:
+    print("  poster sessions:", file=sys.stderr)
+    for _s in _poster_sessions[:8]:
+        _hh, _mm = divmod(_s["start"], 60)
+        _eh, _em = divmod(_s["end"], 60)
+        print(
+            f"    {_s['id']}  {_s['date']}  "
+            f"{_hh:02d}:{_mm:02d}-{_eh:02d}:{_em:02d}",
+            file=sys.stderr,
+        )
+    if len(_poster_sessions) > 8:
+        print(f"    ... and {len(_poster_sessions) - 8} more", file=sys.stderr)
+# --- end poster parent-tagging pass ----------------------------------------
+
 PROGRAM_PATH.write_text(
     json.dumps(program, ensure_ascii=False, indent=2),
     encoding="utf-8",
@@ -2133,41 +2213,3 @@ print(
     f"  -> {PEOPLE_PATH}",
     file=sys.stderr,
 )
-
-def _t_to_min(t):
-    """'HH:MM' -> minutes since midnight."""
-    h, m = t.split(":")
-    return int(h) * 60 + int(m)
-
-# 1. Find every poster *session* item. Adjust this predicate to match how
-#    YOUR session items are tagged/titled. Common signals:
-#      - title contains "Posters" (plural) and "Poster" isn't in Type tag
-#      - duration is "long" (90+ minutes)
-#      - they're not children of anything else
-poster_sessions = []
-for it in program:  # rename `program` to whatever variable holds your list
-    title = it.get("title", "")
-    tags = it.get("tags", [])
-    is_individual_poster = "Type:Poster" in tags
-    looks_like_session = "Posters" in title or "Poster Session" in title
-    if looks_like_session and not is_individual_poster:
-        start = _t_to_min(it["time"])
-        end = start + int(it.get("mins", 0))
-        poster_sessions.append({
-            "id": it["id"],
-            "date": it["date"],
-            "start": start,
-            "end": end,
-        })
-
-# 2. For each individual poster, find its parent session by date + time-window.
-for it in program:
-    if "Type:Poster" not in it.get("tags", []):
-        continue
-    if any(t.startswith("parent:") for t in it["tags"]):
-        continue  # already tagged
-    p_min = _t_to_min(it["time"])
-    for s in poster_sessions:
-        if it["date"] == s["date"] and s["start"] <= p_min < s["end"]:
-            it["tags"].append(f"parent:{s['id']}")
-            break
