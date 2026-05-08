@@ -72,8 +72,31 @@ export class ProgramData {
       item.timeSlot = LocalTime.getTimeSlot(item.startDateAndTime);
       return item;
     });
+    // Sort by start time. Tiebreak: items without a parent: tag (the
+    // session/parent rows) come before items that have one (children),
+    // so when a parent and its first child share the same minute the
+    // parent renders first. Tags are still raw strings at this point —
+    // processTags() decodes them into objects later.
+    function hasParentTag(item) {
+      const tags = item.tags || [];
+      for (const t of tags) {
+        if (typeof t === "string") {
+          if (t.toLowerCase().startsWith("parent:")) return true;
+        } else if (t && typeof t === "object") {
+          if (t.category && String(t.category).toLowerCase() === "parent") return true;
+          const v = typeof t.value === "string" ? t.value : "";
+          if (v.toLowerCase().startsWith("parent:")) return true;
+        }
+      }
+      return false;
+    }
     program.sort((a, b) => {
-      return Temporal.ZonedDateTime.compare(a.startDateAndTime, b.startDateAndTime);
+      const cmp = Temporal.ZonedDateTime.compare(
+        a.startDateAndTime,
+        b.startDateAndTime
+      );
+      if (cmp !== 0) return cmp;
+      return (hasParentTag(a) ? 1 : 0) - (hasParentTag(b) ? 1 : 0);
     });
     //console.log("Program data", program);
     return program;
