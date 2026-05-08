@@ -281,6 +281,13 @@
     "LOADING_LABEL": "Loading...",
     "LOGIN_LABEL": "Log in",
     "LOGOUT_LABEL": "Log out @display_name",
-    "ERROR_LABEL": "Could not connect to sync server"
-  }
+    "ERROR_LABEL": "Could not connect to sync server",
+    "WARNING": {
+      "HEADING": "Schedule sync warning",
+      "TITLE": "Sign in to keep your schedule synced",
+      "DETAILS": "Your selected items are stored only on this device unless you sign in. Sign in to sync your schedule across devices.",
+      "DETAILS_LABEL": "More info",
+      "LOGIN_LABEL": "Sign in",
+      "DISMISS_LABEL": "Dismiss"
+    }
 }
