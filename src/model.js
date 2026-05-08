@@ -433,31 +433,30 @@ const model = {
   ),
 
   // === PR 1: tree-aware data layer for session/talk nesting ===============
-  // The data on disk is flat; children point to their parent via a
-  // {category: "parent", value: <parent_id>} tag.  These selectors build
-  // an O(1) parent->children index at load time so the renderer can place
-  // children inside their parent's DOM instead of as flat siblings.
+  // The data on disk is flat; children point to their parent via a tag
+  // whose effective form is "parent:<parent_id>".  Depending on whether
+  // "parent" is declared in TAGS.SEPARATE, ConClár's tag decoder may
+  // produce either:
+  //   { category: "parent", value: <parent_id>, label: <pretty> }
+  // or, when the prefix isn't declared:
+  //   { value: "parent:<id>", label: "parent:<id>" }   (no category)
+  // The helper below extracts the parent id from either shape.
 
-  // id -> item, for fast lookup.
   programIndex: computed((state) =>
     Object.fromEntries(state.program.map((it) => [it.id, it]))
   ),
 
-  // parentId -> [child item, ...], sorted by start time.
-  // Skips: self-references, parents not present in the program.
   programChildren: computed(
     [(state) => state.program, (state) => state.programIndex],
     (program, programIndex) => {
       const byParent = {};
       for (const it of program) {
-        const parentTag = (it.tags || []).find(
-          (t) => t && typeof t === "object" && t.category === "parent"
-        );
-        if (!parentTag || !parentTag.value) continue;
-        if (parentTag.value === it.id) continue;
-        if (!programIndex[parentTag.value]) continue;
-        if (!byParent[parentTag.value]) byParent[parentTag.value] = [];
-        byParent[parentTag.value].push(it);
+        const pid = extractParentId(it);
+        if (!pid) continue;
+        if (pid === it.id) continue;
+        if (!programIndex[pid]) continue;
+        if (!byParent[pid]) byParent[pid] = [];
+        byParent[pid].push(it);
       }
       for (const list of Object.values(byParent)) {
         list.sort((a, b) => {
@@ -472,24 +471,51 @@ const model = {
     }
   ),
 
-  // Set of item ids that have a real parent in the program.  Used at the
-  // top-level renderer to skip these (they render nested inside parent).
   programIsChild: computed(
     [(state) => state.program, (state) => state.programIndex],
     (program, programIndex) => {
       const childIds = new Set();
       for (const it of program) {
-        const parentTag = (it.tags || []).find(
-          (t) => t && typeof t === "object" && t.category === "parent"
-        );
-        if (!parentTag || !parentTag.value) continue;
-        if (parentTag.value === it.id) continue;
-        if (!programIndex[parentTag.value]) continue;
+        const pid = extractParentId(it);
+        if (!pid) continue;
+        if (pid === it.id) continue;
+        if (!programIndex[pid]) continue;
         childIds.add(it.id);
       }
       return childIds;
     }
   ),
 };
+
+// Extract the parent id from an item's tags, regardless of whether the
+// "parent" prefix has been declared as a separate category in
+// configData.TAGS.SEPARATE.  Returns the id string or null.
+function extractParentId(item) {
+  const tags = item.tags || [];
+  for (const t of tags) {
+    if (typeof t === "string") {
+      if (t.toLowerCase().startsWith("parent:")) {
+        return t.split(":", 2)[1];
+      }
+      continue;
+    }
+    if (!t || typeof t !== "object") continue;
+    // Decoded with category set ("parent" was in TAGS.SEPARATE):
+    if (typeof t.category === "string" && t.category.toLowerCase() === "parent") {
+      return t.value;
+    }
+    // Decoded without a category — the whole "parent:<id>" string is in
+    // .value (and usually .label too):
+    const v = typeof t.value === "string" ? t.value : "";
+    if (v.toLowerCase().startsWith("parent:")) {
+      return v.split(":", 2)[1];
+    }
+    const l = typeof t.label === "string" ? t.label : "";
+    if (l.toLowerCase().startsWith("parent:")) {
+      return l.split(":", 2)[1];
+    }
+  }
+  return null;
+}
 
 export default model;

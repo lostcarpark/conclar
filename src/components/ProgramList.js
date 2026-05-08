@@ -40,11 +40,31 @@ const ProgramList = ({ program, forceExpanded }) => {
   // top level so they aren't lost in filter results.
   const filteredIds = new Set(program.map((it) => it.id));
 
+  // Extract a parent id from an item's tags, robust to whether the
+  // "parent" prefix was declared in TAGS.SEPARATE or not (when not, the
+  // whole "parent:<id>" string ends up in .value with no .category).
+  function getParentId(item) {
+    const tags = item.tags || [];
+    for (const t of tags) {
+      if (typeof t === "string") {
+        if (t.toLowerCase().startsWith("parent:")) return t.split(":", 2)[1];
+        continue;
+      }
+      if (!t || typeof t !== "object") continue;
+      if (typeof t.category === "string" && t.category.toLowerCase() === "parent") {
+        return t.value;
+      }
+      const v = typeof t.value === "string" ? t.value : "";
+      if (v.toLowerCase().startsWith("parent:")) return v.split(":", 2)[1];
+      const l = typeof t.label === "string" ? t.label : "";
+      if (l.toLowerCase().startsWith("parent:")) return l.split(":", 2)[1];
+    }
+    return null;
+  }
+
   program.forEach((item) => {
-    const parentTag = (item.tags || []).find(
-      (t) => t && typeof t === "object" && t.category === "parent"
-    );
-    if (parentTag && parentTag.value && filteredIds.has(parentTag.value)) {
+    const pid = getParentId(item);
+    if (pid && filteredIds.has(pid)) {
       return; // rendered inside the parent
     }
 
