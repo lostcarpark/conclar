@@ -223,7 +223,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     );
 
   return (
-    <div id={id} className="item ${isChild ? "program-item--child" : ""}">
+    <div id={id} className={`item ${isChild ? "program-item--child" : ""}`}>
       <div className="item-selection">
         <div className="selection">
           <input
