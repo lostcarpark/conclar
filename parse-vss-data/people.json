@@ -6111,6 +6111,25 @@
     "bio": ""
   },
   {
+    "id": "maria-czarnecka",
+    "name": [
+      "Maria",
+      "Czarnecka",
+      "",
+      ""
+    ],
+    "tags": [
+      "Jagiellonian   University",
+      "Georgetown University"
+    ],
+    "prog": [
+      "31.23",
+      "34.22"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "florencia-martinez-addiego",
     "name": [
       "Florencia Martinez",
@@ -7360,25 +7379,6 @@
     ],
     "prog": [
       "34.22"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "maria-czarnecka-2",
-    "name": [
-      "Maria",
-      "Czarnecka",
-      "",
-      ""
-    ],
-    "tags": [
-      "Georgetown University",
-      "Jagiellonian   University"
-    ],
-    "prog": [
-      "34.22",
-      "31.23"
     ],
     "links": {},
     "bio": ""
@@ -15012,8 +15012,8 @@
   {
     "id": "ankit-maurya",
     "name": [
-      "ANKIT",
-      "MAURYA",
+      "Ankit",
+      "Maurya",
       "",
       ""
     ],
@@ -15022,6 +15022,25 @@
     ],
     "prog": [
       "16.344"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "tony-thomas",
+    "name": [
+      "Tony",
+      "Thomas",
+      "",
+      ""
+    ],
+    "tags": [
+      "Indian Institute of Technology Roorkee, Roorkee, India",
+      "Indian Institute of Technology"
+    ],
+    "prog": [
+      "16.344",
+      "36.424"
     ],
     "links": {},
     "bio": ""
@@ -20302,8 +20321,8 @@
   {
     "id": "chaoying-dai",
     "name": [
-      "CHAOYING",
-      "DAI",
+      "Chaoying",
+      "Dai",
       "",
       ""
     ],
@@ -25096,6 +25115,25 @@
     "bio": ""
   },
   {
+    "id": "nithit-singtokum",
+    "name": [
+      "Nithit",
+      "Singtokum",
+      "",
+      ""
+    ],
+    "tags": [
+      "Department of physiology, Faculty of medicine, Chulalongkorn University, Bangkok, Thailand",
+      "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand"
+    ],
+    "prog": [
+      "26.434",
+      "56.436"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "esther-goldberg",
     "name": [
       "Esther",
@@ -25133,8 +25171,8 @@
   {
     "id": "mahwish-kittur",
     "name": [
-      "MAHWISH",
-      "KITTUR",
+      "Mahwish",
+      "Kittur",
       "",
       ""
     ],
@@ -26126,8 +26164,8 @@
   {
     "id": "mehjabin-shirin",
     "name": [
-      "MEHJABIN",
-      "SHIRIN",
+      "Mehjabin",
+      "Shirin",
       "",
       ""
     ],
@@ -35110,25 +35148,6 @@
     ],
     "prog": [
       "36.424"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "tony-thomas-2",
-    "name": [
-      "Tony",
-      "Thomas",
-      "",
-      ""
-    ],
-    "tags": [
-      "Indian Institute of Technology",
-      "Indian Institute of Technology Roorkee, Roorkee, India"
-    ],
-    "prog": [
-      "36.424",
-      "16.344"
     ],
     "links": {},
     "bio": ""
@@ -50342,25 +50361,6 @@
     "bio": ""
   },
   {
-    "id": "nithit-singtokum-2",
-    "name": [
-      "Nithit",
-      "Singtokum",
-      "",
-      ""
-    ],
-    "tags": [
-      "Department of physiology, Faculty of medicine, Chulalongkorn University, Bangkok, Thailand",
-      "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand"
-    ],
-    "prog": [
-      "56.436",
-      "26.434"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
     "id": "pakapon-suesatchapong",
     "name": [
       "Pakapon",
@@ -51166,8 +51166,8 @@
   {
     "id": "ebru-ecem-tavacioglu",
     "name": [
-      "EBRU ECEM",
-      "TAVACIOGLU",
+      "Ebru Ecem",
+      "Tavacioglu",
       "",
       ""
     ],
@@ -51183,8 +51183,8 @@
   {
     "id": "matthias-gamer",
     "name": [
-      "MATTHIAS",
-      "GAMER",
+      "Matthias",
+      "Gamer",
       "",
       ""
     ],

@@ -575,6 +575,26 @@ def clean_author_token(tok: str) -> tuple[str, list[str]]:
     if re.search(r"\d", name):
         name = re.sub(r"\s+\d+(?=\s|$)", "", name)
         name = re.sub(r"\s{2,}", " ", name).strip()
+    # Normalize all-caps names to Title Case.  A few abstracts render their
+    # authors ALL CAPS ("ANKIT MAURYA", "MATTHIAS GAMER") while the rest
+    # of the corpus is mixed case — keeping them all-caps would split a
+    # person across two records.  Skip names with any lowercase letter
+    # (already mixed case) and skip very short tokens (initials).
+    if name and any(c.isalpha() for c in name) and not any(c.islower() for c in name):
+        def _cap(w: str) -> str:
+            if not w:
+                return w
+            # Preserve single-letter initials with period ("K.").
+            if len(w) <= 2 and w.endswith("."):
+                return w
+            return w[0].upper() + w[1:].lower()
+        out_words = []
+        for w in name.split():
+            parts = re.split(r"([-'])", w)
+            out = "".join(_cap(p) if i % 2 == 0 else p
+                          for i, p in enumerate(parts))
+            out_words.append(out)
+        name = " ".join(out_words)
     return name, idx_part
 
 
