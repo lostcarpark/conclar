@@ -65,7 +65,7 @@
     "MY_SCHEDULE": {
       "TITLE": "My Schedule",
       "EMPTY": {
-        "TEXT": "This page will show your personal convention schedule. To activate it, click the checkboxes next to items you are interested in on the program page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
+        "TEXT": "This page will show your personal conference schedule. To activate it, click the checkboxes next to items you are interested in on the program page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
       },
       "INTRO": "Your personal schedule is shown below. It is not automatically synced with other devices, but you can use the links or QR codes at the bottom of this page to share your selections to your other devices.",
       "SHARE": {
@@ -157,7 +157,7 @@
     }
   ],
   "CONVENTION_TIME": {
-    "NOTICE": "Convention time for @timezone, shown in bold."
+    "NOTICE": "Conference time for @timezone, shown in bold."
   },
   "LOCAL_TIME": {
     "CHECKBOX_LABEL": "Show local time",
@@ -238,7 +238,7 @@
     "SHOW_LOCAL_TIME": {
       "LABEL": "Show local time",
       "NEVER_LABEL": "Never display",
-      "DIFFERS_LABEL": "Display if differs from convention time",
+      "DIFFERS_LABEL": "Display if differs from conference time",
       "ALWAYS_LABEL": "Always show"
     },
     "SHOW_TIMEZONE": {
