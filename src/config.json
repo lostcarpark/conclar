@@ -202,8 +202,8 @@
       "CHECKBOX_LABEL": "Sort by full name"
     },
     "TAGS": {
-      "PLACEHOLDER": "Select tags",
-      "SEARCHABLE": false,
+      "PLACEHOLDER": "Type to filter by institution…",
+      "SEARCHABLE": true,
       "HIDE": false,
       "SEPARATE": [
       ]
