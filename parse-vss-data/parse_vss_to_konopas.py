@@ -2067,13 +2067,17 @@ def iter_posters(text: str, expected_topics: Optional[set[str]] = None) -> Itera
         # Topic-header pattern: "FRIDAY AFTERNOON POSTERS IN BANYAN BREEZEWAY"
         m = POSTER_TOPIC_HEADER_RE.match(s)
         if m:
-            cur_room = m.group("room").strip().title()
-            cur_topic = ""
-            cur_topic_id = ""
+            # Flush the pending poster FIRST, before mutating cur_room /
+            # cur_topic_id.  This header marks the start of a new room's
+            # block; whatever poster was open belongs to the OLD room
+            # and OLD topic, so it must be emitted with the prior values.
             ab = flush(poster_state)
             if ab:
                 yield ab
             poster_state = {"id": "", "title_lines": [], "body": []}
+            cur_room = m.group("room").strip().title()
+            cur_topic = ""
+            cur_topic_id = ""
             continue
 
         # Date/time header: "FRIDAY, MAY 15, 3:45 – 6:00 PM, BANYAN BREEZEWAY"
