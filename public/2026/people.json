@@ -346,45 +346,13 @@
       "symp-2026-05-15-1030-talk-r.t06",
       "16.319",
       "33.456",
-      "53.434"
+      "53.434",
+      "23.482",
+      "26.465",
+      "43.414"
     ],
     "links": {},
-    "bio": "Centre for; Centre for Cognitive Science, Technical; Technical University of Darmstadt; Technische Universität Darmstadt; Hessian Center for; Center for Mind, Brain and Behavior (CMBB), Universities of Marburg, Giessen, and Darmstadt"
-  },
-  {
-    "id": "kendrick-kay",
-    "name": [
-      "Kendrick",
-      "Kay",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "symp-2026-05-15-1030-talk-r",
-      "symp-2026-05-15-1030-talk-r.t01",
-      "33.334",
-      "33.338",
-      "43.409"
-    ],
-    "links": {},
-    "bio": "Center for Magnetic Resonance Research (CMRR), Department of Radiology, University of Minnesota, Minneapolis, Minnesota, USA; University of Minnesota"
-  },
-  {
-    "id": "jody-culham",
-    "name": [
-      "Jody",
-      "Culham",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "symp-2026-05-15-1030-talk-r",
-      "symp-2026-05-15-1030-talk-r.t02"
-    ],
-    "links": {},
-    "bio": "University of Western Ontario, London, ON, Canada"
+    "bio": "Centre for; Centre for Cognitive Science, Technical; Technical University of Darmstadt; Technische Universität Darmstadt; Hessian Center for; Center for Mind, Brain and Behavior (CMBB), Universities of Marburg, Giessen, and Darmstadt; Institute of Psychology, Centre for Cognitive Science, Technical University of Darmstadt, Darmstadt, Germany; Centre for Cognitive Science, Technical University of"
   },
   {
     "id": "lukas-t-oesch",
@@ -418,21 +386,6 @@
     "bio": ""
   },
   {
-    "id": "clay-curtis",
-    "name": [
-      "Clay",
-      "Curtis",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "symp-2026-05-15-1030-talk-r.t01"
-    ],
-    "links": {},
-    "bio": "Department of Psychology, New York University, New York, NY, USA; Center for Neural Science, New York University, New York, NY, USA"
-  },
-  {
     "id": "adrian-wong",
     "name": [
       "Adrian",
@@ -463,21 +416,6 @@
     ],
     "links": {},
     "bio": "Center for Magnetic Resonance Research (CMRR), Department of Radiology, University of Minnesota, Minneapolis, Minnesota, USA; University of Minnesota"
-  },
-  {
-    "id": "eline-kupers",
-    "name": [
-      "Eline",
-      "Kupers",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "symp-2026-05-15-1030-talk-r.t01"
-    ],
-    "links": {},
-    "bio": "Department of Psychology, York University, Toronto, Ontario, Canada"
   },
   {
     "id": "makenna-c-thomas",
@@ -540,23 +478,6 @@
     "bio": ""
   },
   {
-    "id": "caroline-robertson",
-    "name": [
-      "Caroline",
-      "Robertson",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "symp-2026-05-15-1030-talk-r.t04",
-      "33.331",
-      "53.336"
-    ],
-    "links": {},
-    "bio": "Dartmouth College, NH, USA; Dartmouth College"
-  },
-  {
     "id": "kathryn-bonnen",
     "name": [
       "Kathryn",
@@ -605,22 +526,6 @@
     ],
     "links": {},
     "bio": "Stanford University"
-  },
-  {
-    "id": "peter-tse",
-    "name": [
-      "Peter",
-      "Tse",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "symp-2026-05-15-1030-talk-r",
-      "symp-2026-05-15-1030-talk-r.t01"
-    ],
-    "links": {},
-    "bio": "Dartmouth University"
   },
   {
     "id": "sebastian-frank",
@@ -876,7 +781,9 @@
     "prog": [
       "symp-2026-05-15-1345-talk-r",
       "symp-2026-05-15-1345-talk-r.t03",
-      "53.425"
+      "53.425",
+      "24.16",
+      "53.420"
     ],
     "links": {},
     "bio": "University of Amsterdam; Informatics Institute, University of Amsterdam"
@@ -902,44 +809,6 @@
     ],
     "links": {},
     "bio": "Columbia University; Zuckerman Mind Brain Behavior Institute, Columbia University; Zuckerman Institute, Columbia University; NSF AI Institute for Artificial and Natural"
-  },
-  {
-    "id": "andrew-luo",
-    "name": [
-      "Andrew",
-      "Luo",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "symp-2026-05-15-1345-talk-r.t05",
-      "51.26",
-      "23.436"
-    ],
-    "links": {},
-    "bio": "University of Hong Kong; University of Hong"
-  },
-  {
-    "id": "michael-herzog",
-    "name": [
-      "Michael",
-      "Herzog",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "symp-2026-05-15-1345-talk-r",
-      "symp-2026-05-15-1345-talk-r.t01",
-      "23.448",
-      "36.344",
-      "36.350",
-      "36.438",
-      "56.432"
-    ],
-    "links": {},
-    "bio": "Swiss Institute of Technology (EPFL); Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland; Laboratory of Psychophysics, Brain Mind Institute,; Laboratory of Psychophysics, Brain Mind Institute, École; EPFL"
   },
   {
     "id": "jeremy-wilmer",
@@ -1072,22 +941,6 @@
     ],
     "links": {},
     "bio": "University of Toronto Mississauga; University of Toronto"
-  },
-  {
-    "id": "michael-webster",
-    "name": [
-      "Michael",
-      "Webster",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "symp-2026-05-15-1345-talk-r.t05",
-      "55.16"
-    ],
-    "links": {},
-    "bio": "University of Nevada, Reno; Department of Psychology, University of Nevada, Reno, NV, US"
   },
   {
     "id": "kara-emery",
@@ -1230,22 +1083,6 @@
     "bio": "Tufts University"
   },
   {
-    "id": "katherine-moore",
-    "name": [
-      "Katherine",
-      "Moore",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "15.11",
-      "56.462"
-    ],
-    "links": {},
-    "bio": "Arcadia University"
-  },
-  {
     "id": "yizhi-wang1",
     "name": [
       "Yizhi",
@@ -1360,10 +1197,12 @@
     ],
     "tags": [],
     "prog": [
-      "15.14"
+      "15.14",
+      "talksess-2026-05-15-1615-talk-r",
+      "33.352"
     ],
     "links": {},
-    "bio": "Barnard College, Columbia University"
+    "bio": "Barnard College, Columbia University; Barnard College"
   },
   {
     "id": "ouxun-jiang",
@@ -1441,22 +1280,6 @@
     ],
     "links": {},
     "bio": "The New School"
-  },
-  {
-    "id": "alex-white",
-    "name": [
-      "Alex",
-      "White",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "talksess-2026-05-15-1615-talk-r",
-      "33.352"
-    ],
-    "links": {},
-    "bio": "Barnard College"
   },
   {
     "id": "emil-olsson",
@@ -1712,10 +1535,11 @@
     ],
     "tags": [],
     "prog": [
-      "15.21"
+      "15.21",
+      "23.429"
     ],
     "links": {},
-    "bio": "Department of Psychology, University of Amsterdam, Amsterdam"
+    "bio": "Department of Psychology, University of Amsterdam, Amsterdam; University of Amsterdam"
   },
   {
     "id": "hakwan-lau",
@@ -1745,10 +1569,11 @@
     "tags": [],
     "prog": [
       "15.21",
-      "53.424"
+      "53.424",
+      "23.429"
     ],
     "links": {},
-    "bio": "New York University Grossman School"
+    "bio": "New York University Grossman School; New York University"
   },
   {
     "id": "jan-w-brascamp",
@@ -1760,10 +1585,12 @@
     ],
     "tags": [],
     "prog": [
-      "15.21"
+      "15.21",
+      "23.429",
+      "33.476"
     ],
     "links": {},
-    "bio": ""
+    "bio": "Michigan State University"
   },
   {
     "id": "ned-block",
@@ -1815,22 +1642,6 @@
     "bio": "Department of Psychological & Brain Sciences, Boston University; Boston University"
   },
   {
-    "id": "megan-peters",
-    "name": [
-      "Megan",
-      "Peters",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "15.21",
-      "23.429"
-    ],
-    "links": {},
-    "bio": "Department of Cognitive Sciences, University of California Irvine; University of California, Irvine"
-  },
-  {
     "id": "bao-hong",
     "name": [
       "Bao",
@@ -1874,23 +1685,6 @@
     ],
     "links": {},
     "bio": "East China Normal University, Shanghai, China; New York University Shanghai"
-  },
-  {
-    "id": "haley-frey",
-    "name": [
-      "Haley",
-      "Frey",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "15.23",
-      "33.309",
-      "33.468"
-    ],
-    "links": {},
-    "bio": "Herbert Wertheim School of Optometry and Vision Science Program, University of California, Berkeley; Department of Psychology, University of California, Berkeley; University of California, Berkeley"
   },
   {
     "id": "david-whitney",
@@ -2297,10 +2091,14 @@
       "21.14",
       "32.25",
       "56.440",
-      "56.441"
+      "56.441",
+      "21.21",
+      "33.413",
+      "36.406",
+      "53.350"
     ],
     "links": {},
-    "bio": "The Ohio State University"
+    "bio": "The Ohio State University; Department of Psychology, The Ohio State University"
   },
   {
     "id": "james-bisley",
@@ -2362,39 +2160,6 @@
     ],
     "links": {},
     "bio": "Department of Psychology, The Ohio State University; The Ohio State University"
-  },
-  {
-    "id": "julie-golomb",
-    "name": [
-      "Julie",
-      "Golomb",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "21.21",
-      "33.413",
-      "36.406",
-      "53.350"
-    ],
-    "links": {},
-    "bio": "Department of Psychology, The Ohio State University; The Ohio State University"
-  },
-  {
-    "id": "wilson-geisler",
-    "name": [
-      "Wilson",
-      "Geisler",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "21.22"
-    ],
-    "links": {},
-    "bio": "University of Texas at Austin"
   },
   {
     "id": "abhranil-das",
@@ -2604,21 +2369,6 @@
     "bio": "Stanford University"
   },
   {
-    "id": "david-brainard",
-    "name": [
-      "David",
-      "Brainard",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "22.11"
-    ],
-    "links": {},
-    "bio": "University of Pennsylvania"
-  },
-  {
     "id": "lisa-schwetlick",
     "name": [
       "Lisa",
@@ -2734,7 +2484,8 @@
     "prog": [
       "22.14",
       "55.14",
-      "16.353"
+      "16.353",
+      "43.475"
     ],
     "links": {},
     "bio": "Peking University"
@@ -2770,7 +2521,8 @@
       "26.312",
       "26.313",
       "26.401",
-      "33.457"
+      "33.457",
+      "36.346"
     ],
     "links": {},
     "bio": "Department of Psychology, New York University; Center for Neural Science, New York University; NYU; New York University, Department of Psychology & Center for Neural; New York University, New York, NY; New York University; Department of Psychology, New York University, New York, USA; Center for Neural Science, New York University, New York, NY, USA"
@@ -2974,22 +2726,6 @@
     "bio": "Peking University, Beijing, China"
   },
   {
-    "id": "yipeng-li",
-    "name": [
-      "Yipeng",
-      "Li",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "22.21",
-      "23.439"
-    ],
-    "links": {},
-    "bio": "Peking University, Beijing, China; Peking University"
-  },
-  {
     "id": "miyoung-kwon",
     "name": [
       "MiYoung",
@@ -3021,22 +2757,6 @@
     ],
     "links": {},
     "bio": "Peking University, Beijing, China; Peking University"
-  },
-  {
-    "id": "corey-m-ziemba",
-    "name": [
-      "Corey M",
-      "Ziemba",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "22.22",
-      "23.353"
-    ],
-    "links": {},
-    "bio": "Laboratory of Sensorimotor Research, NEI, Bethesda, MD; Labratory of Sensorimotor Research, National Eye Institute, Bethesda, MD"
   },
   {
     "id": "alex-roseman",
@@ -3108,10 +2828,11 @@
     ],
     "tags": [],
     "prog": [
-      "22.22"
+      "22.22",
+      "23.355"
     ],
     "links": {},
-    "bio": "Systems Neurodevelopment Laboratory, NIMH, Bethesda, MD"
+    "bio": "Systems Neurodevelopment Laboratory, NIMH, Bethesda, MD; Section on Cognitive Neurophysiology and Imaging, NIMH"
   },
   {
     "id": "hendrikje-nienborg",
@@ -3429,7 +3150,8 @@
     ],
     "tags": [],
     "prog": [
-      "22.27"
+      "22.27",
+      "56.324"
     ],
     "links": {},
     "bio": "University of Glasgow"
@@ -3476,25 +3198,11 @@
     "tags": [],
     "prog": [
       "22.27",
-      "56.324"
-    ],
-    "links": {},
-    "bio": "University of Glasgow"
-  },
-  {
-    "id": "philippe-schyns",
-    "name": [
-      "Philippe",
-      "Schyns",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
+      "56.324",
       "talksess-2026-05-16-1045-talk-r"
     ],
     "links": {},
-    "bio": ""
+    "bio": "University of Glasgow"
   },
   {
     "id": "monami-nishio",
@@ -3709,21 +3417,6 @@
     "bio": "Fudan University"
   },
   {
-    "id": "sarah-tung",
-    "name": [
-      "Sarah",
-      "Tung",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "24.14"
-    ],
-    "links": {},
-    "bio": "Stanford University"
-  },
-  {
     "id": "christina-grace-tyagi",
     "name": [
       "Christina Grace",
@@ -3816,10 +3509,11 @@
       "25.11",
       "43.315",
       "43.341",
-      "53.477"
+      "53.477",
+      "33.439"
     ],
     "links": {},
-    "bio": "Justus Liebig University Giessen; Max Planck Institute for Human Cognitive and Brain Sciences; Center for Mind, Brain and Behavior; Justus Liebig University, Giessen, Germany; Max-Planck Institute CBS, Leipzig, Germany; Center for Mind, Brain, and Behavior, Universities of Marburg, Giessen, and Darmstadt, Marburg, Germany Research in visual neuroscience aims to arrive at generalizable; Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen,; Department of Medicine, Justus-Liebig University Giessen, Giessen,; Department of Medicine, Justus- Liebig University Giessen, Germany; Vision and Computational Cognition Group, Max Planck Institute for Human Cognitive and Brain Sciences, Germany; Center for Mind, Brain and Behavior (CMBB), University of Marburg, Giessen and Darmstadt, Germany"
+    "bio": "Justus Liebig University Giessen; Max Planck Institute for Human Cognitive and Brain Sciences; Center for Mind, Brain and Behavior; Justus Liebig University, Giessen, Germany; Max-Planck Institute CBS, Leipzig, Germany; Center for Mind, Brain, and Behavior, Universities of Marburg, Giessen, and Darmstadt, Marburg, Germany Research in visual neuroscience aims to arrive at generalizable; Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen,; Department of Medicine, Justus-Liebig University Giessen, Giessen,; Department of Medicine, Justus- Liebig University Giessen, Germany; Vision and Computational Cognition Group, Max Planck Institute for Human Cognitive and Brain Sciences, Germany; Center for Mind, Brain and Behavior (CMBB), University of Marburg, Giessen and Darmstadt, Germany; Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig; Department of Medicine, Justus Liebig University, Giessen"
   },
   {
     "id": "niklas-mueller",
@@ -3847,22 +3541,6 @@
     "tags": [],
     "prog": [
       "24.16"
-    ],
-    "links": {},
-    "bio": "University of Amsterdam"
-  },
-  {
-    "id": "iris-groen",
-    "name": [
-      "Iris",
-      "Groen",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "24.16",
-      "53.420"
     ],
     "links": {},
     "bio": "University of Amsterdam"
@@ -3910,7 +3588,8 @@
     "prog": [
       "24.17",
       "51.25",
-      "54.15"
+      "54.15",
+      "36.418"
     ],
     "links": {},
     "bio": "Yale University; Department of Psychiatry, Yale University; Department of Neuroscience, Yale University; Wu Tsai Institute, Yale University"
@@ -3927,7 +3606,8 @@
     "prog": [
       "24.17",
       "51.25",
-      "54.15"
+      "54.15",
+      "36.418"
     ],
     "links": {},
     "bio": "Yale University; Department of Neuroscience, Yale University; Department of Psychology, Yale University; Kavli Institute for Neuroscience, Yale University; Wu Tsai Institute, Yale University"
@@ -3973,10 +3653,17 @@
     ],
     "tags": [],
     "prog": [
-      "24.21"
+      "24.21",
+      "symp-2026-05-15-1345-talk-r",
+      "symp-2026-05-15-1345-talk-r.t01",
+      "23.448",
+      "36.344",
+      "36.350",
+      "36.438",
+      "56.432"
     ],
     "links": {},
-    "bio": "Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland."
+    "bio": "Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland.; Swiss Institute of Technology (EPFL); Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland; Laboratory of Psychophysics, Brain Mind Institute,; Laboratory of Psychophysics, Brain Mind Institute, École; EPFL"
   },
   {
     "id": "marco-bertamini",
@@ -4730,21 +4417,6 @@
     "bio": "Graduate Program in Dynamical Neuroscience, UC Santa Barbara; University of California, Santa Barbara"
   },
   {
-    "id": "sharvan-murlidaran",
-    "name": [
-      "Sharvan",
-      "Murlidaran",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "25.14"
-    ],
-    "links": {},
-    "bio": "Department of Psychological and Brain Sciences, UC Santa Barbara"
-  },
-  {
     "id": "miguel-p-eckstein",
     "name": [
       "Miguel P.",
@@ -4759,7 +4431,9 @@
       "36.444",
       "36.463",
       "43.411",
-      "53.416"
+      "53.416",
+      "36.440",
+      "talksess-2026-05-16-1715-talk-r"
     ],
     "links": {},
     "bio": "Department of Computer Science, UC Santa Barbara; Graduate Program in Dynamical Neuroscience, UC Santa Barbara; Department of Psychological and Brain Sciences, UC Santa Barbara; UC Santa Barbara; University of California, Santa Barbara"
@@ -4876,21 +4550,6 @@
     ],
     "links": {},
     "bio": "Neural Computation Group, Department"
-  },
-  {
-    "id": "miguel-eckstein",
-    "name": [
-      "Miguel",
-      "Eckstein",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "talksess-2026-05-16-1715-talk-r"
-    ],
-    "links": {},
-    "bio": ""
   },
   {
     "id": "serena-wang",
@@ -5062,7 +4721,8 @@
     ],
     "tags": [],
     "prog": [
-      "25.23"
+      "25.23",
+      "36.319"
     ],
     "links": {},
     "bio": "University of California San Diego"
@@ -5097,10 +4757,17 @@
     "tags": [],
     "prog": [
       "25.23",
-      "53.431"
+      "53.431",
+      "42.22",
+      "16.301",
+      "26.415",
+      "33.312",
+      "36.427",
+      "56.427",
+      "56.471"
     ],
     "links": {},
-    "bio": "Dartmouth College"
+    "bio": "Dartmouth College; Department of Psychological and Brain Sciences, Dartmouth College"
   },
   {
     "id": "timothy-f-brady",
@@ -5114,7 +4781,9 @@
     "prog": [
       "25.23",
       "42.14",
-      "56.313"
+      "56.313",
+      "42.22",
+      "36.319"
     ],
     "links": {},
     "bio": "University of California San Diego; Department of Psychology, University of California San Diego, San Diego, CA, USA; Department of Psychology, UCSD"
@@ -5204,23 +4873,6 @@
     "bio": "Penn State University"
   },
   {
-    "id": "gregory-zelinsky",
-    "name": [
-      "Gregory",
-      "Zelinsky",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "25.26",
-      "23.330",
-      "33.340"
-    ],
-    "links": {},
-    "bio": "Stony Brook University"
-  },
-  {
     "id": "ritik-raina",
     "name": [
       "Ritik",
@@ -5276,21 +4928,6 @@
     "bio": "University of California, Berkeley; UC Berkeley"
   },
   {
-    "id": "cate-trentin",
-    "name": [
-      "Cate",
-      "Trentin",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "25.27"
-    ],
-    "links": {},
-    "bio": "Vrije Universiteit Amsterdam; Institute for Brain and"
-  },
-  {
     "id": "chris-n-l-olivers",
     "name": [
       "Chris N.L.",
@@ -5316,7 +4953,8 @@
     "tags": [],
     "prog": [
       "25.27",
-      "36.458"
+      "36.458",
+      "23.430"
     ],
     "links": {},
     "bio": "Vrije Universiteit Amsterdam; Institute for Brain and; Department of Experimental and Applied Psychology, Vrije Universiteit Amsterdam; Institute Brain and Behaviour Amsterdam"
@@ -5378,24 +5016,6 @@
     "tags": [],
     "prog": [
       "31.12"
-    ],
-    "links": {},
-    "bio": "Texas A&M University"
-  },
-  {
-    "id": "brian-anderson",
-    "name": [
-      "Brian",
-      "Anderson",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "31.12",
-      "26.332",
-      "36.436",
-      "36.474"
     ],
     "links": {},
     "bio": "Texas A&M University"
@@ -5472,10 +5092,11 @@
     ],
     "tags": [],
     "prog": [
-      "31.15"
+      "31.15",
+      "42.12"
     ],
     "links": {},
-    "bio": "Vrije Universiteit Amsterdam, the Netherlands"
+    "bio": "Vrije Universiteit Amsterdam, the Netherlands; Vrije Universiteit Amsterdam; Institute Brain and Behavior Amsterdam (iBBA)"
   },
   {
     "id": "gilles-de-hollander",
@@ -5553,40 +5174,6 @@
     ],
     "links": {},
     "bio": "The University of Chicago; Department of Psychology, University of Chicago; Institute for Mind and Biology, University of Chicago"
-  },
-  {
-    "id": "monica-rosenberg",
-    "name": [
-      "Monica",
-      "Rosenberg",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "31.16",
-      "52.11",
-      "36.477"
-    ],
-    "links": {},
-    "bio": "The University of Chicago; University of; University of Chicago"
-  },
-  {
-    "id": "edward-vogel",
-    "name": [
-      "Edward",
-      "Vogel",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "31.16",
-      "36.461",
-      "36.477"
-    ],
-    "links": {},
-    "bio": "The University of Chicago; University of Chicago"
   },
   {
     "id": "bryce-hina",
@@ -5784,21 +5371,6 @@
     "bio": "University of California San Diego"
   },
   {
-    "id": "maria-czarnecka",
-    "name": [
-      "MARIA",
-      "CZARNECKA",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "31.23"
-    ],
-    "links": {},
-    "bio": "Jagiellonian   University"
-  },
-  {
     "id": "florencia-martinez-addiego",
     "name": [
       "Florencia Martinez",
@@ -5900,40 +5472,11 @@
     ],
     "tags": [],
     "prog": [
-      "31.25"
+      "31.25",
+      "33.421"
     ],
     "links": {},
-    "bio": "Harvard University"
-  },
-  {
-    "id": "jacob-s-prince",
-    "name": [
-      "Jacob S",
-      "Prince",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "31.25"
-    ],
-    "links": {},
-    "bio": "Harvard University"
-  },
-  {
-    "id": "george-a-alvarez",
-    "name": [
-      "George A",
-      "Alvarez",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "31.25"
-    ],
-    "links": {},
-    "bio": "Harvard University; Kempner Institute"
+    "bio": "Harvard University; Harvard"
   },
   {
     "id": "talia-konkle",
@@ -5984,56 +5527,6 @@
     ],
     "links": {},
     "bio": ""
-  },
-  {
-    "id": "michael-bonner",
-    "name": [
-      "Michael",
-      "Bonner",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "31.26",
-      "talksess-2026-05-19-1445-talk-r",
-      "23.305",
-      "56.431"
-    ],
-    "links": {},
-    "bio": "Johns Hopkins University"
-  },
-  {
-    "id": "thomas-sprague",
-    "name": [
-      "Thomas",
-      "Sprague",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "talksess-2026-05-17-0815-talk-r",
-      "56.406",
-      "56.449"
-    ],
-    "links": {},
-    "bio": "UC Santa Barbara"
-  },
-  {
-    "id": "rakie-cham",
-    "name": [
-      "Rakie",
-      "Cham",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "32.11"
-    ],
-    "links": {},
-    "bio": "Department of Bioengineering, University of Pittsburgh; Department of Ophthalmology, University of Pittsburgh"
   },
   {
     "id": "galen-holland",
@@ -6139,22 +5632,6 @@
     "tags": [],
     "prog": [
       "32.12"
-    ],
-    "links": {},
-    "bio": "Yale University"
-  },
-  {
-    "id": "nicholas-turk-browne",
-    "name": [
-      "Nicholas",
-      "Turk-Browne",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "32.12",
-      "53.310"
     ],
     "links": {},
     "bio": "Yale University"
@@ -6462,7 +5939,8 @@
     "prog": [
       "32.24",
       "36.461",
-      "56.346"
+      "56.346",
+      "36.314"
     ],
     "links": {},
     "bio": "University of Chicago"
@@ -6569,7 +6047,8 @@
     "tags": [],
     "prog": [
       "34.11",
-      "53.472"
+      "53.472",
+      "43.308"
     ],
     "links": {},
     "bio": "Indiana University Bloomington"
@@ -6656,21 +6135,6 @@
     "name": [
       "Md. Salman",
       "Sarkar",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "34.14"
-    ],
-    "links": {},
-    "bio": "University of Haifa, Israel"
-  },
-  {
-    "id": "bat-sheva-hadad",
-    "name": [
-      "Bat-Sheva",
-      "Hadad",
       "",
       ""
     ],
@@ -6797,10 +6261,11 @@
     ],
     "tags": [],
     "prog": [
-      "34.16"
+      "34.16",
+      "24.14"
     ],
     "links": {},
-    "bio": "Department of Psychology, Stanford University, Stanford, CA, USA."
+    "bio": "Department of Psychology, Stanford University, Stanford, CA, USA.; Stanford University"
   },
   {
     "id": "emily-m-chen",
@@ -6888,10 +6353,11 @@
     "tags": [],
     "prog": [
       "34.17",
-      "33.418"
+      "33.418",
+      "33.419"
     ],
     "links": {},
-    "bio": "The Ohio State University"
+    "bio": "The Ohio State University; The Ohio State Univeristy"
   },
   {
     "id": "lucas-martini",
@@ -6924,21 +6390,6 @@
     "bio": "University of Tuebingen"
   },
   {
-    "id": "anna-bognar",
-    "name": [
-      "Anna",
-      "Bognár",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "34.21"
-    ],
-    "links": {},
-    "bio": "KU Leuven"
-  },
-  {
     "id": "rufin-vogels",
     "name": [
       "Rufin",
@@ -6966,10 +6417,11 @@
     "prog": [
       "34.21",
       "23.447",
-      "53.444"
+      "53.444",
+      "43.336"
     ],
     "links": {},
-    "bio": "University of Tuebingen; Hertie Institute / CIN, University Clinic Tuebingen, Germany; Hertie Institute for Clinical Brain Research (HIH), University of Tuebingen"
+    "bio": "University of Tuebingen; Hertie Institute / CIN, University Clinic Tuebingen, Germany; Hertie Institute for Clinical Brain Research (HIH), University of Tuebingen; Section Computational Sensomotorics, Department N3, Hertie Institute for Clinical Brain Research & Centre for Integrative Neurocience, University Clinic Tübingen, Tübingen, Germany"
   },
   {
     "id": "naama-zur",
@@ -7011,10 +6463,11 @@
     ],
     "tags": [],
     "prog": [
-      "34.22"
+      "34.22",
+      "31.23"
     ],
     "links": {},
-    "bio": "Georgetown University"
+    "bio": "Georgetown University; Jagiellonian   University"
   },
   {
     "id": "jingrun-lin",
@@ -7589,22 +7042,6 @@
     "bio": "University of Oxford; The University of Oxford Centre for Integrative Neuroimaging, FMRIB, Nuffield Department of Clinical Neurosciences, University of Oxford, UK"
   },
   {
-    "id": "matthew-cavanaugh",
-    "name": [
-      "Matthew",
-      "Cavanaugh",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "35.15",
-      "26.310"
-    ],
-    "links": {},
-    "bio": "University of Rochester"
-  },
-  {
     "id": "sara-ajina",
     "name": [
       "Sara",
@@ -7619,23 +7056,6 @@
     ],
     "links": {},
     "bio": "UCL; Wellcome Centre for Human Neuroimaging, UCL Queen Square Institute of Neurology, University College London"
-  },
-  {
-    "id": "krystel-huxlin",
-    "name": [
-      "Krystel",
-      "Huxlin",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "35.15",
-      "26.310",
-      "43.466"
-    ],
-    "links": {},
-    "bio": "University of Rochester; University"
   },
   {
     "id": "marco-tamietto",
@@ -7861,21 +7281,6 @@
     "bio": "Doctoral School of Psychology, Eötvös Loránd University; Institute of Psychology, Eötvös Loránd University; Institute of Cognitive Neuroscience and Psychology, HUN-REN Research Centre for Natural Sciences; Brain, Memory and Language Research Group, Institute of Cognitive Neuroscience and Psychology, HUN-"
   },
   {
-    "id": "bence-c-farkas",
-    "name": [
-      "Bence C.",
-      "Farkas",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "35.17"
-    ],
-    "links": {},
-    "bio": "UVSQ, Inserm, Centre de Recherche en Epidémiologie et Santé des Populations, Université"
-  },
-  {
     "id": "gabor-csifcsak",
     "name": [
       "Gábor",
@@ -7916,10 +7321,11 @@
     "tags": [],
     "prog": [
       "35.17",
-      "43.467"
+      "43.467",
+      "43.469"
     ],
     "links": {},
-    "bio": "Gran Canaria Cognitive Research Center, Atlántico Medio University"
+    "bio": "Gran Canaria Cognitive Research Center, Atlántico Medio University; INSERM"
   },
   {
     "id": "marcello-maniglia",
@@ -7985,24 +7391,6 @@
     ],
     "links": {},
     "bio": "University of Alabama at Birmingham"
-  },
-  {
-    "id": "aaron-seitz",
-    "name": [
-      "Aaron",
-      "Seitz",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "35.18",
-      "23.308",
-      "26.311",
-      "53.310"
-    ],
-    "links": {},
-    "bio": "Northeastern University"
   },
   {
     "id": "carla-lanca",
@@ -8136,7 +7524,9 @@
     ],
     "tags": [],
     "prog": [
-      "35.23"
+      "35.23",
+      "33.429",
+      "36.425"
     ],
     "links": {},
     "bio": "University of Iowa"
@@ -8204,23 +7594,6 @@
     "prog": [
       "35.25",
       "33.330"
-    ],
-    "links": {},
-    "bio": "Emory University"
-  },
-  {
-    "id": "daniel-dilks",
-    "name": [
-      "Daniel",
-      "Dilks",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "35.25",
-      "33.330",
-      "53.301"
     ],
     "links": {},
     "bio": "Emory University"
@@ -8303,22 +7676,6 @@
     "bio": "Brown University"
   },
   {
-    "id": "william-warren",
-    "name": [
-      "William",
-      "Warren",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "35.28",
-      "23.463"
-    ],
-    "links": {},
-    "bio": "Brown University"
-  },
-  {
     "id": "cristina-de-la-malla",
     "name": [
       "Cristina de la",
@@ -8329,10 +7686,11 @@
     "tags": [],
     "prog": [
       "talksess-2026-05-17-1715-talk-r",
-      "33.449"
+      "33.449",
+      "53.438"
     ],
     "links": {},
-    "bio": "Vision and Control of Action (VISCA) Group, Department of Cognition, Development and Psychology of Education, Institut de Neurociències, Universitat de Barcelona, Barcelona, Catalonia, Spain"
+    "bio": "Vision and Control of Action (VISCA) Group, Department of Cognition, Development and Psychology of Education, Institut de Neurociències, Universitat de Barcelona, Barcelona, Catalonia, Spain; University of Barcelona"
   },
   {
     "id": "shivang-shelat",
@@ -8361,7 +7719,9 @@
     "prog": [
       "41.11",
       "56.352",
-      "56.448"
+      "56.448",
+      "42.11",
+      "23.347"
     ],
     "links": {},
     "bio": "University of California, Santa Barbara; University of California, Santa"
@@ -8443,23 +7803,6 @@
     ],
     "links": {},
     "bio": "Laboratory of Brain and Cognition, National Institutes of"
-  },
-  {
-    "id": "chris-baker",
-    "name": [
-      "Chris",
-      "Baker",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "41.13",
-      "43.436",
-      "53.465"
-    ],
-    "links": {},
-    "bio": "Laboratory of Brain and Cognition, National Institutes of; Laboratory of Brain and Cognition, National Institute of Mental Health; National Institute of Mental Health"
   },
   {
     "id": "carola-dolci",
@@ -8564,10 +7907,13 @@
       "41.15",
       "52.11",
       "53.410",
-      "56.403"
+      "56.403",
+      "31.16",
+      "36.461",
+      "36.477"
     ],
     "links": {},
-    "bio": "Department of Psychology, University of Chicago; Institute for Mind and Biology, University of Chicago; Neuroscience Institute, University of Chicago; University of; University of Chicago"
+    "bio": "Department of Psychology, University of Chicago; Institute for Mind and Biology, University of Chicago; Neuroscience Institute, University of Chicago; University of; University of Chicago; The University of Chicago"
   },
   {
     "id": "monica-d-rosenberg",
@@ -8579,10 +7925,13 @@
     ],
     "tags": [],
     "prog": [
-      "41.15"
+      "41.15",
+      "31.16",
+      "52.11",
+      "36.477"
     ],
     "links": {},
-    "bio": "Department of Psychology, University of Chicago; Institute for Mind and Biology, University of Chicago; Neuroscience Institute, University of Chicago"
+    "bio": "Department of Psychology, University of Chicago; Institute for Mind and Biology, University of Chicago; Neuroscience Institute, University of Chicago; The University of Chicago; University of; University of Chicago"
   },
   {
     "id": "matthew-junker",
@@ -8624,10 +7973,12 @@
     ],
     "tags": [],
     "prog": [
-      "41.16"
+      "41.16",
+      "42.23",
+      "53.304"
     ],
     "links": {},
-    "bio": "University of"
+    "bio": "University of; University of Colorado Boulder"
   },
   {
     "id": "rong-jiang",
@@ -8691,10 +8042,12 @@
     "tags": [],
     "prog": [
       "41.22",
-      "36.411"
+      "36.411",
+      "22.21",
+      "23.439"
     ],
     "links": {},
-    "bio": "University of Rochester"
+    "bio": "University of Rochester; Peking University, Beijing, China; Peking University"
   },
   {
     "id": "jonathan-d-victor",
@@ -8823,55 +8176,10 @@
     "bio": "UC Berkeley"
   },
   {
-    "id": "daniel-d-thayer-2",
-    "name": [
-      "Daniel D",
-      "Thayer",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "42.11"
-    ],
-    "links": {},
-    "bio": "University of California, Santa"
-  },
-  {
-    "id": "thomas-c-sprague",
-    "name": [
-      "Thomas C",
-      "Sprague",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "42.11"
-    ],
-    "links": {},
-    "bio": "University of California, Santa"
-  },
-  {
     "id": "guven-kandemir",
     "name": [
       "Güven",
       "Kandemir",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "42.12"
-    ],
-    "links": {},
-    "bio": "Vrije Universiteit Amsterdam; Institute Brain and Behavior Amsterdam (iBBA)"
-  },
-  {
-    "id": "docky-duncan",
-    "name": [
-      "Docky",
-      "Duncan",
       "",
       ""
     ],
@@ -8896,23 +8204,6 @@
     ],
     "links": {},
     "bio": "Universiteit Utrecht"
-  },
-  {
-    "id": "jeremy-wolfe",
-    "name": [
-      "Jeremy",
-      "Wolfe",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "42.13",
-      "26.326",
-      "26.410"
-    ],
-    "links": {},
-    "bio": "Brigham and Womens Hospital / Harvard Med; Brigham and Women's Hospital; Harvard Medical School"
   },
   {
     "id": "cailey-tennyson",
@@ -9029,10 +8320,12 @@
       "42.15",
       "26.320",
       "36.435",
-      "36.445"
+      "36.445",
+      "33.428",
+      "36.451"
     ],
     "links": {},
-    "bio": "Center for Mind and Brain, University of California Davis; Department of Psychology, University of California; University of California, Davis; Department of Psychology, University of California, Davis; Center for Mind and Brain, University of California,"
+    "bio": "Center for Mind and Brain, University of California Davis; Department of Psychology, University of California; University of California, Davis; Department of Psychology, University of California, Davis; Center for Mind and Brain, University of California,; UC Davis"
   },
   {
     "id": "haiye-liu",
@@ -9062,7 +8355,8 @@
       "42.16",
       "36.432",
       "36.437",
-      "53.404"
+      "53.404",
+      "56.358"
     ],
     "links": {},
     "bio": "University of Illinois Urbana-Champaign; University of Illinois; University of Illinois, Urbana Champaign"
@@ -9148,7 +8442,9 @@
       "42.21",
       "36.302",
       "43.471",
-      "53.454"
+      "53.454",
+      "32.12",
+      "53.310"
     ],
     "links": {},
     "bio": "Yale University; Department of Psychology, Yale University; Wu-Tsai Institute, Yale University; Wu Tsai Institute"
@@ -9199,43 +8495,6 @@
     "bio": "Dartmouth College"
   },
   {
-    "id": "timothy-brady",
-    "name": [
-      "Timothy",
-      "Brady",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "42.22",
-      "36.319"
-    ],
-    "links": {},
-    "bio": "University of California San Diego"
-  },
-  {
-    "id": "viola-stormer",
-    "name": [
-      "Viola",
-      "Störmer",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "42.22",
-      "16.301",
-      "26.415",
-      "33.312",
-      "36.427",
-      "56.427",
-      "56.471"
-    ],
-    "links": {},
-    "bio": "Dartmouth College; Department of Psychological and Brain Sciences, Dartmouth College"
-  },
-  {
     "id": "rosemary-cowell",
     "name": [
       "Rosemary",
@@ -9265,22 +8524,6 @@
     ],
     "links": {},
     "bio": "University of"
-  },
-  {
-    "id": "david-huber",
-    "name": [
-      "David",
-      "Huber",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "42.23",
-      "53.304"
-    ],
-    "links": {},
-    "bio": "University of; University of Colorado Boulder"
   },
   {
     "id": "hong-b-nguyen",
@@ -9360,23 +8603,6 @@
     "bio": "University of Toronto Mississauga"
   },
   {
-    "id": "wilma-bainbridge",
-    "name": [
-      "Wilma",
-      "Bainbridge",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "42.26",
-      "26.435",
-      "53.459"
-    ],
-    "links": {},
-    "bio": "University of Chicago"
-  },
-  {
     "id": "jessica-n-goetz",
     "name": [
       "Jessica N.",
@@ -9405,7 +8631,8 @@
     "prog": [
       "51.11",
       "33.444",
-      "33.466"
+      "33.466",
+      "33.430"
     ],
     "links": {},
     "bio": "University of Central Florida; University of"
@@ -9850,21 +9077,6 @@
     "bio": "Cognition and Brain Science, School of Psychology, Georgia Institute of Technology; Computational Cognition, Georgia Institute of Technology; Center of; Cognition and Brain Science, School of Psychology, Georgia Tech, Atlanta, GA 30332; Center of Excellence in Computational Cognition, Georgia Tech, Atlanta, GA 30332; Cognition and Brain Science, Georgia Institute of Technology; Center for Computational Cognition, Georgia Institute of Technology"
   },
   {
-    "id": "alessandro-gifford",
-    "name": [
-      "Alessandro",
-      "Gifford",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "51.22"
-    ],
-    "links": {},
-    "bio": "Freie Universität Berlin"
-  },
-  {
     "id": "domenic-bersch",
     "name": [
       "Domenic",
@@ -9911,22 +9123,6 @@
     "bio": "Goethe Universität; Goethe University Frankfurt, Department of Computer Science; The Hessian Center for Artificial"
   },
   {
-    "id": "radoslaw-cichy",
-    "name": [
-      "Radoslaw",
-      "Cichy",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "51.22",
-      "56.419"
-    ],
-    "links": {},
-    "bio": "Freie Universität Berlin"
-  },
-  {
     "id": "margaret-m-henderson",
     "name": [
       "Margaret M",
@@ -9936,7 +9132,8 @@
     ],
     "tags": [],
     "prog": [
-      "51.23"
+      "51.23",
+      "51.26"
     ],
     "links": {},
     "bio": "Carnegie Mellon University"
@@ -9951,31 +9148,19 @@
     ],
     "tags": [],
     "prog": [
-      "51.23"
+      "51.23",
+      "symp-2026-05-15-1345-talk-r.t05",
+      "51.26",
+      "23.436"
     ],
     "links": {},
-    "bio": "University of Hong Kong"
+    "bio": "University of Hong Kong; University of Hong"
   },
   {
     "id": "sungjoon-park",
     "name": [
       "Sungjoon",
       "Park",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "51.23"
-    ],
-    "links": {},
-    "bio": "Carnegie Mellon University"
-  },
-  {
-    "id": "michael-j-tarr",
-    "name": [
-      "Michael J",
-      "Tarr",
       "",
       ""
     ],
@@ -10013,21 +9198,6 @@
     "prog": [
       "51.24",
       "23.436"
-    ],
-    "links": {},
-    "bio": "Columbia University"
-  },
-  {
-    "id": "fan-cheng",
-    "name": [
-      "Fan",
-      "Cheng",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "51.24"
     ],
     "links": {},
     "bio": "Columbia University"
@@ -10095,36 +9265,6 @@
     "bio": "University of Hong Kong"
   },
   {
-    "id": "margaret-henderson",
-    "name": [
-      "Margaret",
-      "Henderson",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "51.26"
-    ],
-    "links": {},
-    "bio": "Carnegie Mellon University"
-  },
-  {
-    "id": "michael-tarr",
-    "name": [
-      "Michael",
-      "Tarr",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "51.26"
-    ],
-    "links": {},
-    "bio": "Carnegie Mellon University"
-  },
-  {
     "id": "chong-zhao",
     "name": [
       "Chong",
@@ -10187,7 +9327,10 @@
       "36.315",
       "53.458",
       "56.309",
-      "56.417"
+      "56.417",
+      "42.26",
+      "26.435",
+      "53.459"
     ],
     "links": {},
     "bio": "The University of Chicago; University of Chicago,; Department   of Psychology, University of Chicago; University of Chicago; Institute for Mind and Biology; Neuroscience Institute"
@@ -10408,23 +9551,6 @@
     "bio": "University"
   },
   {
-    "id": "alan-stocker",
-    "name": [
-      "Alan",
-      "Stocker",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "52.22",
-      "talksess-2026-05-19-1045-talk-r",
-      "33.471"
-    ],
-    "links": {},
-    "bio": "University of Pennsylvania"
-  },
-  {
     "id": "jongmin-moon",
     "name": [
       "Jongmin",
@@ -10599,21 +9725,6 @@
     "bio": "Department of Cognitive Sciences, University of California Irvine; Center for Theoretical Behavioral Sciences, University of California Irvine; Center for the Neurobiology of Learning & Memory, University of California Irvine"
   },
   {
-    "id": "megan-a-k-peters",
-    "name": [
-      "Megan A.K.",
-      "Peters",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "52.26"
-    ],
-    "links": {},
-    "bio": "Department of Cognitive Sciences, University of California Irvine; Center for Theoretical Behavioral Sciences, University of California Irvine; Center for the Neurobiology of Learning & Memory, University of California Irvine; Department of Logic & Philosophy of Science, University of California Irvine; Department of Experimental Psychology, University College London; Program in Brain, Mind, & Consciousness, Canadian Institute for Advanced Research"
-  },
-  {
     "id": "hyun-jun-jeon",
     "name": [
       "Hyun-Jun",
@@ -10654,10 +9765,11 @@
     "tags": [],
     "prog": [
       "54.11",
-      "53.422"
+      "53.422",
+      "55.27"
     ],
     "links": {},
-    "bio": "UNIST; Department of Biomedical Engineering, Ulsan National Institute of Science and Technology, South Korea"
+    "bio": "UNIST; Department of Biomedical Engineering, Ulsan National Institute of Science and Technology, South Korea; Ulsan National Institute of Science and Technology"
   },
   {
     "id": "tanish-mendki",
@@ -10745,7 +9857,11 @@
     ],
     "tags": [],
     "prog": [
-      "54.13"
+      "54.13",
+      "31.26",
+      "talksess-2026-05-19-1445-talk-r",
+      "23.305",
+      "56.431"
     ],
     "links": {},
     "bio": "Johns Hopkins University"
@@ -10808,7 +9924,9 @@
     "tags": [],
     "prog": [
       "54.17",
-      "33.338"
+      "33.338",
+      "31.25",
+      "26.464"
     ],
     "links": {},
     "bio": "Harvard University"
@@ -10918,7 +10036,9 @@
     ],
     "tags": [],
     "prog": [
-      "54.17"
+      "54.17",
+      "51.23",
+      "51.26"
     ],
     "links": {},
     "bio": "Carnegie Mellon University"
@@ -10934,10 +10054,15 @@
     "tags": [],
     "prog": [
       "54.17",
-      "56.418"
+      "56.418",
+      "31.25",
+      "26.464",
+      "33.460",
+      "43.304",
+      "56.423"
     ],
     "links": {},
-    "bio": "Harvard University; Kempner Institute for the Study of Natural and"
+    "bio": "Harvard University; Kempner Institute for the Study of Natural and; Kempner Institute; Kempner Institute for the Study of Natural and Artificial Intelligence at; Kempner Instutite for the Study of"
   },
   {
     "id": "kendrick-n-kay",
@@ -10949,10 +10074,15 @@
     ],
     "tags": [],
     "prog": [
-      "54.17"
+      "54.17",
+      "symp-2026-05-15-1030-talk-r",
+      "symp-2026-05-15-1030-talk-r.t01",
+      "33.334",
+      "33.338",
+      "43.409"
     ],
     "links": {},
-    "bio": "University of Minnesota"
+    "bio": "University of Minnesota; Center for Magnetic Resonance Research (CMRR), Department of Radiology, University of Minnesota, Minneapolis, Minnesota, USA"
   },
   {
     "id": "hyun-seo-lee",
@@ -10979,10 +10109,11 @@
     ],
     "tags": [],
     "prog": [
-      "54.22"
+      "54.22",
+      "25.14"
     ],
     "links": {},
-    "bio": "UC Santa Barbara"
+    "bio": "UC Santa Barbara; Department of Psychological and Brain Sciences, UC Santa Barbara"
   },
   {
     "id": "carmen-amme",
@@ -11076,22 +10207,6 @@
     ],
     "links": {},
     "bio": "Institute of Cognitive Science, Osnabrück University; Department of Neurophysiology and Pathophysiology, Center of Experimental Medicine, University Medical Center Hamburg-Eppendorf"
-  },
-  {
-    "id": "tim-kietzmann",
-    "name": [
-      "Tim",
-      "Kietzmann",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "54.23",
-      "56.419"
-    ],
-    "links": {},
-    "bio": "Institute of Cognitive Science, Osnabrück University; Osnabrück University"
   },
   {
     "id": "stefan-pollmann",
@@ -11195,7 +10310,8 @@
     "prog": [
       "54.26",
       "16.323",
-      "43.422"
+      "43.422",
+      "56.323"
     ],
     "links": {},
     "bio": "University of Pittsburgh; Center for the Neural Basis of Cognition"
@@ -11276,21 +10392,6 @@
     ],
     "links": {},
     "bio": "University of Modena-Reggio"
-  },
-  {
-    "id": "silvio-p-sabatini",
-    "name": [
-      "Silvio P.",
-      "Sabatini",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "54.27"
-    ],
-    "links": {},
-    "bio": "University of Genova"
   },
   {
     "id": "seonggyu-choe",
@@ -11407,7 +10508,8 @@
     ],
     "tags": [],
     "prog": [
-      "55.13"
+      "55.13",
+      "talksess-2026-05-19-1715-talk-r"
     ],
     "links": {},
     "bio": ""
@@ -11535,7 +10637,8 @@
     "tags": [],
     "prog": [
       "55.15",
-      "33.301"
+      "33.301",
+      "56.348"
     ],
     "links": {},
     "bio": "Reality Lab Research, Meta"
@@ -11552,10 +10655,11 @@
     "prog": [
       "55.15",
       "33.301",
-      "56.348"
+      "56.348",
+      "22.11"
     ],
     "links": {},
-    "bio": "Department of Psychology, University of Pennsylvania"
+    "bio": "Department of Psychology, University of Pennsylvania; University of Pennsylvania"
   },
   {
     "id": "alex-h-williams",
@@ -11569,10 +10673,11 @@
     "prog": [
       "55.15",
       "33.301",
-      "43.426"
+      "43.426",
+      "56.348"
     ],
     "links": {},
-    "bio": "Center of Neural Science, New York University; Center for Neural Science, New York University; Center for Computational Neuroscience, Flatiron Institute"
+    "bio": "Center of Neural Science, New York University; Center for Neural Science, New York University; Center for Computational Neuroscience, Flatiron Institute; New York University, Center of Neural Science"
   },
   {
     "id": "fatemeh-charkhtab-basim",
@@ -11699,21 +10804,6 @@
     "bio": "Justus Liebig University"
   },
   {
-    "id": "rhea-eskew",
-    "name": [
-      "Rhea",
-      "Eskew",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "talksess-2026-05-19-1715-talk-r"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
     "id": "krischan-koerfer",
     "name": [
       "Krischan",
@@ -11759,21 +10849,6 @@
     ],
     "links": {},
     "bio": "Institute for Psychology and Otto Creutzfeldt Center for Cognitive and Behavioral Neuroscience, University of Münster; University of Muenster"
-  },
-  {
-    "id": "jude-mitchell",
-    "name": [
-      "Jude",
-      "Mitchell",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "55.21"
-    ],
-    "links": {},
-    "bio": "Brain and Cognitive Sciences, University of Rochester; Center of Visual Science, University of Rochester"
   },
   {
     "id": "nathaniel-powell",
@@ -11826,21 +10901,6 @@
     "bio": "University of"
   },
   {
-    "id": "xuexin-wei",
-    "name": [
-      "Xuexin",
-      "Wei",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "55.22"
-    ],
-    "links": {},
-    "bio": "University of Texas at Austin"
-  },
-  {
     "id": "penny-shuyi-chen",
     "name": [
       "Penny-Shuyi",
@@ -11866,10 +10926,11 @@
     ],
     "tags": [],
     "prog": [
-      "55.23"
+      "55.23",
+      "53.429"
     ],
     "links": {},
-    "bio": "Fuster Laboratory for Cognitive Neuroscience UCLA; Department of Ophthalmology UCLA"
+    "bio": "Fuster Laboratory for Cognitive Neuroscience UCLA; Department of Ophthalmology UCLA; Fuster Laboratory for Cognitive"
   },
   {
     "id": "alexander-c-huk",
@@ -11881,10 +10942,13 @@
     ],
     "tags": [],
     "prog": [
-      "55.23"
+      "55.23",
+      "36.331",
+      "33.425",
+      "53.429"
     ],
     "links": {},
-    "bio": "Fuster Laboratory for Cognitive Neuroscience UCLA; Department of Psychiatry & Biobehavioral sciences UCLA"
+    "bio": "Fuster Laboratory for Cognitive Neuroscience UCLA; Department of Psychiatry & Biobehavioral sciences UCLA; University of California Los Angeles; University of California, Los Angeles; Fuster Laboratory for Cognitive"
   },
   {
     "id": "christian-micheloni",
@@ -11992,21 +11056,6 @@
     "bio": "Ulsan National Institute of Science and Technology"
   },
   {
-    "id": "oh-sang-kwon-2",
-    "name": [
-      "Oh-sang",
-      "Kwon",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "55.27"
-    ],
-    "links": {},
-    "bio": "Ulsan National Institute of Science and Technology"
-  },
-  {
     "id": "anthony-loprete",
     "name": [
       "Anthony",
@@ -12050,7 +11099,8 @@
     "prog": [
       "16.301",
       "33.349",
-      "56.344"
+      "56.344",
+      "16.303"
     ],
     "links": {},
     "bio": "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand; Division of Neurology, Department of Medicine, Faculty of Medicine, King Chulalongkorn Memorial Hospital, Thai Red Cross Society, Bangkok, Thailand; Chula Neuroscience Center, King Chulalongkorn Memorial Hospital, Thai Red Cross Society, Bangkok, Thailand; Medical sciences program, Division of Neuroscience, Faculty of Medicine, Chulalongkorn university, Bangkok, Thailand; Medical Sciences, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand"
@@ -12086,21 +11136,6 @@
     "bio": "South China Normal University"
   },
   {
-    "id": "hui-chen",
-    "name": [
-      "hui",
-      "chen",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "16.302"
-    ],
-    "links": {},
-    "bio": "Zhejiang University"
-  },
-  {
     "id": "kanokwanwijit-wongsook",
     "name": [
       "Kanokwanwijit",
@@ -12114,21 +11149,6 @@
     ],
     "links": {},
     "bio": "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand"
-  },
-  {
-    "id": "payachana-chareunsouk",
-    "name": [
-      "Payachana",
-      "Chareunsouk",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "16.303"
-    ],
-    "links": {},
-    "bio": "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand; Medical sciences program, Division of Neuroscience, Faculty of Medicine, Chulalongkorn university, Bangkok, Thailand"
   },
   {
     "id": "sedthapong-chunamchai",
@@ -12176,21 +11196,6 @@
     ],
     "links": {},
     "bio": "University of Zagreb"
-  },
-  {
-    "id": "paul-bays",
-    "name": [
-      "Paul",
-      "Bays",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "16.304"
-    ],
-    "links": {},
-    "bio": "University of Cambridge"
   },
   {
     "id": "li-gong",
@@ -12320,21 +11325,6 @@
     ],
     "links": {},
     "bio": "The Lausanne University Hospital and University of Lausanne; The Sense Innovation and Research Center"
-  },
-  {
-    "id": "david-lewkowicz",
-    "name": [
-      "David",
-      "Lewkowicz",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "16.307"
-    ],
-    "links": {},
-    "bio": "Child Study Center, Yale School of Medicine"
   },
   {
     "id": "rea-gill",
@@ -12510,21 +11500,6 @@
     ],
     "links": {},
     "bio": "Rutgers University"
-  },
-  {
-    "id": "samuel-mcdougle",
-    "name": [
-      "Samuel",
-      "McDougle",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "16.311"
-    ],
-    "links": {},
-    "bio": "Yale University"
   },
   {
     "id": "zekun-sun",
@@ -12715,40 +11690,10 @@
     "bio": "University"
   },
   {
-    "id": "ryan-ringer",
-    "name": [
-      "Ryan",
-      "Ringer",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "16.317"
-    ],
-    "links": {},
-    "bio": "University of Colorado, Denver"
-  },
-  {
     "id": "mia-jannika-lim",
     "name": [
       "Mia Jannika",
       "Lim",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "16.317"
-    ],
-    "links": {},
-    "bio": "University of Colorado, Denver"
-  },
-  {
-    "id": "carly-leonard",
-    "name": [
-      "Carly",
-      "Leonard",
       "",
       ""
     ],
@@ -13454,10 +12399,12 @@
     ],
     "tags": [],
     "prog": [
-      "16.332"
+      "16.332",
+      "34.14",
+      "43.433"
     ],
     "links": {},
-    "bio": "University of Haifa"
+    "bio": "University of Haifa; University of Haifa, Israel"
   },
   {
     "id": "mayan-navon",
@@ -13878,10 +12825,11 @@
     "tags": [],
     "prog": [
       "16.340",
-      "23.460"
+      "23.460",
+      "23.453"
     ],
     "links": {},
-    "bio": "Central European University; Center; Center for"
+    "bio": "Central European University; Center; Center for; Center for Cognitive Computation"
   },
   {
     "id": "ali-feza-karahaliloglu",
@@ -13909,10 +12857,12 @@
     "tags": [],
     "prog": [
       "16.341",
-      "26.470"
+      "26.470",
+      "23.480",
+      "53.446"
     ],
     "links": {},
-    "bio": "Bilkent University; Bilkent University, Ankara, Turkey; Aysel Sabuncu Brain Research Center and National Magnetic Resonance Research Center (UMRAM), Bilkent University, Ankara, Turkey"
+    "bio": "Bilkent University; Bilkent University, Ankara, Turkey; Aysel Sabuncu Brain Research Center and National Magnetic Resonance Research Center (UMRAM), Bilkent University, Ankara, Turkey; Aysel Sabuncu Brain Research Center, Ankara,"
   },
   {
     "id": "yasmin-abuwi",
@@ -13970,7 +12920,9 @@
     "tags": [],
     "prog": [
       "16.342",
-      "26.318"
+      "26.318",
+      "15.11",
+      "56.462"
     ],
     "links": {},
     "bio": "Arcadia University"
@@ -14148,22 +13100,6 @@
     "bio": "University of Pennsylvania"
   },
   {
-    "id": "samantha-a-montoya",
-    "name": [
-      "Samantha A",
-      "Montoya",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "16.350",
-      "23.334"
-    ],
-    "links": {},
-    "bio": "University of Pennsylvania"
-  },
-  {
     "id": "kristina-kitsul",
     "name": [
       "Kristina",
@@ -14189,7 +13125,10 @@
     "tags": [],
     "prog": [
       "16.350",
-      "23.334"
+      "23.334",
+      "52.22",
+      "talksess-2026-05-19-1045-talk-r",
+      "33.471"
     ],
     "links": {},
     "bio": "University of Pennsylvania"
@@ -14225,21 +13164,6 @@
     ],
     "links": {},
     "bio": "Department of Psychology, University of Minnesota - Twin Cities; Department of Psychology, University of Minnesota College of Liberal Arts; Department of Neuroscience, University of Minnesota School of Medicine"
-  },
-  {
-    "id": "brock-carlson",
-    "name": [
-      "Brock",
-      "Carlson",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "16.352"
-    ],
-    "links": {},
-    "bio": "Department of Psychology, University of Minnesota - Twin Cities"
   },
   {
     "id": "ryan-holland",
@@ -14411,10 +13335,12 @@
       "16.354",
       "26.452",
       "36.409",
-      "43.474"
+      "43.474",
+      "26.453",
+      "53.426"
     ],
     "links": {},
-    "bio": "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of; National Institutes of Health; Laboratory of Sensorimotor Research, Section on; National Eye Institute, National Institutes of Health; National Institute of Mental Health, National Institutes of Health; University of Maryland, College Park"
+    "bio": "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of; National Institutes of Health; Laboratory of Sensorimotor Research, Section on; National Eye Institute, National Institutes of Health; National Institute of Mental Health, National Institutes of Health; University of Maryland, College Park; National Eye Institute; National Institute of Mental   for Empirical Aesthetics, Frankfurt am Main, Germany"
   },
   {
     "id": "ana-ramirez",
@@ -14578,10 +13504,11 @@
     ],
     "tags": [],
     "prog": [
-      "16.358"
+      "16.358",
+      "33.427"
     ],
     "links": {},
-    "bio": "Massachusetts Institute of Technology"
+    "bio": "Massachusetts Institute of Technology; MIT McGovern Institute for Brain Research"
   },
   {
     "id": "corey-m-ziemba-2",
@@ -14594,10 +13521,12 @@
     "tags": [],
     "prog": [
       "16.358",
-      "16.359"
+      "16.359",
+      "22.22",
+      "23.353"
     ],
     "links": {},
-    "bio": "National Eye Institute; National Institutes of Health"
+    "bio": "National Eye Institute; National Institutes of Health; Laboratory of Sensorimotor Research, NEI, Bethesda, MD; Labratory of Sensorimotor Research, National Eye Institute, Bethesda, MD"
   },
   {
     "id": "olivier-j-henaff",
@@ -14673,10 +13602,13 @@
     "tags": [],
     "prog": [
       "16.359",
-      "56.354"
+      "56.354",
+      "23.353",
+      "23.351",
+      "43.346"
     ],
     "links": {},
-    "bio": "National Institutes of Health; National Institute of Mental Health"
+    "bio": "National Institutes of Health; National Institute of Mental Health; Laboratory of Brain and Cognition, National Institute of Mental Health, Bethesda, MD; National Institute"
   },
   {
     "id": "teruaki-kido",
@@ -14725,21 +13657,6 @@
     "bio": "Department Of Psychology, Neuroscience & Behaviour, McMaster University"
   },
   {
-    "id": "jamie-g-e-cochrane",
-    "name": [
-      "Jamie G.E",
-      "Cochrane",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.302"
-    ],
-    "links": {},
-    "bio": "Department Of Psychology, Neuroscience & Behaviour, McMaster University"
-  },
-  {
     "id": "allison-b-sekuler",
     "name": [
       "Allison B.",
@@ -14752,10 +13669,11 @@
       "23.302",
       "23.303",
       "36.339",
-      "36.349"
+      "36.349",
+      "43.328"
     ],
     "links": {},
-    "bio": "Department Of Psychology, Neuroscience & Behaviour, McMaster University; Rotman Research Institute, Baycrest Academy for Research and Education; Department Of Psychology, University of Toronto; Department of Psychology, Neuroscience and Behaviour, McMaster University; Department of Psychology, University of; Department of Psychology, Neuroscience, and Behaviour, McMaster University; Rotman Research Institute, Baycrest Academy for Research and Education, Toronto, Canada; Department of Psychology, University of Toronto; Department of Psychology, Neuroscience & Behaviour, McMaster University,"
+    "bio": "Department Of Psychology, Neuroscience & Behaviour, McMaster University; Rotman Research Institute, Baycrest Academy for Research and Education; Department Of Psychology, University of Toronto; Department of Psychology, Neuroscience and Behaviour, McMaster University; Department of Psychology, University of; Department of Psychology, Neuroscience, and Behaviour, McMaster University; Rotman Research Institute, Baycrest Academy for Research and Education, Toronto, Canada; Department of Psychology, University of Toronto; Department of Psychology, Neuroscience & Behaviour, McMaster University,; Department of Psychology, Neuroscience & Behaviour, McMaster University"
   },
   {
     "id": "patrick-j-bennett",
@@ -14770,10 +13688,11 @@
       "23.302",
       "23.303",
       "36.339",
-      "36.349"
+      "36.349",
+      "33.477"
     ],
     "links": {},
-    "bio": "Department Of Psychology, Neuroscience & Behaviour, McMaster University; Department of Psychology, Neuroscience and Behaviour, McMaster University; Department of Psychology, Neuroscience, and Behaviour, McMaster University; Department of Psychology, Neuroscience & Behaviour, McMaster University,"
+    "bio": "Department Of Psychology, Neuroscience & Behaviour, McMaster University; Department of Psychology, Neuroscience and Behaviour, McMaster University; Department of Psychology, Neuroscience, and Behaviour, McMaster University; Department of Psychology, Neuroscience & Behaviour, McMaster University,; McMaster University"
   },
   {
     "id": "jamie-g-e-cochrane-2",
@@ -14785,10 +13704,11 @@
     ],
     "tags": [],
     "prog": [
-      "23.303"
+      "23.303",
+      "23.302"
     ],
     "links": {},
-    "bio": "Department of Psychology, Neuroscience and Behaviour, McMaster University"
+    "bio": "Department of Psychology, Neuroscience and Behaviour, McMaster University; Department Of Psychology, Neuroscience & Behaviour, McMaster University"
   },
   {
     "id": "asaf-ali-altun",
@@ -15004,7 +13924,8 @@
     "prog": [
       "23.309",
       "23.424",
-      "36.310"
+      "36.310",
+      "23.326"
     ],
     "links": {},
     "bio": "Yale University; Wu Tsai Institute"
@@ -15036,10 +13957,12 @@
     "prog": [
       "23.310",
       "23.312",
-      "23.318"
+      "23.318",
+      "23.311",
+      "56.407"
     ],
     "links": {},
-    "bio": "Sabancı University Working memory (WM) is vulnerable to interference, whereas; Sabanci University, Istanbul; Sabancı University, Turkey"
+    "bio": "Sabancı University Working memory (WM) is vulnerable to interference, whereas; Sabanci University, Istanbul; Sabancı University, Turkey; Sabanci University"
   },
   {
     "id": "ilayda-efsane-algn",
@@ -15052,22 +13975,6 @@
     "tags": [],
     "prog": [
       "23.311"
-    ],
-    "links": {},
-    "bio": "Sabanci University"
-  },
-  {
-    "id": "eren-gunseli-2",
-    "name": [
-      "Eren",
-      "Gunseli",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.311",
-      "56.407"
     ],
     "links": {},
     "bio": "Sabanci University"
@@ -15100,7 +14007,8 @@
       "23.314",
       "23.474",
       "53.357",
-      "56.444"
+      "56.444",
+      "16.302"
     ],
     "links": {},
     "bio": "Zhejiang University, Hangzhou, China; Zhejiang University; Department of Psychology and Behavioral Sciences, Zhejiang University"
@@ -15272,10 +14180,11 @@
     ],
     "tags": [],
     "prog": [
-      "23.318"
+      "23.318",
+      "25.27"
     ],
     "links": {},
-    "bio": "Vrije Universiteit Amsterdam"
+    "bio": "Vrije Universiteit Amsterdam; Institute for Brain and"
   },
   {
     "id": "christian-olivers",
@@ -15304,7 +14213,10 @@
     "prog": [
       "23.319",
       "33.339",
-      "33.342"
+      "33.342",
+      "25.26",
+      "23.330",
+      "33.340"
     ],
     "links": {},
     "bio": "Stony Brook University"
@@ -15323,21 +14235,6 @@
     ],
     "links": {},
     "bio": "The George Washington University"
-  },
-  {
-    "id": "dwight-kravitz",
-    "name": [
-      "Dwight",
-      "Kravitz",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.320"
-    ],
-    "links": {},
-    "bio": "The George Washington University; US National Science Foundation (SBE/BCS)"
   },
   {
     "id": "caroline-myers",
@@ -15545,21 +14442,6 @@
     "bio": "University of California, Santa Cruz"
   },
   {
-    "id": "anna-nobre",
-    "name": [
-      "Anna",
-      "Nobre",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.326"
-    ],
-    "links": {},
-    "bio": "Yale University"
-  },
-  {
     "id": "yoojeong-choo",
     "name": [
       "Yoojeong",
@@ -15738,36 +14620,6 @@
     "bio": "Biomedical Engineering, University of Florida; UNIVERSITY OF FLORIDA"
   },
   {
-    "id": "eben-daggett",
-    "name": [
-      "Eben",
-      "Daggett",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.332"
-    ],
-    "links": {},
-    "bio": "New Mexico State University"
-  },
-  {
-    "id": "giovanna-del-sordo",
-    "name": [
-      "Giovanna Del",
-      "Sordo",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.332"
-    ],
-    "links": {},
-    "bio": "New Mexico State University"
-  },
-  {
     "id": "jon-art",
     "name": [
       "Jon",
@@ -15779,21 +14631,6 @@
     "prog": [
       "23.332",
       "53.329"
-    ],
-    "links": {},
-    "bio": "New Mexico State University"
-  },
-  {
-    "id": "michael-hout",
-    "name": [
-      "Michael",
-      "Hout",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.332"
     ],
     "links": {},
     "bio": "New Mexico State University"
@@ -16022,7 +14859,8 @@
     ],
     "tags": [],
     "prog": [
-      "23.339"
+      "23.339",
+      "33.318"
     ],
     "links": {},
     "bio": "University of New Hampshire"
@@ -16212,36 +15050,6 @@
     "bio": "UCSB"
   },
   {
-    "id": "daniel-thayer",
-    "name": [
-      "Daniel",
-      "Thayer",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.347"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "tommy-sprague",
-    "name": [
-      "Tommy",
-      "Sprague",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.347"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
     "id": "charles-t-demczuk",
     "name": [
       "Charles T.",
@@ -16284,7 +15092,10 @@
       "23.348",
       "33.316",
       "33.344",
-      "36.318"
+      "36.318",
+      "26.436",
+      "56.349",
+      "56.465"
     ],
     "links": {},
     "bio": "The Ohio State University; Ohio State University"
@@ -16410,22 +15221,6 @@
     "bio": "Georgetown University Medical Center"
   },
   {
-    "id": "elisha-merriam",
-    "name": [
-      "Elisha",
-      "Merriam",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.351",
-      "43.346"
-    ],
-    "links": {},
-    "bio": "National Institute of Mental Health; National Institute"
-  },
-  {
     "id": "laurentius-huber",
     "name": [
       "Laurentius",
@@ -16466,10 +15261,13 @@
     "tags": [],
     "prog": [
       "23.351",
-      "33.343"
+      "33.343",
+      "41.13",
+      "43.436",
+      "53.465"
     ],
     "links": {},
-    "bio": "National Institute of Mental Health; National Institutes of Health, National Institute of Mental Health, Bethesda, MD, USA"
+    "bio": "National Institute of Mental Health; National Institutes of Health, National Institute of Mental Health, Bethesda, MD, USA; Laboratory of Brain and Cognition, National Institutes of; Laboratory of Brain and Cognition, National Institute of Mental Health"
   },
   {
     "id": "dana-m-farmer",
@@ -16496,10 +15294,11 @@
     ],
     "tags": [],
     "prog": [
-      "23.352"
+      "23.352",
+      "36.447"
     ],
     "links": {},
-    "bio": "University"
+    "bio": "University; University of Central Florida"
   },
   {
     "id": "emily-granger",
@@ -16532,21 +15331,6 @@
     "bio": "Labratory of Sensorimotor Research, National Eye Institute, Bethesda, MD"
   },
   {
-    "id": "elisha-p-merriam-2",
-    "name": [
-      "Elisha P",
-      "Merriam",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.353"
-    ],
-    "links": {},
-    "bio": "Laboratory of Brain and Cognition, National Institute of Mental Health, Bethesda, MD"
-  },
-  {
     "id": "skylar-greenberg",
     "name": [
       "Skylar",
@@ -16575,21 +15359,6 @@
     ],
     "links": {},
     "bio": "School of Psychology, The University of Queensland"
-  },
-  {
-    "id": "david-leopold",
-    "name": [
-      "David",
-      "Leopold",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.355"
-    ],
-    "links": {},
-    "bio": "Section on Cognitive Neurophysiology and Imaging, NIMH"
   },
   {
     "id": "stephanie-habach",
@@ -16737,25 +15506,11 @@
     ],
     "tags": [],
     "prog": [
-      "23.401"
+      "23.401",
+      "56.416"
     ],
     "links": {},
-    "bio": "University of"
-  },
-  {
-    "id": "stephen-engel",
-    "name": [
-      "Stephen",
-      "Engel",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.401"
-    ],
-    "links": {},
-    "bio": "University of"
+    "bio": "University of; Department of Psychology, University of Minnesota"
   },
   {
     "id": "roxana-ismail-beigi",
@@ -16832,7 +15587,8 @@
     "prog": [
       "23.404",
       "23.406",
-      "56.421"
+      "56.421",
+      "43.307"
     ],
     "links": {},
     "bio": "New York University; Center for Neural Science, New York University"
@@ -16880,21 +15636,7 @@
     "tags": [],
     "prog": [
       "23.404",
-      "23.406"
-    ],
-    "links": {},
-    "bio": "New York University"
-  },
-  {
-    "id": "denis-pelli",
-    "name": [
-      "Denis",
-      "Pelli",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
+      "23.406",
       "23.405",
       "33.319",
       "43.307"
@@ -17210,21 +15952,6 @@
     "bio": "Department of Psychology, University of Utah; Department of Psychology, University of Nevada, Reno"
   },
   {
-    "id": "william-marcum",
-    "name": [
-      "William",
-      "Marcum",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.413"
-    ],
-    "links": {},
-    "bio": "Western Kentucky University"
-  },
-  {
     "id": "maria-carmichael",
     "name": [
       "Maria",
@@ -17261,21 +15988,6 @@
     "name": [
       "Shiyun",
       "Yang",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.414"
-    ],
-    "links": {},
-    "bio": "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501,"
-  },
-  {
-    "id": "shuntaro-aoki",
-    "name": [
-      "Shuntaro",
-      "Aoki",
       "",
       ""
     ],
@@ -17457,21 +16169,6 @@
     "bio": "Justus Liebig University Giessen"
   },
   {
-    "id": "roland-w-fleming",
-    "name": [
-      "Roland W",
-      "Fleming",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.417"
-    ],
-    "links": {},
-    "bio": "Justus Liebig University Giessen; Center for Mind, Brain and Behavior, Universities of"
-  },
-  {
     "id": "aaron-hertzmann",
     "name": [
       "Aaron",
@@ -17506,21 +16203,6 @@
     "name": [
       "Seyed",
       "Hosseini",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.419"
-    ],
-    "links": {},
-    "bio": "York University"
-  },
-  {
-    "id": "richard-murray",
-    "name": [
-      "Richard",
-      "Murray",
       "",
       ""
     ],
@@ -17601,7 +16283,8 @@
     ],
     "tags": [],
     "prog": [
-      "23.421"
+      "23.421",
+      "23.413"
     ],
     "links": {},
     "bio": "Western Kentucky University"
@@ -17724,10 +16407,12 @@
     "prog": [
       "23.423",
       "23.451",
-      "56.313"
+      "56.313",
+      "26.438",
+      "26.463"
     ],
     "links": {},
-    "bio": "University of California,; University of; Department of Psychology, UCSD"
+    "bio": "University of California,; University of; Department of Psychology, UCSD; UCSD Psychology; UCSD Neurosciences Graduate; University of California San Diego"
   },
   {
     "id": "daniela-gresch",
@@ -17990,67 +16675,6 @@
     "bio": "University of California, Irvine"
   },
   {
-    "id": "victor-lamme",
-    "name": [
-      "Victor",
-      "Lamme",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.429"
-    ],
-    "links": {},
-    "bio": "University of Amsterdam"
-  },
-  {
-    "id": "biyu-he",
-    "name": [
-      "Biyu",
-      "He",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.429"
-    ],
-    "links": {},
-    "bio": "New York University"
-  },
-  {
-    "id": "jan-brascamp",
-    "name": [
-      "Jan",
-      "Brascamp",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.429",
-      "33.476"
-    ],
-    "links": {},
-    "bio": "Michigan State University"
-  },
-  {
-    "id": "heleen-a-slagter-2",
-    "name": [
-      "Heleen A",
-      "Slagter",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.430"
-    ],
-    "links": {},
-    "bio": "Vrije Universiteit Amsterdam"
-  },
-  {
     "id": "surya-selvam",
     "name": [
       "Surya",
@@ -18165,10 +16789,12 @@
     ],
     "tags": [],
     "prog": [
-      "23.431"
+      "23.431",
+      "26.327",
+      "43.436"
     ],
     "links": {},
-    "bio": "University of Washington"
+    "bio": "University of Washington; Laboratory of Brain and Cognition, National Institute of Mental Health"
   },
   {
     "id": "bridget-leonard",
@@ -18196,10 +16822,11 @@
     ],
     "tags": [],
     "prog": [
-      "23.431"
+      "23.431",
+      "26.327"
     ],
     "links": {},
-    "bio": "West Virginia University"
+    "bio": "West Virginia University; University of Washington"
   },
   {
     "id": "sara-j-webb",
@@ -18277,22 +16904,6 @@
     ],
     "links": {},
     "bio": "ShanghaiTech University"
-  },
-  {
-    "id": "hsin-hung-li",
-    "name": [
-      "Hsin-Hung",
-      "Li",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.432",
-      "56.401"
-    ],
-    "links": {},
-    "bio": "The Ohio State University"
   },
   {
     "id": "ru-yuan-zhang",
@@ -18390,21 +17001,6 @@
     "name": [
       "Reebal",
       "Rafeh",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.437"
-    ],
-    "links": {},
-    "bio": "Department of Physiology and Pharmacology, Schulich School of Medicine & Dentistry, Western University"
-  },
-  {
-    "id": "taylor-schmitz",
-    "name": [
-      "Taylor",
-      "Schmitz",
       "",
       ""
     ],
@@ -19013,10 +17609,12 @@
     "tags": [],
     "prog": [
       "23.450",
-      "56.412"
+      "56.412",
+      "36.329",
+      "53.452"
     ],
     "links": {},
-    "bio": "Department of Psychology, Stanford University; Department of Computer Science, Stanford University; Graduate School of Education, Stanford University"
+    "bio": "Department of Psychology, Stanford University; Department of Computer Science, Stanford University; Graduate School of Education, Stanford University; Stanford University"
   },
   {
     "id": "natalya-phillips",
@@ -19110,21 +17708,6 @@
     "bio": "School of Psychology, University of Aberdeen, King’s College, Aberdeen, UK"
   },
   {
-    "id": "jozsef-fiser-2",
-    "name": [
-      "Jozsef",
-      "Fiser",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.453"
-    ],
-    "links": {},
-    "bio": "Central European University; Center for Cognitive Computation"
-  },
-  {
     "id": "saleha-siddiqui",
     "name": [
       "Saleha",
@@ -19149,10 +17732,11 @@
     ],
     "tags": [],
     "prog": [
-      "23.453"
+      "23.453",
+      "23.460"
     ],
     "links": {},
-    "bio": "Central European University; Center for Cognitive Computation"
+    "bio": "Central European University; Center for Cognitive Computation; Center for"
   },
   {
     "id": "rana-banai-tizkar",
@@ -19240,7 +17824,8 @@
     ],
     "tags": [],
     "prog": [
-      "23.454"
+      "23.454",
+      "53.325"
     ],
     "links": {},
     "bio": "Georgia Institute of Technology"
@@ -19486,21 +18071,6 @@
     ],
     "links": {},
     "bio": "Kyoto University"
-  },
-  {
-    "id": "barnabas-molnar-2",
-    "name": [
-      "Barnabás",
-      "Molnár",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.460"
-    ],
-    "links": {},
-    "bio": "Central European University; Center for"
   },
   {
     "id": "adam-koblinger",
@@ -19758,7 +18328,9 @@
     "prog": [
       "23.467",
       "23.468",
-      "23.472"
+      "23.472",
+      "35.28",
+      "23.463"
     ],
     "links": {},
     "bio": "Brown University"
@@ -20097,10 +18669,12 @@
     ],
     "tags": [],
     "prog": [
-      "23.475"
+      "23.475",
+      "symp-2026-05-15-1030-talk-r",
+      "symp-2026-05-15-1030-talk-r.t02"
     ],
     "links": {},
-    "bio": "Department of Psychology, Western University, Canada; Centre for Brain and Mind, Western University, Canada; Neuroscience Program, Western University, Canada"
+    "bio": "Department of Psychology, Western University, Canada; Centre for Brain and Mind, Western University, Canada; Neuroscience Program, Western University, Canada; University of Western Ontario, London, ON, Canada"
   },
   {
     "id": "sunwoo-kwon",
@@ -20131,23 +18705,6 @@
     ],
     "links": {},
     "bio": "Herbert Wertheim School of Optometry and Vision Science"
-  },
-  {
-    "id": "dennis-levi",
-    "name": [
-      "Dennis",
-      "Levi",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.476",
-      "43.405",
-      "43.417"
-    ],
-    "links": {},
-    "bio": "Herbert Wertheim School of Optometry and Vision Science; Center for Innovation in Vision and Optics; Helen Wills Neuroscience Institute; University of California, Berkeley; Herbert Wertheim School of Optometry and Vision Science, University of California, Berkeley"
   },
   {
     "id": "sara-fernandez-abalde",
@@ -20375,21 +18932,6 @@
     "bio": "University of Luxembourg, Esch-sur- Alzette, Luxembourg"
   },
   {
-    "id": "burcu-a-urgen",
-    "name": [
-      "Burcu A.",
-      "Ürgen",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.480"
-    ],
-    "links": {},
-    "bio": "Bilkent University, Ankara, Turkey; Aysel Sabuncu Brain Research Center, Ankara,"
-  },
-  {
     "id": "aryan-zoroufi",
     "name": [
       "Aryan",
@@ -20444,10 +18986,11 @@
     ],
     "tags": [],
     "prog": [
-      "23.481"
+      "23.481",
+      "33.427"
     ],
     "links": {},
-    "bio": "Department of Brain and Cognitive Sciences, Massachusetts Institute of Technology"
+    "bio": "Department of Brain and Cognitive Sciences, Massachusetts Institute of Technology; MIT Department of Brain and Cognitive Sciences; MIT Computer Science & Artificial Intelligence Laboratory (CSAIL)"
   },
   {
     "id": "tobias-fabian-niehues",
@@ -20480,38 +19023,6 @@
     ],
     "links": {},
     "bio": "Technical University of Darmstadt; University of Cambridge; Institute of Psychology, Centre for Cognitive Science, Technical University of Darmstadt, Darmstadt, Germany; Department of Engineering, Cambridge University, Cambridge, UK"
-  },
-  {
-    "id": "constantin-rothkopf",
-    "name": [
-      "Constantin",
-      "Rothkopf",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.482",
-      "26.465",
-      "43.414"
-    ],
-    "links": {},
-    "bio": "Technical University of Darmstadt; Institute of Psychology, Centre for Cognitive Science, Technical University of Darmstadt, Darmstadt, Germany; Centre for Cognitive Science, Technical University of"
-  },
-  {
-    "id": "hannah-moser",
-    "name": [
-      "Hannah",
-      "Moser",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.301"
-    ],
-    "links": {},
-    "bio": "University of Minnesota"
   },
   {
     "id": "helen-yu",
@@ -20607,21 +19118,6 @@
     "bio": "Herbert Wertheim School of Optometry & Vision Science, University of California Berkeley, Berkeley, United States of America; Herbert Wertheim School of Optometry & Vision Science, University of"
   },
   {
-    "id": "dennis-m-levi",
-    "name": [
-      "Dennis M",
-      "Levi",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.302"
-    ],
-    "links": {},
-    "bio": "Herbert Wertheim School of Optometry & Vision Science, University of California Berkeley, Berkeley, United States of America"
-  },
-  {
     "id": "dennis-m-levi-2",
     "name": [
       "Dennis M.",
@@ -20633,10 +19129,14 @@
     "prog": [
       "26.303",
       "26.304",
-      "26.308"
+      "26.308",
+      "26.302",
+      "23.476",
+      "43.405",
+      "43.417"
     ],
     "links": {},
-    "bio": "Herbert Wertheim School of Optometry & Vision Science, University of; UC Berkeley, USA"
+    "bio": "Herbert Wertheim School of Optometry & Vision Science, University of; UC Berkeley, USA; Herbert Wertheim School of Optometry & Vision Science, University of California Berkeley, Berkeley, United States of America; Herbert Wertheim School of Optometry and Vision Science; Center for Innovation in Vision and Optics; Helen Wills Neuroscience Institute; University of California, Berkeley; Herbert Wertheim School of Optometry and Vision Science, University of California, Berkeley"
   },
   {
     "id": "taylor-lui",
@@ -21178,10 +19678,14 @@
     ],
     "tags": [],
     "prog": [
-      "26.309"
+      "26.309",
+      "35.18",
+      "23.308",
+      "26.311",
+      "53.310"
     ],
     "links": {},
-    "bio": "Department of Psychology, Northeastern University, Boston, MA"
+    "bio": "Department of Psychology, Northeastern University, Boston, MA; Northeastern University"
   },
   {
     "id": "lorella-battelli",
@@ -21301,10 +19805,12 @@
     ],
     "tags": [],
     "prog": [
-      "26.312"
+      "26.312",
+      "26.313",
+      "43.466"
     ],
     "links": {},
-    "bio": "University of Rochester, Rochester, NY"
+    "bio": "University of Rochester, Rochester, NY; University of Rochester; University"
   },
   {
     "id": "matthew-r-cavanaugh",
@@ -21316,10 +19822,14 @@
     ],
     "tags": [],
     "prog": [
-      "26.312"
+      "26.312",
+      "26.313",
+      "35.15",
+      "26.310",
+      "43.466"
     ],
     "links": {},
-    "bio": "University of Rochester, Rochester, NY"
+    "bio": "University of Rochester, Rochester, NY; University of Rochester; University"
   },
   {
     "id": "elizabeth-ginzburg",
@@ -21425,61 +19935,20 @@
     "tags": [],
     "prog": [
       "26.312",
-      "56.354"
+      "56.354",
+      "26.313",
+      "35.15",
+      "26.310",
+      "43.466"
     ],
     "links": {},
-    "bio": "University of Rochester, Rochester, NY; University of"
-  },
-  {
-    "id": "berkeley-k-fahrenthold-2",
-    "name": [
-      "Berkeley K",
-      "Fahrenthold",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.313"
-    ],
-    "links": {},
-    "bio": "University of Rochester"
-  },
-  {
-    "id": "matthew-r-cavanaugh-2",
-    "name": [
-      "Matthew R",
-      "Cavanaugh",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.313"
-    ],
-    "links": {},
-    "bio": "University of Rochester"
+    "bio": "University of Rochester, Rochester, NY; University of; University of Rochester; University"
   },
   {
     "id": "michael-d-melnick",
     "name": [
       "Michael D",
       "Melnick",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.313"
-    ],
-    "links": {},
-    "bio": "University of Rochester"
-  },
-  {
-    "id": "krystel-r-huxlin-2",
-    "name": [
-      "Krystel R",
-      "Huxlin",
       "",
       ""
     ],
@@ -21518,10 +19987,12 @@
       "26.314",
       "53.403",
       "56.321",
-      "56.441"
+      "56.441",
+      "26.332",
+      "56.342"
     ],
     "links": {},
-    "bio": "The Ohio State University"
+    "bio": "The Ohio State University; The Ohio State University, Columbus, United States"
   },
   {
     "id": "jonathan-nir",
@@ -21596,10 +20067,14 @@
       "26.316",
       "36.441",
       "36.446",
-      "36.449"
+      "36.449",
+      "42.13",
+      "26.326",
+      "26.410",
+      "56.460"
     ],
     "links": {},
-    "bio": "Brigham and Women's Hospital; Harvard Medical School; Brigham & Women’s Hospital/Harvard Medical School"
+    "bio": "Brigham and Women's Hospital; Harvard Medical School; Brigham & Women’s Hospital/Harvard Medical School; Brigham and Womens Hospital / Harvard Med"
   },
   {
     "id": "cailey-collins",
@@ -21705,7 +20180,8 @@
     "tags": [],
     "prog": [
       "26.321",
-      "56.456"
+      "56.456",
+      "36.471"
     ],
     "links": {},
     "bio": "University of Minnesota"
@@ -21855,10 +20331,11 @@
     ],
     "tags": [],
     "prog": [
-      "26.324"
+      "26.324",
+      "23.320"
     ],
     "links": {},
-    "bio": "The George Washington University; National Science Foundation"
+    "bio": "The George Washington University; National Science Foundation; US National Science Foundation (SBE/BCS)"
   },
   {
     "id": "stephen-r-mitroff",
@@ -21993,41 +20470,12 @@
     ],
     "tags": [],
     "prog": [
-      "26.327"
-    ],
-    "links": {},
-    "bio": "University of Washington"
-  },
-  {
-    "id": "kristin-woodard",
-    "name": [
-      "Kristin",
-      "Woodard",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
       "26.327",
-      "43.436"
+      "36.437",
+      "53.404"
     ],
     "links": {},
-    "bio": "University of Washington; Laboratory of Brain and Cognition, National Institute of Mental Health"
-  },
-  {
-    "id": "hannah-rea",
-    "name": [
-      "Hannah",
-      "Rea",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.327"
-    ],
-    "links": {},
-    "bio": "University of Washington"
+    "bio": "University of Washington; University"
   },
   {
     "id": "lex-stinson",
@@ -22229,22 +20677,6 @@
     "bio": "The Ohio State University"
   },
   {
-    "id": "andrew-leber",
-    "name": [
-      "Andrew",
-      "Leber",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.332",
-      "56.342"
-    ],
-    "links": {},
-    "bio": "The Ohio State University, Columbus, United States"
-  },
-  {
     "id": "jennifer-bartlett",
     "name": [
       "Jennifer",
@@ -22407,36 +20839,6 @@
     "prog": [
       "26.404",
       "56.447"
-    ],
-    "links": {},
-    "bio": "Simon Fraser University"
-  },
-  {
-    "id": "rachel-yapp",
-    "name": [
-      "Rachel",
-      "Yapp",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.404"
-    ],
-    "links": {},
-    "bio": "Simon Fraser University"
-  },
-  {
-    "id": "aaron-richardson",
-    "name": [
-      "Aaron",
-      "Richardson",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.404"
     ],
     "links": {},
     "bio": "Simon Fraser University"
@@ -23167,10 +21569,11 @@
     "tags": [],
     "prog": [
       "26.428",
-      "43.465"
+      "43.465",
+      "26.447"
     ],
     "links": {},
-    "bio": "Kyoto University; Graduate School of Informatics, Kyoto University, Kyoto, Japan"
+    "bio": "Kyoto University; Graduate School of Informatics, Kyoto University, Kyoto, Japan; Cognitive Informatics Lab, Graduate School of Informatics, Kyoto University"
   },
   {
     "id": "michal-fux",
@@ -23233,21 +21636,6 @@
     ],
     "links": {},
     "bio": "Kyoto University"
-  },
-  {
-    "id": "shuntaro-c-aoki",
-    "name": [
-      "Shuntaro C",
-      "Aoki",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.430"
-    ],
-    "links": {},
-    "bio": "Kyoto University; Advanced Telecommunications Research Institute International"
   },
   {
     "id": "tanaka-misato",
@@ -23359,21 +21747,6 @@
     "bio": "Sony Computer Science Laboratories, Inc."
   },
   {
-    "id": "nithit-singtokum",
-    "name": [
-      "NITHIT",
-      "SINGTOKUM",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.434"
-    ],
-    "links": {},
-    "bio": "Department of physiology, Faculty of medicine, Chulalongkorn University, Bangkok, Thailand; Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand"
-  },
-  {
     "id": "esther-goldberg",
     "name": [
       "Esther",
@@ -23418,23 +21791,6 @@
     ],
     "links": {},
     "bio": "University of North Carolina at Chapel Hill"
-  },
-  {
-    "id": "sami-yousif",
-    "name": [
-      "Sami",
-      "Yousif",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.436",
-      "56.349",
-      "56.465"
-    ],
-    "links": {},
-    "bio": "Ohio State University"
   },
   {
     "id": "abigail-noyce",
@@ -23552,10 +21908,11 @@
     ],
     "tags": [],
     "prog": [
-      "26.438"
+      "26.438",
+      "43.436"
     ],
     "links": {},
-    "bio": "UCSD Psychology"
+    "bio": "UCSD Psychology; Laboratory of Brain and Cognition, National Institute of Mental Health"
   },
   {
     "id": "sunyoung-park",
@@ -23571,21 +21928,6 @@
     ],
     "links": {},
     "bio": "UCSD Psychology; Rutgers Center for Advanced Human Brain Imaging Research"
-  },
-  {
-    "id": "john-t-serences-2",
-    "name": [
-      "John T",
-      "Serences",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.438"
-    ],
-    "links": {},
-    "bio": "UCSD Psychology; UCSD Neurosciences Graduate"
   },
   {
     "id": "ariel-berlinger",
@@ -23818,10 +22160,11 @@
     "tags": [],
     "prog": [
       "26.444",
-      "53.348"
+      "53.348",
+      "23.417"
     ],
     "links": {},
-    "bio": "Justus Liebig University Giessen, Germany; Center for Mind, Brain and Behavior, Universities of Marburg, Giessen, and Darmstadt; Justus Liebig University Giessen"
+    "bio": "Justus Liebig University Giessen, Germany; Center for Mind, Brain and Behavior, Universities of Marburg, Giessen, and Darmstadt; Justus Liebig University Giessen; Center for Mind, Brain and Behavior, Universities of"
   },
   {
     "id": "hiroaki-kiyokawa",
@@ -23932,21 +22275,6 @@
     ],
     "links": {},
     "bio": "Cognitive Informatics Lab, Graduate School of Informatics, Kyoto University; Graduate School of Informatics, Kyoto University; Graduate School of Informatics, Kyoto University, Kyoto, Japan"
-  },
-  {
-    "id": "shinya-nishida",
-    "name": [
-      "Shin’ya",
-      "Nishida",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.447"
-    ],
-    "links": {},
-    "bio": "Cognitive Informatics Lab, Graduate School of Informatics, Kyoto University"
   },
   {
     "id": "kenta-nakajima",
@@ -24115,37 +22443,6 @@
     "bio": "National Institutes of Health"
   },
   {
-    "id": "spencer-loggia",
-    "name": [
-      "Spencer",
-      "Loggia",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.453"
-    ],
-    "links": {},
-    "bio": "National Eye Institute; Brown University"
-  },
-  {
-    "id": "bevil-conway",
-    "name": [
-      "Bevil",
-      "Conway",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.453",
-      "53.426"
-    ],
-    "links": {},
-    "bio": "National Eye Institute; National Institute of Mental   for Empirical Aesthetics, Frankfurt am Main, Germany; University of Maryland, College Park; National Institutes of Health"
-  },
-  {
     "id": "joao-pedro-parreira-rodrigues",
     "name": [
       "João Pedro Parreira",
@@ -24264,21 +22561,6 @@
     ],
     "links": {},
     "bio": "Department of Neuroscience, American University; Center for Behavior and Neuroscience, American University"
-  },
-  {
-    "id": "arthur-shapiro",
-    "name": [
-      "Arthur",
-      "Shapiro",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.455"
-    ],
-    "links": {},
-    "bio": "Department of Psychology, American University; Department of Computer Science, American University"
   },
   {
     "id": "ikuto-hanada",
@@ -24488,21 +22770,6 @@
     "bio": "Cedars-Sinai Medical Center; Columbia University"
   },
   {
-    "id": "john-serences",
-    "name": [
-      "John",
-      "Serences",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.463"
-    ],
-    "links": {},
-    "bio": "University of California San Diego"
-  },
-  {
     "id": "nuttida-rungratsameetaweemana",
     "name": [
       "Nuttida",
@@ -24522,21 +22789,6 @@
     "name": [
       "Binxu",
       "Wang",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.464"
-    ],
-    "links": {},
-    "bio": "Harvard University"
-  },
-  {
-    "id": "jacob-prince",
-    "name": [
-      "Jacob",
-      "Prince",
       "",
       ""
     ],
@@ -24577,24 +22829,6 @@
     ],
     "links": {},
     "bio": "Harvard University; OpenAI"
-  },
-  {
-    "id": "george-alvarez",
-    "name": [
-      "George",
-      "Alvarez",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.464",
-      "33.460",
-      "43.304",
-      "56.423"
-    ],
-    "links": {},
-    "bio": "Harvard University; Kempner Institute for the Study of Natural and Artificial Intelligence at; Kempner Instutite for the Study of"
   },
   {
     "id": "cengiz-pehlevan",
@@ -24705,7 +22939,8 @@
     "prog": [
       "26.466",
       "33.434",
-      "56.307"
+      "56.307",
+      "56.306"
     ],
     "links": {},
     "bio": "Northeastern University"
@@ -24762,21 +22997,6 @@
     "bio": "Northeastern University"
   },
   {
-    "id": "megan-a-k-peters-2",
-    "name": [
-      "Megan A. K",
-      "Peters",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "26.466"
-    ],
-    "links": {},
-    "bio": "University of California, Irvine"
-  },
-  {
     "id": "yu-eric-qian",
     "name": [
       "Yu (Eric)",
@@ -24801,7 +23021,8 @@
     ],
     "tags": [],
     "prog": [
-      "26.468"
+      "26.468",
+      "21.22"
     ],
     "links": {},
     "bio": "University of Texas at Austin"
@@ -24818,7 +23039,8 @@
     "prog": [
       "26.468",
       "33.470",
-      "53.351"
+      "53.351",
+      "55.22"
     ],
     "links": {},
     "bio": "University of Texas at Austin; Department of Neuroscience, The University of Texas at Austin; Department of Psychology, The University of Texas at Austin; Center for Perceptual Systems, The University of Texas at Austin; Center for Learning and Memory, The University of Texas at Austin; Center for Theoretical and Computational Neuroscience, The University of Texas at Austin; Department of Neuroscience, Department of Psychology, Center for Perceptual Systems, Center for Learning and Memory, Center for Theoretical and Computational Neuroscience, The University of Texas at Austin, Austin, Texas, U.S.A."
@@ -25377,21 +23599,6 @@
     "bio": "National Taiwan University; Department of Psychology, National Taiwan University"
   },
   {
-    "id": "ning-ting-hsu",
-    "name": [
-      "Ning-Ting",
-      "Hsu",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.309"
-    ],
-    "links": {},
-    "bio": "National Taiwan University"
-  },
-  {
     "id": "katrina-a-wolters",
     "name": [
       "Katrina A.",
@@ -25402,7 +23609,8 @@
     "tags": [],
     "prog": [
       "33.309",
-      "33.468"
+      "33.468",
+      "53.332"
     ],
     "links": {},
     "bio": "University of California, Berkeley"
@@ -25417,7 +23625,8 @@
     ],
     "tags": [],
     "prog": [
-      "33.309"
+      "33.309",
+      "53.332"
     ],
     "links": {},
     "bio": "Waseda Institute for Advanced Study, Waseda University"
@@ -25508,7 +23717,8 @@
     ],
     "tags": [],
     "prog": [
-      "33.311"
+      "33.311",
+      "56.420"
     ],
     "links": {},
     "bio": "Vanderbilt University"
@@ -25772,21 +23982,6 @@
     "bio": "University of New Hampshire"
   },
   {
-    "id": "omer-daglar-tanrikulu-2",
-    "name": [
-      "Ömer Dağlar",
-      "Tanrikulu",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.318"
-    ],
-    "links": {},
-    "bio": "University of New Hampshire"
-  },
-  {
     "id": "youjing-luo",
     "name": [
       "Youjing",
@@ -25800,21 +23995,6 @@
     ],
     "links": {},
     "bio": "New York University; New York University Abu Dhabi"
-  },
-  {
-    "id": "olivia-cheung",
-    "name": [
-      "Olivia",
-      "Cheung",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.319"
-    ],
-    "links": {},
-    "bio": "United Arab Emirates University"
   },
   {
     "id": "martina-passaggi",
@@ -25955,21 +24135,6 @@
     "bio": "Tohoku University"
   },
   {
-    "id": "bo-yeong-won",
-    "name": [
-      "Bo Yeong",
-      "Won",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.322"
-    ],
-    "links": {},
-    "bio": "California State University, Chico"
-  },
-  {
     "id": "tapendra-pandey",
     "name": [
       "Tapendra",
@@ -26099,7 +24264,8 @@
     ],
     "tags": [],
     "prog": [
-      "33.329"
+      "33.329",
+      "33.330"
     ],
     "links": {},
     "bio": "Emory University"
@@ -26114,25 +24280,13 @@
     ],
     "tags": [],
     "prog": [
-      "33.329"
+      "33.329",
+      "35.25",
+      "33.330",
+      "53.301"
     ],
     "links": {},
     "bio": "Emory University"
-  },
-  {
-    "id": "rebecca-rennert",
-    "name": [
-      "Rebecca",
-      "Rennert",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.330"
-    ],
-    "links": {},
-    "bio": ""
   },
   {
     "id": "anna-mynick",
@@ -26207,7 +24361,9 @@
     "tags": [],
     "prog": [
       "33.334",
-      "53.425"
+      "53.425",
+      "51.22",
+      "56.419"
     ],
     "links": {},
     "bio": "Freie Universität Berlin; Department of Education and Psychology, Freie Universitat Berlin"
@@ -26238,7 +24394,8 @@
     "tags": [],
     "prog": [
       "33.334",
-      "53.425"
+      "53.425",
+      "51.22"
     ],
     "links": {},
     "bio": "Freie Universität Berlin; Department of Education and Psychology, Freie Universitat Berlin"
@@ -26314,10 +24471,11 @@
     ],
     "tags": [],
     "prog": [
-      "33.338"
+      "33.338",
+      "56.425"
     ],
     "links": {},
-    "bio": "Université de Montréal"
+    "bio": "Université de Montréal; Cerebrum, Université de Montréal"
   },
   {
     "id": "yixuan-yin",
@@ -26837,10 +24995,11 @@
     ],
     "tags": [],
     "prog": [
-      "33.356"
+      "33.356",
+      "53.464"
     ],
     "links": {},
-    "bio": ""
+    "bio": "Dartmouth College"
   },
   {
     "id": "brad-duchaine",
@@ -27096,10 +25255,12 @@
     ],
     "tags": [],
     "prog": [
-      "33.404"
+      "33.404",
+      "26.430",
+      "23.414"
     ],
     "links": {},
-    "bio": "Kyoto University; ATR"
+    "bio": "Kyoto University; ATR; Advanced Telecommunications Research Institute International; Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501,"
   },
   {
     "id": "tadashi-isa",
@@ -27293,7 +25454,8 @@
     ],
     "tags": [],
     "prog": [
-      "33.409"
+      "33.409",
+      "53.430"
     ],
     "links": {},
     "bio": "Carnegie Mellon University"
@@ -27343,21 +25505,6 @@
     ],
     "links": {},
     "bio": "Center for Visual Science, University of Rochester"
-  },
-  {
-    "id": "sara-patterson",
-    "name": [
-      "Sara",
-      "Patterson",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.410"
-    ],
-    "links": {},
-    "bio": "Center for Visual Science, University of Rochester; Flaum Eye Institute and Department of Neuroscience, University of Rochester Medical Center"
   },
   {
     "id": "yuheng-zeng",
@@ -27519,10 +25666,11 @@
     ],
     "tags": [],
     "prog": [
-      "33.414"
+      "33.414",
+      "16.352"
     ],
     "links": {},
-    "bio": "Department of Psychology, University of Minnesota College of Liberal Arts"
+    "bio": "Department of Psychology, University of Minnesota College of Liberal Arts; Department of Psychology, University of Minnesota - Twin Cities"
   },
   {
     "id": "vera-lindh",
@@ -27677,21 +25825,6 @@
     "bio": "The Ohio State Univeristy"
   },
   {
-    "id": "zeynep-saygin",
-    "name": [
-      "Zeynep",
-      "Saygin",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.419"
-    ],
-    "links": {},
-    "bio": "The Ohio State Univeristy"
-  },
-  {
     "id": "zexi-chen",
     "name": [
       "Zexi",
@@ -27746,10 +25879,12 @@
     ],
     "tags": [],
     "prog": [
-      "33.420"
+      "33.420",
+      "43.449",
+      "56.433"
     ],
     "links": {},
-    "bio": "University of California, Irvine, Irvine, CA, USA; Brunson Center for Translational Vision Research, University of California, Irvine, CA, USA"
+    "bio": "University of California, Irvine, Irvine, CA, USA; Brunson Center for Translational Vision Research, University of California, Irvine, CA, USA; University of California, Irvine; School of Social Sciences, University of California, Irvine; Center for Translational Vision Research, University of California, Irvine"
   },
   {
     "id": "daniel-tso",
@@ -27780,21 +25915,6 @@
     ],
     "links": {},
     "bio": "MIT"
-  },
-  {
-    "id": "ammar-marvi",
-    "name": [
-      "Ammar",
-      "Marvi",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.421"
-    ],
-    "links": {},
-    "bio": "Harvard"
   },
   {
     "id": "matthew-glasser",
@@ -27932,22 +26052,6 @@
     "bio": "Swarthmore College"
   },
   {
-    "id": "alex-huk",
-    "name": [
-      "Alex",
-      "Huk",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.425",
-      "53.429"
-    ],
-    "links": {},
-    "bio": "University of California, Los Angeles; Fuster Laboratory for Cognitive"
-  },
-  {
     "id": "chaeeun-lim",
     "name": [
       "Chaeeun",
@@ -27976,21 +26080,6 @@
     ],
     "links": {},
     "bio": "University of St. Andrews"
-  },
-  {
-    "id": "yoon-bai",
-    "name": [
-      "Yoon",
-      "Bai",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.427"
-    ],
-    "links": {},
-    "bio": "MIT McGovern Institute for Brain Research"
   },
   {
     "id": "thomas-o-connell",
@@ -28051,21 +26140,6 @@
     ],
     "links": {},
     "bio": "MIT Computer Science & Artificial Intelligence Laboratory (CSAIL)"
-  },
-  {
-    "id": "josh-tenenbaum",
-    "name": [
-      "Josh",
-      "Tenenbaum",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.427"
-    ],
-    "links": {},
-    "bio": "MIT Department of Brain and Cognitive Sciences; MIT Computer Science & Artificial Intelligence Laboratory (CSAIL)"
   },
   {
     "id": "james-dicarlo",
@@ -28145,22 +26219,6 @@
     "bio": "UC Davis"
   },
   {
-    "id": "joy-geng",
-    "name": [
-      "Joy",
-      "Geng",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.428",
-      "36.451"
-    ],
-    "links": {},
-    "bio": "UC Davis"
-  },
-  {
     "id": "fernando-castillo-rodriguez",
     "name": [
       "Fernando Castillo",
@@ -28200,46 +26258,17 @@
     ],
     "tags": [],
     "prog": [
-      "33.429"
+      "33.429",
+      "26.455"
     ],
     "links": {},
-    "bio": "American University"
-  },
-  {
-    "id": "cathleen-m-moore-2",
-    "name": [
-      "Cathleen M",
-      "Moore",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.429"
-    ],
-    "links": {},
-    "bio": "University of Iowa"
+    "bio": "American University; Department of Psychology, American University; Department of Computer Science, American University"
   },
   {
     "id": "sean-hinkle",
     "name": [
       "Sean",
       "Hinkle",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.430"
-    ],
-    "links": {},
-    "bio": "University of Central Florida"
-  },
-  {
-    "id": "mark-neider",
-    "name": [
-      "Mark",
-      "Neider",
       "",
       ""
     ],
@@ -28597,21 +26626,6 @@
     "bio": "Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig; Department of Medicine, Justus Liebig University, Giessen; Department of Psychology, Humboldt-University Berlin"
   },
   {
-    "id": "martin-n-hebart-2",
-    "name": [
-      "Martin N",
-      "Hebart",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.439"
-    ],
-    "links": {},
-    "bio": "Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig; Department of Medicine, Justus Liebig University, Giessen"
-  },
-  {
     "id": "tim-c-kietzmann",
     "name": [
       "Tim C",
@@ -28621,10 +26635,12 @@
     ],
     "tags": [],
     "prog": [
-      "33.439"
+      "33.439",
+      "54.23",
+      "56.419"
     ],
     "links": {},
-    "bio": "Institute of Cognitive Science, University"
+    "bio": "Institute of Cognitive Science, University; Institute of Cognitive Science, Osnabrück University; Osnabrück University"
   },
   {
     "id": "sophie-su",
@@ -28863,10 +26879,11 @@
     ],
     "tags": [],
     "prog": [
-      "33.448"
+      "33.448",
+      "55.21"
     ],
     "links": {},
-    "bio": "Neuroscience Graduate Program, University of Rochester; Center for Visual Science, University of Rochester; Brain and Cognitive Sciences, University of Rochester"
+    "bio": "Neuroscience Graduate Program, University of Rochester; Center for Visual Science, University of Rochester; Brain and Cognitive Sciences, University of Rochester; Center of Visual Science, University of Rochester"
   },
   {
     "id": "sara-s-patterson",
@@ -28878,10 +26895,11 @@
     ],
     "tags": [],
     "prog": [
-      "33.448"
+      "33.448",
+      "33.410"
     ],
     "links": {},
-    "bio": "Neuroscience Graduate Program, University of Rochester; Center for Visual Science, University of Rochester; Brain and Cognitive Sciences, University of Rochester; Flaum Eye Institute, University of"
+    "bio": "Neuroscience Graduate Program, University of Rochester; Center for Visual Science, University of Rochester; Brain and Cognitive Sciences, University of Rochester; Flaum Eye Institute, University of; Flaum Eye Institute and Department of Neuroscience, University of Rochester Medical Center"
   },
   {
     "id": "golnaz-forouzandehfar",
@@ -29094,21 +27112,6 @@
     "bio": "Nanyang Technological University"
   },
   {
-    "id": "alan-l-f-lee",
-    "name": [
-      "Alan L.F.",
-      "Lee",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.458"
-    ],
-    "links": {},
-    "bio": "Lingnan University"
-  },
-  {
     "id": "yanhong-chen",
     "name": [
       "Yanhong",
@@ -29254,10 +27257,11 @@
     ],
     "tags": [],
     "prog": [
-      "33.462"
+      "33.462",
+      "43.338"
     ],
     "links": {},
-    "bio": "University of Reading Research on face and body perception has benefited enormously from"
+    "bio": "University of Reading Research on face and body perception has benefited enormously from; University of Reading"
   },
   {
     "id": "hyerin-shin",
@@ -29434,21 +27438,6 @@
     "bio": "School of Education, Anyang Normal University, Anyang, China; Department of Psychology, University of Jyvaskyla, Jyvaskyla, Finland"
   },
   {
-    "id": "hongjin-sun",
-    "name": [
-      "Hongjin",
-      "Sun",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.467"
-    ],
-    "links": {},
-    "bio": "Department of Psychology, Neuroscience, and Behaviour, McMaster University, Hamilton, Ontario, Canada"
-  },
-  {
     "id": "veith-veilnhammer",
     "name": [
       "Veith",
@@ -29536,7 +27525,8 @@
     ],
     "tags": [],
     "prog": [
-      "33.469"
+      "33.469",
+      "56.341"
     ],
     "links": {},
     "bio": "University of Rochester; University of Rochester Medical Center; Center for Visual Science"
@@ -29630,37 +27620,6 @@
     ],
     "links": {},
     "bio": "Donders Institute for Brain, Cognition and Behavior, Radboud University"
-  },
-  {
-    "id": "ilona-bloem",
-    "name": [
-      "Ilona",
-      "Bloem",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.472"
-    ],
-    "links": {},
-    "bio": "Donders Institute for Brain, Cognition and Behavior, Radboud University; Netherlands Institute for Neuroscience"
-  },
-  {
-    "id": "janneke-jehee",
-    "name": [
-      "Janneke",
-      "Jehee",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.472",
-      "56.464"
-    ],
-    "links": {},
-    "bio": "Donders Institute for Brain, Cognition and Behavior, Radboud University; Donders Institute for Brain, Cognition and"
   },
   {
     "id": "yueh-chen-chiang",
@@ -29858,21 +27817,6 @@
     "bio": "University of Plymouth"
   },
   {
-    "id": "patrick-bennett",
-    "name": [
-      "Patrick",
-      "Bennett",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "33.477"
-    ],
-    "links": {},
-    "bio": "McMaster University"
-  },
-  {
     "id": "yijin-wang",
     "name": [
       "Yijin",
@@ -30065,10 +28009,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.304"
+      "36.304",
+      "36.305"
     ],
     "links": {},
-    "bio": "School of Optometry and Vision Science, Bar-Ilan University; Gonda Multidisciplinary Brain Research Center, Bar-Ilan University"
+    "bio": "School of Optometry and Vision Science, Bar-Ilan University; Gonda Multidisciplinary Brain Research Center, Bar-Ilan University; The Gonda Multidisciplinary Brain Research Center, Bar Ilan University, Ramat Gan, Israel; School of Optometry and Vision Science, Faculty of Life Sciences, Bar Ilan University, Ramat Gan, Israel"
   },
   {
     "id": "boaz-m-ben-david",
@@ -30102,21 +28047,6 @@
     ],
     "links": {},
     "bio": "School of Optometry and Vision Science, Bar-Ilan University; Gonda Multidisciplinary Brain Research Center, Bar-Ilan University; The Gonda Multidisciplinary Brain Research Center, Bar Ilan University, Ramat Gan, Israel; School of Optometry and Vision Science, Faculty of Life Sciences, Bar Ilan University, Ramat Gan, Israel; Bar Ilan University"
-  },
-  {
-    "id": "shaimaa-masarwa-2",
-    "name": [
-      "shaimaa",
-      "masarwa",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.305"
-    ],
-    "links": {},
-    "bio": "The Gonda Multidisciplinary Brain Research Center, Bar Ilan University, Ramat Gan, Israel; School of Optometry and Vision Science, Faculty of Life Sciences, Bar Ilan University, Ramat Gan, Israel"
   },
   {
     "id": "nurit-gronau",
@@ -30407,21 +28337,6 @@
     "bio": "University of Chicago"
   },
   {
-    "id": "ed-awh",
-    "name": [
-      "Ed",
-      "Awh",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.314"
-    ],
-    "links": {},
-    "bio": "University of Chicago"
-  },
-  {
     "id": "emma-megla",
     "name": [
       "Emma",
@@ -30516,21 +28431,6 @@
     "name": [
       "Dyllan",
       "Simpson",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.319"
-    ],
-    "links": {},
-    "bio": "University of California San Diego"
-  },
-  {
-    "id": "joseph-saito",
-    "name": [
-      "Joseph",
-      "Saito",
       "",
       ""
     ],
@@ -30771,22 +28671,6 @@
     "bio": "Stanford University"
   },
   {
-    "id": "judith-fan",
-    "name": [
-      "Judith",
-      "Fan",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.329",
-      "53.452"
-    ],
-    "links": {},
-    "bio": "Stanford University"
-  },
-  {
     "id": "sixuan-chen",
     "name": [
       "Sixuan",
@@ -30815,21 +28699,6 @@
     ],
     "links": {},
     "bio": "New York University"
-  },
-  {
-    "id": "alexander-huk",
-    "name": [
-      "Alexander",
-      "Huk",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.331"
-    ],
-    "links": {},
-    "bio": "University of California Los Angeles"
   },
   {
     "id": "christopher-dimattina",
@@ -30946,10 +28815,12 @@
     ],
     "tags": [],
     "prog": [
-      "36.335"
+      "36.335",
+      "16.350",
+      "23.334"
     ],
     "links": {},
-    "bio": "Graduate Program in Neuroscience, University of Minnesota, Minnesota; Perelman School of Medicine, University of Pennsylvania, Philadelphia"
+    "bio": "Graduate Program in Neuroscience, University of Minnesota, Minnesota; Perelman School of Medicine, University of Pennsylvania, Philadelphia; University of Pennsylvania"
   },
   {
     "id": "anna-j-hillstrom",
@@ -30976,10 +28847,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.335"
+      "36.335",
+      "26.301"
     ],
     "links": {},
-    "bio": "Department of Psychiatry and Behavioral Sciences, University of Minnesota, Minnesota"
+    "bio": "Department of Psychiatry and Behavioral Sciences, University of Minnesota, Minnesota; University of Minnesota"
   },
   {
     "id": "tylyn-a-page",
@@ -31068,10 +28940,11 @@
     "prog": [
       "36.335",
       "43.408",
-      "53.328"
+      "53.328",
+      "23.401"
     ],
     "links": {},
-    "bio": "Department of Psychology, University of Minnesota, Minnesota; University of Minnesota, Minneapolis, MN, United States.; Center for Applied and Translational Sensory Science, University of Minnesota, Minneapolis, MN, United; University of Minnesota, Twin Cities"
+    "bio": "Department of Psychology, University of Minnesota, Minnesota; University of Minnesota, Minneapolis, MN, United States.; Center for Applied and Translational Sensory Science, University of Minnesota, Minneapolis, MN, United; University of Minnesota, Twin Cities; University of"
   },
   {
     "id": "vis-ion-sc-ienc-es-soc-iet-y-reebal-w-rafeh",
@@ -31128,10 +29001,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.336"
+      "36.336",
+      "53.359"
     ],
     "links": {},
-    "bio": "Western University"
+    "bio": "Western University; Department of Mathematics University of Western Ontario"
   },
   {
     "id": "ali-r-khan",
@@ -31173,10 +29047,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.336"
+      "36.336",
+      "23.437"
     ],
     "links": {},
-    "bio": "Western University"
+    "bio": "Western University; Department of Physiology and Pharmacology, Schulich School of Medicine & Dentistry, Western University"
   },
   {
     "id": "pei-yin-chen",
@@ -31218,10 +29093,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.338"
+      "36.338",
+      "33.472"
     ],
     "links": {},
-    "bio": "Donders Institute for Brain, Cognition, and Behaviour, Radboud University, Nijmegen, the Netherlands; Netherlands Institute for Neuroscience, KNAW, Amsterdam, the Netherlands"
+    "bio": "Donders Institute for Brain, Cognition, and Behaviour, Radboud University, Nijmegen, the Netherlands; Netherlands Institute for Neuroscience, KNAW, Amsterdam, the Netherlands; Donders Institute for Brain, Cognition and Behavior, Radboud University; Netherlands Institute for Neuroscience"
   },
   {
     "id": "louis-n-vinke",
@@ -31233,7 +29109,8 @@
     ],
     "tags": [],
     "prog": [
-      "36.338"
+      "36.338",
+      "43.322"
     ],
     "links": {},
     "bio": "Department of Psychiatry, Massachusetts General Hospital, Boston, MA, USA; Harvard Medical School, Boston, MA, USA"
@@ -31254,40 +29131,10 @@
     "bio": "Department of Psychology, Neuroscience, and Behaviour, McMaster University"
   },
   {
-    "id": "susana-chung",
-    "name": [
-      "Susana",
-      "Chung",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.340"
-    ],
-    "links": {},
-    "bio": "University of California,"
-  },
-  {
     "id": "kathlyn-bako",
     "name": [
       "Kathlyn",
       "Bako",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.340"
-    ],
-    "links": {},
-    "bio": "University of California,"
-  },
-  {
-    "id": "rijul-soans",
-    "name": [
-      "Rijul",
-      "Soans",
       "",
       ""
     ],
@@ -31312,21 +29159,6 @@
     ],
     "links": {},
     "bio": "University of Houston College of Optometry"
-  },
-  {
-    "id": "susana-tl-chung",
-    "name": [
-      "Susana TL",
-      "Chung",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.342"
-    ],
-    "links": {},
-    "bio": "UC Berkeley"
   },
   {
     "id": "irem-yildirim",
@@ -31460,21 +29292,6 @@
     "name": [
       "Shutian",
       "Xue",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.346"
-    ],
-    "links": {},
-    "bio": "NYU"
-  },
-  {
-    "id": "marsia-carrasco",
-    "name": [
-      "Marsia",
-      "Carrasco",
       "",
       ""
     ],
@@ -31645,10 +29462,12 @@
     ],
     "tags": [],
     "prog": [
-      "36.402"
+      "36.402",
+      "symp-2026-05-15-1345-talk-r.t05",
+      "55.16"
     ],
     "links": {},
-    "bio": "University of Nevada, Reno"
+    "bio": "University of Nevada, Reno; Department of Psychology, University of Nevada, Reno, NV, US"
   },
   {
     "id": "ilgin-cebioglu",
@@ -31720,7 +29539,8 @@
     ],
     "tags": [],
     "prog": [
-      "36.403"
+      "36.403",
+      "53.450"
     ],
     "links": {},
     "bio": "Newcastle University"
@@ -32006,10 +29826,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.409"
+      "36.409",
+      "43.474"
     ],
     "links": {},
-    "bio": "Laboratory of Sensorimotor Research, Section on"
+    "bio": "Laboratory of Sensorimotor Research, Section on; National Eye Institute, National Institutes of Health"
   },
   {
     "id": "ramon-bartolo",
@@ -32255,36 +30076,6 @@
     "bio": "Columbia University"
   },
   {
-    "id": "anirvan-nandy",
-    "name": [
-      "Anirvan",
-      "Nandy",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.418"
-    ],
-    "links": {},
-    "bio": "Yale University"
-  },
-  {
-    "id": "monika-jadi",
-    "name": [
-      "Monika",
-      "Jadi",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.418"
-    ],
-    "links": {},
-    "bio": "Yale University"
-  },
-  {
     "id": "olessia-jouravlev",
     "name": [
       "Olessia",
@@ -32520,25 +30311,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.425"
+      "36.425",
+      "53.404"
     ],
     "links": {},
-    "bio": "University of Illinois Urbana Champaign"
-  },
-  {
-    "id": "cathleen-moore",
-    "name": [
-      "Cathleen",
-      "Moore",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.425"
-    ],
-    "links": {},
-    "bio": "University of Iowa"
+    "bio": "University of Illinois Urbana Champaign; University of Illinois"
   },
   {
     "id": "mark-w-becker",
@@ -32961,21 +30738,6 @@
     "bio": "Texas A&M University"
   },
   {
-    "id": "zoe-jing-xu-2",
-    "name": [
-      "Zoe(Jing)",
-      "Xu",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.437"
-    ],
-    "links": {},
-    "bio": "University of Washington"
-  },
-  {
     "id": "sandali-liyanagoonawardena",
     "name": [
       "Sandali",
@@ -33084,21 +30846,6 @@
     "bio": "University of California, Santa Barbara"
   },
   {
-    "id": "miguel-p-eckstein-2",
-    "name": [
-      "Miguel P",
-      "Eckstein",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.440"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
     "id": "alex-j-hoogerbrugge",
     "name": [
       "Alex J.",
@@ -33204,21 +30951,6 @@
     ],
     "links": {},
     "bio": "University of Manchester"
-  },
-  {
-    "id": "natalie-paquette",
-    "name": [
-      "Natalie",
-      "Paquette",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.447"
-    ],
-    "links": {},
-    "bio": "University of Central Florida"
   },
   {
     "id": "daniel-ernst",
@@ -33683,10 +31415,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.459"
+      "36.459",
+      "33.467"
     ],
     "links": {},
-    "bio": "Department of Psychology, Neuroscience, and Behaviour, McMaster University, Canada"
+    "bio": "Department of Psychology, Neuroscience, and Behaviour, McMaster University, Canada; Department of Psychology, Neuroscience, and Behaviour, McMaster University, Hamilton, Ontario, Canada"
   },
   {
     "id": "prasanth-chandran",
@@ -34156,21 +31889,6 @@
     "bio": "University of Minnesota"
   },
   {
-    "id": "vanessa-lee",
-    "name": [
-      "Vanessa",
-      "Lee",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.471"
-    ],
-    "links": {},
-    "bio": "University of Minnesota"
-  },
-  {
     "id": "zainab-haseeb",
     "name": [
       "Zainab",
@@ -34195,10 +31913,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.473"
+      "36.473",
+      "16.317"
     ],
     "links": {},
-    "bio": "University of Colorado Denver"
+    "bio": "University of Colorado Denver; University of Colorado, Denver"
   },
   {
     "id": "ryan-v-ringer",
@@ -34210,25 +31929,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.473"
+      "36.473",
+      "16.317"
     ],
     "links": {},
-    "bio": "University of Colorado Denver"
-  },
-  {
-    "id": "molly-mckinney",
-    "name": [
-      "Molly",
-      "McKinney",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "36.474"
-    ],
-    "links": {},
-    "bio": "Texas A&M University"
+    "bio": "University of Colorado Denver; University of Colorado, Denver"
   },
   {
     "id": "mianzhi-hu",
@@ -34270,10 +31975,11 @@
     ],
     "tags": [],
     "prog": [
-      "36.475"
+      "36.475",
+      "36.474"
     ],
     "links": {},
-    "bio": ""
+    "bio": "Texas A&M University"
   },
   {
     "id": "brian-a-anderson",
@@ -34285,10 +31991,14 @@
     ],
     "tags": [],
     "prog": [
-      "36.475"
+      "36.475",
+      "31.12",
+      "26.332",
+      "36.436",
+      "36.474"
     ],
     "links": {},
-    "bio": ""
+    "bio": "Texas A&M University"
   },
   {
     "id": "jennifer-trujillo",
@@ -34330,7 +32040,8 @@
     ],
     "tags": [],
     "prog": [
-      "36.476"
+      "36.476",
+      "33.322"
     ],
     "links": {},
     "bio": "California State University, Chico"
@@ -34545,7 +32256,8 @@
     ],
     "tags": [],
     "prog": [
-      "43.303"
+      "43.303",
+      "23.419"
     ],
     "links": {},
     "bio": "York University"
@@ -34626,21 +32338,6 @@
     "bio": "New York University"
   },
   {
-    "id": "najib-majaj",
-    "name": [
-      "Najib",
-      "Majaj",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.307"
-    ],
-    "links": {},
-    "bio": "New York University"
-  },
-  {
     "id": "tom-endejan",
     "name": [
       "Tom",
@@ -34654,21 +32351,6 @@
     ],
     "links": {},
     "bio": "Indiana University"
-  },
-  {
-    "id": "linda-smith",
-    "name": [
-      "Linda",
-      "Smith",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.308"
-    ],
-    "links": {},
-    "bio": ""
   },
   {
     "id": "marjan-persuh",
@@ -35010,7 +32692,8 @@
     ],
     "tags": [],
     "prog": [
-      "43.317"
+      "43.317",
+      "33.319"
     ],
     "links": {},
     "bio": "United Arab Emirates University; New York University Abu Dhabi; Center for Brain and Health, NYUAD Research Institute"
@@ -35166,21 +32849,6 @@
     ],
     "links": {},
     "bio": "University of Toronto; Vector Institute"
-  },
-  {
-    "id": "louis-vinke",
-    "name": [
-      "Louis",
-      "Vinke",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.322"
-    ],
-    "links": {},
-    "bio": "Department of Psychiatry, Massachusetts General Hospital, Boston, MA, USA; Harvard Medical School, Boston, MA, USA"
   },
   {
     "id": "francesca-de-marneffe",
@@ -35469,21 +33137,6 @@
     "bio": "Rotman Research Institute, Baycrest Academy for Research and Education; Department of Psychology, University of Toronto"
   },
   {
-    "id": "allison-sekuler",
-    "name": [
-      "Allison",
-      "Sekuler",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.328"
-    ],
-    "links": {},
-    "bio": "Rotman Research Institute, Baycrest Academy for Research and Education; Department of Psychology, University of Toronto; Department of Psychology, Neuroscience & Behaviour, McMaster University"
-  },
-  {
     "id": "soazig-casteau",
     "name": [
       "Soazig",
@@ -35650,10 +33303,11 @@
     ],
     "tags": [],
     "prog": [
-      "43.336"
+      "43.336",
+      "34.21"
     ],
     "links": {},
-    "bio": "Department of Neurosciences, KU Leuven, Leuven, Belgium; Leuven Brain Institute, KU Leuven, Leuven, Belgium"
+    "bio": "Department of Neurosciences, KU Leuven, Leuven, Belgium; Leuven Brain Institute, KU Leuven, Leuven, Belgium; KU Leuven"
   },
   {
     "id": "ghazaleh-ghamkhari-nejad1",
@@ -35701,21 +33355,6 @@
     "bio": "Section Computational Sensomotorics, Department N3, Hertie Institute for Clinical Brain Research & Centre for Integrative Neurocience, University Clinic Tübingen, Tübingen, Germany"
   },
   {
-    "id": "martin-giese",
-    "name": [
-      "Martin",
-      "Giese",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.336"
-    ],
-    "links": {},
-    "bio": "Section Computational Sensomotorics, Department N3, Hertie Institute for Clinical Brain Research & Centre for Integrative Neurocience, University Clinic Tübingen, Tübingen, Germany"
-  },
-  {
     "id": "megumi-kobayashi",
     "name": [
       "Megumi",
@@ -35729,21 +33368,6 @@
     ],
     "links": {},
     "bio": "Niigata University"
-  },
-  {
-    "id": "katie-l-h-gray-2",
-    "name": [
-      "Katie L.H.",
-      "Gray",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.338"
-    ],
-    "links": {},
-    "bio": "University of Reading"
   },
   {
     "id": "mahsa-barzy",
@@ -36419,25 +34043,11 @@
     ],
     "tags": [],
     "prog": [
-      "43.409"
+      "43.409",
+      "symp-2026-05-15-1030-talk-r.t01"
     ],
     "links": {},
-    "bio": "York University"
-  },
-  {
-    "id": "clayton-curtis",
-    "name": [
-      "Clayton",
-      "Curtis",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.409"
-    ],
-    "links": {},
-    "bio": "New York University"
+    "bio": "York University; Department of Psychology, York University, Toronto, Ontario, Canada"
   },
   {
     "id": "yue-guzhang",
@@ -36855,10 +34465,11 @@
     ],
     "tags": [],
     "prog": [
-      "43.420"
+      "43.420",
+      "36.340"
     ],
     "links": {},
-    "bio": "University of California, Berkeley"
+    "bio": "University of California, Berkeley; University of California,"
   },
   {
     "id": "susana-t-l-chung",
@@ -36870,10 +34481,12 @@
     ],
     "tags": [],
     "prog": [
-      "43.420"
+      "43.420",
+      "36.342",
+      "36.340"
     ],
     "links": {},
-    "bio": "University of California, Berkeley"
+    "bio": "University of California, Berkeley; UC Berkeley; University of California,"
   },
   {
     "id": "zainab-faisal",
@@ -36976,10 +34589,11 @@
     "tags": [],
     "prog": [
       "43.422",
-      "53.338"
+      "53.338",
+      "32.11"
     ],
     "links": {},
-    "bio": "University of Pittsburgh"
+    "bio": "University of Pittsburgh; Department of Bioengineering, University of Pittsburgh; Department of Ophthalmology, University of Pittsburgh"
   },
   {
     "id": "gabriela-oancea",
@@ -37528,21 +35142,6 @@
     "bio": "York University"
   },
   {
-    "id": "batsheva-hadad",
-    "name": [
-      "Batsheva",
-      "Hadad",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.433"
-    ],
-    "links": {},
-    "bio": "University of Haifa"
-  },
-  {
     "id": "mario-costantino",
     "name": [
       "Mario",
@@ -37586,21 +35185,6 @@
     ],
     "links": {},
     "bio": "Movement and Visual Perception lab, Department of Psychological and Brain Sciences, University of Delaware"
-  },
-  {
-    "id": "leah-ettensohn",
-    "name": [
-      "Leah",
-      "Ettensohn",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.436"
-    ],
-    "links": {},
-    "bio": "Laboratory of Brain and Cognition, National Institute of Mental Health"
   },
   {
     "id": "natalia-pallis-hassani",
@@ -37808,7 +35392,8 @@
     ],
     "tags": [],
     "prog": [
-      "43.442"
+      "43.442",
+      "56.459"
     ],
     "links": {},
     "bio": "The University of Sydney"
@@ -37996,22 +35581,6 @@
     ],
     "links": {},
     "bio": "University of California, Irvine; Center for Translational Vision Research, University of California, Irvine"
-  },
-  {
-    "id": "cherlyn-j-ng",
-    "name": [
-      "Cherlyn J",
-      "Ng",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.449",
-      "56.433"
-    ],
-    "links": {},
-    "bio": "University of California, Irvine; School of Social Sciences, University of California, Irvine; Center for Translational Vision Research, University of California, Irvine"
   },
   {
     "id": "yiran-ge",
@@ -38512,36 +36081,6 @@
     "bio": "Department of Psychology, Soochow University, Taipei, Taiwan"
   },
   {
-    "id": "matt-cavanaugh",
-    "name": [
-      "Matt",
-      "Cavanaugh",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.466"
-    ],
-    "links": {},
-    "bio": "University"
-  },
-  {
-    "id": "berkeley-fahrenthold",
-    "name": [
-      "Berkeley",
-      "Fahrenthold",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.466"
-    ],
-    "links": {},
-    "bio": "University"
-  },
-  {
     "id": "bence-csaba-farkas",
     "name": [
       "Bence Csaba",
@@ -38551,10 +36090,11 @@
     ],
     "tags": [],
     "prog": [
-      "43.467"
+      "43.467",
+      "35.17"
     ],
     "links": {},
-    "bio": ""
+    "bio": "UVSQ, Inserm, Centre de Recherche en Epidémiologie et Santé des Populations, Université"
   },
   {
     "id": "flora-hann",
@@ -38585,21 +36125,6 @@
     ],
     "links": {},
     "bio": "Texas Tech University"
-  },
-  {
-    "id": "dezso-nemeth-2",
-    "name": [
-      "Dezso",
-      "Nemeth",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.469"
-    ],
-    "links": {},
-    "bio": "INSERM"
   },
   {
     "id": "cicek-guney",
@@ -38748,25 +36273,11 @@
     ],
     "tags": [],
     "prog": [
-      "43.474"
+      "43.474",
+      "26.453"
     ],
     "links": {},
-    "bio": "National Eye Institute, National Institutes of Health; Brown University"
-  },
-  {
-    "id": "isabela-tellez-2",
-    "name": [
-      "Isabela",
-      "Téllez",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.474"
-    ],
-    "links": {},
-    "bio": "National Eye Institute, National Institutes of Health"
+    "bio": "National Eye Institute, National Institutes of Health; Brown University; National Eye Institute"
   },
   {
     "id": "haoxuan-yao",
@@ -38818,21 +36329,6 @@
     "name": [
       "Qianhua",
       "Zhu",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "43.475"
-    ],
-    "links": {},
-    "bio": "Peking University"
-  },
-  {
-    "id": "shiming-tang",
-    "name": [
-      "Shiming",
-      "Tang",
       "",
       ""
     ],
@@ -39653,10 +37149,11 @@
     ],
     "tags": [],
     "prog": [
-      "53.323"
+      "53.323",
+      "54.27"
     ],
     "links": {},
-    "bio": "University of Genoa"
+    "bio": "University of Genoa; University of Genova"
   },
   {
     "id": "bahar-aykut",
@@ -39702,21 +37199,6 @@
     ],
     "links": {},
     "bio": "New York University"
-  },
-  {
-    "id": "cindy-bearfield",
-    "name": [
-      "Cindy",
-      "Bearfield",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.325"
-    ],
-    "links": {},
-    "bio": "Georgia Institute of Technology"
   },
   {
     "id": "angela-huang",
@@ -39864,7 +37346,8 @@
     ],
     "tags": [],
     "prog": [
-      "53.329"
+      "53.329",
+      "23.332"
     ],
     "links": {},
     "bio": "New Mexico State University"
@@ -39879,7 +37362,8 @@
     ],
     "tags": [],
     "prog": [
-      "53.329"
+      "53.329",
+      "23.332"
     ],
     "links": {},
     "bio": "New Mexico State University"
@@ -39894,7 +37378,8 @@
     ],
     "tags": [],
     "prog": [
-      "53.329"
+      "53.329",
+      "23.332"
     ],
     "links": {},
     "bio": "New Mexico State University"
@@ -39969,10 +37454,11 @@
     ],
     "tags": [],
     "prog": [
-      "53.332"
+      "53.332",
+      "33.309"
     ],
     "links": {},
-    "bio": "Department of Psychology, National Taiwan University"
+    "bio": "Department of Psychology, National Taiwan University; National Taiwan University"
   },
   {
     "id": "haley-g-frey",
@@ -39984,40 +37470,13 @@
     ],
     "tags": [],
     "prog": [
-      "53.332"
+      "53.332",
+      "15.23",
+      "33.309",
+      "33.468"
     ],
     "links": {},
-    "bio": "University of California, Berkeley"
-  },
-  {
-    "id": "katrina-a-wolters-2",
-    "name": [
-      "Katrina A",
-      "Wolters",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.332"
-    ],
-    "links": {},
-    "bio": "University of California, Berkeley"
-  },
-  {
-    "id": "shao-min-sean-hung-2",
-    "name": [
-      "Shao-Min (Sean)",
-      "Hung",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.332"
-    ],
-    "links": {},
-    "bio": "Waseda Institute for Advanced Study, Waseda University"
+    "bio": "University of California, Berkeley; Herbert Wertheim School of Optometry and Vision Science Program, University of California, Berkeley; Department of Psychology, University of California, Berkeley"
   },
   {
     "id": "daun-jung",
@@ -40164,10 +37623,11 @@
     ],
     "tags": [],
     "prog": [
-      "53.339"
+      "53.339",
+      "33.458"
     ],
     "links": {},
-    "bio": "Department of Psychology, Lingnan University, Hong Kong, China; Cognitive Science Research Centre, Lingnan University, Hong Kong, China"
+    "bio": "Department of Psychology, Lingnan University, Hong Kong, China; Cognitive Science Research Centre, Lingnan University, Hong Kong, China; Lingnan University"
   },
   {
     "id": "haonan-kong",
@@ -40543,7 +38003,9 @@
     ],
     "tags": [],
     "prog": [
-      "53.350"
+      "53.350",
+      "23.432",
+      "56.401"
     ],
     "links": {},
     "bio": "The Ohio State University"
@@ -40593,22 +38055,6 @@
     ],
     "links": {},
     "bio": "Florida International University"
-  },
-  {
-    "id": "m-j-wenger",
-    "name": [
-      "M. J.",
-      "Wenger",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.355",
-      "53.462"
-    ],
-    "links": {},
-    "bio": "University of Oklahoma"
   },
   {
     "id": "sisi-wang",
@@ -40699,21 +38145,6 @@
     ],
     "links": {},
     "bio": "Department of Physiology and Pharmacology University of Western Ontario"
-  },
-  {
-    "id": "lyle-muller",
-    "name": [
-      "Lyle",
-      "Muller",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.359"
-    ],
-    "links": {},
-    "bio": "Department of Mathematics University of Western Ontario"
   },
   {
     "id": "julio-martinez-trujillo",
@@ -40884,36 +38315,6 @@
     "bio": "The Ohio State University"
   },
   {
-    "id": "zoe-j-xu",
-    "name": [
-      "Zoe J.",
-      "Xu",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.404"
-    ],
-    "links": {},
-    "bio": "University"
-  },
-  {
-    "id": "howard-j-h-tan",
-    "name": [
-      "Howard J. H.",
-      "Tan",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.404"
-    ],
-    "links": {},
-    "bio": "University of Illinois"
-  },
-  {
     "id": "john-mcdonald",
     "name": [
       "John",
@@ -41034,21 +38435,6 @@
     "bio": "Wake    Forest University"
   },
   {
-    "id": "brad-stilwell",
-    "name": [
-      "Brad",
-      "Stilwell",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.407"
-    ],
-    "links": {},
-    "bio": "Wake    Forest University"
-  },
-  {
     "id": "tsion-a-eshetu",
     "name": [
       "Tsion A.",
@@ -41073,10 +38459,11 @@
     ],
     "tags": [],
     "prog": [
-      "53.408"
+      "53.408",
+      "53.407"
     ],
     "links": {},
-    "bio": "Wake Forest University"
+    "bio": "Wake Forest University; Wake    Forest University"
   },
   {
     "id": "vis-ion-sc-ienc-es-soc-iet-y-mor-sasi",
@@ -41304,21 +38691,6 @@
     "bio": "Boston University"
   },
   {
-    "id": "anne-zonneveld",
-    "name": [
-      "Anne",
-      "Zonneveld",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.420"
-    ],
-    "links": {},
-    "bio": "University of Amsterdam"
-  },
-  {
     "id": "pascal-mettes",
     "name": [
       "Pascal",
@@ -41395,21 +38767,6 @@
     "bio": ""
   },
   {
-    "id": "keith-schneider",
-    "name": [
-      "Keith",
-      "Schneider",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.423"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
     "id": "giulia-gennari",
     "name": [
       "Giulia",
@@ -41449,10 +38806,11 @@
     ],
     "tags": [],
     "prog": [
-      "53.425"
+      "53.425",
+      "53.420"
     ],
     "links": {},
-    "bio": "Informatics Institute, University of Amsterdam"
+    "bio": "Informatics Institute, University of Amsterdam; University of Amsterdam"
   },
   {
     "id": "pablo-oyarzo",
@@ -41554,31 +38912,17 @@
     ],
     "tags": [],
     "prog": [
-      "53.428"
+      "53.428",
+      "53.471"
     ],
     "links": {},
-    "bio": "Johns Hopkins School of Medicine; Zanvyl Krieger Mind/Brain Institute; Kavli Neuroscience Discovery Institute"
+    "bio": "Johns Hopkins School of Medicine; Zanvyl Krieger Mind/Brain Institute; Kavli Neuroscience Discovery Institute; Department of Neuroscience, Johns Hopkins School of Medicine; Zanvyl Krieger"
   },
   {
     "id": "joseph-wekselblatt",
     "name": [
       "Joseph",
       "Wekselblatt",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.429"
-    ],
-    "links": {},
-    "bio": "Fuster Laboratory for Cognitive"
-  },
-  {
-    "id": "declan-rowley",
-    "name": [
-      "Declan",
-      "Rowley",
       "",
       ""
     ],
@@ -41609,21 +38953,6 @@
     "name": [
       "Matthew N.",
       "Martino",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.430"
-    ],
-    "links": {},
-    "bio": "Carnegie Mellon University"
-  },
-  {
-    "id": "jess-m-smith",
-    "name": [
-      "Jess M.",
-      "Smith",
       "",
       ""
     ],
@@ -41708,10 +39037,12 @@
     "tags": [],
     "prog": [
       "53.431",
-      "56.427"
+      "56.427",
+      "symp-2026-05-15-1030-talk-r",
+      "symp-2026-05-15-1030-talk-r.t01"
     ],
     "links": {},
-    "bio": "Dartmouth College"
+    "bio": "Dartmouth College; Dartmouth University"
   },
   {
     "id": "yang-yang",
@@ -41874,7 +39205,8 @@
     ],
     "tags": [],
     "prog": [
-      "53.435"
+      "53.435",
+      "51.24"
     ],
     "links": {},
     "bio": "Columbia University"
@@ -41998,21 +39330,6 @@
     ],
     "links": {},
     "bio": "University of"
-  },
-  {
-    "id": "cris-de-la-malla",
-    "name": [
-      "Cris de la",
-      "Malla",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.438"
-    ],
-    "links": {},
-    "bio": "University of Barcelona"
   },
   {
     "id": "jacob-l-lader",
@@ -42378,21 +39695,6 @@
     "bio": "Bilkent University; Justus Liebig University Giessen"
   },
   {
-    "id": "burcu-a-urgen-2",
-    "name": [
-      "Burcu A.",
-      "Urgen",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.446"
-    ],
-    "links": {},
-    "bio": "Bilkent University"
-  },
-  {
     "id": "filip-durovic",
     "name": [
       "Filip",
@@ -42432,10 +39734,11 @@
     ],
     "tags": [],
     "prog": [
-      "53.448"
+      "53.448",
+      "16.311"
     ],
     "links": {},
-    "bio": "Department of Psychology, Yale University; Wu Tsai Institute, Yale University"
+    "bio": "Department of Psychology, Yale University; Wu Tsai Institute, Yale University; Yale University"
   },
   {
     "id": "betul-beyza-cengil",
@@ -42526,21 +39829,6 @@
     ],
     "links": {},
     "bio": "University of Surrey"
-  },
-  {
-    "id": "quoc-vuong",
-    "name": [
-      "Quoc",
-      "Vuong",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.450"
-    ],
-    "links": {},
-    "bio": "Newcastle University"
   },
   {
     "id": "w-ryan-waite",
@@ -42672,10 +39960,11 @@
     ],
     "tags": [],
     "prog": [
-      "53.454"
+      "53.454",
+      "16.307"
     ],
     "links": {},
-    "bio": "Yale University"
+    "bio": "Yale University; Child Study Center, Yale School of Medicine"
   },
   {
     "id": "karen-l-gunther",
@@ -42935,51 +40224,6 @@
     "bio": "University of Oklahoma"
   },
   {
-    "id": "s-f-newbolds",
-    "name": [
-      "S. F.",
-      "Newbolds",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.462"
-    ],
-    "links": {},
-    "bio": "University of Oklahoma"
-  },
-  {
-    "id": "v-a-shah",
-    "name": [
-      "V. A.",
-      "Shah",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.462"
-    ],
-    "links": {},
-    "bio": "Retina Consultants of Oklahoma"
-  },
-  {
-    "id": "i-m-sluch",
-    "name": [
-      "I.M.",
-      "Sluch",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.462"
-    ],
-    "links": {},
-    "bio": "US Veterans Administration"
-  },
-  {
     "id": "sarah-f-newbolds",
     "name": [
       "Sarah F.",
@@ -42989,10 +40233,12 @@
     ],
     "tags": [],
     "prog": [
-      "53.463"
+      "53.463",
+      "56.357",
+      "53.462"
     ],
     "links": {},
-    "bio": "University of Oklahoma"
+    "bio": "University of Oklahoma; The University of Oklahoma"
   },
   {
     "id": "vinay-a-shah",
@@ -43004,7 +40250,8 @@
     ],
     "tags": [],
     "prog": [
-      "53.463"
+      "53.463",
+      "53.462"
     ],
     "links": {},
     "bio": "Retina Consultants of Oklahoma"
@@ -43019,7 +40266,8 @@
     ],
     "tags": [],
     "prog": [
-      "53.463"
+      "53.463",
+      "53.462"
     ],
     "links": {},
     "bio": "US Veterans Administration"
@@ -43034,25 +40282,13 @@
     ],
     "tags": [],
     "prog": [
-      "53.463"
+      "53.463",
+      "56.357",
+      "53.355",
+      "53.462"
     ],
     "links": {},
-    "bio": "University of Oklahoma"
-  },
-  {
-    "id": "antonio-mello",
-    "name": [
-      "Antônio",
-      "Mello",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.464"
-    ],
-    "links": {},
-    "bio": "Dartmouth College"
+    "bio": "University of Oklahoma; The University of Oklahoma"
   },
   {
     "id": "sydney-fortner",
@@ -43329,21 +40565,6 @@
     "name": [
       "Emmanuel",
       "Osikpa",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "53.471"
-    ],
-    "links": {},
-    "bio": "Department of Neuroscience, Johns Hopkins School of Medicine; Zanvyl Krieger"
-  },
-  {
-    "id": "kristina-nielsen",
-    "name": [
-      "Kristina",
-      "Nielsen",
       "",
       ""
     ],
@@ -43670,21 +40891,6 @@
     "bio": "University of California Irvine"
   },
   {
-    "id": "michaela-klimova-2",
-    "name": [
-      "Michaela",
-      "Klímová",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.306"
-    ],
-    "links": {},
-    "bio": "Northeastern University"
-  },
-  {
     "id": "megan-a-k-peters-3",
     "name": [
       "Megan A. K.",
@@ -43695,10 +40901,14 @@
     "tags": [],
     "prog": [
       "56.306",
-      "56.307"
+      "56.307",
+      "52.26",
+      "26.466",
+      "15.21",
+      "23.429"
     ],
     "links": {},
-    "bio": "University of California Irvine; Canadian Institute for Advanced Research; University College London; University of California, Irvine"
+    "bio": "University of California Irvine; Canadian Institute for Advanced Research; University College London; University of California, Irvine; Department of Cognitive Sciences, University of California Irvine; Center for Theoretical Behavioral Sciences, University of California Irvine; Center for the Neurobiology of Learning & Memory, University of California Irvine; Department of Logic & Philosophy of Science, University of California Irvine; Department of Experimental Psychology, University College London; Program in Brain, Mind, & Consciousness, Canadian Institute for Advanced Research"
   },
   {
     "id": "ogul-can-yurdakul",
@@ -43785,10 +40995,13 @@
     ],
     "tags": [],
     "prog": [
-      "56.312"
+      "56.312",
+      "symp-2026-05-15-1030-talk-r.t04",
+      "33.331",
+      "53.336"
     ],
     "links": {},
-    "bio": "Dartmouth College"
+    "bio": "Dartmouth College; Dartmouth College, NH, USA"
   },
   {
     "id": "chattarin-poungtubtim",
@@ -44181,21 +41394,6 @@
     "bio": "University of Pittsburgh"
   },
   {
-    "id": "j-patrick-mayo-2",
-    "name": [
-      "J Patrick",
-      "Mayo",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.323"
-    ],
-    "links": {},
-    "bio": "University of Pittsburgh"
-  },
-  {
     "id": "avniel-ghuman",
     "name": [
       "Avniel",
@@ -44215,21 +41413,6 @@
     "name": [
       "Yu",
       "Chen",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.324"
-    ],
-    "links": {},
-    "bio": "University of Glasgow"
-  },
-  {
-    "id": "robin-a-a-ince-2",
-    "name": [
-      "Robin A.A.",
-      "Ince",
       "",
       ""
     ],
@@ -44731,7 +41914,8 @@
     ],
     "tags": [],
     "prog": [
-      "56.340"
+      "56.340",
+      "53.423"
     ],
     "links": {},
     "bio": "Department of Psychological & Brain Sciences, University"
@@ -44750,21 +41934,6 @@
     ],
     "links": {},
     "bio": "Department of Psychological & Brain Sciences, University"
-  },
-  {
-    "id": "brian-keane",
-    "name": [
-      "Brian",
-      "Keane",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.341"
-    ],
-    "links": {},
-    "bio": "University of Rochester; University of Rochester Medical Center; Center for Visual Science"
   },
   {
     "id": "caiden-ross-moody",
@@ -44902,36 +42071,6 @@
     "bio": "Vanderbilt University"
   },
   {
-    "id": "philip-guan",
-    "name": [
-      "Philip",
-      "Guan",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.348"
-    ],
-    "links": {},
-    "bio": "Reality Lab Research, Meta"
-  },
-  {
-    "id": "alex-williams",
-    "name": [
-      "Alex",
-      "Williams",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.348"
-    ],
-    "links": {},
-    "bio": "New York University, Center of Neural Science"
-  },
-  {
     "id": "riley-wiland",
     "name": [
       "Riley",
@@ -45005,7 +42144,12 @@
       "56.352",
       "56.401",
       "56.405",
-      "56.448"
+      "56.448",
+      "42.11",
+      "talksess-2026-05-17-0815-talk-r",
+      "56.406",
+      "56.449",
+      "23.347"
     ],
     "links": {},
     "bio": "University of California, Santa; UC Santa Barbara; University of California, Santa Barbara, Santa Barbara, CA; University of California, Santa Barbara"
@@ -45131,21 +42275,6 @@
     "bio": "The University of Oklahoma"
   },
   {
-    "id": "sarah-newbolds",
-    "name": [
-      "Sarah",
-      "Newbolds",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.357"
-    ],
-    "links": {},
-    "bio": "The University of Oklahoma"
-  },
-  {
     "id": "james-townsend",
     "name": [
       "James",
@@ -45161,21 +42290,6 @@
     "bio": "Indiana University"
   },
   {
-    "id": "michael-wenger",
-    "name": [
-      "Michael",
-      "Wenger",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.357"
-    ],
-    "links": {},
-    "bio": "The University of Oklahoma"
-  },
-  {
     "id": "sandra-park",
     "name": [
       "Sandra",
@@ -45189,21 +42303,6 @@
     ],
     "links": {},
     "bio": "University of Illinois Urbana-"
-  },
-  {
-    "id": "junming-yu",
-    "name": [
-      "Junming",
-      "Yu",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.358"
-    ],
-    "links": {},
-    "bio": ""
   },
   {
     "id": "darshan-shah",
@@ -45335,10 +42434,12 @@
     ],
     "tags": [],
     "prog": [
-      "56.401"
+      "56.401",
+      "43.409",
+      "symp-2026-05-15-1030-talk-r.t01"
     ],
     "links": {},
-    "bio": "New York University"
+    "bio": "New York University; Department of Psychology, New York University, New York, NY, USA; Center for Neural Science, New York University, New York, NY, USA"
   },
   {
     "id": "gengshi-hu",
@@ -45380,10 +42481,11 @@
     ],
     "tags": [],
     "prog": [
-      "56.404"
+      "56.404",
+      "16.304"
     ],
     "links": {},
-    "bio": "University of"
+    "bio": "University of; University of Cambridge"
   },
   {
     "id": "sylvie-r-bass",
@@ -45410,10 +42512,11 @@
     ],
     "tags": [],
     "prog": [
-      "56.405"
+      "56.405",
+      "56.449"
     ],
     "links": {},
-    "bio": "University of California, Santa Barbara, Santa Barbara, CA"
+    "bio": "University of California, Santa Barbara, Santa Barbara, CA; UC Santa Barbara"
   },
   {
     "id": "danny-lim",
@@ -45867,21 +42970,6 @@
     "bio": "Wilmer Eye Institute, Johns Hopkins University"
   },
   {
-    "id": "gordon-legge",
-    "name": [
-      "Gordon",
-      "Legge",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.416"
-    ],
-    "links": {},
-    "bio": "Department of Psychology, University of Minnesota"
-  },
-  {
     "id": "roberto-manduchi",
     "name": [
       "Roberto",
@@ -45961,21 +43049,6 @@
     "name": [
       "Yinuo",
       "Peng",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.420"
-    ],
-    "links": {},
-    "bio": "Vanderbilt University"
-  },
-  {
-    "id": "thomas-palmeri",
-    "name": [
-      "Thomas",
-      "Palmeri",
       "",
       ""
     ],
@@ -46111,21 +43184,6 @@
     "name": [
       "Catherine",
       "Landry",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.425"
-    ],
-    "links": {},
-    "bio": "Cerebrum, Université de Montréal"
-  },
-  {
-    "id": "frederic-gosselin-2",
-    "name": [
-      "Frédéric",
-      "Gosselin",
       "",
       ""
     ],
@@ -46401,10 +43459,11 @@
     ],
     "tags": [],
     "prog": [
-      "56.436"
+      "56.436",
+      "26.434"
     ],
     "links": {},
-    "bio": ""
+    "bio": "Department of physiology, Faculty of medicine, Chulalongkorn University, Bangkok, Thailand; Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand"
   },
   {
     "id": "pakapon-suesatchapong",
@@ -46750,7 +43809,8 @@
     ],
     "tags": [],
     "prog": [
-      "56.447"
+      "56.447",
+      "26.404"
     ],
     "links": {},
     "bio": "Simon Fraser University"
@@ -46765,25 +43825,11 @@
     ],
     "tags": [],
     "prog": [
-      "56.447"
+      "56.447",
+      "26.404"
     ],
     "links": {},
     "bio": "Simon Fraser University"
-  },
-  {
-    "id": "amelia-harrison",
-    "name": [
-      "Amelia",
-      "Harrison",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.449"
-    ],
-    "links": {},
-    "bio": "UC Santa Barbara"
   },
   {
     "id": "claudio-galletti",
@@ -46981,21 +44027,6 @@
     "bio": ""
   },
   {
-    "id": "alex-holcombe",
-    "name": [
-      "Alex",
-      "Holcombe",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.459"
-    ],
-    "links": {},
-    "bio": "The University of Sydney"
-  },
-  {
     "id": "viplav-tuladhar",
     "name": [
       "Viplav",
@@ -47146,21 +44177,6 @@
     "bio": "University of Würzburg, Germany"
   },
   {
-    "id": "jeremy-wolfe-2",
-    "name": [
-      "JEREMY",
-      "WOLFE",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.460"
-    ],
-    "links": {},
-    "bio": "Brigham and Women's Hospital; Harvard Medical School"
-  },
-  {
     "id": "daniel-pearson",
     "name": [
       "Daniel",
@@ -47225,21 +44241,6 @@
     "name": [
       "Chenanke",
       "Sun",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "56.464"
-    ],
-    "links": {},
-    "bio": "Boston University"
-  },
-  {
-    "id": "joseph-mcguire",
-    "name": [
-      "Joseph",
-      "McGuire",
       "",
       ""
     ],
@@ -47410,10 +44411,12 @@
     ],
     "tags": [],
     "prog": [
-      "56.472"
+      "56.472",
+      "33.472",
+      "56.464"
     ],
     "links": {},
-    "bio": "Donders Institute for Brain, Cognition, & Behavior, Radboud University"
+    "bio": "Donders Institute for Brain, Cognition, & Behavior, Radboud University; Donders Institute for Brain, Cognition and Behavior, Radboud University; Donders Institute for Brain, Cognition and"
   },
   {
     "id": "joseph-t-mcguire",
@@ -47425,7 +44428,8 @@
     ],
     "tags": [],
     "prog": [
-      "56.472"
+      "56.472",
+      "56.464"
     ],
     "links": {},
     "bio": "Boston University"
