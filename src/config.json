@@ -24,6 +24,10 @@
     "IMG_ALT_TEXT": "",
     "LINEFEED_AFTER_URL": false
   },
+  "START_TIME": {
+    "START_TIME_LABEL": "Starts: Friday, May 15"
+  },
+
   "NAVIGATION": {
     "PROGRAM": "Programme",
     "PEOPLE": "People",
