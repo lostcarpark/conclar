@@ -1564,18 +1564,73 @@ def iter_posters(text: str) -> Iterable[Abstract]:
 # Step 9. Convert Abstract objects into konopas program items, building people.
 # ---------------------------------------------------------------------------
 
-def abstract_to_program(ab: Abstract) -> dict:
-    refs = []
+def _norm_room(room: str) -> str:
+    """Lowercase + collapse whitespace so 'Talk Room 1' and 'TALK ROOM 1' match."""
+    return re.sub(r"\s+", " ", (room or "").strip().lower())
+
+
+# Map an Abstract's `kind` (or a ScheduleEntry's `kind`) to the human-facing
+# Type tag used by conclar.  Symposium / talk-session children are both shown
+# as "Type:Talk" since the parent: tag already records which session they
+# belong to.
+_TYPE_TAG: dict[str, str] = {
+    # Schedule overview row kinds
+    "Symposium": "Type:Symposium",
+    "Talk Session": "Type:TalkSession",
+    "Poster Session": "Type:PosterSession",
+    "Workshop": "Type:Workshop",
+    "Keynote": "Type:Keynote",
+    "Social": "Type:Social",
+    "Satellite": "Type:Satellite",
+    "Networking": "Type:Networking",
+    "Award": "Type:Award",
+    "Break": "Type:Break",
+    "Lounge": "Type:Lounge",
+    "Registration": "Type:Registration",
+    "Exhibits": "Type:Exhibits",
+    "Business": "Type:Business",
+    "Student": "Type:Student",
+    "Other": "Type:Other",
+    # Abstract (child) kinds
+    "symposium": "Type:Symposium",
+    "symposium-talk": "Type:Talk",
+    "talk": "Type:Talk",
+    "talk-session": "Type:TalkSession",
+    "poster": "Type:Poster",
+}
+
+
+def _bump_session_start(time_str: str, mins: int) -> tuple[str, int]:
+    """Shift a session's start time DOWN by one minute (mins +1) so its
+    children at the original start sort strictly after it.  Clamps at 00:00
+    to avoid wrapping past midnight on edge cases."""
+    if not time_str or ":" not in time_str:
+        return time_str, mins
+    try:
+        h, m = (int(x) for x in time_str.split(":"))
+    except ValueError:
+        return time_str, mins
+    total = h * 60 + m
+    if total <= 0:
+        return time_str, mins
+    total -= 1
+    return f"{total // 60:02d}:{total % 60:02d}", mins + 1
+
+
+def _build_people_refs_for(ab: Abstract, owner_id: str) -> list[dict]:
+    """Build {id, name} refs for an Abstract's authors, registering each
+    under `owner_id` in the people registry.  The owner_id may be the
+    abstract's own id or a parent schedule-row id (when a session umbrella
+    is being merged into its schedule row)."""
+    refs: list[dict] = []
     affil_map = affil_lookup(ab.affils)
-    # If we have only one affiliation and no explicit per-author indices,
-    # treat it as everyone's affiliation (common pattern for single-PI labs).
     fallback: list[str] = []
     if len(ab.affils) == 1 and not any(ab.author_indices):
         m = re.match(r"^\d+\s*(.+)$", ab.affils[0])
         fallback = [m.group(1).strip() if m else ab.affils[0]]
     for i, author in enumerate(ab.authors):
         ref = people.ref(author)
-        people.add_prog(ref["id"], ab.id)
+        people.add_prog(ref["id"], owner_id)
         idxs = ab.author_indices[i] if i < len(ab.author_indices) else []
         person_affils: list[str] = []
         for idx in idxs:
@@ -1585,12 +1640,29 @@ def abstract_to_program(ab: Abstract) -> dict:
             person_affils = list(fallback)
         people.add_affils(ref["id"], person_affils)
         refs.append(ref)
-    tags = []
-    if ab.track:
+    return refs
+
+
+def abstract_to_program(ab: Abstract,
+                        session_lookup: Optional[dict[tuple[str, str, str], str]] = None
+                        ) -> dict:
+    """Render a child Abstract as a top-level program item with a
+    parent:<sched_id> tag pointing at the matching schedule overview row."""
+    refs = _build_people_refs_for(ab, ab.id)
+    tags: list[str] = []
+    if ab.track and ab.track != ab.kind:
         tags.append(ab.track)
-    if ab.kind:
-        tags.append(f"`type:{ab.kind}")  # backtick prefix marks "hidden" tag
-    # Affiliations are surfaced via each person's `bio` field rather than
+    type_tag = _TYPE_TAG.get(ab.kind)
+    if type_tag and type_tag not in tags:
+        tags.append(type_tag)
+    parent_id = ""
+    if session_lookup and ab.parent_session_time:
+        parent_id = session_lookup.get(
+            (ab.date, ab.parent_session_time, _norm_room(ab.room)), ""
+        )
+    if parent_id:
+        tags.append(f"parent:{parent_id}")
+    # Affiliations are surfaced via each person's `tags` field rather than
     # duplicated into every program item's description.
     desc = ab.body
     return {
@@ -1607,18 +1679,61 @@ def abstract_to_program(ab: Abstract) -> dict:
 
 
 def schedule_entry_to_program(e: ScheduleEntry, idx: int) -> dict:
-    mins = (e.end[0] - e.start[0]) * 60 + (e.end[1] - e.start[1])
+    """Render a schedule overview row as the canonical session item.
+
+    For session types that contain children (Symposium / Talk Session /
+    Poster Session), the start time is shifted DOWN by one minute (mins is
+    bumped UP by one) so children at the original start sort strictly
+    after the parent and the parent always renders first when times
+    collide."""
+    mins_val = (e.end[0] - e.start[0]) * 60 + (e.end[1] - e.start[1])
+    mins_val = mins_val if mins_val > 0 else 0
+    time_str = fmt_time(e.start)
+    if e.kind in ("Symposium", "Talk Session", "Poster Session"):
+        time_str, mins_val = _bump_session_start(time_str, mins_val)
+    tags: list[str] = []
+    type_tag = _TYPE_TAG.get(e.kind)
+    if type_tag:
+        tags.append(type_tag)
     return {
         "id": f"sched-{idx:04d}",
         "title": e.title,
-        "tags": [e.kind] if e.kind else [],
+        "tags": tags,
         "date": e.date,
-        "time": fmt_time(e.start),
-        "mins": mins if mins > 0 else 0,
+        "time": time_str,
+        "mins": mins_val,
         "loc": [e.room] if e.room else [],
         "people": [],
         "desc": ("\n".join(e.sub_topics)) if e.sub_topics else "",
     }
+
+
+def merge_umbrella_into_schedule(ab: Abstract,
+                                 session_lookup: dict[tuple[str, str, str], str],
+                                 sched_by_id: dict[str, dict]) -> bool:
+    """If `ab` is a Symposium / Talk-Session umbrella that maps to a
+    schedule overview row, fold its people and overview body into the row
+    and return True (so the caller can skip emitting it as a standalone
+    item).  Returns False if no matching row exists; the caller should
+    then emit the umbrella so its content isn't dropped."""
+    if ab.kind not in ("symposium", "talk-session"):
+        return False
+    key = (ab.date, ab.time, _norm_room(ab.room))
+    sched_id = session_lookup.get(key)
+    if not sched_id or sched_id not in sched_by_id:
+        return False
+    sched_item = sched_by_id[sched_id]
+    refs = _build_people_refs_for(ab, sched_id)
+    seen = {r["id"] for r in sched_item["people"]}
+    for r in refs:
+        if r["id"] not in seen:
+            sched_item["people"].append(r)
+            seen.add(r["id"])
+    if ab.body:
+        existing = sched_item["desc"]
+        if ab.body not in existing:
+            sched_item["desc"] = (existing + "\n\n" + ab.body).strip() if existing else ab.body
+    return True
 
 
 # ---------------------------------------------------------------------------
@@ -1627,27 +1742,47 @@ def schedule_entry_to_program(e: ScheduleEntry, idx: int) -> dict:
 
 program: list[dict] = []
 
-# Schedule overview rows (workshops, breaks, satellites...)
-sched_kinds_to_skip_when_dupe = {"Symposium", "Talk Session", "Poster Session"}
+# Schedule overview rows are the canonical session items.  We emit them
+# first, then build a (date, original_start_time, normalized_room) lookup
+# so symposium / talk-session / poster children can be linked back via a
+# `parent:<sched_id>` tag.  Note: schedule_entry_to_program shifts session
+# start times down by 1 minute for items that contain children, but the
+# lookup uses the ORIGINAL start time (which is what the abstract content
+# section reports for each session header).
+session_lookup: dict[tuple[str, str, str], str] = {}
+sched_by_id: dict[str, dict] = {}
 for i, e in enumerate(schedule):
-    # We'll emit ALL schedule rows, but tag them so users can filter.
-    program.append(schedule_entry_to_program(e, i))
+    item = schedule_entry_to_program(e, i)
+    program.append(item)
+    sched_by_id[item["id"]] = item
+    session_lookup[(e.date, fmt_time(e.start), _norm_room(e.room))] = item["id"]
 
 n_sched = len(program)
 
 n_sym = 0
+n_sym_orphan = 0  # umbrellas we couldn't merge (no matching sched row)
 for ab in iter_symposia(sym_text):
-    program.append(abstract_to_program(ab))
+    if ab.kind == "symposium":
+        if merge_umbrella_into_schedule(ab, session_lookup, sched_by_id):
+            continue
+        # Orphan umbrella - emit it so we don't drop the content entirely.
+        n_sym_orphan += 1
+    program.append(abstract_to_program(ab, session_lookup))
     n_sym += 1
 
 n_talk = 0
+n_talk_orphan = 0
 for ab in iter_talk_sessions(talk_text):
-    program.append(abstract_to_program(ab))
+    if ab.kind == "talk-session":
+        if merge_umbrella_into_schedule(ab, session_lookup, sched_by_id):
+            continue
+        n_talk_orphan += 1
+    program.append(abstract_to_program(ab, session_lookup))
     n_talk += 1
 
 n_poster = 0
 for ab in iter_posters(poster_text):
-    program.append(abstract_to_program(ab))
+    program.append(abstract_to_program(ab, session_lookup))
     n_poster += 1
 
 if args.limit > 0:
@@ -1750,9 +1885,14 @@ if n_merged:
     _merge_note = f"  (merged {n_merged} duplicate records: {', '.join(_parts)})"
 else:
     _merge_note = ""
+_orphan_note = ""
+if n_sym_orphan or n_talk_orphan:
+    _orphan_note = (f"  ({n_sym_orphan} symposium / {n_talk_orphan} talk-session "
+                    f"umbrellas had no matching schedule row and were emitted standalone)\n")
 print(
     f"wrote {len(program):,} program items "
     f"(schedule={n_sched}, symp={n_sym}, talks={n_talk}, posters={n_poster})\n"
+    f"{_orphan_note}"
     f"wrote {len(people.to_konopas()):,} unique people{_merge_note}\n"
     f"  -> {PROGRAM_PATH}\n"
     f"  -> {PEOPLE_PATH}",
