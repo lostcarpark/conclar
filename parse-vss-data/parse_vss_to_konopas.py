@@ -1990,6 +1990,33 @@ def abstract_to_program(ab: Abstract,
     }
 
 
+_TITLE_CONTINUATION_TAILS = frozenset({
+    "a", "an", "and", "as", "at", "but", "by", "for", "from", "in", "into",
+    "of", "on", "or", "the", "to", "with", "without",
+})
+
+
+def _maybe_extend_title(title: str, sub_topics: list[str]) -> tuple[str, list[str]]:
+    """If `title` ends with a connector word or colon, absorb the first
+    `sub_topics` entry as a continuation.  Returns (new_title, remaining_subs).
+
+    Schedule overview titles wrap onto a second indented row when too long,
+    e.g. "Rhythms of Vision: How Neural Oscillations Structure Perception and"
+    + "Attention".  The continuation lands in sub_topics by the row parser;
+    fold it back into the title here.
+    """
+    if not title or not sub_topics:
+        return title, list(sub_topics)
+    stripped = title.rstrip()
+    last_word_m = re.search(r"\b(\w+)\W*$", stripped)
+    last_word = last_word_m.group(1).lower() if last_word_m else ""
+    if stripped.endswith(":") or last_word in _TITLE_CONTINUATION_TAILS:
+        cont = sub_topics[0].strip()
+        if cont and not cont.startswith(("Sponsored ", "Organized ", "Lunch ")):
+            return (stripped + " " + cont).strip(), list(sub_topics[1:])
+    return title, list(sub_topics)
+
+
 def schedule_entry_to_program(e: ScheduleEntry, idx: int) -> dict:
     """Render a schedule overview row as the canonical session item.
 
@@ -2007,16 +2034,17 @@ def schedule_entry_to_program(e: ScheduleEntry, idx: int) -> dict:
     type_tag = _TYPE_TAG.get(e.kind)
     if type_tag:
         tags.append(type_tag)
+    full_title, remaining_subs = _maybe_extend_title(e.title, e.sub_topics)
     return {
         "id": f"sched-{idx:04d}",
-        "title": smart_title_case(e.title),
+        "title": smart_title_case(full_title),
         "tags": tags,
         "date": e.date,
         "time": time_str,
         "mins": mins_val,
         "loc": [e.room] if e.room else [],
         "people": [],
-        "desc": ("\n".join(e.sub_topics)) if e.sub_topics else "",
+        "desc": ("\n".join(remaining_subs)) if remaining_subs else "",
     }
 
 
