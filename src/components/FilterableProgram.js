@@ -134,11 +134,14 @@ const FilterableProgram = () => {
     let filtered = program;
     let directMatchedIds = null;
 
-    // Filter by search term. PR 2: a parent matches if its OWN text or
-    // any of its children's text contains the term — so searching for
-    // a topic in a talk's abstract surfaces the symposium too.
+    // Filter by search term.  Each item is matched against its OWN
+    // text only — children matching the term are surfaced via the
+    // post-filter parent-completion step below, NOT by also marking
+    // their parent as a direct match.  Keeping the distinction is what
+    // lets PR 4 hide non-matching siblings inside a parent that's only
+    // here for context.
     if (term.length) {
-      const itemMatchesText = (item) => {
+      filtered = filtered.filter((item) => {
         if (item.title && item.title.toLowerCase().includes(term)) return true;
         if (item.desc && item.desc.toLowerCase().includes(term)) return true;
         if (item.people) {
@@ -146,15 +149,6 @@ const FilterableProgram = () => {
             if (person.name && person.name.toLowerCase().includes(term))
               return true;
           }
-        }
-        return false;
-      };
-      filtered = filtered.filter((item) => {
-        if (itemMatchesText(item)) return true;
-        // Look down: any of this item's children match?
-        const kids = programChildren[item.id] || [];
-        for (const k of kids) {
-          if (itemMatchesText(k)) return true;
         }
         return false;
       });
