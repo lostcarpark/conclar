@@ -1083,6 +1083,15 @@ div.switch-wrapper {
  * 5. people.
  */
 
+/* Person thumbnails are disabled site-wide.
+   This catches participant chips inside program items and the Person
+   detail-page portrait, both of which render independently of the
+   PEOPLE.THUMBNAILS.SHOW_THUMBNAILS config flag. */
+.participant-image,
+.person-image {
+  display: none !important;
+}
+
 .people-settings {
   display: flex;
   flex-direction: row;
