@@ -277,7 +277,7 @@
     "FETCH_BUTTON_LABEL": "Fetch Data Now"
   },
   "SYNC": {
-    "API_URL": "https://localhost:3001/api/conclar",
+    "API_URL": "",
     "LOADING_LABEL": "Loading...",
     "LOGIN_LABEL": "Log in",
     "LOGOUT_LABEL": "Log out @display_name",
