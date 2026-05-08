@@ -1661,41 +1661,72 @@ POSTER_ABS_RE = re.compile(
 )
 
 
-_TOPIC_HEAD_PARTIAL_RE = re.compile(
+# Header lines whose room name might wrap onto the next line:
+# (a) topic header with no room yet ("FRIDAY MORNING POSTERS IN")
+# (b) topic header with a partial room word ("FRIDAY MORNING POSTERS IN BANYAN")
+# (c) session header with no room ("FRIDAY, MAY 15, 3:45 – 6:00 PM,")
+# (d) session header with a partial room word ("FRIDAY, MAY 15, 3:45 – 6:00 PM, BANYAN")
+_TOPIC_HEAD_RE = re.compile(
     r"^(FRIDAY|SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY)\s+"
-    r"(MORNING|AFTERNOON)\s+POSTERS\s+IN\s*$",
+    r"(MORNING|AFTERNOON)\s+POSTERS\s+IN(?:\s+([A-Z][A-Z ]*))?\s*$",
     re.IGNORECASE,
 )
-_SESS_HEAD_PARTIAL_RE = re.compile(
+_SESS_HEAD_RE = re.compile(
     r"^\w+,\s+\w+\s+\d+,\s+\d{1,2}:\d{2}\s*(?:AM|PM)?\s*[-–]\s*"
-    r"\d{1,2}:\d{2}\s*(?:AM|PM)\s*,\s*$",
+    r"\d{1,2}:\d{2}\s*(?:AM|PM)\s*,(?:\s+([A-Z][A-Z ]*))?\s*$",
     re.IGNORECASE,
 )
 _ROOM_CONT_RE = re.compile(r"^[A-Z][A-Z ]*$")
+# Multi-word rooms whose second word may wrap onto a continuation line.
+_KNOWN_ROOM_HEADS = frozenset(s.upper() for s in (
+    "Banyan",  # -> Banyan Breezeway
+    "Garden",  # -> Garden Courtyard
+    "Talk",    # -> Talk Room
+    "Grand",   # -> Grand Palm Colonnade
+    "Royal",   # -> Royal Tern
+    "Spotted", # -> Spotted Curlew
+    "Snowy",   # -> Snowy Egret
+    "Horizons", # -> Horizons West
+    "Blue",    # -> Blue Heron
+    "Palm",    # -> Palm/Sabal/Sawgrass
+    "Pirate",  # -> Pirate Island
+    "RumFish", # -> RumFish Beach
+))
 
 
 def _join_wrapped_headers(lines: list[str]) -> list[str]:
     """Join poster-section headers whose room name wraps onto the next
-    non-empty line.  Two patterns:
-      * "SATURDAY MORNING POSTERS IN" + (next line) "PAVILION"
-      * "SATURDAY, MAY 16, 8:30 AM – 12:30 PM," + (next) "PAVILION"
-    Returns a new line list with the joins applied; pass-throughs untouched."""
+    non-empty line.  Handles four patterns:
+      (a) "SATURDAY MORNING POSTERS IN" + (next line) "PAVILION"
+      (b) "SATURDAY MORNING POSTERS IN BANYAN" + (next) "BREEZEWAY"
+      (c) "SATURDAY, MAY 16, 8:30 AM – 12:30 PM," + (next) "PAVILION"
+      (d) "SATURDAY, MAY 16, 8:30 AM – 12:30 PM, BANYAN" + (next) "BREEZEWAY"
+    Returns a new line list with the joins applied."""
     out: list[str] = []
     i = 0
     while i < len(lines):
         line = lines[i]
         s = line.strip()
-        if _TOPIC_HEAD_PARTIAL_RE.match(s) or _SESS_HEAD_PARTIAL_RE.match(s):
-            # Look forward for the room continuation
-            j = i + 1
-            while j < len(lines) and not lines[j].strip():
-                j += 1
-            if j < len(lines):
-                cont = lines[j].strip()
-                if _ROOM_CONT_RE.match(cont) and len(cont) <= 30:
-                    out.append(s + " " + cont)
-                    i = j + 1
-                    continue
+        m_topic = _TOPIC_HEAD_RE.match(s)
+        m_sess = _SESS_HEAD_RE.match(s)
+        if m_topic or m_sess:
+            partial_room = (m_topic.group(3) if m_topic else m_sess.group(1)) if (m_topic or m_sess) else None
+            partial_room = (partial_room or "").strip().upper()
+            # Need a continuation if the room is empty OR is a known
+            # multi-word-room first-word.
+            needs_continuation = (
+                not partial_room or partial_room in _KNOWN_ROOM_HEADS
+            )
+            if needs_continuation:
+                j = i + 1
+                while j < len(lines) and not lines[j].strip():
+                    j += 1
+                if j < len(lines):
+                    cont = lines[j].strip()
+                    if _ROOM_CONT_RE.match(cont) and len(cont) <= 30:
+                        out.append(s + " " + cont)
+                        i = j + 1
+                        continue
         out.append(line)
         i += 1
     return out
