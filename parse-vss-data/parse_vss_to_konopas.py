@@ -1306,6 +1306,7 @@ def parse_talk_block(lines: list[str]) -> tuple[str, str, list[str]]:
     # blank in the layout output.
     auth_end = sem_idx + 1
     seen_blank_fwd = False
+
     # When the affiliation line wraps mid-name ("...; 1University of\nRochester"),
     # the trailing fragment ("Rochester") is short and has no commas or
     # affil keywords, so _looks_affil rejects it and we'd cut the
