@@ -14,6 +14,7 @@ import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
 import { useState, useEffect } from "react";
 import { LocalTime } from "../utils/LocalTime";
+import { useDirectMatchedIds } from "./FilterContext";
 
 const ProgramItem = ({ item, forceExpanded, now }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
@@ -38,7 +39,23 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   // PR 1: tree-aware nesting. If this item has children (sessions with
   // talks/posters), they render inside this item's DOM rather than as
   // flat siblings.
-  const childItems = useStoreState((state) => state.programChildren[item.id]) || [];
+  const allChildItems = useStoreState((state) => state.programChildren[item.id]) || [];
+
+  // PR 4 polish: when a filter is active, hide non-matching children
+  // unless this parent itself was a direct filter match.  Logic:
+  //   - No filter active            -> show all children.
+  //   - Filter active, parent matched directly -> show all children
+  //     (the parent is a "container view" — user wants to see what's
+  //     inside this matched session).
+  //   - Filter active, parent only here via parent-completion -> show
+  //     only the children that were direct matches (the matched needles
+  //     in this session's haystack).
+  const directMatchedIds = useDirectMatchedIds();
+  const childItems = (() => {
+    if (!directMatchedIds) return allChildItems;
+    if (directMatchedIds.has(item.id)) return allChildItems;
+    return allChildItems.filter((c) => directMatchedIds.has(c.id));
+  })();
   const hasChildren = childItems.length > 0;
 
   function toggleExpanded() {

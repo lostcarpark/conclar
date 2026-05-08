@@ -10,6 +10,7 @@ import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import { LocalTime } from "../utils/LocalTime";
 import { extractParentId } from "../model";
+import { FilterContext } from "./FilterContext";
 
 const FilterableProgram = () => {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ const FilterableProgram = () => {
     )
   );
 
-  const filtered = applyFilters(program);
+  const { filtered, directMatchedIds } = applyFilters(program);
   const total = filtered.length;
   const totalMessage =
     displayLimit !== "all" && displayLimit < total
@@ -128,9 +129,10 @@ const FilterableProgram = () => {
 
     // If no filters, return full program;
     if (term.length === 0 && selLoc.length === 0 && selTags === 0)
-      return program;
+      return { filtered: program, directMatchedIds: null };
 
     let filtered = program;
+    let directMatchedIds = null;
 
     // Filter by search term. PR 2: a parent matches if its OWN text or
     // any of its children's text contains the term — so searching for
@@ -188,11 +190,21 @@ const FilterableProgram = () => {
     // hit on a child still shows under its parent for context.  Only
     // runs when filters are actually narrowing the list (otherwise it's
     // a no-op since every parent is already present).
-    if (
+    const isFilterActive =
       term.length > 0 ||
       selLoc.length > 0 ||
-      Object.values(selTags || {}).some((arr) => arr && arr.length > 0)
-    ) {
+      Object.values(selTags || {}).some((arr) => arr && arr.length > 0);
+
+    // Capture the set of direct matches BEFORE parent-completion.  This
+    // is what ProgramItem uses to decide whether to render only matching
+    // children (parent only here for context) or all children (parent
+    // matched on its own merit).  Null when no filter is active so the
+    // unfiltered render path shows every child unconditionally.
+    directMatchedIds = isFilterActive
+      ? new Set(filtered.map((it) => it.id))
+      : null;
+
+    if (isFilterActive) {
       const ids = new Set(filtered.map((it) => it.id));
       const queue = [...filtered];
       const additions = [];
@@ -255,7 +267,7 @@ const FilterableProgram = () => {
         filtered = filterHideBefore(filtered, minDay);
       }
     }
-    return filtered;
+    return { filtered, directMatchedIds };
   }
 
   function limitDropDown() {
@@ -399,7 +411,9 @@ const FilterableProgram = () => {
         </div>
       </div>
       <div className="program-page">
-        <ProgramList program={display} />
+        <FilterContext.Provider value={directMatchedIds}>
+          <ProgramList program={display} />
+        </FilterContext.Provider>
       </div>
       <div className="result-filters">
         <div className="stack">
