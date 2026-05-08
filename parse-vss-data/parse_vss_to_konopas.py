@@ -1478,6 +1478,9 @@ def iter_symposia(text: str) -> Iterable[Abstract]:
                 author_indices=indices,
                 body=body_text, track="Symposium",
                 kind="symposium-talk", date=date, time=fmt_time(start_t),
+                # Symposium talk durations vary widely (some symposia have
+                # 5x 20-min, others 6x 15-min, etc.) and aren't printed in
+                # the booklet — leave as 0 ("unknown") rather than guess.
                 mins=0, room=room,
                 parent_session_time=fmt_time(start_t),
             )
@@ -1613,7 +1616,9 @@ def iter_talk_sessions(text: str) -> Iterable[Abstract]:
                 body=body_text2,
                 track=topic_line, kind="talk",
                 date=date, time=fmt_time(t_hm),
-                mins=0,  # individual talk durations not given
+                # Per-talk durations aren't printed in the booklet; default
+                # to 15 minutes so the schedule UI has a reasonable block.
+                mins=15,
                 room=room,
                 parent_session_time=fmt_time((sh, sm_)),
             )
@@ -1876,9 +1881,20 @@ def abstract_to_program(ab: Abstract,
         tags.append(type_tag)
     parent_id = ""
     if session_lookup and ab.parent_session_time:
+        ab_room = _norm_room(ab.room)
         parent_id = session_lookup.get(
-            (ab.date, ab.parent_session_time, _norm_room(ab.room)), ""
+            (ab.date, ab.parent_session_time, ab_room), ""
         )
+        # Fallback: poster session headers in the abstract body sometimes
+        # truncate the room ("Banyan" instead of "Banyan Breezeway" because
+        # the second word wraps to a new line).  Match by prefix on the
+        # same date+time slot.
+        if not parent_id and ab_room:
+            for (d, t, r), sid in session_lookup.items():
+                if d == ab.date and t == ab.parent_session_time:
+                    if r.startswith(ab_room) or ab_room.startswith(r):
+                        parent_id = sid
+                        break
     if parent_id:
         tags.append(f"parent:{parent_id}")
     # Affiliations are surfaced via each person's `tags` field rather than
