@@ -1,6 +1,6 @@
 {
   "APP_ID": "O2021",
-  "APP_TITLE": "ConClár Programme Guide",
+  "APP_TITLE": "VSS 2026",
   "PROGRAM_DATA_URL": "/2026/program.json",
   "PEOPLE_DATA_URL": "/2026/people.json",
   "FETCH_OPTIONS": {
@@ -16,8 +16,8 @@
       "Origin": "http://example.com"
     }
   },
-  "TIMEZONE": "Europe/Dublin",
-  "TIMEZONECODE": "IST",
+  "TIMEZONE": "America/New_York",
+  "TIMEZONECODE": "EDT",
   "INTERACTIVE": true,
   "HEADER": {
     "IMG_SRC": "",
@@ -29,8 +29,7 @@
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
-    "SETTINGS": "Settings",
-    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
+    "SETTINGS": "Settings"
   },
   "HELP_TEXT": {
     "WELCOME": "Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
@@ -40,7 +39,7 @@
   },
   "LOCATIONS": {
     "SEARCHABLE": false,
-    "LABEL": "Show on map",
+    "LABEL": "",
     "MAPPING": [
       { "KEY": "Davin - Croke Park", "MAP_URL": "https://map.octocon.com" }
     ]
@@ -101,11 +100,12 @@
     "DAY_TAG": {
       "GENERATE": true,
       "DAYS": {
-        "4": "Thursday",
         "5": "Friday",
         "6": "Saturday",
         "7": "Sunday",
-        "1": "Monday"
+        "1": "Monday",
+        "2": "Tuesday",
+        "3": "Wednesday"
       },
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": false,
