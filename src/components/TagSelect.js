@@ -9,7 +9,7 @@ const TagSelect = ({ options, tag, selTags, setSelTags, tagData, resetLimit }) =
       isSearchable={tagData.SEARCHABLE}
       value={selTags[tag]}
       onChange={(value) => {
-        resetLimit();
+        if (typeof resetLimit === "function") resetLimit();
         let selections = { ...selTags };
         selections[tag] = value;
         setSelTags(selections);
