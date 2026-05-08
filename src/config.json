@@ -16,7 +16,7 @@
       "Origin": "http://example.com"
     }
   },
-  "TIMEZONE": "America/New-York",
+  "TIMEZONE": "America/New_York",
   "TIMEZONECODE": "EDT",
   "INTERACTIVE": true,
   "HEADER": {
