@@ -552,6 +552,116 @@ def slugify(name: str) -> str:
     return s or "anon"
 
 
+# ---------- Title-case conversion for ALL-CAPS source titles -----------------
+#
+# Abstract titles in the VSS booklet are typeset in ALL CAPS.  We convert
+# them to title case while preserving:
+#   * Common scientific acronyms (EEG, fMRI, V1, ANOVA, ...).
+#   * "Small" connector words in the middle of the title (in, of, the, and,
+#     to, by, for, ...) — but capitalize them at the start, end, or after a
+#     colon / question mark / exclamation point.
+#   * Internal hyphens get both halves capitalized ("Top-Down").
+# Mixed-case input is returned unchanged so this is safe to apply broadly.
+
+_TITLE_SMALL_WORDS = frozenset({
+    "a", "an", "and", "as", "at", "but", "by", "for", "from", "in", "into",
+    "is", "nor", "of", "on", "onto", "or", "the", "to", "upon", "via", "vs",
+    "with",
+})
+
+# Acronyms preserved as-is when the all-caps title is converted.  Stored in
+# uppercase for fast comparison; emitted exactly as written here.
+_TITLE_ACRONYMS = frozenset({
+    # AI / computing
+    "AI", "ML", "DL", "DNN", "CNN", "RNN", "GAN", "VAE", "LLM", "GPT",
+    "GPU", "CPU", "ASIC", "FPGA", "API", "URL", "JSON", "XML", "HTML", "CSS",
+    "RGB", "HSV", "HDR", "CIE", "LMS", "QR", "OK",
+    # Imaging / electrophysiology
+    "EEG", "MEG", "MRI", "FMRI", "SMRI", "DMRI", "PET", "TMS", "TDCS",
+    "ECOG", "ERP", "BOLD", "MEG-FMRI", "EEG-FMRI", "OCT",
+    # Brain regions
+    "V1", "V2", "V3", "V4", "V5", "V6", "MT", "MST", "FFA", "PPA", "EBA",
+    "LO", "LOC", "ATL", "PFC", "IPS", "FEF", "SC", "LGN", "IT", "STS",
+    # Vision / cognition / methods
+    "VR", "AR", "XR", "MNREAD", "RVF", "LVF", "FOV", "RSVP", "SOA", "ISI",
+    "TLM", "AFC", "2AFC", "3AFC", "4AFC", "ANOVA", "ANCOVA",
+    "RT", "DV", "IV", "ORCA", "TSP", "WM", "LTM", "STM", "VSTM", "VWM", "STM",
+    # Geographic / orgs
+    "US", "USA", "UK", "EU", "EEA", "UAE",
+    "NIH", "NSF", "NEI", "BBSRC", "EPSRC", "ERC", "CIHR", "DFG", "JSPS",
+    "VSS", "ARVO", "OSA", "SFN", "CNS", "CSHL",
+    # Biology / chem
+    "DNA", "RNA", "ATP", "GABA", "NMDA", "AMPA",
+    "ADHD", "ASD", "OCD", "PTSD", "AD", "PD", "MCI", "TBI",
+    # Stats / methods
+    "FFT", "PCA", "ICA", "LDA", "SVM", "GLM", "BIC", "AIC",
+    # Time / units / display
+    "AM", "PM", "HZ", "MS", "HD", "UHD", "LCD", "OLED",
+    # Spatial / shape
+    "2D", "3D", "4D",
+})
+
+
+def _cap_word(word: str) -> str:
+    """Capitalize a single token, recursing into hyphenated parts."""
+    if not word:
+        return word
+    if "-" in word:
+        return "-".join(_cap_word(p) for p in word.split("-"))
+    # Python's str.capitalize lowercases the rest, which is what we want
+    # for an all-caps source word.  E.g. "WORLD'S" -> "World's".
+    return word.capitalize()
+
+
+def smart_title_case(s: str) -> str:
+    """Convert an ALL-CAPS title to title case, preserving common acronyms.
+
+    If the input is already mixed-case (less than 70% of letters uppercase)
+    it's returned unchanged — so this is safe to run on schedule overview
+    titles that are already typeset correctly.
+    """
+    if not s or not s.strip():
+        return s
+    letters = [c for c in s if c.isalpha()]
+    if not letters:
+        return s
+    upper_ratio = sum(1 for c in letters if c.isupper()) / len(letters)
+    if upper_ratio < 0.7:
+        return s
+
+    tokens = s.split()
+    n = len(tokens)
+    out: list[str] = []
+    for i, tok in enumerate(tokens):
+        m = re.match(r"^([^A-Za-z0-9]*)(.*?)([^A-Za-z0-9]*)$", tok)
+        if not m:
+            out.append(tok.lower())
+            continue
+        prefix, word, suffix = m.groups()
+        if not word:
+            out.append(tok)
+            continue
+
+        upper = word.upper()
+        # Acronym: keep as-is in upper form.
+        if upper in _TITLE_ACRONYMS:
+            out.append(prefix + upper + suffix)
+            continue
+
+        # First word of the title or the start of a new clause (the previous
+        # token ended in : ! ? .) is always capitalized.
+        prev = out[-1].rstrip() if out else ""
+        prev_ends_clause = bool(prev) and prev[-1:] in ":!?."
+        is_first = i == 0 or prev_ends_clause
+        is_last = i == n - 1
+
+        if word.lower() in _TITLE_SMALL_WORDS and not is_first and not is_last:
+            out.append(prefix + word.lower() + suffix)
+            continue
+        out.append(prefix + _cap_word(word.lower()) + suffix)
+    return " ".join(out)
+
+
 # ----- Duplicate-person merging -------------------------------------------
 # Common English-language nickname mappings (nick -> canonical full form).
 # Used to merge "Tom Smith" with "Thomas Smith" etc. when the surname matches.
@@ -1667,7 +1777,7 @@ def abstract_to_program(ab: Abstract,
     desc = ab.body
     return {
         "id": ab.id,
-        "title": ab.title,
+        "title": smart_title_case(ab.title),
         "tags": tags,
         "date": ab.date,
         "time": ab.time,
@@ -1697,7 +1807,7 @@ def schedule_entry_to_program(e: ScheduleEntry, idx: int) -> dict:
         tags.append(type_tag)
     return {
         "id": f"sched-{idx:04d}",
-        "title": e.title,
+        "title": smart_title_case(e.title),
         "tags": tags,
         "date": e.date,
         "time": time_str,
