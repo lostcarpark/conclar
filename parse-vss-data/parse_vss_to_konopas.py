@@ -1260,6 +1260,7 @@ def iter_symposia(text: str) -> Iterable[Abstract]:
                 body=body_text, track="Symposium",
                 kind="symposium-talk", date=date, time=fmt_time(start_t),
                 mins=0, room=room,
+                parent_session_time=fmt_time(start_t),
             )
 
 
@@ -1395,6 +1396,7 @@ def iter_talk_sessions(text: str) -> Iterable[Abstract]:
                 date=date, time=fmt_time(t_hm),
                 mins=0,  # individual talk durations not given
                 room=room,
+                parent_session_time=fmt_time((sh, sm_)),
             )
 
         # Also emit the talk SESSION as its own item (umbrella).
@@ -1467,6 +1469,7 @@ def iter_posters(text: str) -> Iterable[Abstract]:
             author_indices=indices,
             body=body_text, track=cur_topic, kind="poster",
             date=cur_date, time=cur_time, mins=mins, room=cur_room,
+            parent_session_time=cur_time,
         )
 
     poster_state = {"id": "", "title_lines": [], "body": []}
