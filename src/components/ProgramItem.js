@@ -60,12 +60,24 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     }
   }
 
-  // Find a "parent:<id>" tag, if any. Returns the parent id or null.
-  const parentTag = (item.tags || []).find(
-    (t) => typeof t === "string" && t.toLowerCase().startsWith("parent:")
-  );
-  const parentId = parentTag ? parentTag.split(":")[1] : null;
-  const isChild = !!parentId;
+ // Find a "parent:<id>" tag in any of the shapes ConClár might emit.
+const parentTag = (item.tags || []).find((t) => {
+  if (typeof t === "string") return t.toLowerCase().startsWith("parent:");
+  if (t && typeof t === "object") {
+    if (typeof t.category === "string" && t.category.toLowerCase() === "parent") return true;
+    if (typeof t.label === "string" && t.label.toLowerCase().startsWith("parent:")) return true;
+    if (typeof t.value === "string" && t.value.toLowerCase().startsWith("parent:")) return true;
+  }
+  return false;
+});
+const parentId = (() => {
+  if (!parentTag) return null;
+  if (typeof parentTag === "string") return parentTag.split(":")[1];
+  if (parentTag.category && parentTag.category.toLowerCase() === "parent") return parentTag.value;
+  const s = parentTag.label || parentTag.value || "";
+  return s.includes(":") ? s.split(":")[1] : null;
+})();
+const isChild = !!parentId;
 
   let id = "item_" + item.id;
   const locations = [];
@@ -223,7 +235,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     );
 
   return (
-    <div id={id} className={`item ${isChild ? "program-item--child" : ""}`}>
+    <div id={id} className="item ${isChild ? "program-item--child" : ""}">
       <div className="item-selection">
         <div className="selection">
           <input
