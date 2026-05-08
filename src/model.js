@@ -497,7 +497,10 @@ const model = {
 // "parent:<id>" string (value is the original tag, category is just the
 // prefix it recognized).  We need to strip the prefix off in that case
 // so the result matches programIndex keys, which are bare ids.
-function extractParentId(item) {
+//
+// Exported so other modules (FilterableProgram, ProgramList) reuse the
+// same logic instead of redefining their own copies.
+export function extractParentId(item) {
   const tags = item.tags || [];
   for (const t of tags) {
     if (typeof t === "string") {

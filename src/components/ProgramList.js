@@ -5,6 +5,7 @@ import { LocalTime } from "../utils/LocalTime";
 import Day from "./Day";
 import configData from "../config.json";
 import { Temporal } from "@js-temporal/polyfill";
+import { extractParentId } from "../model";
 
 const ProgramList = ({ program, forceExpanded }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
@@ -40,35 +41,8 @@ const ProgramList = ({ program, forceExpanded }) => {
   // top level so they aren't lost in filter results.
   const filteredIds = new Set(program.map((it) => it.id));
 
-  // Extract the bare parent id from an item's tags. Robust to whether
-  // "parent" was declared in TAGS.SEPARATE: when declared, t.category is
-  // set but t.value still carries the full "parent:<id>" string and we
-  // need to strip the prefix; when not declared, only t.value/t.label
-  // start with "parent:".
-  function getParentId(item) {
-    const tags = item.tags || [];
-    const PREFIX = "parent:";
-    for (const t of tags) {
-      if (typeof t === "string") {
-        if (t.toLowerCase().startsWith(PREFIX)) return t.slice(PREFIX.length);
-        continue;
-      }
-      if (!t || typeof t !== "object") continue;
-      const v = typeof t.value === "string" ? t.value : "";
-      const l = typeof t.label === "string" ? t.label : "";
-      if (typeof t.category === "string" && t.category.toLowerCase() === "parent") {
-        if (v.toLowerCase().startsWith(PREFIX)) return v.slice(PREFIX.length);
-        if (v) return v;
-        return l || null;
-      }
-      if (v.toLowerCase().startsWith(PREFIX)) return v.slice(PREFIX.length);
-      if (l.toLowerCase().startsWith(PREFIX)) return l.slice(PREFIX.length);
-    }
-    return null;
-  }
-
   program.forEach((item) => {
-    const pid = getParentId(item);
+    const pid = extractParentId(item);
     if (pid && filteredIds.has(pid)) {
       return; // rendered inside the parent
     }

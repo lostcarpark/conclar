@@ -9,11 +9,14 @@ import ResetButton from "./ResetButton";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import { LocalTime } from "../utils/LocalTime";
+import { extractParentId } from "../model";
 
 const FilterableProgram = () => {
   const navigate = useNavigate();
 
   const program = useStoreState((state) => state.program);
+  const programIndex = useStoreState((state) => state.programIndex);
+  const programChildren = useStoreState((state) => state.programChildren);
   const locations = useStoreState((state) => state.locations);
   const tags = useStoreState((state) => state.tags);
 
@@ -129,9 +132,11 @@ const FilterableProgram = () => {
 
     let filtered = program;
 
-    // Filter by search term.
+    // Filter by search term. PR 2: a parent matches if its OWN text or
+    // any of its children's text contains the term — so searching for
+    // a topic in a talk's abstract surfaces the symposium too.
     if (term.length) {
-      filtered = filtered.filter((item) => {
+      const itemMatchesText = (item) => {
         if (item.title && item.title.toLowerCase().includes(term)) return true;
         if (item.desc && item.desc.toLowerCase().includes(term)) return true;
         if (item.people) {
@@ -139,6 +144,15 @@ const FilterableProgram = () => {
             if (person.name && person.name.toLowerCase().includes(term))
               return true;
           }
+        }
+        return false;
+      };
+      filtered = filtered.filter((item) => {
+        if (itemMatchesText(item)) return true;
+        // Look down: any of this item's children match?
+        const kids = programChildren[item.id] || [];
+        for (const k of kids) {
+          if (itemMatchesText(k)) return true;
         }
         return false;
       });
@@ -167,6 +181,48 @@ const FilterableProgram = () => {
         });
       }
     }
+    // PR 2: parent-completion. After all filters run, walk up the
+    // parent chain from each surviving item and add any ancestor that
+    // isn't already in the result.  This means filtering by Type:Talk
+    // doesn't lose the symposium that contains the talk, and a search
+    // hit on a child still shows under its parent for context.  Only
+    // runs when filters are actually narrowing the list (otherwise it's
+    // a no-op since every parent is already present).
+    if (
+      term.length > 0 ||
+      selLoc.length > 0 ||
+      Object.values(selTags || {}).some((arr) => arr && arr.length > 0)
+    ) {
+      const ids = new Set(filtered.map((it) => it.id));
+      const queue = [...filtered];
+      const additions = [];
+      while (queue.length > 0) {
+        const it = queue.shift();
+        const pid = extractParentId(it);
+        if (!pid || ids.has(pid)) continue;
+        const parent = programIndex[pid];
+        if (!parent) continue;
+        ids.add(pid);
+        additions.push(parent);
+        queue.push(parent); // walk further up if multi-level
+      }
+      if (additions.length) {
+        filtered = filtered.concat(additions);
+        // Re-sort so the parents land at the right time + parent-tiebreak
+        // (mirrors the sort in ProgramData.processProgramData).
+        filtered.sort((a, b) => {
+          const cmp = Temporal.ZonedDateTime.compare(
+            a.startDateAndTime,
+            b.startDateAndTime
+          );
+          if (cmp !== 0) return cmp;
+          return (
+            (extractParentId(a) ? 1 : 0) - (extractParentId(b) ? 1 : 0)
+          );
+        });
+      }
+    }
+
     if (LocalTime.isDuringCon(program) && !showPastItems) {
       filtered = LocalTime.filterPastItems(filtered);
     }

@@ -2258,6 +2258,40 @@ def _norm_room(room: str) -> str:
     return re.sub(r"\s+", " ", (room or "").strip().lower())
 
 
+def _display_room(room: str) -> str:
+    """Title-case a room name for display so "TALK ROOM 1" -> "Talk Room 1".
+
+    Symposium and talk-session headers in the source render rooms in
+    ALL CAPS while poster/schedule rows render them in title case;
+    normalize at the display step so loc strings compare equal across
+    item types.  Preserves hyphens, slashes, and existing case for
+    already-mixed names.
+    """
+    s = (room or "").strip()
+    if not s:
+        return s
+    # Strip a dangling trailing connector ("Garden Courtyard &" -> "Garden Courtyard")
+    s = re.sub(r"\s*&\s*$", "", s)
+    # Skip if any lowercase letter is present (already mixed-case).
+    if any(c.islower() for c in s):
+        return s
+    def _cap(w: str) -> str:
+        if not w:
+            return w
+        return w[0].upper() + w[1:].lower()
+    out_words = []
+    for w in s.split():
+        # Preserve trailing digits unchanged ("ROOM 1" -> "Room 1")
+        if w.isdigit():
+            out_words.append(w)
+            continue
+        # Words may contain "/" or "-" inside ("BANYAN/CITRUS").
+        parts = re.split(r"([/\-])", w)
+        out = "".join(_cap(p) if i % 2 == 0 else p for i, p in enumerate(parts))
+        out_words.append(out)
+    return " ".join(out_words)
+
+
 # Map an Abstract's `kind` (or a ScheduleEntry's `kind`) to the human-facing
 # Type tag used by conclar.  Symposium / talk-session children are both shown
 # as "Type:Talk" since the parent: tag already records which session they
@@ -2358,7 +2392,7 @@ def abstract_to_program(ab: Abstract,
         "date": ab.date,
         "time": ab.time,
         "mins": ab.mins,
-        "loc": [ab.room] if ab.room else [],
+        "loc": [_display_room(ab.room)] if ab.room else [],
         "people": refs,
         "desc": desc,
     }
@@ -2415,7 +2449,7 @@ def schedule_entry_to_program(e: ScheduleEntry, idx: int) -> dict:
         "date": e.date,
         "time": time_str,
         "mins": mins_val,
-        "loc": [e.room] if e.room else [],
+        "loc": [_display_room(e.room)] if e.room else [],
         "people": [],
         "desc": ("\n".join(remaining_subs)) if remaining_subs else "",
     }
