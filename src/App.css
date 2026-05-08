@@ -966,6 +966,13 @@ div.switch-wrapper {
   color: var(--program-tags-fg);
 }
 
+/* The expanded/abstract view's tag list is suppressed because Type is
+   surfaced as a colored badge on the title row and the parent session
+   title is shown as the italic kicker line above the title. */
+.item-details .item-tags {
+  display: none;
+}
+
 .item-tag,
 .item-location {
   display: inline-block;
