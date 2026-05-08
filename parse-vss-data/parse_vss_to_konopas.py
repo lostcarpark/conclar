@@ -2008,3 +2008,41 @@ print(
     f"  -> {PEOPLE_PATH}",
     file=sys.stderr,
 )
+
+def _t_to_min(t):
+    """'HH:MM' -> minutes since midnight."""
+    h, m = t.split(":")
+    return int(h) * 60 + int(m)
+
+# 1. Find every poster *session* item. Adjust this predicate to match how
+#    YOUR session items are tagged/titled. Common signals:
+#      - title contains "Posters" (plural) and "Poster" isn't in Type tag
+#      - duration is "long" (90+ minutes)
+#      - they're not children of anything else
+poster_sessions = []
+for it in program:  # rename `program` to whatever variable holds your list
+    title = it.get("title", "")
+    tags = it.get("tags", [])
+    is_individual_poster = "Type:Poster" in tags
+    looks_like_session = "Posters" in title or "Poster Session" in title
+    if looks_like_session and not is_individual_poster:
+        start = _t_to_min(it["time"])
+        end = start + int(it.get("mins", 0))
+        poster_sessions.append({
+            "id": it["id"],
+            "date": it["date"],
+            "start": start,
+            "end": end,
+        })
+
+# 2. For each individual poster, find its parent session by date + time-window.
+for it in program:
+    if "Type:Poster" not in it.get("tags", []):
+        continue
+    if any(t.startswith("parent:") for t in it["tags"]):
+        continue  # already tagged
+    p_min = _t_to_min(it["time"])
+    for s in poster_sessions:
+        if it["date"] == s["date"] and s["start"] <= p_min < s["end"]:
+            it["tags"].append(f"parent:{s['id']}")
+            break
