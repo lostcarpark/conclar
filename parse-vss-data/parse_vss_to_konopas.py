@@ -1306,21 +1306,75 @@ def parse_talk_block(lines: list[str]) -> tuple[str, str, list[str]]:
     # blank in the layout output.
     auth_end = sem_idx + 1
     seen_blank_fwd = False
+    # When the affiliation line wraps mid-name ("...; 1University of\nRochester"),
+    # the trailing fragment ("Rochester") is short and has no commas or
+    # affil keywords, so _looks_affil rejects it and we'd cut the
+    # institution name in half.  If the previous line ended on a small
+    # connector word (of/the/for/and/&/at), accept the next short line as
+    # a continuation regardless of the usual heuristics.
+    _DANGLE_TAIL_WORDS = frozenset(
+        ("of", "the", "for", "and", "&", "at", "in", "de", "la", "y")
+    )
+
+    def _ends_dangling(prev_line: str) -> bool:
+        ps = prev_line.strip()
+        if not ps:
+            return False
+        # A trailing comma signals the affil-string continues onto the
+        # next line — and that "next line" is sometimes a single word
+        # like "Davis" or "Rochester" that no other heuristic catches.
+        if ps.endswith(","):
+            return True
+        ps2 = ps.rstrip(",;. ")
+        toks = ps2.rsplit(None, 1)
+        if not toks:
+            return False
+        last = toks[-1].lower()
+        return last in _DANGLE_TAIL_WORDS
+
+    def _last_nonempty_before(idx: int) -> str:
+        """Return the most recent non-empty line at or before `idx-1`."""
+        j = idx - 1
+        while j >= 0 and not lines[j].strip():
+            j -= 1
+        return lines[j] if j >= 0 else ""
+
     while auth_end < len(lines):
         line = lines[auth_end]
         s = line.strip()
         if not s:
+            # Permit additional blanks if the affil string is mid-name
+            # (previous non-empty line ended with a connector word or a
+            # trailing comma).  Some abstracts have 3-4 blank lines
+            # injected by column-reorder between an affil's first and
+            # second halves.
+            if _ends_dangling(_last_nonempty_before(auth_end)):
+                auth_end += 1
+                if auth_end - sem_idx > 20:
+                    break
+                continue
             if seen_blank_fwd:
                 break
             seen_blank_fwd = True
             auth_end += 1
+            continue
+        # Dangling continuation overrides the body/affil checks: a real
+        # sentence rarely ends mid-word with a connector like
+        # "of"/"the"/"for"/"and" or with a trailing comma, so when the
+        # previous non-empty line ends that way we absorb the next
+        # short line as the institution-name tail.  Cap at ~120 chars
+        # to avoid swallowing a wrapped paragraph.
+        if _ends_dangling(_last_nonempty_before(auth_end)) and len(s) < 120:
+            auth_end += 1
+            if auth_end - sem_idx > 20:
+                break
             continue
         if _looks_bodyish(s):
             break
         if not _looks_affil(s):
             break
         auth_end += 1
-        if auth_end - sem_idx > 14:
+        if auth_end - sem_idx > 20:
             break
 
     title_lines = [l.strip() for l in lines[:auth_start] if l.strip()]

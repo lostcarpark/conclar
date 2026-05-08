@@ -133,8 +133,7 @@
       ""
     ],
     "tags": [
-      "University of California, Santa Cruz",
-      "University of California,"
+      "University of California, Santa Cruz"
     ],
     "prog": [
       "sched-0008",
@@ -154,8 +153,7 @@
     ],
     "tags": [
       "University of California, Santa Cruz",
-      "University of California Santa Cruz",
-      "University of California,"
+      "University of California Santa Cruz"
     ],
     "prog": [
       "sched-0008",
@@ -236,7 +234,7 @@
       ""
     ],
     "tags": [
-      "University of",
+      "University of Rochester",
       "Center for Visual Science, University of Rochester"
     ],
     "prog": [
@@ -312,7 +310,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Rochester"
     ],
     "prog": [
       "symp-2026-05-15-0800-talk-r.t05"
@@ -329,7 +327,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Rochester"
     ],
     "prog": [
       "symp-2026-05-15-0800-talk-r.t05"
@@ -389,10 +387,10 @@
       "Centre for Cognitive Science, Technical University Darmstadt, Germany",
       "Technical University of Darmstadt",
       "Technische Universität Darmstadt",
-      "Hessian Center for",
+      "Hessian Center for Artificial Intelligence (hessian.AI)",
       "Center for Mind, Brain and Behavior (CMBB), Universities of Marburg, Giessen, and Darmstadt",
       "Institute of Psychology, Centre for Cognitive Science, Technical University of Darmstadt, Darmstadt, Germany",
-      "Centre for Cognitive Science, Technical University of"
+      "Centre for Cognitive Science, Technical University of Darmstadt"
     ],
     "prog": [
       "sched-0010",
@@ -756,7 +754,6 @@
     "tags": [
       "Massachusetts",
       "The Ohio State University",
-      "Massachusetts Institute of",
       "Massachusetts Institute of Technology"
     ],
     "prog": [
@@ -820,7 +817,7 @@
     "tags": [
       "Justus Liebig University Giessen",
       "Center for Mind, Brain and Behavior, Universities of Marburg, Giessen, and Darmstadt",
-      "Justus Liebig University in"
+      "Justus Liebig University in Giessen"
     ],
     "prog": [
       "sched-0014",
@@ -2019,19 +2016,22 @@
       "Justus Liebig University Giessen",
       "Neural Computation Group, Department",
       "Neural Computation Group, Justus Liebig University of Giessen, Germany",
-      "Center for",
+      "Center for Mind, Brain and Behavior (CMBB), Universities of Marburg, Giessen, and Darmstadt, Germany",
       "Justus Liebig University",
       "Neural Computation Group, Department of Mathematics and Computer Science, Physics, Geography, Justus Liebig University Giessen, Germany",
-      "Center for Mind, Brain and Behavior (CMBB), Universities of Marburg, Giessen, and Darmstadt, Germany",
       "Cluster of Excellence “The Adaptive Mind”, Universities of Giessen, Marburg, and Darmstadt, Germany",
       "Center for Mind, Brain and Behavior (CMBB), Universities of Giessen, Marburg, and Darmstadt, Germany",
       "Center for Applied Computer Science and Data Science (ZAD), Justus Liebig University Giessen, Germany",
       "Neural Computation Group, Justus Liebig University Giessen",
-      "Neural Computation Group, Department of Mathematics and Computer Science, Physics, Geography, Justus Liebig University Giessen",
       "Center for Applied Computer Science and Data Science (ZAD), Justus Liebig University Giessen",
+      "Center for Mind, Brain and Behavior (CMBB), Universities of Giessen, Marburg, and Darmstadt",
+      "Cluster of Excellence “The Adaptive Mind”, Universities of Giessen, Marburg, and Darmstadt",
+      "Neural Computation Group, Department of Mathematics and Computer Science, Physics, Geography, Justus Liebig University Giessen",
       "Center for Mind, Brain and Behavior (CMBB), Philipps University Marburg, Justus Liebig University Giessen, and Technical University",
       "Justus Liebig University Giessen, Germany",
-      "Center for Mind, Brain and Behavior (CMBB), Universities of Giessen, Marburg and Darmstadt"
+      "Center for Mind, Brain and Behavior (CMBB), Universities of Giessen, Marburg and Darmstadt",
+      "Center for Applied Computer Science and Data Science (ZAD), Justus Liebig University Giessen, Marburg and Darmstadt",
+      "Cluster of Excellence “The Adaptive Mind”, Universities of Giessen, Marburg and Darmstadt"
     ],
     "prog": [
       "15.26",
@@ -2127,7 +2127,7 @@
       ""
     ],
     "tags": [
-      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of"
+      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of Health (NIH), Bethesda, Maryland (MD), United States of America (USA)"
     ],
     "prog": [
       "21.11"
@@ -2144,7 +2144,7 @@
       ""
     ],
     "tags": [
-      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of"
+      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of Health (NIH), Bethesda, Maryland (MD), United States of America (USA)"
     ],
     "prog": [
       "21.11"
@@ -2161,7 +2161,8 @@
       ""
     ],
     "tags": [
-      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of"
+      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of Health (NIH), Bethesda, Maryland (MD), United States of America (USA)",
+      "Baylor College of Medicine, Houston, Texas, USA"
     ],
     "prog": [
       "21.11"
@@ -2178,7 +2179,7 @@
       ""
     ],
     "tags": [
-      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of"
+      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of Health (NIH), Bethesda, Maryland (MD), United States of America (USA)"
     ],
     "prog": [
       "21.11"
@@ -2194,7 +2195,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "MEG"
+    ],
     "prog": [
       "21.11"
     ],
@@ -2209,7 +2212,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "MEG"
+    ],
     "prog": [
       "21.11"
     ],
@@ -2225,7 +2230,7 @@
       ""
     ],
     "tags": [
-      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of"
+      "Section on Functional Imaging Methods, Laboratory of Brain and Cognition, National Institute of Mental Health (NIMH), National Institutes of Health (NIH), Bethesda, Maryland (MD), United States of America (USA)"
     ],
     "prog": [
       "21.11"
@@ -2327,7 +2332,8 @@
     ],
     "tags": [
       "Humboldt-Universität zu Berlin",
-      "Berlin School of Mind and Brain"
+      "Berlin School of Mind and Brain",
+      "Cluster of Excellence ‘Science of Intelligence’, TU"
     ],
     "prog": [
       "21.13",
@@ -2643,7 +2649,6 @@
     "tags": [
       "University of British Columbia",
       "The University of British",
-      "University of",
       "University of British"
     ],
     "prog": [
@@ -2721,7 +2726,8 @@
     "tags": [
       "EPFL",
       "ENS",
-      "Laboratory of Psychophysics, Brain Mind Institute,"
+      "Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL)",
+      "École Normale"
     ],
     "prog": [
       "22.12",
@@ -2983,8 +2989,7 @@
       ""
     ],
     "tags": [
-      "University of Washington",
-      "University of"
+      "University of Washington"
     ],
     "prog": [
       "22.16",
@@ -3143,7 +3148,7 @@
       ""
     ],
     "tags": [
-      "Northeastern University, Boston, MA, USA Human observers can recognize faces under substantial blur,",
+      "Northeastern University, Boston, MA, USA Human observers can recognize faces under substantial blur, although this robustness requires additional viewing time. While",
       "Department of Psychology, Northeastern University, Boston, MA, USA"
     ],
     "prog": [
@@ -3905,7 +3910,8 @@
       ""
     ],
     "tags": [
-      "Translational Neuroscience Laboratory Division, Center for"
+      "Translational Neuroscience Laboratory Division, Center for Biomedical Imaging and Neuromodulation (C-BIN), Nathan S. Kline Institute for Psychiatric Research",
+      "Interdisciplinary Institute of Neuroscience and Technology, Zhejiang University School of Medicine, Hangzhou, China"
     ],
     "prog": [
       "24.13"
@@ -3921,7 +3927,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Interdisciplinary Institute of Neuroscience and Technology, Zhejiang University School of Medicine, Hangzhou, China"
+    ],
     "prog": [
       "24.13"
     ],
@@ -3937,7 +3945,8 @@
       ""
     ],
     "tags": [
-      "Translational Neuroscience Laboratory Division, Center for"
+      "Translational Neuroscience Laboratory Division, Center for Biomedical Imaging and Neuromodulation (C-BIN), Nathan S. Kline Institute for Psychiatric Research",
+      "Department of Medicine, Health, and Society, Vanderbilt University"
     ],
     "prog": [
       "24.13"
@@ -3954,7 +3963,10 @@
       ""
     ],
     "tags": [
-      "Translational Neuroscience Laboratory Division, Center for"
+      "Translational Neuroscience Laboratory Division, Center for Biomedical Imaging and Neuromodulation (C-BIN), Nathan S. Kline Institute for Psychiatric Research",
+      "Interdisciplinary Institute of Neuroscience and Technology, Zhejiang University School of Medicine, Hangzhou, China",
+      "Translational Neuroscience Laboratory Division, Center for Biomedical Imaging and Neuromodulation (C-BIN), Nathan S. Kline Institute for Psychiatric Research, Orangeburg, NY, USA",
+      "New York University Grossman School of Medicine, New York, NY, USA"
     ],
     "prog": [
       "24.13",
@@ -4104,11 +4116,13 @@
       "Justus Liebig University, Giessen, Germany",
       "Max-Planck Institute CBS, Leipzig, Germany",
       "Center for Mind, Brain, and Behavior, Universities of Marburg, Giessen, and Darmstadt, Marburg, Germany Research in visual neuroscience aims to arrive at generalizable",
-      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen,",
-      "Department of Medicine, Justus-Liebig University Giessen, Giessen,",
+      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen, Germany",
+      "Vision and Computational Cognition Group, Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany",
+      "Center for Mind, Brain and Behavior, Universities of Marburg, Giessen, and Darmstadt, Germany * equal contribution",
+      "Department of Medicine, Justus-Liebig University Giessen, Giessen, Germany",
+      "Center for Mind, Brain and Behavior (CMBB), University of Marburg, Giessen and Darmstadt, Germany",
       "Department of Medicine, Justus- Liebig University Giessen, Germany",
       "Vision and Computational Cognition Group, Max Planck Institute for Human Cognitive and Brain Sciences, Germany",
-      "Center for Mind, Brain and Behavior (CMBB), University of Marburg, Giessen and Darmstadt, Germany",
       "Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig",
       "Department of Medicine, Justus Liebig University, Giessen"
     ],
@@ -4290,7 +4304,7 @@
       "Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland.",
       "Swiss Institute of Technology (EPFL)",
       "Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland",
-      "Laboratory of Psychophysics, Brain Mind Institute,",
+      "Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL)",
       "Laboratory of Psychophysics, Brain Mind Institute, École",
       "EPFL"
     ],
@@ -4810,10 +4824,8 @@
     ],
     "tags": [
       "York University",
-      "York University, Department of Biology and Centre for Vision Research, Centre for",
-      "York University, Toronto",
-      "York University, Department of Biology and Centre for Vision Research, Centre for Integrative and",
-      "York University, Department of Biology and Centre for Vision Research, Centre for Integrative and Applied Neuroscience, Toronto, Canada"
+      "York University, Department of Biology and Centre for Vision Research, Centre for Integrative and Applied Neuroscience, Toronto, Canada",
+      "York University, Toronto"
     ],
     "prog": [
       "24.27",
@@ -4936,6 +4948,9 @@
       "Netherlands Institute for Neuroscience, Amsterdam, Netherlands",
       "Vrije Universiteit, Amsterdam, Netherlands",
       "Vrije Universiteit Amsterdam, the Netherlands",
+      "Spinoza Centre for Neuroimaging, Amsterdam, The Netherlands",
+      "Department of Computational Cognitive Neuroscience and Neuroimaging, Netherlands Institute for Neuroscience, Amsterdam, The Netherlands",
+      "Department of Experimental and Applied Psychology, Vrije Universiteit Amsterdam, Amsterdam, The Netherlands",
       "Spinoza Center for Neuroimaging, KNAW",
       "Vrije University"
     ],
@@ -5789,7 +5804,7 @@
     ],
     "tags": [
       "Vrije Universiteit Amsterdam",
-      "Institute for Brain and"
+      "Institute for Brain and Behaviour Amsterdam (iBBA)"
     ],
     "prog": [
       "25.27"
@@ -5807,7 +5822,7 @@
     ],
     "tags": [
       "Vrije Universiteit Amsterdam",
-      "Institute for Brain and",
+      "Institute for Brain and Behaviour Amsterdam (iBBA)",
       "Department of Experimental and Applied Psychology, Vrije Universiteit Amsterdam",
       "Institute Brain and Behaviour Amsterdam"
     ],
@@ -5934,7 +5949,7 @@
     "tags": [
       "University of Tübingen, Max Planck Institute for Biological Cybernetics, Tübingen, Germany",
       "University of Tübingen, Max Planck Institute for Biological Cybernetics, Germany",
-      "University of Tuebingen, Max Planck Institute for"
+      "University of Tuebingen, Max Planck Institute for Biological Cybernetics"
     ],
     "prog": [
       "31.14",
@@ -6453,8 +6468,8 @@
       "Harvard University",
       "Kempner Institute",
       "Kempner Institute for the Study of Natural and Artificial Intelligence at Harvard University",
-      "Kempner Institute for the Study of Natural and",
-      "Kempner Instutite for the Study of"
+      "Kempner Institute for the Study of Natural and Artificial Intelligence",
+      "Kempner Instutite for the Study of Natural and Artificial Intelligence"
     ],
     "prog": [
       "31.25",
@@ -6799,8 +6814,7 @@
     ],
     "tags": [
       "University of Toronto",
-      "University of Toronto Mississauga",
-      "University of"
+      "University of Toronto Mississauga"
     ],
     "prog": [
       "32.16",
@@ -7042,7 +7056,7 @@
       ""
     ],
     "tags": [
-      "Indian Institute of Science,"
+      "Indian Institute of Science, Bangalore"
     ],
     "prog": [
       "32.27"
@@ -7059,7 +7073,7 @@
       ""
     ],
     "tags": [
-      "Indian Institute of Science,"
+      "Indian Institute of Science, Bangalore"
     ],
     "prog": [
       "32.27"
@@ -7813,7 +7827,7 @@
     ],
     "tags": [
       "Kennedy Krieger Institute",
-      "Johns Hopkins School of"
+      "Johns Hopkins School of Medicine"
     ],
     "prog": [
       "34.26"
@@ -7831,7 +7845,7 @@
     ],
     "tags": [
       "Kennedy Krieger Institute",
-      "Johns Hopkins School of"
+      "Johns Hopkins School of Medicine"
     ],
     "prog": [
       "34.26"
@@ -8922,7 +8936,7 @@
     ],
     "tags": [
       "Universitat de Barcelona",
-      "University of"
+      "University of Barcelona (UB)"
     ],
     "prog": [
       "35.27",
@@ -8941,7 +8955,7 @@
     ],
     "tags": [
       "Universitat de Barcelona",
-      "University of"
+      "University of Barcelona (UB)"
     ],
     "prog": [
       "35.27",
@@ -8997,7 +9011,7 @@
     ],
     "tags": [
       "University of California, Santa Barbara",
-      "Institute for"
+      "Institute for Collaborative Biotechnologies"
     ],
     "prog": [
       "41.11"
@@ -9054,9 +9068,8 @@
     ],
     "tags": [
       "University of California, Santa Barbara",
-      "Institute for",
-      "University of California Santa Barbara",
       "Institute for Collaborative Biotechnologies",
+      "University of California Santa Barbara",
       "University of California Santa"
     ],
     "prog": [
@@ -9094,7 +9107,7 @@
       ""
     ],
     "tags": [
-      "Laboratory of Brain and Cognition, National Institutes of"
+      "Laboratory of Brain and Cognition, National Institutes of Health"
     ],
     "prog": [
       "41.13"
@@ -9111,7 +9124,7 @@
       ""
     ],
     "tags": [
-      "Laboratory of Brain and Cognition, National Institutes of"
+      "Laboratory of Brain and Cognition, National Institutes of Health"
     ],
     "prog": [
       "41.13"
@@ -9234,7 +9247,6 @@
       "Department of Psychology, University of Chicago",
       "Institute for Mind and Biology, University of Chicago",
       "Neuroscience Institute, University of Chicago",
-      "University of",
       "University of Chicago",
       "The University of Chicago"
     ],
@@ -9264,7 +9276,6 @@
       "Institute for Mind and Biology, University of Chicago",
       "Neuroscience Institute, University of Chicago",
       "The University of Chicago",
-      "University of",
       "University of Chicago"
     ],
     "prog": [
@@ -9285,7 +9296,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Colorado Boulder"
     ],
     "prog": [
       "41.16"
@@ -9302,7 +9313,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Colorado Boulder"
     ],
     "prog": [
       "41.16"
@@ -9319,7 +9330,6 @@
       ""
     ],
     "tags": [
-      "University of",
       "University of Colorado Boulder"
     ],
     "prog": [
@@ -9637,13 +9647,13 @@
     ],
     "tags": [
       "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand",
-      "Division of Neurology, Department of Medicine, Faculty of Medicine, King Chulalongkorn Memorial Hospital,",
       "Division of Neurology, Department of Medicine, Faculty of Medicine, King Chulalongkorn Memorial Hospital, Thai Red Cross Society, Bangkok, Thailand",
       "Chula Neuroscience Center, King Chulalongkorn Memorial Hospital, Thai Red Cross Society, Bangkok, Thailand",
       "Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand",
       "King Chulalongkorn Memorial Hospital, Thai Red Cross Society, Bangkok, Thailand",
       "Chula Neuroscience Center, King Chulalongkorn Memorial Hospital, Bangkok, Thailand",
-      "Cognitive Clinical and Computational Neuroscience Center of Excellence, Chulalongkorn University, Bangkok, Thailand"
+      "Cognitive Clinical and Computational Neuroscience Center of Excellence, Chulalongkorn University, Bangkok, Thailand",
+      "Chula Neuroscience"
     ],
     "prog": [
       "42.14",
@@ -9727,7 +9737,7 @@
       "Department of Psychology, University of California",
       "University of California, Davis",
       "Department of Psychology, University of California, Davis",
-      "Center for Mind and Brain, University of California,",
+      "Center for Mind and Brain, University of California, Davis",
       "UC Davis"
     ],
     "prog": [
@@ -9948,7 +9958,6 @@
       ""
     ],
     "tags": [
-      "University of",
       "University of Colorado Boulder"
     ],
     "prog": [
@@ -9967,7 +9976,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Colorado Boulder"
     ],
     "prog": [
       "42.23"
@@ -10001,8 +10010,7 @@
       ""
     ],
     "tags": [
-      "University of Toronto Mississauga",
-      "University of"
+      "University of Toronto Mississauga"
     ],
     "prog": [
       "42.25",
@@ -10038,7 +10046,7 @@
     ],
     "tags": [
       "University of Toronto",
-      "University of"
+      "University of Toronto Mississauga"
     ],
     "prog": [
       "42.25",
@@ -10073,8 +10081,7 @@
       ""
     ],
     "tags": [
-      "University of Central Florida",
-      "University of"
+      "University of Central Florida"
     ],
     "prog": [
       "51.11",
@@ -10093,8 +10100,7 @@
       ""
     ],
     "tags": [
-      "University of Central Florida",
-      "University of"
+      "University of Central Florida"
     ],
     "prog": [
       "51.11",
@@ -10611,7 +10617,7 @@
       "Cognition and Brain Science, School of Psychology, Georgia Institute of Technology",
       "Computational Cognition, Georgia Institute of Technology",
       "Machine Learning, School of Mathematics, Georgia Tech",
-      "Center of"
+      "Center of Excellence in Computational Cognition, Georgia Tech"
     ],
     "prog": [
       "51.21",
@@ -10631,7 +10637,8 @@
     "tags": [
       "Cognition and Brain Science, School of Psychology, Georgia Institute of Technology",
       "Computational Cognition, Georgia Institute of Technology",
-      "Center of",
+      "Center of Excellence in Computational Cognition, Georgia Tech",
+      "Cognition and Brain Science, School of Psychology, Georgia Tech",
       "Cognition and Brain Science, School of Psychology, Georgia Tech, Atlanta, GA 30332",
       "Center of Excellence in Computational Cognition, Georgia Tech, Atlanta, GA 30332",
       "Cognition and Brain Science, Georgia Institute of Technology",
@@ -10872,7 +10879,6 @@
       ""
     ],
     "tags": [
-      "University of",
       "University of Chicago"
     ],
     "prog": [
@@ -10956,7 +10962,7 @@
       ""
     ],
     "tags": [
-      "University if Haifa,"
+      "University if Haifa, Israel"
     ],
     "prog": [
       "52.13"
@@ -10973,7 +10979,7 @@
       ""
     ],
     "tags": [
-      "University if Haifa,"
+      "University if Haifa, Israel"
     ],
     "prog": [
       "52.13"
@@ -11523,9 +11529,8 @@
       ""
     ],
     "tags": [
-      "York University, Department of Biology and Centre for Vision Research, Centre for",
-      "York University, Toronto",
-      "York University, Department of Biology and Centre for Vision Research, Centre for Integrative and Applied Neuroscience, Toronto, Canada"
+      "York University, Department of Biology and Centre for Vision Research, Centre for Integrative and Applied Neuroscience, Toronto, Canada",
+      "York University, Toronto"
     ],
     "prog": [
       "54.16",
@@ -11543,7 +11548,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Department of Computer Sciences, University of Wisconsin-Madison, USA"
+    ],
     "prog": [
       "54.16"
     ],
@@ -11708,10 +11715,10 @@
     ],
     "tags": [
       "Harvard University",
-      "Kempner Institute for the Study of Natural and",
+      "Kempner Institute for the Study of Natural and Artificial Intelligence",
       "Kempner Institute",
       "Kempner Institute for the Study of Natural and Artificial Intelligence at Harvard University",
-      "Kempner Instutite for the Study of"
+      "Kempner Instutite for the Study of Natural and Artificial Intelligence"
     ],
     "prog": [
       "54.17",
@@ -12670,7 +12677,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Rochester"
     ],
     "prog": [
       "55.22"
@@ -13006,8 +13013,7 @@
       "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand",
       "Division of Neurology, Department of Medicine, Faculty of Medicine, King Chulalongkorn Memorial Hospital, Thai Red Cross Society, Bangkok, Thailand",
       "Medical sciences program, Division of Neuroscience, Faculty of Medicine, Chulalongkorn university, Bangkok, Thailand",
-      "Chula Neuroscience Center, King Chulalongkorn Memorial Hospital, Bangkok, Thailand",
-      "Medical sciences program, Division of Neuroscience, Faculty of Medicine,"
+      "Chula Neuroscience Center, King Chulalongkorn Memorial Hospital, Bangkok, Thailand"
     ],
     "prog": [
       "16.303",
@@ -13142,7 +13148,7 @@
       ""
     ],
     "tags": [
-      "Shenyang Normal University, Liaoning,"
+      "Shenyang Normal University, Liaoning, China"
     ],
     "prog": [
       "16.306"
@@ -13159,7 +13165,7 @@
       ""
     ],
     "tags": [
-      "Shenyang Normal University, Liaoning,",
+      "Shenyang Normal University, Liaoning, China",
       "Shenyang Normal University, Liao Ning, China"
     ],
     "prog": [
@@ -13213,7 +13219,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Reading"
     ],
     "prog": [
       "16.308"
@@ -13230,7 +13236,6 @@
       ""
     ],
     "tags": [
-      "University of",
       "University of Reading"
     ],
     "prog": [
@@ -13248,7 +13253,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "UK Atomic Energy Authority (UKAEA), Remote Applications"
+    ],
     "prog": [
       "16.308"
     ],
@@ -13264,7 +13271,6 @@
       ""
     ],
     "tags": [
-      "University of",
       "University of Reading",
       "School of Psychology and Clinical Language Sciences",
       "University of Reading Research on face and body perception has benefited enormously from"
@@ -13556,8 +13562,7 @@
       ""
     ],
     "tags": [
-      "University of Central Florida",
-      "University of"
+      "University of Central Florida"
     ],
     "prog": [
       "16.315",
@@ -13576,8 +13581,7 @@
     ],
     "tags": [
       "University of Central Florida",
-      "University",
-      "University of"
+      "University"
     ],
     "prog": [
       "16.315",
@@ -14279,7 +14283,6 @@
       ""
     ],
     "tags": [
-      "Florida International University, Miami,",
       "Florida International University, Miami, FL"
     ],
     "prog": [
@@ -14298,7 +14301,6 @@
       ""
     ],
     "tags": [
-      "Florida International University, Miami,",
       "Florida International University, Miami, FL"
     ],
     "prog": [
@@ -14436,8 +14438,7 @@
       ""
     ],
     "tags": [
-      "Eye and Brain Mapping Laboratory (iBMLab), Department of Psychology, University of Fribourg, Fribourg, Switzerland",
-      "Eye and Brain Mapping Laboratory (iBMLab), Department of Psychology, University of"
+      "Eye and Brain Mapping Laboratory (iBMLab), Department of Psychology, University of Fribourg, Fribourg, Switzerland"
     ],
     "prog": [
       "16.331",
@@ -14457,8 +14458,7 @@
     "tags": [
       "Eye and Brain Mapping Laboratory (iBMLab), Department of Psychology, University of Fribourg, Fribourg, Switzerland",
       "Eye and Brain Mapping Lab, Department of Psychology, University of Fribourg, Fribourg, Switzerland",
-      "University of Fribourg, Switzerland",
-      "Eye and Brain Mapping Laboratory (iBMLab), Department of Psychology, University of"
+      "University of Fribourg, Switzerland"
     ],
     "prog": [
       "16.331",
@@ -14985,7 +14985,6 @@
     "tags": [
       "Central European University",
       "Center",
-      "Center for",
       "Center for Cognitive Computation"
     ],
     "prog": [
@@ -15025,7 +15024,7 @@
       "Bilkent University",
       "Bilkent University, Ankara, Turkey",
       "Aysel Sabuncu Brain Research Center and National Magnetic Resonance Research Center (UMRAM), Bilkent University, Ankara, Turkey",
-      "Aysel Sabuncu Brain Research Center, Ankara,"
+      "Aysel Sabuncu Brain Research Center, Ankara, Perceiving others’ actions is essential for survival, interaction, and communication. Yet, despite decades of research, we remain far from"
     ],
     "prog": [
       "16.341",
@@ -15276,7 +15275,8 @@
     ],
     "tags": [
       "École Normale Supérieure (ENS), PSL University, CNRS",
-      "Laboratoire   de Sciences Cognitives et Psycholinguistique,",
+      "Laboratoire   de Sciences Cognitives et Psycholinguistique, Département d'Études Cognitives (DEC), École normale supérieure (ENS), CNRS, Paris, France",
+      "Laboratoire de Sciences",
       "Sciences Cognitives et Psycholinguistique, Département d'Études",
       "École Normale Supérieure, PSL University, CNRS"
     ],
@@ -15529,7 +15529,7 @@
       ""
     ],
     "tags": [
-      "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of"
+      "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of Health"
     ],
     "prog": [
       "16.354"
@@ -15546,7 +15546,7 @@
       ""
     ],
     "tags": [
-      "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of"
+      "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of Health"
     ],
     "prog": [
       "16.354"
@@ -15563,7 +15563,8 @@
       ""
     ],
     "tags": [
-      "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of",
+      "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of Health",
+      "Program in Neuroscience and Cognitive Science and Dept. of Biology, University of Maryland",
       "Laboratory of Sensorimotor Research, Section on"
     ],
     "prog": [
@@ -15581,7 +15582,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Program in Neuroscience and Cognitive Science and Dept. of Biology, University of Maryland"
+    ],
     "prog": [
       "16.354"
     ],
@@ -15596,7 +15599,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Program in Neuroscience and Cognitive Science and Dept. of Biology, University of Maryland"
+    ],
     "prog": [
       "16.354",
       "36.409"
@@ -15613,7 +15618,7 @@
       ""
     ],
     "tags": [
-      "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of",
+      "Laboratory of Sensorimotor Research, National Eye Institute, National Institutes of Health",
       "National Institutes of Health",
       "Laboratory of Sensorimotor Research, Section on",
       "National Eye Institute, National Institutes of Health",
@@ -16014,11 +16019,10 @@
       "Rotman Research Institute, Baycrest Academy for Research and Education",
       "Department Of Psychology, University of Toronto",
       "Department of Psychology, Neuroscience and Behaviour, McMaster University",
-      "Department of Psychology, University of",
+      "Department of Psychology, University of In the double training paradigm, two tasks are trained at different visual",
       "Department of Psychology, Neuroscience, and Behaviour, McMaster University",
       "Rotman Research Institute, Baycrest Academy for Research and Education, Toronto, Canada",
       "Department of Psychology, University of Toronto",
-      "Department of Psychology, Neuroscience & Behaviour, McMaster University,",
       "Department of Psychology, Neuroscience & Behaviour, McMaster University"
     ],
     "prog": [
@@ -16043,7 +16047,7 @@
       "Department Of Psychology, Neuroscience & Behaviour, McMaster University",
       "Department of Psychology, Neuroscience and Behaviour, McMaster University",
       "Department of Psychology, Neuroscience, and Behaviour, McMaster University",
-      "Department of Psychology, Neuroscience & Behaviour, McMaster University,",
+      "Department of Psychology, Neuroscience & Behaviour, McMaster University",
       "McMaster University"
     ],
     "prog": [
@@ -16673,7 +16677,7 @@
     ],
     "tags": [
       "Vrije Universiteit Amsterdam",
-      "Institute for Brain and"
+      "Institute for Brain and Behaviour Amsterdam (iBBA)"
     ],
     "prog": [
       "23.318",
@@ -16820,7 +16824,7 @@
       ""
     ],
     "tags": [
-      "Memorial University of"
+      "Memorial University of Newfoundland"
     ],
     "prog": [
       "23.323"
@@ -16837,7 +16841,6 @@
       ""
     ],
     "tags": [
-      "Memorial University of",
       "Memorial University of Newfoundland"
     ],
     "prog": [
@@ -17189,7 +17192,7 @@
     ],
     "tags": [
       "Neural Computation Group, Justus Liebig University of Giessen, Germany",
-      "Center for"
+      "Center for Mind, Brain and Behavior (CMBB), Universities of Marburg, Giessen, and Darmstadt, Germany"
     ],
     "prog": [
       "23.333"
@@ -17345,8 +17348,7 @@
       ""
     ],
     "tags": [
-      "University of Delaware",
-      "University of"
+      "University of Delaware"
     ],
     "prog": [
       "23.337",
@@ -17582,7 +17584,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of British Columbia"
     ],
     "prog": [
       "23.344"
@@ -17897,7 +17899,7 @@
     "tags": [
       "National Institute of Mental Health",
       "National Institutes of Health, National Institute of Mental Health, Bethesda, MD, USA",
-      "Laboratory of Brain and Cognition, National Institutes of",
+      "Laboratory of Brain and Cognition, National Institutes of Health",
       "Laboratory of Brain and Cognition, National Institute of Mental Health"
     ],
     "prog": [
@@ -17990,7 +17992,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Central Florida"
     ],
     "prog": [
       "23.354"
@@ -18078,7 +18080,8 @@
     "tags": [
       "York University, Toronto",
       "Mila - Quebec AI institute, Montréal, Canada",
-      "York University, Department of Biology and Centre for Vision Research, Centre for Integrative and"
+      "York University, Department of Biology and Centre for Vision Research, Centre for Integrative and Applied Neuroscience, Toronto, Canada",
+      "Mila - Quebec AI institute, Montreal, Canada"
     ],
     "prog": [
       "23.356",
@@ -18143,7 +18146,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Minnesota"
     ],
     "prog": [
       "23.401"
@@ -18160,7 +18163,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Minnesota"
     ],
     "prog": [
       "23.401"
@@ -18177,7 +18180,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Minnesota"
     ],
     "prog": [
       "23.401"
@@ -18194,7 +18197,7 @@
       ""
     ],
     "tags": [
-      "University of",
+      "University of Minnesota",
       "Department of Psychology, University of Minnesota"
     ],
     "prog": [
@@ -18486,7 +18489,7 @@
     ],
     "tags": [
       "Bilkent University",
-      "University of"
+      "University of Central Florida"
     ],
     "prog": [
       "23.410"
@@ -18503,7 +18506,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Central Florida"
     ],
     "prog": [
       "23.410"
@@ -18704,7 +18707,8 @@
       ""
     ],
     "tags": [
-      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501,"
+      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501, Japan.",
+      "ATR Computational Neuroscience Laboratories, Soraku, Kyoto 619-0288, Japan."
     ],
     "prog": [
       "23.414"
@@ -18721,7 +18725,8 @@
       ""
     ],
     "tags": [
-      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501,",
+      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501, Japan.",
+      "ATR Computational Neuroscience Laboratories, Soraku, Kyoto 619-0288, Japan.",
       "Kyoto University",
       "ATR"
     ],
@@ -18741,7 +18746,8 @@
       ""
     ],
     "tags": [
-      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501,"
+      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501, Japan.",
+      "ATR Computational Neuroscience Laboratories, Soraku, Kyoto 619-0288, Japan."
     ],
     "prog": [
       "23.414"
@@ -18758,7 +18764,8 @@
       ""
     ],
     "tags": [
-      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501,",
+      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501, Japan.",
+      "ATR Computational Neuroscience Laboratories, Soraku, Kyoto 619-0288, Japan.",
       "Kyoto University",
       "Advanced Telecommunications Research Institute International",
       "ATR"
@@ -19166,7 +19173,7 @@
       ""
     ],
     "tags": [
-      "University of California,"
+      "University of California, San Diego"
     ],
     "prog": [
       "23.423"
@@ -19183,12 +19190,11 @@
       ""
     ],
     "tags": [
-      "University of California,",
-      "University of",
+      "University of California, San Diego",
+      "University of California San Diego",
       "Department of Psychology, UCSD",
       "UCSD Psychology",
-      "UCSD Neurosciences Graduate",
-      "University of California San Diego"
+      "UCSD Neurosciences Graduate"
     ],
     "prog": [
       "23.423",
@@ -19888,7 +19894,7 @@
       "Laboratory of Neuropsychology, National Institute of Mental Health, NIH, Bethesda, MD, USA",
       "Donders Centre for Cognitive Neuroimaging, Donders Institute for Brain, Cognition and Behavior, Radboud University, Nijmegen, The Netherlands",
       "National Institute of Mental Health",
-      "Donders Institute for Brain, Cognition and"
+      "Donders Institute for Brain, Cognition and Behavior"
     ],
     "prog": [
       "23.438",
@@ -20447,7 +20453,7 @@
     "tags": [
       "Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland",
       "Psychophysics and Neural Dynamics Lab, Department of Radiology, Lausanne University Hospital (CHUV) and University of Lausanne (UNIL), Lausanne, Switzerland",
-      "The Sense Innovation and Research Center, Lausanne,"
+      "The Sense Innovation and Research Center, Lausanne, Switzerland"
     ],
     "prog": [
       "23.448"
@@ -20574,7 +20580,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of California San Diego"
     ],
     "prog": [
       "23.451"
@@ -20591,9 +20597,8 @@
       ""
     ],
     "tags": [
-      "University of",
-      "Boston University",
-      "University of California San Diego"
+      "University of California San Diego",
+      "Boston University"
     ],
     "prog": [
       "23.451",
@@ -20700,8 +20705,7 @@
     ],
     "tags": [
       "Central European University",
-      "Center for Cognitive Computation",
-      "Center for"
+      "Center for Cognitive Computation"
     ],
     "prog": [
       "23.453",
@@ -20826,7 +20830,7 @@
       ""
     ],
     "tags": [
-      "York University,"
+      "York University, Toronto, Ontario, Canada"
     ],
     "prog": [
       "23.455"
@@ -20842,7 +20846,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Google, Mountain View, California, USA"
+    ],
     "prog": [
       "23.455"
     ],
@@ -20857,7 +20863,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Google, Mountain View, California, USA"
+    ],
     "prog": [
       "23.455"
     ],
@@ -20873,7 +20881,7 @@
       ""
     ],
     "tags": [
-      "York University,"
+      "York University, Toronto, Ontario, Canada"
     ],
     "prog": [
       "23.455"
@@ -20889,7 +20897,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Google, Seattle, Washington, USA"
+    ],
     "prog": [
       "23.455"
     ],
@@ -20904,7 +20914,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Google, Toronto, Ontario, Functional vision relies on active gaze to acquire task-relevant"
+    ],
     "prog": [
       "23.455"
     ],
@@ -20920,7 +20932,7 @@
       ""
     ],
     "tags": [
-      "York University,"
+      "York University, Toronto, Ontario, Canada"
     ],
     "prog": [
       "23.455"
@@ -21092,7 +21104,7 @@
     ],
     "tags": [
       "Central European University",
-      "Center for"
+      "Center for Cognitive Computation"
     ],
     "prog": [
       "23.460"
@@ -21461,7 +21473,8 @@
       ""
     ],
     "tags": [
-      "Johns Hopkins Medicine Wilmer Eye Institute,"
+      "Johns Hopkins Medicine Wilmer Eye Institute, Baltimore, MD, United States",
+      "Biomedical Engineering, Johns Hopkins University, Baltimore, MD, United States"
     ],
     "prog": [
       "23.471",
@@ -21493,7 +21506,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "BaltiVirtual, Baltimore, MD, United States"
+    ],
     "prog": [
       "23.471",
       "53.340"
@@ -21509,7 +21524,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Central Association for the Blind and Visually Impaired, Utica, NY, United States"
+    ],
     "prog": [
       "23.471",
       "53.340"
@@ -21526,7 +21543,7 @@
       ""
     ],
     "tags": [
-      "Johns Hopkins Medicine Wilmer Eye Institute,"
+      "Johns Hopkins Medicine Wilmer Eye Institute, Baltimore, MD, United States"
     ],
     "prog": [
       "23.471",
@@ -21720,7 +21737,7 @@
       "Department of Psychology, Western University, Canada",
       "Centre for Brain and Mind, Western University, Canada",
       "Neuroscience Program, Western University, Canada",
-      "Department of Physiology & Pharmacology, Western University,"
+      "Department of Physiology & Pharmacology, Western University, Virtual reality (VR) offers a unique opportunity to investigate how the brain integrates vision and action, as it allows the visual representation"
     ],
     "prog": [
       "23.475"
@@ -22252,7 +22269,7 @@
     ],
     "tags": [
       "Herbert Wertheim School of Optometry & Vision Science, University of California Berkeley, Berkeley, United States of America",
-      "Herbert Wertheim School of Optometry & Vision Science, University of"
+      "Herbert Wertheim School of Optometry & Vision Science, University of California Berkeley, Berkeley, USA"
     ],
     "prog": [
       "26.302",
@@ -22271,7 +22288,7 @@
       ""
     ],
     "tags": [
-      "Herbert Wertheim School of Optometry & Vision Science, University of",
+      "Herbert Wertheim School of Optometry & Vision Science, University of California Berkeley, Berkeley, USA",
       "UC Berkeley, USA",
       "Herbert Wertheim School of Optometry & Vision Science, University of California Berkeley, Berkeley, United States of America",
       "Herbert Wertheim School of Optometry and Vision Science",
@@ -22777,7 +22794,7 @@
       ""
     ],
     "tags": [
-      "Goldsmiths, University of London,"
+      "Goldsmiths, University of London, UK"
     ],
     "prog": [
       "26.308"
@@ -23193,7 +23210,6 @@
     ],
     "tags": [
       "University of Rochester, Rochester, NY",
-      "University of",
       "University of Rochester",
       "University"
     ],
@@ -23565,7 +23581,7 @@
       ""
     ],
     "tags": [
-      "Associative Learning, Department of Psychology, Philipps-University Marburg,"
+      "Associative Learning, Department of Psychology, Philipps-University Marburg, Marburg, Germany."
     ],
     "prog": [
       "26.323"
@@ -23727,7 +23743,7 @@
       ""
     ],
     "tags": [
-      "Federal University of Rio de"
+      "Federal University of Rio de janeiro"
     ],
     "prog": [
       "26.326"
@@ -24745,7 +24761,7 @@
       ""
     ],
     "tags": [
-      "Georgia Institute of"
+      "Georgia Institute of Techonology"
     ],
     "prog": [
       "26.419"
@@ -24762,7 +24778,7 @@
       ""
     ],
     "tags": [
-      "Georgia Institute of"
+      "Georgia Institute of Techonology"
     ],
     "prog": [
       "26.419"
@@ -24779,7 +24795,7 @@
       ""
     ],
     "tags": [
-      "Georgia Institute of"
+      "Georgia Institute of Techonology"
     ],
     "prog": [
       "26.419"
@@ -24916,7 +24932,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of British Columbia"
     ],
     "prog": [
       "26.424"
@@ -25278,7 +25294,8 @@
     ],
     "tags": [
       "Department of physiology, Faculty of medicine, Chulalongkorn University, Bangkok, Thailand",
-      "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand"
+      "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand",
+      "Department of Physiology, Faculty of Medicine, Chulalongkorn university, Bangkok, Thailand"
     ],
     "prog": [
       "26.434",
@@ -25558,7 +25575,7 @@
     ],
     "tags": [
       "University of Tennessee Knoxville",
-      "University of"
+      "University of Tennessee - Knoxville"
     ],
     "prog": [
       "26.440",
@@ -25576,7 +25593,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Tennessee - Knoxville"
     ],
     "prog": [
       "26.440",
@@ -25595,7 +25612,7 @@
     ],
     "tags": [
       "The University of Tennessee-Knoxville",
-      "University of"
+      "University of Tennessee - Knoxville"
     ],
     "prog": [
       "26.440",
@@ -25614,7 +25631,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Tennessee - Knoxville"
     ],
     "prog": [
       "26.440",
@@ -25632,7 +25649,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Tennessee - Knoxville"
     ],
     "prog": [
       "26.440",
@@ -25650,7 +25667,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Delaware"
     ],
     "prog": [
       "26.441"
@@ -25763,7 +25780,8 @@
       "Justus Liebig University Giessen, Germany",
       "Center for Mind, Brain and Behavior, Universities of Marburg, Giessen, and Darmstadt",
       "Justus Liebig University Giessen",
-      "Center for Mind, Brain and Behavior, Universities of"
+      "Center for Mind, Brain and Behavior, Universities of Marburg, Giessen & TU Darmstadt, Germany",
+      "Excellence Cluster “The Adaptive Mind”, Universities of Marburg, Giessen and TU Darmstadt, Germany"
     ],
     "prog": [
       "26.444",
@@ -26559,7 +26577,7 @@
     ],
     "tags": [
       "Harvard University",
-      "Kempner Institute for the Study of Natural and"
+      "Kempner Institute for the Study of Natural and Artificial Intelligence"
     ],
     "prog": [
       "26.464",
@@ -26669,8 +26687,8 @@
       "Laboratoire des Systèmes Perceptifs, DEC, ENS, PSL University, Paris, France",
       "École Normale Supérieure Paris",
       "Centre national de la recherche scientifique",
-      "École Normale Supérieure, PSL University,",
-      "CNRS &",
+      "École Normale Supérieure, PSL University, CNRS, Paris",
+      "CNRS & École Normale Supérieure",
       "École Normale Supérieure Paris - PSL"
     ],
     "prog": [
@@ -27274,7 +27292,7 @@
     "tags": [
       "University of Nevada, Reno",
       "Center for Integrative Neuroscience",
-      "Institute of Neuroscience, University of Nevada, Reno,"
+      "Institute of Neuroscience, University of Nevada, Reno, USA"
     ],
     "prog": [
       "33.304",
@@ -29369,7 +29387,8 @@
       "Kyoto University",
       "ATR",
       "Advanced Telecommunications Research Institute International",
-      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501,"
+      "Graduate School of Informatics, Kyoto University, Sakyo-ku, Kyoto 606-8501, Japan.",
+      "ATR Computational Neuroscience Laboratories, Soraku, Kyoto 619-0288, Japan."
     ],
     "prog": [
       "33.404",
@@ -29389,7 +29408,7 @@
     ],
     "tags": [
       "Kyoto University",
-      "Institute for the Advanced Study of"
+      "Institute for the Advanced Study of Human Biology (WPI-ASHBi)"
     ],
     "prog": [
       "33.404"
@@ -29406,7 +29425,7 @@
       ""
     ],
     "tags": [
-      "Institute of Neuroscience, University of Nevada, Reno,"
+      "Institute of Neuroscience, University of Nevada, Reno, USA"
     ],
     "prog": [
       "33.405"
@@ -29423,7 +29442,7 @@
       ""
     ],
     "tags": [
-      "Institute of Neuroscience, University of Nevada, Reno,"
+      "Institute of Neuroscience, University of Nevada, Reno, USA"
     ],
     "prog": [
       "33.405"
@@ -29969,7 +29988,7 @@
       ""
     ],
     "tags": [
-      "International Center for Primate Brain Research, Center for"
+      "International Center for Primate Brain Research, Center for Excellence in Brain Science and Intelligence Technology, Chinese Academy of Sciences, Shanghai, China"
     ],
     "prog": [
       "33.415"
@@ -29985,7 +30004,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Affiliated Mental Health Center & Hangzhou Seventh People's Hospital, School of Medicine, Zhejiang University, Hangzhou, China"
+    ],
     "prog": [
       "33.415"
     ],
@@ -30404,7 +30425,7 @@
       ""
     ],
     "tags": [
-      "MIT Division of"
+      "MIT Division of Comparative Medicine"
     ],
     "prog": [
       "33.427"
@@ -30474,7 +30495,7 @@
     ],
     "tags": [
       "UC Davis",
-      "Center for Mind and Brain, University of California,"
+      "Center for Mind and Brain, University of California, Davis"
     ],
     "prog": [
       "33.428",
@@ -30511,7 +30532,7 @@
     "tags": [
       "UC Davis",
       "Department of Psychology, University of California, Davis",
-      "Center for Mind and Brain, University of California,"
+      "Center for Mind and Brain, University of California, Davis"
     ],
     "prog": [
       "33.428",
@@ -31168,8 +31189,7 @@
       ""
     ],
     "tags": [
-      "University of Central Florida",
-      "University of"
+      "University of Central Florida"
     ],
     "prog": [
       "33.444",
@@ -31242,7 +31262,7 @@
     ],
     "tags": [
       "University of Houston College of Optometry",
-      "University of"
+      "University of Houston"
     ],
     "prog": [
       "33.446",
@@ -31318,7 +31338,7 @@
       "Neuroscience Graduate Program, University of Rochester",
       "Center for Visual Science, University of Rochester",
       "Brain and Cognitive Sciences, University of Rochester",
-      "Flaum Eye Institute, University of",
+      "Flaum Eye Institute, University of Rochester",
       "Flaum Eye Institute and Department of Neuroscience, University of Rochester Medical Center"
     ],
     "prog": [
@@ -31354,7 +31374,7 @@
       ""
     ],
     "tags": [
-      "Ben-Gurion University of"
+      "Ben-Gurion University of the Negev"
     ],
     "prog": [
       "33.451"
@@ -31492,7 +31512,7 @@
     ],
     "tags": [
       "Technische Universität Darmstadt",
-      "Hessian Center for"
+      "Hessian Center for Artificial Intelligence (hessian.AI)"
     ],
     "prog": [
       "33.456"
@@ -32911,7 +32931,7 @@
       ""
     ],
     "tags": [
-      "Shizuoka Institute of Science and"
+      "Shizuoka Institute of Science and Technology"
     ],
     "prog": [
       "36.312"
@@ -33700,7 +33720,7 @@
       "University of Minnesota, Minneapolis, MN, United States.",
       "Center for Applied and Translational Sensory Science, University of Minnesota, Minneapolis, MN, United",
       "University of Minnesota, Twin Cities",
-      "University of"
+      "University of Minnesota"
     ],
     "prog": [
       "36.335",
@@ -33938,7 +33958,7 @@
       ""
     ],
     "tags": [
-      "University of California,"
+      "University of California, Berkeley"
     ],
     "prog": [
       "36.340"
@@ -34190,7 +34210,7 @@
       ""
     ],
     "tags": [
-      "Department of Psychology, Neuroscience & Behaviour, McMaster University,"
+      "Department of Psychology, Neuroscience & Behaviour, McMaster University"
     ],
     "prog": [
       "36.349"
@@ -34207,7 +34227,7 @@
       ""
     ],
     "tags": [
-      "Laboratory of Psychophysics, Brain Mind Institute,"
+      "Laboratory of Psychophysics, Brain Mind Institute, École Polytechnique Fédérale de Lausanne (EPFL)"
     ],
     "prog": [
       "36.350"
@@ -34362,7 +34382,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Edinburgh"
     ],
     "prog": [
       "36.403"
@@ -35725,7 +35745,7 @@
     ],
     "tags": [
       "Department of Psychology, University of California, Davis",
-      "Center for Mind and Brain, University of California,"
+      "Center for Mind and Brain, University of California, Davis"
     ],
     "prog": [
       "36.435"
@@ -35950,7 +35970,7 @@
     ],
     "tags": [
       "University of California, Davis",
-      "Center for Mind and Brain, University of California,"
+      "Center for Mind and Brain, University of California, Davis"
     ],
     "prog": [
       "36.445"
@@ -35968,7 +35988,7 @@
     ],
     "tags": [
       "University of California, Davis",
-      "Center for Mind and Brain, University of California,"
+      "Center for Mind and Brain, University of California, Davis"
     ],
     "prog": [
       "36.445",
@@ -36433,7 +36453,7 @@
       ""
     ],
     "tags": [
-      "Department of Psychology, University of"
+      "Department of Psychology, University of Amsterdam"
     ],
     "prog": [
       "36.458"
@@ -36450,7 +36470,7 @@
       ""
     ],
     "tags": [
-      "Department of Psychology, University of"
+      "Department of Psychology, University of Amsterdam"
     ],
     "prog": [
       "36.458"
@@ -37784,7 +37804,7 @@
     ],
     "tags": [
       "Department of Physics, University of Pisa, Italy",
-      "INFN, Pisa,"
+      "INFN, Pisa, Previous work has suggested that, given the need to rapidly process"
     ],
     "prog": [
       "43.312"
@@ -37884,7 +37904,9 @@
       ""
     ],
     "tags": [
-      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen,"
+      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen, Germany",
+      "Vision and Computational Cognition Group, Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany",
+      "Center for Mind, Brain and Behavior, Universities of Marburg, Giessen, and Darmstadt, Germany * equal contribution"
     ],
     "prog": [
       "43.315"
@@ -37901,7 +37923,7 @@
       ""
     ],
     "tags": [
-      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen,"
+      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen, Germany"
     ],
     "prog": [
       "43.315"
@@ -37918,7 +37940,9 @@
       ""
     ],
     "tags": [
-      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen,"
+      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen, Germany",
+      "Vision and Computational Cognition Group, Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany",
+      "Center for Mind, Brain and Behavior, Universities of Marburg, Giessen, and Darmstadt, Germany * equal contribution"
     ],
     "prog": [
       "43.315"
@@ -38921,7 +38945,9 @@
       ""
     ],
     "tags": [
-      "Department of Medicine, Justus-Liebig University Giessen, Giessen,"
+      "Department of Medicine, Justus-Liebig University Giessen, Giessen, Germany",
+      "Vision and Computational Cognition Group, Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany",
+      "Center for Mind, Brain and Behavior (CMBB), University of Marburg, Giessen and Darmstadt, Germany"
     ],
     "prog": [
       "43.341"
@@ -38940,7 +38966,7 @@
     "tags": [
       "Highfield-MR, CMPBME, Medical University of Vienna, Austria",
       "Medical University of Vienna",
-      "Center for Medical Physics and Biomedical Engineering, Medical University of"
+      "Center for Medical Physics and Biomedical Engineering, Medical University of Population receptive field (pRF) mapping quantifies retinotopic"
     ],
     "prog": [
       "43.342",
@@ -38976,7 +39002,7 @@
       ""
     ],
     "tags": [
-      "MR Physics, DZNE, Bonn,"
+      "MR Physics, DZNE, Bonn, Germany"
     ],
     "prog": [
       "43.342"
@@ -38995,7 +39021,7 @@
     "tags": [
       "Highfield-MR, CMPBME, Medical University of Vienna, Austria",
       "Medical University of Vienna",
-      "Center for Medical Physics and Biomedical Engineering, Medical University of"
+      "Center for Medical Physics and Biomedical Engineering, Medical University of Population receptive field (pRF) mapping quantifies retinotopic"
     ],
     "prog": [
       "43.342",
@@ -39015,7 +39041,7 @@
     ],
     "tags": [
       "Medical University of Vienna",
-      "Center for Medical Physics and Biomedical Engineering, Medical University of"
+      "Center for Medical Physics and Biomedical Engineering, Medical University of Population receptive field (pRF) mapping quantifies retinotopic"
     ],
     "prog": [
       "43.343",
@@ -39034,7 +39060,7 @@
     ],
     "tags": [
       "Medical University of Vienna",
-      "Center for Medical Physics and Biomedical Engineering, Medical University of"
+      "Center for Medical Physics and Biomedical Engineering, Medical University of Population receptive field (pRF) mapping quantifies retinotopic"
     ],
     "prog": [
       "43.343",
@@ -39754,7 +39780,7 @@
       ""
     ],
     "tags": [
-      "Centre for Cognitive Science, Technical University of"
+      "Centre for Cognitive Science, Technical University of Darmstadt"
     ],
     "prog": [
       "43.414"
@@ -39771,7 +39797,7 @@
       ""
     ],
     "tags": [
-      "Centre for Cognitive Science, Technical University of"
+      "Centre for Cognitive Science, Technical University of Darmstadt"
     ],
     "prog": [
       "43.414"
@@ -39788,7 +39814,7 @@
       ""
     ],
     "tags": [
-      "Centre for Cognitive Science, Technical University of"
+      "Centre for Cognitive Science, Technical University of Darmstadt"
     ],
     "prog": [
       "43.414"
@@ -40018,8 +40044,7 @@
       ""
     ],
     "tags": [
-      "University of California, Berkeley",
-      "University of California,"
+      "University of California, Berkeley"
     ],
     "prog": [
       "43.420",
@@ -40038,8 +40063,7 @@
     ],
     "tags": [
       "University of California, Berkeley",
-      "UC Berkeley",
-      "University of California,"
+      "UC Berkeley"
     ],
     "prog": [
       "43.420",
@@ -40215,7 +40239,7 @@
       ""
     ],
     "tags": [
-      "University of",
+      "University of Bologna",
       "Department of Brain & Cognitive Sciences, University of Rochester"
     ],
     "prog": [
@@ -40234,7 +40258,7 @@
       ""
     ],
     "tags": [
-      "University of",
+      "University of Bologna",
       "Department of Biomedical and Neuromotor Sciences, University of Bologna, Italy",
       "Alma Mater Research Institute For Human-Centered Artificial Intelligence (Alma Human AI), University of Bologna, Italy",
       "Department of Biomedical and Neuromotor Sciences, University of Bologna",
@@ -40257,7 +40281,7 @@
       ""
     ],
     "tags": [
-      "University of",
+      "University of Bologna",
       "Department of Biomedical and Neuromotor Sciences, University of Bologna",
       "Interdepartmental center for industrial research-Aerospace, University of Bologna"
     ],
@@ -40572,7 +40596,7 @@
     "tags": [
       "Imperial College London",
       "University of Cambridge",
-      "Chelsea and Westminster NHS Foundation Trust Limb apraxia is a neurobehavioural consequence of stroke,"
+      "Chelsea and Westminster NHS Foundation Trust Limb apraxia is a neurobehavioural consequence of stroke, characterized by impaired skilled action that cannot be attributed to"
     ],
     "prog": [
       "43.431"
@@ -41389,7 +41413,7 @@
     ],
     "tags": [
       "École Normale Supérieure Paris - PSL",
-      "Amsterdam UMC - University of"
+      "Amsterdam UMC - University of Amsterdam"
     ],
     "prog": [
       "43.451"
@@ -41406,7 +41430,7 @@
       ""
     ],
     "tags": [
-      "Amsterdam UMC - University of"
+      "Amsterdam UMC - University of Amsterdam"
     ],
     "prog": [
       "43.451"
@@ -42025,7 +42049,7 @@
     ],
     "tags": [
       "Queen's University, Psychology Department",
-      "Queen's University, Centre for",
+      "Queen's University, Centre for Neuroscience Studies",
       "Queen's University"
     ],
     "prog": [
@@ -42437,8 +42461,7 @@
       ""
     ],
     "tags": [
-      "University of Washington",
-      "University of"
+      "University of Washington"
     ],
     "prog": [
       "53.306",
@@ -42490,7 +42513,6 @@
       ""
     ],
     "tags": [
-      "Georgia Institute of",
       "Georgia Institute of Technology"
     ],
     "prog": [
@@ -43776,7 +43798,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "BaltiVirtual, Baltimore, MD, United States"
+    ],
     "prog": [
       "53.340"
     ],
@@ -44810,7 +44834,7 @@
     ],
     "tags": [
       "Kyoto University",
-      "Japan Society for the Promotion of"
+      "Japan Society for the Promotion of Scholars have long debated the relationship between attention and consciousness. An important challenge is explaining how we maintain"
     ],
     "prog": [
       "53.415"
@@ -44844,7 +44868,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Target identification is impaired when it is preceded and/or succeeded"
     ],
     "prog": [
       "53.417"
@@ -45609,7 +45633,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of California Berkeley"
     ],
     "prog": [
       "53.438"
@@ -46276,7 +46300,7 @@
       ""
     ],
     "tags": [
-      "University of California,"
+      "University of California, Santa Cruz"
     ],
     "prog": [
       "53.453"
@@ -46432,7 +46456,7 @@
     ],
     "tags": [
       "Arizona State University",
-      "Max Planck Institute for"
+      "Max Planck Institute for Empirical Aesthetics"
     ],
     "prog": [
       "53.456"
@@ -48188,7 +48212,7 @@
       ""
     ],
     "tags": [
-      "Justus Liebig University in"
+      "Justus Liebig University in Giessen"
     ],
     "prog": [
       "56.329"
@@ -48595,7 +48619,7 @@
       ""
     ],
     "tags": [
-      "Eye and Brain Mapping Laboratory (iBMLab), Department of Psychology, University of"
+      "Eye and Brain Mapping Laboratory (iBMLab), Department of Psychology, University of Fribourg, Fribourg, Switzerland"
     ],
     "prog": [
       "56.336"
@@ -48611,7 +48635,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "School of Psychological Sciences, Birkbeck, University of London, London, United Kingdom"
+    ],
     "prog": [
       "56.336"
     ],
@@ -48849,7 +48875,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Houston"
     ],
     "prog": [
       "56.351"
@@ -48866,7 +48892,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Houston"
     ],
     "prog": [
       "56.351"
@@ -49292,7 +49318,7 @@
       ""
     ],
     "tags": [
-      "University of"
+      "University of Cambridge"
     ],
     "prog": [
       "56.404"
@@ -49309,7 +49335,6 @@
       ""
     ],
     "tags": [
-      "University of",
       "University of Cambridge"
     ],
     "prog": [
@@ -49923,7 +49948,7 @@
     ],
     "tags": [
       "Harvard University",
-      "Kempner Institute for the Study of Natural and"
+      "Kempner Institute for the Study of Natural and Artificial Intelligence"
     ],
     "prog": [
       "56.418"
@@ -50045,7 +50070,7 @@
     ],
     "tags": [
       "Harvard University",
-      "Kempner Instutite for the Study of"
+      "Kempner Instutite for the Study of Natural and Artificial Intelligence"
     ],
     "prog": [
       "56.423"
@@ -50423,7 +50448,9 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Division of Neurology, Department of Medicine, Faculty of Medicine, King Chulalongkorn Memorial Hospital, Thai Red Cross Society, Bangkok, Thailand"
+    ],
     "prog": [
       "56.436"
     ],
@@ -50438,7 +50465,11 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Cognitive Clinical and Computational Neuroscience Center of Excellence, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand",
+      "Division of Neurology, Department of Medicine, Faculty of Medicine, King Chulalongkorn Memorial Hospital, Thai Red Cross Society, Bangkok, Thailand",
+      "Chula Neuroscience Center, King Chulalongkorn Memorial Hospital, Bangkok, Thailand"
+    ],
     "prog": [
       "56.436"
     ],
@@ -51363,7 +51394,7 @@
       ""
     ],
     "tags": [
-      "University of California,"
+      "University of California, Santa Cruz"
     ],
     "prog": [
       "56.466"
@@ -51519,7 +51550,7 @@
     "tags": [
       "Donders Institute for Brain, Cognition, & Behavior, Radboud University",
       "Donders Institute for Brain, Cognition and Behavior, Radboud University",
-      "Donders Institute for Brain, Cognition and"
+      "Donders Institute for Brain, Cognition and Behavior"
     ],
     "prog": [
       "56.472",
