@@ -1661,12 +1661,52 @@ POSTER_ABS_RE = re.compile(
 )
 
 
+_TOPIC_HEAD_PARTIAL_RE = re.compile(
+    r"^(FRIDAY|SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY)\s+"
+    r"(MORNING|AFTERNOON)\s+POSTERS\s+IN\s*$",
+    re.IGNORECASE,
+)
+_SESS_HEAD_PARTIAL_RE = re.compile(
+    r"^\w+,\s+\w+\s+\d+,\s+\d{1,2}:\d{2}\s*(?:AM|PM)?\s*[-–]\s*"
+    r"\d{1,2}:\d{2}\s*(?:AM|PM)\s*,\s*$",
+    re.IGNORECASE,
+)
+_ROOM_CONT_RE = re.compile(r"^[A-Z][A-Z ]*$")
+
+
+def _join_wrapped_headers(lines: list[str]) -> list[str]:
+    """Join poster-section headers whose room name wraps onto the next
+    non-empty line.  Two patterns:
+      * "SATURDAY MORNING POSTERS IN" + (next line) "PAVILION"
+      * "SATURDAY, MAY 16, 8:30 AM – 12:30 PM," + (next) "PAVILION"
+    Returns a new line list with the joins applied; pass-throughs untouched."""
+    out: list[str] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        s = line.strip()
+        if _TOPIC_HEAD_PARTIAL_RE.match(s) or _SESS_HEAD_PARTIAL_RE.match(s):
+            # Look forward for the room continuation
+            j = i + 1
+            while j < len(lines) and not lines[j].strip():
+                j += 1
+            if j < len(lines):
+                cont = lines[j].strip()
+                if _ROOM_CONT_RE.match(cont) and len(cont) <= 30:
+                    out.append(s + " " + cont)
+                    i = j + 1
+                    continue
+        out.append(line)
+        i += 1
+    return out
+
+
 def iter_posters(text: str) -> Iterable[Abstract]:
     """Walk poster-session text emitting one Abstract per numbered poster."""
     # Strategy: scan lines.  When we hit a topic header, capture the room/date/time
     # block above it. When we hit a `<id> <UPPER>` line, start a new poster.
 
-    lines = text.split("\n")
+    lines = _join_wrapped_headers(text.split("\n"))
     cur_topic = ""
     cur_date = ""
     cur_time = ""
