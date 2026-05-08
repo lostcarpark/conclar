@@ -1,6 +1,6 @@
 {
   "APP_ID": "O2021",
-  "APP_TITLE": "VSS 2026",
+  "APP_TITLE": "VSS 2023",
   "PROGRAM_DATA_URL": "/2026/program.json",
   "PEOPLE_DATA_URL": "/2026/people.json",
   "FETCH_OPTIONS": {
@@ -16,7 +16,7 @@
       "Origin": "http://example.com"
     }
   },
-  "TIMEZONE": "America/New_York",
+  "TIMEZONE": "America/New-York",
   "TIMEZONECODE": "EDT",
   "INTERACTIVE": true,
   "HEADER": {
@@ -24,17 +24,13 @@
     "IMG_ALT_TEXT": "",
     "LINEFEED_AFTER_URL": false
   },
-  "START_TIME": {
-    "START_TIME_LABEL": "Starts: Friday, May 15"
-  },
-
   "NAVIGATION": {
-    "PROGRAM": "Programme",
+    "PROGRAM": "Program",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
-    "SETTINGS": "Settings"
-  },
+    "SETTINGS": "Settings",
+    },
   "HELP_TEXT": {
     "WELCOME": "Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
     "SHARING": "You may share your personal schedule to other devices using the QR codes on the My Schedule page.",
@@ -43,10 +39,7 @@
   },
   "LOCATIONS": {
     "SEARCHABLE": false,
-    "LABEL": "",
-    "MAPPING": [
-      { "KEY": "Davin - Croke Park", "MAP_URL": "https://map.octocon.com" }
-    ]
+    "LABEL": ""
   },
   "APPLICATION": {
     "LOADING": {
@@ -86,7 +79,7 @@
     },
     "SHARED": {
       "TITLE": "Shared Program Items",
-      "DESCRIPTION": "The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.",
+      "DESCRIPTION": "The following program items have been shared with you. To add to your schedule, click the button at the bottom of the page.",
       "BUTTON_LABEL": "Add all to My Schedule"
     }
   },
@@ -109,7 +102,6 @@
         "7": "Sunday",
         "1": "Monday",
         "2": "Tuesday",
-        "3": "Wednesday"
       },
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": false,
@@ -184,6 +176,10 @@
   "DURATION": {
     "SHOW_DURATION": true,
     "DURATION_LABEL": "Duration: @mins mins"
+  },
+  "START_TIME": {
+    "START_TIME_LABEL": "Starts: @con_time",
+    "START_TIME_WITH_LOCAL_LABEL": "Starts: @con_time con time, @local_time local time"
   },
   "SHOW_PAST_ITEMS": {
     "SHOW_CHECKBOX": true,
@@ -279,5 +275,12 @@
     "ONLINE_LABEL": "Currently Online",
     "OFFLINE_LABEL": "Currently Offline",
     "FETCH_BUTTON_LABEL": "Fetch Data Now"
+  },
+  "SYNC": {
+    "API_URL": "https://localhost:3001/api/conclar",
+    "LOADING_LABEL": "Loading...",
+    "LOGIN_LABEL": "Log in",
+    "LOGOUT_LABEL": "Log out @display_name",
+    "ERROR_LABEL": "Could not connect to sync server"
   }
 }

@@ -1,8 +1,8 @@
 {
   "APP_ID": "O2021",
-  "APP_TITLE": "ConClár Programme Guide",
-  "PROGRAM_DATA_URL": "/2022/program.js",
-  "PEOPLE_DATA_URL": "/2022/people.js",
+  "APP_TITLE": "VSS 2023",
+  "PROGRAM_DATA_URL": "/2026/program.json",
+  "PEOPLE_DATA_URL": "/2026/people.json",
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",
@@ -16,8 +16,8 @@
       "Origin": "http://example.com"
     }
   },
-  "TIMEZONE": "Europe/Dublin",
-  "TIMEZONECODE": "IST",
+  "TIMEZONE": "America/New-York",
+  "TIMEZONECODE": "EDT",
   "INTERACTIVE": true,
   "HEADER": {
     "IMG_SRC": "",
@@ -25,13 +25,12 @@
     "LINEFEED_AFTER_URL": false
   },
   "NAVIGATION": {
-    "PROGRAM": "Programme",
+    "PROGRAM": "Program",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
     "SETTINGS": "Settings",
-    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
-  },
+    },
   "HELP_TEXT": {
     "WELCOME": "Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
     "SHARING": "You may share your personal schedule to other devices using the QR codes on the My Schedule page.",
@@ -40,10 +39,7 @@
   },
   "LOCATIONS": {
     "SEARCHABLE": false,
-    "LABEL": "Show on map",
-    "MAPPING": [
-      { "KEY": "Davin - Croke Park", "MAP_URL": "https://map.octocon.com" }
-    ]
+    "LABEL": ""
   },
   "APPLICATION": {
     "LOADING": {
@@ -83,7 +79,7 @@
     },
     "SHARED": {
       "TITLE": "Shared Program Items",
-      "DESCRIPTION": "The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.",
+      "DESCRIPTION": "The following program items have been shared with you. To add to your schedule, click the button at the bottom of the page.",
       "BUTTON_LABEL": "Add all to My Schedule"
     }
   },
@@ -101,11 +97,11 @@
     "DAY_TAG": {
       "GENERATE": true,
       "DAYS": {
-        "4": "Thursday",
         "5": "Friday",
         "6": "Saturday",
         "7": "Sunday",
-        "1": "Monday"
+        "1": "Monday",
+        "2": "Tuesday",
       },
       "PLACEHOLDER": "Select days",
       "SEARCHABLE": false,
