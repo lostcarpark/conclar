@@ -1296,6 +1296,36 @@ SYMP_HEADER_RE = re.compile(
 TALK_MARK_RE = re.compile(r"^TALK\s+(\d+)\s*$")
 
 
+# Per-symposium talk overrides.  The booklet doesn't print individual talk
+# durations or staggered start times, so by default symposium talks all
+# inherit the symposium's start time and emit with mins=0.  Add entries
+# here for symposia that have a known structure.
+#
+# Each value is a dict with optional keys:
+#   "mins":  per-talk duration in minutes (also used as the stagger step
+#            so successive talks start at start + i*mins)
+#   "start": HH:MM start time of the FIRST talk (defaults to the
+#            symposium start when omitted)
+#
+# Keys are substrings matched against the symposium title, case-insensitive.
+_SYMPOSIUM_TALK_OVERRIDES: dict[str, dict] = {
+    "Intuitive physical reasoning in brains": {"mins": 23},
+    "Rhythms of vision":                      {"mins": 20},
+    "What makes a task naturalistic":         {"mins": 17, "start": "10:33"},
+    "Reimagining the binding problem":        {"mins": 20},
+    "Beyond Prediction":                      {"mins": 20},
+    "The quest for 'the average person'":     {"mins": 20},
+}
+
+
+def _symposium_override(sym_title: str) -> dict:
+    t = (sym_title or "").lower()
+    for keyword, cfg in _SYMPOSIUM_TALK_OVERRIDES.items():
+        if keyword.lower() in t:
+            return cfg
+    return {}
+
+
 def iter_symposia(text: str) -> Iterable[Abstract]:
     blocks = re.split(r"(?=^SYMPOSIUM:)", text, flags=re.MULTILINE)
     for blk in blocks:
@@ -1469,6 +1499,17 @@ def iter_symposia(text: str) -> Iterable[Abstract]:
 
         # Now each individual talk in the symposium.
         n_talks = (len(talk_split) - 1) // 2
+        # Per-symposium overrides for talk durations / staggered start times.
+        # When `mins` > 0 we stagger talks so talk_i starts at first_start +
+        # i*mins.  Both default to "inherit symposium start, mins=0".
+        override = _symposium_override(sym_title)
+        talk_mins = int(override.get("mins", 0))
+        first_start_str = override.get("start") or fmt_time(start_t)
+        try:
+            base_h, base_m = (int(x) for x in first_start_str.split(":"))
+        except ValueError:
+            base_h, base_m = start_t
+        base_minutes = base_h * 60 + base_m
         for i in range(n_talks):
             num = talk_split[1 + 2 * i]
             body = talk_split[2 + 2 * i]
@@ -1478,16 +1519,21 @@ def iter_symposia(text: str) -> Iterable[Abstract]:
             authors = [n for n, _ in authors_w_idx]
             indices = [idx for _, idx in authors_w_idx]
             body_text = normalize_paragraph(body_lines)
+            if talk_mins > 0:
+                t_total = base_minutes + i * talk_mins
+                t_h, t_m = divmod(t_total, 60)
+                talk_time = f"{t_h:02d}:{t_m:02d}"
+            else:
+                talk_time = fmt_time(start_t)
             yield Abstract(
                 id=f"{sym_id}.t{int(num):02d}",
                 title=title, authors=authors, affils=affils,
                 author_indices=indices,
                 body=body_text, track="Symposium",
-                kind="symposium-talk", date=date, time=fmt_time(start_t),
-                # Symposium talk durations vary widely (some symposia have
-                # 5x 20-min, others 6x 15-min, etc.) and aren't printed in
-                # the booklet — leave as 0 ("unknown") rather than guess.
-                mins=0, room=room,
+                kind="symposium-talk", date=date, time=talk_time,
+                # Per-talk durations aren't printed in the booklet — leave
+                # mins=0 unless the symposium has an explicit override.
+                mins=talk_mins, room=room,
                 parent_session_time=fmt_time(start_t),
             )
 
