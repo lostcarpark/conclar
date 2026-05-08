@@ -107,7 +107,7 @@
       "SEARCHABLE": false,
       "HIDE": false
     },
-    "DONTLIST": ["Division", "days"]
+    "DONTLIST": ["Division", "days", "parent"]
   },
   "HIDE_BEFORE": {
     "HIDE": false,
