@@ -1417,21 +1417,45 @@ div.uninteractive div.info {
   padding: 0 1em;
 }
 
-/* === Nested items: programme items tagged "parent:<id>" render indented under their session === */
+/* === PR 1: tree-aware nesting (sessions contain talks/posters) =========== */
+
+/* Parents — the session row itself.  A subtle accent on the left edge
+   tells the reader this row is a container. */
+.item.program-item--parent {
+  border-left: 4px solid #5a8acb;
+}
+.item.program-item--parent > .item-entry .item-title {
+  font-weight: 600;
+}
+
+/* The list of children rendered inside their parent's .item div. */
+.item-children {
+  list-style: none;
+  margin: 0 0 0 16px;
+  padding: 4px 0 8px 16px;
+  border-left: 1px solid #ddd;
+}
+.item-children > li {
+  margin: 6px 0;
+}
+
+/* Children themselves no longer need margin-left/border — DOM nesting
+   plus the .item-children rail provides the visual indent.  The class
+   is still applied for screen-reader / extension hooks and so we can
+   target child-only typography. */
 .item.program-item--child {
-  margin-left: 24px;
-  padding-left: 12px;
-  border-left: 3px solid #c0c0c0;
-  opacity: 0.96;
+  margin-left: 0;
+  padding-left: 0;
+  border-left: none;
+  opacity: 1;
 }
 
-/* Tighten the gap between a session row and its first child */
-.item:not(.program-item--child) + .item.program-item--child {
-  margin-top: 0;
+/* Dark-mode variants */
+.dark .item.program-item--parent,
+[data-theme="dark"] .item.program-item--parent {
+  border-left-color: #6a9adb;
 }
-
-/* Dark-mode variant — adjust selector if ConClár uses a different dark-mode wrapper */
-.dark .item.program-item--child,
-[data-theme="dark"] .item.program-item--child {
-  border-left-color: #555;
+.dark .item-children,
+[data-theme="dark"] .item-children {
+  border-left-color: #444;
 }

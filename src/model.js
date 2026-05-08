@@ -1,4 +1,5 @@
 import { action, thunk, computed } from "easy-peasy";
+import { Temporal } from "@js-temporal/polyfill";
 import { ProgramData } from "./ProgramData";
 import { ProgramSelection } from "./ProgramSelection";
 import { LocalTime } from "./utils/LocalTime";
@@ -429,6 +430,65 @@ const model = {
     state.program.filter((item) =>
       state.mySelections.find((id) => item.id === id)
     )
+  ),
+
+  // === PR 1: tree-aware data layer for session/talk nesting ===============
+  // The data on disk is flat; children point to their parent via a
+  // {category: "parent", value: <parent_id>} tag.  These selectors build
+  // an O(1) parent->children index at load time so the renderer can place
+  // children inside their parent's DOM instead of as flat siblings.
+
+  // id -> item, for fast lookup.
+  programIndex: computed((state) =>
+    Object.fromEntries(state.program.map((it) => [it.id, it]))
+  ),
+
+  // parentId -> [child item, ...], sorted by start time.
+  // Skips: self-references, parents not present in the program.
+  programChildren: computed(
+    [(state) => state.program, (state) => state.programIndex],
+    (program, programIndex) => {
+      const byParent = {};
+      for (const it of program) {
+        const parentTag = (it.tags || []).find(
+          (t) => t && typeof t === "object" && t.category === "parent"
+        );
+        if (!parentTag || !parentTag.value) continue;
+        if (parentTag.value === it.id) continue;
+        if (!programIndex[parentTag.value]) continue;
+        if (!byParent[parentTag.value]) byParent[parentTag.value] = [];
+        byParent[parentTag.value].push(it);
+      }
+      for (const list of Object.values(byParent)) {
+        list.sort((a, b) => {
+          if (!a.startDateAndTime || !b.startDateAndTime) return 0;
+          return Temporal.ZonedDateTime.compare(
+            a.startDateAndTime,
+            b.startDateAndTime
+          );
+        });
+      }
+      return byParent;
+    }
+  ),
+
+  // Set of item ids that have a real parent in the program.  Used at the
+  // top-level renderer to skip these (they render nested inside parent).
+  programIsChild: computed(
+    [(state) => state.program, (state) => state.programIndex],
+    (program, programIndex) => {
+      const childIds = new Set();
+      for (const it of program) {
+        const parentTag = (it.tags || []).find(
+          (t) => t && typeof t === "object" && t.category === "parent"
+        );
+        if (!parentTag || !parentTag.value) continue;
+        if (parentTag.value === it.id) continue;
+        if (!programIndex[parentTag.value]) continue;
+        childIds.add(it.id);
+      }
+      return childIds;
+    }
   ),
 };
 

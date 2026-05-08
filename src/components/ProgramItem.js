@@ -35,6 +35,12 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   // Used to resolve the parent session's title for the "Part of:" kicker.
   const program = useStoreState((state) => state.program);
 
+  // PR 1: tree-aware nesting. If this item has children (sessions with
+  // talks/posters), they render inside this item's DOM rather than as
+  // flat siblings.
+  const childItems = useStoreState((state) => state.programChildren[item.id]) || [];
+  const hasChildren = childItems.length > 0;
+
   function toggleExpanded() {
     if (configData.INTERACTIVE) {
       if (expanded) {
@@ -287,7 +293,12 @@ const parentTitle = parentItem ? parentItem.title : null;
     );
 
   return (
-    <div id={id} className={`item ${isChild ? "program-item--child" : ""}`}>
+    <div id={id}
+         className={
+           "item"
+           + (isChild ? " program-item--child" : "")
+           + (hasChildren ? " program-item--parent" : "")
+         }>
       <div className="item-selection">
         <div className="selection">
           <input
@@ -335,6 +346,21 @@ const parentTitle = parentItem ? parentItem.title : null;
           </animated.div>
         )}
       </div>
+
+      {/* PR 1: nested children rendered inside parent's DOM tree. */}
+      {hasChildren && (
+        <ul className="item-children">
+          {childItems.map((child) => (
+            <li key={child.id}>
+              <ProgramItem
+                item={child}
+                forceExpanded={forceExpanded}
+                now={now}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
