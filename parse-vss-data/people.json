@@ -9657,14 +9657,16 @@
     "bio": ""
   },
   {
-    "id": "gal-vishne1",
+    "id": "gal-vishne",
     "name": [
       "Gal",
-      "Vishne1,*",
+      "Vishne",
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Columbia University"
+    ],
     "prog": [
       "42.21"
     ],
@@ -9672,14 +9674,16 @@
     "bio": ""
   },
   {
-    "id": "miranda-ye2",
+    "id": "miranda-ye",
     "name": [
       "Miranda",
-      "Ye2,*",
+      "Ye",
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Barnard College, Columbia University"
+    ],
     "prog": [
       "42.21"
     ],
@@ -9712,14 +9716,16 @@
     "bio": ""
   },
   {
-    "id": "michael-n-shadlen1",
+    "id": "michael-n-shadlen",
     "name": [
       "Michael N.",
-      "Shadlen1,#",
+      "Shadlen",
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Columbia University"
+    ],
     "prog": [
       "42.21"
     ],
@@ -9727,14 +9733,17 @@
     "bio": ""
   },
   {
-    "id": "john-morrison1-2",
+    "id": "john-morrison",
     "name": [
       "John",
-      "Morrison1,2,#",
+      "Morrison",
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Columbia University",
+      "Barnard College, Columbia University"
+    ],
     "prog": [
       "42.21"
     ],
@@ -12077,7 +12086,7 @@
       "Rhea T.",
       "Eskew",
       "",
-      "Jr."
+      "Jr"
     ],
     "tags": [
       "Northeastern University"
@@ -16195,10 +16204,12 @@
       ""
     ],
     "tags": [
-      "Sabanci University"
+      "Sabanci University",
+      "Sabanci University, Istanbul"
     ],
     "prog": [
-      "23.311"
+      "23.311",
+      "43.470"
     ],
     "links": {},
     "bio": ""
@@ -37728,14 +37739,16 @@
     "bio": ""
   },
   {
-    "id": "tonghe-zhuang1-2-3",
+    "id": "tonghe-zhuang",
     "name": [
       "Tonghe",
-      "zhuang1,2,3*",
+      "zhuang",
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen,"
+    ],
     "prog": [
       "43.315"
     ],
@@ -37743,14 +37756,16 @@
     "bio": ""
   },
   {
-    "id": "selma-akarsu1",
+    "id": "selma-akarsu",
     "name": [
       "Selma",
-      "Akarsu1*",
+      "Akarsu",
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Computational Cognitive Neuroscience and Quantitative Psychiatry, Department of Medicine, Justus Liebig University Giessen,"
+    ],
     "prog": [
       "43.315"
     ],
@@ -38554,14 +38569,15 @@
     "bio": ""
   },
   {
-    "id": "ghazaleh-ghamkhari-nejad1",
+    "id": "ghazaleh-ghamkhari-nejad",
     "name": [
       "Ghazaleh Ghamkhari",
-      "Nejad1.",
+      "Nejad",
       "",
       ""
     ],
     "tags": [
+      "Department of Neurosciences, KU Leuven, Leuven, Belgium",
       "Leuven Brain Institute, KU Leuven, Leuven, Belgium"
     ],
     "prog": [
@@ -41825,10 +41841,10 @@
     "bio": ""
   },
   {
-    "id": "yasemin-gunindi1-ilayda-efsane-algn",
+    "id": "yasemin-gunindi",
     "name": [
-      "Yasemin Gunindi1, İlayda Efsane",
-      "Algın",
+      "Yasemin",
+      "Gunindi",
       "",
       ""
     ],
@@ -42459,9 +42475,9 @@
     "bio": ""
   },
   {
-    "id": "jon-1-1-1-campbell",
+    "id": "jon-campbell",
     "name": [
-      "Jon 1 1 1",
+      "Jon",
       "Campbell",
       "",
       ""

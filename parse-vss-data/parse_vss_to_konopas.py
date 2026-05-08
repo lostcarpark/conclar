@@ -536,15 +536,32 @@ def clean_author_token(tok: str) -> tuple[str, list[str]]:
     ASCII equivalents the trailing-affil regex understands, and strips a
     stray space-period at the end ("Akshi ." -> "Akshi") which appears in
     a few source records.
+
+    Strips presenter-marker characters (* # † ‡) that some abstracts
+    append after the affiliation indices ("Gal Vishne1,*"), so the
+    affiliation regex sees a clean "...1," tail.
     """
     s = EMAIL_RE.sub("", tok).strip().rstrip(",;")
     s = re.sub(r"\s+", " ", s)
     # Normalize full-width CJK punctuation.
     s = s.translate(str.maketrans({"，": ",", "；": ";", "：": ":", "、": ","}))
+    # Strip presenter-marker punctuation that trails the affil indices.
+    # Some abstracts mark presenters/corresponding authors with `*`, `#`,
+    # `†`, `‡`; these are sometimes wedged between the name and indices
+    # ("Jane Doe1,*") or at the very end ("Selma Akarsu1*").  Iterate
+    # because both forms can co-occur.
+    while True:
+        s2 = re.sub(r"[*#†‡]+\s*$", "", s).rstrip(",;. ")
+        if s2 == s:
+            break
+        s = s2
     # Trailing affiliation indices, possibly mixed with commas / spaces.
-    m = re.match(r"^(.*?)([0-9](?:[0-9]|,|\s)*)$", s)
+    # Allow `.` between digits too — the source occasionally renders the
+    # comma between affil indices as a period ("Nejad1.2" instead of
+    # "Nejad1,2"), and we still want both indices captured.
+    m = re.match(r"^(.*?)([0-9](?:[0-9]|,|\.|\s)*)$", s)
     if m:
-        name = m.group(1).strip(" ,")
+        name = m.group(1).strip(" ,.")
         idx_part = re.findall(r"\d+", m.group(2))
     else:
         name = s
@@ -552,6 +569,12 @@ def clean_author_token(tok: str) -> tuple[str, list[str]]:
     # Strip a stray ` .` tail (e.g. "Akshi ." in the source).  Keep
     # trailing initials like "K." intact — those have no leading space.
     name = re.sub(r"\s+\.+\s*$", "", name).rstrip(",")
+    # Final guard: if any digits remain in the name, the affil parse
+    # didn't consume them (e.g. interleaved column-reorder noise like
+    # "Jon 1 1 1 Campbell" -> indices floating mid-name).  Strip them.
+    if re.search(r"\d", name):
+        name = re.sub(r"\s+\d+(?=\s|$)", "", name)
+        name = re.sub(r"\s{2,}", " ", name).strip()
     return name, idx_part
 
 
@@ -569,7 +592,17 @@ def parse_authors_line(line: str) -> tuple[list[tuple[str, list[str]]], list[str
 
     # Split authors on commas, but only those followed by a letter — this
     # avoids breaking 'Author Two1,2' (multi-affil indices) into two tokens.
-    raw_tokens = [t.strip() for t in re.split(r",(?=\s*[A-Za-zÀ-ÿ])", authors_txt) if t.strip()]
+    # `\w` covers Latin-1 only by default; the wider ranges below catch
+    # Latin Extended (Polish), Turkish (İğüşçö), CJK, Cyrillic, etc.
+    _NAME_LEAD = (
+        r"A-Za-z"
+        r"À-ÖØ-öø-ÿ"        # Latin-1 Supplement letters
+        r"Ā-ɏ"    # Latin Extended-A & -B
+        r"Ͱ-Ͽ"    # Greek
+        r"Ѐ-ӿ"    # Cyrillic
+        r"一-鿿"    # CJK Unified
+    )
+    raw_tokens = [t.strip() for t in re.split(rf",(?=\s*[{_NAME_LEAD}])", authors_txt) if t.strip()]
     # Rejoin name suffix tokens (Jr., Sr., II, III, IV, PhD, MD) with their
     # preceding author so "Smith, Jr.1" doesn't become two separate people.
     # Strip a trailing affiliation index (and any periods/commas) before

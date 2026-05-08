@@ -1993,7 +1993,7 @@
     "people": [
       {
         "id": "rhea-t-eskew-jr",
-        "name": "Rhea T. Eskew, Jr."
+        "name": "Rhea T. Eskew, Jr"
       }
     ],
     "desc": "Moderator: Rhea Eskew, Northeastern University"
@@ -7240,24 +7240,24 @@
     ],
     "people": [
       {
-        "id": "gal-vishne1",
-        "name": "Gal Vishne1,*"
+        "id": "gal-vishne",
+        "name": "Gal Vishne"
       },
       {
-        "id": "miranda-ye2",
-        "name": "Miranda Ye2,*"
+        "id": "miranda-ye",
+        "name": "Miranda Ye"
       },
       {
         "id": "nicholas-b-turk-browne",
         "name": "Nicholas B. Turk-Browne"
       },
       {
-        "id": "michael-n-shadlen1",
-        "name": "Michael N. Shadlen1,#"
+        "id": "michael-n-shadlen",
+        "name": "Michael N. Shadlen"
       },
       {
-        "id": "john-morrison1-2",
-        "name": "John Morrison1,2,#"
+        "id": "john-morrison",
+        "name": "John Morrison"
       }
     ],
     "desc": "We experience the visual world as rich and detailed, yet workingmemory studies suggest we retain only a few items at a time. Sperling's seminal 1960s experiments provided the first evidence for a higher capacity short-term buffer, later dubbed \"iconic memory.\" In those studies, participants were flashed a 4x3 letter array and were cued after its disappearance to report only one row, which substantially improved performance relative to a full-report condition. Despite the theoretical importance of this topic, research on iconic memory has slowed, partly due to limitations of the original paradigm: reporting multiple items leads to output interference; identifying letters amplifies processing interference; some letters are easier to identify than others; and there is no way to measure the precision of memories. Here, we introduce a new paradigm designed to overcome these limitations. On each trial, participants were flashed (50 ms) nine colored dots evenly spaced on a circle (4° radius). For uniform perceptual spacing, colors were sampled from an equiluminant circle in perceptual CIELAB space (center a=20, b=38, radius=60). After a variable delay (0–1000 ms), the fixation changed color to match one of the dots, and participants made an eye-movement to the location of that color. This design offers several advantages, among them: one response per trial avoids output interference; as low-level continuous features, colors create less processing interference and support estimates of memory precision. We found that across trials overall performance declined with array-toprobe delay. Modeling error patterns as a mixture of uniform and vonMises distributions (following Zhang & Luck, 2008) revealed two distinct mechanisms behind this decay: increase in guessing rate and a reduction in memory precision. These findings demonstrate the prevalence of very short-term, high-capacity visual memory across tasks and provide a new platform for a revival of research on iconic memory."
@@ -8755,7 +8755,7 @@
       },
       {
         "id": "rhea-t-eskew-jr",
-        "name": "Rhea T. Eskew, Jr."
+        "name": "Rhea T. Eskew, Jr"
       }
     ],
     "desc": "Human visual perception exhibits distinct asymmetries in the processing of increments and decrements. Psychophysical studies show that perceptual scales of achromatic and S-cone increments follow a saturating curve, while their decrements both follow a reversed, inverted S-shaped curve; discrimination thresholds on increment pedestals are higher than on decrement pedestals (Shi & Eskew, 2024, 2025, Gabree, Shepard & Eskew, 2018), and field spectral sensitivities are different for S increment and decrement tests (McLellan & Eskew, 2000). The present study investigates whether these psychophysical polarity differences could be related to natural image statistics. Hyperspectral images of natural and urban scenes (Cauwerts & Jost, 2019; Nascimento et al., 2016) were analyzed to characterize the distribution of cone response contrasts. Spectral data were converted to L, M, and S cone excitations, and then filtered with Difference of Gaussians (DoG) using different spatial scales for each type of cone to simulate cone response contrast. Post-receptoral channel responses were then calculated using weighted sums of cone contrasts. The analysis revealed a consistent statistical dominance of decrements over increments across L, M, and S cones, at multiple spatial scales. In post-receptoral channels, the Red-Green channel showed a prevalence of \"greenish\" over \"reddish\" responses, while the Yellow-Blue channel showed a prevalence of \"yellowish\" over \"bluish\" responses, with few exceptions. Both Luminance (L+M) and Achromatic (L+M+S) channels exhibited a strong bias toward decremental responses. These results align qualitatively with previous psychophysical asymmetries. The observed decrement dominance may be attributed to the physics of material reflectance: objects typically exhibit low reflectances due to light-absorbing pigments (Richards, 1982). Furthermore, consistent with the efficient coding hypothesis, the high sensitivity observed at low contrasts for both polarities in psychophysics can be explained by the prevalence of lowcontrast content in the natural environment. NSF BCS-2239356"
@@ -29001,12 +29001,12 @@
     ],
     "people": [
       {
-        "id": "tonghe-zhuang1-2-3",
-        "name": "Tonghe zhuang1,2,3*"
+        "id": "tonghe-zhuang",
+        "name": "Tonghe zhuang"
       },
       {
-        "id": "selma-akarsu1",
-        "name": "Selma Akarsu1*"
+        "id": "selma-akarsu",
+        "name": "Selma Akarsu"
       },
       {
         "id": "malin-styrnal",
@@ -29651,8 +29651,8 @@
         "name": "Anna Bognar"
       },
       {
-        "id": "ghazaleh-ghamkhari-nejad1",
-        "name": "Ghazaleh Ghamkhari Nejad1."
+        "id": "ghazaleh-ghamkhari-nejad",
+        "name": "Ghazaleh Ghamkhari Nejad"
       },
       {
         "id": "michael-stettler",
@@ -32414,8 +32414,12 @@
         "name": "Çiçek Güney"
       },
       {
-        "id": "yasemin-gunindi1-ilayda-efsane-algn",
-        "name": "Yasemin Gunindi1, İlayda Efsane Algın"
+        "id": "yasemin-gunindi",
+        "name": "Yasemin Gunindi"
+      },
+      {
+        "id": "ilayda-efsane-algn",
+        "name": "İlayda Efsane Algın"
       },
       {
         "id": "nihan-alp",
@@ -32919,8 +32923,8 @@
         "name": "Juliet Semple"
       },
       {
-        "id": "jon-1-1-1-campbell",
-        "name": "Jon 1 1 1 Campbell"
+        "id": "jon-campbell",
+        "name": "Jon Campbell"
       },
       {
         "id": "pete-r-jones",
