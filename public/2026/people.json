@@ -15750,81 +15750,7 @@
     "links": {},
     "bio": "National Taiwan University"
   },
-  {
-    "id": "reading-speed-in-both-typical-and-low-vision-populations-legge-et-al-2007-in-a-preliminary-laboratory-study",
-    "name": [
-      "reading speed in both typical and low-vision populations (Legge et al., 2007). In a preliminary laboratory",
-      "study",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.410"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "we-investigated-visual-span-and-reading-performance-in-individuals-with-dyslexia-relative-to-typical-readers",
-    "name": [
-      "we investigated visual span and reading performance in individuals with dyslexia. Relative to typical",
-      "readers",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.410"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "the-dyslexia-group-exhibited-significantly-smaller-visual-spans-p-0-022-and-slower-reading-rates-p-0-001-crucially",
-    "name": [
-      "the dyslexia group exhibited significantly smaller visual spans (p = 0.022) and slower reading rates (p < 0.001).",
-      "Crucially",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.410"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "visual-span-size-showed-a-strong-positive-correlation-with-reading-speed-r-19-0-45-we-adapted-this-paradigm-for-online-testing-to-enable-larger-scale-assessment-a-validation-study-confirmed-the-reliability-of-the-online-paradigm-in-a-small-sample",
-    "name": [
-      "visual span size showed a strong positive correlation with reading speed (r(19) = 0.45). We adapted this paradigm for online testing to enable larger-scale assessment. A validation study confirmed the reliability of the online paradigm in a small",
-      "sample",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.410"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "showing-a-strong-positive-correlation-between-visual-span-size-and-reading-speed-r-12-0-63-we-then-collected-data-from-45-self-reported-individuals-with-dyslexia-age-range-20",
-    "name": [
-      "showing a strong positive correlation between visual span size and reading speed (r(12) = 0.63). We then collected data from 45 self-reported individuals with dyslexia (age range:",
-      "20–",
-      "",
-      ""
-    ],
-    "tags": [],
-    "prog": [
-      "23.410"
-    ],
-    "links": {},
-    "bio": ""
-  },
+  
   {
     "id": "joonsik-moon",
     "name": [
@@ -44433,5 +44359,20 @@
     ],
     "links": {},
     "bio": "Boston University"
+  },
+  {
+    "id": "nilsu-atilgan",
+    "name": [
+      "Nilsu",
+      "Atilgan",
+      "",
+      ""
+    ],
+    "tags":[],
+    "prog": [
+      "23.410"
+    ],
+    "links": {},
+    "bio": "Bilkent University; University of CentralFlorida"
   }
 ]
