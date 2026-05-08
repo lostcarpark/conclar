@@ -2661,6 +2661,8 @@ print(
     f"{_orphan_note}"
     f"wrote {len(people.to_konopas()):,} unique people{_merge_note}\n"
     f"  -> {PROGRAM_PATH}\n"
-    f"  -> {PEOPLE_PATH}",
+    f"  -> {PEOPLE_PATH}\n"
+    f"  -> {DEPLOY_PROGRAM_PATH}\n"
+    f"  -> {DEPLOY_PEOPLE_PATH}",
     file=sys.stderr,
 )

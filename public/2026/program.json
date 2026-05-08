@@ -4586,8 +4586,8 @@
         "name": "Jonathan Skaza"
       },
       {
-        "id": "sharvan-murlidaran",
-        "name": "Sharvan Murlidaran"
+        "id": "shravan-murlidaran",
+        "name": "Shravan Murlidaran"
       },
       {
         "id": "miguel-p-eckstein",
@@ -4880,8 +4880,8 @@
     ],
     "people": [
       {
-        "id": "cate-trentin",
-        "name": "Cate Trentin"
+        "id": "caterina-trentin",
+        "name": "Caterina Trentin"
       },
       {
         "id": "chris-n-l-olivers",
@@ -7086,8 +7086,8 @@
         "name": "Güven Kandemir"
       },
       {
-        "id": "docky-duncan",
-        "name": "Docky Duncan"
+        "id": "dock-duncan",
+        "name": "Dock Duncan"
       },
       {
         "id": "dirk-van-moorselaar",
@@ -25811,8 +25811,8 @@
         "name": "Jonathan Winawer"
       },
       {
-        "id": "marsia-carrasco",
-        "name": "Marsia Carrasco"
+        "id": "marisa-carrasco",
+        "name": "Marisa Carrasco"
       }
     ],
     "desc": "[Introduction] Performance is location-dependent: Typically, it decreases with eccentricity and is higher along the horizontal than vertical meridian–horizontal-vertical anisotropy (HVA)–and along the lowerthan upper-vertical meridian–vertical meridian asymmetry (VMA). Both the eccentricity effect and polar angle asymmetries have been related either to cortical surface area or to system-level computations–gain and internal noise. Here we used an equivalent noise protocol to investigate whether and how scaling stimuli size to equate cortical surface area across locations (M-scaling) modulates\nspatial patterns in performance and system-level computations. [Method] Observers performed an orientation-discrimination task on a Gabor signal embedded in dynamic white noise, presented either at the fovea or 8º to the left, right, above, or below fixation. Stimuli were equated either for retinal size or for cortical size, based on individual retinotopic maps. We estimated contrast thresholds (using a functional adaptive sequential testing method) and fit a perceptual template model to estimate gain and internal noise at each location. [Results] Without external noise, M-scaling eliminated contrast threshold differences across eccentricity, but only reduced polar angle asymmetries. With equal retinal size, internal noise, but not gain, increased with eccentricity. M-scaling eliminated the eccentricity effect in internal noise and gain was higher in the periphery than at the fovea. With equal retinal size, internal noise did not vary around polar angle, and gain was higher along the horizontal than vertical meridian and along the lowerthan upper-vertical meridian. With M-scaling, HVA in gain was eliminated, and VMA emerged for internal noise. [Conclusion] Visual performance differences across eccentricity and around polar angle appear to arise from different computations, the former from differences in internal noise and the latter from differences in gain. Critically, despite equated cortical surface area across locations, polar angle asymmetries in performance and in system-level computations are attenuated but persist. NIH NEI R01-EY027401 to MC and JW"
@@ -35998,8 +35998,8 @@
         "name": "Matthias Will"
       },
       {
-        "id": "cris-de-la-malla",
-        "name": "Cris de la Malla"
+        "id": "cristina-de-la-malla",
+        "name": "Cristina de la Malla"
       }
     ],
     "desc": "California Berkeley Imagine swatting an annoying fly—tracking its erratic visual motion while continuously sensing your arm’s movement through proprioception. Success in such situations hinges on effective multisensory integration of vision and proprioception. Decades of work using static position judgments show that these cues are combined in a statistically optimal manner. However, whether this optimality principle holds during dynamic, continuous movements remains untested. To address this gap, we employed a continuous psychophysics paradigm in which participants used their left hand to continuously track, for 20-seconds along a constrained forward– backward axis, either a randomly (Brownian motion) moving visual cursor, a proprioceptive signal from a passively moved right hand controlled by a motorized manipulandum, or both signals concurrently. We manipulated visual uncertainty (clear vs. Gaussian-blurred cursor) and visuo-proprioceptive alignment (0-cm vs. 5-cm translational shift). Strikingly, the results closely matched the predictions of optimality in several ways. First, visual tracking degraded under high visual uncertainty. Second, visual tracking was worse than proprioceptive tracking, consistent with greater uncertainty in vision arising from slower neural transmission during movement. Third, when cues were aligned (0-cm shift), multisensory tracking exceeded both visual and proprioceptive unimodal tracking performance, demonstrating optimal cue integration for continuous movements. Fourth, when a visuoproprioceptive discrepancy (5-cm shift) was introduced, multisensory tracking landed between the two cues but was systematically biased away from vision (the more uncertain cue) and toward proprioception (the less uncertain cue). Finally, after exposure to the discrepancy, vision shifted strongly toward proprioception, whereas proprioception showed minimal shift toward vision—revealing that recalibration, like integration, followed optimality principles. Together, these behavioral findings, supported by preliminary Bayesian modeling, show that vision and proprioception are integrated and recalibrated optimally during continuous movement, extending multisensory optimality from static positional judgments to continuous real-world movements. CM is funded by grant PID2023-150883NB-I00 from the MCIN/AEI/10.13039/501100011033. PV is supported by grant PRE2021-097890 funded by MICIU/AEI/10.13039/501100011033 and by the FSE+."
@@ -39083,8 +39083,8 @@
         "name": "Jason Chow"
       },
       {
-        "id": "philip-guan",
-        "name": "Philip Guan"
+        "id": "phillip-guan",
+        "name": "Phillip Guan"
       },
       {
         "id": "alex-h-williams",
