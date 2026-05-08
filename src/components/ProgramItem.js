@@ -186,15 +186,6 @@ const parentTitle = parentItem ? parentItem.title : null;
     }
   }
 
-  const duration =
-    configData.DURATION.SHOW_DURATION && item.mins ? (
-      <div className="item-duration">
-        {configData.DURATION.DURATION_LABEL.replace("@mins", item.mins)}
-      </div>
-    ) : (
-      ""
-    );
-
   const conTime = LocalTime.formatTimeInConventionTimeZone(
     item.timeSlot,
     item.startDateAndTime,
@@ -211,19 +202,56 @@ const parentTitle = parentItem ? parentItem.title : null;
           timeZoneIsShown
         )
       : null;
-  console.log(localTime);
+
+  // Compute end time + formatted strings so we can render the time as a
+  // range (e.g. "4:00 pm – 6:00 pm") rather than start + duration label.
+  const mins = parseInt(item.mins, 10) || 0;
+  const endDateAndTime =
+    mins > 0 ? item.startDateAndTime.add({ minutes: mins }) : null;
+  const conEndTime = endDateAndTime
+    ? LocalTime.formatTime(
+        endDateAndTime.withTimeZone(LocalTime.conventionTimeZone),
+        show12HourTime,
+        timeZoneIsShown
+      )
+    : null;
+  const localEndTime =
+    endDateAndTime && localTime
+      ? LocalTime.formatTime(
+          endDateAndTime.withTimeZone(LocalTime.localTimeZone),
+          show12HourTime,
+          timeZoneIsShown
+        )
+      : null;
+
+  // Build the time string. With a known end time, render a range; otherwise
+  // fall back to the configured start-time-only label.
   let startTime;
-  if (localTime) {
-    startTime = configData.START_TIME.START_TIME_WITH_LOCAL_LABEL.replace(
-      "@local_time",
-      localTime
-    ).replace("@con_time", conTime);
+  if (conEndTime) {
+    startTime = localEndTime
+      ? `${conTime} – ${conEndTime} (${localTime} – ${localEndTime} local)`
+      : `${conTime} – ${conEndTime}`;
+  } else if (localTime) {
+    startTime = configData.START_TIME.START_TIME_WITH_LOCAL_LABEL
+      .replace("@local_time", localTime)
+      .replace("@con_time", conTime);
   } else {
     startTime = configData.START_TIME.START_TIME_LABEL.replace(
       "@con_time",
       conTime
     );
   }
+
+  // Duration is now redundant with the range; only show it as a fallback
+  // when no end time is computable (mins is missing/zero).
+  const duration =
+    configData.DURATION.SHOW_DURATION && item.mins && !conEndTime ? (
+      <div className="item-duration">
+        {configData.DURATION.DURATION_LABEL.replace("@mins", item.mins)}
+      </div>
+    ) : (
+      ""
+    );
 
   const [ref, bounds] = useMeasure();
   const showExpanded = !configData.INTERACTIVE || expanded || forceExpanded;
@@ -277,7 +305,7 @@ const parentTitle = parentItem ? parentItem.title : null;
       <div className="item-entry" onClick={toggleExpanded}>
         <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>
           {parentTitle && (
-            <div className="item-parent">Part of: {parentTitle}</div>
+            <div className="item-parent">{parentTitle}</div>
           )}
           <h3 className="item-title">
             {item.title}
