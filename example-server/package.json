@@ -1,0 +1,13 @@
+{
+  "name": "conclar-example-sync-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "escape-html": "^1.0.3",
+    "express": "^4.21.2"
+  }
+}
