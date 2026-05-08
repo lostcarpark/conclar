@@ -2182,14 +2182,16 @@ if _poster_sessions:
         print(f"    ... and {len(_poster_sessions) - 8} more", file=sys.stderr)
 # --- end poster parent-tagging pass ----------------------------------------
 
-PROGRAM_PATH.write_text(
-    json.dumps(program, ensure_ascii=False, indent=2),
-    encoding="utf-8",
-)
-PEOPLE_PATH.write_text(
-    json.dumps(people.to_konopas(), ensure_ascii=False, indent=2),
-    encoding="utf-8",
-)
+_program_text = json.dumps(program, ensure_ascii=False, indent=2)
+_people_text = json.dumps(people.to_konopas(), ensure_ascii=False, indent=2)
+
+PROGRAM_PATH.write_text(_program_text, encoding="utf-8")
+PEOPLE_PATH.write_text(_people_text, encoding="utf-8")
+
+# Mirror to the deployed public/2026/ location.
+DEPLOY_DIR.mkdir(parents=True, exist_ok=True)
+DEPLOY_PROGRAM_PATH.write_text(_program_text, encoding="utf-8")
+DEPLOY_PEOPLE_PATH.write_text(_people_text, encoding="utf-8")
 
 if n_merged:
     _parts: list[str] = []
