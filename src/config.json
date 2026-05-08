@@ -1,6 +1,6 @@
 {
   "APP_ID": "O2021",
-  "APP_TITLE": "VSS 2023",
+  "APP_TITLE": "VSS 2026",
   "PROGRAM_DATA_URL": "/2026/program.json",
   "PEOPLE_DATA_URL": "/2026/people.json",
   "FETCH_OPTIONS": {
@@ -32,7 +32,7 @@
     "SETTINGS": "Settings"
     },
   "HELP_TEXT": {
-    "WELCOME": "Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
+    "WELCOME": "Welcome to ConClár. You can use the checkboxes next to program items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
     "SHARING": "You may share your personal schedule to other devices using the QR codes on the My Schedule page.",
     "CLOSE_LABEL": "Close",
     "CLOSE_ARIA_LABEL": "Dismiss help text"
@@ -65,7 +65,7 @@
     "MY_SCHEDULE": {
       "TITLE": "My Schedule",
       "EMPTY": {
-        "TEXT": "This page will show your personal convention schedule. To activate it, click the checkboxes next to items you are interested in on the programme page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
+        "TEXT": "This page will show your personal convention schedule. To activate it, click the checkboxes next to items you are interested in on the program page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
       },
       "INTRO": "Your personal schedule is shown below. It is not automatically synced with other devices, but you can use the links or QR codes at the bottom of this page to share your selections to your other devices.",
       "SHARE": {

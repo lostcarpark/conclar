@@ -20,7 +20,7 @@ const Header = ({ title, showNavigation = true }) => {
 };
 
 Header.defaultProps = {
-  title: "Programme Guide",
+  title: "Program Guide",
 };
 
 Header.propTypes = {
