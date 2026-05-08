@@ -150,44 +150,35 @@ def reorder_columns(page_text: str) -> str:
     # boundary so a normal mid-sentence pause never gets picked over a real
     # column gap.
     GAP_RE = re.compile(r"\S(\s{3,})\S")
-    right_threshold = max(boundary - 10, 30)
 
     def pick_gap(line: str) -> Optional[tuple[int, int]]:
         """Choose the most likely column gap on this line.
 
-        Strategy:
-          (1) Collect every gap whose nearest edge is within 8 chars of the
-              page-wide boundary.  Among those, prefer the widest, then the
-              rightmost.  Rightmost matters when the page-wide boundary
-              accidentally lands inside a left-column 'wrap' gap (e.g. a
-              long affil that wraps "1University   of" with a small visual
-              gap before the actual column break).
-          (2) If no gap is near the boundary, fall back to the closest gap
-              with width >= 4.
+        Strategy (in order):
+          (1) If any gap straddles the page-wide boundary, pick the widest
+              such gap.  This is the typical case.
+          (2) Otherwise, pick the gap whose MIDPOINT is closest to the
+              boundary (with a 10-char distance cap).  Closeness beats
+              width here, because a wide intra-author gap is often farther
+              from the boundary than the narrow real column gap.
         """
         cands = [(m.start(1), m.end(1)) for m in GAP_RE.finditer(line)]
         if not cands:
             return None
-        near: list[tuple[int, int, int]] = []
-        for gs, ge in cands:
-            if ge < boundary:
-                d = boundary - ge
-            elif gs > boundary:
-                d = gs - boundary
-            else:
-                d = 0
-            if d <= 8:
-                near.append((gs, ge, d))
-        if near:
-            near.sort(key=lambda x: (-(x[1] - x[0]), -x[0]))
-            return (near[0][0], near[0][1])
+        containing = [(gs, ge) for gs, ge in cands if gs <= boundary <= ge]
+        if containing:
+            return max(containing, key=lambda g: g[1] - g[0])
         best: Optional[tuple[int, int]] = None
         best_dist = float("inf")
         for gs, ge in cands:
-            if (ge - gs) < 4:
+            if (ge - gs) < 3:
                 continue
             mid = (gs + ge) / 2
             dist = abs(mid - boundary)
+            # Reject gaps whose nearest edge is far from the boundary.
+            edge_d = (boundary - ge) if ge < boundary else (gs - boundary if gs > boundary else 0)
+            if edge_d > 10:
+                continue
             if dist < best_dist:
                 best_dist = dist
                 best = (gs, ge)
@@ -197,16 +188,20 @@ def reorder_columns(page_text: str) -> str:
         if not line.strip():
             left.append("")
             continue
-        # Right-only: leading whitespace alone reaches into right-column area.
-        first_nonws = len(line) - len(line.lstrip())
-        if first_nonws >= right_threshold:
+        # Right-only: nothing in the LEFT column at all (every char before
+        # the page boundary is whitespace).  Using a fixed `boundary - N`
+        # threshold misclassifies wide-left-column lines whose content
+        # starts a few chars before the boundary (e.g. "...Elisa" at char
+        # 62 with boundary 71) as right-only.
+        if not line[:boundary].strip():
             right.append(line.strip())
             continue
-        # Wide left-only line: nothing extends past the page boundary.  Even
-        # if the line has wide internal gaps (between author list and a
-        # wrapping affiliation, between authors, etc.), with no right-column
-        # text we shouldn't try to split.
-        if not line[boundary:].strip():
+        # Wide-left-only: the line is mostly left content, with at most a
+        # short tail extending past the boundary (e.g. an author affil
+        # "1;" hanging two chars past).  Keep it intact in the left column
+        # to avoid splitting on an internal whitespace gap.
+        trailing = line[boundary:].strip() if boundary < len(line) else ""
+        if len(trailing) <= 8:
             left.append(line.rstrip())
             continue
         best_gap = pick_gap(line)
@@ -244,15 +239,16 @@ dbg(f"reading text: {len(reading_text):,} chars, {reading_text.count(chr(10)):,}
 # header "Vis ion Sc ienc es Society | <pagenum>" (each character spaced).
 # We just nuke any line that's mostly that footer pattern.
 def is_footer(line: str) -> bool:
-    s = re.sub(r"\s+", " ", line.strip())
+    s = line.strip()
     if not s:
         return False
-    # Common patterns observed:
-    #   "Vis ion Sc ienc es Society | 12"
-    #   "11 | Vis ion Sc ienc es Society"
-    if "Vis ion Sc" in s and "Society" in s:
-        return True
-    if re.fullmatch(r"\d+\s*\|\s*Vis ion Sc.*Society.*", s):
+    # The PDF's running footer renders with weirdly spaced character runs:
+    #   "Vis ion Sc ienc es           Society       | 12"
+    #   "11 | Vis ion Sc ienc es           Soc iet y"
+    # Comparing against the *whitespace-collapsed lowercase* form is the
+    # only reliable way to catch every variant we've seen in the wild.
+    flat = re.sub(r"\s+", "", s).lower()
+    if "visionsciencessociety" in flat or "visionsciencessoc" in flat[:60]:
         return True
     return False
 
@@ -537,12 +533,14 @@ def parse_authors_line(line: str) -> tuple[list[tuple[str, list[str]]], list[str
     # avoids breaking 'Author Two1,2' (multi-affil indices) into two tokens.
     raw_tokens = [t.strip() for t in re.split(r",(?=\s*[A-Za-zÀ-ÿ])", authors_txt) if t.strip()]
     # Rejoin name suffix tokens (Jr., Sr., II, III, IV, PhD, MD) with their
-    # preceding author so "Smith, Jr." doesn't become two separate people.
-    _SUFFIXES = {"jr", "jr.", "sr", "sr.", "ii", "iii", "iv",
-                 "phd", "ph.d.", "md", "esq", "esq."}
+    # preceding author so "Smith, Jr.1" doesn't become two separate people.
+    # Strip a trailing affiliation index (and any periods/commas) before
+    # checking against the suffix set so "Jr.1" / "Jr." / "Jr" all match.
+    _SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "phd", "ph.d", "md", "esq"}
     merged: list[str] = []
     for tok in raw_tokens:
-        if merged and tok.lower().rstrip(".,") in {s.rstrip(".") for s in _SUFFIXES}:
+        core = re.sub(r"[\s\d]+$", "", tok).rstrip(".,").lower()
+        if merged and core in _SUFFIXES:
             merged[-1] = merged[-1] + ", " + tok
         else:
             merged.append(tok)
@@ -1160,10 +1158,20 @@ def parse_talk_block(lines: list[str]) -> tuple[str, str, list[str]]:
     # Find the first ';' line that's NOT all-uppercase.  Some posters use a
     # stylistic 'TITLE; SUBTITLE' pattern where the ';' lands inside the title
     # itself; the real author/affil ';' is on a later mixed-case line.
+    #
+    # Cap the search at ~10 non-empty lines: if the abstract has no proper
+    # author/affil line, deeper ';' occurrences (e.g. inside a citation or
+    # mid-sentence body text) shouldn't be promoted to "the author line".
     sem_idx = -1
+    nonempty_seen = 0
     for i, line in enumerate(lines):
         s = line.strip()
-        if not s or ";" not in s:
+        if not s:
+            continue
+        nonempty_seen += 1
+        if nonempty_seen > 10:
+            break
+        if ";" not in s:
             continue
         letters = [c for c in s if c.isalpha()]
         if letters:
@@ -1175,33 +1183,47 @@ def parse_talk_block(lines: list[str]) -> tuple[str, str, list[str]]:
     if sem_idx == -1:
         return " ".join(l.strip() for l in lines if l.strip()), "", []
 
-    # Walk back to find the start of the authors block.
+    # Walk back to find the start of the authors block.  pdftotext sometimes
+    # inserts a SINGLE blank line in the middle of an author block (visible
+    # at e.g. abstract 56.306, where "...Angela" / "" / "Shen1, ..." is the
+    # rendered structure), so allow one blank line through before treating a
+    # blank as a real boundary.
     auth_start = sem_idx
+    seen_blank = False
     while auth_start > 0:
         prev = lines[auth_start - 1]
         if not prev.strip():
-            break
+            if seen_blank:
+                break
+            seen_blank = True
+            auth_start -= 1
+            continue
         if _looks_titley(prev):
             break
         auth_start -= 1
-        if sem_idx - auth_start > 10:  # safety
+        if sem_idx - auth_start > 14:  # safety
             break
 
-    # Walk forward through affiliation continuation lines.  Only absorb a
-    # line if it positively looks like an affiliation; bail at the first
-    # body-shaped paragraph or when we've gone too far.
+    # Walk forward through affiliation continuation lines.  Same single-
+    # blank-line tolerance applies; affil text occasionally wraps past a
+    # blank in the layout output.
     auth_end = sem_idx + 1
+    seen_blank_fwd = False
     while auth_end < len(lines):
         line = lines[auth_end]
         s = line.strip()
         if not s:
-            break
+            if seen_blank_fwd:
+                break
+            seen_blank_fwd = True
+            auth_end += 1
+            continue
         if _looks_bodyish(s):
             break
         if not _looks_affil(s):
             break
         auth_end += 1
-        if auth_end - sem_idx > 12:
+        if auth_end - sem_idx > 14:
             break
 
     title_lines = [l.strip() for l in lines[:auth_start] if l.strip()]
@@ -1323,18 +1345,82 @@ def iter_symposia(text: str) -> Iterable[Abstract]:
         talk_split = re.split(r"^TALK\s+(\d+)\s*$", rest, flags=re.MULTILINE)
         # talk_split = [overview_text, '1', talk1_body, '2', talk2_body, ...]
         overview_text = talk_split[0]
-        organizers_m = re.search(r"Organizers:\s*(.+?)(?=\n[A-Z][a-z]|\nPresenters:|\Z)",
-                                 overview_text, flags=re.DOTALL)
-        presenters_m = re.search(r"Presenters:\s*(.+?)(?=\n[A-Z][a-z]|\Z)",
-                                 overview_text, flags=re.DOTALL)
-        organizers_txt = organizers_m.group(1) if organizers_m else ""
-        presenters_txt = presenters_m.group(1) if presenters_m else ""
+        # Stop at the next labelled section ("Presenters:" / "Organizers:")
+        # or at a blank line — but NOT at any `\nA-Z` line, since presenters
+        # often wrap mid-name onto a continuation line that starts with a
+        # capitalized surname (e.g. "Luca\nRonconi", "Caroline\nRobertson").
+        # Read Organizers/Presenters as multi-line lists.  Each list extends
+        # across line breaks (and possibly a stray blank line that the column
+        # reorder lost) until we hit a line that LOOKS LIKE BODY TEXT (rich
+        # in function words like "the", "of", "in", "is").  This handles all
+        # of:
+        #   * Single-line lists ("Presenters: A, B, C")
+        #   * Lists wrapping with a trailing comma ("...A,\n B, C")
+        #   * Lists wrapping a single name ("Luca\nRonconi")
+        #   * Nested labelled section / blank line / next overview paragraph.
+        _BODY_WORDS = frozenset({
+            "the", "a", "an", "and", "or", "of", "in", "on", "at", "to", "by",
+            "for", "with", "from", "is", "are", "was", "were", "has", "have",
+            "had", "be", "been", "being", "do", "does", "did", "this", "that",
+            "these", "those", "it", "they", "them", "we", "us", "our", "as",
+            "but", "not", "than", "into", "onto", "within", "between",
+        })
+
+        def _looks_body_line(s: str) -> bool:
+            words = [w.lower().strip(".,;:!?()[]") for w in s.split()]
+            words = [w for w in words if w]
+            if not words:
+                return False
+            body_count = sum(1 for w in words if w in _BODY_WORDS)
+            return body_count >= 2
+
+        def _read_label_value(text: str, label: str) -> tuple[str, int]:
+            m = re.search(rf"\b{label}:\s*", text)
+            if not m:
+                return "", 0
+            pos = m.end()
+            collected: list[str] = []
+            while pos < len(text):
+                nl = text.find("\n", pos)
+                if nl == -1:
+                    line = text[pos:]
+                    new_pos = len(text)
+                else:
+                    line = text[pos:nl]
+                    new_pos = nl + 1
+                stripped = line.strip()
+                if not stripped:
+                    pos = new_pos
+                    if not collected:
+                        continue
+                    # We've already collected some text and now hit a blank.
+                    # Allow it ONLY if the next non-blank line still looks
+                    # like a names list (not body).
+                    peek = pos
+                    while peek < len(text):
+                        pnl = text.find("\n", peek)
+                        pline = text[peek:pnl] if pnl != -1 else text[peek:]
+                        ps = pline.strip()
+                        if ps:
+                            if _looks_body_line(ps) or re.match(
+                                r"(Organizers|Presenters|Discussant)s?:", ps):
+                                return " ".join(collected), pos
+                            break
+                        peek = pnl + 1 if pnl != -1 else len(text)
+                    continue
+                if re.match(r"(Organizers|Presenters|Discussant)s?:", stripped):
+                    break
+                if _looks_body_line(stripped):
+                    break
+                collected.append(stripped)
+                pos = new_pos
+            return " ".join(collected), pos
+
+        organizers_txt, organizers_end = _read_label_value(overview_text, "Organizers")
+        presenters_txt, presenters_end = _read_label_value(overview_text, "Presenters")
 
         # Strip the Organizers/Presenters preamble from overview to leave the description.
-        desc_start = 0
-        for p in (organizers_m, presenters_m):
-            if p:
-                desc_start = max(desc_start, p.end())
+        desc_start = max(organizers_end, presenters_end, 0)
         desc_lines = overview_text[desc_start:].split("\n")
         sym_desc = normalize_paragraph(desc_lines)
 
