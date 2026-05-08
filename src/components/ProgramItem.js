@@ -70,21 +70,35 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   }
 
  // Find a "parent:<id>" tag in any of the shapes ConClár might emit.
+const PARENT_PREFIX = "parent:";
 const parentTag = (item.tags || []).find((t) => {
-  if (typeof t === "string") return t.toLowerCase().startsWith("parent:");
+  if (typeof t === "string") return t.toLowerCase().startsWith(PARENT_PREFIX);
   if (t && typeof t === "object") {
     if (typeof t.category === "string" && t.category.toLowerCase() === "parent") return true;
-    if (typeof t.label === "string" && t.label.toLowerCase().startsWith("parent:")) return true;
-    if (typeof t.value === "string" && t.value.toLowerCase().startsWith("parent:")) return true;
+    if (typeof t.label === "string" && t.label.toLowerCase().startsWith(PARENT_PREFIX)) return true;
+    if (typeof t.value === "string" && t.value.toLowerCase().startsWith(PARENT_PREFIX)) return true;
   }
   return false;
 });
 const parentId = (() => {
   if (!parentTag) return null;
-  if (typeof parentTag === "string") return parentTag.split(":")[1];
-  if (parentTag.category && parentTag.category.toLowerCase() === "parent") return parentTag.value;
-  const s = parentTag.label || parentTag.value || "";
-  return s.includes(":") ? s.split(":")[1] : null;
+  if (typeof parentTag === "string") {
+    return parentTag.slice(PARENT_PREFIX.length);
+  }
+  // When "parent" is declared in TAGS.SEPARATE, t.category is set but
+  // t.value still carries the full "parent:<id>" — strip the prefix.
+  const v = typeof parentTag.value === "string" ? parentTag.value : "";
+  if (v.toLowerCase().startsWith(PARENT_PREFIX)) {
+    return v.slice(PARENT_PREFIX.length);
+  }
+  if (parentTag.category && String(parentTag.category).toLowerCase() === "parent") {
+    return v || null;  // bare id case
+  }
+  const l = typeof parentTag.label === "string" ? parentTag.label : "";
+  if (l.toLowerCase().startsWith(PARENT_PREFIX)) {
+    return l.slice(PARENT_PREFIX.length);
+  }
+  return null;
 })();
 const isChild = !!parentId;
 

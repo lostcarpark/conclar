@@ -40,24 +40,29 @@ const ProgramList = ({ program, forceExpanded }) => {
   // top level so they aren't lost in filter results.
   const filteredIds = new Set(program.map((it) => it.id));
 
-  // Extract a parent id from an item's tags, robust to whether the
-  // "parent" prefix was declared in TAGS.SEPARATE or not (when not, the
-  // whole "parent:<id>" string ends up in .value with no .category).
+  // Extract the bare parent id from an item's tags. Robust to whether
+  // "parent" was declared in TAGS.SEPARATE: when declared, t.category is
+  // set but t.value still carries the full "parent:<id>" string and we
+  // need to strip the prefix; when not declared, only t.value/t.label
+  // start with "parent:".
   function getParentId(item) {
     const tags = item.tags || [];
+    const PREFIX = "parent:";
     for (const t of tags) {
       if (typeof t === "string") {
-        if (t.toLowerCase().startsWith("parent:")) return t.split(":", 2)[1];
+        if (t.toLowerCase().startsWith(PREFIX)) return t.slice(PREFIX.length);
         continue;
       }
       if (!t || typeof t !== "object") continue;
-      if (typeof t.category === "string" && t.category.toLowerCase() === "parent") {
-        return t.value;
-      }
       const v = typeof t.value === "string" ? t.value : "";
-      if (v.toLowerCase().startsWith("parent:")) return v.split(":", 2)[1];
       const l = typeof t.label === "string" ? t.label : "";
-      if (l.toLowerCase().startsWith("parent:")) return l.split(":", 2)[1];
+      if (typeof t.category === "string" && t.category.toLowerCase() === "parent") {
+        if (v.toLowerCase().startsWith(PREFIX)) return v.slice(PREFIX.length);
+        if (v) return v;
+        return l || null;
+      }
+      if (v.toLowerCase().startsWith(PREFIX)) return v.slice(PREFIX.length);
+      if (l.toLowerCase().startsWith(PREFIX)) return l.slice(PREFIX.length);
     }
     return null;
   }

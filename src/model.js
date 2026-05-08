@@ -487,32 +487,48 @@ const model = {
   ),
 };
 
-// Extract the parent id from an item's tags, regardless of whether the
-// "parent" prefix has been declared as a separate category in
-// configData.TAGS.SEPARATE.  Returns the id string or null.
+// Extract the bare parent id from an item's tags, regardless of whether
+// the "parent" prefix has been declared as a separate category in
+// configData.TAGS.SEPARATE.  Returns the id string (without the
+// "parent:" prefix) or null.
+//
+// Notable wrinkle: when "parent" IS declared in TAGS.SEPARATE, ConClár
+// sets `tag.category = "parent"` but `tag.value` still holds the FULL
+// "parent:<id>" string (value is the original tag, category is just the
+// prefix it recognized).  We need to strip the prefix off in that case
+// so the result matches programIndex keys, which are bare ids.
 function extractParentId(item) {
   const tags = item.tags || [];
   for (const t of tags) {
     if (typeof t === "string") {
       if (t.toLowerCase().startsWith("parent:")) {
-        return t.split(":", 2)[1];
+        return t.slice("parent:".length);
       }
       continue;
     }
     if (!t || typeof t !== "object") continue;
+
+    const v = typeof t.value === "string" ? t.value : "";
+    const l = typeof t.label === "string" ? t.label : "";
+
     // Decoded with category set ("parent" was in TAGS.SEPARATE):
     if (typeof t.category === "string" && t.category.toLowerCase() === "parent") {
-      return t.value;
+      // value usually still has the prefix; strip if present.
+      if (v.toLowerCase().startsWith("parent:")) {
+        return v.slice("parent:".length);
+      }
+      // fallback: use label (formatTag may have munged it though).
+      if (v) return v;
+      return l || null;
     }
+
     // Decoded without a category — the whole "parent:<id>" string is in
     // .value (and usually .label too):
-    const v = typeof t.value === "string" ? t.value : "";
     if (v.toLowerCase().startsWith("parent:")) {
-      return v.split(":", 2)[1];
+      return v.slice("parent:".length);
     }
-    const l = typeof t.label === "string" ? t.label : "";
     if (l.toLowerCase().startsWith("parent:")) {
-      return l.split(":", 2)[1];
+      return l.slice("parent:".length);
     }
   }
   return null;
