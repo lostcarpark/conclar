@@ -32,6 +32,9 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     collapseItem: actions.collapseItem,
   }));
 
+  // Used to resolve the parent session's title for the "Part of:" kicker.
+  const program = useStoreState((state) => state.program);
+
   function toggleExpanded() {
     if (configData.INTERACTIVE) {
       if (expanded) {
@@ -78,6 +81,12 @@ const parentId = (() => {
   return s.includes(":") ? s.split(":")[1] : null;
 })();
 const isChild = !!parentId;
+
+// Look up the parent session's title so we can show it inline.
+const parentItem = parentId
+  ? (program || []).find((p) => String(p.id) === String(parentId))
+  : null;
+const parentTitle = parentItem ? parentItem.title : null;
 
   let id = "item_" + item.id;
   const locations = [];
@@ -265,6 +274,9 @@ const isChild = !!parentId;
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
         <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>
+          {parentTitle && (
+            <div className="item-parent">Part of: {parentTitle}</div>
+          )}
           <h3 className="item-title">
             {item.title}
             {typeBadge}

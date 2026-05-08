@@ -903,6 +903,15 @@ div.switch-wrapper {
   font-size: inherit;
 }
 
+/* Parent session kicker shown above the title for child items
+   (e.g. talks within a Symposium / TalkSession). */
+.item-parent {
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--program-tags-fg);
+  margin-bottom: 0.15rem;
+}
+
 /* Item Type pill (Poster / Talk / Symposium / etc.) shown next to the
    title in the always-visible header. */
 .item-type-badge {
