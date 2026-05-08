@@ -12,12 +12,18 @@ import Participant from "./Participant";
 import configData from "../config.json";
 import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
+import { useState, useEffect } from "react";
+import { LocalTime } from "../utils/LocalTime";
 
 const ProgramItem = ({ item, forceExpanded, now }) => {
+  const showLocalTime = useStoreState((state) => state.showLocalTime);
+  const show12HourTime = useStoreState((state) => state.show12HourTime);
+  const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
+
   const selected = useStoreState((state) => state.isSelected(item.id));
   const { addSelection, removeSelection } = useStoreActions((actions) => ({
-    addSelection: actions.addSelection,
-    removeSelection: actions.removeSelection,
+    addSelection: actions.addSelectionAndSync,
+    removeSelection: actions.removeSelectionAndSync,
   }));
 
   const expanded = useStoreState((state) => state.isExpanded(item.id));
@@ -41,9 +47,13 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   }
 
   function getRelativeTime(item) {
-    if (Temporal.ZonedDateTime.compare(now, item.bufferedStartDateAndTime) < 0) {
+    if (
+      Temporal.ZonedDateTime.compare(now, item.bufferedStartDateAndTime) < 0
+    ) {
       return "before";
-    } else if (Temporal.ZonedDateTime.compare(now, item.bufferedEndDateAndTime) < 0) {
+    } else if (
+      Temporal.ZonedDateTime.compare(now, item.bufferedEndDateAndTime) < 0
+    ) {
       return "during";
     } else {
       return "after";
@@ -73,7 +83,9 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     );
 
   const tags = [];
-  const itemTags = item.tags.filter((tag => !configData.TAGS.DONTLIST.includes(tag.category)));
+  const itemTags = item.tags.filter(
+    (tag) => !configData.TAGS.DONTLIST.includes(tag.category)
+  );
 
   for (const tag of itemTags) {
     tags.push(<Tag key={tag.value} tag={tag.label} />);
@@ -100,7 +112,8 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   if (configData.LINKS) {
     configData.LINKS.forEach((link) => {
       if (item.links && item.links[link.NAME] && item.links[link.NAME].length) {
-        const enabled = !link.WHEN || link.WHEN.indexOf(getRelativeTime(item)) >= 0;
+        const enabled =
+          !link.WHEN || link.WHEN.indexOf(getRelativeTime(item)) >= 0;
         links.push(
           <ItemLink
             key={link.NAME}
@@ -114,7 +127,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     });
   }
 
-  if ('MAPPING' in configData.LOCATIONS) {
+  if ("MAPPING" in configData.LOCATIONS) {
     for (const location of configData.LOCATIONS.MAPPING) {
       if (item.loc.toString() === location.KEY) {
         links.push(
@@ -125,7 +138,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
             text={configData.LOCATIONS.LABEL}
             enabled={true}
           />
-        )
+        );
       }
     }
   }
@@ -139,15 +152,55 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
       ""
     );
 
+  const conTime = LocalTime.formatTimeInConventionTimeZone(
+    item.timeSlot,
+    item.startDateAndTime,
+    show12HourTime,
+    timeZoneIsShown
+  );
+  const localTime =
+    showLocalTime === "always" ||
+    (showLocalTime === "differs" && LocalTime.timezonesDiffer)
+      ? LocalTime.formatTimeInLocalTimeZone(
+          item.timeSlot,
+          item.startDateAndTime,
+          show12HourTime,
+          timeZoneIsShown
+        )
+      : null;
+  console.log(localTime);
+  let startTime;
+  if (localTime) {
+    startTime = configData.START_TIME.START_TIME_WITH_LOCAL_LABEL.replace(
+      "@local_time",
+      localTime
+    ).replace("@con_time", conTime);
+  } else {
+    startTime = configData.START_TIME.START_TIME_LABEL.replace(
+      "@con_time",
+      conTime
+    );
+  }
+
   const [ref, bounds] = useMeasure();
   const showExpanded = !configData.INTERACTIVE || expanded || forceExpanded;
+  const [detailsVisible, setDetailsVisible] = useState(showExpanded);
+
+  useEffect(() => {
+    if (showExpanded) setDetailsVisible(true);
+  }, [showExpanded]);
+
   const chevronExpandedClass = showExpanded ? " item-chevron-expanded" : "";
   const chevronExpandedStyle = useSpring({
     transform: showExpanded ? "rotate(180deg)" : "rotate(0deg)",
   });
   const itemExpandedStyle = useSpring({
     height: showExpanded ? bounds.height : 0,
+    display: "block",
     config: configData.EXPAND.SPRING_CONFIG,
+    onRest: () => {
+      if (!showExpanded) setDetailsVisible(false);
+    },
   });
 
   const chevron =
@@ -167,38 +220,45 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
       <div className="item-selection">
         <div className="selection">
           <input
-            id={'select_' + id}
+            id={"select_" + id}
             type="checkbox"
             className="selection-control"
             checked={selected}
             onChange={handleSelected}
           />
-          <label htmlFor={'select_' + id}>{'Click to select ' + item.title}</label>
+          <label htmlFor={"select_" + id}>
+            {"Click to select " + item.title}
+          </label>
         </div>
       </div>
       <div className="item-entry" onClick={toggleExpanded}>
-        <div className="item-title">
-          {chevron}
-          {item.title}
-        </div>
-        <div className="item-line2">
-          <div className="item-location">{locations}</div>
-          {duration}
-        </div>
-        <animated.div className="item-details" style={itemExpandedStyle}>
-          <div className="item-details-expanded" ref={ref}>
-            {permaLink}
-            <div className="item-people">
-              <ul>{people}</ul>
-            </div>
-            <div className="item-tags">{tags}</div>
-            <div
-              className="item-description"
-              dangerouslySetInnerHTML={{ __html: safeDesc }}
-            />
-            <div className="item-links">{links}</div>
+        <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>
+          <h3 className="item-title">
+            {item.title}
+            {chevron}
+          </h3>
+          <div className="item-line2">
+            <div className="item-location">{locations}</div>
+            <div className="item-start-time">{startTime}</div>
+            {duration}
           </div>
-        </animated.div>
+        </button>
+        {detailsVisible && (
+          <animated.div className="item-details" style={itemExpandedStyle} id={'details-' + id} role="region" aria-labelledby={'header-' + id}>
+            <div className="item-details-expanded" ref={ref}>
+              {permaLink}
+              <div className="item-people">
+                <ul>{people}</ul>
+              </div>
+              <div className="item-tags">{tags}</div>
+              <div
+                className="item-description"
+                dangerouslySetInnerHTML={{ __html: safeDesc }}
+              />
+              <div className="item-links">{links}</div>
+            </div>
+          </animated.div>
+        )}
       </div>
     </div>
   );

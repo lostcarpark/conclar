@@ -42,7 +42,7 @@ const Day = ({ date, items, forceExpanded, now }) => {
 
   return (
     <div className="date">
-      <div className="date-heading">{day}</div>
+      <h2 className="date-heading">{day}</h2>
       <div className="date-items">{rows}</div>
     </div>
   );

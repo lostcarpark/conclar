@@ -44,7 +44,7 @@ const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded, now }) => {
 
   return (
     <div id={dateAndTime.toString()} className="timeslot">
-      <div className={timeSlotClass}>
+      <div className={timeSlotClass} aria-hidden="true">
         <div className="time-wrapper">
           {conTime}
           {localTime}

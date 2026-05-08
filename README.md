@@ -145,6 +145,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TIME_FORMAT.PM`: Label for PM times.
 - `DURATION.SHOW_DURATION`: If true, `mins` from program data will be displayed.
 - `DURATION.DURATION_LABEL`: Format for duration. `@mins` will be replaced by number of minutes. Note: do not translate `@mins`.
+- `START_TIME.START_TIME_LABEL`: Format for start time with just con time, when read by screen readers. `@con_time` will be replaced by the start time. Note: do not translate `@con_time`.
+- `START_TIME.START_TIME_WITH_LOCAL_LABEL`: Format for start time with both con and local time, when read by screen readers. `@con_time` and `@local_time` will be replaced by the start time. Note: do not translate `@con_time` or `@local_time`.
 - `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
 - `SHOW_PAST_ITEMS.CHECKBOX_LABEL`: Label for the show past items checkbox.
 - `SHOW_PAST_ITEMS.ADJUST_MINUTES`: Some wiggle room (in minutes) in order not to hide past items immediately as they start.
@@ -194,6 +196,16 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `DEBUG_MODE.ONLINE_LABEL`: Label to display in debug mode when online.
 - `DEBUG_MODE.OFFLINE_LABEL`: Label to display in debug mode when offline.
 - `DEBUG_MODE.FETCH_BUTTON_LABEL`: Label to display in debug mode on Fetch button.
+- `SYNC.API_URL`: The base URL of your sync server API (e.g. `https://auth.example-con.org/api`). If omitted or empty, sync is disabled entirely.
+- `SYNC.LOADING_LABEL`: Label shown while the profile is being fetched on startup.
+- `SYNC.LOGIN_LABEL`: Label for the login link when the user is not authenticated.
+- `SYNC.LOGOUT_LABEL`: Label for the logout link. `@display_name` is replaced with the user's display name.
+- `SYNC.WARNING.HEADING`: Heading of the popup shown the first time an unauthenticated user adds or removes a selection.
+- `SYNC.WARNING.TITLE`: Main message body of the sync warning popup.
+- `SYNC.WARNING.DETAILS`: Expandable detail text shown when the user clicks "More information" in the sync warning popup.
+- `SYNC.WARNING.DETAILS_LABEL`: Label for the button that expands the detail text in the sync warning popup.
+- `SYNC.WARNING.LOGIN_LABEL`: Label for the primary login button in the sync warning popup.
+- `SYNC.WARNING.DISMISS_LABEL`: Label for the dismiss link in the sync warning popup.
 
 More settings will be added to this file in future versions.
 
@@ -281,6 +293,16 @@ For hosting in a subdirectory, this should be altered as follows:
 The ConClár file format is designed to be compatible with KonOpas, and in most cases data files for KonOpas can be used without modification.
 
 Full details of the file format are in a separate [Data Structure document](https://github.com/lostcarpark/conclar/blob/main/docs/conclar_file_specs.md).
+
+## Syncing selections across devices
+
+By default, users' programme selections are stored only in the browser's local storage. Users can share their schedule between devices using the QR code / link sharing feature on the My Schedule page, without needing any server infrastructure.
+
+If you want selections to sync automatically across devices, you can set up a sync server. When configured, users can log in and their selections will be saved to the server and loaded on any device they sign in to.
+
+To enable sync, add the `SYNC` section to your `config.json` with at least an `API_URL` pointing to your server. See the `SYNC.*` settings in the Customisation section above for the available options. If you don't need sync, simply leave the `SYNC` section out of your config and everything else works as normal.
+
+The sync server API is documented in [docs/sync_server_api.md](docs/sync_server_api.md). You can find an example server in [example-server](example-server), though this should never be used in production.
 
 ## Credits
 

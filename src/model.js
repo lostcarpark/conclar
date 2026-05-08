@@ -2,7 +2,49 @@ import { action, thunk, computed } from "easy-peasy";
 import { ProgramData } from "./ProgramData";
 import { ProgramSelection } from "./ProgramSelection";
 import { LocalTime } from "./utils/LocalTime";
+import * as SyncService from "./SyncService";
 import configData from "./config.json";
+
+function getSelectedIdsFromStore(selectionStore) {
+  return Object.keys(selectionStore).filter(
+    (id) => selectionStore[id].selected
+  );
+}
+
+let pushInFlight = null;
+let pushNeeded = false;
+const SYNC_WARNING_KEY = "sync_warning_dismissed_" + configData.APP_ID;
+let syncWarningShown = !!localStorage.getItem(SYNC_WARNING_KEY);
+
+async function coalescedSync(actions) {
+  if (pushInFlight) {
+    // A push is already running. Flag that another is needed and wait.
+    pushNeeded = true;
+    await pushInFlight;
+    return;
+  }
+
+  async function run() {
+    do {
+      pushNeeded = false;
+      await actions.syncSelections();
+    } while (pushNeeded);
+  }
+
+  pushInFlight = run();
+  try {
+    await pushInFlight;
+  } finally {
+    pushInFlight = null;
+  }
+}
+
+function updateLocalStore(selectionStore, userId) {
+  ProgramSelection.setSelectionStore(
+    { version: 2, selections: selectionStore },
+    userId
+  );
+}
 
 const model = {
   isLoading: true,
@@ -26,7 +68,10 @@ const model = {
   showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
   programDisplayLimit: localStorage.getItem("program_display_limit"),
-  mySelections: ProgramSelection.getAllSelections(),
+  selectionStore: ProgramSelection.getSelectionStore().selections,
+  mySelections: ProgramSelection.getSelectedIds(),
+  currentUserId: null,
+  userProfile: null,
   programSelectedLocations: [],
   programSelectedTags: {},
   programHideBefore: "",
@@ -37,6 +82,7 @@ const model = {
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
   onLine: window.navigator.onLine,
   darkMode: localStorage.getItem("dark_mode") ? localStorage.getItem("dark_mode") : 'browser',
+  showSyncWarning: false,
   // Thunks
   fetchProgram: thunk(async (actions, firstTime) => {
     actions.setData(await ProgramData.fetchData(firstTime));
@@ -44,6 +90,88 @@ const model = {
     actions.updateTimeSinceLastFetch();
     actions.setIsLoadingFalse();
   }),
+
+  // Sync thunks
+  fetchProfile: thunk(async (actions) => {
+    if (!SyncService.isSyncEnabled()) {
+      return;
+    }
+    try {
+      const profile = await SyncService.fetchProfile();
+      actions.setUserProfile(profile);
+      if (profile.authenticated) {
+        const userId = profile.id;
+        actions.setCurrentUserId(userId);
+
+        // Migrate anonymous selections into the user-specific store.
+        // Only carry over true selections — false values from anonymous browsing
+        // should not override the user's actual server state.
+        const anonStore = ProgramSelection.getSelectionStore().selections;
+        const anonSelections = Object.fromEntries(
+          Object.entries(anonStore).filter(([, entry]) => entry.selected)
+        );
+        const userStore = ProgramSelection.getSelectionStore(userId).selections;
+        const merged = SyncService.mergeSelections(anonSelections, userStore);
+        actions.setSelectionStore(merged);
+        ProgramSelection.clearSelectionStore();
+
+        await actions.syncSelections({ fullSync: true });
+      } else {
+        actions.setCurrentUserId(null);
+        const anonStore = ProgramSelection.getSelectionStore().selections;
+        actions.setSelectionStore(anonStore);
+      }
+    } catch (e) {
+      console.warn("Profile fetch failed:", e);
+      actions.setUserProfile({ error: true });
+    }
+  }),
+
+  syncSelections: thunk(async (actions, payload, { getState }) => {
+    if (!SyncService.isSyncEnabled()) {
+      return;
+    }
+    const state = getState();
+    if (!state.userProfile || !state.userProfile.authenticated) {
+      return;
+    }
+    const fullSync = payload && payload.fullSync;
+    try {
+      // On full sync (page load), GET and merge everything from the server
+      // so the user sees other devices' changes.
+      if (fullSync) {
+        const serverSelections = await SyncService.fetchSelections();
+        if (!serverSelections) {
+          return;
+        }
+        // Start from server state, then layer any unsynced local changes on top.
+        const localDirty = SyncService.getDirtySelections(getState().selectionStore);
+        const merged = { ...serverSelections, ...localDirty };
+        actions.setSelectionStore(merged);
+      }
+
+      const localStore = getState().selectionStore;
+      const dirty = SyncService.getDirtySelections(localStore);
+      const pushResult = await SyncService.pushSelections(dirty);
+      if (pushResult.unauthorized) {
+        return;
+      }
+      if (pushResult.selections) {
+        const current = getState().selectionStore;
+        const updated = { ...current };
+        for (const [id, entry] of Object.entries(pushResult.selections)) {
+          // Only update entries that haven't changed since the push started.
+          if (current[id].selected === dirty[id].selected) {
+            updated[id] = entry;
+          }
+        }
+        actions.setSelectionStore(updated);
+      }
+    } catch (e) {
+      console.warn("Selection sync failed:", e);
+    }
+  }),
+
   // Actions.
   setIsLoadingFalse: action((state) => (state.isLoading = false)),
   setData: action((state, data) => {
@@ -102,7 +230,14 @@ const model = {
     state.sortByFullName = sortByFullName;
     localStorage.setItem("sort_people", sortByFullName ? "true" : "false");
   }),
-  setOnLine: action((state, onLine) => {
+  setOnLine: thunk(async (actions, onLine, { getState }) => {
+    const wasOffline = !getState().onLine;
+    actions._setOnLine(onLine);
+    if (wasOffline && onLine) {
+      await actions.syncSelections({ fullSync: true });
+    }
+  }),
+  _setOnLine: action((state, onLine) => {
     state.onLine = onLine;
   }),
   setDarkMode: action((state, darkMode) => {
@@ -182,18 +317,65 @@ const model = {
   }),
 
   // Actions for selected items.
+  setSelectionStore: action((state, selections) => {
+    state.selectionStore = selections;
+    state.mySelections = getSelectedIdsFromStore(selections);
+    updateLocalStore(selections, state.currentUserId);
+  }),
+  setCurrentUserId: action((state, userId) => {
+    state.currentUserId = userId;
+  }),
+  setUserProfile: action((state, profile) => {
+    state.userProfile = profile;
+  }),
   setSelection: action((state, selection) => {
     state.mySelections = selection;
   }),
   addSelection: action((state, id) => {
-    state.mySelections.push(id);
-    ProgramSelection.setAllSelections(state.mySelections); // ToDo: Move sude effect to thunk.
+    if (!state.mySelections.includes(id)) {
+      state.mySelections.push(id);
+    }
+    state.selectionStore[id] = { selected: true, dirty: true };
+    updateLocalStore(state.selectionStore, state.currentUserId);
   }),
   removeSelection: action((state, id) => {
     state.mySelections = state.mySelections.filter(
       (selection) => selection !== id
     );
-    ProgramSelection.setAllSelections(state.mySelections);
+    state.selectionStore[id] = { selected: false, dirty: true };
+    updateLocalStore(state.selectionStore, state.currentUserId);
+  }),
+
+  setShowSyncWarning: action((state, show) => {
+    state.showSyncWarning = show;
+    if (!show) {
+      localStorage.setItem(SYNC_WARNING_KEY, "true");
+      syncWarningShown = true;
+    }
+  }),
+
+  // Thunks for sync-aware selection changes.
+  addSelectionAndSync: thunk(async (actions, id, { getState }) => {
+    actions.addSelection(id);
+    if (SyncService.isSyncEnabled() && !syncWarningShown) {
+      const state = getState();
+      if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {
+        syncWarningShown = true;
+        actions.setShowSyncWarning(true);
+      }
+    }
+    await coalescedSync(actions);
+  }),
+  removeSelectionAndSync: thunk(async (actions, id, { getState }) => {
+    actions.removeSelection(id);
+    if (SyncService.isSyncEnabled() && !syncWarningShown) {
+      const state = getState();
+      if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {
+        syncWarningShown = true;
+        actions.setShowSyncWarning(true);
+      }
+    }
+    await coalescedSync(actions);
   }),
 
   // Computed.

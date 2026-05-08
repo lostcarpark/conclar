@@ -65,7 +65,7 @@ const ProgramList = ({ program, forceExpanded }) => {
     />
   );
   const conventionTime = (
-    <div className="time-convention-message">
+    <div className="time-convention-message" aria-hidden="true">
       {configData.CONVENTION_TIME.NOTICE.replace(
         "@timezone",
         configData.TIMEZONE

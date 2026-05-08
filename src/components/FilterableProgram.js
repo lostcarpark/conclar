@@ -287,7 +287,7 @@ const FilterableProgram = () => {
 
   return (
     <div>
-      <div className="filter">
+      <div className="filter" role="search">
         <div className="search-filters">
           <div className="filter-locations">
             <ReactSelect

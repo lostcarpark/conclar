@@ -181,6 +181,10 @@
     "SHOW_DURATION": true,
     "DURATION_LABEL": "Duration: @mins mins"
   },
+  "START_TIME": {
+    "START_TIME_LABEL": "Starts: @con_time",
+    "START_TIME_WITH_LOCAL_LABEL": "Starts: @con_time con time, @local_time local time"
+  },
   "SHOW_PAST_ITEMS": {
     "SHOW_CHECKBOX": true,
     "CHECKBOX_LABEL": "Show past items",
@@ -275,5 +279,12 @@
     "ONLINE_LABEL": "Currently Online",
     "OFFLINE_LABEL": "Currently Offline",
     "FETCH_BUTTON_LABEL": "Fetch Data Now"
+  },
+  "SYNC": {
+    "API_URL": "https://localhost:3001/api/conclar",
+    "LOADING_LABEL": "Loading...",
+    "LOGIN_LABEL": "Log in",
+    "LOGOUT_LABEL": "Log out @display_name",
+    "ERROR_LABEL": "Could not connect to sync server"
   }
 }
