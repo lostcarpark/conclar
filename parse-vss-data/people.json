@@ -13,6 +13,7 @@
     ],
     "prog": [
       "sched-0007",
+      "symp-2026-05-15-0800-talk-r.t05",
       "25.13",
       "23.341",
       "23.343",
@@ -132,7 +133,6 @@
       ""
     ],
     "tags": [
-      "University of                  TALK 1 California, Santa Cruz",
       "University of California, Santa Cruz",
       "University of California,"
     ],
@@ -153,7 +153,6 @@
       ""
     ],
     "tags": [
-      "University of                  TALK 1 California, Santa Cruz",
       "University of California, Santa Cruz",
       "University of California Santa Cruz",
       "University of California,"
@@ -176,12 +175,14 @@
       ""
     ],
     "tags": [
+      "NYU Abu",
       "New York University Abu Dhabi",
       "Department of Psychology, New York University Abu Dhabi, Abu Dhabi, UAE",
       "Center for Brain and Health, New York University Abu Dhabi, Abu Dhabi, UAE"
     ],
     "prog": [
       "sched-0008",
+      "symp-2026-05-15-0800-talk-r.t01",
       "33.441",
       "33.457",
       "56.305"
@@ -202,6 +203,7 @@
     ],
     "prog": [
       "sched-0008",
+      "symp-2026-05-15-0800-talk-r.t02",
       "56.356"
     ],
     "links": {},
@@ -264,6 +266,44 @@
     "bio": ""
   },
   {
+    "id": "michele-deodato",
+    "name": [
+      "Michele",
+      "Deodato",
+      "",
+      ""
+    ],
+    "tags": [
+      "NYU Abu",
+      "New York University Abu Dhabi",
+      "University of Bologna"
+    ],
+    "prog": [
+      "symp-2026-05-15-0800-talk-r.t01",
+      "33.441",
+      "53.418"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "gianluca-marsicano",
+    "name": [
+      "Gianluca",
+      "Marsicano",
+      "",
+      ""
+    ],
+    "tags": [
+      "NYU Abu"
+    ],
+    "prog": [
+      "symp-2026-05-15-0800-talk-r.t01"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "zach-redding",
     "name": [
       "Zach",
@@ -305,9 +345,12 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Department of Neurobiology, David Geffen School of Medicine, University of California, Los Angeles, Los"
+    ],
     "prog": [
-      "sched-0010"
+      "sched-0010",
+      "symp-2026-05-15-1030-talk-r.t03"
     ],
     "links": {},
     "bio": ""
@@ -365,6 +408,110 @@
     "bio": ""
   },
   {
+    "id": "adrian-wong",
+    "name": [
+      "Adrian",
+      "Wong",
+      "",
+      ""
+    ],
+    "tags": [
+      "Center for Magnetic Resonance Research (CMRR), Department of Radiology, University of Minnesota, Minneapolis, Minnesota, USA",
+      "University of Minnesota"
+    ],
+    "prog": [
+      "symp-2026-05-15-1030-talk-r.t01",
+      "43.409"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "amy-poole",
+    "name": [
+      "Amy",
+      "Poole",
+      "",
+      ""
+    ],
+    "tags": [
+      "Center for Magnetic Resonance Research (CMRR), Department of Radiology, University of Minnesota, Minneapolis, Minnesota, USA",
+      "University of Minnesota"
+    ],
+    "prog": [
+      "symp-2026-05-15-1030-talk-r.t01",
+      "43.409"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "makenna-c-thomas",
+    "name": [
+      "Makenna C.",
+      "Thomas",
+      "",
+      ""
+    ],
+    "tags": [
+      "Department of Neurobiology, David Geffen School of Medicine, University of California, Los Angeles, Los"
+    ],
+    "prog": [
+      "symp-2026-05-15-1030-talk-r.t03"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "davis-sandberg",
+    "name": [
+      "Davis",
+      "Sandberg",
+      "",
+      ""
+    ],
+    "tags": [
+      "Department of Neurobiology, David Geffen School of Medicine, University of California, Los Angeles, Los"
+    ],
+    "prog": [
+      "symp-2026-05-15-1030-talk-r.t03"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "joao-couto",
+    "name": [
+      "João",
+      "Couto",
+      "",
+      ""
+    ],
+    "tags": [
+      "Department of Neurobiology, David Geffen School of Medicine, University of California, Los Angeles, Los"
+    ],
+    "prog": [
+      "symp-2026-05-15-1030-talk-r.t03"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "anne-k-churchland",
+    "name": [
+      "Anne K.",
+      "Churchland",
+      "",
+      ""
+    ],
+    "tags": [],
+    "prog": [
+      "symp-2026-05-15-1030-talk-r.t03"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "johnmark-taylor",
     "name": [
       "JohnMark",
@@ -376,7 +523,8 @@
       "Columbia University"
     ],
     "prog": [
-      "sched-0011"
+      "sched-0011",
+      "symp-2026-05-15-1030-talk-r.t02"
     ],
     "links": {},
     "bio": ""
@@ -446,9 +594,12 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "Rutgers University"
+    ],
     "prog": [
-      "sched-0011"
+      "sched-0011",
+      "symp-2026-05-15-1030-talk-r.t06"
     ],
     "links": {},
     "bio": ""
@@ -500,6 +651,28 @@
     ],
     "prog": [
       "symp-2026-05-15-1030-talk-r.t01"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "yaoda-xu",
+    "name": [
+      "Yaoda",
+      "Xu",
+      "",
+      ""
+    ],
+    "tags": [
+      "Yale University"
+    ],
+    "prog": [
+      "symp-2026-05-15-1030-talk-r.t02",
+      "21.23",
+      "31.13",
+      "23.402",
+      "33.417",
+      "56.311"
     ],
     "links": {},
     "bio": ""
@@ -582,10 +755,13 @@
     ],
     "tags": [
       "Massachusetts",
+      "The Ohio State University",
+      "Massachusetts Institute of",
       "Massachusetts Institute of Technology"
     ],
     "prog": [
       "sched-0014",
+      "symp-2026-05-15-1345-talk-r.t04",
       "33.325"
     ],
     "links": {},
@@ -624,6 +800,7 @@
     ],
     "prog": [
       "sched-0014",
+      "symp-2026-05-15-1345-talk-r.t01",
       "51.24",
       "23.436",
       "23.443",
@@ -672,6 +849,33 @@
       "53.425",
       "24.16",
       "53.420"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "nikolaus-kriegeskorte",
+    "name": [
+      "Nikolaus",
+      "Kriegeskorte",
+      "",
+      ""
+    ],
+    "tags": [
+      "Columbia University",
+      "Zuckerman Mind Brain Behavior Institute, Columbia University",
+      "Zuckerman Institute, Columbia University",
+      "NSF AI Institute for Artificial and Natural"
+    ],
+    "prog": [
+      "symp-2026-05-15-1345-talk-r.t01",
+      "51.24",
+      "23.436",
+      "23.443",
+      "23.446",
+      "36.415",
+      "53.413",
+      "53.435"
     ],
     "links": {},
     "bio": ""
@@ -726,9 +930,8 @@
       ""
     ],
     "tags": [
-      "University of Toronto Mississauga                         TALK 6",
-      "University of Toronto",
-      "University of Toronto Mississauga"
+      "University of Toronto Mississauga",
+      "University of Toronto"
     ],
     "prog": [
       "sched-0015",
@@ -749,9 +952,12 @@
       "",
       ""
     ],
-    "tags": [],
+    "tags": [
+      "University of Essex"
+    ],
     "prog": [
-      "sched-0015"
+      "sched-0015",
+      "symp-2026-05-15-1345-talk-r.t06"
     ],
     "links": {},
     "bio": ""
@@ -877,6 +1083,40 @@
     ],
     "prog": [
       "symp-2026-05-15-1345-talk-r.t05"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "anna-hughes",
+    "name": [
+      "Anna",
+      "Hughes",
+      "",
+      ""
+    ],
+    "tags": [
+      "University of Essex"
+    ],
+    "prog": [
+      "symp-2026-05-15-1345-talk-r.t06"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "amelia-hunt",
+    "name": [
+      "Amelia",
+      "Hunt",
+      "",
+      ""
+    ],
+    "tags": [
+      "University of Aberdeen"
+    ],
+    "prog": [
+      "symp-2026-05-15-1345-talk-r.t06"
     ],
     "links": {},
     "bio": ""
@@ -2291,27 +2531,6 @@
     "name": [
       "Marvin",
       "Chun",
-      "",
-      ""
-    ],
-    "tags": [
-      "Yale University"
-    ],
-    "prog": [
-      "21.23",
-      "31.13",
-      "23.402",
-      "33.417",
-      "56.311"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "yaoda-xu",
-    "name": [
-      "Yaoda",
-      "Xu",
       "",
       ""
     ],
@@ -10514,6 +10733,7 @@
     "prog": [
       "51.23",
       "sched-0014",
+      "symp-2026-05-15-1345-talk-r.t05",
       "51.26",
       "23.436"
     ],
@@ -10586,32 +10806,6 @@
     "prog": [
       "51.24",
       "23.436"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "nikolaus-kriegeskorte",
-    "name": [
-      "Nikolaus",
-      "Kriegeskorte",
-      "",
-      ""
-    ],
-    "tags": [
-      "Columbia University",
-      "Zuckerman Mind Brain Behavior Institute, Columbia University",
-      "Zuckerman Institute, Columbia University",
-      "NSF AI Institute for Artificial and Natural"
-    ],
-    "prog": [
-      "51.24",
-      "23.436",
-      "23.443",
-      "23.446",
-      "36.415",
-      "53.413",
-      "53.435"
     ],
     "links": {},
     "bio": ""
@@ -11540,11 +11734,13 @@
       ""
     ],
     "tags": [
-      "University of Minnesota"
+      "University of Minnesota",
+      "Center for Magnetic Resonance Research (CMRR), Department of Radiology, University of Minnesota, Minneapolis, Minnesota, USA"
     ],
     "prog": [
       "54.17",
       "sched-0010",
+      "symp-2026-05-15-1030-talk-r.t01",
       "33.334",
       "33.338",
       "43.409"
@@ -30879,25 +31075,6 @@
     "bio": ""
   },
   {
-    "id": "michele-deodato",
-    "name": [
-      "Michele",
-      "Deodato",
-      "",
-      ""
-    ],
-    "tags": [
-      "New York University Abu Dhabi",
-      "University of Bologna"
-    ],
-    "prog": [
-      "33.441",
-      "53.418"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
     "id": "callista-dyer",
     "name": [
       "Callista",
@@ -39344,23 +39521,6 @@
     "bio": ""
   },
   {
-    "id": "amy-poole",
-    "name": [
-      "Amy",
-      "Poole",
-      "",
-      ""
-    ],
-    "tags": [
-      "University of Minnesota"
-    ],
-    "prog": [
-      "43.409"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
     "id": "eline-r-kupers",
     "name": [
       "Eline R",
@@ -39369,27 +39529,12 @@
       ""
     ],
     "tags": [
-      "York University"
+      "York University",
+      "Department of Psychology, York University, Toronto, Ontario, Canada"
     ],
     "prog": [
-      "43.409"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "adrian-wong",
-    "name": [
-      "Adrian",
-      "Wong",
-      "",
-      ""
-    ],
-    "tags": [
-      "University of Minnesota"
-    ],
-    "prog": [
-      "43.409"
+      "43.409",
+      "symp-2026-05-15-1030-talk-r.t01"
     ],
     "links": {},
     "bio": ""
@@ -49109,11 +49254,14 @@
       ""
     ],
     "tags": [
-      "New York University"
+      "New York University",
+      "Department of Psychology, New York University, New York, NY, USA",
+      "Center for Neural Science, New York University, New York, NY, USA"
     ],
     "prog": [
       "56.401",
-      "43.409"
+      "43.409",
+      "symp-2026-05-15-1030-talk-r.t01"
     ],
     "links": {},
     "bio": ""

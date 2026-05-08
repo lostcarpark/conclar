@@ -206,13 +206,14 @@ def reorder_columns(page_text: str) -> str:
         # short tail extending past the boundary (e.g. an author affil
         # "1;" hanging two chars past).  Keep it intact in the left column
         # to avoid splitting on an internal whitespace gap.
-        # EXCEPTION: a short ALL-CAPS alphabetic token is most likely a
-        # right-column running-header word (e.g. "PAVILION" as a room
-        # name).  Splitting it off to the right column keeps such
-        # headers intact for downstream session/topic detection.
+        # EXCEPTION: a short ALL-CAPS alphabetic token (optionally with a
+        # trailing number, e.g. "PAVILION" or "TALK 5") is most likely a
+        # right-column running-header / talk-marker, not part of the L
+        # column body.  Splitting it off to the right column keeps these
+        # markers intact for downstream session/topic/talk detection.
         trailing = line[boundary:].strip() if boundary < len(line) else ""
         trailing_is_running_header = bool(
-            re.fullmatch(r"[A-Z]{2,12}", trailing)
+            re.fullmatch(r"[A-Z]{2,12}(?:\s+\d{1,3})?", trailing)
         )
         if len(trailing) <= 8 and not trailing_is_running_header:
             left.append(line.rstrip())

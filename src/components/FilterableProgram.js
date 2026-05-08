@@ -115,11 +115,11 @@ const FilterableProgram = () => {
    * @returns {array} The filtered array.
    */
   function applyFilters(program) {
-    // Always hide TalkSession and PosterSession parent rows from the
-    // listing. Their child talks/posters still appear and reference the
-    // parent title via the inline kicker; the parent items themselves
+    // Always hide TalkSession, PosterSession and PosterTopic rows from
+    // the listing. Their child talks/posters still appear and reference
+    // the parent title via the inline kicker; the parent items themselves
     // remain in the store so that lookup keeps working.
-    const HIDDEN_TYPES = ["TalkSession", "PosterSession"];
+    const HIDDEN_TYPES = ["TalkSession", "PosterSession", "PosterTopic"];
     program = program.filter((item) => {
       const typeTag = (item.tags || []).find(
         (t) => t && typeof t === "object" && t.category === "Type"

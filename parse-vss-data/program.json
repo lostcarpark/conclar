@@ -186,7 +186,7 @@
         "name": "Ayelet Landau"
       }
     ],
-    "desc": "A growing body of work demonstrates that perception is not continuous but fluctuates rhythmically, shaped by dynamic interactions between Dhabi oscillatory and aperiodic neural activity across the visual system. This symposium brings together six complementary research programs that collectively advance our understanding of how endogenous brain rhythms structure perception, attention, and decision-making. Together, these talks highlight how oscillations in the theta (3-8 Hz), alpha (8-12 Hz), and beta (13-30 Hz) frequency bands, along with aperiodic neural dynamics, govern temporal integration, sensory encoding, visuospatial processing, attentional selection, and the resolution of neural competition. The first talk examines how individual differences in alpha oscillations and aperiodic activity jointly determine the temporal binding windows that govern whether visual events are integrated or segmented. These results suggest a framework in which oscillatory sampling, neural noise regulation, and perceptual history together shape the temporal resolution of visual experience. The second presentation extends this perspective by revealing that alpha is not a unitary phenomenon: network-level MEG analyses show that multiple, functionally distinct alpha networks dynamically recur during perceptual decisions, each exerting different influences on cortical excitability and sensory evidence. Next, a series of EEG and psychophysics studies demonstrates how alpha power and phase shape early visual encoding. High alpha power shifts perceptual criterion, while optimal alpha phases maximize sensitivity by reducing trial-to-trial variability and sharpening feature tuning, providing a mechanistic account of how spontaneous alpha rhythms regulate sensory fidelity. Complementing these findings, new evidence highlights a central role for beta oscillations in dorsal-stream visuospatial processing, motion perception, and oculomotor control. Beyond basic mechanisms, beta-targeted neurostimulation in adults with dyslexia yields improvements in reading fluency and visuospatial TALK 2 working memory, pointing to translational applications of oscillatory research. The final two talks focus on the rhythmic nature of selective attention. One line of work shows that attention alternates at theta frequencies between states that enhance sensory sampling and states that promote attentional shifting, creating periodic fluctuations in perceptual sensitivity and susceptibility to distraction both in perception and in working memory. The concluding talk extends this\nrhythmic perspective to attentional competition, demonstrating that when multiple objects vie for representation, attentional sampling slows from ~8 Hz to ~4 Hz, reflecting the division of processing resources across competing neural populations. By integrating insights across spatial scales, frequency bands, and methodological approaches, this symposium showcases how oscillatory dynamics provide a unifying framework for understanding visual processing as an intrinsically rhythmic and dynamically structured phenomenon. THE ROLE OF ALPHA OSCILLATIONS AND APERIODIC NEURAL ACTIVITY IN THE TEMPORAL ORGANIZATION OF VISUAL PERCEPTION David Melcher1, Michele Deodato1, Gianluca Marsicano1; 1NYU Abu Visual perception requires integrating sensory input over time, as well as segmenting the continuous flow into discrete events. Across a number of studies, we have investigated the role of oscillatory and aperiodic neural activity in this integration/segregation process. In particular, we have focused on individual differences and trial-by-trial variability in the temporal binding windows which define whether two stimuli are combined into a single, coherent percept or segmented into unique events. Here, we will present converging results from multiple paradigms, ranging from presentation of brief flashes to continuous streams of stimuli and judgments of causality from Michotte-style collision events. Using either resting-state EEG or event-related EEG during the psychophysical paradigm, we consistently find that alpha oscillatory activity and aperiodic activity combine to predict individual differences in perceptual judgments. Faster individual alpha rhythms were associated with narrower temporal integration windows, and a steeper aperiodic spectrum (lower neural noise) predicted greater perceptual precision (Deodato & Melcher, 2024). Moreover, individuals with slower alpha frequencies and flatter spectra showed stronger reliance on prior perceptual judgments. Subjective confidence was also linked to peak alpha frequency, with faster rhythms supporting higher certainty. Together, these findings suggest that temporal binding arises from the joint influence of the alpha rhythm and aperiodic neural activity. Faster alpha rhythms may promote greater perceptual resolution by generating more sensory samples per time unit, resulting in higher temporal precision, reduced reliance on prior perceptual experience, and greater subjective confidence in perceptual decisions. DUAL ALPHA MECHANISMS IN VISUAL PERCEPTION Joey Zhou1; 1Shenzhen University Spontaneous neural oscillations, particularly in the alpha band (8-14 Hz), create rhythmic fluctuations in cortical excitability that influence conscious perception. However, the underlying neural mechanisms through which these oscillations modulate perception remain unclear. Previous work has shown mixed results on how such excitability changes modulate sensory signals of interest versus noise, and what the consequences are for subsequent perception. A probable reason for these conflicting findings is that different alpha networks dominate across different studies. In this presentation, I will address this by introducing a network-based approach to analyze MEG data from visual decision-making tasks. Our results demonstrate that multiple, functionally distinct alpha networks coexist and dynamically recur over time, with each influencing perceptual decision-making through different mechanisms. These findings have important methodological and theoretical implications for characterizing the role of oscillatory activity in perception and decision making."
+    "desc": "A growing body of work demonstrates that perception is not continuous but fluctuates rhythmically, shaped by dynamic interactions between Dhabi oscillatory and aperiodic neural activity across the visual system. This symposium brings together six complementary research programs that collectively advance our understanding of how endogenous brain rhythms structure perception, attention, and decision-making. Together, these talks highlight how oscillations in the theta (3-8 Hz), alpha (8-12 Hz), and beta (13-30 Hz) frequency bands, along with aperiodic neural dynamics, govern temporal integration, sensory encoding, visuospatial processing, attentional selection, and the resolution of neural competition. The first talk examines how individual differences in alpha oscillations and aperiodic activity jointly determine the temporal binding windows that govern whether visual events are integrated or segmented. These results suggest a framework in which oscillatory sampling, neural noise regulation, and perceptual history together shape the temporal resolution of visual experience. The second presentation extends this perspective by revealing that alpha is not a unitary phenomenon: network-level MEG analyses show that multiple, functionally distinct alpha networks dynamically recur during perceptual decisions, each exerting different influences on cortical excitability and sensory evidence. Next, a series of EEG and psychophysics studies demonstrates how alpha power and phase shape early visual encoding. High alpha power shifts perceptual criterion, while optimal alpha phases maximize sensitivity by reducing trial-to-trial variability and sharpening feature tuning, providing a mechanistic account of how spontaneous alpha rhythms regulate sensory fidelity. Complementing these findings, new evidence highlights a central role for beta oscillations in dorsal-stream visuospatial processing, motion perception, and oculomotor control. Beyond basic mechanisms, beta-targeted neurostimulation in adults with dyslexia yields improvements in reading fluency and visuospatial working memory, pointing to translational applications of oscillatory research. The final two talks focus on the rhythmic nature of selective attention. One line of work shows that attention alternates at theta frequencies between states that enhance sensory sampling and states that promote attentional shifting, creating periodic fluctuations in perceptual sensitivity and susceptibility to distraction both in perception and in working memory. The concluding talk extends this\nrhythmic perspective to attentional competition, demonstrating that when multiple objects vie for representation, attentional sampling slows from ~8 Hz to ~4 Hz, reflecting the division of processing resources across competing neural populations. By integrating insights across spatial scales, frequency bands, and methodological approaches, this symposium showcases how oscillatory dynamics provide a unifying framework for understanding visual processing as an intrinsically rhythmic and dynamically structured phenomenon."
   },
   {
     "id": "sched-0009",
@@ -241,7 +241,7 @@
         "name": "Constantin A. Rothkopf"
       }
     ],
-    "desc": "As vision scientists, we aim to understand how behaving systems TALK 1 sense, process, and act upon visual information in service of their goals. Imagine making yourself a peanut butter jelly sandwich. This seemingly simple action requires the integration of perceptual, sensorimotor, and cognitive processes. Traditional laboratory paradigms have advanced the field by isolating separate process-\nspecific components and studying their impact on perception. Yet, a major challenge today is determining how these insights generalize to more naturalistic settings, where multiple processes operate simultaneously and where factors unknown to the experimenter can shape the visual computations that unfold moment to moment. An important step to bridging the gap between the lab and the wild, is to systematically measure natural behaviour in everyday tasks to understand the functional demands placed on the visual system. Moreover, empirical studies should be complemented by computational approaches that formalize the structure of natural visual tasks and identify the underlying neural processes that support them. The goal of our symposium is to encourage vision scientists to consider what it means for a task to be naturalistic. Specifically, we will pose three questions: Does the way a task is designed influence neural and behavioural responses? Can task goals be formalized by carefully studying diverse behaviour? Can we find theory-driven approaches to studying natural behaviour? The symposium will include six talks from speakers at different career stages. Speakers will present various experimental techniques, including neural imaging in humans, fluorescence microscopy in mice, virtual reality, motion capture, eyetracking, and computational modelling. To start things off, Jolande Fooken will give a brief introduction (3 minutes) on how we came to ask the question: “What makes a task naturalistic?”. The introduction will be followed by six symposium talks (15 + 2 minutes questions). First, Kendrick Kay will highlight the importance of considering visual task design when investigating how the brain transforms visual inputs into representations. When studying neural responses in natural viewing, we not only need to consider task demands but also how natural actions, such as reaching and grasping, can be studied in the constrained space of the brain scanner. Second, Jody Culham will highlight how 3D displays and active video games can improve naturalism in human fMRI. Leaving the scanner, Lukas Oesch will demonstrate the neural control of decision monitoring in freely behaving mice. From perceptual decisions in mice, we will switch to cognitive processing in humans. Fourth, Caroline Robertson will show that immersive virtual reality with in-headset eye-tracking offers a methodological bridge between traditional vision science paradigms and natural behavior. We will then leave the virtual and dive into the real world. Fifth, Kathryn Bonnen will present how humans adapt visuomotor priorities and control strategies when walking in complex environments. Lastly, to tie things together, Constantin Rothkopf will describe how we can formalize the regularities observed in natural behaviour through theory-driven computational models. Each individual talk will conclude with a take-home message about key features of a naturalistic task. These take-home messages will set up the concluding panel discussion (15 minutes). A BROAD SAMPLING OF HOW DIFFERENT TASKS INFLUENCE VISUALLY EVOKED RESPONSES IN THE HUMAN BRAIN Kendrick Kay1, Clay Curtis2,3, Adrian Wong1, Amy Poole1, Eline Kupers4; 1Center for Magnetic Resonance Research (CMRR), Department of Radiology, University of Minnesota, Minneapolis, Minnesota, USA, 2Department of Psychology, New York University, New York, NY, USA, 3Center for Neural Science, New York University, New York, NY, USA, 4Department of Psychology, York TALK 3 University, Toronto, Ontario, Canada Visual neuroscientists seek to understand how the brain transforms visual inputs to representations that support behavior. In many visual neuroscience experiments, neural responses to visual stimuli are measured and the task performed by the observer is often neglected or assumed to have secondary importance to the scientific questions being tackled. However, since task demands influence visually evoked Angeles responses, it is clear that a complete characterization of visual processing must refer to both the stimulus and the task. Here, we describe ongoing efforts to collect a large-scale 7T fMRI dataset, termed the Visual Cognition Dataset (VCD), where extensive wholebrain fMRI responses (> 40 hours of data per participant) are measured from a small set of observers (n = 6) while they engage in a variety of visual tasks on a common set of stimuli. We sample both classic laboratory tasks (e.g., engaging in fixation, attentional, decision-making, and working memory tasks on controlled artificial stimuli such as Gabors and random-dot kinematograms) as well as more naturalistic tasks (e.g., making 'what', 'where', and 'how' judgments on complex natural scenes). Importantly, we impose shared constraints on the tasks with respect to timing and trial structure to facilitate interpretation and direct comparison of tasks. We anticipate that VCD will serve as a rich resource for gaining insights into task-dependent neural responses and, more generally, how the brain executes visual tasks."
+    "desc": "As vision scientists, we aim to understand how behaving systems sense, process, and act upon visual information in service of their goals. Imagine making yourself a peanut butter jelly sandwich. This seemingly simple action requires the integration of perceptual, sensorimotor, and cognitive processes. Traditional laboratory paradigms have advanced the field by isolating separate process-\nspecific components and studying their impact on perception. Yet, a major challenge today is determining how these insights generalize to more naturalistic settings, where multiple processes operate simultaneously and where factors unknown to the experimenter can shape the visual computations that unfold moment to moment. An important step to bridging the gap between the lab and the wild, is to systematically measure natural behaviour in everyday tasks to understand the functional demands placed on the visual system. Moreover, empirical studies should be complemented by computational approaches that formalize the structure of natural visual tasks and identify the underlying neural processes that support them. The goal of our symposium is to encourage vision scientists to consider what it means for a task to be naturalistic. Specifically, we will pose three questions: Does the way a task is designed influence neural and behavioural responses? Can task goals be formalized by carefully studying diverse behaviour? Can we find theory-driven approaches to studying natural behaviour? The symposium will include six talks from speakers at different career stages. Speakers will present various experimental techniques, including neural imaging in humans, fluorescence microscopy in mice, virtual reality, motion capture, eyetracking, and computational modelling. To start things off, Jolande Fooken will give a brief introduction (3 minutes) on how we came to ask the question: “What makes a task naturalistic?”. The introduction will be followed by six symposium talks (15 + 2 minutes questions). First, Kendrick Kay will highlight the importance of considering visual task design when investigating how the brain transforms visual inputs into representations. When studying neural responses in natural viewing, we not only need to consider task demands but also how natural actions, such as reaching and grasping, can be studied in the constrained space of the brain scanner. Second, Jody Culham will highlight how 3D displays and active video games can improve naturalism in human fMRI. Leaving the scanner, Lukas Oesch will demonstrate the neural control of decision monitoring in freely behaving mice. From perceptual decisions in mice, we will switch to cognitive processing in humans. Fourth, Caroline Robertson will show that immersive virtual reality with in-headset eye-tracking offers a methodological bridge between traditional vision science paradigms and natural behavior. We will then leave the virtual and dive into the real world. Fifth, Kathryn Bonnen will present how humans adapt visuomotor priorities and control strategies when walking in complex environments. Lastly, to tie things together, Constantin Rothkopf will describe how we can formalize the regularities observed in natural behaviour through theory-driven computational models. Each individual talk will conclude with a take-home message about key features of a naturalistic task. These take-home messages will set up the concluding panel discussion (15 minutes)."
   },
   {
     "id": "sched-0011",
@@ -281,7 +281,7 @@
         "name": "Jake Quilty-Dunn"
       }
     ],
-    "desc": "Research on the binding problem stands at an exciting juncture: decades of psychophysical research have illuminated the dynamics of feature binding, increasingly detailed neural measurements have mapped how features are represented across early, ventral, and dorsal visual regions, and deep neural networks (DNNs) have emerged as powerful “model organisms” for testing candidate models of visual processing, as well as valuable tools for real-world tasks requiring successful binding. However, this wealth of research spread across studies employing different paradigms or studying different parts of the brain—and often studied in separate research traditions— has given rise to the “methodological binding problem”: synthesizing these disparate findings into unified neurocognitive models of how the brain integrates visual features. Indeed, just as the presence of multiple objects raises the challenge of associating them with the correct features, there may be multiple binding problems, and it is important to establish when different subfields are referring to the same one. This symposium tackles both the classical and methodological binding problems head-on by bringing into dialogue new developments from neurophysiology (spanning early, ventral, and dorsal visual regions), neuropsychology, psychophysics, computational modeling, and philosophy across six talks and a subsequent panel discussion. With the goal of renovating the binding problem for the 21st century, all six talks either present evidence that challenges us to reconceptualize core components of the binding problem as traditionally posed, or leverage new methods to make progress on important avenues inaccessible to earlier researchers. TALK 2 One talk presents psychophysical and neural evidence that visual search for specific feature conjunctions can approach pop-out with training, challenging the traditional view that only elementary features, not conjunctions, can be encoded pre-attentively. Another talk presents neuroimaging evidence against the neuroanatomical segregation of different features, such as color and shape, that has often been used to motivate the existence of a binding problem in the first place, and compares how the human brain and DNNs integrate visual features. New neuropsychological findings illuminate how the ventral and dorsal streams may interact during feature integration, a crucial but underexplored piece of the puzzle. Another line of work measures brain activity using fMRI and EEG during stimulus conditions designed to induce binding errors, identifying oscillatory signatures and occipito-parietal activation patterns that distinguish correct and incorrect binding (overcoming the longstanding methodological challenge of identifying neural signatures reflecting conscious binding rather than the mere co-occurrence of features). Another talk uses DNNs to identify key computational benefits of segregated feature processing (illuminating why the binding problem may arise to begin with), and provide powerful new tests of longstanding hypotheses about how space constrains feature binding. Finally, a talk from philosophy argues for a novel taxonomy of multiple forms of binding, developing much-needed conceptual clarity and setting the stage for a concluding panel discussion that seeks to relate different findings, establish theoretical common ground among research traditions, and articulate remaining gaps in our understanding. The symposium aims at a broad audience, reflecting its interdisciplinary nature and goal of “binding” insights across different subcommunities in VSS."
+    "desc": "Research on the binding problem stands at an exciting juncture: decades of psychophysical research have illuminated the dynamics of feature binding, increasingly detailed neural measurements have mapped how features are represented across early, ventral, and dorsal visual regions, and deep neural networks (DNNs) have emerged as powerful “model organisms” for testing candidate models of visual processing, as well as valuable tools for real-world tasks requiring successful binding. However, this wealth of research spread across studies employing different paradigms or studying different parts of the brain—and often studied in separate research traditions— has given rise to the “methodological binding problem”: synthesizing these disparate findings into unified neurocognitive models of how the brain integrates visual features. Indeed, just as the presence of multiple objects raises the challenge of associating them with the correct features, there may be multiple binding problems, and it is important to establish when different subfields are referring to the same one. This symposium tackles both the classical and methodological binding problems head-on by bringing into dialogue new developments from neurophysiology (spanning early, ventral, and dorsal visual regions), neuropsychology, psychophysics, computational modeling, and philosophy across six talks and a subsequent panel discussion. With the goal of renovating the binding problem for the 21st century, all six talks either present evidence that challenges us to reconceptualize core components of the binding problem as traditionally posed, or leverage new methods to make progress on important avenues inaccessible to earlier researchers. One talk presents psychophysical and neural evidence that visual search for specific feature conjunctions can approach pop-out with training, challenging the traditional view that only elementary features, not conjunctions, can be encoded pre-attentively. Another talk presents neuroimaging evidence against the neuroanatomical segregation of different features, such as color and shape, that has often been used to motivate the existence of a binding problem in the first place, and compares how the human brain and DNNs integrate visual features. New neuropsychological findings illuminate how the ventral and dorsal streams may interact during feature integration, a crucial but underexplored piece of the puzzle. Another line of work measures brain activity using fMRI and EEG during stimulus conditions designed to induce binding errors, identifying oscillatory signatures and occipito-parietal activation patterns that distinguish correct and incorrect binding (overcoming the longstanding methodological challenge of identifying neural signatures reflecting conscious binding rather than the mere co-occurrence of features). Another talk uses DNNs to identify key computational benefits of segregated feature processing (illuminating why the binding problem may arise to begin with), and provide powerful new tests of longstanding hypotheses about how space constrains feature binding. Finally, a talk from philosophy argues for a novel taxonomy of multiple forms of binding, developing much-needed conceptual clarity and setting the stage for a concluding panel discussion that seeks to relate different findings, establish theoretical common ground among research traditions, and articulate remaining gaps in our understanding. The symposium aims at a broad audience, reflecting its interdisciplinary nature and goal of “binding” insights across different subcommunities in VSS."
   },
   {
     "id": "sched-0012",
@@ -351,7 +351,7 @@
         "name": "Andrew F Luo"
       }
     ],
-    "desc": "A central challenge in vision science is to understand how visual inputs are transformed into neural representations – and critically, how computational models can reveal the mechanisms underlying this transformation. Although neural encoding models have advanced rapidly with deep learning and large-scale datasets, purely performance-driven approaches offer limited scientific insight. To genuinely advance vision science, encoding models must be interpretable - constructed in ways that make their internal representations, architectural assumptions, and computational operations transparent and meaningful for understanding the brain. This symposium brings together early-career researchers using TALK 1 interpretable brain encoding models as mechanistic tools, highlighting both how such models are constructed and how they can be used – beyond traditional cognitive neuroscience methods – to reveal the mechanisms of visual processing. Across fMRI, EEG, and crosssubject datasets, the speakers will demonstrate how carefully designed architectures, structured feature spaces, representational analyses, and in-silico manipulations can uncover aspects of visual computation that conventional approaches cannot isolate. Together, the talks illustrate converging directions within this emerging landscape. Some approaches embed biologically meaningful structure, such as retinotopic maps or category-selective pathways, enabling models to recapitulate known functional organization while generating new hypotheses about information flow. Others interrogate internal representations through model–brain alignment to infer how visual categories and fine-grained feature dimensions may be encoded in the human visual system. Several studies leverage generative or perturbation-based encoding frameworks, which allow direct manipulation of internal representations to identify candidate computations underlying specific neural responses. Still others explore cross-subject generalization, using interpretable alignment strategies to reveal shared representational structure despite individual\nvariability. The six presentations span these perspectives in a coherent progression. Hossein Adeli will begin by introducing an interpretable attention-based routing model that links retinotopic features to category-selective regions. Also focusing on category-selectivity, Katharina Dobs will show how large-scale comparisons between ANNs and human cortex reveal the organizing principles of functional specialization. Extending beyond object vision, Iris Groen will demonstrate how encoding models can uncover scene affordance and dynamic video perception through model-brain alignment. Shifting from fMRI to EEG, Zitong Lu will present Img2EEG, a generative encoding framework enabling mechanistic exploration of temporal dynamics through simulated EEG signals. Then, Andrew Luo will illustrate how meta-learned cross-subject encoding and decoding models reveal generalizable representational structure across individuals. Finally, Apurva Ratan Murty will show the strengths and limits of current ANN-based encoding models by conducting cognitive experiments in them. All these talks present a unified vision: interpretable encoding models are becoming scientific instruments – tools that help reveal the computations that give rise to it. By integrating architectural constraints, representational transparency, and model-based experimentation, these approaches open new pathways for probing visual mechanisms in naturalistic settings. This symposium, featuring a brief introduction followed by six 16–20 minute talks with discussion, is designed to engage a broad audience across experimental and computational domains. By highlighting how interpretable brain encoding models can overcome limitations of traditional methods and provide mechanistic insight, the session aims to inspire new ways of using models to understand how the brain constructs visual experience. DYNAMIC TRANSFORMER ROUTING FROM RETINOTOPIC CORTEX EXPLAINS ENCODING IN CATEGORY-SELECTIVE CORTICAL AREAS Hossein Adeli1, Nikolaus Kriegeskorte1; 1Columbia University A major goal of neuroscience is to understand brain computations during naturalistic visual perception. A dominant approach is to use image-computable deep neural networks as a basis for linear encoding models. However, this approach ignores the structure of the feature maps both in the brain and the models, which could be used to build more interpretable models. In this work, we employ the transformer attention mechanism to model how retinotopic visual features can be dynamically routed to category-selective areas in high-level visual processing. We show that this computational motif not only is significantly more powerful than alternative methods in predicting brain activity during natural scene viewing, it is also inherently more interpretable because the attention routing signals can be easily visualized for any input image. Analyzing the attention signals in our model replicates the categorial selectivity of known regions (e.g. image patches with faces are routed to predict fMRI voxels in the Fusiform Face Area, FFA) for face, body, word, and place regions and reveals structured between-area visual and semantic similarities that reflect their underlying computations. We also show how this state-of-the-art encoding model can serve as a digital twin, on which we perform in silico experiments to discover categorical selectivity across the whole brian. Our results suggest that the human visual hierarchy employs a dynamic routing mechanism that guides relevant information from image-specific retinal locations to category-selective regions. Our TALK 4 work shows how interpretable encoding models can help us understand visual processing in the brain."
+    "desc": "A central challenge in vision science is to understand how visual inputs are transformed into neural representations – and critically, how computational models can reveal the mechanisms underlying this transformation. Although neural encoding models have advanced rapidly with deep learning and large-scale datasets, purely performance-driven approaches offer limited scientific insight. To genuinely advance vision science, encoding models must be interpretable - constructed in ways that make their internal representations, architectural assumptions, and computational operations transparent and meaningful for understanding the brain. This symposium brings together early-career researchers using interpretable brain encoding models as mechanistic tools, highlighting both how such models are constructed and how they can be used – beyond traditional cognitive neuroscience methods – to reveal the mechanisms of visual processing. Across fMRI, EEG, and crosssubject datasets, the speakers will demonstrate how carefully designed architectures, structured feature spaces, representational analyses, and in-silico manipulations can uncover aspects of visual computation that conventional approaches cannot isolate. Together, the talks illustrate converging directions within this emerging landscape. Some approaches embed biologically meaningful structure, such as retinotopic maps or category-selective pathways, enabling models to recapitulate known functional organization while generating new hypotheses about information flow. Others interrogate internal representations through model–brain alignment to infer how visual categories and fine-grained feature dimensions may be encoded in the human visual system. Several studies leverage generative or perturbation-based encoding frameworks, which allow direct manipulation of internal representations to identify candidate computations underlying specific neural responses. Still others explore cross-subject generalization, using interpretable alignment strategies to reveal shared representational structure despite individual\nvariability. The six presentations span these perspectives in a coherent progression. Hossein Adeli will begin by introducing an interpretable attention-based routing model that links retinotopic features to category-selective regions. Also focusing on category-selectivity, Katharina Dobs will show how large-scale comparisons between ANNs and human cortex reveal the organizing principles of functional specialization. Extending beyond object vision, Iris Groen will demonstrate how encoding models can uncover scene affordance and dynamic video perception through model-brain alignment. Shifting from fMRI to EEG, Zitong Lu will present Img2EEG, a generative encoding framework enabling mechanistic exploration of temporal dynamics through simulated EEG signals. Then, Andrew Luo will illustrate how meta-learned cross-subject encoding and decoding models reveal generalizable representational structure across individuals. Finally, Apurva Ratan Murty will show the strengths and limits of current ANN-based encoding models by conducting cognitive experiments in them. All these talks present a unified vision: interpretable encoding models are becoming scientific instruments – tools that help reveal the computations that give rise to it. By integrating architectural constraints, representational transparency, and model-based experimentation, these approaches open new pathways for probing visual mechanisms in naturalistic settings. This symposium, featuring a brief introduction followed by six 16–20 minute talks with discussion, is designed to engage a broad audience across experimental and computational domains. By highlighting how interpretable brain encoding models can overcome limitations of traditional methods and provide mechanistic insight, the session aims to inspire new ways of using models to understand how the brain constructs visual experience."
   },
   {
     "id": "sched-0015",
@@ -2100,7 +2100,7 @@
         "name": "Shari Liu"
       }
     ],
-    "desc": "Across the cognitive sciences, researchers have studied naive psychology (making sense of other people’s actions in terms of their mental states) and naive physics (making sense of physical events in terms of their underlying mechanics and dynamics), as two separate processes. In this talk, I’ll review evidence for these domain-specific systems for reasoning about the psychological and physical world, with distinct computational goals, representations, and neural substrates. At the same time, I propose that from early on in human development people navigate the social world by using two distinct but interacting systems for reasoning about other agents’ immaterial minds and their material bodies. I’ll review research from developmental psychology and cognitive neuroscience that provides evidence for this interaction: (1) human minds and brains represent the bodies of animate agents TALK 5 as objects, and their actions as physical events, and (2) we use physical knowledge to make inferences about other minds, including what other people want, feel and know, how hard they are trying, and how much danger they are in. I will also discuss Bayesian computational models of theory of mind, which articulate a formal hypothesis for this interaction. The talk will end by discussing key future empirical tests of this proposal."
+    "desc": "Across the cognitive sciences, researchers have studied naive psychology (making sense of other people’s actions in terms of their mental states) and naive physics (making sense of physical events in terms of their underlying mechanics and dynamics), as two separate processes. In this talk, I’ll review evidence for these domain-specific systems for reasoning about the psychological and physical world, with distinct computational goals, representations, and neural substrates. At the same time, I propose that from early on in human development people navigate the social world by using two distinct but interacting systems for reasoning about other agents’ immaterial minds and their material bodies. I’ll review research from developmental psychology and cognitive neuroscience that provides evidence for this interaction: (1) human minds and brains represent the bodies of animate agents as objects, and their actions as physical events, and (2) we use physical knowledge to make inferences about other minds, including what other people want, feel and know, how hard they are trying, and how much danger they are in. I will also discuss Bayesian computational models of theory of mind, which articulate a formal hypothesis for this interaction. The talk will end by discussing key future empirical tests of this proposal."
   },
   {
     "id": "symp-2026-05-15-0800-talk-r.t03",
@@ -2144,7 +2144,81 @@
         "name": "SP Arun"
       }
     ],
-    "desc": "We see and recognize objects every day but also form expectations about how they will handle when touched, or how they interact with other objects when moved. Where are these expectations created in the brain? One strong contender is the inferior temporal cortex, a region known for its highly object-selective neurons that are invariant to properties like size, position and viewpoint. While we know that IT neurons encode interesting visual features, whether they integrate physics expectations into their representations is unknown. Here, I will describe some studies in which we have performed wireless brain recordings from high-level sensory and motor regions in freely moving monkeys, to find that (1) After monkeys physically interact with objects, their IT neurons start encoding their mass; (2) When monkeys watch objects bouncing at various angles, their IT neurons show congruent tuning for incidence and bounce angle; and (3) When monkeys watch a ball disappear into an object or bounce off from it, their IT neurons dynamically infer that the object is hollow or solid. Taken together, these observations indicate that high-level visual cortex not only encodes visual properties, but more broadly encodes all object properties and even carries expectations about how objects will behave in the real world. INTUITIVE PHYSICS IN THE HUMAN BRAIN RT Pramod1; 1MIT Intuitive physics has long fascinated researchers studying human behavior, yet its neural basis is still not well understood. In this talk, I will focus on a set of regions in the fronto-parietal cortex of the human brain, called the ‘Physics Network (PN)’, and review neuroimaging (fMRI) evidence for a variety of physical scene properties. Specifically, I will show that the PN encodes information about object properties such as mass and material, their configurations (including stability and contact relationships), and their predicted future states. In addition, I will present evidence that these regions respond not only to visual but also auditory and linguistic stimuli, indicating multi-modal processing. Our findings also reveal that the PN responds strongly to causal relationships (versus non-causal ones) specifically in the physical (versus social) domain, suggesting that these regions are representing the causal structure of the physical world. Finally, I will provide anatomical, functional, and network-level evidence that the PN is at least partially dissociable from the neighboring Multiple Demand (MD) system, which supports domain-general reasoning. Altogether, these results are indicative of the PN being the brain's ‘Physics Engine’, representing latent physical properties and causal structure of the physical scene, and enabling predictions through forward simulation."
+    "desc": "We see and recognize objects every day but also form expectations about how they will handle when touched, or how they interact with other objects when moved. Where are these expectations created in the brain? One strong contender is the inferior temporal cortex, a region known for its highly object-selective neurons that are invariant to properties like size, position and viewpoint. While we know that IT neurons encode interesting visual features, whether they integrate physics expectations into their representations is unknown. Here, I will describe some studies in which we have performed wireless brain recordings from high-level sensory and motor regions in freely moving monkeys, to find that (1) After monkeys physically interact with objects, their IT neurons start encoding their mass; (2) When monkeys watch objects bouncing at various angles, their IT neurons show congruent tuning for incidence and bounce angle; and (3) When monkeys watch a ball disappear into an object or bounce off from it, their IT neurons dynamically infer that the object is hollow or solid. Taken together, these observations indicate that high-level visual cortex not only encodes visual properties, but more broadly encodes all object properties and even carries expectations about how objects will behave in the real world."
+  },
+  {
+    "id": "symp-2026-05-15-0800-talk-r.t05",
+    "title": "Intuitive Physics in the Human Brain",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0007"
+    ],
+    "date": "2026-05-15",
+    "time": "09:32",
+    "mins": 23,
+    "loc": [
+      "TALK ROOM 1"
+    ],
+    "people": [
+      {
+        "id": "rt-pramod",
+        "name": "RT Pramod"
+      }
+    ],
+    "desc": "Intuitive physics has long fascinated researchers studying human behavior, yet its neural basis is still not well understood. In this talk, I will focus on a set of regions in the fronto-parietal cortex of the human brain, called the ‘Physics Network (PN)’, and review neuroimaging (fMRI) evidence for a variety of physical scene properties. Specifically, I will show that the PN encodes information about object properties such as mass and material, their configurations (including stability and contact relationships), and their predicted future states. In addition, I will present evidence that these regions respond not only to visual but also auditory and linguistic stimuli, indicating multi-modal processing. Our findings also reveal that the PN responds strongly to causal relationships (versus non-causal ones) specifically in the physical (versus social) domain, suggesting that these regions are representing the causal structure of the physical world. Finally, I will provide anatomical, functional, and network-level evidence that the PN is at least partially dissociable from the neighboring Multiple Demand (MD) system, which supports domain-general reasoning. Altogether, these results are indicative of the PN being the brain's ‘Physics Engine’, representing latent physical properties and causal structure of the physical scene, and enabling predictions through forward simulation."
+  },
+  {
+    "id": "symp-2026-05-15-0800-talk-r.t01",
+    "title": "The Role of Alpha Oscillations and Aperiodic Neural Activity in the Temporal Organization of Visual Perception",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0008"
+    ],
+    "date": "2026-05-15",
+    "time": "08:00",
+    "mins": 20,
+    "loc": [
+      "TALK ROOM 2"
+    ],
+    "people": [
+      {
+        "id": "david-melcher",
+        "name": "David Melcher"
+      },
+      {
+        "id": "michele-deodato",
+        "name": "Michele Deodato"
+      },
+      {
+        "id": "gianluca-marsicano",
+        "name": "Gianluca Marsicano"
+      }
+    ],
+    "desc": "Visual perception requires integrating sensory input over time, as well as segmenting the continuous flow into discrete events. Across a number of studies, we have investigated the role of oscillatory and aperiodic neural activity in this integration/segregation process. In particular, we have focused on individual differences and trial-by-trial variability in the temporal binding windows which define whether two stimuli are combined into a single, coherent percept or segmented into unique events. Here, we will present converging results from multiple paradigms, ranging from presentation of brief flashes to continuous streams of stimuli and judgments of causality from Michotte-style collision events. Using either resting-state EEG or event-related EEG during the psychophysical paradigm, we consistently find that alpha oscillatory activity and aperiodic activity combine to predict individual differences in perceptual judgments. Faster individual alpha rhythms were associated with narrower temporal integration windows, and a steeper aperiodic spectrum (lower neural noise) predicted greater perceptual precision (Deodato & Melcher, 2024). Moreover, individuals with slower alpha frequencies and flatter spectra showed stronger reliance on prior perceptual judgments. Subjective confidence was also linked to peak alpha frequency, with faster rhythms supporting higher certainty. Together, these findings suggest that temporal binding arises from the joint influence of the alpha rhythm and aperiodic neural activity. Faster alpha rhythms may promote greater perceptual resolution by generating more sensory samples per time unit, resulting in higher temporal precision, reduced reliance on prior perceptual experience, and greater subjective confidence in perceptual decisions."
+  },
+  {
+    "id": "symp-2026-05-15-0800-talk-r.t02",
+    "title": "Dual Alpha Mechanisms in Visual Perception",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0008"
+    ],
+    "date": "2026-05-15",
+    "time": "08:20",
+    "mins": 20,
+    "loc": [
+      "TALK ROOM 2"
+    ],
+    "people": [
+      {
+        "id": "joey-zhou",
+        "name": "Joey Zhou"
+      }
+    ],
+    "desc": "Spontaneous neural oscillations, particularly in the alpha band (8-14 Hz), create rhythmic fluctuations in cortical excitability that influence conscious perception. However, the underlying neural mechanisms through which these oscillations modulate perception remain unclear. Previous work has shown mixed results on how such excitability changes modulate sensory signals of interest versus noise, and what the consequences are for subsequent perception. A probable reason for these conflicting findings is that different alpha networks dominate across different studies. In this presentation, I will address this by introducing a network-based approach to analyze MEG data from visual decision-making tasks. Our results demonstrate that multiple, functionally distinct alpha networks coexist and dynamically recur over time, with each influencing perceptual decision-making through different mechanisms. These findings have important methodological and theoretical implications for characterizing the role of oscillatory activity in perception and decision making."
   },
   {
     "id": "symp-2026-05-15-0800-talk-r.t03",
@@ -2155,7 +2229,7 @@
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
-    "time": "08:00",
+    "time": "08:40",
     "mins": 20,
     "loc": [
       "TALK ROOM 2"
@@ -2181,7 +2255,7 @@
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
-    "time": "08:20",
+    "time": "09:00",
     "mins": 20,
     "loc": [
       "TALK ROOM 2"
@@ -2203,7 +2277,7 @@
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
-    "time": "08:40",
+    "time": "09:20",
     "mins": 20,
     "loc": [
       "TALK ROOM 2"
@@ -2233,7 +2307,7 @@
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
-    "time": "09:00",
+    "time": "09:40",
     "mins": 20,
     "loc": [
       "TALK ROOM 2"
@@ -2247,8 +2321,8 @@
     "desc": "Navigating the environment involves engaging with multiple objects, each activating specific neuronal populations. When objects appear together, the respective neuronal populations compete. Classical attention theories suggest that selection involves biasing one population over another. Recent research shows that perception fluctuates over time. When a single object is processed over time a ~8 Hz fluctuation seems to govern its perception. When attention is distributed over two different objects a 4 Hz fluctuation is measured, possibly due to the division of the 8 Hz rhythm between competing objects. In my talk I will explore these rhythmic phenomena, coined attentional sampling, across the visual hierarchy. I will argue that sampling is a selection mechanism that negotiates neuronal competition. It manifests as early as eye channels and extends to complex features higher in the visual hierarchy and potentially beyond the visual modality. Finally, I will discuss the cognitive significance of this mechanism and its potential neuronal implementation."
   },
   {
-    "id": "symp-2026-05-15-1030-talk-r.t02",
-    "title": "Bringing the Real World into the Brain Scanner Using 3D Displays and Video Games",
+    "id": "symp-2026-05-15-1030-talk-r.t01",
+    "title": "A Broad Sampling of How Different Tasks Influence Visually Evoked Responses in the Human Brain",
     "tags": [
       "Symposium",
       "Type:Talk",
@@ -2262,11 +2336,87 @@
     ],
     "people": [
       {
+        "id": "kendrick-n-kay",
+        "name": "Kendrick N. Kay"
+      },
+      {
+        "id": "clayton-e-curtis",
+        "name": "Clayton E. Curtis"
+      },
+      {
+        "id": "adrian-wong",
+        "name": "Adrian Wong"
+      },
+      {
+        "id": "amy-poole",
+        "name": "Amy Poole"
+      },
+      {
+        "id": "eline-r-kupers",
+        "name": "Eline R Kupers"
+      }
+    ],
+    "desc": "Visual neuroscientists seek to understand how the brain transforms visual inputs to representations that support behavior. In many visual neuroscience experiments, neural responses to visual stimuli are measured and the task performed by the observer is often neglected or assumed to have secondary importance to the scientific questions being tackled. However, since task demands influence visually evoked Angeles responses, it is clear that a complete characterization of visual processing must refer to both the stimulus and the task. Here, we describe ongoing efforts to collect a large-scale 7T fMRI dataset, termed the Visual Cognition Dataset (VCD), where extensive wholebrain fMRI responses (> 40 hours of data per participant) are measured from a small set of observers (n = 6) while they engage in a variety of visual tasks on a common set of stimuli. We sample both classic laboratory tasks (e.g., engaging in fixation, attentional, decision-making, and working memory tasks on controlled artificial stimuli such as Gabors and random-dot kinematograms) as well as more naturalistic tasks (e.g., making 'what', 'where', and 'how' judgments on complex natural scenes). Importantly, we impose shared constraints on the tasks with respect to timing and trial structure to facilitate interpretation and direct comparison of tasks. We anticipate that VCD will serve as a rich resource for gaining insights into task-dependent neural responses and, more generally, how the brain executes visual tasks."
+  },
+  {
+    "id": "symp-2026-05-15-1030-talk-r.t02",
+    "title": "Bringing the Real World into the Brain Scanner Using 3D Displays and Video Games",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0010"
+    ],
+    "date": "2026-05-15",
+    "time": "10:50",
+    "mins": 17,
+    "loc": [
+      "TALK ROOM 1"
+    ],
+    "people": [
+      {
         "id": "jody-c-culham",
         "name": "Jody C Culham"
       }
     ],
-    "desc": "Vision science often uses simple stimuli like images along with simple stimulus-response tasks, particularly in studies using functional magnetic resonance imaging (fMRI), where more complex stimuli and behaviors are limited by methodological constraints. In this talk, I will review two new approaches in brain imaging for investigating more realistic stimuli and tasks and show how they can provide novel findings. First, I will discuss how the contributions of real-world geometry (physical/virtual size and distance) can be explored using tangible objects and binocular simulations with a 3D projector. Results suggest that real-world distance is represented throughout the visual system, especially for physical (vs. simulated) displays. Second, I will discuss how video games can be used to study brain activation in “closed-loop” scenarios where continuous visual feedback is used to guide actions. Active video game play evokes different brain regions and interactions compared to a control condition with matched visual\ninput and motor output. Together, new approaches show that a move toward naturalistic neuroimaging can reveal new aspects of visual processing that may have been neglected with conventional approaches. ANTERIOR CINGULATE NEURONS COMBINE OUTCOME MONITORING OF PAST DECISIONS WITH ONGOING MOVEMENT SIGNALS Lukas T. Oesch1, Makenna C. Thomas1, Davis Sandberg1, João Couto1, Anne K. Churchland; 1Department of Neurobiology, David Geffen School of Medicine, University of California, Los Angeles, Los In dynamic environments, animals must closely monitor the effects of their actions to inform switches in behavioral strategy. Anterior cingulate cortex (ACC) neurons track decision outcomes in these environments. Yet, it remains unclear whether ACC neurons similarly monitor behavioral history in static environments and, if so, whether these signals are distinct from movement representations. We recorded large-scale ACC activity in freely moving mice making visual evidence-accumulation decisions. Many ACC neurons exhibited nonlinear mixed selectivity for previous choices and outcomes (trial history) and were modulated by movements. Trial history could be stably decoded from population activity and accounted for a separable component of neural activity than posture and movements. Trial history encoding was conserved across different subjects and was unaffected by fluctuating behavioral biases. These findings demonstrate that trial history monitoring in ACC is implemented in a conserved population code that is independent of the volatility of subjects’ task environment."
+    "desc": "Vision science often uses simple stimuli like images along with simple stimulus-response tasks, particularly in studies using functional magnetic resonance imaging (fMRI), where more complex stimuli and behaviors are limited by methodological constraints. In this talk, I will review two new approaches in brain imaging for investigating more realistic stimuli and tasks and show how they can provide novel findings. First, I will discuss how the contributions of real-world geometry (physical/virtual size and distance) can be explored using tangible objects and binocular simulations with a 3D projector. Results suggest that real-world distance is represented throughout the visual system, especially for physical (vs. simulated) displays. Second, I will discuss how video games can be used to study brain activation in “closed-loop” scenarios where continuous visual feedback is used to guide actions. Active video game play evokes different brain regions and interactions compared to a control condition with matched visual\ninput and motor output. Together, new approaches show that a move toward naturalistic neuroimaging can reveal new aspects of visual processing that may have been neglected with conventional approaches."
+  },
+  {
+    "id": "symp-2026-05-15-1030-talk-r.t03",
+    "title": "Anterior Cingulate Neurons Combine Outcome Monitoring of Past Decisions with Ongoing Movement Signals",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0010"
+    ],
+    "date": "2026-05-15",
+    "time": "11:07",
+    "mins": 17,
+    "loc": [
+      "TALK ROOM 1"
+    ],
+    "people": [
+      {
+        "id": "lukas-t-oesch",
+        "name": "Lukas T. Oesch"
+      },
+      {
+        "id": "makenna-c-thomas",
+        "name": "Makenna C. Thomas"
+      },
+      {
+        "id": "davis-sandberg",
+        "name": "Davis Sandberg"
+      },
+      {
+        "id": "joao-couto",
+        "name": "João Couto"
+      },
+      {
+        "id": "anne-k-churchland",
+        "name": "Anne K. Churchland"
+      }
+    ],
+    "desc": "In dynamic environments, animals must closely monitor the effects of their actions to inform switches in behavioral strategy. Anterior cingulate cortex (ACC) neurons track decision outcomes in these environments. Yet, it remains unclear whether ACC neurons similarly monitor behavioral history in static environments and, if so, whether these signals are distinct from movement representations. We recorded large-scale ACC activity in freely moving mice making visual evidence-accumulation decisions. Many ACC neurons exhibited nonlinear mixed selectivity for previous choices and outcomes (trial history) and were modulated by movements. Trial history could be stably decoded from population activity and accounted for a separable component of neural activity than posture and movements. Trial history encoding was conserved across different subjects and was unaffected by fluctuating behavioral biases. These findings demonstrate that trial history monitoring in ACC is implemented in a conserved population code that is independent of the volatility of subjects’ task environment."
   },
   {
     "id": "symp-2026-05-15-1030-talk-r.t04",
@@ -2277,7 +2427,7 @@
       "parent:sched-0010"
     ],
     "date": "2026-05-15",
-    "time": "10:50",
+    "time": "11:24",
     "mins": 17,
     "loc": [
       "TALK ROOM 1"
@@ -2299,7 +2449,7 @@
       "parent:sched-0010"
     ],
     "date": "2026-05-15",
-    "time": "11:07",
+    "time": "11:41",
     "mins": 17,
     "loc": [
       "TALK ROOM 1"
@@ -2321,7 +2471,7 @@
       "parent:sched-0010"
     ],
     "date": "2026-05-15",
-    "time": "11:24",
+    "time": "11:58",
     "mins": 17,
     "loc": [
       "TALK ROOM 1"
@@ -2366,7 +2516,33 @@
         "name": "Mark Greenlee"
       }
     ],
-    "desc": "We do not come to the world recognizing the conjunction of redness and the octogonal shape that together comprise a stop sign. Yet, through exposure and with practice, we automatize this conjunction into a unit that speeds processing. Such conjunction learning happens both motorically and perceptually. Serial search for a conjunctiondefined target typically involves slower reaction times in visual search the more distractors there are. We find that with practice, search slopes flatten such that conjunction search comes to resemble visual pop-out. This learning is not like traditional forms of perceptual learning in that it transfers to locations, sizes and orientations and even to other conjunctions that differ from those used in training. In this talk I will ask what actually is learned when a conjunction is learned, and how such learning happens in the brain, both cortically and subcortically. JOINT POPULATION CODING OF COLOR AND FORM IN THE HUMAN VENTRAL PATHWAY AND CONVOLUTIONAL NEURAL NETWORKS JohnMark Taylor1, Yaoda Xu2; 1Columbia University, 2Yale University Both the human ventral visual pathway and CNNs trained to recognize objects have been shown to encode color and form information about stimuli, but how exactly are these features jointly represented in distributed population codes, and how might the nature of this representation vary between biological and artificial visual systems? This talk examines population coding of color and form across multiple experiments, using both controlled artificial stimuli and naturalistic stimuli. In the human ventral pathway, color and form information were found to be decodable using fMRI in every region in the ventral pathway for artificial stimuli, even in regions defined based on their univariate sensitivity to one feature or the other, with the exception of a color-sensitive region anterior to V4. However, despite this anatomical intermingling, color and form information tended to remain representationally independent, with brain regions encoding information about the two individual features, but generally not about particular conjunctions of features. By contrast, in CNNs, we found in a study using naturalistic colored stimuli that color and form tended to be encoded in an increasingly conjunctive format as processing proceeded. That said, further analyses suggest that the ventral pathway and CNNs trained to recognize objects are similar in their relative emphasis of these two features, with both systems increasingly emphasizing color relative to orientation information, but increasingly deemphasizing color relative to curvature information. Collectively, this work thus identifies both similarities and divergences in how these systems solve the problem of simultaneously encoding multiple features across distributed neural populations."
+    "desc": "We do not come to the world recognizing the conjunction of redness and the octogonal shape that together comprise a stop sign. Yet, through exposure and with practice, we automatize this conjunction into a unit that speeds processing. Such conjunction learning happens both motorically and perceptually. Serial search for a conjunctiondefined target typically involves slower reaction times in visual search the more distractors there are. We find that with practice, search slopes flatten such that conjunction search comes to resemble visual pop-out. This learning is not like traditional forms of perceptual learning in that it transfers to locations, sizes and orientations and even to other conjunctions that differ from those used in training. In this talk I will ask what actually is learned when a conjunction is learned, and how such learning happens in the brain, both cortically and subcortically."
+  },
+  {
+    "id": "symp-2026-05-15-1030-talk-r.t02",
+    "title": "Joint Population Coding of Color and Form in the Human Ventral Pathway and Convolutional Neural Networks",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0011"
+    ],
+    "date": "2026-05-15",
+    "time": "10:50",
+    "mins": 20,
+    "loc": [
+      "TALK ROOM 2"
+    ],
+    "people": [
+      {
+        "id": "johnmark-taylor",
+        "name": "JohnMark Taylor"
+      },
+      {
+        "id": "yaoda-xu",
+        "name": "Yaoda Xu"
+      }
+    ],
+    "desc": "Both the human ventral visual pathway and CNNs trained to recognize objects have been shown to encode color and form information about stimuli, but how exactly are these features jointly represented in distributed population codes, and how might the nature of this representation vary between biological and artificial visual systems? This talk examines population coding of color and form across multiple experiments, using both controlled artificial stimuli and naturalistic stimuli. In the human ventral pathway, color and form information were found to be decodable using fMRI in every region in the ventral pathway for artificial stimuli, even in regions defined based on their univariate sensitivity to one feature or the other, with the exception of a color-sensitive region anterior to V4. However, despite this anatomical intermingling, color and form information tended to remain representationally independent, with brain regions encoding information about the two individual features, but generally not about particular conjunctions of features. By contrast, in CNNs, we found in a study using naturalistic colored stimuli that color and form tended to be encoded in an increasingly conjunctive format as processing proceeded. That said, further analyses suggest that the ventral pathway and CNNs trained to recognize objects are similar in their relative emphasis of these two features, with both systems increasingly emphasizing color relative to orientation information, but increasingly deemphasizing color relative to curvature information. Collectively, this work thus identifies both similarities and divergences in how these systems solve the problem of simultaneously encoding multiple features across distributed neural populations."
   },
   {
     "id": "symp-2026-05-15-1030-talk-r.t03",
@@ -2377,7 +2553,7 @@
       "parent:sched-0011"
     ],
     "date": "2026-05-15",
-    "time": "10:50",
+    "time": "11:10",
     "mins": 20,
     "loc": [
       "TALK ROOM 2"
@@ -2403,7 +2579,7 @@
       "parent:sched-0011"
     ],
     "date": "2026-05-15",
-    "time": "11:10",
+    "time": "11:30",
     "mins": 20,
     "loc": [
       "TALK ROOM 2"
@@ -2422,7 +2598,7 @@
         "name": "Pablo Rodríguez-San Esteban"
       }
     ],
-    "desc": "Our sensory system constantly receives information from both the environment and our own bodies. Despite our impression to the contrary, we are largely unaware of most of this information and often cannot report it accurately. Thus, perception—a seemingly ordinary process—can be complex and requires significant computational effort, which can lead to errors such as incorrect feature integration. We will present data from two studies that used functional magnetic TALK 6 resonance imaging (fMRI) and electroencephalography (EEG) to investigate the neural mechanisms associated with correct and incorrect feature integration. fMRI data showed that a distributed set of brain regions exhibited increased activity during correct feature integration compared to incorrect integration, including enhanced functional coupling between occipital, parietal and frontal regions. In contrast, incorrect feature integration was linked to heightened occipital (V1-V2) responses in the early stages of processing, along with a general decrease in coactivation between occipital, parietal and frontal regions. EEG data indicated that alpha and beta power were enhanced during correct as compared to incorrect feature integration. This result was associated with cognitive processes such as pre-\nstimulus preparation, distractor inhibition or the reliability of perceptual information representation within the cortex. Our findings underscore the role of parietal regions in feature integration and highlight the importance of occipital-parietal interactions, which oscillate in lowfrequency bands, in perceptual processing."
+    "desc": "Our sensory system constantly receives information from both the environment and our own bodies. Despite our impression to the contrary, we are largely unaware of most of this information and often cannot report it accurately. Thus, perception—a seemingly ordinary process—can be complex and requires significant computational effort, which can lead to errors such as incorrect feature integration. We will present data from two studies that used functional magnetic resonance imaging (fMRI) and electroencephalography (EEG) to investigate the neural mechanisms associated with correct and incorrect feature integration. fMRI data showed that a distributed set of brain regions exhibited increased activity during correct feature integration compared to incorrect integration, including enhanced functional coupling between occipital, parietal and frontal regions. In contrast, incorrect feature integration was linked to heightened occipital (V1-V2) responses in the early stages of processing, along with a general decrease in coactivation between occipital, parietal and frontal regions. EEG data indicated that alpha and beta power were enhanced during correct as compared to incorrect feature integration. This result was associated with cognitive processes such as pre-\nstimulus preparation, distractor inhibition or the reliability of perceptual information representation within the cortex. Our findings underscore the role of parietal regions in feature integration and highlight the importance of occipital-parietal interactions, which oscillate in lowfrequency bands, in perceptual processing."
   },
   {
     "id": "symp-2026-05-15-1030-talk-r.t05",
@@ -2433,7 +2609,7 @@
       "parent:sched-0011"
     ],
     "date": "2026-05-15",
-    "time": "11:30",
+    "time": "11:50",
     "mins": 20,
     "loc": [
       "TALK ROOM 2"
@@ -2448,7 +2624,55 @@
         "name": "Zhixian Han"
       }
     ],
-    "desc": "Much neuroscience research supports segregation of visual processing. Using artificial neural networks (ANNs), we previously showed that segregated streams for identity and space actively retain information about both identity and space, independently and differently; and further, that ANNs with two pathways, compared to a single pathway, have better performance (higher accuracy, less training time); with these advantages increasing with binding difficulty (i.e., increasing number of objects), suggesting segregation itself may help ease the binding problem. However, if segregated-pathway networks have advantages over single-pathway networks, why are not all attributes segregated in the brain? Simulations suggest that when there are a greater number of classes or greater discrimination is needed for a given attribute, the advantage of segregated pathways is greater. These ANNs used a relative location map to successfully bind identity and absolute location of objects. However, the brain needs to combine many different attributes (e.g., color, identity) and any of these attributes could be used in a similar fashion to constrain the binding problem. Using visual objects with multiple attributes (identity, luminance, orientation, location) to be recognized, we tried to find the best attribute (among an identity, luminance, orientation or location map) to constrain the binding problem. When attributes are independent, a location map is always the best choice for constraining the binding problem. A computational approach can provide insights into why segregation and the binding problem arise and the best way to constrain the binding problem. Implications of the findings for neuroscience and modeling will be discussed. TWO WAYS TO SEE A RED SQUARE Jake Quilty-Dunn1; 1Rutgers University Vision scientists and philosophers share an interest in how representations are combined in visual perception. Much of the work on this topic presupposes that features are bound by being attributed to the same object. However, this “object-based” account of binding fails to explain cases of binding that occur outside attentive, objectcentric processing. The philosophical arguments for the object-based account also fail to establish that attributing features to objects is necessary for binding. This talk explores a range of findings and argues that the visual system has multiple different principles for binding features. Object-based binding is especially useful for interfacing with systems outside vision, including verbal report. Other forms of binding are more useful for processes internal to the visual system, including ensemble coding. The resulting picture is that vision constructs redundant representations of feature conjunctions for different purposes."
+    "desc": "Much neuroscience research supports segregation of visual processing. Using artificial neural networks (ANNs), we previously showed that segregated streams for identity and space actively retain information about both identity and space, independently and differently; and further, that ANNs with two pathways, compared to a single pathway, have better performance (higher accuracy, less training time); with these advantages increasing with binding difficulty (i.e., increasing number of objects), suggesting segregation itself may help ease the binding problem. However, if segregated-pathway networks have advantages over single-pathway networks, why are not all attributes segregated in the brain? Simulations suggest that when there are a greater number of classes or greater discrimination is needed for a given attribute, the advantage of segregated pathways is greater. These ANNs used a relative location map to successfully bind identity and absolute location of objects. However, the brain needs to combine many different attributes (e.g., color, identity) and any of these attributes could be used in a similar fashion to constrain the binding problem. Using visual objects with multiple attributes (identity, luminance, orientation, location) to be recognized, we tried to find the best attribute (among an identity, luminance, orientation or location map) to constrain the binding problem. When attributes are independent, a location map is always the best choice for constraining the binding problem. A computational approach can provide insights into why segregation and the binding problem arise and the best way to constrain the binding problem. Implications of the findings for neuroscience and modeling will be discussed."
+  },
+  {
+    "id": "symp-2026-05-15-1030-talk-r.t06",
+    "title": "Two Ways to See a Red Square",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0011"
+    ],
+    "date": "2026-05-15",
+    "time": "12:10",
+    "mins": 20,
+    "loc": [
+      "TALK ROOM 2"
+    ],
+    "people": [
+      {
+        "id": "jake-quilty-dunn",
+        "name": "Jake Quilty-Dunn"
+      }
+    ],
+    "desc": "Vision scientists and philosophers share an interest in how representations are combined in visual perception. Much of the work on this topic presupposes that features are bound by being attributed to the same object. However, this “object-based” account of binding fails to explain cases of binding that occur outside attentive, objectcentric processing. The philosophical arguments for the object-based account also fail to establish that attributing features to objects is necessary for binding. This talk explores a range of findings and argues that the visual system has multiple different principles for binding features. Object-based binding is especially useful for interfacing with systems outside vision, including verbal report. Other forms of binding are more useful for processes internal to the visual system, including ensemble coding. The resulting picture is that vision constructs redundant representations of feature conjunctions for different purposes."
+  },
+  {
+    "id": "symp-2026-05-15-1345-talk-r.t01",
+    "title": "Dynamic Transformer Routing from Retinotopic Cortex Explains Encoding in Category-Selective Cortical Areas",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0014"
+    ],
+    "date": "2026-05-15",
+    "time": "13:45",
+    "mins": 20,
+    "loc": [
+      "TALK ROOM 1"
+    ],
+    "people": [
+      {
+        "id": "hossein-adeli",
+        "name": "Hossein Adeli"
+      },
+      {
+        "id": "nikolaus-kriegeskorte",
+        "name": "Nikolaus Kriegeskorte"
+      }
+    ],
+    "desc": "A major goal of neuroscience is to understand brain computations during naturalistic visual perception. A dominant approach is to use image-computable deep neural networks as a basis for linear encoding models. However, this approach ignores the structure of the feature maps both in the brain and the models, which could be used to build more interpretable models. In this work, we employ the transformer attention mechanism to model how retinotopic visual features can be dynamically routed to category-selective areas in high-level visual processing. We show that this computational motif not only is significantly more powerful than alternative methods in predicting brain activity during natural scene viewing, it is also inherently more interpretable because the attention routing signals can be easily visualized for any input image. Analyzing the attention signals in our model replicates the categorial selectivity of known regions (e.g. image patches with faces are routed to predict fMRI voxels in the Fusiform Face Area, FFA) for face, body, word, and place regions and reveals structured between-area visual and semantic similarities that reflect their underlying computations. We also show how this state-of-the-art encoding model can serve as a digital twin, on which we perform in silico experiments to discover categorical selectivity across the whole brian. Our results suggest that the human visual hierarchy employs a dynamic routing mechanism that guides relevant information from image-specific retinal locations to category-selective regions. Our work shows how interpretable encoding models can help us understand visual processing in the brain."
   },
   {
     "id": "symp-2026-05-15-1345-talk-r.t02",
@@ -2459,7 +2683,7 @@
       "parent:sched-0014"
     ],
     "date": "2026-05-15",
-    "time": "13:45",
+    "time": "14:05",
     "mins": 20,
     "loc": [
       "TALK ROOM 1"
@@ -2481,7 +2705,7 @@
       "parent:sched-0014"
     ],
     "date": "2026-05-15",
-    "time": "14:05",
+    "time": "14:25",
     "mins": 20,
     "loc": [
       "TALK ROOM 1"
@@ -2492,7 +2716,51 @@
         "name": "Iris I.A. Groen"
       }
     ],
-    "desc": "The unprecedented ability of deep neural networks (DNNs) to predict neural responses in the human visual cortex has created excitement in vision research about these models’ potential to capture human visual perception. However, many initial observations relating the inner TALK 5 representations of DNNs to those in the human brain primarily confirmed existing ideas about visual cortex (e.g., the presence of a low-to-high complexity object feature hierarchy). Can we leverage brain-DNN alignment to learn something new about how human vision works? In this talk, I will show how we use DNN-based representational alignment and model comparison to move from object vision towards new domains, including the neural representation of\nscene affordances and spatial and temporal neural dynamics during video perception. Moreover, I will showcase how DNN-brain alignment can be leveraged to generate new hypotheses about neural representations in human visual cortex via brain-guided image diffusion, as implemented in our newly developed Brain Activation Control Through Image Variation (BrainACTIV) method. EXPLORING HUMAN VISION THROUGH Img2EEG: AN ENCODING FRAMEWORK GENERATING HIGHRESOLUTION TEMPORAL EEG SIGNALS FROM VISUAL INPUTS Zitong Lu1,2; 1The Ohio State University, 2Massachusetts Institute of Technology Understanding the complex interplay between visual stimuli and brain activity has been a focal point in cognitive neuroscience. The recent advent of image-to-brain encoding models presents an unparalleled opportunity for deeper explorations and broader applications in experimental and computational research. Building on this momentum, we developed “Img2EEG”, a pioneering encoding framework consisting of visual, semantic and integration modules based on state-of-the-art deep learning models from computer vision and natural language processing. Trained on a large-scale EEG dataset of natural images at the individual subject level, Img2EEG effectively generates highly realistic EEG signals given any image input. We propose Img2EEG as an innovative and internally manipulable tool for investigating visual mechanisms. Through internal and external ablation experiments on Img2EEG, we unfold the detailed temporal dynamics underlying visual processes. Moreover, through in silico experiments on Img2EEG, by feeding it novel image sets outside its training data, we not only reproduced the classic N170 component in the model-generated EEG signals but also leveraged its internal manipulability to identify the key features driving this response. Furthermore, our Img2EEG achieves more accurate decoding, outperforming current state-of-the-art EEG decoding models (e.g., 200-class classification accuracy on THINGS EEG2). Finally, we applied Img2EEGs across all ImageNet images, creating a large stimulated EEG dataset, ‘ImageNet-SimEEG’, providing potential applications for decoding images from EEG and advancing more brain-like visual models. Overall, Img2EEG mapping from visual inputs to high temporal resolution brain signals offers novel and powerful approaches to probe human visual representations. META-LEARNING IN CONTEXT ENABLES TRAINING-FREE CROSS-SUBJECT ENCODERS AND DECODERS Andrew Luo1; 1University of Hong Kong Understanding the relationship between sensory stimuli and neural responses is a fundamental goal in neuroscience. A significant obstacle has been developing models that generalize across individuals due to high inter-subject variability in neural representations, traditionally necessitating bespoke, subject-specific models. To address this, we propose a unified framework that leverages in-context learning for both predicting neural responses (encoding) and interpreting them (decoding), without requiring subjectspecific fine-tuning. Our approach utilizes a transformer-based architecture, meta-optimized to rapidly infer an individual's unique neural encoding patterns by conditioning on a small set of stimulus-\nresponse examples. For encoding, this allows the model to accurately predict voxelwise neural responses to entirely novel stimuli, outperforming existing methods in low-data regimes. For decoding, the framework performs hierarchical functional inversion to achieve robust semantic interpretation of brain activity. The model demonstrates strong generalization across different subjects and acquisition parameters, a critical advance that eliminates the need for anatomical alignment or stimulus overlap. This work marks a significant step away from single-subject analysis towards a generalizable foundation model for non-invasive brain signal analysis. By enhancing interpretability and predictive power, our framework advances the broader effort to predict and understand neural representations in the human brain."
+    "desc": "The unprecedented ability of deep neural networks (DNNs) to predict neural responses in the human visual cortex has created excitement in vision research about these models’ potential to capture human visual perception. However, many initial observations relating the inner representations of DNNs to those in the human brain primarily confirmed existing ideas about visual cortex (e.g., the presence of a low-to-high complexity object feature hierarchy). Can we leverage brain-DNN alignment to learn something new about how human vision works? In this talk, I will show how we use DNN-based representational alignment and model comparison to move from object vision towards new domains, including the neural representation of\nscene affordances and spatial and temporal neural dynamics during video perception. Moreover, I will showcase how DNN-brain alignment can be leveraged to generate new hypotheses about neural representations in human visual cortex via brain-guided image diffusion, as implemented in our newly developed Brain Activation Control Through Image Variation (BrainACTIV) method."
+  },
+  {
+    "id": "symp-2026-05-15-1345-talk-r.t04",
+    "title": "Exploring Human Vision Through Img2eeg: An Encoding Framework Generating High- Resolution Temporal EEG Signals from Visual Inputs",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0014"
+    ],
+    "date": "2026-05-15",
+    "time": "14:45",
+    "mins": 20,
+    "loc": [
+      "TALK ROOM 1"
+    ],
+    "people": [
+      {
+        "id": "zitong-lu",
+        "name": "Zitong Lu"
+      }
+    ],
+    "desc": "Technology Understanding the complex interplay between visual stimuli and brain activity has been a focal point in cognitive neuroscience. The recent advent of image-to-brain encoding models presents an unparalleled opportunity for deeper explorations and broader applications in experimental and computational research. Building on this momentum, we developed “Img2EEG”, a pioneering encoding framework consisting of visual, semantic and integration modules based on state-of-the-art deep learning models from computer vision and natural language processing. Trained on a large-scale EEG dataset of natural images at the individual subject level, Img2EEG effectively generates highly realistic EEG signals given any image input. We propose Img2EEG as an innovative and internally manipulable tool for investigating visual mechanisms. Through internal and external ablation experiments on Img2EEG, we unfold the detailed temporal dynamics underlying visual processes. Moreover, through in silico experiments on Img2EEG, by feeding it novel image sets outside its training data, we not only reproduced the classic N170 component in the model-generated EEG signals but also leveraged its internal manipulability to identify the key features driving this response. Furthermore, our Img2EEG achieves more accurate decoding, outperforming current state-of-the-art EEG decoding models (e.g., 200-class classification accuracy on THINGS EEG2). Finally, we applied Img2EEGs across all ImageNet images, creating a large stimulated EEG dataset, ‘ImageNet-SimEEG’, providing potential applications for decoding images from EEG and advancing more brain-like visual models. Overall, Img2EEG mapping from visual inputs to high temporal resolution brain signals offers novel and powerful approaches to probe human visual representations."
+  },
+  {
+    "id": "symp-2026-05-15-1345-talk-r.t05",
+    "title": "Meta-Learning in Context Enables Training-Free Cross-Subject Encoders and Decoders",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0014"
+    ],
+    "date": "2026-05-15",
+    "time": "15:05",
+    "mins": 20,
+    "loc": [
+      "TALK ROOM 1"
+    ],
+    "people": [
+      {
+        "id": "andrew-f-luo",
+        "name": "Andrew F Luo"
+      }
+    ],
+    "desc": "Understanding the relationship between sensory stimuli and neural responses is a fundamental goal in neuroscience. A significant obstacle has been developing models that generalize across individuals due to high inter-subject variability in neural representations, traditionally necessitating bespoke, subject-specific models. To address this, we propose a unified framework that leverages in-context learning for both predicting neural responses (encoding) and interpreting them (decoding), without requiring subjectspecific fine-tuning. Our approach utilizes a transformer-based architecture, meta-optimized to rapidly infer an individual's unique neural encoding patterns by conditioning on a small set of stimulus-\nresponse examples. For encoding, this allows the model to accurately predict voxelwise neural responses to entirely novel stimuli, outperforming existing methods in low-data regimes. For decoding, the framework performs hierarchical functional inversion to achieve robust semantic interpretation of brain activity. The model demonstrates strong generalization across different subjects and acquisition parameters, a critical advance that eliminates the need for anatomical alignment or stimulus overlap. This work marks a significant step away from single-subject analysis towards a generalizable foundation model for non-invasive brain signal analysis. By enhancing interpretability and predictive power, our framework advances the broader effort to predict and understand neural representations in the human brain."
   },
   {
     "id": "symp-2026-05-15-1345-talk-r.t06",
@@ -2503,7 +2771,7 @@
       "parent:sched-0014"
     ],
     "date": "2026-05-15",
-    "time": "14:25",
+    "time": "15:25",
     "mins": 20,
     "loc": [
       "TALK ROOM 1"
@@ -2652,7 +2920,37 @@
         "name": "Camilla Simoncelli"
       }
     ],
-    "desc": "The concept of a “standard” or average observer is central to color science and application, but masks the marked variability even among observers with “typical” trichromatic color vision. These differences arise independently at many levels and affect diverse aspects of color coding, from genetics and sensitivity to color perception and cognition. As a result, two observers viewing the same stimulus may have very different experiences. Measurements of these variations have provided important and often surprising clues about the mechanisms and representational structure of color vision. Differences can be amplified in modern wide-gamut devices, and there is increasing recognition and interest in accounting for them to better display and communicate information about color. One approach is to introduce\nindividual differences into the stimulus by tailoring it to the individual, so that two observers, viewing their own stimuli, have more standard color experiences. TALK CANCELLED - GENERATIVE MODELS CAN EXPLAIN (OR AT LEAST HELP US UNDERSTAND) INDIVIDUAL DIFFERENCES IN COGNITION Alasdair Clarke1, Anna Hughes1, Amelia Hunt2; 1University of Essex, 2University of Aberdeen Nearly all experiments in cognition and visual perception involve taking multiple measurements from each participant. This includes taking multiple recordings of the same concept (e.g., recording response time on a number of trials), and taking multiple measurements per trial (e.g., response time and accuracy). The number of measurements expands as we add in eye-tracking metrics, EEG statistics, and so on. Researchers interested in individual differences typically assume that these measurements are i) mutually independent and ii) free from confounds, before taking simple summary statistics and then applying correlation procedures. A general theme of research on individual differences in our field has been a lack of correlations. I argue that, on reflection, this shouldn’t be surprising, as the measurements we put into our correlations are imprecise composites of multiple causal factors. For example, it is well established that reaction times are influenced by learning and inter-trial serial dependencies. This means that participants in a hypothetical visual search experiment may all have identical “skill” in search, but could exhibit wildly different RTs due to differences in learning rates and serial dependency effects. I present simulated data to demonstrate how such processes can both mask correlations and produce spurious correlations. A potential solution to my hypothetical problem is the use of generative models with latent parameters. I provide an example in the form of FoMo, which decomposes performance in visual foraging into a small number of per-participant parameters."
+    "desc": "The concept of a “standard” or average observer is central to color science and application, but masks the marked variability even among observers with “typical” trichromatic color vision. These differences arise independently at many levels and affect diverse aspects of color coding, from genetics and sensitivity to color perception and cognition. As a result, two observers viewing the same stimulus may have very different experiences. Measurements of these variations have provided important and often surprising clues about the mechanisms and representational structure of color vision. Differences can be amplified in modern wide-gamut devices, and there is increasing recognition and interest in accounting for them to better display and communicate information about color. One approach is to introduce\nindividual differences into the stimulus by tailoring it to the individual, so that two observers, viewing their own stimuli, have more standard color experiences."
+  },
+  {
+    "id": "symp-2026-05-15-1345-talk-r.t06",
+    "title": "Talk Cancelled - Generative Models Can Explain (or at Least Help US Understand) Individual Differences in Cognition",
+    "tags": [
+      "Symposium",
+      "Type:Talk",
+      "parent:sched-0015"
+    ],
+    "date": "2026-05-15",
+    "time": "15:25",
+    "mins": 20,
+    "loc": [
+      "TALK ROOM 2"
+    ],
+    "people": [
+      {
+        "id": "alasdair-clarke",
+        "name": "Alasdair Clarke"
+      },
+      {
+        "id": "anna-hughes",
+        "name": "Anna Hughes"
+      },
+      {
+        "id": "amelia-hunt",
+        "name": "Amelia Hunt"
+      }
+    ],
+    "desc": "Nearly all experiments in cognition and visual perception involve taking multiple measurements from each participant. This includes taking multiple recordings of the same concept (e.g., recording response time on a number of trials), and taking multiple measurements per trial (e.g., response time and accuracy). The number of measurements expands as we add in eye-tracking metrics, EEG statistics, and so on. Researchers interested in individual differences typically assume that these measurements are i) mutually independent and ii) free from confounds, before taking simple summary statistics and then applying correlation procedures. A general theme of research on individual differences in our field has been a lack of correlations. I argue that, on reflection, this shouldn’t be surprising, as the measurements we put into our correlations are imprecise composites of multiple causal factors. For example, it is well established that reaction times are influenced by learning and inter-trial serial dependencies. This means that participants in a hypothetical visual search experiment may all have identical “skill” in search, but could exhibit wildly different RTs due to differences in learning rates and serial dependency effects. I present simulated data to demonstrate how such processes can both mask correlations and produce spurious correlations. A potential solution to my hypothetical problem is the use of generative models with latent parameters. I provide an example in the form of FoMo, which decomposes performance in visual foraging into a small number of per-participant parameters."
   },
   {
     "id": "15.11",

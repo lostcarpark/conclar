@@ -307,9 +307,32 @@ export class ProgramData {
     }
 
     // Now sort each set of tags.
+    // Default: alphabetical by label.
+    // Special-case the "Type" filter so Talk and Poster (the two dominant
+    // categories) lead the list, parent-session rows are suppressed, and
+    // everything else follows alphabetically.
+    const TYPE_PRIORITY = ["Talk", "Poster"];
+    const TYPE_HIDDEN = ["TalkSession", "PosterSession", "PosterTopic"];
     for (const tagList in tags) {
-      if (Array.isArray(tags[tagList]))
+      if (!Array.isArray(tags[tagList])) continue;
+      if (tagList === "Type") {
+        tags[tagList] = tags[tagList].filter(
+          (t) => !TYPE_HIDDEN.includes(t.label)
+        );
+        tags[tagList].sort((a, b) => {
+          const ai = TYPE_PRIORITY.indexOf(a.label);
+          const bi = TYPE_PRIORITY.indexOf(b.label);
+          if (ai !== -1 || bi !== -1) {
+            // If only one is in priority list, that one wins.
+            if (ai === -1) return 1;
+            if (bi === -1) return -1;
+            return ai - bi;
+          }
+          return a.label.localeCompare(b.label);
+        });
+      } else {
         tags[tagList].sort((a, b) => a.label.localeCompare(b.label));
+      }
     }
 
     // If generating day tags, loop through days and add a tag for day in convention timezone.
