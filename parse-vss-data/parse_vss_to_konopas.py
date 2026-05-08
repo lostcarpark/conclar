@@ -496,16 +496,29 @@ AUTHOR_AFFIL_RE = re.compile(r"^(?P<name>.+?)([\d\s,]+)$")
 
 
 def clean_author_token(tok: str) -> tuple[str, list[str]]:
-    """From 'Jane Doe1,2 (jane@x.edu)' return ('Jane Doe', ['1','2'])."""
+    """From 'Jane Doe1,2 (jane@x.edu)' return ('Jane Doe', ['1','2']).
+
+    Also normalizes CJK full-width punctuation (e.g. `，` `；`) into the
+    ASCII equivalents the trailing-affil regex understands, and strips a
+    stray space-period at the end ("Akshi ." -> "Akshi") which appears in
+    a few source records.
+    """
     s = EMAIL_RE.sub("", tok).strip().rstrip(",;")
     s = re.sub(r"\s+", " ", s)
-    # Trailing affiliation indices.
+    # Normalize full-width CJK punctuation.
+    s = s.translate(str.maketrans({"，": ",", "；": ";", "：": ":", "、": ","}))
+    # Trailing affiliation indices, possibly mixed with commas / spaces.
     m = re.match(r"^(.*?)([0-9](?:[0-9]|,|\s)*)$", s)
     if m:
         name = m.group(1).strip(" ,")
         idx_part = re.findall(r"\d+", m.group(2))
-        return name, idx_part
-    return s, []
+    else:
+        name = s
+        idx_part = []
+    # Strip a stray ` .` tail (e.g. "Akshi ." in the source).  Keep
+    # trailing initials like "K." intact — those have no leading space.
+    name = re.sub(r"\s+\.+\s*$", "", name).rstrip(",")
+    return name, idx_part
 
 
 def parse_authors_line(line: str) -> tuple[list[tuple[str, list[str]]], list[str]]:
@@ -523,8 +536,18 @@ def parse_authors_line(line: str) -> tuple[list[tuple[str, list[str]]], list[str
     # Split authors on commas, but only those followed by a letter — this
     # avoids breaking 'Author Two1,2' (multi-affil indices) into two tokens.
     raw_tokens = [t.strip() for t in re.split(r",(?=\s*[A-Za-zÀ-ÿ])", authors_txt) if t.strip()]
-    out: list[tuple[str, list[str]]] = []
+    # Rejoin name suffix tokens (Jr., Sr., II, III, IV, PhD, MD) with their
+    # preceding author so "Smith, Jr." doesn't become two separate people.
+    _SUFFIXES = {"jr", "jr.", "sr", "sr.", "ii", "iii", "iv",
+                 "phd", "ph.d.", "md", "esq", "esq."}
+    merged: list[str] = []
     for tok in raw_tokens:
+        if merged and tok.lower().rstrip(".,") in {s.rstrip(".") for s in _SUFFIXES}:
+            merged[-1] = merged[-1] + ", " + tok
+        else:
+            merged.append(tok)
+    out: list[tuple[str, list[str]]] = []
+    for tok in merged:
         name, idxs = clean_author_token(tok)
         if name:
             out.append((name, idxs))
