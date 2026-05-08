@@ -60,6 +60,13 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     }
   }
 
+  // Find a "parent:<id>" tag, if any. Returns the parent id or null.
+  const parentTag = (item.tags || []).find(
+    (t) => typeof t === "string" && t.toLowerCase().startsWith("parent:")
+  );
+  const parentId = parentTag ? parentTag.split(":")[1] : null;
+  const isChild = !!parentId;
+
   let id = "item_" + item.id;
   const locations = [];
   if (Array.isArray(item.loc))
@@ -216,7 +223,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     );
 
   return (
-    <div id={id} className="item">
+    <div id={id} className="item ${isChild ? "program-item--child" : ""}">
       <div className="item-selection">
         <div className="selection">
           <input

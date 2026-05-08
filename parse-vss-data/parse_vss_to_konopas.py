@@ -901,6 +901,10 @@ class Abstract:
     # Per-author affiliation indices (parallel to `authors`).  When present,
     # author_indices[i] holds the list of affil-index strings for authors[i].
     author_indices: list[list[str]] = field(default_factory=list)
+    # For child items, the start time of the parent session (HH:MM).  Used
+    # to look up the schedule overview row this item belongs to.  May differ
+    # from `time` for talk-session talks (which have their own start times).
+    parent_session_time: str = ""
 
 
 def split_at_caps_boundary(s: str) -> tuple[str, str]:
