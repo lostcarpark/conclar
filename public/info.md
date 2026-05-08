@@ -1,10 +1,10 @@
 # About ConClár
 
-ConClár is a browser based convention programme guide.
+ConClár is a browser based convention program guide.
 
 ## About the information page.
 
-This is a sample information page. You should customise with an information page specific to your convention.
+This is a sample information page. You should customize with an information page specific to your convention.
 
 The information page is composed in [Markdown](https://www.markdownguide.org/basic-syntax/). This is a common standard for formatting text that is easy to follow and safer than HTML. There is a handy [cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
