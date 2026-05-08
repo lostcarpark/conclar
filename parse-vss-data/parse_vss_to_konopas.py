@@ -206,8 +206,15 @@ def reorder_columns(page_text: str) -> str:
         # short tail extending past the boundary (e.g. an author affil
         # "1;" hanging two chars past).  Keep it intact in the left column
         # to avoid splitting on an internal whitespace gap.
+        # EXCEPTION: a short ALL-CAPS alphabetic token is most likely a
+        # right-column running-header word (e.g. "PAVILION" as a room
+        # name).  Splitting it off to the right column keeps such
+        # headers intact for downstream session/topic detection.
         trailing = line[boundary:].strip() if boundary < len(line) else ""
-        if len(trailing) <= 8:
+        trailing_is_running_header = bool(
+            re.fullmatch(r"[A-Z]{2,12}", trailing)
+        )
+        if len(trailing) <= 8 and not trailing_is_running_header:
             left.append(line.rstrip())
             continue
         best_gap = pick_gap(line)
@@ -408,8 +415,16 @@ def parse_schedule_overview(text: str) -> list[ScheduleEntry]:
 
     for raw_line in lines:
         line = raw_line.rstrip()
+        # Skip blank lines and page footers WITHOUT clearing last_entry,
+        # so a sub-topic that wraps onto the next page can still attach
+        # to the row started on the previous page.
         if not line.strip():
-            last_entry = None
+            continue
+        if is_footer(line):
+            continue
+        # Page-number-only line like "5 |   Vis ion Sc..." caught above; a
+        # bare page number "5" sometimes appears alone too.
+        if re.fullmatch(r"\s*\d+\s*", line):
             continue
 
         m = DAY_HEADER_RE.match(line.strip())
@@ -431,6 +446,23 @@ def parse_schedule_overview(text: str) -> list[ScheduleEntry]:
                                            or line.lstrip() != line):
                 txt = line.strip()
                 if txt and not txt.startswith("Sponsored by"):
+                    # Merge with the previous sub-topic if it's a visual
+                    # wrap of the same topic, e.g.:
+                    #   "Functional Organization of Visual Pathways: Retinotopy, population"
+                    #   "receptive fields"
+                    # OR a trailing-comma wrap:
+                    #   "Perceptual Training, Learning and Plasticity: Neuroimaging,"
+                    #   "neurostimulation"
+                    if last_entry.sub_topics:
+                        prev = last_entry.sub_topics[-1].rstrip()
+                        merge = False
+                        if prev.endswith(","):
+                            merge = True
+                        elif txt and txt[0].islower():
+                            merge = True
+                        if merge:
+                            last_entry.sub_topics[-1] = prev + " " + txt
+                            continue
                     last_entry.sub_topics.append(txt)
             continue
 
@@ -1042,6 +1074,11 @@ class Abstract:
     # to look up the schedule overview row this item belongs to.  May differ
     # from `time` for talk-session talks (which have their own start times).
     parent_session_time: str = ""
+    # Explicit parent override.  If set, abstract_to_program uses this id
+    # directly as the `parent:<id>` tag instead of looking up via the
+    # date+time+room session_lookup.  Used for posters whose direct parent
+    # is a poster-topic item (which itself is a child of the sched row).
+    parent_id_explicit: str = ""
 
 
 def split_at_caps_boundary(s: str) -> tuple[str, str]:
@@ -1694,7 +1731,12 @@ def iter_talk_sessions(text: str) -> Iterable[Abstract]:
 POSTER_SESS_HEADER_RE = re.compile(
     r"^(?P<day>\w+),\s+(?P<month>\w+)\s+(?P<dom>\d+),\s+"
     r"(?P<sh>\d{1,2}):(?P<sm>\d{2})\s*(?P<sa>AM|PM)?\s*[-–]\s*"
-    r"(?P<eh>\d{1,2}):(?P<em>\d{2})\s*(?P<ampm>AM|PM)\s*,\s*(?P<room>.+?)\s*$",
+    r"(?P<eh>\d{1,2}):(?P<em>\d{2})\s*(?P<ampm>AM|PM)"
+    # Room is optional (wraps onto a continuation line on some pages).  The
+    # comma between PM and the room is NOT optional in the source, but when
+    # the room wraps off the line we still see a dangling trailing comma —
+    # so accept either form: ", ROOM" or trailing ",".
+    r"(?:\s*,\s*(?P<room>.+?))?\s*,?\s*$",
     re.MULTILINE | re.IGNORECASE,
 )
 POSTER_TOPIC_HEADER_RE = re.compile(
@@ -1740,6 +1782,45 @@ _KNOWN_ROOM_HEADS = frozenset(s.upper() for s in (
 ))
 
 
+_FUNDING_PREFIXES = frozenset({
+    "NIH", "NSF", "NEI", "NIMH", "NINDS", "NICHD", "NIDA", "NIA", "NEYE",
+    "BBSRC", "EPSRC", "STFC", "MRC", "ERC", "EU", "DFG", "JSPS", "JST",
+    "CIHR", "NSERC", "FRQNT", "FRQS", "FRQSC", "MEXT", "MOST", "NSFC",
+    "ONR", "ARO", "AFOSR", "DARPA", "NRF", "BRAINS", "ANR", "FCT",
+    "Templeton", "Wellcome", "Simons", "Sloan", "Vision",
+})
+
+
+def _looks_funding(s: str) -> bool:
+    """Detect grant / acknowledgement lines that shouldn't be confused
+    with topic names when walking back from a poster session header."""
+    s = s.strip()
+    if not s:
+        return False
+    first = s.split()[0] if s.split() else ""
+    if first in _FUNDING_PREFIXES:
+        return True
+    # Grant codes: "R01", "1R01...", "U01...", "K99...", "T32...".
+    if re.match(r"^[1-9]?[A-Z]\d{2,}[A-Z]{0,4}\d+", first):
+        return True
+    # "This work was supported by" / "Funded by" / "We thank" / etc.
+    if re.match(
+        r"(?i)^(this\s+(work|research|study|project)|"
+        r"funded\s+by|supported\s+by|"
+        r"acknowled[gem]+|we\s+(thank|acknowledge))",
+        s,
+    ):
+        return True
+    # Lines that are dominated by uppercase and digit codes (grant IDs).
+    letters = [c for c in s if c.isalpha()]
+    if letters and len(s) <= 80:
+        upper = sum(1 for c in letters if c.isupper())
+        digits = sum(1 for c in s if c.isdigit())
+        if (upper / len(letters)) >= 0.7 and digits >= 2:
+            return True
+    return False
+
+
 def _join_wrapped_headers(lines: list[str]) -> list[str]:
     """Join poster-section headers whose room name wraps onto the next
     non-empty line.  Handles four patterns:
@@ -1778,13 +1859,76 @@ def _join_wrapped_headers(lines: list[str]) -> list[str]:
     return out
 
 
-def iter_posters(text: str) -> Iterable[Abstract]:
-    """Walk poster-session text emitting one Abstract per numbered poster."""
-    # Strategy: scan lines.  When we hit a topic header, capture the room/date/time
-    # block above it. When we hit a `<id> <UPPER>` line, start a new poster.
+def iter_posters(text: str, expected_topics: Optional[set[str]] = None) -> Iterable[Abstract]:
+    """Walk poster-session text emitting one Abstract per numbered poster.
+
+    Each repeat of POSTER_SESS_HEADER_RE marks a new TOPIC group within
+    the same session ("Visual Working Memory: Performance, influences",
+    "Multisensory Processing: Motor", ...).  We emit a `kind=poster-topic`
+    Abstract for each topic and parent the actual poster Abstracts to it
+    via `parent_id_explicit`.  The topic itself parents to the schedule
+    overview row via the normal session_lookup path.
+
+    `expected_topics` (optional) is the set of canonical topic strings
+    from the schedule-overview rows.  When supplied, the look-back result
+    is matched against this set so funding lines, affiliations, or stray
+    page-header fragments don't bleed into the topic name.
+    """
+    expected_topics = expected_topics or set()
+
+    def _norm_topic_key(s: str) -> str:
+        """Aggressively normalize a topic string for substring matching:
+        lowercase, collapse whitespace, tighten hyphens (so 'real- world'
+        and 'real-world' compare equal)."""
+        s = s.lower()
+        s = re.sub(r"\s+", " ", s)
+        s = re.sub(r"\s*-\s*", "-", s)
+        return s
+
+    norm_topics = []
+    for t in expected_topics:
+        cleaned = re.sub(r"\s+", " ", t.strip())
+        if cleaned:
+            norm_topics.append((_norm_topic_key(cleaned), cleaned))
+    # Sort by length descending so a more-specific topic ("Eye Movements:
+    # Pursuit, vergence") wins over a less-specific one ("Eye Movements")
+    # if both occur as substrings.
+    norm_topics.sort(key=lambda x: -len(x[0]))
+
+    def _canonicalize_topic(text: str) -> str:
+        """Match `text` against the expected topics; return the best
+        canonical match if one is found, else `text` itself.
+
+        Tries (in order):
+          1. Expected topic appears as substring in look-back text
+             (handles noisy look-backs like "...Hillman Foundation Funds
+             Action: Reaching" where the topic is at the tail).
+          2. Look-back is a SUFFIX of an expected topic — covers wrapped
+             topic names where the look-back caught only the trailing
+             fragment ("integration" -> "3D Shape and Space Perception:
+             Cues, integration").
+          3. Look-back is a PREFIX of an expected topic — same idea
+             but for the leading fragment.
+        """
+        if not text or not norm_topics:
+            return text
+        norm = _norm_topic_key(text)
+        if len(norm) < 4:
+            return text
+        for low, orig in norm_topics:
+            if low in norm:
+                return orig
+        # Suffix / prefix match: require at least 6 chars to avoid
+        # accidentally matching tiny common words.
+        if len(norm) >= 6:
+            for low, orig in norm_topics:
+                if low.endswith(norm) or low.startswith(norm):
+                    return orig
+        return text
 
     lines = _join_wrapped_headers(text.split("\n"))
     cur_topic = ""
+    cur_topic_id = ""
     cur_date = ""
     cur_time = ""
     cur_end = ""
@@ -1793,17 +1937,12 @@ def iter_posters(text: str) -> Iterable[Abstract]:
     def flush(poster_state):
         if not poster_state["id"]:
             return None
-        # The poster's own lines: title_lines (uppercase title fragments) +
-        # body lines (authors, affils, abstract).  Concatenate and let
-        # parse_talk_block locate the title/author/body boundary via the
-        # first ';' line — same logic the talk parsers use.
         all_lines = poster_state["title_lines"] + poster_state["body"]
         title, authors_line, body_lines = parse_talk_block(all_lines)
         authors_w_idx, affils = parse_authors_line(authors_line)
         authors = [n for n, _ in authors_w_idx]
         indices = [idx for _, idx in authors_w_idx]
         body_text = normalize_paragraph(body_lines)
-        # Compute mins from session window
         try:
             sh, sm_ = [int(x) for x in cur_time.split(":")] if cur_time else (0, 0)
             eh, em_ = [int(x) for x in cur_end.split(":")] if cur_end else (0, 0)
@@ -1817,21 +1956,66 @@ def iter_posters(text: str) -> Iterable[Abstract]:
             body=body_text, track=cur_topic, kind="poster",
             date=cur_date, time=cur_time, mins=mins, room=cur_room,
             parent_session_time=cur_time,
+            parent_id_explicit=cur_topic_id,
         )
 
+    def look_back_for_topic(idx: int) -> str:
+        """Walk back from line `idx` to find the topic-name lines that
+        appear right before a POSTER_SESS_HEADER_RE match.
+
+        Allows up to two blank lines in the middle of the topic block —
+        column-reorder sometimes interleaves blank L rows when the
+        right column held body text on the same physical row, and the
+        topic name itself may wrap across two lines with a blank between.
+        Stops at body-shaped, funding/acknowledgement, or
+        pattern-matching lines.
+        """
+        candidates: list[str] = []
+        j = idx - 1
+        blanks_inside = 0
+        while j >= 0 and not lines[j].strip():
+            j -= 1
+        while j >= 0 and len(candidates) < 6:
+            s = lines[j].strip()
+            if not s:
+                blanks_inside += 1
+                if blanks_inside > 2:
+                    break  # too many blanks — done
+                j -= 1
+                continue
+            if POSTER_ABS_RE.match(s):
+                break
+            if POSTER_SESS_HEADER_RE.match(s):
+                break
+            if POSTER_TOPIC_HEADER_RE.match(s):
+                break
+            if _looks_funding(s):
+                break
+            if len(s) > 80:
+                break
+            if re.search(r"\.\s+[A-Z]", s):
+                break
+            if s.endswith(".") or s.endswith(") and"):
+                break
+            candidates.insert(0, s)
+            blanks_inside = 0
+            j -= 1
+        return " ".join(candidates).strip()
+
+    import collections as _c
+    _sess_count = _c.Counter()
     poster_state = {"id": "", "title_lines": [], "body": []}
     in_title = False
 
-    for line in lines:
+    for i, line in enumerate(lines):
         s = line.strip()
 
         # Topic-header pattern: "FRIDAY AFTERNOON POSTERS IN BANYAN BREEZEWAY"
         m = POSTER_TOPIC_HEADER_RE.match(s)
         if m:
-            # New poster session block - reset topic until we see a topic name
             cur_room = m.group("room").strip().title()
             cur_topic = ""
-            # Flush any pending poster
+            cur_topic_id = ""
             ab = flush(poster_state)
             if ab:
                 yield ab
@@ -1841,6 +2025,14 @@ def iter_posters(text: str) -> Iterable[Abstract]:
         # Date/time header: "FRIDAY, MAY 15, 3:45 – 6:00 PM, BANYAN BREEZEWAY"
         m = POSTER_SESS_HEADER_RE.match(s)
         if m:
+            # Flush any pending poster — its body ends here, before the
+            # new topic group begins.
+            ab = flush(poster_state)
+            if ab:
+                yield ab
+            poster_state = {"id": "", "title_lines": [], "body": []}
+            in_title = False
+
             try:
                 cur_date = fmt_date(m.group("month"), int(m.group("dom")), 2026)
             except KeyError:
@@ -1863,7 +2055,41 @@ def iter_posters(text: str) -> Iterable[Abstract]:
                     sh = cand_sh
             cur_time = f"{sh:02d}:{sm_:02d}"
             cur_end = f"{eh:02d}:{em_:02d}"
-            cur_room = m.group("room").strip().title()
+            captured_room = m.group("room") or ""
+            if captured_room.strip():
+                cur_room = captured_room.strip().title()
+            # else: keep the previously-set cur_room (room wrapped onto a
+            # continuation line that didn't end up adjacent in the L block).
+
+            # Identify the topic name from the lines immediately preceding
+            # this header.  Then emit a poster-topic Abstract and remember
+            # its id so subsequent posters can parent to it.
+            _sess_count[(cur_date, cur_room)] += 1
+            raw_topic = look_back_for_topic(i)
+            topic_text = _canonicalize_topic(raw_topic)
+            if topic_text:
+                cur_topic = topic_text
+                cur_topic_id = "pt-" + slugify(
+                    f"{cur_date}-{cur_time}-{cur_topic}"
+                )[:90]
+                # topic time = session start - 1, mins = duration + 1.
+                t_total = sh * 60 + sm_ - 1
+                if t_total < 0:
+                    t_total = 0
+                topic_time = f"{t_total // 60:02d}:{t_total % 60:02d}"
+                topic_mins = (eh * 60 + em_) - (sh * 60 + sm_) + 1
+                yield Abstract(
+                    id=cur_topic_id,
+                    title=cur_topic,
+                    authors=[], affils=[],
+                    body="", track="", kind="poster-topic",
+                    date=cur_date, time=topic_time, mins=topic_mins,
+                    room=cur_room,
+                    parent_session_time=cur_time,
+                )
+            else:
+                cur_topic = ""
+                cur_topic_id = ""
             continue
 
         # Abstract start: "<id> UPPERCASE_FIRST_WORD..."
@@ -1905,6 +2131,10 @@ def iter_posters(text: str) -> Iterable[Abstract]:
     ab = flush(poster_state)
     if ab:
         yield ab
+    import sys as _sys
+    print('[dbg] SESS_HEADER count by (date, room):', file=_sys.stderr)
+    for k, v in sorted(_sess_count.items()):
+        print(f'  {v}  {k}', file=_sys.stderr)
 
 
 # ---------------------------------------------------------------------------
@@ -1944,13 +2174,18 @@ _TYPE_TAG: dict[str, str] = {
     "talk": "Type:Talk",
     "talk-session": "Type:TalkSession",
     "poster": "Type:Poster",
+    "poster-topic": "Type:PosterTopic",
 }
 
 
-def _bump_session_start(time_str: str, mins: int) -> tuple[str, int]:
-    """Shift a session's start time DOWN by one minute (mins +1) so its
+def _bump_session_start(time_str: str, mins: int, n: int = 1) -> tuple[str, int]:
+    """Shift a session's start time DOWN by `n` minutes (mins +n) so its
     children at the original start sort strictly after it.  Clamps at 00:00
-    to avoid wrapping past midnight on edge cases."""
+    to avoid wrapping past midnight on edge cases.
+
+    Poster sessions use n=2 to leave room for the intermediate topic level
+    at start-1 to also sort strictly between sched and posters.
+    """
     if not time_str or ":" not in time_str:
         return time_str, mins
     try:
@@ -1958,10 +2193,10 @@ def _bump_session_start(time_str: str, mins: int) -> tuple[str, int]:
     except ValueError:
         return time_str, mins
     total = h * 60 + m
-    if total <= 0:
+    if total < n:
         return time_str, mins
-    total -= 1
-    return f"{total // 60:02d}:{total % 60:02d}", mins + 1
+    total -= n
+    return f"{total // 60:02d}:{total % 60:02d}", mins + n
 
 
 def _build_people_refs_for(ab: Abstract, owner_id: str) -> list[dict]:
@@ -2003,7 +2238,9 @@ def abstract_to_program(ab: Abstract,
     if type_tag and type_tag not in tags:
         tags.append(type_tag)
     parent_id = ""
-    if session_lookup and ab.parent_session_time:
+    if ab.parent_id_explicit:
+        parent_id = ab.parent_id_explicit
+    elif session_lookup and ab.parent_session_time:
         ab_room = _norm_room(ab.room)
         parent_id = session_lookup.get(
             (ab.date, ab.parent_session_time, ab_room), ""
@@ -2074,8 +2311,12 @@ def schedule_entry_to_program(e: ScheduleEntry, idx: int) -> dict:
     mins_val = (e.end[0] - e.start[0]) * 60 + (e.end[1] - e.start[1])
     mins_val = mins_val if mins_val > 0 else 0
     time_str = fmt_time(e.start)
-    if e.kind in ("Symposium", "Talk Session", "Poster Session"):
-        time_str, mins_val = _bump_session_start(time_str, mins_val)
+    if e.kind == "Poster Session":
+        # 3-level hierarchy: sched -> topic -> poster.  Bump by 2 minutes
+        # so the topic at start-1 also sorts strictly between us and posters.
+        time_str, mins_val = _bump_session_start(time_str, mins_val, n=2)
+    elif e.kind in ("Symposium", "Talk Session"):
+        time_str, mins_val = _bump_session_start(time_str, mins_val, n=1)
     tags: list[str] = []
     type_tag = _TYPE_TAG.get(e.kind)
     if type_tag:
@@ -2167,7 +2408,17 @@ for ab in iter_talk_sessions(talk_text):
     n_talk += 1
 
 n_poster = 0
-for ab in iter_posters(poster_text):
+# Build the canonical topic set from poster-session schedule rows so
+# iter_posters can disambiguate noisy look-back results (funding lines,
+# affiliations, stray page-header fragments) against known topics.
+expected_topics: set[str] = set()
+for e in schedule:
+    if e.kind == "Poster Session":
+        for t in e.sub_topics:
+            t = t.strip()
+            if t:
+                expected_topics.add(t)
+for ab in iter_posters(poster_text, expected_topics=expected_topics):
     program.append(abstract_to_program(ab, session_lookup))
     n_poster += 1
 

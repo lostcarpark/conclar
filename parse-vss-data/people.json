@@ -1778,7 +1778,6 @@
     "tags": [
       "Justus Liebig University Giessen",
       "Neural Computation Group, Department",
-      "Neural Computation Group, Department          SCENES",
       "Neural Computation Group, Justus Liebig University of Giessen, Germany",
       "Center for",
       "Justus Liebig University",
@@ -2681,8 +2680,7 @@
       "26.312",
       "26.313",
       "26.401",
-      "33.457",
-      "36.346"
+      "33.457"
     ],
     "links": {},
     "bio": ""
@@ -4975,6 +4973,23 @@
     "bio": ""
   },
   {
+    "id": "sharvan-murlidaran",
+    "name": [
+      "Sharvan",
+      "Murlidaran",
+      "",
+      ""
+    ],
+    "tags": [
+      "Department of Psychological and Brain Sciences, UC Santa Barbara"
+    ],
+    "prog": [
+      "25.14"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "miguel-p-eckstein",
     "name": [
       "Miguel P.",
@@ -5562,6 +5577,24 @@
     "bio": ""
   },
   {
+    "id": "cate-trentin",
+    "name": [
+      "Cate",
+      "Trentin",
+      "",
+      ""
+    ],
+    "tags": [
+      "Vrije Universiteit Amsterdam",
+      "Institute for Brain and"
+    ],
+    "prog": [
+      "25.27"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "chris-n-l-olivers",
     "name": [
       "Chris N.L.",
@@ -5752,13 +5785,10 @@
       ""
     ],
     "tags": [
-      "Vrije Universiteit Amsterdam, the Netherlands",
-      "Vrije Universiteit Amsterdam",
-      "Institute Brain and Behavior Amsterdam (iBBA)"
+      "Vrije Universiteit Amsterdam, the Netherlands"
     ],
     "prog": [
-      "31.15",
-      "42.12"
+      "31.15"
     ],
     "links": {},
     "bio": ""
@@ -8733,6 +8763,23 @@
     "bio": ""
   },
   {
+    "id": "kyra-veprek",
+    "name": [
+      "Kyra",
+      "Veprek",
+      "",
+      ""
+    ],
+    "tags": [
+      "Brown University"
+    ],
+    "prog": [
+      "35.28"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "cristina-de-la-malla",
     "name": [
       "Cristina de la",
@@ -8741,13 +8788,11 @@
       ""
     ],
     "tags": [
-      "Vision and Control of Action (VISCA) Group, Department of Cognition, Development and Psychology of Education, Institut de Neurociències, Universitat de Barcelona, Barcelona, Catalonia, Spain",
-      "University of Barcelona"
+      "Vision and Control of Action (VISCA) Group, Department of Cognition, Development and Psychology of Education, Institut de Neurociències, Universitat de Barcelona, Barcelona, Catalonia, Spain"
     ],
     "prog": [
       "sched-0070",
-      "33.449",
-      "53.438"
+      "33.449"
     ],
     "links": {},
     "bio": ""
@@ -9340,6 +9385,24 @@
     "bio": ""
   },
   {
+    "id": "docky-duncan",
+    "name": [
+      "Docky",
+      "Duncan",
+      "",
+      ""
+    ],
+    "tags": [
+      "Vrije Universiteit Amsterdam",
+      "Institute Brain and Behavior Amsterdam (iBBA)"
+    ],
+    "prog": [
+      "42.12"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "dirk-van-moorselaar",
     "name": [
       "Dirk van",
@@ -9870,7 +9933,7 @@
       ""
     ],
     "tags": [
-      "Neural Computation Group, Department          SCENES"
+      "Neural Computation Group, Department"
     ],
     "prog": [
       "51.12"
@@ -9887,7 +9950,7 @@
       ""
     ],
     "tags": [
-      "Neural Computation Group, Department          SCENES",
+      "Neural Computation Group, Department",
       "Justus Liebig University"
     ],
     "prog": [
@@ -11553,12 +11616,10 @@
       ""
     ],
     "tags": [
-      "UC Santa Barbara",
-      "Department of Psychological and Brain Sciences, UC Santa Barbara"
+      "UC Santa Barbara"
     ],
     "prog": [
-      "54.22",
-      "25.14"
+      "54.22"
     ],
     "links": {},
     "bio": ""
@@ -12151,8 +12212,7 @@
     ],
     "prog": [
       "55.15",
-      "33.301",
-      "56.348"
+      "33.301"
     ],
     "links": {},
     "bio": ""
@@ -16430,12 +16490,10 @@
       ""
     ],
     "tags": [
-      "Vrije Universiteit Amsterdam",
-      "Institute for Brain and"
+      "Vrije Universiteit Amsterdam"
     ],
     "prog": [
-      "23.318",
-      "25.27"
+      "23.318"
     ],
     "links": {},
     "bio": ""
@@ -21132,6 +21190,7 @@
       "23.467",
       "23.468",
       "23.472",
+      "35.28",
       "23.463"
     ],
     "links": {},
@@ -33903,6 +33962,23 @@
     "bio": ""
   },
   {
+    "id": "marsia-carrasco",
+    "name": [
+      "Marsia",
+      "Carrasco",
+      "",
+      ""
+    ],
+    "tags": [
+      "NYU"
+    ],
+    "prog": [
+      "36.346"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "feiyi-wang",
     "name": [
       "Feiyi",
@@ -38615,9 +38691,9 @@
     "bio": ""
   },
   {
-    "id": "yuichi-cortex-takao",
+    "id": "yuichi-takao",
     "name": [
-      "Yuichi CORTEX",
+      "Yuichi",
       "Takao",
       "",
       ""
@@ -45421,6 +45497,23 @@
     "bio": ""
   },
   {
+    "id": "cris-de-la-malla",
+    "name": [
+      "Cris de la",
+      "Malla",
+      "",
+      ""
+    ],
+    "tags": [
+      "University of Barcelona"
+    ],
+    "prog": [
+      "53.438"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "jacob-l-lader",
     "name": [
       "Jacob L.",
@@ -45558,6 +45651,27 @@
     "bio": ""
   },
   {
+    "id": "yannick-sauer",
+    "name": [
+      "Yannick",
+      "Sauer",
+      "",
+      ""
+    ],
+    "tags": [
+      "University of Tübingen",
+      "Carl Zeiss Vision International GmbH",
+      "ZEISS Vision Science Lab, Institute for Ophthalmic Research, University of Tübingen, Germany",
+      "Carl Zeiss Vision International GmbH, Germany"
+    ],
+    "prog": [
+      "53.442",
+      "53.443"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
     "id": "rajat-agarwala",
     "name": [
       "Rajat",
@@ -45663,27 +45777,6 @@
     "prog": [
       "53.442",
       "53.443"
-    ],
-    "links": {},
-    "bio": ""
-  },
-  {
-    "id": "yannick-pavilion-sauer",
-    "name": [
-      "Yannick PAVILION",
-      "Sauer",
-      "",
-      ""
-    ],
-    "tags": [
-      "ZEISS Vision Science Lab, Institute for Ophthalmic Research, University of Tübingen, Germany",
-      "Carl Zeiss Vision International GmbH, Germany",
-      "University of Tübingen",
-      "Carl Zeiss Vision International GmbH"
-    ],
-    "prog": [
-      "53.443",
-      "53.442"
     ],
     "links": {},
     "bio": ""
@@ -48639,6 +48732,23 @@
     ],
     "prog": [
       "56.347"
+    ],
+    "links": {},
+    "bio": ""
+  },
+  {
+    "id": "philip-guan",
+    "name": [
+      "Philip",
+      "Guan",
+      "",
+      ""
+    ],
+    "tags": [
+      "Reality Lab Research, Meta"
+    ],
+    "prog": [
+      "56.348"
     ],
     "links": {},
     "bio": ""
