@@ -20,8 +20,8 @@
   "TIMEZONECODE": "EDT",
   "INTERACTIVE": true,
   "HEADER": {
-    "IMG_SRC": "",
-    "IMG_ALT_TEXT": "",
+    "IMG_SRC": "public/vss2026_banner_primary-2048x356.png",
+    "IMG_ALT_TEXT": "VSS 2026 banner image",
     "LINEFEED_AFTER_URL": false
   },
   "NAVIGATION": {
