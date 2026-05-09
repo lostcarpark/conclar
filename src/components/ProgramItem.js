@@ -62,7 +62,18 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     if (directMatchedIds.has(item.id)) return allChildItems;
     return allChildItems.filter((c) => directMatchedIds.has(c.id));
   })();
-  const hasChildren = childItems.length > 0;
+  // `hasChildren` means "this item is a parent of something" — used for
+  // the .program-item--parent class regardless of whether a filter is
+  // currently hiding the children.
+  const hasChildren = allChildItems.length > 0;
+  // `childMatched` is true when at least one of this parent's children
+  // is in the active filter's direct-match set.  Used to auto-expand a
+  // session when search/filter has surfaced something inside it (so the
+  // user actually sees what matched, even though sessions are otherwise
+  // collapsed by default).
+  const childMatched =
+    !!directMatchedIds &&
+    allChildItems.some((c) => directMatchedIds.has(c.id));
 
   function toggleExpanded() {
     if (configData.INTERACTIVE) {
@@ -116,9 +127,11 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
 
     // Toast when cascading toggled hidden children — i.e. the parent has
     // children, AND some of those children weren't visible at the time
-    // of the click (filter narrowed them out).  Avoids surprising the
-    // user with "I didn't see those, why are they in my schedule?".
-    const hiddenCount = allChildItems.length - childItems.length;
+    // of the click (either the parent is collapsed, or a filter narrowed
+    // them out).  Avoids surprising the user with "I didn't see those,
+    // why are they in my schedule?".
+    const visibleNow = showChildren ? childItems.length : 0;
+    const hiddenCount = allChildItems.length - visibleNow;
     if (allChildItems.length > 0 && hiddenCount > 0) {
       const total = allChildItems.length;
       const noun = childrenTypeLabel();
@@ -399,6 +412,12 @@ const parentTitle = parentItem ? parentItem.title : null;
 
   const [ref, bounds] = useMeasure();
   const showExpanded = !configData.INTERACTIVE || expanded || forceExpanded;
+  // Sessions render collapsed by default. Children show when:
+  //   - the user has clicked to expand the parent, OR
+  //   - a filter has surfaced one of this parent's children (so the
+  //     match is actually visible without an extra click).
+  const showChildren =
+    hasChildren && childItems.length > 0 && (showExpanded || childMatched);
   const [detailsVisible, setDetailsVisible] = useState(showExpanded);
 
   useEffect(() => {
@@ -484,8 +503,10 @@ const parentTitle = parentItem ? parentItem.title : null;
         )}
       </div>
 
-      {/* PR 1: nested children rendered inside parent's DOM tree. */}
-      {hasChildren && (
+      {/* PR 1: nested children rendered inside parent's DOM tree.
+          Phase 1 collapse: hidden by default, shown when the parent is
+          expanded OR when a filter has surfaced a matching child. */}
+      {showChildren && (
         <ul className="item-children">
           {childItems.map((child) => (
             <li key={child.id}>
