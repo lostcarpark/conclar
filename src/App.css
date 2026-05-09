@@ -1031,6 +1031,13 @@ div.switch-wrapper {
   content: ", ";
 }
 
+/* On person pages, affiliations are separated with semicolons because
+   institution names themselves often contain commas ("University of
+   California, Berkeley") and a comma separator gets ambiguous. */
+.person-tags .item-tag:not(:last-child)::after {
+  content: ";";
+}
+
 /* To put duration on its own line, remove this bit. */
 .item-duration {
   display: inline-block;
