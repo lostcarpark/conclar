@@ -347,6 +347,43 @@ const model = {
     updateLocalStore(state.selectionStore, state.currentUserId);
   }),
 
+  // PR 3: bulk variants used when toggling a session cascades to its
+  // talks/posters.  One pass through the store + one localStorage write
+  // + one sync push, instead of N round-trips.  Only marks `dirty` for
+  // ids whose state actually changes, so unchanged children don't churn
+  // through sync.
+  addSelections: action((state, ids) => {
+    if (!Array.isArray(ids) || ids.length === 0) return;
+    const existing = new Set(state.mySelections);
+    let changed = false;
+    for (const id of ids) {
+      const was = state.selectionStore[id]?.selected === true;
+      if (!existing.has(id)) {
+        state.mySelections.push(id);
+        existing.add(id);
+      }
+      if (!was) {
+        state.selectionStore[id] = { selected: true, dirty: true };
+        changed = true;
+      }
+    }
+    if (changed) updateLocalStore(state.selectionStore, state.currentUserId);
+  }),
+  removeSelections: action((state, ids) => {
+    if (!Array.isArray(ids) || ids.length === 0) return;
+    const idsSet = new Set(ids);
+    state.mySelections = state.mySelections.filter((s) => !idsSet.has(s));
+    let changed = false;
+    for (const id of ids) {
+      const was = state.selectionStore[id]?.selected === true;
+      if (was) {
+        state.selectionStore[id] = { selected: false, dirty: true };
+        changed = true;
+      }
+    }
+    if (changed) updateLocalStore(state.selectionStore, state.currentUserId);
+  }),
+
   setShowSyncWarning: action((state, show) => {
     state.showSyncWarning = show;
     if (!show) {
@@ -369,6 +406,30 @@ const model = {
   }),
   removeSelectionAndSync: thunk(async (actions, id, { getState }) => {
     actions.removeSelection(id);
+    if (SyncService.isSyncEnabled() && !syncWarningShown) {
+      const state = getState();
+      if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {
+        syncWarningShown = true;
+        actions.setShowSyncWarning(true);
+      }
+    }
+    await coalescedSync(actions);
+  }),
+
+  // PR 3: bulk-add and bulk-remove with one sync push at the end.
+  addSelectionsAndSync: thunk(async (actions, ids, { getState }) => {
+    actions.addSelections(ids);
+    if (SyncService.isSyncEnabled() && !syncWarningShown) {
+      const state = getState();
+      if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {
+        syncWarningShown = true;
+        actions.setShowSyncWarning(true);
+      }
+    }
+    await coalescedSync(actions);
+  }),
+  removeSelectionsAndSync: thunk(async (actions, ids, { getState }) => {
+    actions.removeSelections(ids);
     if (SyncService.isSyncEnabled() && !syncWarningShown) {
       const state = getState();
       if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {

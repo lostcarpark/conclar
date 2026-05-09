@@ -22,10 +22,13 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
 
   const selected = useStoreState((state) => state.isSelected(item.id));
-  const { addSelection, removeSelection } = useStoreActions((actions) => ({
-    addSelection: actions.addSelectionAndSync,
-    removeSelection: actions.removeSelectionAndSync,
+  const { addSelections, removeSelections } = useStoreActions((actions) => ({
+    addSelections: actions.addSelectionsAndSync,
+    removeSelections: actions.removeSelectionsAndSync,
   }));
+  // Full programChildren map so we can BFS descendants when this item
+  // is a session being toggled (PR 3 cascade).
+  const programChildrenMap = useStoreState((state) => state.programChildren);
 
   const expanded = useStoreState((state) => state.isExpanded(item.id));
   const { expandItem, collapseItem } = useStoreActions((actions) => ({
@@ -67,9 +70,31 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     }
   }
 
+  // PR 3: collect this item's id plus every descendant's id (BFS through
+  // programChildren), so toggling a session checkbox cascades to all of
+  // its talks/posters in one bulk action.
+  function gatherSelfAndDescendants() {
+    const out = [item.id];
+    const seen = new Set([item.id]);
+    const queue = [item.id];
+    while (queue.length) {
+      const id = queue.shift();
+      const kids = programChildrenMap[id] || [];
+      for (const k of kids) {
+        if (!seen.has(k.id)) {
+          seen.add(k.id);
+          out.push(k.id);
+          queue.push(k.id);
+        }
+      }
+    }
+    return out;
+  }
+
   function handleSelected(event) {
-    if (event.target.checked) addSelection(item.id);
-    else removeSelection(item.id);
+    const ids = gatherSelfAndDescendants();
+    if (event.target.checked) addSelections(ids);
+    else removeSelections(ids);
   }
 
   function getRelativeTime(item) {
@@ -183,6 +208,31 @@ const parentTitle = parentItem ? parentItem.title : null;
       );
     });
   }
+
+  // Inline byline — the author/moderator names rendered as plain text on
+  // the always-visible header. Plain text (not Links) because this lives
+  // inside the .item-header <button>, and <a> inside <button> is invalid
+  // HTML. The expanded-view <Participant> list is suppressed (see JSX
+  // below) so we don't double up.
+  const moderatorLabel =
+    (configData.PEOPLE &&
+      configData.PEOPLE.MODERATORS &&
+      configData.PEOPLE.MODERATORS.MODERATOR_LABEL) ||
+    "(moderator)";
+  const peopleInline =
+    item.people && item.people.length ? (
+      <div className="item-byline">
+        {item.people.map((person, i) => (
+          <span key={person.id}>
+            {i > 0 && ", "}
+            {person.name}
+            {person.id === item.moderator && (
+              <span className="moderator"> {moderatorLabel}</span>
+            )}
+          </span>
+        ))}
+      </div>
+    ) : null;
   const safeDesc = DOMPurify.sanitize(
     item.desc,
     configData.ITEM_DESCRIPTION.PURIFY_OPTIONS
@@ -354,6 +404,7 @@ const parentTitle = parentItem ? parentItem.title : null;
             {typeBadge}
             {chevron}
           </h3>
+          {peopleInline}
           <div className="item-line2">
             <div className="item-location">{locations}</div>
             <div className="item-start-time">{startTime}</div>
@@ -364,9 +415,6 @@ const parentTitle = parentItem ? parentItem.title : null;
           <animated.div className="item-details" style={itemExpandedStyle} id={'details-' + id} role="region" aria-labelledby={'header-' + id}>
             <div className="item-details-expanded" ref={ref}>
               {permaLink}
-              <div className="item-people">
-                <ul>{people}</ul>
-              </div>
               <div className="item-tags">{tags}</div>
               <div
                 className="item-description"

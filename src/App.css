@@ -912,6 +912,18 @@ div.switch-wrapper {
   margin-bottom: 0.15rem;
 }
 
+/* Authors / moderators rendered inline below the title in the
+   always-visible item header. */
+.item-byline {
+  font-size: 0.9em;
+  color: var(--program-tags-fg);
+  margin: 0.15rem 0 0.1rem 0;
+  line-height: 1.3;
+}
+.item-byline .moderator {
+  font-style: italic;
+}
+
 /* Item Type pill (Poster / Talk / Symposium / etc.) shown next to the
    title in the always-visible header. Default colors are overridden by
    the [data-type="..."] rules below, grouped by activity family. */
@@ -1420,9 +1432,14 @@ div.uninteractive div.info {
 /* === PR 1: tree-aware nesting (sessions contain talks/posters) =========== */
 
 /* Parents — the session row itself.  A subtle accent on the left edge
-   tells the reader this row is a container. */
+   tells the reader this row is a container. The wrap + 100%-basis on
+   .item-children below pushes the child list onto its own full-width
+   row instead of sharing horizontal space with .item-entry, so every
+   parent box ends up the same width regardless of how many children
+   it contains. */
 .item.program-item--parent {
   border-left: 4px solid #5a8acb;
+  flex-wrap: wrap;
 }
 .item.program-item--parent > .item-entry .item-title {
   font-weight: 600;
@@ -1434,9 +1451,16 @@ div.uninteractive div.info {
   margin: 0 0 0 16px;
   padding: 4px 0 8px 16px;
   border-left: 1px solid #ddd;
+  flex-basis: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 .item-children > li {
   margin: 6px 0;
+}
+.item-children > li > .item {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Children themselves no longer need margin-left/border — DOM nesting
