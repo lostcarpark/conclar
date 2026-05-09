@@ -913,12 +913,24 @@ div.switch-wrapper {
 }
 
 /* Authors / moderators rendered inline below the title in the
-   always-visible item header. */
+   always-visible item header. Names are clickable Links; we keep them
+   in the muted byline color so they don't dominate, and only surface
+   the underline on hover/focus. */
 .item-byline {
   font-size: 0.9em;
   color: var(--program-tags-fg);
   margin: 0.15rem 0 0.1rem 0;
   line-height: 1.3;
+}
+.item-byline-link,
+.item-byline-link:visited {
+  color: inherit;
+  text-decoration: none;
+}
+.item-byline-link:hover,
+.item-byline-link:focus {
+  color: var(--link-fg);
+  text-decoration: underline;
 }
 .item-byline .moderator {
   font-style: italic;

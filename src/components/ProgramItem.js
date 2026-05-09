@@ -209,11 +209,12 @@ const parentTitle = parentItem ? parentItem.title : null;
     });
   }
 
-  // Inline byline — the author/moderator names rendered as plain text on
-  // the always-visible header. Plain text (not Links) because this lives
-  // inside the .item-header <button>, and <a> inside <button> is invalid
-  // HTML. The expanded-view <Participant> list is suppressed (see JSX
-  // below) so we don't double up.
+  // Inline byline — the author/moderator names rendered on the
+  // always-visible header. Each name is a Link to /people/<id>; the
+  // byline div sits OUTSIDE the .item-header <button> (because <a>
+  // inside <button> is invalid HTML) but INSIDE the .item-entry so it
+  // still reads as part of the same row. Each link stops propagation
+  // so navigating to the person page doesn't also toggle expand.
   const moderatorLabel =
     (configData.PEOPLE &&
       configData.PEOPLE.MODERATORS &&
@@ -225,7 +226,13 @@ const parentTitle = parentItem ? parentItem.title : null;
         {item.people.map((person, i) => (
           <span key={person.id}>
             {i > 0 && ", "}
-            {person.name}
+            <Link
+              to={"/people/" + person.id}
+              className="item-byline-link"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {person.name}
+            </Link>
             {person.id === item.moderator && (
               <span className="moderator"> {moderatorLabel}</span>
             )}
@@ -404,13 +411,13 @@ const parentTitle = parentItem ? parentItem.title : null;
             {typeBadge}
             {chevron}
           </h3>
-          {peopleInline}
           <div className="item-line2">
             <div className="item-location">{locations}</div>
             <div className="item-start-time">{startTime}</div>
             {duration}
           </div>
         </button>
+        {peopleInline}
         {detailsVisible && (
           <animated.div className="item-details" style={itemExpandedStyle} id={'details-' + id} role="region" aria-labelledby={'header-' + id}>
             <div className="item-details-expanded" ref={ref}>
