@@ -872,7 +872,9 @@ div.switch-wrapper {
   max-width: 100%;
   flex-grow: 1;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* No flex-wrap here: combining column-direction with wrap causes
+     long children to flow into NEW COLUMNS rather than wrapping their
+     text, which breaks long titles and bylines. */
   word-break: break-word;
   /* Allow this flex child to shrink below its intrinsic content width so
      long titles wrap within themselves instead of pushing the whole
@@ -884,6 +886,7 @@ div.switch-wrapper {
      the whole row reads as a click target. */
   border-radius: 4px;
   transition: background-color 0.12s ease;
+  cursor: pointer;
 }
 
 .item-entry:hover {
@@ -913,6 +916,11 @@ div.switch-wrapper {
     -moz-osx-font-smoothing: inherit;
     -webkit-appearance: none;
     text-align: inherit;
+    /* User-agent styles set white-space: nowrap on <button> in many
+       browsers, which inherits into the <h3> title and prevents the
+       title from wrapping no matter what overflow-wrap rules say.
+       Explicitly reset. */
+    white-space: normal;
 }
 
 
@@ -936,6 +944,7 @@ div.switch-wrapper {
     transparent
   );
   transition: background-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
 }
 
 .item-header:hover .item-chevron,
@@ -1192,6 +1201,12 @@ div.switch-wrapper {
   overflow: hidden;
   /* Give enough space for the focus ring on the header above. */
   margin-top: 3px;
+  /* Constrain width so long descriptions don't push the whole entry
+     past the viewport. */
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* .item-entry > .item-details.item-details-expanded {
@@ -1202,6 +1217,17 @@ div.switch-wrapper {
   padding: 0.5rem;
   border-radius: 0.5rem;
   overflow: auto;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.item-description {
+  /* Long abstracts should wrap rather than push the container wide. */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+  min-width: 0;
 }
 
 /* Sharing on My Schedule. */
