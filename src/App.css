@@ -1581,7 +1581,23 @@ div.uninteractive div.info {
    it contains. */
 .item.program-item--parent {
   border-left: 4px solid #5a8acb;
-  flex-wrap: wrap;
+  /* Override the parent .item's display:flex with display:grid.  Grid's
+     `minmax(0, 1fr)` track gives us a column that shrinks to fit (so
+     long titles wrap) and expands to fill — flex's shrink algorithm
+     was unreliable here even with min-width: 0 on every flex child. */
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "selection entry"
+    "spacer    children";
+  flex-wrap: initial; /* not used in grid mode */
+}
+.item.program-item--parent > .item-selection { grid-area: selection; }
+.item.program-item--parent > .item-entry { grid-area: entry; min-width: 0; }
+.item.program-item--parent > .item-children {
+  grid-area: children;
+  /* Reset flex-basis since grid layout doesn't need it. */
+  flex-basis: auto;
 }
 .item.program-item--parent > .item-entry .item-title {
   font-weight: 600;
