@@ -174,7 +174,10 @@ export class ProgramData {
             item.people[index] = fullPerson;
           }
         }
-        item.people.sort((a, b) => a.sortname.localeCompare(b.sortname));
+        // Author order is meaningful in scientific publications (first
+        // author, senior author, etc.), so preserve the order supplied
+        // by the source data instead of sorting alphabetically by
+        // sortname here.
       }
     }
   }
