@@ -873,6 +873,18 @@ div.switch-wrapper {
      specifically on parent items, which have flex-wrap:wrap on their
      .item container (so .item-children can land on its own row). */
   min-width: 0;
+  /* Subtle row-hover highlight, coordinated with the chevron tint so
+     the whole row reads as a click target. */
+  border-radius: 4px;
+  transition: background-color 0.12s ease;
+}
+
+.item-entry:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--program-item-chevron-collapsed) 8%,
+    transparent
+  );
 }
 
 .item-header {
