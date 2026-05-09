@@ -449,6 +449,15 @@ const parentTitle = parentItem ? parentItem.title : null;
       ""
     );
 
+  // An item is "expandable" if its expanded panel has anything to show —
+  // a description, links, or nested children. Items without any of those
+  // (e.g. Break / Lounge rows that are pure schedule markers) render with
+  // no chevron, no toggle, and the permalink in the header instead.
+  const hasExpandableContent =
+    !!(safeDesc && String(safeDesc).trim()) ||
+    hasChildren ||
+    links.length > 0;
+
   return (
     <div id={id}
          className={
@@ -471,24 +480,48 @@ const parentTitle = parentItem ? parentItem.title : null;
           </label>
         </div>
       </div>
-      <div className="item-entry" onClick={toggleExpanded}>
-        <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>
-          {parentTitle && (
-            <div className="item-parent">{parentTitle}</div>
-          )}
-          <h3 className="item-title">
-            <span className="item-title-text">{item.title}</span>
-            {typeBadge}
-            {chevron}
-          </h3>
-          <div className="item-line2">
-            <div className="item-location">{locations}</div>
-            <div className="item-start-time">{startTime}</div>
-            {duration}
+      <div
+        className="item-entry"
+        onClick={hasExpandableContent ? toggleExpanded : undefined}
+      >
+        {hasExpandableContent ? (
+          <button id={'header-' + id} className="item-header" aria-expanded={showExpanded} aria-controls={'details-' + id}>
+            {parentTitle && (
+              <div className="item-parent">{parentTitle}</div>
+            )}
+            <h3 className="item-title">
+              <span className="item-title-text">{item.title}</span>
+              {typeBadge}
+              {chevron}
+            </h3>
+            <div className="item-line2">
+              <div className="item-location">{locations}</div>
+              <div className="item-start-time">{startTime}</div>
+              {duration}
+            </div>
+          </button>
+        ) : (
+          // Static (non-expandable) header — same shape as the button
+          // version but renders as a plain div, with the permalink taking
+          // the chevron's slot since there's no expanded panel to host it.
+          <div className="item-header item-header--static">
+            {parentTitle && (
+              <div className="item-parent">{parentTitle}</div>
+            )}
+            <h3 className="item-title">
+              <span className="item-title-text">{item.title}</span>
+              {typeBadge}
+              {permaLink}
+            </h3>
+            <div className="item-line2">
+              <div className="item-location">{locations}</div>
+              <div className="item-start-time">{startTime}</div>
+              {duration}
+            </div>
           </div>
-        </button>
+        )}
         {peopleInline}
-        {detailsVisible && (
+        {hasExpandableContent && detailsVisible && (
           <animated.div className="item-details" style={itemExpandedStyle} id={'details-' + id} role="region" aria-labelledby={'header-' + id}>
             <div className="item-details-expanded" ref={ref}>
               {permaLink}

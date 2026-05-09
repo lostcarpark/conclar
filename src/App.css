@@ -1029,6 +1029,14 @@ div.switch-wrapper {
   opacity: 0.85;
 }
 
+/* Static (non-expandable) header — pure schedule rows like Breaks and
+   Lounges that have no description, links, or children. Cursor stays
+   as default since the row isn't clickable. The permalink hosted in
+   the title row still floats right (.item-permalink). */
+.item-header--static {
+  cursor: default;
+}
+
 /* Item Type pill (Poster / Talk / Symposium / etc.) shown next to the
    title in the always-visible header. Default colors are overridden by
    the [data-type="..."] rules below, grouped by activity family. */
