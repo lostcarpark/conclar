@@ -334,7 +334,7 @@ export class ProgramData {
     // Special-case the "Type" filter so Talk and Poster (the two dominant
     // categories) lead the list, parent-session rows are suppressed, and
     // everything else follows alphabetically.
-    const TYPE_PRIORITY = ["Talk", "Poster"];
+    const TYPE_PRIORITY = ["Talk", "Poster", "Symposium"];
     const TYPE_HIDDEN = ["TalkSession", "PosterSession", "PosterTopic"];
     for (const tagList in tags) {
       if (!Array.isArray(tags[tagList])) continue;

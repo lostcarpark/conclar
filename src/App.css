@@ -970,12 +970,15 @@ div.switch-wrapper {
   border-radius: 1em;
 }
 
-/* Talk family — blues / purple / red for the most prominent sessions. */
-.item-type-badge[data-type="Talk"]         { background-color: #1d4ed8; }
-.item-type-badge[data-type="TalkSession"]  { background-color: #1e40af; }
-.item-type-badge[data-type="Symposium"]    { background-color: #6d28d9; }
-.item-type-badge[data-type="Keynote"]      { background-color: #b91c1c; }
-.item-type-badge[data-type="Workshop"]     { background-color: #0d9488; }
+/* Talk family — blues / purple / red for the most prominent sessions.
+   "Symposium Talk" sits between Talk (blue) and Symposium (violet) in
+   indigo, since it's a talk delivered inside a symposium. */
+.item-type-badge[data-type="Talk"]            { background-color: #1d4ed8; }
+.item-type-badge[data-type="TalkSession"]     { background-color: #1e40af; }
+.item-type-badge[data-type="Symposium Talk"]  { background-color: #6366f1; }
+.item-type-badge[data-type="Symposium"]       { background-color: #6d28d9; }
+.item-type-badge[data-type="Keynote"]         { background-color: #b91c1c; }
+.item-type-badge[data-type="Workshop"]        { background-color: #0d9488; }
 
 /* Poster family — amber. */
 .item-type-badge[data-type="Poster"]        { background-color: #d97706; }
