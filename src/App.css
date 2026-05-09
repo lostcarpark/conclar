@@ -891,7 +891,12 @@ div.switch-wrapper {
     border: none;
     margin: 0;
     padding: 0;
-    width: auto;
+    /* Explicitly fill the available width of .item-entry and allow
+       shrinking so long titles wrap inside the title element instead
+       of letting the button overflow horizontally. */
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     overflow: visible;
     background: transparent;
     color: inherit;
@@ -902,6 +907,7 @@ div.switch-wrapper {
     -webkit-appearance: none;
     text-align: inherit;
 }
+
 
 .item-chevron {
   float: right;
@@ -942,6 +948,11 @@ div.switch-wrapper {
   font-weight: bold;
   margin: 0;
   font-size: inherit;
+  /* Allow long titles to wrap rather than overflow.  word-break is
+     inherited from .item-entry, but explicit overflow-wrap also
+     handles edge cases with long unbreakable tokens. */
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
 /* Parent session kicker shown above the title for child items
