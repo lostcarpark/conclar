@@ -477,7 +477,7 @@ const parentTitle = parentItem ? parentItem.title : null;
             <div className="item-parent">{parentTitle}</div>
           )}
           <h3 className="item-title">
-            {item.title}
+            <span className="item-title-text">{item.title}</span>
             {typeBadge}
             {chevron}
           </h3>
