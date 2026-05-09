@@ -22,10 +22,13 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
 
   const selected = useStoreState((state) => state.isSelected(item.id));
-  const { addSelections, removeSelections } = useStoreActions((actions) => ({
-    addSelections: actions.addSelectionsAndSync,
-    removeSelections: actions.removeSelectionsAndSync,
-  }));
+  const { addSelections, removeSelections, showNotification } = useStoreActions(
+    (actions) => ({
+      addSelections: actions.addSelectionsAndSync,
+      removeSelections: actions.removeSelectionsAndSync,
+      showNotification: actions.showNotification,
+    })
+  );
   // Full programChildren map so we can BFS descendants when this item
   // is a session being toggled (PR 3 cascade).
   const programChildrenMap = useStoreState((state) => state.programChildren);
@@ -91,10 +94,39 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     return out;
   }
 
+  // Plural label for the children's type, used in the cascade toast.
+  // Looks at the first child's "Type" tag and best-effort pluralizes.
+  function childrenTypeLabel() {
+    if (!allChildItems.length) return "items";
+    const typeTag = (allChildItems[0].tags || []).find(
+      (t) => t && typeof t === "object" && t.category === "Type"
+    );
+    const label = typeTag && typeof typeTag.label === "string" ? typeTag.label : "";
+    if (/^talks?$/i.test(label)) return "talks";
+    if (/^posters?$/i.test(label)) return "posters";
+    if (label) return label.toLowerCase() + (label.endsWith("s") ? "" : "s");
+    return "items";
+  }
+
   function handleSelected(event) {
     const ids = gatherSelfAndDescendants();
-    if (event.target.checked) addSelections(ids);
+    const checked = event.target.checked;
+    if (checked) addSelections(ids);
     else removeSelections(ids);
+
+    // Toast when cascading toggled hidden children — i.e. the parent has
+    // children, AND some of those children weren't visible at the time
+    // of the click (filter narrowed them out).  Avoids surprising the
+    // user with "I didn't see those, why are they in my schedule?".
+    const hiddenCount = allChildItems.length - childItems.length;
+    if (allChildItems.length > 0 && hiddenCount > 0) {
+      const total = allChildItems.length;
+      const noun = childrenTypeLabel();
+      const verb = checked ? "added to" : "removed from";
+      showNotification(
+        `All ${total} ${noun} in “${item.title}” ${verb} My Schedule.`
+      );
+    }
   }
 
   function getRelativeTime(item) {

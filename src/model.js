@@ -84,6 +84,22 @@ const model = {
   onLine: window.navigator.onLine,
   darkMode: localStorage.getItem("dark_mode") ? localStorage.getItem("dark_mode") : 'browser',
   showSyncWarning: false,
+  // PR 3: lightweight toast notification surfaced from cascade actions
+  // and similar background-y events.  `key` increments every call so
+  // the consuming component can reset its dismiss timer even if the
+  // same message is shown twice in a row.
+  notification: null, // { message: string, key: number } | null
+  showNotification: action((state, message) => {
+    if (!message) {
+      state.notification = null;
+      return;
+    }
+    const prevKey = state.notification ? state.notification.key : 0;
+    state.notification = { message, key: prevKey + 1 };
+  }),
+  clearNotification: action((state) => {
+    state.notification = null;
+  }),
   // Thunks
   fetchProgram: thunk(async (actions, firstTime) => {
     actions.setData(await ProgramData.fetchData(firstTime));
