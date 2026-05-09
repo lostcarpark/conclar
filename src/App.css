@@ -888,9 +888,32 @@ div.switch-wrapper {
 .item-chevron {
   float: right;
   color: var(--program-item-chevron-collapsed);
-  font-size: 1.5rem;
-  line-height: 1rem;
-  overflow: auto;
+  font-size: 1.85rem;
+  line-height: 1;
+  /* Treat the chevron as a button-shaped affordance so collapsed
+     sessions read as "click here to expand".  The background uses the
+     chevron's own color at low alpha (via color-mix) so it tracks both
+     light and dark themes automatically. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem;
+  border-radius: 50%;
+  background-color: color-mix(
+    in srgb,
+    var(--program-item-chevron-collapsed) 12%,
+    transparent
+  );
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.item-header:hover .item-chevron,
+.item-entry:hover .item-chevron {
+  background-color: color-mix(
+    in srgb,
+    var(--program-item-chevron-collapsed) 25%,
+    transparent
+  );
 }
 
 .item-chevron-expanded {
