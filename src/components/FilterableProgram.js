@@ -9,11 +9,15 @@ import ResetButton from "./ResetButton";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import { LocalTime } from "../utils/LocalTime";
+import { extractParentId } from "../model";
+import { FilterContext } from "./FilterContext";
 
 const FilterableProgram = () => {
   const navigate = useNavigate();
 
   const program = useStoreState((state) => state.program);
+  const programIndex = useStoreState((state) => state.programIndex);
+  const programChildren = useStoreState((state) => state.programChildren);
   const locations = useStoreState((state) => state.locations);
   const tags = useStoreState((state) => state.tags);
 
@@ -61,7 +65,7 @@ const FilterableProgram = () => {
     )
   );
 
-  const filtered = applyFilters(program);
+  const { filtered, directMatchedIds } = applyFilters(program);
   const total = filtered.length;
   const totalMessage =
     displayLimit !== "all" && displayLimit < total
@@ -115,27 +119,35 @@ const FilterableProgram = () => {
    * @returns {array} The filtered array.
    */
   function applyFilters(program) {
-    // Always hide TalkSession, PosterSession and PosterTopic rows from
-    // the listing. Their child talks/posters still appear and reference
-    // the parent title via the inline kicker; the parent items themselves
-    // remain in the store so that lookup keeps working.
-    const HIDDEN_TYPES = ["TalkSession", "PosterSession", "PosterTopic"];
-    program = program.filter((item) => {
-      const typeTag = (item.tags || []).find(
-        (t) => t && typeof t === "object" && t.category === "Type"
-      );
-      return !typeTag || !HIDDEN_TYPES.includes(typeTag.label);
-    });
+    // PR 1: TalkSession / PosterSession / PosterTopic rows are no longer
+    // suppressed from the listing.  They render at top level with their
+    // child talks/posters nested inside (see ProgramItem + ProgramList),
+    // which gives the same visual compaction as the old hide-parent hack
+    // but preserves session-level context (title, location, time-range).
 
     const term = search.trim().toLowerCase();
 
-    // If no filters, return full program;
-    if (term.length === 0 && selLoc.length === 0 && selTags === 0)
-      return program;
+    // If no filters, return full program. (Pre-existing bug: the original
+    // condition compared `selTags === 0` against an object, which was
+    // always false, so the unfiltered fast path never fired. Replaced
+    // with an actual emptiness check across all tag categories.)
+    const selTagsEmpty =
+      !selTags ||
+      Object.values(selTags).every(
+        (arr) => !arr || arr.length === 0
+      );
+    if (term.length === 0 && selLoc.length === 0 && selTagsEmpty)
+      return { filtered: program, directMatchedIds: null };
 
     let filtered = program;
+    let directMatchedIds = null;
 
-    // Filter by search term.
+    // Filter by search term.  Each item is matched against its OWN
+    // text only — children matching the term are surfaced via the
+    // post-filter parent-completion step below, NOT by also marking
+    // their parent as a direct match.  Keeping the distinction is what
+    // lets PR 4 hide non-matching siblings inside a parent that's only
+    // here for context.
     if (term.length) {
       filtered = filtered.filter((item) => {
         if (item.title && item.title.toLowerCase().includes(term)) return true;
@@ -173,6 +185,58 @@ const FilterableProgram = () => {
         });
       }
     }
+    // PR 2: parent-completion. After all filters run, walk up the
+    // parent chain from each surviving item and add any ancestor that
+    // isn't already in the result.  This means filtering by Type:Talk
+    // doesn't lose the symposium that contains the talk, and a search
+    // hit on a child still shows under its parent for context.  Only
+    // runs when filters are actually narrowing the list (otherwise it's
+    // a no-op since every parent is already present).
+    const isFilterActive =
+      term.length > 0 ||
+      selLoc.length > 0 ||
+      Object.values(selTags || {}).some((arr) => arr && arr.length > 0);
+
+    // Capture the set of direct matches BEFORE parent-completion.  This
+    // is what ProgramItem uses to decide whether to render only matching
+    // children (parent only here for context) or all children (parent
+    // matched on its own merit).  Null when no filter is active so the
+    // unfiltered render path shows every child unconditionally.
+    directMatchedIds = isFilterActive
+      ? new Set(filtered.map((it) => it.id))
+      : null;
+
+    if (isFilterActive) {
+      const ids = new Set(filtered.map((it) => it.id));
+      const queue = [...filtered];
+      const additions = [];
+      while (queue.length > 0) {
+        const it = queue.shift();
+        const pid = extractParentId(it);
+        if (!pid || ids.has(pid)) continue;
+        const parent = programIndex[pid];
+        if (!parent) continue;
+        ids.add(pid);
+        additions.push(parent);
+        queue.push(parent); // walk further up if multi-level
+      }
+      if (additions.length) {
+        filtered = filtered.concat(additions);
+        // Re-sort so the parents land at the right time + parent-tiebreak
+        // (mirrors the sort in ProgramData.processProgramData).
+        filtered.sort((a, b) => {
+          const cmp = Temporal.ZonedDateTime.compare(
+            a.startDateAndTime,
+            b.startDateAndTime
+          );
+          if (cmp !== 0) return cmp;
+          return (
+            (extractParentId(a) ? 1 : 0) - (extractParentId(b) ? 1 : 0)
+          );
+        });
+      }
+    }
+
     if (LocalTime.isDuringCon(program) && !showPastItems) {
       filtered = LocalTime.filterPastItems(filtered);
     }
@@ -205,7 +269,7 @@ const FilterableProgram = () => {
         filtered = filterHideBefore(filtered, minDay);
       }
     }
-    return filtered;
+    return { filtered, directMatchedIds };
   }
 
   function limitDropDown() {
@@ -349,7 +413,9 @@ const FilterableProgram = () => {
         </div>
       </div>
       <div className="program-page">
-        <ProgramList program={display} />
+        <FilterContext.Provider value={directMatchedIds}>
+          <ProgramList program={display} />
+        </FilterContext.Provider>
       </div>
       <div className="result-filters">
         <div className="stack">

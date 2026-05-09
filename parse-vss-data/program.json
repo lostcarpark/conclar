@@ -111,8 +111,8 @@
       "Type:Symposium"
     ],
     "date": "2026-05-15",
-    "time": "07:59",
-    "mins": 121,
+    "time": "08:00",
+    "mins": 120,
     "loc": [
       "Talk Room 1"
     ],
@@ -151,8 +151,8 @@
       "Type:Symposium"
     ],
     "date": "2026-05-15",
-    "time": "07:59",
-    "mins": 121,
+    "time": "08:00",
+    "mins": 120,
     "loc": [
       "Talk Room 2"
     ],
@@ -210,8 +210,8 @@
       "Type:Symposium"
     ],
     "date": "2026-05-15",
-    "time": "10:29",
-    "mins": 121,
+    "time": "10:30",
+    "mins": 120,
     "loc": [
       "Talk Room 1"
     ],
@@ -250,8 +250,8 @@
       "Type:Symposium"
     ],
     "date": "2026-05-15",
-    "time": "10:29",
-    "mins": 121,
+    "time": "10:30",
+    "mins": 120,
     "loc": [
       "Talk Room 2"
     ],
@@ -320,8 +320,8 @@
       "Type:Symposium"
     ],
     "date": "2026-05-15",
-    "time": "13:44",
-    "mins": 121,
+    "time": "13:45",
+    "mins": 120,
     "loc": [
       "Talk Room 1"
     ],
@@ -360,8 +360,8 @@
       "Type:Symposium"
     ],
     "date": "2026-05-15",
-    "time": "13:44",
-    "mins": 121,
+    "time": "13:45",
+    "mins": 120,
     "loc": [
       "Talk Room 2"
     ],
@@ -409,29 +409,14 @@
     "desc": ""
   },
   {
-    "id": "sched-0017",
-    "title": "Friday Afternoon Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-15",
-    "time": "15:43",
-    "mins": 137,
-    "loc": [
-      "Banyan Breezeway"
-    ],
-    "people": [],
-    "desc": "Visual Working Memory: Performance, influences\nMultisensory Processing: Motor\nMultisensory Processing: Visual-tactile\nEye Movements: Cognition\nEye Movements: Pursuit, vergence\nFace and Body Perception: Social cognition 1\nTemporal Processing: Duration and timing perception\nFunctional Organization of Visual Pathways: Cortical visual processing 1"
-  },
-  {
     "id": "sched-0018",
     "title": "Attention 1",
     "tags": [
       "Type:TalkSession"
     ],
     "date": "2026-05-15",
-    "time": "16:14",
-    "mins": 91,
+    "time": "16:15",
+    "mins": 90,
     "loc": [
       "Talk Room 1"
     ],
@@ -450,8 +435,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-15",
-    "time": "16:14",
-    "mins": 91,
+    "time": "16:15",
+    "mins": 90,
     "loc": [
       "Talk Room 2"
     ],
@@ -543,7 +528,7 @@
     "time": "07:45",
     "mins": 60,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": "Pavilion"
@@ -570,8 +555,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-16",
-    "time": "08:14",
-    "mins": 91,
+    "time": "08:15",
+    "mins": 90,
     "loc": [
       "Talk Room 1"
     ],
@@ -585,43 +570,13 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-16",
-    "time": "08:14",
-    "mins": 91,
+    "time": "08:15",
+    "mins": 90,
     "loc": [
       "Talk Room 2"
     ],
     "people": [],
     "desc": ""
-  },
-  {
-    "id": "sched-0029",
-    "title": "Saturday Morning Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-16",
-    "time": "08:28",
-    "mins": 242,
-    "loc": [
-      "Banyan Breezeway"
-    ],
-    "people": [],
-    "desc": "Perceptual Training, Learning and Plasticity: Psychophysics\nVisual Working Memory: Interactions with long-term memory\nVisual Working Memory: Interference, attention\nScene Perception: Models, natural image statistics\nScene Perception: Intuitive physics\nUndergraduate Just-In-Time 1"
-  },
-  {
-    "id": "sched-0030",
-    "title": "Saturday Morning Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-16",
-    "time": "08:28",
-    "mins": 242,
-    "loc": [
-      "Pavilion"
-    ],
-    "people": [],
-    "desc": "Object Recognition: Reading\n3D Shape and Space Perception: Cues, integration\n3D Shape and Space Perception: Surfaces, objects\nAttention: Neural\nFunctional Organization of Visual Pathways: Cortical visual processing 2\nFace and Body Perception: Models\nDecision Making: Perception 1\nAction: Navigation, locomotion\nAction: Miscellaneous"
   },
   {
     "id": "sched-0031",
@@ -633,7 +588,7 @@
     "time": "09:45",
     "mins": 45,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": ""
@@ -645,8 +600,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-16",
-    "time": "10:44",
-    "mins": 106,
+    "time": "10:45",
+    "mins": 105,
     "loc": [
       "Talk Room 1"
     ],
@@ -665,8 +620,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-16",
-    "time": "10:44",
-    "mins": 106,
+    "time": "10:45",
+    "mins": 105,
     "loc": [
       "Talk Room 2"
     ],
@@ -745,8 +700,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-16",
-    "time": "14:29",
-    "mins": 106,
+    "time": "14:30",
+    "mins": 105,
     "loc": [
       "Talk Room 1"
     ],
@@ -760,8 +715,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-16",
-    "time": "14:29",
-    "mins": 106,
+    "time": "14:30",
+    "mins": 105,
     "loc": [
       "Talk Room 2"
     ],
@@ -774,36 +729,6 @@
     "desc": "Moderator: Nihan Alp, Sabanci University"
   },
   {
-    "id": "sched-0040",
-    "title": "Saturday Afternoon Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-16",
-    "time": "14:43",
-    "mins": 242,
-    "loc": [
-      "Banyan Breezeway"
-    ],
-    "people": [],
-    "desc": "Spatial Vision: Clinical\nPerceptual Training, Learning and Plasticity: Rehabilitation\nVisual Search: Search strategies, clinical\nVisual Search: Attention, memory, decision-making\nPre-Data-Collection Poster Session 1"
-  },
-  {
-    "id": "sched-0041",
-    "title": "Saturday Afternoon Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-16",
-    "time": "14:43",
-    "mins": 242,
-    "loc": [
-      "Pavilion"
-    ],
-    "people": [],
-    "desc": "Attention: Endogenous, exogenous\nAttention: Features, objects\nPerceptual Organization: Features, parts, wholes, objects\nVisual Memory: Objects, features\nColor, Light and Materials: Material perception\nColor, Light and Materials: Affect, cognition\nTheory\nMultisensory Processing: Recalibration, temporal"
-  },
-  {
     "id": "sched-0042",
     "title": "Afternoon Coffee & Snack",
     "tags": [
@@ -813,7 +738,7 @@
     "time": "16:15",
     "mins": 45,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": "Pavilion"
@@ -825,8 +750,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-16",
-    "time": "17:14",
-    "mins": 106,
+    "time": "17:15",
+    "mins": 105,
     "loc": [
       "Talk Room 1"
     ],
@@ -845,8 +770,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-16",
-    "time": "17:14",
-    "mins": 106,
+    "time": "17:15",
+    "mins": 105,
     "loc": [
       "Talk Room 2"
     ],
@@ -943,7 +868,7 @@
     "time": "07:45",
     "mins": 60,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": "Pavilion"
@@ -970,8 +895,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-17",
-    "time": "08:14",
-    "mins": 91,
+    "time": "08:15",
+    "mins": 90,
     "loc": [
       "Talk Room 1"
     ],
@@ -990,43 +915,13 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-17",
-    "time": "08:14",
-    "mins": 91,
+    "time": "08:15",
+    "mins": 90,
     "loc": [
       "Talk Room 2"
     ],
     "people": [],
     "desc": ""
-  },
-  {
-    "id": "sched-0054",
-    "title": "Sunday Morning Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-17",
-    "time": "08:28",
-    "mins": 242,
-    "loc": [
-      "Banyan Breezeway"
-    ],
-    "people": [],
-    "desc": "Color, Light and Materials: Adaptation, contrast, lightness, brightness\nPerceptual Organization: Ensembles\nPerceptual Organization: Individual differences, aesthetics\nScene Perception: Neural mechanisms\nScene Perception: Spatiotemporal factors\nUndergraduate Just-In-Time 2"
-  },
-  {
-    "id": "sched-0055",
-    "title": "Sunday Morning Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-17",
-    "time": "08:28",
-    "mins": 242,
-    "loc": [
-      "Pavilion"
-    ],
-    "people": [],
-    "desc": "Functional Organization of Visual Pathways: Subcortical, clinical\nFunctional Organization of Visual Pathways: Neuroimaging\n3D Shape and Space Perception: Miscellaneous\nEye Movements: Individual differences, visual preference\nEye Movements: Mechanisms, perception, fixational\nEye Movements: Saccades\nFace and Body Perception: Wholes, parts, configurations, features\nDecision Making: Perception 2"
   },
   {
     "id": "sched-0056",
@@ -1038,7 +933,7 @@
     "time": "09:45",
     "mins": 45,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": "Pavilion"
@@ -1050,8 +945,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-17",
-    "time": "10:44",
-    "mins": 106,
+    "time": "10:45",
+    "mins": 105,
     "loc": [
       "Talk Room 1"
     ],
@@ -1070,8 +965,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-17",
-    "time": "10:44",
-    "mins": 106,
+    "time": "10:45",
+    "mins": 105,
     "loc": [
       "Talk Room 2"
     ],
@@ -1165,8 +1060,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-17",
-    "time": "14:29",
-    "mins": 106,
+    "time": "14:30",
+    "mins": 105,
     "loc": [
       "Talk Room 1"
     ],
@@ -1180,43 +1075,13 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-17",
-    "time": "14:29",
-    "mins": 106,
+    "time": "14:30",
+    "mins": 105,
     "loc": [
       "Talk Room 2"
     ],
     "people": [],
     "desc": ""
-  },
-  {
-    "id": "sched-0066",
-    "title": "Sunday Afternoon Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-17",
-    "time": "14:43",
-    "mins": 242,
-    "loc": [
-      "Banyan Breezeway"
-    ],
-    "people": [],
-    "desc": "Visual Memory: Long-term memory\nVisual Memory: Encoding and retrieval, capacity\nSpatial Vision: Natural images, texture\nSpatial Vision: Neural mechanisms\nSpatial Vision: Crowding, eccentricity"
-  },
-  {
-    "id": "sched-0067",
-    "title": "Sunday Afternoon Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-17",
-    "time": "14:43",
-    "mins": 242,
-    "loc": [
-      "Pavilion"
-    ],
-    "people": [],
-    "desc": "Color, Light and Materials: Neural mechanisms\nEye Movements: Models, remapping\nEye Movements: Pupillometry\nVisual Search: Features, scenes, real-world stimuli\nVisual Search: Neural mechanisms, models, eye movements\nAttention: Inattention, attentional blindness\nAttention: Spatial\nAttention: Individual differences"
   },
   {
     "id": "sched-0068",
@@ -1228,7 +1093,7 @@
     "time": "16:15",
     "mins": 45,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": ""
@@ -1240,8 +1105,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-17",
-    "time": "17:14",
-    "mins": 121,
+    "time": "17:15",
+    "mins": 120,
     "loc": [
       "Talk Room 1"
     ],
@@ -1255,8 +1120,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-17",
-    "time": "17:14",
-    "mins": 121,
+    "time": "17:15",
+    "mins": 120,
     "loc": [
       "Talk Room 2"
     ],
@@ -1338,7 +1203,7 @@
     "time": "07:45",
     "mins": 60,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": "Pavilion"
@@ -1380,8 +1245,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-18",
-    "time": "08:14",
-    "mins": 91,
+    "time": "08:15",
+    "mins": 90,
     "loc": [
       "Talk Room 1"
     ],
@@ -1400,8 +1265,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-18",
-    "time": "08:14",
-    "mins": 91,
+    "time": "08:15",
+    "mins": 90,
     "loc": [
       "Talk Room 2"
     ],
@@ -1414,36 +1279,6 @@
     "desc": "Moderator: Michele Rucci, University of Rochester"
   },
   {
-    "id": "sched-0080",
-    "title": "Monday Morning Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-18",
-    "time": "08:28",
-    "mins": 242,
-    "loc": [
-      "Banyan Breezeway"
-    ],
-    "people": [],
-    "desc": "Object recognition: Categories\nObject Recognition: Features, parts\nFace and Body Perception: Social cognition 2\nFace and Body Perception: Individual differences\nFace and Body Perception: Bodies\nFunctional Organization of Visual Pathways: Retinotopy, population receptive fields\nPre-Data-Collection Poster Session 2"
-  },
-  {
-    "id": "sched-0081",
-    "title": "Monday Morning Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-18",
-    "time": "08:28",
-    "mins": 242,
-    "loc": [
-      "Pavilion"
-    ],
-    "people": [],
-    "desc": "Spatial Vision: Binocular vision\nEye Movements: Natural, complex tasks\nEye Movements: Clinical\nAction: Reaching\nAction: Grasping, affordances\nDecision Making: Actions, metacognition\nMotion: Illusions\nMotion: Optic flow, in-depth, biological, higher-order\nPerceptual Training, Learning and Plasticity: Statistical learning\nPerceptual Training, Learning and Plasticity: Category learning"
-  },
-  {
     "id": "sched-0082",
     "title": "Coffee Break",
     "tags": [
@@ -1453,7 +1288,7 @@
     "time": "09:45",
     "mins": 45,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": "Pavilion"
@@ -1465,8 +1300,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-18",
-    "time": "10:44",
-    "mins": 91,
+    "time": "10:45",
+    "mins": 90,
     "loc": [
       "Talk Room 1"
     ],
@@ -1480,8 +1315,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-18",
-    "time": "10:44",
-    "mins": 91,
+    "time": "10:45",
+    "mins": 90,
     "loc": [
       "Talk Room 2"
     ],
@@ -1648,7 +1483,7 @@
     "time": "07:45",
     "mins": 60,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": "Pavilion"
@@ -1690,8 +1525,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-19",
-    "time": "08:14",
-    "mins": 91,
+    "time": "08:15",
+    "mins": 90,
     "loc": [
       "Talk Room 1"
     ],
@@ -1710,43 +1545,13 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-19",
-    "time": "08:14",
-    "mins": 91,
+    "time": "08:15",
+    "mins": 90,
     "loc": [
       "Talk Room 2"
     ],
     "people": [],
     "desc": ""
-  },
-  {
-    "id": "sched-0100",
-    "title": "Tuesday Morning Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-19",
-    "time": "08:28",
-    "mins": 242,
-    "loc": [
-      "Banyan Breezeway"
-    ],
-    "people": [],
-    "desc": "Perceptual Training, Learning and Plasticity: Neural mechanisms\nPerceptual Training, Learning and Plasticity: Neuroimaging, neurostimulation\nPerceptual Organization: Intuitive physics\nPerceptual Organization: Grouping\nScene Perception: Ensemble\nScene Perception: Virtual reality\nScene Perception: Categorization, memory\nVisual Working Memory: Models, neural"
-  },
-  {
-    "id": "sched-0101",
-    "title": "Tuesday Morning Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-19",
-    "time": "08:28",
-    "mins": 242,
-    "loc": [
-      "Pavilion"
-    ],
-    "people": [],
-    "desc": "Attention: Capture 1\nAttention: Models\nTemporal Processing: Neural mechanisms, models\nMotion: Mechanisms, models\nAction: Pointing, tracking\nAction: Perception, recognition\nMultisensory Processing: Cross-modal interactions\nFace and Body Perception: Development, clinical\nDevelopment"
   },
   {
     "id": "sched-0102",
@@ -1758,7 +1563,7 @@
     "time": "09:45",
     "mins": 45,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": "Pavilion"
@@ -1770,8 +1575,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-19",
-    "time": "10:44",
-    "mins": 91,
+    "time": "10:45",
+    "mins": 90,
     "loc": [
       "Talk Room 1"
     ],
@@ -1785,8 +1590,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-19",
-    "time": "10:44",
-    "mins": 91,
+    "time": "10:45",
+    "mins": 90,
     "loc": [
       "Talk Room 2"
     ],
@@ -1910,8 +1715,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 106,
+    "time": "14:45",
+    "mins": 105,
     "loc": [
       "Talk Room 1"
     ],
@@ -1925,43 +1730,13 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 106,
+    "time": "14:45",
+    "mins": 105,
     "loc": [
       "Talk Room 2"
     ],
     "people": [],
     "desc": ""
-  },
-  {
-    "id": "sched-0114",
-    "title": "Tuesday Afternoon Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-19",
-    "time": "14:43",
-    "mins": 242,
-    "loc": [
-      "Banyan Breezeway"
-    ],
-    "people": [],
-    "desc": "Visual Memory: Imagery\nVisual Memory: Mechanisms, models, individual differences\nFace and Body Perception: Neural mechanisms\nFace and Body Perception: Emotion\nUndergraduate Just-In-Time 3"
-  },
-  {
-    "id": "sched-0115",
-    "title": "Tuesday Afternoon Posters",
-    "tags": [
-      "Type:PosterSession"
-    ],
-    "date": "2026-05-19",
-    "time": "14:43",
-    "mins": 242,
-    "loc": [
-      "Pavilion"
-    ],
-    "people": [],
-    "desc": "Visual Working Memory: Spatial\nVisual Working Memory: Objects, features\nObject Recognition: Models\nPerceptual Organization: Neural mechanisms, models\nAttention: Capture 2\nAttention: Temporal\nAttention: Reward\nMultisensory Processing: Audiovisual"
   },
   {
     "id": "sched-0116",
@@ -1973,7 +1748,7 @@
     "time": "16:30",
     "mins": 45,
     "loc": [
-      "Garden Courtyard &"
+      "Garden Courtyard"
     ],
     "people": [],
     "desc": "Pavilion"
@@ -1985,8 +1760,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-19",
-    "time": "17:14",
-    "mins": 121,
+    "time": "17:15",
+    "mins": 120,
     "loc": [
       "Talk Room 1"
     ],
@@ -2005,8 +1780,8 @@
       "Type:TalkSession"
     ],
     "date": "2026-05-19",
-    "time": "17:14",
-    "mins": 121,
+    "time": "17:15",
+    "mins": 120,
     "loc": [
       "Talk Room 2"
     ],
@@ -2063,14 +1838,14 @@
     "title": "Simulation and Intuitive Physics",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0007"
     ],
     "date": "2026-05-15",
     "time": "08:00",
     "mins": 23,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2085,14 +1860,14 @@
     "title": "Naive Psychology Depends on Naive Physics",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0007"
     ],
     "date": "2026-05-15",
     "time": "08:23",
     "mins": 23,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2107,14 +1882,14 @@
     "title": "Computational Models of Human Intuitive Physics",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0007"
     ],
     "date": "2026-05-15",
     "time": "08:46",
     "mins": 23,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2129,14 +1904,14 @@
     "title": "Representation of Intuitive Physics Properties in Monkey Inferotemporal Cortex",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0007"
     ],
     "date": "2026-05-15",
     "time": "09:09",
     "mins": 23,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2151,14 +1926,14 @@
     "title": "Intuitive Physics in the Human Brain",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0007"
     ],
     "date": "2026-05-15",
     "time": "09:32",
     "mins": 23,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2173,14 +1948,14 @@
     "title": "The Role of Alpha Oscillations and Aperiodic Neural Activity in the Temporal Organization of Visual Perception",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
     "time": "08:00",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2203,14 +1978,14 @@
     "title": "Dual Alpha Mechanisms in Visual Perception",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
     "time": "08:20",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2225,14 +2000,14 @@
     "title": "How Spontaneous Alpha Oscillations Modulate Sensory Encoding",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
     "time": "08:40",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2251,14 +2026,14 @@
     "title": "Neural Oscillatory Mechanisms Supporting the Dorsal Visual Stream Functionality and Their Restoration in Reading Disorders",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
     "time": "09:00",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2273,14 +2048,14 @@
     "title": "Updating the Rhythmic Theory of Attention",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
     "time": "09:20",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2303,14 +2078,14 @@
     "title": "Rhythmic Attention Negotiates Competition Along the Visual Hierarchy",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0008"
     ],
     "date": "2026-05-15",
     "time": "09:40",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2325,14 +2100,14 @@
     "title": "A Broad Sampling of How Different Tasks Influence Visually Evoked Responses in the Human Brain",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0010"
     ],
     "date": "2026-05-15",
     "time": "10:33",
     "mins": 17,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2363,14 +2138,14 @@
     "title": "Bringing the Real World into the Brain Scanner Using 3D Displays and Video Games",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0010"
     ],
     "date": "2026-05-15",
     "time": "10:50",
     "mins": 17,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2385,14 +2160,14 @@
     "title": "Anterior Cingulate Neurons Combine Outcome Monitoring of Past Decisions with Ongoing Movement Signals",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0010"
     ],
     "date": "2026-05-15",
     "time": "11:07",
     "mins": 17,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2423,14 +2198,14 @@
     "title": "What Makes Vision Naturalistic? Insights from Immersive VR and Active Visual Perception",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0010"
     ],
     "date": "2026-05-15",
     "time": "11:24",
     "mins": 17,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2445,14 +2220,14 @@
     "title": "Leveraging Spatiotemporal Structure in Natural Tasks: Evidence from Visually-Guided Walking",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0010"
     ],
     "date": "2026-05-15",
     "time": "11:41",
     "mins": 17,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2467,14 +2242,14 @@
     "title": "Computational Elements of Natural Vision",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0010"
     ],
     "date": "2026-05-15",
     "time": "11:58",
     "mins": 17,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2489,14 +2264,14 @@
     "title": "Learning to Master Our World: Conjunction Learning in the Brain and Mind",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0011"
     ],
     "date": "2026-05-15",
     "time": "10:30",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2523,14 +2298,14 @@
     "title": "Joint Population Coding of Color and Form in the Human Ventral Pathway and Convolutional Neural Networks",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0011"
     ],
     "date": "2026-05-15",
     "time": "10:50",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2549,14 +2324,14 @@
     "title": "Insights About Feature Binding from Neuropsychological Deficits of Color and Shape Processing",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0011"
     ],
     "date": "2026-05-15",
     "time": "11:10",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2575,14 +2350,14 @@
     "title": "Brain Oscillations and Occipito-Parietal Contributions to Color-Shape Integration",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0011"
     ],
     "date": "2026-05-15",
     "time": "11:30",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2605,14 +2380,14 @@
     "title": "Insights into the Reasons for Segregated Processing and the Privileged Role of Space in Binding, from a Computational Perspective",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0011"
     ],
     "date": "2026-05-15",
     "time": "11:50",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2631,14 +2406,14 @@
     "title": "Two Ways to See a Red Square",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0011"
     ],
     "date": "2026-05-15",
     "time": "12:10",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2653,14 +2428,14 @@
     "title": "Dynamic Transformer Routing from Retinotopic Cortex Explains Encoding in Category-Selective Cortical Areas",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0014"
     ],
     "date": "2026-05-15",
     "time": "13:45",
     "mins": 20,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2679,14 +2454,14 @@
     "title": "Interpreting Vision Through the Lens of Category Selectivity in Brains and Anns",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0014"
     ],
     "date": "2026-05-15",
     "time": "14:05",
     "mins": 20,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2701,14 +2476,14 @@
     "title": "Leveraging Dnn-Brain Alignment to Understand How Humans Perceive Scenes and Videos",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0014"
     ],
     "date": "2026-05-15",
     "time": "14:25",
     "mins": 20,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2723,14 +2498,14 @@
     "title": "Exploring Human Vision Through Img2eeg: An Encoding Framework Generating High- Resolution Temporal EEG Signals from Visual Inputs",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0014"
     ],
     "date": "2026-05-15",
     "time": "14:45",
     "mins": 20,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2745,14 +2520,14 @@
     "title": "Meta-Learning in Context Enables Training-Free Cross-Subject Encoders and Decoders",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0014"
     ],
     "date": "2026-05-15",
     "time": "15:05",
     "mins": 20,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2767,14 +2542,14 @@
     "title": "Using Cognitive Tests to Reveal the Strengths and Limits of Brain Encoding Models",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0014"
     ],
     "date": "2026-05-15",
     "time": "15:25",
     "mins": 20,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -2789,14 +2564,14 @@
     "title": "Inter-Individual Variability is (Often) Not Noise",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0015"
     ],
     "date": "2026-05-15",
     "time": "13:45",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2819,14 +2594,14 @@
     "title": "Graphed Averages Sow Disagreement: The Average Reading of an Average is Atypical",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0015"
     ],
     "date": "2026-05-15",
     "time": "14:05",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2849,14 +2624,14 @@
     "title": "Common Patterns and Individual Differences in Visual Cortical Maps",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0015"
     ],
     "date": "2026-05-15",
     "time": "14:25",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2875,14 +2650,14 @@
     "title": "Individual Differences in Localization Reveal Links Between Fundamental Visual Processes",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0015"
     ],
     "date": "2026-05-15",
     "time": "14:45",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2897,14 +2672,14 @@
     "title": "Interpreting and Accounting for Individual Differences in Color Vision",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0015"
     ],
     "date": "2026-05-15",
     "time": "15:05",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2927,14 +2702,14 @@
     "title": "Talk Cancelled - Generative Models Can Explain (or at Least Help US Understand) Individual Differences in Cognition",
     "tags": [
       "Symposium",
-      "Type:Talk",
+      "Type:Symposium Talk",
       "parent:sched-0015"
     ],
     "date": "2026-05-15",
     "time": "15:25",
     "mins": 20,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -2964,7 +2739,7 @@
     "time": "16:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3002,7 +2777,7 @@
     "time": "16:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3032,7 +2807,7 @@
     "time": "16:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3058,7 +2833,7 @@
     "time": "17:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3088,7 +2863,7 @@
     "time": "17:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3114,7 +2889,7 @@
     "time": "17:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3144,7 +2919,7 @@
     "time": "16:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3254,7 +3029,7 @@
     "time": "16:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3284,7 +3059,7 @@
     "time": "16:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3310,7 +3085,7 @@
     "time": "17:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3336,7 +3111,7 @@
     "time": "17:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3362,7 +3137,7 @@
     "time": "17:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3400,7 +3175,7 @@
     "time": "08:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3446,7 +3221,7 @@
     "time": "08:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3476,7 +3251,7 @@
     "time": "08:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3506,7 +3281,7 @@
     "time": "09:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3532,7 +3307,7 @@
     "time": "09:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3562,7 +3337,7 @@
     "time": "08:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3588,7 +3363,7 @@
     "time": "08:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3614,7 +3389,7 @@
     "time": "08:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3648,7 +3423,7 @@
     "time": "09:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3678,7 +3453,7 @@
     "time": "09:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3708,7 +3483,7 @@
     "time": "09:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3742,7 +3517,7 @@
     "time": "10:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3772,7 +3547,7 @@
     "time": "11:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3798,7 +3573,7 @@
     "time": "11:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3824,7 +3599,7 @@
     "time": "11:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3854,7 +3629,7 @@
     "time": "11:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3880,7 +3655,7 @@
     "time": "12:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3922,7 +3697,7 @@
     "time": "12:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -3964,7 +3739,7 @@
     "time": "10:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -3998,7 +3773,7 @@
     "time": "11:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4044,7 +3819,7 @@
     "time": "11:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4086,7 +3861,7 @@
     "time": "11:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4128,7 +3903,7 @@
     "time": "11:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4154,7 +3929,7 @@
     "time": "12:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4200,7 +3975,7 @@
     "time": "12:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4250,7 +4025,7 @@
     "time": "14:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4292,7 +4067,7 @@
     "time": "14:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4318,7 +4093,7 @@
     "time": "15:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4352,7 +4127,7 @@
     "time": "15:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4402,7 +4177,7 @@
     "time": "15:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4428,7 +4203,7 @@
     "time": "15:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4458,7 +4233,7 @@
     "time": "16:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4492,7 +4267,7 @@
     "time": "14:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4526,7 +4301,7 @@
     "time": "14:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4560,7 +4335,7 @@
     "time": "15:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4602,7 +4377,7 @@
     "time": "15:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4652,7 +4427,7 @@
     "time": "15:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4682,7 +4457,7 @@
     "time": "15:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4708,7 +4483,7 @@
     "time": "16:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -4738,7 +4513,7 @@
     "time": "17:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4780,7 +4555,7 @@
     "time": "17:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4818,7 +4593,7 @@
     "time": "17:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4872,7 +4647,7 @@
     "time": "18:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4906,7 +4681,7 @@
     "time": "18:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4944,7 +4719,7 @@
     "time": "18:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -4974,7 +4749,7 @@
     "time": "17:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5024,7 +4799,7 @@
     "time": "17:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5050,7 +4825,7 @@
     "time": "17:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5084,7 +4859,7 @@
     "time": "18:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5114,7 +4889,7 @@
     "time": "18:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5140,7 +4915,7 @@
     "time": "18:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5174,7 +4949,7 @@
     "time": "18:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5204,7 +4979,7 @@
     "time": "08:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5242,7 +5017,7 @@
     "time": "08:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5268,7 +5043,7 @@
     "time": "08:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5298,7 +5073,7 @@
     "time": "09:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5328,7 +5103,7 @@
     "time": "09:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5370,7 +5145,7 @@
     "time": "09:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5400,7 +5175,7 @@
     "time": "08:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5446,7 +5221,7 @@
     "time": "08:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5488,7 +5263,7 @@
     "time": "08:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5518,7 +5293,7 @@
     "time": "09:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5552,7 +5327,7 @@
     "time": "09:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5586,7 +5361,7 @@
     "time": "09:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5616,7 +5391,7 @@
     "time": "10:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5654,7 +5429,7 @@
     "time": "11:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5688,7 +5463,7 @@
     "time": "11:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5714,7 +5489,7 @@
     "time": "11:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5748,7 +5523,7 @@
     "time": "11:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5774,7 +5549,7 @@
     "time": "12:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -5800,7 +5575,7 @@
     "time": "10:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5826,7 +5601,7 @@
     "time": "11:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5852,7 +5627,7 @@
     "time": "11:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5878,7 +5653,7 @@
     "time": "11:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5912,7 +5687,7 @@
     "time": "11:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5938,7 +5713,7 @@
     "time": "12:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5964,7 +5739,7 @@
     "time": "12:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -5990,7 +5765,7 @@
     "time": "14:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6016,7 +5791,7 @@
     "time": "14:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6042,7 +5817,7 @@
     "time": "15:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6096,7 +5871,7 @@
     "time": "15:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6134,7 +5909,7 @@
     "time": "15:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6168,7 +5943,7 @@
     "time": "15:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6202,7 +5977,7 @@
     "time": "16:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6232,7 +6007,7 @@
     "time": "14:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6270,7 +6045,7 @@
     "time": "14:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6312,7 +6087,7 @@
     "time": "15:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6342,7 +6117,7 @@
     "time": "15:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6368,7 +6143,7 @@
     "time": "15:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6406,7 +6181,7 @@
     "time": "15:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6444,7 +6219,7 @@
     "time": "17:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -6478,7 +6253,7 @@
     "time": "17:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -6508,7 +6283,7 @@
     "time": "17:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -6550,7 +6325,7 @@
     "time": "18:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -6584,7 +6359,7 @@
     "time": "18:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -6650,7 +6425,7 @@
     "time": "18:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -6708,7 +6483,7 @@
     "time": "18:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -6750,7 +6525,7 @@
     "time": "19:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -6788,7 +6563,7 @@
     "time": "17:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6818,7 +6593,7 @@
     "time": "17:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6844,7 +6619,7 @@
     "time": "17:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6878,7 +6653,7 @@
     "time": "18:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6904,7 +6679,7 @@
     "time": "18:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6934,7 +6709,7 @@
     "time": "18:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6964,7 +6739,7 @@
     "time": "18:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -6990,7 +6765,7 @@
     "time": "19:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7016,7 +6791,7 @@
     "time": "08:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7050,7 +6825,7 @@
     "time": "08:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7076,7 +6851,7 @@
     "time": "08:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7106,7 +6881,7 @@
     "time": "09:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7140,7 +6915,7 @@
     "time": "09:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7178,7 +6953,7 @@
     "time": "09:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7208,7 +6983,7 @@
     "time": "08:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7234,7 +7009,7 @@
     "time": "08:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7268,7 +7043,7 @@
     "time": "08:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7294,7 +7069,7 @@
     "time": "09:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7320,7 +7095,7 @@
     "time": "09:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7350,7 +7125,7 @@
     "time": "10:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7376,7 +7151,7 @@
     "time": "11:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7410,7 +7185,7 @@
     "time": "11:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7436,7 +7211,7 @@
     "time": "11:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7466,7 +7241,7 @@
     "time": "11:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7500,7 +7275,7 @@
     "time": "12:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7534,7 +7309,7 @@
     "time": "10:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7572,7 +7347,7 @@
     "time": "11:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7606,7 +7381,7 @@
     "time": "11:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7636,7 +7411,7 @@
     "time": "11:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7662,7 +7437,7 @@
     "time": "11:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7700,7 +7475,7 @@
     "time": "12:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7722,7 +7497,7 @@
     "time": "08:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7748,7 +7523,7 @@
     "time": "08:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7778,7 +7553,7 @@
     "time": "08:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7804,7 +7579,7 @@
     "time": "09:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7838,7 +7613,7 @@
     "time": "09:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7868,7 +7643,7 @@
     "time": "09:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -7902,7 +7677,7 @@
     "time": "08:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -7980,7 +7755,7 @@
     "time": "08:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8018,7 +7793,7 @@
     "time": "08:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8056,7 +7831,7 @@
     "time": "09:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8098,7 +7873,7 @@
     "time": "09:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8132,7 +7907,7 @@
     "time": "09:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8174,7 +7949,7 @@
     "time": "10:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8204,7 +7979,7 @@
     "time": "11:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8234,7 +8009,7 @@
     "time": "11:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8260,7 +8035,7 @@
     "time": "11:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8298,7 +8073,7 @@
     "time": "11:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8324,7 +8099,7 @@
     "time": "12:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8362,7 +8137,7 @@
     "time": "10:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8392,7 +8167,7 @@
     "time": "11:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8418,7 +8193,7 @@
     "time": "11:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8452,7 +8227,7 @@
     "time": "11:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8482,7 +8257,7 @@
     "time": "11:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8516,7 +8291,7 @@
     "time": "12:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8542,7 +8317,7 @@
     "time": "15:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8572,7 +8347,7 @@
     "time": "15:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8602,7 +8377,7 @@
     "time": "15:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8628,7 +8403,7 @@
     "time": "15:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8662,7 +8437,7 @@
     "time": "16:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8692,7 +8467,7 @@
     "time": "16:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -8754,7 +8529,7 @@
     "time": "14:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8784,7 +8559,7 @@
     "time": "15:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8810,7 +8585,7 @@
     "time": "15:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8856,7 +8631,7 @@
     "time": "15:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8886,7 +8661,7 @@
     "time": "15:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8912,7 +8687,7 @@
     "time": "16:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8938,7 +8713,7 @@
     "time": "16:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -8980,7 +8755,7 @@
     "time": "17:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -9010,7 +8785,7 @@
     "time": "17:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -9044,7 +8819,7 @@
     "time": "17:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -9070,7 +8845,7 @@
     "time": "18:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -9116,7 +8891,7 @@
     "time": "18:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -9154,7 +8929,7 @@
     "time": "18:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -9192,7 +8967,7 @@
     "time": "18:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -9218,7 +8993,7 @@
     "time": "19:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 1"
+      "Talk Room 1"
     ],
     "people": [
       {
@@ -9244,7 +9019,7 @@
     "time": "17:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -9278,7 +9053,7 @@
     "time": "17:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -9312,7 +9087,7 @@
     "time": "17:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -9342,7 +9117,7 @@
     "time": "18:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -9372,7 +9147,7 @@
     "time": "18:15",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -9406,7 +9181,7 @@
     "time": "18:30",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -9440,7 +9215,7 @@
     "time": "18:45",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -9466,7 +9241,7 @@
     "time": "19:00",
     "mins": 15,
     "loc": [
-      "TALK ROOM 2"
+      "Talk Room 2"
     ],
     "people": [
       {
@@ -9484,12 +9259,11 @@
     "id": "pt-2026-05-15-15-45-visual-working-memory-performance-influences",
     "title": "Visual Working Memory: Performance, influences",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0017"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-15",
-    "time": "15:44",
-    "mins": 136,
+    "time": "15:45",
+    "mins": 135,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -9688,12 +9462,11 @@
     "id": "pt-2026-05-15-15-45-multisensory-processing-motor",
     "title": "Multisensory Processing: Motor",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0017"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-15",
-    "time": "15:44",
-    "mins": 136,
+    "time": "15:45",
+    "mins": 135,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -9866,12 +9639,11 @@
     "id": "pt-2026-05-15-15-45-multisensory-processing-visual-tactile",
     "title": "Multisensory Processing: Visual-tactile",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0017"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-15",
-    "time": "15:44",
-    "mins": 136,
+    "time": "15:45",
+    "mins": 135,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -9964,12 +9736,11 @@
     "id": "pt-2026-05-15-15-45-eye-movements-cognition",
     "title": "Eye Movements: Cognition",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0017"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-15",
-    "time": "15:44",
-    "mins": 136,
+    "time": "15:45",
+    "mins": 135,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -10202,12 +9973,11 @@
     "id": "pt-2026-05-15-15-45-eye-movements-pursuit-vergence",
     "title": "Eye Movements: Pursuit, vergence",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0017"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-15",
-    "time": "15:44",
-    "mins": 136,
+    "time": "15:45",
+    "mins": 135,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -10436,12 +10206,11 @@
     "id": "pt-2026-05-15-15-45-face-and-body-perception-social-cognition-1",
     "title": "Face and Body Perception: Social cognition 1",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0017"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-15",
-    "time": "15:44",
-    "mins": 136,
+    "time": "15:45",
+    "mins": 135,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -10838,12 +10607,11 @@
     "id": "pt-2026-05-15-15-45-temporal-processing-duration-and-timing-perception",
     "title": "Temporal Processing: Duration and timing perception",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0017"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-15",
-    "time": "15:44",
-    "mins": 136,
+    "time": "15:45",
+    "mins": 135,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -11180,12 +10948,11 @@
     "id": "pt-2026-05-15-15-45-functional-organization-of-visual-pathways-cortical-visual-processing-1",
     "title": "Functional Organization of Visual Pathways: Cortical visual processing 1",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0017"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-15",
-    "time": "15:44",
-    "mins": 136,
+    "time": "15:45",
+    "mins": 135,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -11510,12 +11277,11 @@
     "id": "pt-2026-05-16-08-30-perceptual-training-learning-and-plasticity-psychophysics",
     "title": "Perceptual Training, Learning and Plasticity: Psychophysics",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0029"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -11778,12 +11544,11 @@
     "id": "pt-2026-05-16-08-30-visual-working-memory-interactions-with-long-term-memory",
     "title": "Visual Working Memory: Interactions with long-term memory",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0029"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -12136,12 +11901,11 @@
     "id": "pt-2026-05-16-08-30-visual-working-memory-interference-attention",
     "title": "Visual Working Memory: Interference, attention",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0029"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -12440,12 +12204,11 @@
     "id": "pt-2026-05-16-08-30-scene-perception-models-natural-image-statistics",
     "title": "Scene Perception: Models, natural image statistics",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0029"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -12698,12 +12461,11 @@
     "id": "pt-2026-05-16-08-30-scene-perception-intuitive-physics",
     "title": "Scene Perception: Intuitive physics",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0029"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -12924,12 +12686,11 @@
     "id": "pt-2026-05-16-08-30-undergraduate-just-in-time-1",
     "title": "Undergraduate Just-In-Time 1",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0029"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -13404,12 +13165,11 @@
     "id": "pt-2026-05-16-08-30-object-recognition-reading",
     "title": "Object Recognition: Reading",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0030"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -13732,12 +13492,11 @@
     "id": "pt-2026-05-16-08-30-3d-shape-and-space-perception-cues-integration",
     "title": "3D Shape and Space Perception: Cues, integration",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0030"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -13978,12 +13737,11 @@
     "id": "pt-2026-05-16-08-30-3d-shape-and-space-perception-surfaces-objects",
     "title": "3D Shape and Space Perception: Surfaces, objects",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0030"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -14152,12 +13910,11 @@
     "id": "pt-2026-05-16-08-30-attention-neural",
     "title": "Attention: Neural",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0030"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -14618,12 +14375,11 @@
     "id": "pt-2026-05-16-08-30-functional-organization-of-visual-pathways-cortical-visual-processing-2",
     "title": "Functional Organization of Visual Pathways: Cortical visual processing 2",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0030"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -14956,12 +14712,11 @@
     "id": "pt-2026-05-16-08-30-face-and-body-perception-models",
     "title": "Face and Body Perception: Models",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0030"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -15114,12 +14869,11 @@
     "id": "pt-2026-05-16-08-30-decision-making-perception-1",
     "title": "Decision Making: Perception 1",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0030"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -15560,12 +15314,11 @@
     "id": "pt-2026-05-16-08-30-action-navigation-locomotion",
     "title": "Action: Navigation, locomotion",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0030"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -15948,12 +15701,11 @@
     "id": "pt-2026-05-16-08-30-action-miscellaneous",
     "title": "Action: Miscellaneous",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0030"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -16304,12 +16056,11 @@
     "id": "pt-2026-05-16-14-45-spatial-vision-clinical",
     "title": "Spatial Vision: Clinical",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0040"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -16594,12 +16345,11 @@
     "id": "pt-2026-05-16-14-45-perceptual-training-learning-and-plasticity-rehabilitation",
     "title": "Perceptual Training, Learning and Plasticity: Rehabilitation",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0040"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -16926,12 +16676,11 @@
     "id": "pt-2026-05-16-14-45-visual-search-search-strategies-clinical",
     "title": "Visual Search: Search strategies, clinical",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0040"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -17396,12 +17145,11 @@
     "id": "pt-2026-05-16-14-45-visual-search-attention-memory-decision-making",
     "title": "Visual Search: Attention, memory, decision-making",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0040"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -17652,12 +17400,11 @@
     "id": "pt-2026-05-16-14-45-attention-endogenous-exogenous",
     "title": "Attention: Endogenous, exogenous",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0041"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -17866,12 +17613,11 @@
     "id": "pt-2026-05-16-14-45-attention-features-objects",
     "title": "Attention: Features, objects",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0041"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -18230,12 +17976,11 @@
     "id": "pt-2026-05-16-14-45-perceptual-organization-features-parts-wholes-objects",
     "title": "Perceptual Organization: Features, parts, wholes, objects",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0041"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -18576,12 +18321,11 @@
     "id": "pt-2026-05-16-14-45-visual-memory-objects-features",
     "title": "Visual Memory: Objects, features",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0041"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -18900,12 +18644,11 @@
     "id": "pt-2026-05-16-14-45-color-light-and-materials-material-perception",
     "title": "Color, Light and Materials: Material perception",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0041"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -19182,12 +18925,11 @@
     "id": "pt-2026-05-16-14-45-color-light-and-materials-affect-cognition",
     "title": "Color, Light and Materials: Affect, cognition",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0041"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -19472,12 +19214,11 @@
     "id": "pt-2026-05-16-14-45-theory",
     "title": "Theory",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0041"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -19858,12 +19599,11 @@
     "id": "pt-2026-05-16-14-45-multisensory-processing-recalibration-temporal",
     "title": "Multisensory Processing: Recalibration, temporal",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0041"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-16",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -20064,12 +19804,11 @@
     "id": "pt-2026-05-17-08-30-color-light-and-materials-adaptation-contrast-lightness-brightness",
     "title": "Color, Light and Materials: Adaptation, contrast, lightness, brightness",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0054"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -20344,12 +20083,11 @@
     "id": "pt-2026-05-17-08-30-perceptual-organization-ensembles",
     "title": "Perceptual Organization: Ensembles",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0054"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -20692,12 +20430,11 @@
     "id": "pt-2026-05-17-08-30-perceptual-organization-individual-differences-aesthetics",
     "title": "Perceptual Organization: Individual differences, aesthetics",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0054"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -20878,12 +20615,11 @@
     "id": "pt-2026-05-17-08-30-scene-perception-neural-mechanisms",
     "title": "Scene Perception: Neural mechanisms",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0054"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -21224,12 +20960,11 @@
     "id": "pt-2026-05-17-08-30-scene-perception-spatiotemporal-factors",
     "title": "Scene Perception: Spatiotemporal factors",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0054"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -21364,12 +21099,11 @@
     "id": "pt-2026-05-17-08-30-undergraduate-just-in-time-2",
     "title": "Undergraduate Just-In-Time 2",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0054"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -21924,12 +21658,11 @@
     "id": "pt-2026-05-17-08-30-functional-organization-of-visual-pathways-subcortical-clinical",
     "title": "Functional Organization of Visual Pathways: Subcortical, clinical",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0055"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -22330,12 +22063,11 @@
     "id": "pt-2026-05-17-08-30-functional-organization-of-visual-pathways-neuroimaging",
     "title": "Functional Organization of Visual Pathways: Neuroimaging",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0055"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -22736,12 +22468,11 @@
     "id": "pt-2026-05-17-08-30-3d-shape-and-space-perception-miscellaneous",
     "title": "3D Shape and Space Perception: Miscellaneous",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0055"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -23038,12 +22769,11 @@
     "id": "pt-2026-05-17-08-30-eye-movements-individual-differences-visual-preference",
     "title": "Eye Movements: Individual differences, visual preference",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0055"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -23284,12 +23014,11 @@
     "id": "pt-2026-05-17-08-30-eye-movements-mechanisms-perception-fixational",
     "title": "Eye Movements: Mechanisms, perception, fixational",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0055"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -23622,12 +23351,11 @@
     "id": "pt-2026-05-17-08-30-eye-movements-saccades",
     "title": "Eye Movements: Saccades",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0055"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -23878,12 +23606,11 @@
     "id": "pt-2026-05-17-08-30-face-and-body-perception-wholes-parts-configurations-features",
     "title": "Face and Body Perception: Wholes, parts, configurations, features",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0055"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -24242,12 +23969,11 @@
     "id": "pt-2026-05-17-08-30-decision-making-perception-2",
     "title": "Decision Making: Perception 2",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0055"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -24594,12 +24320,11 @@
     "id": "pt-2026-05-17-14-45-visual-memory-long-term-memory",
     "title": "Visual Memory: Long-term memory",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0066"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -25024,12 +24749,11 @@
     "id": "pt-2026-05-17-14-45-visual-memory-encoding-and-retrieval-capacity",
     "title": "Visual Memory: Encoding and retrieval, capacity",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0066"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -25460,12 +25184,11 @@
     "id": "pt-2026-05-17-14-45-spatial-vision-natural-images-texture",
     "title": "Spatial Vision: Natural images, texture",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0066"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -25678,12 +25401,11 @@
     "id": "pt-2026-05-17-14-45-spatial-vision-neural-mechanisms",
     "title": "Spatial Vision: Neural mechanisms",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0066"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -25922,12 +25644,11 @@
     "id": "pt-2026-05-17-14-45-spatial-vision-crowding-eccentricity",
     "title": "Spatial Vision: Crowding, eccentricity",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0066"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -26272,12 +25993,11 @@
     "id": "pt-2026-05-17-14-45-color-light-and-materials-neural-mechanisms",
     "title": "Color, Light and Materials: Neural mechanisms",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0067"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -26734,12 +26454,11 @@
     "id": "pt-2026-05-17-14-45-eye-movements-models-remapping",
     "title": "Eye Movements: Models, remapping",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0067"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -26904,12 +26623,11 @@
     "id": "pt-2026-05-17-14-45-eye-movements-pupillometry",
     "title": "Eye Movements: Pupillometry",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0067"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -27074,12 +26792,11 @@
     "id": "pt-2026-05-17-14-45-visual-search-features-scenes-real-world-stimuli",
     "title": "Visual Search: Features, scenes, real-world stimuli",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0067"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -27526,12 +27243,11 @@
     "id": "pt-2026-05-17-14-45-visual-search-neural-mechanisms-models-eye-movements",
     "title": "Visual Search: Neural mechanisms, models, eye movements",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0067"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -27912,12 +27628,11 @@
     "id": "pt-2026-05-17-14-45-attention-inattention-attentional-blindness",
     "title": "Attention: Inattention, attentional blindness",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0067"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -28098,12 +27813,11 @@
     "id": "pt-2026-05-17-14-45-attention-spatial",
     "title": "Attention: Spatial",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0067"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -28586,12 +28300,11 @@
     "id": "pt-2026-05-17-14-45-attention-individual-differences",
     "title": "Attention: Individual differences",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0067"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-17",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -28824,12 +28537,11 @@
     "id": "pt-2026-05-18-08-30-object-recognition-categories",
     "title": "Object recognition: Categories",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0080"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -29152,12 +28864,11 @@
     "id": "pt-2026-05-18-08-30-object-recognition-features-parts",
     "title": "Object Recognition: Features, parts",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0080"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -29360,12 +29071,11 @@
     "id": "pt-2026-05-18-08-30-face-and-body-perception-social-cognition-2",
     "title": "Face and Body Perception: Social cognition 2",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0080"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -29658,12 +29368,11 @@
     "id": "pt-2026-05-18-08-30-face-and-body-perception-individual-differences",
     "title": "Face and Body Perception: Individual differences",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0080"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -29900,12 +29609,11 @@
     "id": "pt-2026-05-18-08-30-face-and-body-perception-bodies",
     "title": "Face and Body Perception: Bodies",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0080"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -30074,12 +29782,11 @@
     "id": "pt-2026-05-18-08-30-functional-organization-of-visual-pathways-retinotopy-population-receptiv",
     "title": "Functional Organization of Visual Pathways: Retinotopy, population receptive fields",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0080"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -30316,12 +30023,11 @@
     "id": "pt-2026-05-18-08-30-spatial-vision-binocular-vision",
     "title": "Spatial Vision: Binocular vision",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -30588,12 +30294,11 @@
     "id": "pt-2026-05-18-08-30-eye-movements-natural-complex-tasks",
     "title": "Eye Movements: Natural, complex tasks",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -30916,12 +30621,11 @@
     "id": "pt-2026-05-18-08-30-eye-movements-clinical",
     "title": "Eye Movements: Clinical",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -31124,12 +30828,11 @@
     "id": "pt-2026-05-18-08-30-action-reaching",
     "title": "Action: Reaching",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -31400,12 +31103,11 @@
     "id": "pt-2026-05-18-08-30-action-grasping-affordances",
     "title": "Action: Grasping, affordances",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -31742,12 +31444,11 @@
     "id": "pt-2026-05-18-08-30-motion-illusions",
     "title": "Motion: Illusions",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -31930,12 +31631,11 @@
     "id": "pt-2026-05-18-08-30-decision-making-actions-metacognition",
     "title": "Decision Making: Actions, metacognition",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -32194,12 +31894,11 @@
     "id": "pt-2026-05-18-08-30-motion-optic-flow-in-depth-biological-higher-order",
     "title": "Motion: Optic flow, in-depth, biological, higher-order",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -32574,12 +32273,11 @@
     "id": "pt-2026-05-18-08-30-perceptual-training-learning-and-plasticity-statistical-learning",
     "title": "Perceptual Training, Learning and Plasticity: Statistical learning",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -32766,12 +32464,11 @@
     "id": "pt-2026-05-18-08-30-perceptual-training-learning-and-plasticity-category-learning",
     "title": "Perceptual Training, Learning and Plasticity: Category learning",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0081"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-18",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -32956,12 +32653,11 @@
     "id": "pt-2026-05-19-08-30-perceptual-training-learning-and-plasticity-neural-mechanisms",
     "title": "Perceptual Training, Learning and Plasticity: Neural mechanisms",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0100"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -33146,12 +32842,11 @@
     "id": "pt-2026-05-19-08-30-perceptual-training-learning-and-plasticity-neuroimaging-neurostimulation",
     "title": "Perceptual Training, Learning and Plasticity: Neuroimaging, neurostimulation",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0100"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -33464,12 +33159,11 @@
     "id": "pt-2026-05-19-08-30-perceptual-organization-intuitive-physics",
     "title": "Perceptual Organization: Intuitive physics",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0100"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -33670,12 +33364,11 @@
     "id": "pt-2026-05-19-08-30-perceptual-organization-grouping",
     "title": "Perceptual Organization: Grouping",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0100"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -34038,12 +33731,11 @@
     "id": "pt-2026-05-19-08-30-scene-perception-ensemble",
     "title": "Scene Perception: Ensemble",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0100"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -34220,12 +33912,11 @@
     "id": "pt-2026-05-19-08-30-scene-perception-virtual-reality",
     "title": "Scene Perception: Virtual reality",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0100"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -34464,12 +34155,11 @@
     "id": "pt-2026-05-19-08-30-scene-perception-categorization-memory",
     "title": "Scene Perception: Categorization, memory",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0100"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -34724,12 +34414,11 @@
     "id": "pt-2026-05-19-08-30-visual-working-memory-models-neural",
     "title": "Visual Working Memory: Models, neural",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0100"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -35052,12 +34741,11 @@
     "id": "pt-2026-05-19-08-30-attention-capture-1",
     "title": "Attention: Capture 1",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0101"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -35392,12 +35080,11 @@
     "id": "pt-2026-05-19-08-30-attention-models",
     "title": "Attention: Models",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0101"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -35576,12 +35263,11 @@
     "id": "pt-2026-05-19-08-30-temporal-processing-neural-mechanisms-models",
     "title": "Temporal Processing: Neural mechanisms, models",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0101"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -35908,12 +35594,11 @@
     "id": "pt-2026-05-19-08-30-motion-mechanisms-models",
     "title": "Motion: Mechanisms, models",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0101"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -36260,12 +35945,11 @@
     "id": "pt-2026-05-19-08-30-action-pointing-tracking",
     "title": "Action: Pointing, tracking",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0101"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -36504,12 +36188,11 @@
     "id": "pt-2026-05-19-08-30-action-perception-recognition",
     "title": "Action: Perception, recognition",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0101"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -36794,12 +36477,11 @@
     "id": "pt-2026-05-19-08-30-multisensory-processing-cross-modal-interactions",
     "title": "Multisensory Processing: Cross-modal interactions",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0101"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -37040,12 +36722,11 @@
     "id": "pt-2026-05-19-08-30-face-and-body-perception-development-clinical",
     "title": "Face and Body Perception: Development, clinical",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0101"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -37366,12 +37047,11 @@
     "id": "pt-2026-05-19-08-30-development",
     "title": "Development",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0101"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "08:29",
-    "mins": 241,
+    "time": "08:30",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -37676,12 +37356,11 @@
     "id": "pt-2026-05-19-14-45-visual-memory-imagery",
     "title": "Visual Memory: Imagery",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0114"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -38016,12 +37695,11 @@
     "id": "pt-2026-05-19-14-45-visual-memory-mechanisms-models-individual-differences",
     "title": "Visual Memory: Mechanisms, models, individual differences",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0114"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -38378,12 +38056,11 @@
     "id": "pt-2026-05-19-14-45-face-and-body-perception-neural-mechanisms",
     "title": "Face and Body Perception: Neural mechanisms",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0114"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -38838,12 +38515,11 @@
     "id": "pt-2026-05-19-14-45-face-and-body-perception-emotion",
     "title": "Face and Body Perception: Emotion",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0114"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -39076,12 +38752,11 @@
     "id": "pt-2026-05-19-14-45-undergraduate-just-in-time-3",
     "title": "Undergraduate Just-In-Time 3",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0114"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Banyan Breezeway"
     ],
@@ -39782,12 +39457,11 @@
     "id": "pt-2026-05-19-14-45-visual-working-memory-spatial",
     "title": "Visual Working Memory: Spatial",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0115"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -39986,12 +39660,11 @@
     "id": "pt-2026-05-19-14-45-visual-working-memory-objects-features",
     "title": "Visual Working Memory: Objects, features",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0115"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -40152,12 +39825,11 @@
     "id": "pt-2026-05-19-14-45-object-recognition-models",
     "title": "Object Recognition: Models",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0115"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -40656,12 +40328,11 @@
     "id": "pt-2026-05-19-14-45-perceptual-organization-neural-mechanisms-models",
     "title": "Perceptual Organization: Neural mechanisms, models",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0115"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -41168,12 +40839,11 @@
     "id": "pt-2026-05-19-14-45-attention-capture-2",
     "title": "Attention: Capture 2",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0115"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -41538,12 +41208,11 @@
     "id": "pt-2026-05-19-14-45-attention-temporal",
     "title": "Attention: Temporal",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0115"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -41706,8 +41375,8 @@
         "name": "Jewel Cox"
       },
       {
-        "id": "kia-nobre",
-        "name": "Kia Nobre"
+        "id": "anna-c-nobre",
+        "name": "Anna C. Nobre"
       }
     ],
     "desc": "Attention can be directed to sensory events (external attention) and to memory contents (internal attention). Predictable temporal structures guide external attention dynamically and proactively to anticipated onsets of relevant sensory events with good temporal resolution. Temporal expectations also modulate access to working-memory (WM) representations, but much less is known about the dynamic profile of these internal attention functions. We investigated how we use time to select and shift between WM contents. Participants encoded the angles of two tilted gratings into WM. Gratings appeared within separate circular, colored placeholders on the left and right of the screen. At the end of the trial, participants reproduced the tilt of one of the WM items. Which item participants reported was predicted by the combination of a retrocue and the subsequent delay. A colored retrocue during the WM delay predicted that participants would be probed on the item matching the cue color after a short (1 sec) delay or on the other item after a long (2.5 sec) delay. Using variations of this task, we investigated the time course of the behavioural advantages conferred by internal temporal attention. In Experiment 1 (n =30), the cue validly predicted the timing of the item to be reported on most trials (80%), but, on other trials, an item could be probed along several intervals spanning (0.5-2.7 s after cue offset). Responses at validly and invalidly cued times revealed a dynamic profile of\nattentional benefit, with progressive response speeding toward the expected timing of the probe. Interestingly, accuracy-related benefits were more pronounced for items that were expected to be probed early. Ongoing studies are investigating whether temporal orienting in WM yields behavioral costs in addition to benefits. The findings provide insights into how temporal regularities shape the dynamics of selecting WM contents in the service of adaptive behavior."
@@ -41852,12 +41521,11 @@
     "id": "pt-2026-05-19-14-45-attention-reward",
     "title": "Attention: Reward",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0115"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],
@@ -42018,12 +41686,11 @@
     "id": "pt-2026-05-19-14-45-multisensory-processing-audiovisual",
     "title": "Multisensory Processing: Audiovisual",
     "tags": [
-      "Type:PosterTopic",
-      "parent:sched-0115"
+      "Type:PosterTopic"
     ],
     "date": "2026-05-19",
-    "time": "14:44",
-    "mins": 241,
+    "time": "14:45",
+    "mins": 240,
     "loc": [
       "Pavilion"
     ],

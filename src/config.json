@@ -85,14 +85,15 @@
     }
   },
   "TAGS": {
-    "PLACEHOLDER": "Select tags",
-    "SEARCHABLE": false,
+    "PLACEHOLDER": "Type to filter by session…",
+    "SEARCHABLE": true,
     "HIDE": false,
     "SEPARATE": [
       { "PREFIX": "Division", "PLACEHOLDER": "Select division", "SEARCHABLE": false, "HIDE": true },
-      { "PREFIX": "Type", "PLACEHOLDER": "Select type", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
+      { "PREFIX": "Type", "PLACEHOLDER": "Type to filter by item type…", "SEARCHABLE": true, "HIDE": false },
+      { "PREFIX": "Tag", "PLACEHOLDER": "Type to filter by session…", "SEARCHABLE": true, "HIDE": false },
+      { "PREFIX": "Track", "PLACEHOLDER": "Type to filter by track…", "SEARCHABLE": true, "HIDE": false },
+      { "PREFIX": "parent", "PLACEHOLDER": "Parent session", "SEARCHABLE": false, "HIDE": true }
     ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
@@ -111,7 +112,7 @@
     "DONTLIST": ["Division", "days", "parent"]
   },
   "HIDE_BEFORE": {
-    "HIDE": false,
+    "HIDE": true,
     "PLACEHOLDER": "Select time",
     "TIMES": [
       { "TIME": "08:00:00", "LABEL_24H": "08:00", "LABEL_12H": "8am" },
