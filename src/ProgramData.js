@@ -116,8 +116,19 @@ export class ProgramData {
           ? [...person.name].reverse().join(" ")
           : person.name;
       }
-      // If name is an array, convert to single string.
-      if (Array.isArray(person.name)) person.name = person.name.join(" ");
+      // If name is an array, convert to single string.  Filter out
+      // empty parts and trim — many records have empty middle-name /
+      // suffix slots ("RT Pramod  " with trailing spaces) which leak
+      // into the byline as visual gaps before commas.
+      if (Array.isArray(person.name)) {
+        person.name = person.name
+          .map((part) => (typeof part === "string" ? part.trim() : ""))
+          .filter((part) => part.length > 0)
+          .join(" ");
+      }
+      if (typeof person.name === "string") {
+        person.name = person.name.replace(/\s+/g, " ").trim();
+      }
       // Several possible picture fields, so provide one.
       person.img =
         (person.links && (person.links.img || person.links.photo)) ||

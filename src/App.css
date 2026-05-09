@@ -1021,6 +1021,16 @@ div.switch-wrapper {
   margin-right: 0.5rem;
 }
 
+/* Insert separators between (not after) siblings so the last tag /
+   location doesn't get a trailing comma.  The trailing comma used to
+   live in the Tag and Location components themselves. */
+.item-tag:not(:last-child)::after {
+  content: ",";
+}
+.item-location > span:not(:last-child)::after {
+  content: ", ";
+}
+
 /* To put duration on its own line, remove this bit. */
 .item-duration {
   display: inline-block;
