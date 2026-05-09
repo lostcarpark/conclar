@@ -28,7 +28,8 @@
     "PROGRAM": "Program",
     "PEOPLE": "People",
     "MYSCHEDULE": "My Schedule",
-    "INFO": "Information",
+    "INFO": "Schedule Overview",
+    "HELP": "Help",
     "SETTINGS": "Settings"
     },
   "HELP_TEXT": {

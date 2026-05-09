@@ -11,6 +11,14 @@ const Navigation = () => {
     ) : (
       <></>
     );
+  const helpLink =
+    "HELP" in configData.NAVIGATION ? (
+      <li>
+        <NavLink to="/help">{configData.NAVIGATION.HELP}</NavLink>
+      </li>
+    ) : (
+      <></>
+    );
   const extraLinks = [];
   if ("EXTRA" in configData.NAVIGATION) {
     for (let link of configData.NAVIGATION.EXTRA) {
@@ -34,6 +42,7 @@ const Navigation = () => {
           <NavLink to="/myschedule">{configData.NAVIGATION.MYSCHEDULE}</NavLink>
         </li>
         {infoLink}
+        {helpLink}
         <li>
           <NavLink to="/settings">{configData.NAVIGATION.SETTINGS}</NavLink>
         </li>

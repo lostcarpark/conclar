@@ -21,6 +21,7 @@ import LocationProgramme from "./LocationProgramme";
 import People from "./People";
 import Person from "./Person";
 import Info from "./Info";
+import Help from "./Help";
 import Settings from "./Settings";
 import Footer from "./Footer";
 
@@ -50,6 +51,7 @@ const AppRoutes = () => {
             </Route>
             <Route path="myschedule" element={<MySchedule />} />
             <Route path="info" element={<Info />} />
+            <Route path="help" element={<Help />} />
             <Route path="settings" element={<Settings />} />
           </Route>
           <Route path="*" element={<NotFound />} />
