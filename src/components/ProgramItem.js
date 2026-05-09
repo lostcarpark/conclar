@@ -14,6 +14,7 @@ import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
 import { useState, useEffect } from "react";
 import { LocalTime } from "../utils/LocalTime";
+import { useDirectMatchedIds } from "./FilterContext";
 
 const ProgramItem = ({ item, forceExpanded, now }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
@@ -21,10 +22,16 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
 
   const selected = useStoreState((state) => state.isSelected(item.id));
-  const { addSelection, removeSelection } = useStoreActions((actions) => ({
-    addSelection: actions.addSelectionAndSync,
-    removeSelection: actions.removeSelectionAndSync,
-  }));
+  const { addSelections, removeSelections, showNotification } = useStoreActions(
+    (actions) => ({
+      addSelections: actions.addSelectionsAndSync,
+      removeSelections: actions.removeSelectionsAndSync,
+      showNotification: actions.showNotification,
+    })
+  );
+  // Full programChildren map so we can BFS descendants when this item
+  // is a session being toggled (PR 3 cascade).
+  const programChildrenMap = useStoreState((state) => state.programChildren);
 
   const expanded = useStoreState((state) => state.isExpanded(item.id));
   const { expandItem, collapseItem } = useStoreActions((actions) => ({
@@ -35,6 +42,28 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   // Used to resolve the parent session's title for the "Part of:" kicker.
   const program = useStoreState((state) => state.program);
 
+  // PR 1: tree-aware nesting. If this item has children (sessions with
+  // talks/posters), they render inside this item's DOM rather than as
+  // flat siblings.
+  const allChildItems = useStoreState((state) => state.programChildren[item.id]) || [];
+
+  // PR 4 polish: when a filter is active, hide non-matching children
+  // unless this parent itself was a direct filter match.  Logic:
+  //   - No filter active            -> show all children.
+  //   - Filter active, parent matched directly -> show all children
+  //     (the parent is a "container view" — user wants to see what's
+  //     inside this matched session).
+  //   - Filter active, parent only here via parent-completion -> show
+  //     only the children that were direct matches (the matched needles
+  //     in this session's haystack).
+  const directMatchedIds = useDirectMatchedIds();
+  const childItems = (() => {
+    if (!directMatchedIds) return allChildItems;
+    if (directMatchedIds.has(item.id)) return allChildItems;
+    return allChildItems.filter((c) => directMatchedIds.has(c.id));
+  })();
+  const hasChildren = childItems.length > 0;
+
   function toggleExpanded() {
     if (configData.INTERACTIVE) {
       if (expanded) {
@@ -44,9 +73,60 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
     }
   }
 
+  // PR 3: collect this item's id plus every descendant's id (BFS through
+  // programChildren), so toggling a session checkbox cascades to all of
+  // its talks/posters in one bulk action.
+  function gatherSelfAndDescendants() {
+    const out = [item.id];
+    const seen = new Set([item.id]);
+    const queue = [item.id];
+    while (queue.length) {
+      const id = queue.shift();
+      const kids = programChildrenMap[id] || [];
+      for (const k of kids) {
+        if (!seen.has(k.id)) {
+          seen.add(k.id);
+          out.push(k.id);
+          queue.push(k.id);
+        }
+      }
+    }
+    return out;
+  }
+
+  // Plural label for the children's type, used in the cascade toast.
+  // Looks at the first child's "Type" tag and best-effort pluralizes.
+  function childrenTypeLabel() {
+    if (!allChildItems.length) return "items";
+    const typeTag = (allChildItems[0].tags || []).find(
+      (t) => t && typeof t === "object" && t.category === "Type"
+    );
+    const label = typeTag && typeof typeTag.label === "string" ? typeTag.label : "";
+    if (/^talks?$/i.test(label)) return "talks";
+    if (/^posters?$/i.test(label)) return "posters";
+    if (label) return label.toLowerCase() + (label.endsWith("s") ? "" : "s");
+    return "items";
+  }
+
   function handleSelected(event) {
-    if (event.target.checked) addSelection(item.id);
-    else removeSelection(item.id);
+    const ids = gatherSelfAndDescendants();
+    const checked = event.target.checked;
+    if (checked) addSelections(ids);
+    else removeSelections(ids);
+
+    // Toast when cascading toggled hidden children — i.e. the parent has
+    // children, AND some of those children weren't visible at the time
+    // of the click (filter narrowed them out).  Avoids surprising the
+    // user with "I didn't see those, why are they in my schedule?".
+    const hiddenCount = allChildItems.length - childItems.length;
+    if (allChildItems.length > 0 && hiddenCount > 0) {
+      const total = allChildItems.length;
+      const noun = childrenTypeLabel();
+      const verb = checked ? "added to" : "removed from";
+      showNotification(
+        `All ${total} ${noun} in “${item.title}” ${verb} My Schedule.`
+      );
+    }
   }
 
   function getRelativeTime(item) {
@@ -64,21 +144,35 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   }
 
  // Find a "parent:<id>" tag in any of the shapes ConClár might emit.
+const PARENT_PREFIX = "parent:";
 const parentTag = (item.tags || []).find((t) => {
-  if (typeof t === "string") return t.toLowerCase().startsWith("parent:");
+  if (typeof t === "string") return t.toLowerCase().startsWith(PARENT_PREFIX);
   if (t && typeof t === "object") {
     if (typeof t.category === "string" && t.category.toLowerCase() === "parent") return true;
-    if (typeof t.label === "string" && t.label.toLowerCase().startsWith("parent:")) return true;
-    if (typeof t.value === "string" && t.value.toLowerCase().startsWith("parent:")) return true;
+    if (typeof t.label === "string" && t.label.toLowerCase().startsWith(PARENT_PREFIX)) return true;
+    if (typeof t.value === "string" && t.value.toLowerCase().startsWith(PARENT_PREFIX)) return true;
   }
   return false;
 });
 const parentId = (() => {
   if (!parentTag) return null;
-  if (typeof parentTag === "string") return parentTag.split(":")[1];
-  if (parentTag.category && parentTag.category.toLowerCase() === "parent") return parentTag.value;
-  const s = parentTag.label || parentTag.value || "";
-  return s.includes(":") ? s.split(":")[1] : null;
+  if (typeof parentTag === "string") {
+    return parentTag.slice(PARENT_PREFIX.length);
+  }
+  // When "parent" is declared in TAGS.SEPARATE, t.category is set but
+  // t.value still carries the full "parent:<id>" — strip the prefix.
+  const v = typeof parentTag.value === "string" ? parentTag.value : "";
+  if (v.toLowerCase().startsWith(PARENT_PREFIX)) {
+    return v.slice(PARENT_PREFIX.length);
+  }
+  if (parentTag.category && String(parentTag.category).toLowerCase() === "parent") {
+    return v || null;  // bare id case
+  }
+  const l = typeof parentTag.label === "string" ? parentTag.label : "";
+  if (l.toLowerCase().startsWith(PARENT_PREFIX)) {
+    return l.slice(PARENT_PREFIX.length);
+  }
+  return null;
 })();
 const isChild = !!parentId;
 
@@ -134,6 +228,24 @@ const parentTitle = parentItem ? parentItem.title : null;
     </span>
   ) : null;
 
+  // Visual de-emphasis for non-content rows (breaks, lounges, social
+  // events, registration, exhibits, etc.) so attendees can scan past
+  // them to the actual sessions. Talk / Poster / Workshop / Symposium
+  // (plus Keynote and Award, the high-profile sessions) keep full
+  // styling.
+  const MUTED_TYPES = new Set([
+    "Break",
+    "Lounge",
+    "Registration",
+    "Social",
+    "Networking",
+    "Exhibits",
+    "Business",
+    "Other",
+    "Student",
+  ]);
+  const isMuted = !!(typeTag && MUTED_TYPES.has(typeTag.label));
+
   const people = [];
   if (item.people) {
     item.people.forEach((person) => {
@@ -146,6 +258,38 @@ const parentTitle = parentItem ? parentItem.title : null;
       );
     });
   }
+
+  // Inline byline — the author/moderator names rendered on the
+  // always-visible header. Each name is a Link to /people/<id>; the
+  // byline div sits OUTSIDE the .item-header <button> (because <a>
+  // inside <button> is invalid HTML) but INSIDE the .item-entry so it
+  // still reads as part of the same row. Each link stops propagation
+  // so navigating to the person page doesn't also toggle expand.
+  const moderatorLabel =
+    (configData.PEOPLE &&
+      configData.PEOPLE.MODERATORS &&
+      configData.PEOPLE.MODERATORS.MODERATOR_LABEL) ||
+    "(moderator)";
+  const peopleInline =
+    item.people && item.people.length ? (
+      <div className="item-byline">
+        {item.people.map((person, i) => (
+          <span key={person.id}>
+            {i > 0 && ", "}
+            <Link
+              to={"/people/" + person.id}
+              className="item-byline-link"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {person.name}
+            </Link>
+            {person.id === item.moderator && (
+              <span className="moderator"> {moderatorLabel}</span>
+            )}
+          </span>
+        ))}
+      </div>
+    ) : null;
   const safeDesc = DOMPurify.sanitize(
     item.desc,
     configData.ITEM_DESCRIPTION.PURIFY_OPTIONS
@@ -287,7 +431,13 @@ const parentTitle = parentItem ? parentItem.title : null;
     );
 
   return (
-    <div id={id} className={`item ${isChild ? "program-item--child" : ""}`}>
+    <div id={id}
+         className={
+           "item"
+           + (isChild ? " program-item--child" : "")
+           + (hasChildren ? " program-item--parent" : "")
+           + (isMuted ? " item--muted" : "")
+         }>
       <div className="item-selection">
         <div className="selection">
           <input
@@ -318,13 +468,11 @@ const parentTitle = parentItem ? parentItem.title : null;
             {duration}
           </div>
         </button>
+        {peopleInline}
         {detailsVisible && (
           <animated.div className="item-details" style={itemExpandedStyle} id={'details-' + id} role="region" aria-labelledby={'header-' + id}>
             <div className="item-details-expanded" ref={ref}>
               {permaLink}
-              <div className="item-people">
-                <ul>{people}</ul>
-              </div>
               <div className="item-tags">{tags}</div>
               <div
                 className="item-description"
@@ -335,6 +483,21 @@ const parentTitle = parentItem ? parentItem.title : null;
           </animated.div>
         )}
       </div>
+
+      {/* PR 1: nested children rendered inside parent's DOM tree. */}
+      {hasChildren && (
+        <ul className="item-children">
+          {childItems.map((child) => (
+            <li key={child.id}>
+              <ProgramItem
+                item={child}
+                forceExpanded={forceExpanded}
+                now={now}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

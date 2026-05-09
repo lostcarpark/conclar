@@ -72,8 +72,31 @@ export class ProgramData {
       item.timeSlot = LocalTime.getTimeSlot(item.startDateAndTime);
       return item;
     });
+    // Sort by start time. Tiebreak: items without a parent: tag (the
+    // session/parent rows) come before items that have one (children),
+    // so when a parent and its first child share the same minute the
+    // parent renders first. Tags are still raw strings at this point —
+    // processTags() decodes them into objects later.
+    function hasParentTag(item) {
+      const tags = item.tags || [];
+      for (const t of tags) {
+        if (typeof t === "string") {
+          if (t.toLowerCase().startsWith("parent:")) return true;
+        } else if (t && typeof t === "object") {
+          if (t.category && String(t.category).toLowerCase() === "parent") return true;
+          const v = typeof t.value === "string" ? t.value : "";
+          if (v.toLowerCase().startsWith("parent:")) return true;
+        }
+      }
+      return false;
+    }
     program.sort((a, b) => {
-      return Temporal.ZonedDateTime.compare(a.startDateAndTime, b.startDateAndTime);
+      const cmp = Temporal.ZonedDateTime.compare(
+        a.startDateAndTime,
+        b.startDateAndTime
+      );
+      if (cmp !== 0) return cmp;
+      return (hasParentTag(a) ? 1 : 0) - (hasParentTag(b) ? 1 : 0);
     });
     //console.log("Program data", program);
     return program;
@@ -93,8 +116,19 @@ export class ProgramData {
           ? [...person.name].reverse().join(" ")
           : person.name;
       }
-      // If name is an array, convert to single string.
-      if (Array.isArray(person.name)) person.name = person.name.join(" ");
+      // If name is an array, convert to single string.  Filter out
+      // empty parts and trim — many records have empty middle-name /
+      // suffix slots ("RT Pramod  " with trailing spaces) which leak
+      // into the byline as visual gaps before commas.
+      if (Array.isArray(person.name)) {
+        person.name = person.name
+          .map((part) => (typeof part === "string" ? part.trim() : ""))
+          .filter((part) => part.length > 0)
+          .join(" ");
+      }
+      if (typeof person.name === "string") {
+        person.name = person.name.replace(/\s+/g, " ").trim();
+      }
       // Several possible picture fields, so provide one.
       person.img =
         (person.links && (person.links.img || person.links.photo)) ||
@@ -311,7 +345,7 @@ export class ProgramData {
     // Special-case the "Type" filter so Talk and Poster (the two dominant
     // categories) lead the list, parent-session rows are suppressed, and
     // everything else follows alphabetically.
-    const TYPE_PRIORITY = ["Talk", "Poster"];
+    const TYPE_PRIORITY = ["Talk", "Poster", "Symposium"];
     const TYPE_HIDDEN = ["TalkSession", "PosterSession", "PosterTopic"];
     for (const tagList in tags) {
       if (!Array.isArray(tags[tagList])) continue;

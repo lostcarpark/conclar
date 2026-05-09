@@ -1,4 +1,5 @@
 import { action, thunk, computed } from "easy-peasy";
+import { Temporal } from "@js-temporal/polyfill";
 import { ProgramData } from "./ProgramData";
 import { ProgramSelection } from "./ProgramSelection";
 import { LocalTime } from "./utils/LocalTime";
@@ -83,6 +84,22 @@ const model = {
   onLine: window.navigator.onLine,
   darkMode: localStorage.getItem("dark_mode") ? localStorage.getItem("dark_mode") : 'browser',
   showSyncWarning: false,
+  // PR 3: lightweight toast notification surfaced from cascade actions
+  // and similar background-y events.  `key` increments every call so
+  // the consuming component can reset its dismiss timer even if the
+  // same message is shown twice in a row.
+  notification: null, // { message: string, key: number } | null
+  showNotification: action((state, message) => {
+    if (!message) {
+      state.notification = null;
+      return;
+    }
+    const prevKey = state.notification ? state.notification.key : 0;
+    state.notification = { message, key: prevKey + 1 };
+  }),
+  clearNotification: action((state) => {
+    state.notification = null;
+  }),
   // Thunks
   fetchProgram: thunk(async (actions, firstTime) => {
     actions.setData(await ProgramData.fetchData(firstTime));
@@ -346,6 +363,43 @@ const model = {
     updateLocalStore(state.selectionStore, state.currentUserId);
   }),
 
+  // PR 3: bulk variants used when toggling a session cascades to its
+  // talks/posters.  One pass through the store + one localStorage write
+  // + one sync push, instead of N round-trips.  Only marks `dirty` for
+  // ids whose state actually changes, so unchanged children don't churn
+  // through sync.
+  addSelections: action((state, ids) => {
+    if (!Array.isArray(ids) || ids.length === 0) return;
+    const existing = new Set(state.mySelections);
+    let changed = false;
+    for (const id of ids) {
+      const was = state.selectionStore[id]?.selected === true;
+      if (!existing.has(id)) {
+        state.mySelections.push(id);
+        existing.add(id);
+      }
+      if (!was) {
+        state.selectionStore[id] = { selected: true, dirty: true };
+        changed = true;
+      }
+    }
+    if (changed) updateLocalStore(state.selectionStore, state.currentUserId);
+  }),
+  removeSelections: action((state, ids) => {
+    if (!Array.isArray(ids) || ids.length === 0) return;
+    const idsSet = new Set(ids);
+    state.mySelections = state.mySelections.filter((s) => !idsSet.has(s));
+    let changed = false;
+    for (const id of ids) {
+      const was = state.selectionStore[id]?.selected === true;
+      if (was) {
+        state.selectionStore[id] = { selected: false, dirty: true };
+        changed = true;
+      }
+    }
+    if (changed) updateLocalStore(state.selectionStore, state.currentUserId);
+  }),
+
   setShowSyncWarning: action((state, show) => {
     state.showSyncWarning = show;
     if (!show) {
@@ -368,6 +422,30 @@ const model = {
   }),
   removeSelectionAndSync: thunk(async (actions, id, { getState }) => {
     actions.removeSelection(id);
+    if (SyncService.isSyncEnabled() && !syncWarningShown) {
+      const state = getState();
+      if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {
+        syncWarningShown = true;
+        actions.setShowSyncWarning(true);
+      }
+    }
+    await coalescedSync(actions);
+  }),
+
+  // PR 3: bulk-add and bulk-remove with one sync push at the end.
+  addSelectionsAndSync: thunk(async (actions, ids, { getState }) => {
+    actions.addSelections(ids);
+    if (SyncService.isSyncEnabled() && !syncWarningShown) {
+      const state = getState();
+      if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {
+        syncWarningShown = true;
+        actions.setShowSyncWarning(true);
+      }
+    }
+    await coalescedSync(actions);
+  }),
+  removeSelectionsAndSync: thunk(async (actions, ids, { getState }) => {
+    actions.removeSelections(ids);
     if (SyncService.isSyncEnabled() && !syncWarningShown) {
       const state = getState();
       if (state.userProfile && !state.userProfile.authenticated && !state.userProfile.error) {
@@ -430,6 +508,110 @@ const model = {
       state.mySelections.find((id) => item.id === id)
     )
   ),
+
+  // === PR 1: tree-aware data layer for session/talk nesting ===============
+  // The data on disk is flat; children point to their parent via a tag
+  // whose effective form is "parent:<parent_id>".  Depending on whether
+  // "parent" is declared in TAGS.SEPARATE, ConClár's tag decoder may
+  // produce either:
+  //   { category: "parent", value: <parent_id>, label: <pretty> }
+  // or, when the prefix isn't declared:
+  //   { value: "parent:<id>", label: "parent:<id>" }   (no category)
+  // The helper below extracts the parent id from either shape.
+
+  programIndex: computed((state) =>
+    Object.fromEntries(state.program.map((it) => [it.id, it]))
+  ),
+
+  programChildren: computed(
+    [(state) => state.program, (state) => state.programIndex],
+    (program, programIndex) => {
+      const byParent = {};
+      for (const it of program) {
+        const pid = extractParentId(it);
+        if (!pid) continue;
+        if (pid === it.id) continue;
+        if (!programIndex[pid]) continue;
+        if (!byParent[pid]) byParent[pid] = [];
+        byParent[pid].push(it);
+      }
+      for (const list of Object.values(byParent)) {
+        list.sort((a, b) => {
+          if (!a.startDateAndTime || !b.startDateAndTime) return 0;
+          return Temporal.ZonedDateTime.compare(
+            a.startDateAndTime,
+            b.startDateAndTime
+          );
+        });
+      }
+      return byParent;
+    }
+  ),
+
+  programIsChild: computed(
+    [(state) => state.program, (state) => state.programIndex],
+    (program, programIndex) => {
+      const childIds = new Set();
+      for (const it of program) {
+        const pid = extractParentId(it);
+        if (!pid) continue;
+        if (pid === it.id) continue;
+        if (!programIndex[pid]) continue;
+        childIds.add(it.id);
+      }
+      return childIds;
+    }
+  ),
 };
+
+// Extract the bare parent id from an item's tags, regardless of whether
+// the "parent" prefix has been declared as a separate category in
+// configData.TAGS.SEPARATE.  Returns the id string (without the
+// "parent:" prefix) or null.
+//
+// Notable wrinkle: when "parent" IS declared in TAGS.SEPARATE, ConClár
+// sets `tag.category = "parent"` but `tag.value` still holds the FULL
+// "parent:<id>" string (value is the original tag, category is just the
+// prefix it recognized).  We need to strip the prefix off in that case
+// so the result matches programIndex keys, which are bare ids.
+//
+// Exported so other modules (FilterableProgram, ProgramList) reuse the
+// same logic instead of redefining their own copies.
+export function extractParentId(item) {
+  const tags = item.tags || [];
+  for (const t of tags) {
+    if (typeof t === "string") {
+      if (t.toLowerCase().startsWith("parent:")) {
+        return t.slice("parent:".length);
+      }
+      continue;
+    }
+    if (!t || typeof t !== "object") continue;
+
+    const v = typeof t.value === "string" ? t.value : "";
+    const l = typeof t.label === "string" ? t.label : "";
+
+    // Decoded with category set ("parent" was in TAGS.SEPARATE):
+    if (typeof t.category === "string" && t.category.toLowerCase() === "parent") {
+      // value usually still has the prefix; strip if present.
+      if (v.toLowerCase().startsWith("parent:")) {
+        return v.slice("parent:".length);
+      }
+      // fallback: use label (formatTag may have munged it though).
+      if (v) return v;
+      return l || null;
+    }
+
+    // Decoded without a category — the whole "parent:<id>" string is in
+    // .value (and usually .label too):
+    if (v.toLowerCase().startsWith("parent:")) {
+      return v.slice("parent:".length);
+    }
+    if (l.toLowerCase().startsWith("parent:")) {
+      return l.slice("parent:".length);
+    }
+  }
+  return null;
+}
 
 export default model;

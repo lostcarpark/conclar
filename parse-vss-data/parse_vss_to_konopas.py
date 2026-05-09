@@ -2185,12 +2185,12 @@ def iter_posters(text: str, expected_topics: Optional[set[str]] = None) -> Itera
                 cur_topic_id = "pt-" + slugify(
                     f"{cur_date}-{cur_time}-{cur_topic}"
                 )[:90]
-                # topic time = session start - 1, mins = duration + 1.
-                t_total = sh * 60 + sm_ - 1
-                if t_total < 0:
-                    t_total = 0
-                topic_time = f"{t_total // 60:02d}:{t_total % 60:02d}"
-                topic_mins = (eh * 60 + em_) - (sh * 60 + sm_) + 1
+                # PosterTopic renders at the actual session start time.
+                # (Earlier this used start-1 to force sort order against
+                # the now-removed PosterSession umbrella; PR 1's nested
+                # renderer makes that workaround unnecessary.)
+                topic_time = cur_time
+                topic_mins = (eh * 60 + em_) - (sh * 60 + sm_)
                 yield Abstract(
                     id=cur_topic_id,
                     title=cur_topic,
@@ -2259,10 +2259,45 @@ def _norm_room(room: str) -> str:
     return re.sub(r"\s+", " ", (room or "").strip().lower())
 
 
+def _display_room(room: str) -> str:
+    """Title-case a room name for display so "TALK ROOM 1" -> "Talk Room 1".
+
+    Symposium and talk-session headers in the source render rooms in
+    ALL CAPS while poster/schedule rows render them in title case;
+    normalize at the display step so loc strings compare equal across
+    item types.  Preserves hyphens, slashes, and existing case for
+    already-mixed names.
+    """
+    s = (room or "").strip()
+    if not s:
+        return s
+    # Strip a dangling trailing connector ("Garden Courtyard &" -> "Garden Courtyard")
+    s = re.sub(r"\s*&\s*$", "", s)
+    # Skip if any lowercase letter is present (already mixed-case).
+    if any(c.islower() for c in s):
+        return s
+    def _cap(w: str) -> str:
+        if not w:
+            return w
+        return w[0].upper() + w[1:].lower()
+    out_words = []
+    for w in s.split():
+        # Preserve trailing digits unchanged ("ROOM 1" -> "Room 1")
+        if w.isdigit():
+            out_words.append(w)
+            continue
+        # Words may contain "/" or "-" inside ("BANYAN/CITRUS").
+        parts = re.split(r"([/\-])", w)
+        out = "".join(_cap(p) if i % 2 == 0 else p for i, p in enumerate(parts))
+        out_words.append(out)
+    return " ".join(out_words)
+
+
+
 # Map an Abstract's `kind` (or a ScheduleEntry's `kind`) to the human-facing
-# Type tag used by conclar.  Symposium / talk-session children are both shown
-# as "Type:Talk" since the parent: tag already records which session they
-# belong to.
+# Type tag used by conclar.  Symposium talks get their own "Symposium Talk"
+# type so they can be visually distinguished from talk-session talks; the
+# parent: tag still records which specific session they belong to.
 _TYPE_TAG: dict[str, str] = {
     # Schedule overview row kinds
     "Symposium": "Type:Symposium",
@@ -2283,33 +2318,12 @@ _TYPE_TAG: dict[str, str] = {
     "Other": "Type:Other",
     # Abstract (child) kinds
     "symposium": "Type:Symposium",
-    "symposium-talk": "Type:Talk",
+    "symposium-talk": "Type:Symposium Talk",
     "talk": "Type:Talk",
     "talk-session": "Type:TalkSession",
     "poster": "Type:Poster",
     "poster-topic": "Type:PosterTopic",
 }
-
-
-def _bump_session_start(time_str: str, mins: int, n: int = 1) -> tuple[str, int]:
-    """Shift a session's start time DOWN by `n` minutes (mins +n) so its
-    children at the original start sort strictly after it.  Clamps at 00:00
-    to avoid wrapping past midnight on edge cases.
-
-    Poster sessions use n=2 to leave room for the intermediate topic level
-    at start-1 to also sort strictly between sched and posters.
-    """
-    if not time_str or ":" not in time_str:
-        return time_str, mins
-    try:
-        h, m = (int(x) for x in time_str.split(":"))
-    except ValueError:
-        return time_str, mins
-    total = h * 60 + m
-    if total < n:
-        return time_str, mins
-    total -= n
-    return f"{total // 60:02d}:{total % 60:02d}", mins + n
 
 
 def _build_people_refs_for(ab: Abstract, owner_id: str) -> list[dict]:
@@ -2380,7 +2394,7 @@ def abstract_to_program(ab: Abstract,
         "date": ab.date,
         "time": ab.time,
         "mins": ab.mins,
-        "loc": [ab.room] if ab.room else [],
+        "loc": [_display_room(ab.room)] if ab.room else [],
         "people": refs,
         "desc": desc,
     }
@@ -2414,22 +2428,17 @@ def _maybe_extend_title(title: str, sub_topics: list[str]) -> tuple[str, list[st
 
 
 def schedule_entry_to_program(e: ScheduleEntry, idx: int) -> dict:
-    """Render a schedule overview row as the canonical session item.
+    """Render a schedule overview row as a top-level program item.
 
-    For session types that contain children (Symposium / Talk Session /
-    Poster Session), the start time is shifted DOWN by one minute (mins is
-    bumped UP by one) so children at the original start sort strictly
-    after the parent and the parent always renders first when times
-    collide."""
+    Times are emitted as-is — earlier versions of this function shifted
+    parent start times down by 1-2 minutes so children at the original
+    start sorted strictly after.  That sort-order workaround is no longer
+    needed: PR 1's tree-aware renderer places children inside their
+    parent's DOM, so parent and child are no longer siblings competing
+    for sort position.  Items render at their true scheduled time."""
     mins_val = (e.end[0] - e.start[0]) * 60 + (e.end[1] - e.start[1])
     mins_val = mins_val if mins_val > 0 else 0
     time_str = fmt_time(e.start)
-    if e.kind == "Poster Session":
-        # 3-level hierarchy: sched -> topic -> poster.  Bump by 2 minutes
-        # so the topic at start-1 also sorts strictly between us and posters.
-        time_str, mins_val = _bump_session_start(time_str, mins_val, n=2)
-    elif e.kind in ("Symposium", "Talk Session"):
-        time_str, mins_val = _bump_session_start(time_str, mins_val, n=1)
     tags: list[str] = []
     type_tag = _TYPE_TAG.get(e.kind)
     if type_tag:
@@ -2442,7 +2451,7 @@ def schedule_entry_to_program(e: ScheduleEntry, idx: int) -> dict:
         "date": e.date,
         "time": time_str,
         "mins": mins_val,
-        "loc": [e.room] if e.room else [],
+        "loc": [_display_room(e.room)] if e.room else [],
         "people": [],
         "desc": ("\n".join(remaining_subs)) if remaining_subs else "",
     }
@@ -2485,13 +2494,19 @@ program: list[dict] = []
 # Schedule overview rows are the canonical session items.  We emit them
 # first, then build a (date, original_start_time, normalized_room) lookup
 # so symposium / talk-session / poster children can be linked back via a
-# `parent:<sched_id>` tag.  Note: schedule_entry_to_program shifts session
-# start times down by 1 minute for items that contain children, but the
-# lookup uses the ORIGINAL start time (which is what the abstract content
-# section reports for each session header).
+# `parent:<sched_id>` tag.
+#
+# Poster Session umbrella rows ("Friday Afternoon Posters" etc.) are
+# intentionally NOT emitted as program items: they carry no useful info
+# beyond what the day header already provides, and their children
+# (PosterTopics) read better as top-level items.  We also skip them from
+# session_lookup so PosterTopics don't get a parent: tag pointing to a
+# nonexistent row.
 session_lookup: dict[tuple[str, str, str], str] = {}
 sched_by_id: dict[str, dict] = {}
 for i, e in enumerate(schedule):
+    if e.kind == "Poster Session":
+        continue
     item = schedule_entry_to_program(e, i)
     program.append(item)
     sched_by_id[item["id"]] = item
