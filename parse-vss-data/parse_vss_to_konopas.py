@@ -2292,10 +2292,11 @@ def _display_room(room: str) -> str:
     return " ".join(out_words)
 
 
+
 # Map an Abstract's `kind` (or a ScheduleEntry's `kind`) to the human-facing
-# Type tag used by conclar.  Symposium / talk-session children are both shown
-# as "Type:Talk" since the parent: tag already records which session they
-# belong to.
+# Type tag used by conclar.  Symposium talks get their own "Symposium Talk"
+# type so they can be visually distinguished from talk-session talks; the
+# parent: tag still records which specific session they belong to.
 _TYPE_TAG: dict[str, str] = {
     # Schedule overview row kinds
     "Symposium": "Type:Symposium",
@@ -2316,7 +2317,7 @@ _TYPE_TAG: dict[str, str] = {
     "Other": "Type:Other",
     # Abstract (child) kinds
     "symposium": "Type:Symposium",
-    "symposium-talk": "Type:Talk",
+    "symposium-talk": "Type:Symposium Talk",
     "talk": "Type:Talk",
     "talk-session": "Type:TalkSession",
     "poster": "Type:Poster",

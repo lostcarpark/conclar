@@ -127,8 +127,16 @@ const FilterableProgram = () => {
 
     const term = search.trim().toLowerCase();
 
-    // If no filters, return full program;
-    if (term.length === 0 && selLoc.length === 0 && selTags === 0)
+    // If no filters, return full program. (Pre-existing bug: the original
+    // condition compared `selTags === 0` against an object, which was
+    // always false, so the unfiltered fast path never fired. Replaced
+    // with an actual emptiness check across all tag categories.)
+    const selTagsEmpty =
+      !selTags ||
+      Object.values(selTags).every(
+        (arr) => !arr || arr.length === 0
+      );
+    if (term.length === 0 && selLoc.length === 0 && selTagsEmpty)
       return { filtered: program, directMatchedIds: null };
 
     let filtered = program;
