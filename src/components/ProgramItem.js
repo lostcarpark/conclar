@@ -228,6 +228,24 @@ const parentTitle = parentItem ? parentItem.title : null;
     </span>
   ) : null;
 
+  // Visual de-emphasis for non-content rows (breaks, lounges, social
+  // events, registration, exhibits, etc.) so attendees can scan past
+  // them to the actual sessions. Talk / Poster / Workshop / Symposium
+  // (plus Keynote and Award, the high-profile sessions) keep full
+  // styling.
+  const MUTED_TYPES = new Set([
+    "Break",
+    "Lounge",
+    "Registration",
+    "Social",
+    "Networking",
+    "Exhibits",
+    "Business",
+    "Other",
+    "Student",
+  ]);
+  const isMuted = !!(typeTag && MUTED_TYPES.has(typeTag.label));
+
   const people = [];
   if (item.people) {
     item.people.forEach((person) => {
@@ -418,6 +436,7 @@ const parentTitle = parentItem ? parentItem.title : null;
            "item"
            + (isChild ? " program-item--child" : "")
            + (hasChildren ? " program-item--parent" : "")
+           + (isMuted ? " item--muted" : "")
          }>
       <div className="item-selection">
         <div className="selection">
