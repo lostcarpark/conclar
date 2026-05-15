@@ -2706,6 +2706,93 @@ if _poster_sessions:
         print(f"    ... and {len(_poster_sessions) - 8} more", file=sys.stderr)
 # --- end poster parent-tagging pass ----------------------------------------
 
+# ---------------------------------------------------------------------------
+# Manual extras: side-file annotations for events whose details aren't in
+# the main abstract booklet (satellite workshops, special sessions, etc.).
+#
+# `extras.json` next to this script may contain a list of override
+# entries.  Each entry has:
+#   - match: dict with one or more of:
+#       id              -> exact program-item id  ("sched-0000")
+#       title_prefix    -> matches items whose title starts with this
+#       title_contains  -> matches items whose title contains this
+#       tags_all        -> list of tags ALL of which must be present
+#       date            -> exact date "YYYY-MM-DD"
+#   - desc:    string to set as the item's description
+#   - people:  ordered list of {name, affil} to register and attach
+#   - replace_people: bool (default true) — if false, append instead
+# Multiple entries may match the same item; later entries override.
+# ---------------------------------------------------------------------------
+
+EXTRAS_PATH = HERE / "extras.json"
+
+
+def _extras_match(item: dict, match: dict) -> bool:
+    if "id" in match and item.get("id") != match["id"]:
+        return False
+    if "title_prefix" in match and not item.get("title", "").startswith(match["title_prefix"]):
+        return False
+    if "title_contains" in match and match["title_contains"] not in item.get("title", ""):
+        return False
+    if "date" in match and item.get("date") != match["date"]:
+        return False
+    if "tags_all" in match:
+        item_tags = set(item.get("tags") or [])
+        if not all(t in item_tags for t in match["tags_all"]):
+            return False
+    return True
+
+
+_extras: list[dict] = []
+if EXTRAS_PATH.exists():
+    try:
+        _extras = json.loads(EXTRAS_PATH.read_text(encoding="utf-8"))
+        if not isinstance(_extras, list):
+            warn(f"{EXTRAS_PATH} should contain a JSON list; ignoring")
+            _extras = []
+    except Exception as exc:
+        warn(f"could not parse {EXTRAS_PATH}: {exc}")
+        _extras = []
+
+n_extras_applied = 0
+for _entry in _extras:
+    _match = _entry.get("match") or {}
+    _matched = [it for it in program if _extras_match(it, _match)]
+    if not _matched:
+        warn(f"extras entry matched no items: {_match}")
+        continue
+    # Pre-register people with affils so they get a stable id.
+    _entry_refs: list[dict] = []
+    for _person in (_entry.get("people") or []):
+        _name = (_person.get("name") or "").strip()
+        if not _name:
+            continue
+        _ref = people.ref(_name)
+        _affil = (_person.get("affil") or "").strip()
+        if _affil:
+            people.add_affils(_ref["id"], [_affil])
+        _entry_refs.append(_ref)
+    _replace = _entry.get("replace_people", True)
+    for it in _matched:
+        if _entry_refs:
+            for _ref in _entry_refs:
+                people.add_prog(_ref["id"], it["id"])
+            if _replace:
+                it["people"] = list(_entry_refs)
+            else:
+                seen = {r["id"] for r in (it.get("people") or [])}
+                for _ref in _entry_refs:
+                    if _ref["id"] not in seen:
+                        it.setdefault("people", []).append(_ref)
+                        seen.add(_ref["id"])
+        if "desc" in _entry:
+            it["desc"] = _entry["desc"]
+        n_extras_applied += 1
+
+if n_extras_applied:
+    print(f"applied {n_extras_applied} extras annotations from {EXTRAS_PATH.name}",
+          file=sys.stderr)
+
 _program_text = json.dumps(program, ensure_ascii=False, indent=2)
 _people_text = json.dumps(people.to_konopas(), ensure_ascii=False, indent=2)
 

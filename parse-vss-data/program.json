@@ -310,8 +310,25 @@
     "loc": [
       "Banyan/Citrus"
     ],
-    "people": [],
-    "desc": ""
+    "people": [
+      {
+        "id": "krystel-huxlin",
+        "name": "Krystel Huxlin"
+      },
+      {
+        "id": "julie-golomb",
+        "name": "Julie Golomb"
+      },
+      {
+        "id": "cheri-wiggs",
+        "name": "Cheri Wiggs"
+      },
+      {
+        "id": "ashley-fortress",
+        "name": "Ashley Fortress"
+      }
+    ],
+    "desc": "**Moderators:** Krystel Huxlin, University of Rochester and Julie Golomb, The Ohio State University\n\n**Discussants:** Cheri Wiggs, National Eye Institute (NEI); Ashley Fortress, NEI Training Division\n\nUnfortunately, our NSF panelists Betty Tuller, Simon Fischer-Baum and Dwight Kravitz recently notified VSS that the National Science Foundation is not allowing their participation in any outreach activities. We are sure the VSS community has a great number of questions about what is happening at NSF and the publicly rumored dissolution of the Directorate for Social, Behavioral and Economic Sciences. While NSF Program Officers cannot provide answers to those questions, we encourage our members to contact their representatives in Congress to protect federal support for science, including Vision Science!\n\nThis workshop, which now only includes panelists from NIH, will address key funding mechanisms for vision research in these US federal agencies and how these have evolved over the last few years. In an open, interactive, Q&A format, our panelists will be invited to answer questions from moderators and the audience about how federal funding agencies are organized, their specific organizations' current interests and priorities, as well as future directions."
   },
   {
     "id": "sched-0014",

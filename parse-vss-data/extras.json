@@ -1,0 +1,28 @@
+[
+  {
+    "_comment": "MODVIS satellite workshop (May 13 + May 14). Schedule overview gives only the time/room rows; this entry adds organizers and the workshop description.",
+    "match": {
+      "title_prefix": "Computational and Mathematical Models in Vision",
+      "tags_all": ["Type:Satellite"]
+    },
+    "people": [
+      {"name": "Jeffrey B. Mulligan", "affil": "Freelance Vision Scientist"},
+      {"name": "Tim Oleskiw",          "affil": "University of Regina"},
+      {"name": "Zygmunt Pizlo",        "affil": "UC Irvine"},
+      {"name": "Anne B. Sereno",       "affil": "Purdue University"},
+      {"name": "Qasim Zaidi",          "affil": "SUNY College of Optometry"},
+      {"name": "Mengmi Zhang",         "affil": "Nanyang Technological University"}
+    ]
+  },
+  {
+    "_comment": "US Funding Workshop (Friday May 15, 12:45). Adds moderators, discussants, and a description explaining that NSF panelists withdrew so the workshop now covers NIH only.",
+    "match": { "id": "sched-0013" },
+    "desc": "**Moderators:** Krystel Huxlin, University of Rochester and Julie Golomb, The Ohio State University\n\n**Discussants:** Cheri Wiggs, National Eye Institute (NEI); Ashley Fortress, NEI Training Division\n\nUnfortunately, our NSF panelists Betty Tuller, Simon Fischer-Baum and Dwight Kravitz recently notified VSS that the National Science Foundation is not allowing their participation in any outreach activities. We are sure the VSS community has a great number of questions about what is happening at NSF and the publicly rumored dissolution of the Directorate for Social, Behavioral and Economic Sciences. While NSF Program Officers cannot provide answers to those questions, we encourage our members to contact their representatives in Congress to protect federal support for science, including Vision Science!\n\nThis workshop, which now only includes panelists from NIH, will address key funding mechanisms for vision research in these US federal agencies and how these have evolved over the last few years. In an open, interactive, Q&A format, our panelists will be invited to answer questions from moderators and the audience about how federal funding agencies are organized, their specific organizations' current interests and priorities, as well as future directions.",
+    "people": [
+      {"name": "Krystel Huxlin",  "affil": "University of Rochester"},
+      {"name": "Julie Golomb",    "affil": "The Ohio State University"},
+      {"name": "Cheri Wiggs",     "affil": "National Eye Institute (NEI)"},
+      {"name": "Ashley Fortress", "affil": "NEI Training Division"}
+    ]
+  }
+]
