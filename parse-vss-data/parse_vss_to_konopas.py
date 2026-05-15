@@ -1607,7 +1607,13 @@ def iter_symposia(text: str) -> Iterable[Abstract]:
         sym_desc = normalize_paragraph(desc_lines)
 
         # Emit the symposium itself as one item (the umbrella session).
-        sym_id = f"symp-{date}-{fmt_time(start_t).replace(':','')}-{slugify(room)[:6]}"
+        # NOTE: the room slug must be long enough to disambiguate parallel
+        # rooms.  "Talk Room 1" and "Talk Room 2" both slugify to start
+        # with "talk-r", so an over-eager `[:6]` truncation makes the
+        # sym_id identical for two symposia at the same date+time in
+        # different rooms — and then every talk inside them collides too.
+        # Use the full slug (typically <20 chars) to guarantee uniqueness.
+        sym_id = f"symp-{date}-{fmt_time(start_t).replace(':','')}-{slugify(room)}"
         # Organizers/Presenters: extract names with affiliation indices when
         # there's a ';' tail; presenters lines typically don't have affils.
         sym_authors: list[str] = []
@@ -1822,8 +1828,11 @@ def iter_talk_sessions(text: str) -> Iterable[Abstract]:
             )
 
         # Also emit the talk SESSION as its own item (umbrella).
+        # Use the full room slug to avoid collisions between rooms whose
+        # names share a prefix (e.g. "Talk Room 1" vs "Talk Room 2",
+        # both starting with "talk-r").
         yield Abstract(
-            id=f"talksess-{date}-{fmt_time((sh,sm_)).replace(':','')}-{slugify(room)[:6]}",
+            id=f"talksess-{date}-{fmt_time((sh,sm_)).replace(':','')}-{slugify(room)}",
             title=topic_line, authors=[a.strip() for a in moderator.split(",") if a.strip()][:1],
             affils=[], body=f"Moderator: {moderator}" if moderator else "",
             track="Talk Session", kind="talk-session",
