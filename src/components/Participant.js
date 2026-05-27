@@ -11,6 +11,7 @@ const Participant = ({ person, thumbnails, moderator }) => {
             <img
               src={person.img}
               alt=""
+              loading="lazy"
               onError={({ currentTarget }) => {
                 currentTarget.onerror = null;
                 currentTarget.style.display = "none";
