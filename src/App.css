@@ -24,6 +24,8 @@
   --main-bg: #fff;
   --main-fg: #000;
   --header-fg: #444;
+  --sidebar-bg: #f3f4f6;
+  --sidebar-border: #e5e7eb;
   --navigation-button-bg: #ddd;
   --navigation-button-fg: #0d172a;
   --navigation-button-border: #e2e8f0;
@@ -36,6 +38,8 @@
   --checkbox-switch-bg: white;
   --checkbox-selected-bg: green;
   --checkbox-unselected-bg: red;
+  --star-selected-fg: #444;
+  --star-unselected-fg: #ddd;
   --filter-bg: var(--main-bg);
   --filter-fg: var(--main-fg);
   --filter-border: var(--search-border);
@@ -77,9 +81,6 @@
   --participant-link-fg: #000;
   --participant-link-visited-fg: #444;
   --settings-outline: #888;
-  --footer-line: #eee;
-  --footer-bg-color: #424242;
-  --footer-fg-color: #F5F5F5;
   --info-popup-details-fg: #555;
   --error-message-fg: tomato;
   --shadow-014: rgba(0, 0, 0, 0.14);
@@ -99,23 +100,119 @@ img {
 }
 
 body {
-  margin: auto;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--main-bg);
   color: var(--main-fg);
-  max-width: 75rem;
 }
 
 .App {
   display: grid;
-  height: 100dvh;
-  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  align-content: start;
+  min-height: 100dvh;
   text-align: left;
-  margin: 1rem;
   font-size: 1.25rem;
   font-family: "Open Sans", "Lato", "Helvetica Neue", "Calibri", Arial,
     sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow-y: auto;
+  width: 16rem;
+  box-sizing: border-box;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  box-shadow: 2px 0 12px var(--shadow-012);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sidebar header {
+  padding: 1rem;
+  text-align: center;
+}
+
+.sidebar footer {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--navigation-button-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--main-fg);
+  line-height: 1;
+}
+
+.sidebar-toggle:hover,
+.sidebar-toggle:focus-visible,
+.sidebar-drawer-close:hover,
+.sidebar-drawer-close:focus-visible {
+  background-color: var(--gray-300);
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* The topbar and drawer only exist in drawer mode; the <dialog> is also closed
+   (display: none) on desktop, but reset its UA chrome here for when it opens. */
+.sidebar-topbar {
+  display: none;
+}
+
+.sidebar-drawer {
+  margin: 0;
+  padding: 0;
+  border: none;
+  max-width: none;
+  max-height: none;
+  background-color: var(--sidebar-bg);
+  color: var(--main-fg);
+}
+
+.sidebar-drawer::backdrop {
+  background: var(--shadow-50);
+}
+
+.main-column {
+  min-width: 0;
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.App--single-column {
+  grid-template-columns: 1fr;
 }
 
 a {
@@ -152,11 +249,13 @@ header {
 
 header h1 {
   margin: 1rem 0;
+  font-size: 1.4rem;
   color: var(--header-fg);
 }
 
 header img {
   border-radius: 1rem;
+  max-width: 100%;
 }
 
 
@@ -166,47 +265,60 @@ header img {
 
 .navigation ul {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
   padding-inline-start: 0;
   list-style-type: none;
-}
-
-@media (max-width: 768px) {
-  .navigation ul {
-    justify-content: center;
-  }
+  margin: 0;
 }
 
 .navigation li {
-  margin: 0.25em 0.25em;
+  margin: 0;
 }
 
-/* CSS for button 81 from https://getcssscan.com/css-buttons-examples */
+/* Separate the config-driven EXTRA links from the regular navigation. */
+.navigation li.nav-extra {
+  margin-top: 1rem;
+}
+
+.navigation li.nav-extra ~ li.nav-extra {
+  margin-top: 0;
+}
+
+/* Match the gap before the EXTRA links ahead of the user status link. */
+.navigation li.nav-user-status {
+  margin-top: 1rem;
+}
+
+.nav-icon {
+  flex-shrink: 0;
+  font-size: 1.1em;
+  min-width: 1em;
+  display: inline-block;
+}
+
+.nav-icon-img {
+  width: 1.1em;
+  height: 1.1em;
+  object-fit: contain;
+}
+
 .navigation li a {
-  background-color: var(--navigation-button-bg);
-  color: var(--navigation-button-fg);
-  border: 0 solid var(--navigation-button-border);
-  border-radius: 2rem;
+  background-color: transparent;
+  color: var(--main-fg);
   box-sizing: border-box;
   cursor: pointer;
-  display: inline-block;
-  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
-  padding: 1rem 1.5rem;
-  text-align: center;
+  padding: 0.65rem 1rem;
+  text-align: left;
   text-decoration: none;
-  text-decoration-thickness: auto;
-  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 1px 2px var(--shadow-gray);
+  transition: background-color 0.1s ease, color 0.1s ease;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
-  /* don't line-break individual links */
   white-space: nowrap;
 }
 
@@ -227,8 +339,8 @@ header img {
 }
 
 .navigation li a.disabled:hover {
-  background-color: var(--navigation-button-bg);
-  color: var(--navigation-button-fg);
+  background-color: transparent;
+  color: var(--main-fg);
 }
 
 .help-text {
@@ -320,7 +432,7 @@ header img {
 
 .info-popup-divider {
   border: none;
-  border-top: 1px solid var(--footer-line);
+  border-top: 1px solid var(--info-200);
   margin: 1rem 0;
 }
 
@@ -379,12 +491,110 @@ header img {
   }
 }
 
+/* Drawer/inline breakpoint. Keep in sync with DRAWER_MEDIA_QUERY in
+   Sidebar.js, which closes the drawer when the viewport grows past here. */
 @media (max-width: 768px) {
-  .date-heading {
+  .App {
+    grid-template-columns: 1fr;
+    --mobile-topbar-height: 3.5rem;
+  }
+
+  /* Lock background scroll while the drawer is open (the drawer itself scrolls).
+     The modal dialog inerts the background but doesn't prevent it scrolling. */
+  body:has(dialog.sidebar-drawer[open]) {
+    overflow: hidden;
+  }
+
+  .sidebar {
+    height: auto;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--sidebar-border);
+    box-shadow: 0 2px 8px var(--shadow-012);
+    z-index: 100;
+  }
+
+  /* The inline nav is replaced by the drawer on mobile. */
+  .sidebar-nav {
+    display: none;
+  }
+
+  .sidebar-topbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    height: var(--mobile-topbar-height);
+    box-sizing: border-box;
+  }
+
+  .sidebar-topbar-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--header-fg);
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  /* Closed/resting state. Slides in/out where supported; on older baselines
+     (Chrome 116 / Safari 17.0) this gracefully degrades to the drawer simply
+     appearing and disappearing. `display`/`overlay` are transitioned with
+     allow-discrete so the element stays painted in the top layer until the
+     close animation finishes (the dialog returns to display:none on close). */
+  .sidebar-drawer {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 16rem;
+    height: 100dvh;
+    box-sizing: border-box;
+    box-shadow: 4px 0 16px var(--shadow-20);
+    overflow-y: auto;
+    flex-direction: column;
+    transform: translateX(-100%);
+    /* Close: snappier than the open. */
+    transition: transform 0.15s ease,
+      overlay 0.15s ease allow-discrete,
+      display 0.15s ease allow-discrete;
+  }
+
+  .sidebar-drawer[open] {
+    display: flex;
+    transform: translateX(0);
+    /* Open: a touch slower so the slide-in reads clearly. */
+    transition: transform 0.25s ease,
+      overlay 0.25s ease allow-discrete,
+      display 0.25s ease allow-discrete;
+  }
+
+  @starting-style {
+    .sidebar-drawer[open] {
+      transform: translateX(-100%);
+    }
+  }
+
+  .sidebar-drawer-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.5rem;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--navigation-button-border);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--main-fg);
+    line-height: 1;
+    display: flex;
+  }
+
+  .App .date-heading {
     margin-bottom: 0 !important;
     overflow: hidden;
     white-space: nowrap;
     height: 2rem;
+    top: calc(var(--mobile-topbar-height) - 1px);
   }
   .timeslot {
     flex-direction: column;
@@ -392,7 +602,7 @@ header img {
   }
   .timeslot-time {
     position: sticky;
-    top: 3rem;
+    top: calc(var(--mobile-topbar-height) + 3rem);
     margin-bottom: 0.5rem;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
@@ -812,15 +1022,35 @@ div.switch-wrapper {
   flex-direction: column;
 }
 
-.selection label {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
+/* Visually hide the checkbox itself; the star label is the visible control. */
+.selection .selection-control {
   position: absolute;
-  white-space: nowrap;
+  opacity: 0;
   width: 1px;
+  height: 1px;
+  margin: 0;
+}
+
+.selection label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.2em 0.3em;
+}
+
+.selection .selection-star {
+  display: inline-flex;
+  font-size: 1.1em;
+  line-height: 1;
+  color: var(--star-unselected-fg);
+}
+
+.selection .selection-control:checked + label .selection-star {
+  color: var(--star-selected-fg);
+}
+
+.selection .selection-control:focus-visible + label .selection-star {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .item {
@@ -839,6 +1069,7 @@ div.switch-wrapper {
   vertical-align: baseline;
   flex-grow: 0;
   text-align: center;
+  padding-right: 0.15em;
 }
 
 .item-entry {
@@ -1236,23 +1467,9 @@ div.switch-wrapper {
  */
 
 footer {
-  margin-top: 2rem;
+  text-align: center;
+  margin-top: auto;
   padding: .5rem;
-  background-color: var(--footer-bg-color);
-  border-top: 1px solid var(--footer-line);
-  color: var(--footer-fg-color);
-  box-shadow: 0 0 0 100vmax var(--footer-bg-color);
-  clip-path: inset(0 -100vmax);
-}
-
-footer .footer-bottom {
-  display: flex;
-  justify-content: space-between;
-}
-
-footer a,
-footer a:hover {
-  color: var(--footer-fg-color);
 }
 
 /*

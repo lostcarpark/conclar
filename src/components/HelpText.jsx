@@ -1,4 +1,5 @@
 import { useStoreState, useStoreActions } from "easy-peasy";
+import { FaTimes } from "react-icons/fa";
 import configData from "../config.json";
 
 const HelpText = () => {
@@ -21,7 +22,7 @@ const HelpText = () => {
         onClick={() => dismiss(selector)}
         aria-label={configData.HELP_TEXT.CLOSE_ARIA_LABEL}
       >
-        {configData.HELP_TEXT.CLOSE_LABEL}
+        <FaTimes aria-hidden="true" />
       </button>
       {text}
     </div>

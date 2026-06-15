@@ -11,6 +11,10 @@
 :root[data-theme="dark"] {
   --main-bg: #000;
   --main-fg: #fff;
+  --sidebar-bg: #1a1f2e;
+  --sidebar-border: #2d3748;
+  --star-selected-fg: #ddd;
+  --star-unselected-fg: #555;
   --navigation-button-bg: #444;
   --navigation-button-fg: #ddd;
   --header-fg: #ccc;

@@ -10,6 +10,8 @@ import ScrollToTop from "./ScrollToTop";
 import Timer from "./Timer";
 import Debug from "./Debug";
 import Header from "./Header";
+import HelpText from "./HelpText";
+import Sidebar from "./Sidebar";
 import NotFound from "./NotFound";
 import Loading from "./Loading";
 import FilterableProgram from "./FilterableProgram";
@@ -31,30 +33,38 @@ const AppRoutes = () => {
   const showSyncWarning = useStoreState((state) => state.showSyncWarning);
   const userProfile = useStoreState((state) => state.userProfile);
   const setShowSyncWarning = useStoreActions((actions) => actions.setShowSyncWarning);
+
+  useEffect(() => {
+    document.title = configData.APP_TITLE;
+  }, []);
+
   const theApp = configData.INTERACTIVE ? (
     <div className={appClasses}>
       <Timer tick={configData.TIMER.TIMER_TICK_SECS} />
       <Debug />
-      <Header title={configData.APP_TITLE} showNavigation={true} />
-      <Loading>
-        <Routes>
-          <Route path="/">
-            <Route index element={<FilterableProgram />} />
-            <Route path="/index.html" element={<FilterableProgram />} />
-            <Route path="id/:id" element={<ItemById />} />
-            <Route path="ids/:idList" element={<ItemByIdList />} />
-            <Route path="loc/:locList" element={<LocationProgramme />} />
-            <Route path="people">
-              <Route index element={<People />} />
-              <Route path=":id" element={<Person />} />
+      <Sidebar />
+      <div className="main-column">
+        <HelpText />
+        <Loading>
+          <Routes>
+            <Route path="/">
+              <Route index element={<FilterableProgram />} />
+              <Route path="/index.html" element={<FilterableProgram />} />
+              <Route path="id/:id" element={<ItemById />} />
+              <Route path="ids/:idList" element={<ItemByIdList />} />
+              <Route path="loc/:locList" element={<LocationProgramme />} />
+              <Route path="people">
+                <Route index element={<People />} />
+                <Route path=":id" element={<Person />} />
+              </Route>
+              <Route path="myschedule" element={<MySchedule />} />
+              <Route path="info" element={<Info />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
-            <Route path="myschedule" element={<MySchedule />} />
-            <Route path="info" element={<Info />} />
-            <Route path="settings" element={<Settings />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Loading>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Loading>
+      </div>
       {isSyncEnabled() && (
         <InfoPopup
           isOpen={showSyncWarning}
@@ -100,21 +110,22 @@ const AppRoutes = () => {
           onDismiss={() => setShowSyncWarning(false)}
         />
       )}
-      <Footer />
     </div>
   ) : (
-    <div className="App">
-      <Header title={configData.APP_TITLE} showNavigation={false} />
-      <Loading>
-        <Routes>
-          <Route path="/">
-            <Route index element={<UnfilterableProgram />} />
-            <Route path="/index.html" element={<UnfilterableProgram />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Loading>
-      <Footer />
+    <div className="App App--single-column">
+      <div className="main-column">
+        <Header title={configData.APP_TITLE} showNavigation={false} />
+        <Loading>
+          <Routes>
+            <Route path="/">
+              <Route index element={<UnfilterableProgram />} />
+              <Route path="/index.html" element={<UnfilterableProgram />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Loading>
+        <Footer />
+      </div>
     </div>
   );
 

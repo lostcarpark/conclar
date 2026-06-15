@@ -85,10 +85,11 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `NAVIGATION.PEOPLE`: Label for people menu.
 - `NAVIGATION.MYSCHEDULE`: Label for user's personal schedule.
 - `NAVIGATION.INFO`: Label for the Information menu link._
-- `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
+- `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether. Each entry may optionally include an icon, shown before the label:
+  - `ICON_NAME`: Name of a built-in icon, e.g. `{ "LABEL": "Octocon Home", "URL": "https://octocon.com", "ICON_NAME": "Home" }`. Available names: `Discord`, `Envelope`, `Facebook`, `Globe`, `Home`, `Instagram`, `Map`, `Mastodon`, `PaperPlane`, `Question`, `Sign`, `Ticket`, `Twitter`, `Youtube`. (To add more, see `iconsByName` in `src/components/NavIcon.js`.)
+  - `ICON_URL`: URL of an image to use as the icon instead, e.g. `{ "LABEL": "Octocon Home", "URL": "https://octocon.com", "ICON_URL": "https://octocon.com/favicon.png" }`. Use this for an icon that isn't in the built-in set. If both are given, `ICON_NAME` takes precedence.
 - `HELP_TEXT.WELCOME`: Text to display to new visitors who haven't selected any programme items.
 - `HELP_TEXT.SHARING`: Text to display when user has selected items, informing them of sharing options.
-- `HELP_TEXT.CLOSE_LABEL`: Label for button to dismiss help text.
 - `HELP_TEXT.CLOSE_ARIA_LABEL`: Label to describe dismiss button.
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
 - `LOCATIONS.LABEL`: Label to show on map links.

@@ -32,12 +32,11 @@
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
     "SETTINGS": "Settings",
-    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
+    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com", "ICON_NAME": "Home" }]
   },
   "HELP_TEXT": {
     "WELCOME": "Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
     "SHARING": "You may share your personal schedule to other devices using the QR codes on the My Schedule page.",
-    "CLOSE_LABEL": "Close",
     "CLOSE_ARIA_LABEL": "Dismiss help text"
   },
   "LOCATIONS": {
