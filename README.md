@@ -223,7 +223,7 @@ To customise the site heading, edit the `src/components/Header.js` file.
 
 The convention information page is composed in Markdown using the provided file, `public/info.md`. Markdown is a common standard for formatting text that is easy to follow and safer than HTML. There is a handy cheat sheet.
 
-To change the styling, edit `src/App.css`. Note that the current styling is temporary, and a better default theme with easier customisation is planned.
+To change the styling, edit `src/App.css`. If you want to just change the basic colours, edit the `--brand-tint`, `--gray-tint` and `--info-tint` values. You can make them all the same, or choose different values for more control. If you want more control over the specific shades, you can manually edit the `--<type>-<nnn>` variables in Tier 2.
 
 To change the home screen app name, edit `public/manifest.json`.
 

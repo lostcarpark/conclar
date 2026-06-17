@@ -1,50 +1,56 @@
 /*
- * Dark mode overrides.
+ * Dark mode styles.
  *
- * The light theme lives in the base :root block (see App.css). ThemeSelector
- * resolves the "browser"/"light"/"dark" setting (reading prefers-color-scheme
- * for "browser") to a single data-theme="light"|"dark" on <html>, so dark
- * mode only needs one selector here rather than a media query plus a
- * forced-mode override.
+ * Applies the dark-mode ramp inputs that App.css's Tier-2 palette is built from
+ * (per-step base colors --ramp-*-base, the gray-tint amount --ramp-*-low-amt,
+ * and the brand/info/danger mix amounts --ramp-*-med-amt peaking at step 500;
+ * lightmode.css supplies the flipped light counterparts on bare :root).
+ *
+ * AppRoutes resolves the dark-mode setting ("browser" / "light" / "dark") to a
+ * single data-theme="light" | "dark" on <html> — reading prefers-color-scheme
+ * for "browser" — so dark needs just one selector here rather than a media
+ * query plus a forced-mode override.
+ *
+ * low-amt note: the 1% -> 11% values are identical to light mode — keyed by step
+ * number, not lightness, and deliberately not reversed for the inverted ramp;
+ * the amount is small enough that the asymmetry is imperceptible.
  */
-
 :root[data-theme="dark"] {
-  --main-bg: #000;
-  --main-fg: #fff;
-  --sidebar-bg: #1a1f2e;
-  --sidebar-border: #2d3748;
-  --star-selected-fg: #ddd;
-  --star-unselected-fg: #555;
-  --navigation-button-bg: #444;
-  --navigation-button-fg: #ddd;
-  --header-fg: #ccc;
-  --navigation-button-border: #e2e8f0;
-  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
-  --navigation-button-current-fg: #fff;
-  --navigation-button-hover-bg: #1e293b;
-  --navigation-button-hover-fg: #fff;
-  --checkbox-switch-bg: #444;
-  --checkbox-selected-bg: green;
-  --checkbox-unselected-bg: red;
-  --filter-bg: var(--main-bg);
-  --filter-fg: var(--main-fg);
-  --filter-border: var(--search-border);
-  --filter-select-bg: #bbe;
-  --filter-select-fg: #000;
-  --search-border: hsl(0, 0%, 40%);
-  --program-item-chevron-collapsed: #ccc;
-  --program-item-chevron-expanded: #bbe;
-  --program-time-convention-message: grey;
-  --program-time-local-message: grey;
-  --program-date-line: #888;
-  --program-time-line: #ccc;
-  --program-item-line: #bbb;
-  --program-time-bg: #444;
-  --program-tags-fg: #bbb;
-  --program-expanded-bg: #333;
-  --permalink-icon-fg: #7fdbff;
-  --permalink-icon-hover-fg: #b9da91;
-  --participant-bg: #333;
-  --participant-link-fg: #eee;
-  --participant-link-visited-fg: #ccc;
+  color-scheme: dark;
+
+  --ramp-50-base: #131313;
+  --ramp-100-base: #1f1f1f;
+  --ramp-200-base: #363636;
+  --ramp-300-base: #4f4f4f;
+  --ramp-400-base: #636363;
+  --ramp-500-base: #8f8f8f;
+  --ramp-600-base: #c6c6c6;
+  --ramp-700-base: #dadada;
+  --ramp-800-base: #e7e7e7;
+  --ramp-900-base: #fafafa;
+  --ramp-950-base: #fff;
+
+  --ramp-50-low-amt: 1%;
+  --ramp-100-low-amt: 2%;
+  --ramp-200-low-amt: 3%;
+  --ramp-300-low-amt: 4%;
+  --ramp-400-low-amt: 5%;
+  --ramp-500-low-amt: 6%;
+  --ramp-600-low-amt: 7%;
+  --ramp-700-low-amt: 8%;
+  --ramp-800-low-amt: 9%;
+  --ramp-900-low-amt: 10%;
+  --ramp-950-low-amt: 11%;
+
+  --ramp-50-med-amt: 30%;
+  --ramp-100-med-amt: 40%;
+  --ramp-200-med-amt: 55%;
+  --ramp-300-med-amt: 70%;
+  --ramp-400-med-amt: 85%;
+  --ramp-500-med-amt: 100%;
+  --ramp-600-med-amt: 70%;
+  --ramp-700-med-amt: 50%;
+  --ramp-800-med-amt: 35%;
+  --ramp-900-med-amt: 25%;
+  --ramp-950-med-amt: 12%;
 }

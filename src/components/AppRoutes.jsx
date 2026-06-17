@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import configData from "../config.json";
 import { isSyncEnabled } from "../SyncService";
 import InfoPopup from "./InfoPopup";
-import ThemeSelector from "./ThemeSelector";
 import ScrollToTop from "./ScrollToTop";
 import Timer from "./Timer";
 import Debug from "./Debug";
@@ -37,6 +36,23 @@ const AppRoutes = () => {
   useEffect(() => {
     document.title = configData.APP_TITLE;
   }, []);
+
+  // Resolve the dark-mode setting onto <html data-theme="light|dark">, which
+  // darkmode.css keys off. "light"/"dark" force the theme; "browser" follows the
+  // OS preference and keeps tracking it via the matchMedia change listener.
+  useEffect(() => {
+    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)");
+    const apply = () => {
+      const isDark =
+        darkMode === "dark" ||
+        (darkMode !== "light" && !!prefersDark?.matches);
+      document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    };
+    apply();
+    if (darkMode !== "browser" || !prefersDark) return;
+    prefersDark.addEventListener("change", apply);
+    return () => prefersDark.removeEventListener("change", apply);
+  }, [darkMode]);
 
   const theApp = configData.INTERACTIVE ? (
     <div className={appClasses}>
@@ -139,11 +155,9 @@ const AppRoutes = () => {
   }, []);
 
   return (
-    <ThemeSelector mode={darkMode}>
-      <Router basename={window.publicUrl}>
-        <ScrollToTop>{theApp}</ScrollToTop>
-      </Router>
-    </ThemeSelector>
+    <Router basename={window.publicUrl}>
+      <ScrollToTop>{theApp}</ScrollToTop>
+    </Router>
   );
 };
 

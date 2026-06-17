@@ -258,7 +258,7 @@
       "SELECT_LABEL": "Select timezone to use"
     },
     "DARK_MODE": {
-      "LABEL": "Dark mode (may require refresh after changing)",
+      "LABEL": "Dark mode",
       "BROWSER_DEFAULT_LABEL": "Use browser default - ",
       "BROWSER_LIGHT_LABEL": "Light mode",
       "BROWSER_DARK_LABEL": "Dark mode",
