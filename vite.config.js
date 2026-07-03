@@ -67,16 +67,4 @@ export default defineConfig({
     // the warning limit.
     chunkSizeWarningLimit: 1000,
   },
-  optimizeDeps: {
-    esbuildOptions: {
-      loader: {
-        ".js": "jsx",
-      },
-    },
-  },
-  esbuild: {
-    loader: "jsx",
-    include: /src\/.*\.jsx?$/,
-    exclude: [],
-  },
 });
