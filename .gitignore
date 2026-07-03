@@ -5,6 +5,11 @@ node_modules
 /.pnp
 .pnp.js
 
+# this project uses npm; don't commit other package managers' lockfiles
+pnpm-lock.yaml
+pnpm-workspace.yaml
+yarn.lock
+
 # testing
 /coverage
 

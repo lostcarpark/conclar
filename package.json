@@ -6,6 +6,7 @@
     "@js-temporal/polyfill": "^0.5.1",
     "dompurify": "^3.4.11",
     "easy-peasy": "^6.1.1",
+    "prop-types": "^15.8.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-icons": "^5.7.0",

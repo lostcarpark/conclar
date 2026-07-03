@@ -1,8 +1,14 @@
 /*
- * Dark mode styles.
+ * Dark mode overrides.
+ *
+ * The light theme lives in the base :root block (see App.css). ThemeSelector
+ * resolves the "browser"/"light"/"dark" setting (reading prefers-color-scheme
+ * for "browser") to a single data-theme="light"|"dark" on <html>, so dark
+ * mode only needs one selector here rather than a media query plus a
+ * forced-mode override.
  */
 
-:root {
+:root[data-theme="dark"] {
   --main-bg: #000;
   --main-fg: #fff;
   --navigation-button-bg: #444;

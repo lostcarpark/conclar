@@ -128,14 +128,7 @@ const AppRoutes = () => {
   }, []);
 
   return (
-    <ThemeSelector
-      isDark={
-        darkMode === "dark" ||
-        (darkMode === "browser" &&
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      }
-    >
+    <ThemeSelector mode={darkMode}>
       <Router basename={window.publicUrl}>
         <ScrollToTop>{theApp}</ScrollToTop>
       </Router>
