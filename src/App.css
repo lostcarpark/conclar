@@ -896,6 +896,14 @@ div.switch-wrapper {
   margin-right: 0.5rem;
 }
 
+.item-tags .item-tag:after {
+    content: ', ';
+}
+.item-tags .item-tag:last-child:after {
+    content: '';
+}
+
+
 /* To put duration on its own line, remove this bit. */
 .item-duration {
   display: inline-block;
