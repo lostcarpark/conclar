@@ -13,7 +13,7 @@ const ShareLink = () => {
     const link = window.publicUrl + "ids/" + linkItems;
     const absLink = `${window.location.origin}${link}`;
     links.push(
-      <div key={key++} className="share-body">
+      <div key={key++} className="share-panel">
         <div className="share-link">
           <Link to={link}>
             {multi
@@ -47,7 +47,7 @@ const ShareLink = () => {
 
   const multipleDesc =
     key > 1 ? (
-      <div className="share-body">
+      <div className="share-panel">
         {configData.PROGRAM.MY_SCHEDULE.SHARE.MULTIPLE_DESCRIPTION}
       </div>
     ) : (
@@ -59,7 +59,7 @@ const ShareLink = () => {
       <div className="share-head">
         {configData.PROGRAM.MY_SCHEDULE.SHARE.LABEL}
       </div>
-      <div className="share-body">
+      <div className="share-panel">
         {configData.PROGRAM.MY_SCHEDULE.SHARE.DESCRIPTION}
       </div>
       {multipleDesc}
