@@ -16,7 +16,7 @@ import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
 import { useState, useEffect } from "react";
 import { LocalTime } from "../utils/LocalTime";
-import ICalendarLink from "react-icalendar-link";
+import { downloadIcs } from "../utils/ICalendar";
 
 const ProgramItem = ({ item, forceExpanded = false, now }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
@@ -72,11 +72,19 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
   else locations.push(<Location key={item.loc} loc={item.loc} />);
 
   const calendarLink =
-    configData.CALENDARLINK.SHOW_CALENDARLINK && configData.INTERACTIVE ? (
+    configData.CALENDARLINK && configData.CALENDARLINK.SHOW_CALENDARLINK && configData.INTERACTIVE ? (
         <div className="item-calendarlink">
-          <ICalendarLink filename={"conclar_" + id + ".ics"} event={item.icsEvent}>
+          <a
+            href="#add-to-calendar"
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              downloadIcs(item);
+            }}
+            title={configData.CALENDARLINK.CALENDARLINK_TITLE}
+          >
             <HiCalendarDays />
-          </ICalendarLink>
+          </a>
         </div>
     ) : null;
 
@@ -278,7 +286,10 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
             aria-labelledby={"header-" + id}
           >
             <div className="item-details-expanded" ref={ref}>
-              {permaLink}
+              <div className="item-links-row">
+                {calendarLink}
+                {permaLink}
+              </div>
               <div className="item-people">
                 <ul>{people}</ul>
               </div>

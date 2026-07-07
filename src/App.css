@@ -1230,9 +1230,10 @@ div.switch-wrapper {
   width: 1px;
 }
 
-.item-permalink,
-.item-calendarlink {
+.item-links-row {
   float: right;
+  display: flex;
+  gap: 0.3rem;
 }
 
 .item-permalink a,
