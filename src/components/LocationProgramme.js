@@ -8,7 +8,7 @@ const LocationProgramme = () => {
   );
 
   const params = useParams();
-  const locations = params.locList.split("~");
+  const locations = params.locList.split("~").map((loc) => decodeURIComponent(loc));
   if (locations.length) {
     setSelLoc(locations.map((loc) => { return {value: loc, label: loc}; }));
   }
