@@ -22,6 +22,7 @@ const Participant = ({ person, thumbnails, moderator }) => {
       }
       if (
         configData.PEOPLE.THUMBNAILS &&
+        configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS &&
         configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE
       ) {
         return (
