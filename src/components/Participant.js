@@ -11,6 +11,7 @@ const Participant = ({ person, thumbnails, moderator }) => {
             <img
               src={person.img}
               alt=""
+              loading="lazy"
               onError={({ currentTarget }) => {
                 currentTarget.onerror = null;
                 currentTarget.style.display = "none";
@@ -21,6 +22,7 @@ const Participant = ({ person, thumbnails, moderator }) => {
       }
       if (
         configData.PEOPLE.THUMBNAILS &&
+        configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS &&
         configData.PEOPLE.THUMBNAILS.DEFAULT_IMAGE
       ) {
         return (

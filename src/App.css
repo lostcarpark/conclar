@@ -237,6 +237,7 @@ header img {
   border-radius: .75rem;
   background-color: var(--help-text-bg);
   color: var(--help-text-fg);
+  box-sizing: border-box;
 }
 
 .help-text button {
@@ -896,6 +897,14 @@ div.switch-wrapper {
   margin-right: 0.5rem;
 }
 
+.item-tags .item-tag:after {
+    content: ', ';
+}
+.item-tags .item-tag:last-child:after {
+    content: '';
+}
+
+
 /* To put duration on its own line, remove this bit. */
 .item-duration {
   display: inline-block;
@@ -1010,7 +1019,7 @@ div.switch-wrapper {
   font-size: 1.1em;
 }
 
-.share-body {
+.share-panel {
   margin-bottom: 0.25rem;
 }
 

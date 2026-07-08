@@ -132,7 +132,11 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `EXPAND.COLLAPSE_ALL_LABEL`: Label for Collapse All button.
 - `EXPAND.SPRING_CONFIG`: Config to apply to the configuration of the 'spring' when expanding items. This may be a simply duration, such as `{ "duration": 100 }` to expand in 100ms, or can configure more dynamic spring effects, such as `{ mass: 1, tension: 1000, friction: 30 }`. Full list of options in [react-spring documentation](https://react-spring.io/common/configs).
 - `ITEM_DESCRIPTION.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing item descriptions. For the available options, see [the DOMPurify documentation](https://github.com/cure53/DOMPurify#can-i-configure-dompurify). Format options as JSON, _e.g._, `{"FORBID_ATTR": ["style"]}`.
-- `LINKS`: An array of link types expected in the program data.  Individual entries should take the form `{"NAME": "signup", "TEXT": "Click to sign up", "TAG": ""}`.  `NAME` should be the name of the link as it appears in the links object in the program data.  `TEXT` is the text that should appear on this link in ConClár.  `TAG` is an optional tag to add to every program item which includes a matching link.  If using prefixed tags, include the prefix, *e.g.*, `"type:Workshop"`.
+- `LINKS`: An array of link types expected in the program data.  Individual entries should take the form `{"NAME": "signup", "TEXT": "Click to sign up", "TAG": "", "WHEN": ["before"]}`.
+  - `NAME` should be the name of the link as it appears in the links object in the program data.
+  - `TEXT` is the text that should appear on this link in ConClár.
+  - `TAG` is an optional tag to add to every program item which includes a matching link.  If using prefixed tags, include the prefix, *e.g.*, `"type:Workshop"`.
+  - `WHEN` is an optional array listing times when the link will be visible. Valid entries are `"before"`, `"during"`, and `"after"`. For example, a link type that specifies `"WHEN": ["during"]` will only be visible when the programme item is taking place. Multiple options may be specified, such as `"WHEN": ["before", "during"]`, which will cause the link to be visible prior to the item and while it is happening, but will disappear when it finishes.
 - `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
 - `LOCAL_TIME.NOTICE`: Label for notie telling users how local time displayed.
 - `LOCAL_TIME.PREV_DAY`: Label appended to local time if local time is before start of advertised day.
@@ -200,6 +204,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `SYNC.LOADING_LABEL`: Label shown while the profile is being fetched on startup.
 - `SYNC.LOGIN_LABEL`: Label for the login link when the user is not authenticated.
 - `SYNC.LOGOUT_LABEL`: Label for the logout link. `@display_name` is replaced with the user's display name.
+- `SYNC.ERROR_LABEL`: Label for the error message when unable to connect to sync server.
 - `SYNC.WARNING.HEADING`: Heading of the popup shown the first time an unauthenticated user adds or removes a selection.
 - `SYNC.WARNING.TITLE`: Main message body of the sync warning popup.
 - `SYNC.WARNING.DETAILS`: Expandable detail text shown when the user clicks "More information" in the sync warning popup.

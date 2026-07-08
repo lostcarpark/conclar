@@ -301,7 +301,7 @@ const FilterableProgram = () => {
                 resetDisplayLimit();
                 setSelLoc(value);
                 if (value.length) {
-                  const locList = value.map((location) => location.value).join('~');
+                  const locList = value.map((location) => encodeURIComponent(location.value)).join('~');
                   navigate('/loc/' + locList);
                 }
                 else {
