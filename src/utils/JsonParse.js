@@ -35,7 +35,8 @@ export class JsonParse {
               inBlockComment = true;
             }
             break;
-          case ("\n", "\r"):
+          case "\n":
+          case "\r":
             inLineComment = false;
             break;
           case "'":
