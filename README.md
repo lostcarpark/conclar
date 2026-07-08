@@ -204,6 +204,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `SYNC.LOADING_LABEL`: Label shown while the profile is being fetched on startup.
 - `SYNC.LOGIN_LABEL`: Label for the login link when the user is not authenticated.
 - `SYNC.LOGOUT_LABEL`: Label for the logout link. `@display_name` is replaced with the user's display name.
+- `SYNC.ERROR_LABEL`: Label for the error message when unable to connect to sync server.
 - `SYNC.WARNING.HEADING`: Heading of the popup shown the first time an unauthenticated user adds or removes a selection.
 - `SYNC.WARNING.TITLE`: Main message body of the sync warning popup.
 - `SYNC.WARNING.DETAILS`: Expandable detail text shown when the user clicks "More information" in the sync warning popup.
