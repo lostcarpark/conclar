@@ -63,8 +63,8 @@ The main place customisations go is the `src/config.json` file. Settings current
 
 - `APP_ID`: A unique id to distinguish between instances of multi-year conventions.
 - `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
-- `PROGRAM_DATA_URL`: The address of the file containing programme data.
-- `PEOPLE_DATA_URL`: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
+- `PROGRAM_DATA_URL` / `PEOPLE_DATA_URL`: Legacy config for the addresses of the files containing programme and people data, in the bare-array format. If these are the same, both will be read from one file, but programme data must come before people data. Mutually exclusive with `DATA_URLS`.
+- `DATA_URLS`: The address(es) of the schedule/people data files, in the self-describing `schemaVersion` object format. Specify `{ "COMBINED": "..." }` for both from one file, or `{ "SCHEDULE": "...", "PEOPLE": "..." }` for separate files — specifying both `COMBINED` and `SCHEDULE`/`PEOPLE` together, or only one of `SCHEDULE`/`PEOPLE`, is a config error. Mutually exclusive with `PROGRAM_DATA_URL`/`PEOPLE_DATA_URL`. See [docs/conclar_file_specs.md](docs/conclar_file_specs.md) for the fetched file format.
 - `FETCH_OPTIONS`: A JSON object containing options to pass when fetching data. See JavaScript [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/fetch) documentation for available valies. Typical examples:
   - `"cache": "reload"` - Should always be used so beck end program updates will be read.
   - `"credentials": "omit"` - Use if source is not using a certificate from a recognised authority, e.g. a self signed cert.

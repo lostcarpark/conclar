@@ -1,8 +1,10 @@
 {
   "APP_ID": "O2021",
   "APP_TITLE": "ConClár Programme Guide",
-  "PROGRAM_DATA_URL": "/2022/program.js",
-  "PEOPLE_DATA_URL": "/2022/people.js",
+  "DATA_URLS": {
+    "SCHEDULE": "/2022/schedule.json",
+    "PEOPLE": "/2022/people.json"
+  },
   "FETCH_OPTIONS": {
     "cache": "reload",
     "credentials": "omit",

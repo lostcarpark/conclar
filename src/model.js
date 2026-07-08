@@ -54,6 +54,7 @@ const model = {
   tags: [],
   personTags: [],
   info: "",
+  loadError: null,
   lastFetchTime: null,
   timeSinceLastFetch: null,
   helpTextDismissed: () => {
@@ -85,10 +86,21 @@ const model = {
   showSyncWarning: false,
   // Thunks
   fetchProgram: thunk(async (actions, firstTime) => {
-    actions.setData(await ProgramData.fetchData(firstTime));
-    actions.resetLastFetchTime(firstTime);
-    actions.updateTimeSinceLastFetch();
-    actions.setIsLoadingFalse();
+    try {
+      actions.setData(await ProgramData.fetchData(firstTime));
+      actions.setLoadError(null);
+      actions.resetLastFetchTime(firstTime);
+      actions.updateTimeSinceLastFetch();
+    } catch (e) {
+      console.error("Failed to load program data:", e);
+      // Only surface the error on the initial load. A failed background
+      // refresh should leave the already-displayed data in place.
+      if (firstTime) {
+        actions.setLoadError(e.message || String(e));
+      }
+    } finally {
+      actions.setIsLoadingFalse();
+    }
   }),
 
   // Sync thunks
@@ -183,6 +195,9 @@ const model = {
     state.info = data.info;
   }),
   setInfo: action((state, info) => state.info = info),
+  setLoadError: action((state, error) => {
+    state.loadError = error;
+  }),
   resetLastFetchTime: action((state, firstTime) => {
     const milisecondsPerMinute = 60000;
     const offset = firstTime ? configData.TIMER.FETCH_INTERVAL_MINS * milisecondsPerMinute : 0;
