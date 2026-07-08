@@ -2,12 +2,48 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import fs from "fs";
 import path from "path";
+import { validateConfig } from "./src/validateConfig.js";
+
+const configPath = path.resolve(__dirname, "src/config.json");
+
+function readAndValidateConfig() {
+  const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+  validateConfig(config);
+  return config;
+}
+
+function validateConfigPlugin() {
+  return {
+    name: "validate-config",
+    buildStart() {
+      // Throws on an invalid config.json, failing the build (or surfacing
+      // in the dev server's error overlay on startup).
+      readAndValidateConfig();
+    },
+    handleHotUpdate({ file, server }) {
+      if (file === configPath) {
+        try {
+          readAndValidateConfig();
+        } catch (err) {
+          server.ws.send({
+            type: "error",
+            err: {
+              message: err.message,
+              stack: err.stack ?? "",
+              plugin: "validate-config",
+              id: configPath,
+            },
+          });
+        }
+      }
+    },
+  };
+}
 
 function injectDataPreloads() {
   return {
     name: "inject-data-preloads",
     transformIndexHtml(html) {
-      const configPath = path.resolve(__dirname, "src/config.json");
       const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
 
       const preloads = [config.PROGRAM_DATA_URL, config.PEOPLE_DATA_URL]
@@ -29,7 +65,7 @@ function injectDataPreloads() {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), injectDataPreloads()],
+  plugins: [react(), validateConfigPlugin(), injectDataPreloads()],
   server: {
     port: 3000,
     open: true,

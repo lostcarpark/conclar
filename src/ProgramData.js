@@ -389,47 +389,6 @@ export class ProgramData {
   }
 
   /**
-   * Validate that DATA_URLS and the legacy PROGRAM_DATA_URL/PEOPLE_DATA_URL
-   * keys aren't ambiguously combined, and that DATA_URLS itself specifies
-   * exactly one of COMBINED or the SCHEDULE+PEOPLE pair.
-   */
-  static validateDataSourceConfig() {
-    const hasLegacyUrls =
-      configData.PROGRAM_DATA_URL !== undefined ||
-      configData.PEOPLE_DATA_URL !== undefined;
-    const hasDataUrls = configData.DATA_URLS !== undefined;
-
-    if (hasLegacyUrls && hasDataUrls) {
-      throw new Error(
-        "config.json cannot specify both DATA_URLS and PROGRAM_DATA_URL/PEOPLE_DATA_URL."
-      );
-    }
-
-    if (hasDataUrls) {
-      const { COMBINED, SCHEDULE, PEOPLE } = configData.DATA_URLS;
-      const hasCombined = COMBINED !== undefined;
-      const hasSchedule = SCHEDULE !== undefined;
-      const hasPeople = PEOPLE !== undefined;
-
-      if (hasCombined && (hasSchedule || hasPeople)) {
-        throw new Error(
-          "DATA_URLS cannot specify both COMBINED and SCHEDULE/PEOPLE."
-        );
-      }
-      if (!hasCombined && hasSchedule !== hasPeople) {
-        throw new Error(
-          "DATA_URLS must specify both SCHEDULE and PEOPLE, or COMBINED alone."
-        );
-      }
-      if (!hasCombined && !hasSchedule && !hasPeople) {
-        throw new Error(
-          "DATA_URLS must specify COMBINED, or both SCHEDULE and PEOPLE."
-        );
-      }
-    }
-  }
-
-  /**
    * Parse a fetched DATA_URLS source. The file self-describes its shape via
    * a required top-level schemaVersion; a combined file has both "schedule"
    * and "people" properties, while a single-purpose file has just one.
@@ -455,14 +414,13 @@ export class ProgramData {
   /**
    * Fetch and parse program, people, and info.
    *
-   * Throws on fetch, parse, or configuration errors; the caller is responsible
-   * for surfacing the failure to the user.
+   * Throws on fetch or parse errors; the caller is responsible for surfacing
+   * the failure to the user. Data-source configuration is validated at build
+   * time (see vite.config.js), so config.json is assumed valid here.
    *
    * @returns {object}
    */
   static async fetchData(firstTime) {
-    this.validateDataSourceConfig();
-
     console.log("Fetching:", firstTime ? "First time" : "Refreshing");
     const fetchOptions = firstTime
       ? configData.FETCH_OPTIONS_FIRST
