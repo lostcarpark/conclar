@@ -39,16 +39,12 @@ const ProgramItem = ({
   forceExpanded = false,
 }) => {
   const selected = useStoreState((state) => state.isSelected(item.id));
-  const { addSelection, removeSelection } = useStoreActions((actions) => ({
-    addSelection: actions.addSelectionAndSync,
-    removeSelection: actions.removeSelectionAndSync,
-  }));
+  const addSelection = useStoreActions((actions) => actions.addSelectionAndSync);
+  const removeSelection = useStoreActions((actions) => actions.removeSelectionAndSync);
 
   const expanded = useStoreState((state) => state.isExpanded(item.id));
-  const { expandItem, collapseItem } = useStoreActions((actions) => ({
-    expandItem: actions.expandItem,
-    collapseItem: actions.collapseItem,
-  }));
+  const expandItem = useStoreActions((actions) => actions.expandItem);
+  const collapseItem = useStoreActions((actions) => actions.collapseItem);
 
   function toggleExpanded() {
     if (configData.INTERACTIVE) {
