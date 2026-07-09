@@ -5,11 +5,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import configData from "../config.json";
 import { isSyncEnabled } from "../SyncService";
 import InfoPopup from "./InfoPopup";
-import ThemeSelector from "./ThemeSelector";
 import ScrollToTop from "./ScrollToTop";
 import Timer from "./Timer";
 import Debug from "./Debug";
 import Header from "./Header";
+import HelpText from "./HelpText";
+import Sidebar from "./Sidebar";
 import NotFound from "./NotFound";
 import Loading from "./Loading";
 import FilterableProgram from "./FilterableProgram";
@@ -31,30 +32,55 @@ const AppRoutes = () => {
   const showSyncWarning = useStoreState((state) => state.showSyncWarning);
   const userProfile = useStoreState((state) => state.userProfile);
   const setShowSyncWarning = useStoreActions((actions) => actions.setShowSyncWarning);
+
+  useEffect(() => {
+    document.title = configData.APP_TITLE;
+  }, []);
+
+  // Resolve the dark-mode setting onto <html data-theme="light|dark">, which
+  // darkmode.css keys off. "light"/"dark" force the theme; "browser" follows the
+  // OS preference and keeps tracking it via the matchMedia change listener.
+  useEffect(() => {
+    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)");
+    const apply = () => {
+      const isDark =
+        darkMode === "dark" ||
+        (darkMode !== "light" && !!prefersDark?.matches);
+      document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    };
+    apply();
+    if (darkMode !== "browser" || !prefersDark) return;
+    prefersDark.addEventListener("change", apply);
+    return () => prefersDark.removeEventListener("change", apply);
+  }, [darkMode]);
+
   const theApp = configData.INTERACTIVE ? (
     <div className={appClasses}>
       <Timer tick={configData.TIMER.TIMER_TICK_SECS} />
       <Debug />
-      <Header title={configData.APP_TITLE} showNavigation={true} />
-      <Loading>
-        <Routes>
-          <Route path="/">
-            <Route index element={<FilterableProgram />} />
-            <Route path="/index.html" element={<FilterableProgram />} />
-            <Route path="id/:id" element={<ItemById />} />
-            <Route path="ids/:idList" element={<ItemByIdList />} />
-            <Route path="loc/:locList" element={<LocationProgramme />} />
-            <Route path="people">
-              <Route index element={<People />} />
-              <Route path=":id" element={<Person />} />
+      <Sidebar />
+      <div className="main-column">
+        <HelpText />
+        <Loading>
+          <Routes>
+            <Route path="/">
+              <Route index element={<FilterableProgram />} />
+              <Route path="/index.html" element={<FilterableProgram />} />
+              <Route path="id/:id" element={<ItemById />} />
+              <Route path="ids/:idList" element={<ItemByIdList />} />
+              <Route path="loc/:locList" element={<LocationProgramme />} />
+              <Route path="people">
+                <Route index element={<People />} />
+                <Route path=":id" element={<Person />} />
+              </Route>
+              <Route path="myschedule" element={<MySchedule />} />
+              <Route path="info" element={<Info />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
-            <Route path="myschedule" element={<MySchedule />} />
-            <Route path="info" element={<Info />} />
-            <Route path="settings" element={<Settings />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Loading>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Loading>
+      </div>
       {isSyncEnabled() && (
         <InfoPopup
           isOpen={showSyncWarning}
@@ -100,21 +126,22 @@ const AppRoutes = () => {
           onDismiss={() => setShowSyncWarning(false)}
         />
       )}
-      <Footer />
     </div>
   ) : (
-    <div className="App">
-      <Header title={configData.APP_TITLE} showNavigation={false} />
-      <Loading>
-        <Routes>
-          <Route path="/">
-            <Route index element={<UnfilterableProgram />} />
-            <Route path="/index.html" element={<UnfilterableProgram />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Loading>
-      <Footer />
+    <div className="App App--single-column">
+      <div className="main-column">
+        <Header title={configData.APP_TITLE} showNavigation={false} />
+        <Loading>
+          <Routes>
+            <Route path="/">
+              <Route index element={<UnfilterableProgram />} />
+              <Route path="/index.html" element={<UnfilterableProgram />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Loading>
+        <Footer />
+      </div>
     </div>
   );
 
@@ -128,11 +155,9 @@ const AppRoutes = () => {
   }, []);
 
   return (
-    <ThemeSelector mode={darkMode}>
-      <Router basename={window.publicUrl}>
-        <ScrollToTop>{theApp}</ScrollToTop>
-      </Router>
-    </ThemeSelector>
+    <Router basename={window.publicUrl}>
+      <ScrollToTop>{theApp}</ScrollToTop>
+    </Router>
   );
 };
 

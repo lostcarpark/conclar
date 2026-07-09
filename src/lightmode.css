@@ -1,0 +1,49 @@
+/*
+ * Light mode styles.
+ *
+ * Defines the light-mode ramp inputs that App.css's Tier-2 palette is built
+ * from: the per-step base colors (--ramp-*-base), the small gray-tint amount
+ * mixed into the neutral ramp (--ramp-*-low-amt), and the brand/info/danger
+ * mix amounts (--ramp-*-med-amt, peaking at step 500). darkmode.css supplies
+ * the flipped counterparts.
+ */
+
+ :root {
+  color-scheme: light;
+
+  --ramp-50-base: #fff;
+  --ramp-100-base: #f7f7f7;
+  --ramp-200-base: #ececec;
+  --ramp-300-base: #dddddd;
+  --ramp-400-base: #c6c6c6;
+  --ramp-500-base: #8f8f8f;
+  --ramp-600-base: #636363;
+  --ramp-700-base: #4f4f4f;
+  --ramp-800-base: #282828;
+  --ramp-900-base: #161616;
+  --ramp-950-base: #080808;
+
+  --ramp-50-low-amt: 1%;
+  --ramp-100-low-amt: 2%;
+  --ramp-200-low-amt: 3%;
+  --ramp-300-low-amt: 4%;
+  --ramp-400-low-amt: 5%;
+  --ramp-500-low-amt: 6%;
+  --ramp-600-low-amt: 7%;
+  --ramp-700-low-amt: 8%;
+  --ramp-800-low-amt: 9%;
+  --ramp-900-low-amt: 10%;
+  --ramp-950-low-amt: 11%;
+
+  --ramp-50-med-amt: 12%;
+  --ramp-100-med-amt: 25%;
+  --ramp-200-med-amt: 35%;
+  --ramp-300-med-amt: 50%;
+  --ramp-400-med-amt: 70%;
+  --ramp-500-med-amt: 100%;
+  --ramp-600-med-amt: 85%;
+  --ramp-700-med-amt: 70%;
+  --ramp-800-med-amt: 55%;
+  --ramp-900-med-amt: 40%;
+  --ramp-950-med-amt: 30%;
+}

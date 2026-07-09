@@ -16,81 +16,129 @@
 
 /*
  * 1. Global application styles.
+ *
+ * Colors are organised in three tiers:
+ *
+ *   1. Inputs    - `--brand-tint` (the brand hue) and `--gray-tint` (the hue
+ *                  mixed into the neutrals) drive the whole palette.
+ *   2. Palette   - the color ramps (gray, brand, info, danger) plus utility
+ *                  colors (--shadow-*, --text-on-color), derived from the inputs
+ *                  via color-mix(). Concrete CSS may reference these directly
+ *                  (e.g. body { accent-color: var(--brand-500); }, box-shadows)
+ *                  where a color is a one-off and not worth a semantic name.
+ *   3. Semantic  - named tokens that are *meaningfully shared* across rules
+ *                  (--main-bg, --button-primary-bg, --link-fg, ...), each
+ *                  pointing at a palette entry. Colors used in only one place
+ *                  are inlined at the use site as a palette ref rather than
+ *                  given a single-use alias here.
+ *
+ * To re-theme the site, change `--brand-tint`. For finer control, override any
+ * palette step (e.g. --gray-300) or any semantic variable below it.
+ *
+ * Light/dark differences live entirely in the Tier-2 ramp inputs (lightmode.css
+ * / darkmode.css); the Tier-3 semantic mappings here are shared by both modes.
+ * Inlined palette refs adapt too, since the palette is itself mode-dependent.
  */
-
-
-
 :root {
-  --main-bg: #fff;
-  --main-fg: #000;
-  --header-fg: #444;
-  --navigation-button-bg: #ddd;
-  --navigation-button-fg: #0d172a;
-  --navigation-button-border: #e2e8f0;
-  --navigation-button-current-bg: #5b6473; /*#525e73; #343c4b;*/
-  --navigation-button-current-fg: #fff;
-  --navigation-button-hover-bg: #1e293b;
-  --navigation-button-hover-fg: #fff;
-  --help-text-bg: green;
-  --help-text-fg: #fff;
-  --checkbox-switch-bg: white;
-  --checkbox-selected-bg: green;
-  --checkbox-unselected-bg: red;
+  /* ---- Tier 1: Inputs ---- */
+  --brand-tint: #619b40;
+  --gray-tint: blue;
+  --info-tint: #2b7fff;
+  --danger-tint: #ff4c4c;
+
+  /* ---- Tier 2: Palette ---- */
+  --gray-50: color-mix(in srgb, var(--gray-tint) var(--ramp-50-low-amt), var(--ramp-50-base));
+  --gray-100: color-mix(in srgb, var(--gray-tint) var(--ramp-100-low-amt), var(--ramp-100-base));
+  --gray-200: color-mix(in srgb, var(--gray-tint) var(--ramp-200-low-amt), var(--ramp-200-base));
+  --gray-300: color-mix(in srgb, var(--gray-tint) var(--ramp-300-low-amt), var(--ramp-300-base));
+  --gray-400: color-mix(in srgb, var(--gray-tint) var(--ramp-400-low-amt), var(--ramp-400-base));
+  --gray-500: color-mix(in srgb, var(--gray-tint) var(--ramp-500-low-amt), var(--ramp-500-base));
+  --gray-600: color-mix(in srgb, var(--gray-tint) var(--ramp-600-low-amt), var(--ramp-600-base));
+  --gray-700: color-mix(in srgb, var(--gray-tint) var(--ramp-700-low-amt), var(--ramp-700-base));
+  --gray-800: color-mix(in srgb, var(--gray-tint) var(--ramp-800-low-amt), var(--ramp-800-base));
+  --gray-900: color-mix(in srgb, var(--gray-tint) var(--ramp-900-low-amt), var(--ramp-900-base));
+  --gray-950: color-mix(in srgb, var(--gray-tint) var(--ramp-950-low-amt), var(--ramp-950-base));
+
+  --brand-50: color-mix(in srgb, var(--brand-tint) var(--ramp-50-med-amt), var(--ramp-50-base));
+  --brand-100: color-mix(in srgb, var(--brand-tint) var(--ramp-100-med-amt), var(--ramp-100-base));
+  --brand-200: color-mix(in srgb, var(--brand-tint) var(--ramp-200-med-amt), var(--ramp-200-base));
+  --brand-300: color-mix(in srgb, var(--brand-tint) var(--ramp-300-med-amt), var(--ramp-300-base));
+  --brand-400: color-mix(in srgb, var(--brand-tint) var(--ramp-400-med-amt), var(--ramp-400-base));
+  --brand-500: color-mix(in srgb, var(--brand-tint) var(--ramp-500-med-amt), var(--ramp-500-base));
+  --brand-600: color-mix(in srgb, var(--brand-tint) var(--ramp-600-med-amt), var(--ramp-600-base));
+  --brand-700: color-mix(in srgb, var(--brand-tint) var(--ramp-700-med-amt), var(--ramp-700-base));
+  --brand-800: color-mix(in srgb, var(--brand-tint) var(--ramp-800-med-amt), var(--ramp-800-base));
+  --brand-900: color-mix(in srgb, var(--brand-tint) var(--ramp-900-med-amt), var(--ramp-900-base));
+  --brand-950: color-mix(in srgb, var(--brand-tint) var(--ramp-950-med-amt), var(--ramp-950-base));
+
+  --info-50: color-mix(in srgb, var(--info-tint) var(--ramp-50-med-amt), var(--ramp-50-base));
+  --info-100: color-mix(in srgb, var(--info-tint) var(--ramp-100-med-amt), var(--ramp-100-base));
+  --info-200: color-mix(in srgb, var(--info-tint) var(--ramp-200-med-amt), var(--ramp-200-base));
+  --info-300: color-mix(in srgb, var(--info-tint) var(--ramp-300-med-amt), var(--ramp-300-base));
+  --info-400: color-mix(in srgb, var(--info-tint) var(--ramp-400-med-amt), var(--ramp-400-base));
+  --info-500: color-mix(in srgb, var(--info-tint) var(--ramp-500-med-amt), var(--ramp-500-base));
+  --info-600: color-mix(in srgb, var(--info-tint) var(--ramp-600-med-amt), var(--ramp-600-base));
+  --info-700: color-mix(in srgb, var(--info-tint) var(--ramp-700-med-amt), var(--ramp-700-base));
+  --info-800: color-mix(in srgb, var(--info-tint) var(--ramp-800-med-amt), var(--ramp-800-base));
+  --info-900: color-mix(in srgb, var(--info-tint) var(--ramp-900-med-amt), var(--ramp-900-base));
+  --info-950: color-mix(in srgb, var(--info-tint) var(--ramp-950-med-amt), var(--ramp-950-base));
+
+  --danger-50: color-mix(in srgb, var(--danger-tint) var(--ramp-50-med-amt), var(--ramp-50-base));
+  --danger-100: color-mix(in srgb, var(--danger-tint) var(--ramp-100-med-amt), var(--ramp-100-base));
+  --danger-200: color-mix(in srgb, var(--danger-tint) var(--ramp-200-med-amt), var(--ramp-200-base));
+  --danger-300: color-mix(in srgb, var(--danger-tint) var(--ramp-300-med-amt), var(--ramp-300-base));
+  --danger-400: color-mix(in srgb, var(--danger-tint) var(--ramp-400-med-amt), var(--ramp-400-base));
+  --danger-500: color-mix(in srgb, var(--danger-tint) var(--ramp-500-med-amt), var(--ramp-500-base));
+  --danger-600: color-mix(in srgb, var(--danger-tint) var(--ramp-600-med-amt), var(--ramp-600-base));
+  --danger-700: color-mix(in srgb, var(--danger-tint) var(--ramp-700-med-amt), var(--ramp-700-base  ));
+  --danger-800: color-mix(in srgb, var(--danger-tint) var(--ramp-800-med-amt), var(--ramp-800-base));
+  --danger-900: color-mix(in srgb, var(--danger-tint) var(--ramp-900-med-amt), var(--ramp-900-base));
+  --danger-950: color-mix(in srgb, var(--danger-tint) var(--ramp-950-med-amt), var(--ramp-950-base));
+
+  --text-on-color: #ffffffe5; /* text on colored/dark surfaces */
+
+  --shadow-tint: color-mix(in srgb, var(--brand-tint) var(--ramp-50-med-amt), #000);
+  --shadow-10: color-mix(in srgb, var(--shadow-tint) 10%, transparent);
+  --shadow-20: color-mix(in srgb, var(--shadow-tint) 20%, transparent);
+  --shadow-30: color-mix(in srgb, var(--shadow-tint) 30%, transparent);
+  --shadow-40: color-mix(in srgb, var(--shadow-tint) 40%, transparent);
+  --shadow-50: color-mix(in srgb, var(--shadow-tint) 50%, transparent);
+
+  /* ---- Tier 3: Semantic ---- */
+  --main-bg: var(--gray-50);
+  --main-fg: var(--gray-900);
+  --header-fg: var(--gray-700);
+  --sidebar-bg: var(--gray-100);
+  --sidebar-border: var(--gray-200);
+  --image-bg: #fff; /* photos read best on white in both modes */
+
+  --control: var(--brand-500);
+
+  --button-primary-bg: var(--brand-500);
+  --button-primary-fg: var(--text-on-color);
+  --button-primary-hover-bg: var(--brand-700);
+  --button-primary-hover-fg: var(--brand-50);
+  --button-primary-disabled-bg: var(--brand-200);
+  --button-primary-disabled-fg: var(--brand-50);
+
+  --navigation-button-border: var(--gray-200);
+  --nav-icon-fg: var(--brand-500);
+
   --filter-bg: var(--main-bg);
   --filter-fg: var(--main-fg);
   --filter-border: var(--search-border);
-  --filter-select-bg: #bbe;
-  --filter-select-fg: #000;
-  --filter-select-single-caret: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ccc' stroke='%23ccc' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
-  --filter-select-single-hover-caret: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23999' stroke='%23999' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
-  --search-bg: var(--main-bg);
-  --search-fg: var(--main-fg);
-  --search-border: hsl(0, 0%, 80%);
-  --reset-button-bg: var(--navigation-button-current-bg);
-  --reset-button-fg: var(--navigation-button-current-fg);
-  --reset-button-hover-bg: var(--navigation-button-bg);
-  --reset-button-hover-fg: var(--navigation-button-fg);
-  --expand-button-bg: var(--navigation-button-current-bg);
-  --expand-button-fg: var(--navigation-button-current-fg);
-  --expand-button-hover-bg: var(--navigation-button-bg);
-  --expand-button-hover-fg: var(--navigation-button-fg);
-  --add-all-button-bg: var(--navigation-button-current-bg);
-  --add-all-button-fg: var(--navigation-button-current-fg);
-  --add-more-button-bg: var(--navigation-button-current-bg);
-  --add-more-button-fg: var(--navigation-button-current-fg);
-  --add-more-button-hover-bg: var(--navigation-button-hover-bg);
-  --add-more-button-hover-fg: var(--navigation-button-hover-fg);
-  --program-item-chevron-collapsed: var(--navigation-button-current-bg);
-  --program-item-chevron-expanded: var(--navigation-button-hover-bg);
-  --program-time-convention-message: grey;
-  --program-time-local-message: grey;
-  --program-date-line: #888;
-  --program-time-line: #ccc;
-  --program-item-line: #bbb;
-  --program-time-bg: #ddd;
-  --program-tags-fg: #555;
-  --program-expanded-bg: #eee;
-  --link-fg: #265c83;
-  --link-hover-fg: #193c56;
-  --link-disabled: #888;
-  --participant-bg: #eee;
-  --participant-link-fg: #000;
-  --participant-link-visited-fg: #444;
-  --settings-outline: #888;
-  --footer-line: #eee;
-  --footer-bg-color: #424242;
-  --footer-fg-color: #F5F5F5;
-  --info-popup-details-fg: #555;
-  --error-message-fg: tomato;
-  --shadow-014: rgba(0, 0, 0, 0.14);
-  --shadow-012: rgba(0, 0, 0, 0.12);
-  --shadow-02: rgba(0, 0, 0, 0.2);
-  --shadow-03: rgba(0, 0, 0, 0.3);
-  --shadow-gray: rgba(166, 175, 195, 0.25);
-  --debug-online-bg: green;
-  --debug-online-fg: white;
-  --debug-offline-bg: red;
-  --debug-offline-fg: white;
+  --search-border: var(--gray-400);
+
+  --program-tags-fg: var(--gray-600);
+  --program-expanded-bg: var(--gray-100);
+
+  --link-fg: var(--brand-700);
+  --link-hover-fg: var(--brand-800);
+  --link-disabled: var(--gray-500);
+  --participant-link-fg: var(--gray-900);
+  --participant-link-visited-fg: var(--gray-700);
+  --settings-outline: var(--gray-500);
+  --brand-popup-details-fg: var(--gray-600);
 }
 
 img {
@@ -99,23 +147,120 @@ img {
 }
 
 body {
-  margin: auto;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--main-bg);
   color: var(--main-fg);
-  max-width: 75rem;
+  accent-color: var(--control);
 }
 
 .App {
   display: grid;
-  height: 100dvh;
-  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  align-content: start;
+  min-height: 100dvh;
   text-align: left;
-  margin: 1rem;
   font-size: 1.25rem;
   font-family: "Open Sans", "Lato", "Helvetica Neue", "Calibri", Arial,
     sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow-y: auto;
+  width: 16rem;
+  box-sizing: border-box;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  box-shadow: 2px 0 12px var(--shadow-10);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sidebar header {
+  padding: 1rem;
+  text-align: center;
+}
+
+.sidebar footer {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--navigation-button-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--main-fg);
+  line-height: 1;
+}
+
+.sidebar-toggle:hover,
+.sidebar-toggle:focus-visible,
+.sidebar-drawer-close:hover,
+.sidebar-drawer-close:focus-visible {
+  background-color: var(--gray-300);
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* The topbar and drawer only exist in drawer mode; the <dialog> is also closed
+   (display: none) on desktop, but reset its UA chrome here for when it opens. */
+.sidebar-topbar {
+  display: none;
+}
+
+.sidebar-drawer {
+  margin: 0;
+  padding: 0;
+  border: none;
+  max-width: none;
+  max-height: none;
+  background-color: var(--sidebar-bg);
+  color: var(--main-fg);
+}
+
+.sidebar-drawer::backdrop {
+  background: var(--shadow-50);
+}
+
+.main-column {
+  min-width: 0;
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.App--single-column {
+  grid-template-columns: 1fr;
 }
 
 a {
@@ -152,11 +297,13 @@ header {
 
 header h1 {
   margin: 1rem 0;
+  font-size: 1.4rem;
   color: var(--header-fg);
 }
 
 header img {
   border-radius: 1rem;
+  max-width: 100%;
 }
 
 
@@ -166,89 +313,129 @@ header img {
 
 .navigation ul {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
   padding-inline-start: 0;
   list-style-type: none;
-}
-
-@media (max-width: 768px) {
-  .navigation ul {
-    justify-content: center;
-  }
+  margin: 0;
 }
 
 .navigation li {
-  margin: 0.25em 0.25em;
+  margin: 0;
 }
 
-/* CSS for button 81 from https://getcssscan.com/css-buttons-examples */
+/* Separate the config-driven EXTRA links from the regular navigation. */
+.navigation li.nav-extra {
+  margin-top: 1rem;
+}
+
+.navigation li.nav-extra ~ li.nav-extra {
+  margin-top: 0;
+}
+
+/* Match the gap before the EXTRA links ahead of the user status link. */
+.navigation li.nav-user-status {
+  margin-top: 1rem;
+}
+
+.nav-icon {
+  flex-shrink: 0;
+  font-size: 1.1em;
+  min-width: 1em;
+  display: inline-block;
+  color: var(--nav-icon-fg);
+}
+
+.nav-icon-img {
+  width: 1.1em;
+  height: 1.1em;
+  object-fit: contain;
+}
+
 .navigation li a {
-  background-color: var(--navigation-button-bg);
-  color: var(--navigation-button-fg);
-  border: 0 solid var(--navigation-button-border);
-  border-radius: 2rem;
+  background-color: transparent;
+  color: var(--main-fg);
   box-sizing: border-box;
   cursor: pointer;
-  display: inline-block;
-  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
-  padding: 1rem 1.5rem;
-  text-align: center;
+  padding: 0.65rem 1rem;
+  text-align: left;
   text-decoration: none;
-  text-decoration-thickness: auto;
-  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 1px 2px var(--shadow-gray);
+  transition: background-color 0.1s ease, color 0.1s ease;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
-  /* don't line-break individual links */
   white-space: nowrap;
 }
 
 .navigation li a.disabled {
-  opacity: 0.5;
+  color: var(--link-disabled);
   cursor: default;
 }
 
 .navigation li a.active {
-  background-color: var(--navigation-button-current-bg);
-  color: var(--navigation-button-current-fg);
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-fg);
 }
 
 .navigation li a:hover,
 .navigation li a.active:hover {
-  background-color: var(--navigation-button-hover-bg);
-  color: var(--navigation-button-hover-fg);
+  background-color: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-fg);
+}
+
+.navigation li a.active .nav-icon,
+.navigation li a:hover .nav-icon {
+  color: var(--brand-50);
 }
 
 .navigation li a.disabled:hover {
-  background-color: var(--navigation-button-bg);
-  color: var(--navigation-button-fg);
+  background-color: transparent;
+  color: var(--link-disabled);
+}
+
+.navigation li a.disabled.active .nav-icon,
+.navigation li a.disabled:hover .nav-icon {
+  color: var(--nav-icon-fg);
 }
 
 .help-text {
   width: 100%;
   padding: .75rem;
   border-radius: .75rem;
-  background-color: var(--help-text-bg);
-  color: var(--help-text-fg);
+  background-color: var(--info-50);
+  color: var(--info-950);
+  border: solid 1px var(--info-200);
   box-sizing: border-box;
 }
 
 .help-text button {
   float: right;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: -0.25rem -0.25rem 0 0.25rem;
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  color: var(--info-400);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.help-text button:hover {
+  color: var(--info-600);
 }
 
 /* Info popup */
 .info-popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--shadow-50);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: flex-start;
@@ -265,7 +452,7 @@ header img {
   padding: 1.5rem;
   max-width: 30rem;
   width: calc(100% - 2rem);
-  box-shadow: 0 4px 20px var(--shadow-03);
+  box-shadow: 0 4px 20px var(--shadow-30);
 }
 
 .info-popup-graphic {
@@ -296,7 +483,7 @@ header img {
 .info-popup-details-toggle {
   background: none;
   border: none;
-  color: var(--info-popup-details-fg);
+  color: var(--brand-popup-details-fg);
   cursor: pointer;
   padding: 0;
   font-size: inherit;
@@ -304,7 +491,7 @@ header img {
 }
 
 .info-popup-details-toggle:hover {
-  color: var(--info-popup-details-fg);
+  color: var(--brand-popup-details-fg);
 }
 
 .info-popup-details-chevron {
@@ -320,7 +507,7 @@ header img {
 
 .info-popup-divider {
   border: none;
-  border-top: 1px solid var(--footer-line);
+  border-top: 1px solid var(--info-200);
   margin: 1rem 0;
 }
 
@@ -333,8 +520,8 @@ header img {
 }
 
 .info-popup-primary {
-  background-color: var(--navigation-button-current-bg);
-  color: var(--navigation-button-current-fg);
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-fg);
   border: none;
   border-radius: 2rem;
   padding: 0.75rem 1.5rem;
@@ -346,8 +533,8 @@ header img {
 }
 
 .info-popup-primary:hover {
-  background-color: var(--navigation-button-hover-bg);
-  color: var(--navigation-button-hover-fg);
+  background-color: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-fg);
 }
 
 .info-popup-dismiss {
@@ -379,12 +566,110 @@ header img {
   }
 }
 
+/* Drawer/inline breakpoint. Keep in sync with DRAWER_MEDIA_QUERY in
+   Sidebar.js, which closes the drawer when the viewport grows past here. */
 @media (max-width: 768px) {
-  .date-heading {
+  .App {
+    grid-template-columns: 1fr;
+    --mobile-topbar-height: 3.5rem;
+  }
+
+  /* Lock background scroll while the drawer is open (the drawer itself scrolls).
+     The modal dialog inerts the background but doesn't prevent it scrolling. */
+  body:has(dialog.sidebar-drawer[open]) {
+    overflow: hidden;
+  }
+
+  .sidebar {
+    height: auto;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--sidebar-border);
+    box-shadow: 0 2px 8px var(--shadow-10);
+    z-index: 100;
+  }
+
+  /* The inline nav is replaced by the drawer on mobile. */
+  .sidebar-nav {
+    display: none;
+  }
+
+  .sidebar-topbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    height: var(--mobile-topbar-height);
+    box-sizing: border-box;
+  }
+
+  .sidebar-topbar-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--header-fg);
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  /* Closed/resting state. Slides in/out where supported; on older baselines
+     (Chrome 116 / Safari 17.0) this gracefully degrades to the drawer simply
+     appearing and disappearing. `display`/`overlay` are transitioned with
+     allow-discrete so the element stays painted in the top layer until the
+     close animation finishes (the dialog returns to display:none on close). */
+  .sidebar-drawer {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 16rem;
+    height: 100dvh;
+    box-sizing: border-box;
+    box-shadow: 4px 0 16px var(--shadow-20);
+    overflow-y: auto;
+    flex-direction: column;
+    transform: translateX(-100%);
+    /* Close: snappier than the open. */
+    transition: transform 0.15s ease,
+      overlay 0.15s ease allow-discrete,
+      display 0.15s ease allow-discrete;
+  }
+
+  .sidebar-drawer[open] {
+    display: flex;
+    transform: translateX(0);
+    /* Open: a touch slower so the slide-in reads clearly. */
+    transition: transform 0.25s ease,
+      overlay 0.25s ease allow-discrete,
+      display 0.25s ease allow-discrete;
+  }
+
+  @starting-style {
+    .sidebar-drawer[open] {
+      transform: translateX(-100%);
+    }
+  }
+
+  .sidebar-drawer-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.5rem;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--navigation-button-border);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--main-fg);
+    line-height: 1;
+    display: flex;
+  }
+
+  .App .date-heading {
     margin-bottom: 0 !important;
     overflow: hidden;
     white-space: nowrap;
     height: 2rem;
+    top: calc(var(--mobile-topbar-height) - 1px);
   }
   .timeslot {
     flex-direction: column;
@@ -392,11 +677,11 @@ header img {
   }
   .timeslot-time {
     position: sticky;
-    top: 3rem;
+    top: calc(var(--mobile-topbar-height) + 3rem);
     margin-bottom: 0.5rem;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
-    background:var(--program-time-bg);
+    background:var(--gray-300);
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     z-index: 1;
@@ -413,7 +698,7 @@ header img {
 /* page not founds */
 .error {
   text-align: center;
-  color: var(--error-message-fg);
+  color: var(--danger-500);
   font-size: larger;
   margin: 3rem;
 }
@@ -454,14 +739,14 @@ header img {
   left: 0.3em;
   content: " ";
   width: 3em;
-  background-color: var(--checkbox-unselected-bg);
+  background-color: var(--gray-400);
   border-radius: 1em;
-  box-shadow: inset 0 0.2em 0 var(--shadow-03);
+  box-shadow: inset 0 0.2em 0 var(--shadow-30);
   transition: all 100ms ease-in;
 }
 
 .switch[aria-checked="true"]::before {
-  background-color: var(--checkbox-selected-bg);
+  background-color: var(--brand-500);
 }
 
 .switch::after {
@@ -475,9 +760,9 @@ header img {
   top: 0.4em;
   bottom: 0.4em;
   margin-left: 0.1em;
-  background-color: var(--checkbox-switch-bg);
+  background-color: var(--text-on-color);
   border-radius: 0.9em;
-  box-shadow: inset 0 -0.2em 0 var(--shadow-02);
+  box-shadow: inset 0 -0.2em 0 var(--shadow-20);
 }
 
 .switch[aria-checked="true"]::after {
@@ -561,7 +846,7 @@ div.switch-wrapper {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image: var(--filter-select-single-caret);
+  background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ccc' stroke='%23ccc' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
@@ -570,7 +855,7 @@ div.switch-wrapper {
 .filter-hide-before select:focus,
 .filter-hide-before select:active
 {
-  background-image: var(--filter-select-single-hover-caret);
+  background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23999' stroke='%23999' stroke-width='0'  height='20' width='20' viewBox='0 0 20 20' %3E%3Cpath d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z'/%3E%3C/svg%3E" );
 }
 
 .filter-search label {
@@ -611,8 +896,8 @@ div.switch-wrapper {
 }
 
 .filter-container .filter-select__option--is-focused {
-  background-color: var(--filter-select-bg);
-  color: var(--filter-select-fg);
+  background-color: var(--brand-100);
+  color: var(--brand-800);
 }
 
 .filter-container .filter-select__indicator-separator {
@@ -659,8 +944,8 @@ div.switch-wrapper {
 .filter-search input,
 .people-search input {
   min-height: 38px;
-  background-color: var(--search-bg);
-  color: var(--search-fg);
+  background-color: var(--main-bg);
+  color: var(--main-fg);
   border: 1px var(--search-border) solid;
   border-radius: 4px;
 }
@@ -671,8 +956,8 @@ div.switch-wrapper {
 }
 
 .filter-expand button {
-    background-color: var(--expand-button-bg);
-    color: var(--expand-button-fg);
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-fg);
     font-size: 0.85rem;
     padding: .5rem 1.5rem;
     border: none;
@@ -684,12 +969,13 @@ div.switch-wrapper {
 
 .filter-expand button:hover,
 .filter-expand button:focus {
-  background-color: var(--expand-button-hover-bg);
-  color: var(--expand-button-hover-fg);
+  background-color: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-fg);
 }
 
 .filter-expand button:disabled {
-  opacity: 0.5;
+  background-color: var(--button-primary-disabled-bg);
+  color: var(--button-primary-disabled-fg);
   pointer-events: none;
 }
 
@@ -700,8 +986,8 @@ div.switch-wrapper {
 }
 
 .reset-button {
-  background-color: var(--reset-button-bg);
-  color: var(--reset-button-fg);
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-fg);
   font-size: 1rem;
   padding: .5rem 1.5rem;
   border: none;
@@ -711,8 +997,8 @@ div.switch-wrapper {
 
 .reset-button:hover,
 .reset-button:focus {
-  background-color: var(--reset-button-hover-bg);
-  color: var(--reset-button-hover-fg);
+  background-color: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-fg);
 }
 
 /*
@@ -737,12 +1023,12 @@ div.switch-wrapper {
 
 .time-convention-message {
   font-weight: bold;
-  color: var(--program-time-convention-message);
+  color: var(--gray-500);
 }
 
 .time-local-message {
   font-style: italic;
-  color: var(--program-time-local-message);
+  color: var(--gray-500);
 }
 
 .date-heading {
@@ -754,7 +1040,7 @@ div.switch-wrapper {
   margin-bottom: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1px;
-  border-bottom: 2px solid var(--program-date-line);
+  border-bottom: 2px solid var(--gray-500);
   background-color: var(--main-bg);
   z-index: 2;
 }
@@ -765,7 +1051,7 @@ div.switch-wrapper {
 
 .timeslot {
   margin: 0.5rem;
-  border-bottom: 1px solid var(--program-time-line);
+  border-bottom: 1px solid var(--gray-400);
   display: flex;
 }
 
@@ -812,15 +1098,35 @@ div.switch-wrapper {
   flex-direction: column;
 }
 
-.selection label {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
+/* Visually hide the checkbox itself; the star label is the visible control. */
+.selection .selection-control {
   position: absolute;
-  white-space: nowrap;
+  opacity: 0;
   width: 1px;
+  height: 1px;
+  margin: 0;
+}
+
+.selection label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.2em 0.3em;
+}
+
+.selection .selection-star {
+  display: inline-flex;
+  font-size: 1.1em;
+  line-height: 1;
+  color: var(--brand-200);
+}
+
+.selection .selection-control:checked + label .selection-star {
+  color: var(--brand-500);
+}
+
+.selection .selection-control:focus-visible + label .selection-star {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .item {
@@ -830,7 +1136,7 @@ div.switch-wrapper {
 }
 
 .item ~ .item {
-  border-top: 1px solid var(--program-item-line);
+  border-top: 1px solid var(--gray-400);
   padding-top: 0.5rem;
 }
 
@@ -839,6 +1145,7 @@ div.switch-wrapper {
   vertical-align: baseline;
   flex-grow: 0;
   text-align: center;
+  padding-right: 0.15em;
 }
 
 .item-entry {
@@ -868,14 +1175,14 @@ div.switch-wrapper {
 
 .item-chevron {
   float: right;
-  color: var(--program-item-chevron-collapsed);
+  color: var(--brand-500);
   font-size: 1.5rem;
   line-height: 1rem;
   overflow: auto;
 }
 
 .item-chevron-expanded {
-  color: var(--program-item-chevron-expanded);
+  color: var(--brand-700);
 }
 
 .item-title {
@@ -973,8 +1280,8 @@ div.switch-wrapper {
   border-radius: 50%;
   vertical-align: middle;
   padding: 0.1rem;
-  box-shadow: 0px 2px 2px 0px var(--shadow-014),
-    0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
+  box-shadow: 0px 2px 2px 0px var(--shadow-10),
+    0px 3px 1px -2px var(--shadow-10), 0px 1px 5px 0px var(--shadow-20);
 }
 
 .item-people div.participant-image {
@@ -982,7 +1289,7 @@ div.switch-wrapper {
 }
 
 .item-people div.participant-image img {
-  background: #fff;
+  background: var(--image-bg);
 }
 
 .program-container .participant .participant-image ~ span {
@@ -1036,8 +1343,8 @@ div.switch-wrapper {
 }
 
 .show-more-button {
-  background-color: var(--add-more-button-bg);
-  color: var(--add-more-button-fg);
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-fg);
   font-size: 1rem;
   padding: .5rem 1.5rem;
   border: none;
@@ -1047,8 +1354,8 @@ div.switch-wrapper {
 
 .show-more-button:hover,
 .show-more-button:focus {
-  background-color: var(--expand-button-hover-bg);
-  color: var(--expand-button-hover-fg);
+  background-color: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-fg);
 }
 
 /* ItemIDs page, showing shared items. */
@@ -1060,12 +1367,19 @@ div.switch-wrapper {
 }
 
 .button-add-all {
-  background-color: var(--add-all-button-bg);
-  color: var(--add-all-button-fg);
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-fg);
   font-size: 1rem;
   padding: .5rem 1.5rem;
   border: none;
   border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+.button-add-all:hover,
+.button-add-all:focus {
+  background-color: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-fg);
 }
 
 /*
@@ -1120,7 +1434,7 @@ div.switch-wrapper {
   max-width: 30%;
   padding: 0.5rem;
   text-align: center;
-  background: var(--participant-bg);
+  background: var(--gray-100);
 }
 
 .people .participant {
@@ -1134,9 +1448,9 @@ div.switch-wrapper {
   border-radius: 50%;
   vertical-align: middle;
   padding: 0.1rem;
-  box-shadow: 0px 2px 2px 0px var(--shadow-014),
-    0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
-  background: #fff;
+  box-shadow: 0px 2px 2px 0px var(--shadow-10),
+    0px 3px 1px -2px var(--shadow-10), 0px 1px 5px 0px var(--shadow-20);
+  background: var(--image-bg);
 }
 
 .person {
@@ -1153,11 +1467,11 @@ div.switch-wrapper {
 .person .person-image {
   max-width: 25rem;
   display: inline-flex;
-  background: #fff;
+  background: var(--image-bg);
   padding: 0.5rem;
   margin: 0 0.5rem 0.5rem 0;
-  box-shadow: 0px 2px 2px 0px var(--shadow-014),
-    0px 3px 1px -2px var(--shadow-012), 0px 1px 5px 0px var(--shadow-02);
+  box-shadow: 0px 2px 2px 0px var(--shadow-10),
+    0px 3px 1px -2px var(--shadow-10), 0px 1px 5px 0px var(--shadow-20);
 }
 .person .person-image img {
   max-width: 100%;
@@ -1236,23 +1550,9 @@ div.switch-wrapper {
  */
 
 footer {
-  margin-top: 2rem;
+  text-align: center;
+  margin-top: auto;
   padding: .5rem;
-  background-color: var(--footer-bg-color);
-  border-top: 1px solid var(--footer-line);
-  color: var(--footer-fg-color);
-  box-shadow: 0 0 0 100vmax var(--footer-bg-color);
-  clip-path: inset(0 -100vmax);
-}
-
-footer .footer-bottom {
-  display: flex;
-  justify-content: space-between;
-}
-
-footer a,
-footer a:hover {
-  color: var(--footer-fg-color);
 }
 
 /*
@@ -1324,13 +1624,13 @@ div.uninteractive div.info {
 }
 
 .debug-online {
-  background-color: var(--debug-online-bg);
-  color: var(--debug-online-fg);
+  background-color: green;
+  color: white;
 }
 
 .debug-offline {
-  background-color: var(--debug-offline-bg);
-  color: var(--debug-offline-fg);
+  background-color: red;
+  color: white;
 }
 
 .debug span {

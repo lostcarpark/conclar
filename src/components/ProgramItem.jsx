@@ -5,6 +5,7 @@ import useMeasure from "react-use-measure";
 import { useSpring, animated } from "react-spring";
 import { IoChevronDownCircle } from "react-icons/io5";
 import { HiLink } from "react-icons/hi";
+import { FaStar, FaRegStar } from "react-icons/fa";
 import ItemLink from "./ItemLink";
 import Location from "./Location";
 import Tag from "./Tag";
@@ -231,7 +232,12 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
             onChange={handleSelected}
           />
           <label htmlFor={"select_" + id}>
-            {"Click to select " + item.title}
+            <span className="selection-star" aria-hidden="true">
+              {selected ? <FaStar /> : <FaRegStar />}
+            </span>
+            <span className="sr-only">
+              {(selected ? "Unselect " : "Select ") + item.title}
+            </span>
           </label>
         </div>
       </div>
