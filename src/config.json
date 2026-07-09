@@ -42,10 +42,59 @@
     "CLOSE_ARIA_LABEL": "Dismiss help text"
   },
   "LOCATIONS": {
-    "SEARCHABLE": false,
+    "SEARCHABLE": true,
     "LABEL": "Show on map",
     "MAPPING": [
       { "KEY": "Davin - Croke Park", "MAP_URL": "https://map.octocon.com" }
+    ]
+  },
+  "VENUES": {
+    "ALL_LABEL": "All @venue",
+    "MAPPING": [
+      {
+        "NAME": "SEC Centre",
+        "LOCATIONS": [
+          "Alsh 1",
+          "Alsh 2",
+          "Argyll 1",
+          "Argyll 2",
+          "Argyll 3",
+          "Barra",
+          "Carron",
+          "Dochart 1",
+          "Dochart 2",
+          "Executive Boardroom",
+          "Forth",
+          "Gala",
+          "Hall 1",
+          "Hall 2",
+          "Hall 4 (Autographs)",
+          "Hall 4 (Crafting Workshops)",
+          "Hall 4 (Meetups)",
+          "Hall 4 (Other)",
+          "Hall 4 (Table Talks)",
+          "Hall 5 (Art Show)",
+          "Inspiration",
+          "Jura",
+          "Lomond Auditorium",
+          "Meeting Academy M1",
+          "Meeting Academy M2/M3",
+          "Meeting Academy M4",
+          "Staffa/Shuna"
+        ]
+      },
+      {
+        "NAME": "SEC Armadillo",
+        "LOCATIONS": ["Clyde Auditorium"]
+      },
+      {
+        "NAME": "ARC",
+        "LOCATIONS": ["ARC Seminar Suite", "ARC Studio Space"]
+      },
+      {
+        "NAME": "Crowne Plaza",
+        "LOCATIONS": ["Outside Crowne Plaza"]
+      }
     ]
   },
   "APPLICATION": {
