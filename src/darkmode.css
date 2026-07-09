@@ -1,56 +1,90 @@
 /*
  * Dark mode styles.
  *
- * Applies the dark-mode ramp inputs that App.css's Tier-2 palette is built from
- * (per-step base colors --ramp-*-base, the gray-tint amount --ramp-*-low-amt,
- * and the brand/info/danger mix amounts --ramp-*-med-amt peaking at step 500;
- * lightmode.css supplies the flipped light counterparts on bare :root).
- *
  * AppRoutes resolves the dark-mode setting ("browser" / "light" / "dark") to a
  * single data-theme="light" | "dark" on <html> — reading prefers-color-scheme
  * for "browser" — so dark needs just one selector here rather than a media
  * query plus a forced-mode override.
- *
- * low-amt note: the 1% -> 11% values are identical to light mode — keyed by step
- * number, not lightness, and deliberately not reversed for the inverted ramp;
- * the amount is small enough that the asymmetry is imperceptible.
  */
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --ramp-50-base: #131313;
-  --ramp-100-base: #1f1f1f;
-  --ramp-200-base: #363636;
-  --ramp-300-base: #4f4f4f;
-  --ramp-400-base: #636363;
-  --ramp-500-base: #8f8f8f;
-  --ramp-600-base: #c6c6c6;
-  --ramp-700-base: #dadada;
-  --ramp-800-base: #e7e7e7;
-  --ramp-900-base: #fafafa;
-  --ramp-950-base: #fff;
+  --gray-50: rgb(19, 19, 20);
+  --gray-100: rgb(31, 31, 32);
+  --gray-200: rgb(53, 54, 54);
+  --gray-300: rgb(76, 78, 79);
+  --gray-400: rgb(94, 96, 98);
+  --gray-500: rgb(135, 137, 139);
+  --gray-600: rgb(185, 187, 189);
+  --gray-700: rgb(201, 204, 206);
+  --gray-800: rgb(211, 214, 216);
+  --gray-900: rgb(226, 229, 232);
+  --gray-950: rgb(228, 232, 235);
 
-  --ramp-50-low-amt: 1%;
-  --ramp-100-low-amt: 2%;
-  --ramp-200-low-amt: 3%;
-  --ramp-300-low-amt: 4%;
-  --ramp-400-low-amt: 5%;
-  --ramp-500-low-amt: 6%;
-  --ramp-600-low-amt: 7%;
-  --ramp-700-low-amt: 8%;
-  --ramp-800-low-amt: 9%;
-  --ramp-900-low-amt: 10%;
-  --ramp-950-low-amt: 11%;
+  --brand-primary-50: rgb(16, 26, 34);
+  --brand-primary-100: rgb(22, 36, 46);
+  --brand-primary-200: rgb(29, 48, 62);
+  --brand-primary-300: rgb(29, 54, 72);
+  --brand-primary-400: rgb(22, 52, 74);
+  --brand-primary-500: rgb(8, 44, 69);
+  --brand-primary-600: rgb(65, 90, 108);
+  --brand-primary-700: rgb(113, 131, 144);
+  --brand-primary-800: rgb(153, 166, 174);
+  --brand-primary-900: rgb(190, 198, 205);
+  --brand-primary-950: rgb(225, 230, 233);
 
-  --ramp-50-med-amt: 30%;
-  --ramp-100-med-amt: 40%;
-  --ramp-200-med-amt: 55%;
-  --ramp-300-med-amt: 70%;
-  --ramp-400-med-amt: 85%;
-  --ramp-500-med-amt: 100%;
-  --ramp-600-med-amt: 70%;
-  --ramp-700-med-amt: 50%;
-  --ramp-800-med-amt: 35%;
-  --ramp-900-med-amt: 25%;
-  --ramp-950-med-amt: 12%;
+  --brand-secondary-50: rgb(83, 52, 46);
+  --brand-secondary-100: rgb(111, 70, 63);
+  --brand-secondary-200: rgb(152, 95, 85);
+  --brand-secondary-300: rgb(186, 114, 101);
+  --brand-secondary-400: rgb(212, 124, 108);
+  --brand-secondary-500: rgb(232, 129, 110);
+  --brand-secondary-600: rgb(222, 150, 136);
+  --brand-secondary-700: rgb(225, 174, 164);
+  --brand-secondary-800: rgb(231, 195, 189);
+  --brand-secondary-900: rgb(246, 220, 215);
+  --brand-secondary-950: rgb(252, 240, 238);
+
+  --gold-50: rgb(78, 58, 25);
+  --gold-100: rgb(105, 79, 35);
+  --gold-200: rgb(143, 107, 46);
+  --gold-300: rgb(160, 110, 40);
+  --gold-400: rgb(198, 142, 49);
+  --gold-500: rgb(216, 150, 40);
+  --gold-600: rgb(211, 164, 87);
+  --gold-700: rgb(217, 184, 129);
+  --gold-800: rgb(226, 203, 164);
+  --gold-900: rgb(242, 225, 198);
+  --gold-950: rgb(250, 242, 229);
+
+  --info-50: rgb(40, 63, 78);
+  --info-100: rgb(55, 85, 105);
+  --info-200: rgb(74, 116, 143);
+  --info-300: rgb(87, 141, 175);
+  --info-400: rgb(91, 157, 198);
+  --info-500: rgb(90, 167, 216);
+  --info-600: rgb(122, 176, 211);
+  --info-700: rgb(154, 192, 217);
+  --info-800: rgb(182, 209, 226);
+  --info-900: rgb(210, 229, 242);
+  --info-950: rgb(235, 244, 250);
+
+  --danger-50: rgb(90, 36, 36);
+  --danger-100: rgb(121, 49, 49);
+  --danger-200: rgb(165, 66, 66);
+  --danger-300: rgb(202, 77, 77);
+  --danger-400: rgb(232, 79, 79);
+  --danger-500: rgb(255, 76, 76);
+  --danger-600: rgb(238, 113, 113);
+  --danger-700: rgb(236, 147, 147);
+  --danger-800: rgb(239, 177, 177);
+  --danger-900: rgb(251, 206, 206);
+  --danger-950: rgb(255, 234, 234);
+
+  --shadow-tint: rgb(2, 13, 21);
+
+  --brand-primary-fg: var(--brand-primary-700);
+  --brand-primary-fg-strong: var(--brand-primary-900);
+  --brand-primary-surface: var(--brand-primary-600);
+  --nav-active-bg: var(--brand-primary-600);
 }

@@ -1,49 +1,86 @@
 /*
  * Light mode styles.
- *
- * Defines the light-mode ramp inputs that App.css's Tier-2 palette is built
- * from: the per-step base colors (--ramp-*-base), the small gray-tint amount
- * mixed into the neutral ramp (--ramp-*-low-amt), and the brand/info/danger
- * mix amounts (--ramp-*-med-amt, peaking at step 500). darkmode.css supplies
- * the flipped counterparts.
  */
 
  :root {
   color-scheme: light;
 
-  --ramp-50-base: #fff;
-  --ramp-100-base: #f7f7f7;
-  --ramp-200-base: #ececec;
-  --ramp-300-base: #dddddd;
-  --ramp-400-base: #c6c6c6;
-  --ramp-500-base: #8f8f8f;
-  --ramp-600-base: #636363;
-  --ramp-700-base: #4f4f4f;
-  --ramp-800-base: #282828;
-  --ramp-900-base: #161616;
-  --ramp-950-base: #080808;
+  --gray-50: rgb(253, 253, 253);
+  --gray-100: rgb(242, 243, 243);
+  --gray-200: rgb(229, 230, 231);
+  --gray-300: rgb(212, 214, 215);
+  --gray-400: rgb(188, 190, 192);
+  --gray-500: rgb(135, 137, 139);
+  --gray-600: rgb(93, 95, 97);
+  --gray-700: rgb(73, 76, 78);
+  --gray-800: rgb(37, 40, 43);
+  --gray-900: rgb(21, 24, 27);
+  --gray-950: rgb(8, 12, 15);
 
-  --ramp-50-low-amt: 1%;
-  --ramp-100-low-amt: 2%;
-  --ramp-200-low-amt: 3%;
-  --ramp-300-low-amt: 4%;
-  --ramp-400-low-amt: 5%;
-  --ramp-500-low-amt: 6%;
-  --ramp-600-low-amt: 7%;
-  --ramp-700-low-amt: 8%;
-  --ramp-800-low-amt: 9%;
-  --ramp-900-low-amt: 10%;
-  --ramp-950-low-amt: 11%;
+  --brand-primary-50: rgb(225, 230, 233);
+  --brand-primary-100: rgb(187, 196, 202);
+  --brand-primary-200: rgb(156, 169, 178);
+  --brand-primary-300: rgb(114, 132, 145);
+  --brand-primary-400: rgb(65, 90, 108);
+  --brand-primary-500: rgb(8, 44, 69);
+  --brand-primary-600: rgb(22, 52, 74);
+  --brand-primary-700: rgb(29, 54, 72);
+  --brand-primary-800: rgb(22, 42, 56);
+  --brand-primary-900: rgb(16, 31, 41);
+  --brand-primary-950: rgb(8, 19, 26);
 
-  --ramp-50-med-amt: 12%;
-  --ramp-100-med-amt: 25%;
-  --ramp-200-med-amt: 35%;
-  --ramp-300-med-amt: 50%;
-  --ramp-400-med-amt: 70%;
-  --ramp-500-med-amt: 100%;
-  --ramp-600-med-amt: 85%;
-  --ramp-700-med-amt: 70%;
-  --ramp-800-med-amt: 55%;
-  --ramp-900-med-amt: 40%;
-  --ramp-950-med-amt: 30%;
+  --brand-secondary-50: rgb(252, 240, 238);
+  --brand-secondary-100: rgb(243, 218, 213);
+  --brand-secondary-200: rgb(235, 199, 192);
+  --brand-secondary-300: rgb(226, 175, 166);
+  --brand-secondary-400: rgb(222, 150, 136);
+  --brand-secondary-500: rgb(232, 129, 110);
+  --brand-secondary-600: rgb(212, 124, 108);
+  --brand-secondary-700: rgb(186, 114, 101);
+  --brand-secondary-800: rgb(170, 80, 40);
+  --brand-secondary-900: rgb(130, 60, 30);
+  --brand-secondary-950: rgb(95, 45, 22);
+
+  --gold-50: rgb(250, 242, 229);
+  --gold-100: rgb(239, 223, 195);
+  --gold-200: rgb(229, 206, 167);
+  --gold-300: rgb(238, 196, 120);
+  --gold-400: rgb(211, 164, 87);
+  --gold-500: rgb(216, 150, 40);
+  --gold-600: rgb(198, 142, 49);
+  --gold-700: rgb(175, 129, 52);
+  --gold-800: rgb(137, 100, 40);
+  --gold-900: rgb(100, 73, 29);
+  --gold-950: rgb(70, 51, 18);
+
+  --info-50: rgb(235, 244, 250);
+  --info-100: rgb(208, 227, 239);
+  --info-200: rgb(185, 212, 229);
+  --info-300: rgb(156, 194, 218);
+  --info-400: rgb(122, 176, 211);
+  --info-500: rgb(90, 167, 216);
+  --info-600: rgb(91, 157, 198);
+  --info-700: rgb(87, 141, 175);
+  --info-800: rgb(68, 110, 137);
+  --info-900: rgb(49, 80, 100);
+  --info-950: rgb(33, 56, 70);
+
+  --danger-50: rgb(255, 234, 234);
+  --danger-100: rgb(249, 204, 204);
+  --danger-200: rgb(243, 180, 180);
+  --danger-300: rgb(238, 148, 148);
+  --danger-400: rgb(238, 113, 113);
+  --danger-500: rgb(255, 76, 76);
+  --danger-600: rgb(232, 79, 79);
+  --danger-700: rgb(202, 77, 77);
+  --danger-800: rgb(158, 60, 60);
+  --danger-900: rgb(115, 44, 44);
+  --danger-950: rgb(82, 28, 28);
+
+  --shadow-tint: rgb(1, 5, 8);
+
+  --brand-primary-fg: var(--brand-primary-500);
+  --brand-primary-fg-strong: var(--brand-primary-700);
+  --brand-primary-surface: var(--brand-primary-400);
+  --nav-active-bg: var(--brand-primary-500);
 }

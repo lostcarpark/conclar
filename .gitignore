@@ -17,7 +17,8 @@ yarn.lock
 /build
 
 # config
-/src/config.json
+# We are on our own branch, so we'll commit the config.
+# /src/config.json
 
 # misc
 .DS_Store

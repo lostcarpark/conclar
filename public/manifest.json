@@ -1,21 +1,16 @@
 {
-  "short_name": "ConClár",
-  "name": "ConClár Programme Guide",
+  "short_name": "LACon V",
+  "name": "LACon V Program Guide",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo-medium-300x202.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "300x300"
     }
   ],
   "start_url": ".",

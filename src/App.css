@@ -17,94 +17,19 @@
 /*
  * 1. Global application styles.
  *
- * Colors are organised in three tiers:
- *
- *   1. Inputs    - `--brand-tint` (the brand hue) and `--gray-tint` (the hue
- *                  mixed into the neutrals) drive the whole palette.
- *   2. Palette   - the color ramps (gray, brand, info, danger) plus utility
- *                  colors (--shadow-*, --text-on-color), derived from the inputs
- *                  via color-mix(). Concrete CSS may reference these directly
- *                  (e.g. body { accent-color: var(--brand-500); }, box-shadows)
- *                  where a color is a one-off and not worth a semantic name.
- *   3. Semantic  - named tokens that are *meaningfully shared* across rules
- *                  (--main-bg, --button-primary-bg, --link-fg, ...), each
- *                  pointing at a palette entry. Colors used in only one place
- *                  are inlined at the use site as a palette ref rather than
- *                  given a single-use alias here.
- *
- * To re-theme the site, change `--brand-tint`. For finer control, override any
- * palette step (e.g. --gray-300) or any semantic variable below it.
- *
- * Light/dark differences live entirely in the Tier-2 ramp inputs (lightmode.css
- * / darkmode.css); the Tier-3 semantic mappings here are shared by both modes.
- * Inlined palette refs adapt too, since the palette is itself mode-dependent.
+ * Color ramps are hardcoded per mode in lightmode.css / darkmode.css. The
+ * semantic tokens below are shared by both modes.
  */
 :root {
-  /* ---- Tier 1: Inputs ---- */
-  --brand-tint: #619b40;
-  --gray-tint: blue;
-  --info-tint: #2b7fff;
-  --danger-tint: #ff4c4c;
-
-  /* ---- Tier 2: Palette ---- */
-  --gray-50: color-mix(in srgb, var(--gray-tint) var(--ramp-50-low-amt), var(--ramp-50-base));
-  --gray-100: color-mix(in srgb, var(--gray-tint) var(--ramp-100-low-amt), var(--ramp-100-base));
-  --gray-200: color-mix(in srgb, var(--gray-tint) var(--ramp-200-low-amt), var(--ramp-200-base));
-  --gray-300: color-mix(in srgb, var(--gray-tint) var(--ramp-300-low-amt), var(--ramp-300-base));
-  --gray-400: color-mix(in srgb, var(--gray-tint) var(--ramp-400-low-amt), var(--ramp-400-base));
-  --gray-500: color-mix(in srgb, var(--gray-tint) var(--ramp-500-low-amt), var(--ramp-500-base));
-  --gray-600: color-mix(in srgb, var(--gray-tint) var(--ramp-600-low-amt), var(--ramp-600-base));
-  --gray-700: color-mix(in srgb, var(--gray-tint) var(--ramp-700-low-amt), var(--ramp-700-base));
-  --gray-800: color-mix(in srgb, var(--gray-tint) var(--ramp-800-low-amt), var(--ramp-800-base));
-  --gray-900: color-mix(in srgb, var(--gray-tint) var(--ramp-900-low-amt), var(--ramp-900-base));
-  --gray-950: color-mix(in srgb, var(--gray-tint) var(--ramp-950-low-amt), var(--ramp-950-base));
-
-  --brand-50: color-mix(in srgb, var(--brand-tint) var(--ramp-50-med-amt), var(--ramp-50-base));
-  --brand-100: color-mix(in srgb, var(--brand-tint) var(--ramp-100-med-amt), var(--ramp-100-base));
-  --brand-200: color-mix(in srgb, var(--brand-tint) var(--ramp-200-med-amt), var(--ramp-200-base));
-  --brand-300: color-mix(in srgb, var(--brand-tint) var(--ramp-300-med-amt), var(--ramp-300-base));
-  --brand-400: color-mix(in srgb, var(--brand-tint) var(--ramp-400-med-amt), var(--ramp-400-base));
-  --brand-500: color-mix(in srgb, var(--brand-tint) var(--ramp-500-med-amt), var(--ramp-500-base));
-  --brand-600: color-mix(in srgb, var(--brand-tint) var(--ramp-600-med-amt), var(--ramp-600-base));
-  --brand-700: color-mix(in srgb, var(--brand-tint) var(--ramp-700-med-amt), var(--ramp-700-base));
-  --brand-800: color-mix(in srgb, var(--brand-tint) var(--ramp-800-med-amt), var(--ramp-800-base));
-  --brand-900: color-mix(in srgb, var(--brand-tint) var(--ramp-900-med-amt), var(--ramp-900-base));
-  --brand-950: color-mix(in srgb, var(--brand-tint) var(--ramp-950-med-amt), var(--ramp-950-base));
-
-  --info-50: color-mix(in srgb, var(--info-tint) var(--ramp-50-med-amt), var(--ramp-50-base));
-  --info-100: color-mix(in srgb, var(--info-tint) var(--ramp-100-med-amt), var(--ramp-100-base));
-  --info-200: color-mix(in srgb, var(--info-tint) var(--ramp-200-med-amt), var(--ramp-200-base));
-  --info-300: color-mix(in srgb, var(--info-tint) var(--ramp-300-med-amt), var(--ramp-300-base));
-  --info-400: color-mix(in srgb, var(--info-tint) var(--ramp-400-med-amt), var(--ramp-400-base));
-  --info-500: color-mix(in srgb, var(--info-tint) var(--ramp-500-med-amt), var(--ramp-500-base));
-  --info-600: color-mix(in srgb, var(--info-tint) var(--ramp-600-med-amt), var(--ramp-600-base));
-  --info-700: color-mix(in srgb, var(--info-tint) var(--ramp-700-med-amt), var(--ramp-700-base));
-  --info-800: color-mix(in srgb, var(--info-tint) var(--ramp-800-med-amt), var(--ramp-800-base));
-  --info-900: color-mix(in srgb, var(--info-tint) var(--ramp-900-med-amt), var(--ramp-900-base));
-  --info-950: color-mix(in srgb, var(--info-tint) var(--ramp-950-med-amt), var(--ramp-950-base));
-
-  --danger-50: color-mix(in srgb, var(--danger-tint) var(--ramp-50-med-amt), var(--ramp-50-base));
-  --danger-100: color-mix(in srgb, var(--danger-tint) var(--ramp-100-med-amt), var(--ramp-100-base));
-  --danger-200: color-mix(in srgb, var(--danger-tint) var(--ramp-200-med-amt), var(--ramp-200-base));
-  --danger-300: color-mix(in srgb, var(--danger-tint) var(--ramp-300-med-amt), var(--ramp-300-base));
-  --danger-400: color-mix(in srgb, var(--danger-tint) var(--ramp-400-med-amt), var(--ramp-400-base));
-  --danger-500: color-mix(in srgb, var(--danger-tint) var(--ramp-500-med-amt), var(--ramp-500-base));
-  --danger-600: color-mix(in srgb, var(--danger-tint) var(--ramp-600-med-amt), var(--ramp-600-base));
-  --danger-700: color-mix(in srgb, var(--danger-tint) var(--ramp-700-med-amt), var(--ramp-700-base  ));
-  --danger-800: color-mix(in srgb, var(--danger-tint) var(--ramp-800-med-amt), var(--ramp-800-base));
-  --danger-900: color-mix(in srgb, var(--danger-tint) var(--ramp-900-med-amt), var(--ramp-900-base));
-  --danger-950: color-mix(in srgb, var(--danger-tint) var(--ramp-950-med-amt), var(--ramp-950-base));
-
   --text-on-color: #ffffffe5; /* text on colored/dark surfaces */
+  --text-on-secondary: #000000e5; /* text on secondary-tinted surfaces */
 
-  --shadow-tint: color-mix(in srgb, var(--brand-tint) var(--ramp-50-med-amt), #000);
   --shadow-10: color-mix(in srgb, var(--shadow-tint) 10%, transparent);
   --shadow-20: color-mix(in srgb, var(--shadow-tint) 20%, transparent);
   --shadow-30: color-mix(in srgb, var(--shadow-tint) 30%, transparent);
   --shadow-40: color-mix(in srgb, var(--shadow-tint) 40%, transparent);
   --shadow-50: color-mix(in srgb, var(--shadow-tint) 50%, transparent);
 
-  /* ---- Tier 3: Semantic ---- */
   --main-bg: var(--gray-50);
   --main-fg: var(--gray-900);
   --header-fg: var(--gray-700);
@@ -112,17 +37,17 @@
   --sidebar-border: var(--gray-200);
   --image-bg: #fff; /* photos read best on white in both modes */
 
-  --control: var(--brand-500);
+  --control: var(--brand-primary-surface);
 
-  --button-primary-bg: var(--brand-500);
+  --button-primary-bg: var(--brand-primary-surface);
   --button-primary-fg: var(--text-on-color);
-  --button-primary-hover-bg: var(--brand-700);
-  --button-primary-hover-fg: var(--brand-50);
-  --button-primary-disabled-bg: var(--brand-200);
-  --button-primary-disabled-fg: var(--brand-50);
+  --button-primary-hover-bg: var(--brand-primary-700);
+  --button-primary-hover-fg: var(--brand-primary-50);
+  --button-primary-disabled-bg: var(--brand-primary-200);
+  --button-primary-disabled-fg: var(--brand-primary-50);
 
   --navigation-button-border: var(--gray-200);
-  --nav-icon-fg: var(--brand-500);
+  --nav-icon-fg: var(--brand-primary-fg);
 
   --filter-bg: var(--main-bg);
   --filter-fg: var(--main-fg);
@@ -132,8 +57,8 @@
   --program-tags-fg: var(--gray-600);
   --program-expanded-bg: var(--gray-100);
 
-  --link-fg: var(--brand-700);
-  --link-hover-fg: var(--brand-800);
+  --link-fg: var(--brand-secondary-800);
+  --link-hover-fg: var(--brand-secondary-900);
   --link-disabled: var(--gray-500);
   --participant-link-fg: var(--gray-900);
   --participant-link-visited-fg: var(--gray-700);
@@ -381,20 +306,23 @@ header img {
 }
 
 .navigation li a.active {
-  background-color: var(--button-primary-bg);
-  color: var(--button-primary-fg);
+  background-color: var(--nav-active-bg);
+  color: var(--text-on-color);
 }
 
-.navigation li a:hover,
+.navigation li a:hover {
+  background-color: var(--brand-primary-200);
+}
+
 .navigation li a.active:hover {
-  background-color: var(--button-primary-hover-bg);
-  color: var(--button-primary-hover-fg);
+  background-color: var(--nav-active-bg);
+  color: var(--text-on-color);
 }
 
-.navigation li a.active .nav-icon,
-.navigation li a:hover .nav-icon {
-  color: var(--brand-50);
+.navigation li a.active .nav-icon {
+  color: var(--text-on-color);
 }
+
 
 .navigation li a.disabled:hover {
   background-color: transparent;
@@ -759,7 +687,7 @@ header img {
 }
 
 .switch[aria-checked="true"]::before {
-  background-color: var(--brand-500);
+  background-color: var(--brand-primary-surface);
 }
 
 .switch::after {
@@ -909,8 +837,8 @@ div.switch-wrapper {
 }
 
 .filter-container .filter-select__option--is-focused {
-  background-color: var(--brand-100);
-  color: var(--brand-800);
+  background-color: var(--brand-secondary-100);
+  color: var(--brand-secondary-800);
 }
 
 .filter-container .filter-select__indicator-separator {
@@ -1160,11 +1088,11 @@ div.switch-wrapper {
   display: inline-flex;
   font-size: 1.1em;
   line-height: 1;
-  color: var(--brand-200);
+  color: var(--gold-300);
 }
 
 .selection .selection-control:checked + label .selection-star {
-  color: var(--brand-500);
+  color: var(--gold-500);
 }
 
 .selection .selection-control:focus-visible + label .selection-star {
@@ -1236,7 +1164,7 @@ div.switch-wrapper {
 
 .item-chevron {
   float: right;
-  color: var(--brand-500);
+  color: var(--brand-primary-fg);
   font-size: 1.5rem;
   line-height: 1rem;
   overflow: auto;
