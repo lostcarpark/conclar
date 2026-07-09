@@ -1153,6 +1153,23 @@ div.switch-wrapper {
   padding-top: 0.5rem;
 }
 
+/* Only plays on a given item's first mount - React reuses the same DOM node
+ * on re-render, so it never re-triggers. */
+@media (prefers-reduced-motion: no-preference) {
+  .item {
+    animation: item-fade-in 0.25s ease-out;
+  }
+}
+
+@keyframes item-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .item-selection {
   min-width: 3ch;
   vertical-align: baseline;
