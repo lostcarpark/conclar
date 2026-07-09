@@ -6,7 +6,7 @@ import Day from "./Day";
 import configData from "../config.json";
 import { Temporal } from "@js-temporal/polyfill";
 
-const ProgramList = ({ program, forceExpanded }) => {
+const ProgramList = ({ program, forceExpanded = false }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   useEffect(() => {
     LocalTime.storeCachedTimes();
@@ -92,10 +92,6 @@ const ProgramList = ({ program, forceExpanded }) => {
       <div className="program">{rows}</div>
     </div>
   );
-};
-
-ProgramList.defaultProps = {
-  forceExpanded: false,
 };
 
 ProgramList.propTypes = {

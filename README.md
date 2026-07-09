@@ -55,7 +55,11 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [React app deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm run preview`
+
+Preview the production build locally before deploying.
+
+See the [Vite deployment documentation](https://vite.dev/guide/static-deploy.html) for more information about deploying your app.
 
 ## Customisation
 
@@ -232,19 +236,18 @@ After running `npm run build` just copy the build directory to the public direct
 
 If you need to put ConClár in a subdirectory on your webserver, you'll need to carry out the following additional steps:
 
-1. Edit the `package.json` file and add a `homepage` setting as shown below.
+1. Edit the `vite.config.js` file and add a `base` setting as shown below.
 2. Set appropriate settings for the webserver to find the `index.html` in the subdirectory.
 3. Use `npm run build` to prepare the application to upload.
 
-The `package.json` file should start as follows:
+The `vite.config.js` file should be modified as follows (replace "guide" with your subdirectory name):
 
-```
-  {
-    "name": "conclar",
-    "version": "0.1.0",
-    "private": true,
-    "homepage": "/guide",
-  ...
+```javascript
+export default defineConfig({
+  base: "/guide/",
+  plugins: [react()],
+  // ... rest of config
+});
 ```
 
 ### Hosting on Apache

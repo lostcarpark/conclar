@@ -4,6 +4,7 @@ import model from "./model";
 import AppRoutes from "./components/AppRoutes";
 
 import "./App.css";
+import "./darkmode.css";
 
 const store = createStore(model);
 

@@ -25,7 +25,7 @@ const ShareLink = () => {
           </Link>
         </div>
         <div className="share-qr-code">
-          <QRCode value={absLink} />
+          <QRCode value={absLink} level="L" />
         </div>
       </div>
     );

@@ -4,7 +4,7 @@ import ProgramItem from "./ProgramItem";
 import { LocalTime } from "../utils/LocalTime";
 import { Temporal } from "@js-temporal/polyfill";
 
-const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded, now }) => {
+const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded = false, now }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
@@ -53,10 +53,6 @@ const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded, now }) => {
       <div className="timeslot-items">{rows}</div>
     </div>
   );
-};
-
-TimeSlot.defaultProps = {
-  forceExpanded: false,
 };
 
 TimeSlot.propTypes = {

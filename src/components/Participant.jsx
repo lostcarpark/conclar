@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import configData from "../config.json";
 
-const Participant = ({ person, thumbnails, moderator }) => {
+const Participant = ({ person, thumbnails = true, moderator }) => {
   function getParticipantThumbnail(person) {
     if (thumbnails) {
       if (person.img) {
@@ -76,10 +76,6 @@ const Participant = ({ person, thumbnails, moderator }) => {
   }
 
   return getParticipant(person);
-};
-
-Participant.defaultProps = {
-  thumbnails: true,
 };
 
 Participant.propTypes = {

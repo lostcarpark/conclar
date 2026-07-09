@@ -3,7 +3,7 @@ import configData from "../config.json";
 
 // Class containing functions for formatting values for ConClár.
 export class LocalTime {
-  static conventionTimeZone = new Temporal.TimeZone(configData.TIMEZONE);
+  static conventionTimeZone = configData.TIMEZONE;
   static localTimeZone = null;
   static localTimeZoneCode = null;
   static timezonesDiffer = false;
@@ -11,11 +11,6 @@ export class LocalTime {
   static timeSlotCache = {};
   static conventionTimeCache = [];
   static localTimeCache = [];
-
-  // Initialise local timezone.
-  static {
-    this.getLocalTimeZone();
-  }
 
   static getLocalTimeZone() {
     function lastElement(array) {
@@ -26,12 +21,12 @@ export class LocalTime {
     const timezoneName = useTimeZone
       ? this.getStoredSelectedTimeZone()
       : Intl.DateTimeFormat().resolvedOptions().timeZone;
-    this.localTimeZone = new Temporal.TimeZone(timezoneName);
+    this.localTimeZone = timezoneName;
     const language = window.navigator.userLanguage || window.navigator.language;
     // This is a bit of a fudge. I haven't found a better way to get the local time zone short code.
     // toLocaleString() can't produce just the timezone code, so need to add the hour and remove from string.
     this.localTimeZoneCode = lastElement(
-      new Temporal.Now.zonedDateTimeISO(this.localTimeZone)
+      Temporal.Now.zonedDateTimeISO(this.localTimeZone)
         .toLocaleString(language, { timeZoneName: "short" })
         .split(" ")
     );
@@ -111,7 +106,7 @@ export class LocalTime {
       this.selectedTimeZoneClass
     );
     if (storedSelectedTimeZone === null || storedSelectedTimeZone === "") {
-      return Temporal.Now.timeZone().toString();
+      return Temporal.Now.timeZoneId();
     }
     return storedSelectedTimeZone;
   }
@@ -205,9 +200,10 @@ export class LocalTime {
    */
   static checkTimeZoneOffsetForDate(dateAndTime) {
     const instant = Temporal.Instant.from(dateAndTime);
-    const localOffset = this.localTimeZone.getOffsetNanosecondsFor(instant);
-    const conventionOffset =
-      this.conventionTimeZone.getOffsetNanosecondsFor(instant);
+    const localZdt = instant.toZonedDateTimeISO(this.localTimeZone);
+    const conventionZdt = instant.toZonedDateTimeISO(this.conventionTimeZone);
+    const localOffset = localZdt.offsetNanoseconds;
+    const conventionOffset = conventionZdt.offsetNanoseconds;
     if (localOffset !== conventionOffset) {
       return true;
     }
@@ -276,7 +272,7 @@ export class LocalTime {
     if (
       showTimeZone &&
       configData.TIMEZONECODE.length > 0 &&
-      Temporal.TimeZone.from(dateAndTime) === this.conventionTimeZone
+      dateAndTime.timeZoneId === this.conventionTimeZone
     ) {
       return `${formattedTime} ${configData.TIMEZONECODE}`;
     }
@@ -453,3 +449,6 @@ export class LocalTime {
     );
   }
 }
+
+// Initialize the LocalTime class
+LocalTime.getLocalTimeZone();

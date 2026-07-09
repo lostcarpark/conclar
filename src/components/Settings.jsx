@@ -4,7 +4,7 @@ import { Temporal } from "@js-temporal/polyfill";
 import TimeZoneSelect from "react-timezone-select";
 
 const Settings = () => {
-  const defaultTimeZone = Temporal.Now.timeZone().toString();
+  const defaultTimeZone = Temporal.Now.timeZoneId();
 
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const setShow12HourTime = useStoreActions(

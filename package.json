@@ -3,39 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@js-temporal/polyfill": "^0.4.0",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "dompurify": "^2.3.4",
-    "easy-peasy": "^5.0.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-infinite-scroll-component": "^6.1.0",
-    "react-markdown": "^7.1.2",
-    "react-qr-code": "^2.0.7",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "^5.0.1",
-    "react-select": "^5.2.2",
-    "react-spring": "^9.4.2",
-    "react-timezone-select": "^1.3.1",
-    "react-use-measure": "^2.1.1",
-    "remark-gfm": "^3.0.1",
-    "timezone-soft": "^1.4.1",
-    "web-vitals": "^2.1.2"
+    "@js-temporal/polyfill": "^0.5.1",
+    "dompurify": "^3.4.11",
+    "easy-peasy": "^6.1.1",
+    "prop-types": "^15.8.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-icons": "^5.7.0",
+    "react-markdown": "^10.1.0",
+    "react-qr-code": "^2.2.0",
+    "react-router-dom": "^7.18.1",
+    "react-select": "^5.10.2",
+    "react-spring": "^10.0.4",
+    "react-timezone-select": "^3.3.3",
+    "react-use-measure": "^2.1.7",
+    "remark-gfm": "^4.0.1",
+    "timezone-soft": "^1.5.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [
@@ -48,5 +36,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.3",
+    "terser": "^5.48.0",
+    "vite": "^8.1.3"
+  },
+  "overrides": {
+    "@react-spring/zdog": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0"
+    }
   }
 }
