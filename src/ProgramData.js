@@ -66,9 +66,11 @@ export class ProgramData {
     program.map((item) => {
       const startTime = this.processDateAndTime(item);
       item.startDateAndTime = startTime.withTimeZone(utcTimeZone);
-      item.bufferedStartDateAndTime = item.startDateAndTime.subtract({ minutes: 20});
+      // Only ever compared against, never formatted or displayed.
+      item.bufferedStartEpochMs =
+        item.startDateAndTime.epochMilliseconds - 20 * 60000;
       item.endDateAndTime = item.startDateAndTime.add({ minutes: item.mins ? item.mins : 0});
-      item.bufferedEndDateAndTime = item.endDateAndTime.add({ minutes: 10});
+      item.bufferedEndEpochMs = item.endDateAndTime.epochMilliseconds + 10 * 60000;
       item.timeSlot = LocalTime.getTimeSlot(item.startDateAndTime);
       return item;
     });

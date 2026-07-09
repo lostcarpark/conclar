@@ -20,11 +20,10 @@ import { venueForLocation } from "../utils/Venues";
  * Which side of "now" an item falls on.
  */
 function getRelativeTime(item, now) {
-  if (Temporal.ZonedDateTime.compare(now, item.bufferedStartDateAndTime) < 0) {
+  const nowEpochMs = now.epochMilliseconds;
+  if (nowEpochMs < item.bufferedStartEpochMs) {
     return "before";
-  } else if (
-    Temporal.ZonedDateTime.compare(now, item.bufferedEndDateAndTime) < 0
-  ) {
+  } else if (nowEpochMs < item.bufferedEndEpochMs) {
     return "during";
   } else {
     return "after";
