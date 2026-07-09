@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import PropTypes from "prop-types";
 import { useStoreState } from "easy-peasy";
 import { LocalTime } from "../utils/LocalTime";
@@ -6,18 +6,11 @@ import Day from "./Day";
 import configData from "../config.json";
 import { Temporal } from "@js-temporal/polyfill";
 
-const ProgramList = ({ program, forceExpanded = false }) => {
+const ProgramList = ({ program, now, forceExpanded = false }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   useEffect(() => {
     LocalTime.storeCachedTimes();
   });
-
-  const [now, setNow] = useState(Temporal.Now.zonedDateTimeISO("UTC"));
-  useEffect(() => {
-    setInterval(() => {
-      setNow(Temporal.Now.zonedDateTimeISO("UTC"));
-    }, 10000);
-  }, []);
 
   LocalTime.checkTimeZonesDiffer(program);
 
@@ -96,6 +89,7 @@ const ProgramList = ({ program, forceExpanded = false }) => {
 
 ProgramList.propTypes = {
   program: PropTypes.array,
+  now: PropTypes.instanceOf(Temporal.ZonedDateTime).isRequired,
   forceExpanded: PropTypes.bool,
 };
 

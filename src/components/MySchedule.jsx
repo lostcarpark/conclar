@@ -4,6 +4,7 @@ import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import ShareLink from "./ShareLink";
 import { LocalTime } from "../utils/LocalTime";
+import { useTickingNow } from "../hooks/useTickingNow";
 
 const MySchedule = () => {
   const mySchedule = useStoreState((state) => state.getMySchedule);
@@ -17,6 +18,7 @@ const MySchedule = () => {
   const allSelectedExpanded = useStoreState(
     (state) => state.allSelectedExpanded
   );
+  const now = useTickingNow();
 
   const pageHeading = (
     <div className="page-heading">
@@ -34,8 +36,8 @@ const MySchedule = () => {
   }
 
   const filtered =
-    LocalTime.isDuringCon(program) && !showPastItems
-      ? LocalTime.filterPastItems(mySchedule)
+    LocalTime.isDuringCon(program, now) && !showPastItems
+      ? LocalTime.filterPastItems(mySchedule, now)
       : mySchedule;
 
   return (
@@ -56,10 +58,10 @@ const MySchedule = () => {
           </div>
         </div>
         <div className="filter-options">
-          <ShowPastItems />
+          <ShowPastItems now={now} />
         </div>
       </div>
-      <ProgramList program={filtered} />
+      <ProgramList program={filtered} now={now} />
       <ShareLink />
     </div>
   );

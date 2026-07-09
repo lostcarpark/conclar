@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
@@ -10,6 +10,112 @@ import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import { LocalTime } from "../utils/LocalTime";
 import { buildLocationOptions, locationMatchesSelection } from "../utils/Venues";
+import { useTickingNow } from "../hooks/useTickingNow";
+
+/**
+ * Apply hide before time filter.
+ * @param {array} program Program to filter.
+ * @param {string} minDay Earliest selected day.
+ * @param {string} hideBefore Time of day to hide items before.
+ * @returns {array} The program with items before start removed.
+ */
+function filterHideBefore(program, minDay, hideBefore) {
+  const beforeDate = Temporal.ZonedDateTime.from(
+    minDay + "T" + hideBefore + "[" + configData.TIMEZONE + "]"
+  );
+  return program.filter(
+    (item) =>
+      Temporal.ZonedDateTime.compare(beforeDate, item.startDateAndTime) <= 0
+  );
+}
+
+/**
+ * Apply filters to the program array.
+ * @param {array} program Array of program items.
+ * @param {object} filters Current filter selections.
+ * @returns {array} The filtered array.
+ */
+function applyFilters(program, { search, selLoc, selTags, showPastItems, hideBefore, tags, now }) {
+  const term = search.trim().toLowerCase();
+
+  // If no filters, return full program;
+  if (term.length === 0 && selLoc.length === 0 && selTags === 0)
+    return program;
+
+  let filtered = program;
+
+  // Filter by search term.
+  if (term.length) {
+    filtered = filtered.filter((item) => {
+      if (item.title && item.title.toLowerCase().includes(term)) return true;
+      if (item.desc && item.desc.toLowerCase().includes(term)) return true;
+      if (item.people) {
+        for (const person of item.people) {
+          if (person.name && person.name.toLowerCase().includes(term))
+            return true;
+        }
+      }
+      return false;
+    });
+  }
+  // Filter by location
+  if (selLoc.length) {
+    filtered = filtered.filter((item) => {
+      for (const location of item.loc) {
+        for (const selected of selLoc) {
+          if (locationMatchesSelection(location, selected.value, configData)) return true;
+        }
+      }
+      return false;
+    });
+  }
+  // Filter by each tag dropdown.
+  for (const tagType in selTags) {
+    if (selTags[tagType].length) {
+      filtered = filtered.filter((item) => {
+        for (const tag of item.tags) {
+          for (const selected of selTags[tagType]) {
+            if (selected.value === tag.value) return true;
+          }
+        }
+        return false;
+      });
+    }
+  }
+  if (LocalTime.isDuringCon(program, now) && !showPastItems) {
+    filtered = LocalTime.filterPastItems(filtered, now);
+  }
+  if (!configData.HIDE_BEFORE.HIDE && hideBefore) {
+    if (
+      "days" in selTags &&
+      Array.isArray(selTags.days) &&
+      selTags.days.length > 0
+    ) {
+      // if days selected, take start time for first selected day.
+      const minDay = selTags.days.reduce(
+        (acc, curr) => (curr.value < acc ? curr.value : acc),
+        selTags.days[0].value
+      );
+      filtered = filterHideBefore(filtered, minDay, hideBefore);
+    } else if (filtered[0] && "tags" in filtered[0]) {
+      // If days tag present on items get date of first programme item.
+      const tag = filtered[0].tags.find((item) => item.category === "days");
+      if (tag && "value" in tag) {
+        const minDay = tag.value;
+        filtered = filterHideBefore(filtered, minDay, hideBefore);
+      }
+    } else {
+      // As backup get date from drop-down items.
+      const labelledDays = tags.days.filter((item) => typeof item.label !== "undefined");
+      const minDay = labelledDays.reduce(
+        (acc, curr) => (curr.value < acc ? curr.value : acc),
+        labelledDays[0].value
+      );
+      filtered = filterHideBefore(filtered, minDay, hideBefore);
+    }
+  }
+  return filtered;
+}
 
 const FilterableProgram = () => {
   const navigate = useNavigate();
@@ -62,7 +168,21 @@ const FilterableProgram = () => {
     )
   );
 
-  const filtered = applyFilters(program);
+  const now = useTickingNow();
+
+  const filtered = useMemo(
+    () =>
+      applyFilters(program, {
+        search,
+        selLoc,
+        selTags,
+        showPastItems,
+        hideBefore,
+        tags,
+        now,
+      }),
+    [program, search, selLoc, selTags, showPastItems, hideBefore, tags, now]
+  );
   const total = filtered.length;
   const totalMessage =
     displayLimit !== "all" && displayLimit < total
@@ -92,109 +212,6 @@ const FilterableProgram = () => {
   function resetLimitsAndFilters() {
     resetDisplayLimit();
     resetProgramFilters();
-  }
-
-  /**
-   * Apply hide before time filter.
-   * @param {array} program Program to filter.
-   * @param {array} days Days to choose earliest from.
-   * @returns {array} The program with items before start removed.
-   */
-  function filterHideBefore(program, minDay) {
-    const beforeDate = Temporal.ZonedDateTime.from(
-      minDay + "T" + hideBefore + "[" + configData.TIMEZONE + "]"
-    );
-    return program.filter(
-      (item) =>
-        Temporal.ZonedDateTime.compare(beforeDate, item.startDateAndTime) <= 0
-    );
-  }
-
-  /**
-   * Apply filters to the program array.
-   * @param {array} program Array of program items.
-   * @returns {array} The filtered array.
-   */
-  function applyFilters(program) {
-    const term = search.trim().toLowerCase();
-
-    // If no filters, return full program;
-    if (term.length === 0 && selLoc.length === 0 && selTags === 0)
-      return program;
-
-    let filtered = program;
-
-    // Filter by search term.
-    if (term.length) {
-      filtered = filtered.filter((item) => {
-        if (item.title && item.title.toLowerCase().includes(term)) return true;
-        if (item.desc && item.desc.toLowerCase().includes(term)) return true;
-        if (item.people) {
-          for (const person of item.people) {
-            if (person.name && person.name.toLowerCase().includes(term))
-              return true;
-          }
-        }
-        return false;
-      });
-    }
-    // Filter by location
-    if (selLoc.length) {
-      filtered = filtered.filter((item) => {
-        for (const location of item.loc) {
-          for (const selected of selLoc) {
-            if (locationMatchesSelection(location, selected.value, configData)) return true;
-          }
-        }
-        return false;
-      });
-    }
-    // Filter by each tag dropdown.
-    for (const tagType in selTags) {
-      if (selTags[tagType].length) {
-        filtered = filtered.filter((item) => {
-          for (const tag of item.tags) {
-            for (const selected of selTags[tagType]) {
-              if (selected.value === tag.value) return true;
-            }
-          }
-          return false;
-        });
-      }
-    }
-    if (LocalTime.isDuringCon(program) && !showPastItems) {
-      filtered = LocalTime.filterPastItems(filtered);
-    }
-    if (!configData.HIDE_BEFORE.HIDE && hideBefore) {
-      if (
-        "days" in selTags &&
-        Array.isArray(selTags.days) &&
-        selTags.days.length > 0
-      ) {
-        // if days selected, take start time for first selected day.
-        const minDay = selTags.days.reduce(
-          (acc, curr) => (curr.value < acc ? curr.value : acc),
-          selTags.days[0].value
-        );
-        filtered = filterHideBefore(filtered, minDay);
-      } else if (filtered[0] && "tags" in filtered[0]) {
-        // If days tag present on items get date of first programme item.
-        const tag = filtered[0].tags.find((item) => item.category === "days");
-        if (tag && "value" in tag) {
-          const minDay = tag.value;
-          filtered = filterHideBefore(filtered, minDay);
-        }
-      } else {
-        // As backup get date from drop-down items.
-        const labelledDays = tags.days.filter((item) => typeof item.label !== "undefined");
-        const minDay = labelledDays.reduce(
-          (acc, curr) => (curr.value < acc ? curr.value : acc),
-          labelledDays[0].value
-        );
-        filtered = filterHideBefore(filtered, minDay);
-      }
-    }
-    return filtered;
   }
 
   function limitDropDown() {
@@ -355,12 +372,12 @@ const FilterableProgram = () => {
             </div>
           </div>
           <div className="filter-options">
-            <ShowPastItems />
+            <ShowPastItems now={now} />
           </div>
         </div>
       </div>
       <div className="program-page">
-        <ProgramList program={display} />
+        <ProgramList program={display} now={now} />
       </div>
       <div className="result-filters">
         <div className="stack">

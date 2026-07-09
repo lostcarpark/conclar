@@ -2,6 +2,7 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import { useParams } from "react-router-dom";
 import configData from "../config.json";
 import ProgramList from "./ProgramList";
+import { useTickingNow } from "../hooks/useTickingNow";
 
 const ItemByIdList = () => {
   const { addSelection } = useStoreActions((actions) => ({
@@ -11,6 +12,7 @@ const ItemByIdList = () => {
   const params = useParams();
   const itemIds = params.idList.split("~");
   const program = useStoreState((state) => state.program);
+  const now = useTickingNow();
   if (program.length === 0) return <></>;
 
   // Filter to select only the specified ID.
@@ -23,7 +25,7 @@ const ItemByIdList = () => {
         <h2>{configData.PROGRAM.SHARED.TITLE}</h2>
       </div>
       <div className="page-body">{configData.PROGRAM.SHARED.DESCRIPTION}</div>
-      <ProgramList program={filteredProgram} />
+      <ProgramList program={filteredProgram} now={now} />
       <div className="buttons">
         <button
           className="button-add-all"
