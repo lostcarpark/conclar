@@ -9,6 +9,7 @@ import ResetButton from "./ResetButton";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import { LocalTime } from "../utils/LocalTime";
+import { buildLocationOptions, locationMatchesSelection } from "../utils/Venues";
 
 const FilterableProgram = () => {
   const navigate = useNavigate();
@@ -142,7 +143,7 @@ const FilterableProgram = () => {
       filtered = filtered.filter((item) => {
         for (const location of item.loc) {
           for (const selected of selLoc) {
-            if (selected.value === location) return true;
+            if (locationMatchesSelection(location, selected.value, configData)) return true;
           }
         }
         return false;
@@ -292,7 +293,7 @@ const FilterableProgram = () => {
           <div className="filter-locations">
             <ReactSelect
               placeholder="Select locations"
-              options={locations}
+              options={buildLocationOptions(locations, configData)}
               isMulti
               isSearchable={configData.LOCATIONS.SEARCHABLE}
               value={selLoc}

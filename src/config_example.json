@@ -47,6 +47,13 @@
       { "KEY": "Davin - Croke Park", "MAP_URL": "https://map.octocon.com" }
     ]
   },
+  "VENUES": {
+    "ALL_LABEL": "All @venue",
+    "UNGROUPED_LABEL": "Other",
+    "MAPPING": [
+      { "NAME": "Convention Center", "LOCATIONS": ["Davin - Croke Park"] }
+    ]
+  },
   "APPLICATION": {
     "LOADING": {
       "MESSAGE": "Loading... Please wait..."
