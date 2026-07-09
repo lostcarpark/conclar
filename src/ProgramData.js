@@ -114,14 +114,13 @@ export class ProgramData {
    * @param {array} people
    */
   static addProgramParticipantDetails(program, people) {
+    const peopleById = new Map(people.map((person) => [person.id, person]));
     // Add extra participant info to program participants.
     for (let item of program) {
       if (item.people) {
         // Loop through people backwards, so we don't miss anyone if entries are removed.
         for (let index = item.people.length - 1; index >= 0; index--) {
-          let fullPerson = people.find(
-            (fullPerson) => fullPerson.id === item.people[index].id
-          );
+          let fullPerson = peopleById.get(item.people[index].id);
           if (!fullPerson) {
             item.people.splice(index, 1);
           }
