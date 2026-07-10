@@ -30,11 +30,14 @@ function getRelativeTime(item, now) {
   }
 }
 
-const ProgramItem = ({ item, forceExpanded = false, now }) => {
-  const showLocalTime = useStoreState((state) => state.showLocalTime);
-  const show12HourTime = useStoreState((state) => state.show12HourTime);
-  const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
-
+const ProgramItem = ({
+  item,
+  now,
+  showLocalTime,
+  show12HourTime,
+  timeZoneIsShown,
+  forceExpanded = false,
+}) => {
   const selected = useStoreState((state) => state.isSelected(item.id));
   const { addSelection, removeSelection } = useStoreActions((actions) => ({
     addSelection: actions.addSelectionAndSync,
@@ -269,6 +272,9 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
 ProgramItem.propTypes = {
   forceExpanded: PropTypes.bool,
   now: PropTypes.instanceOf(Temporal.ZonedDateTime),
+  showLocalTime: PropTypes.string,
+  show12HourTime: PropTypes.bool,
+  timeZoneIsShown: PropTypes.bool,
 };
 
 /**
@@ -279,6 +285,9 @@ ProgramItem.propTypes = {
 function areEqual(prevProps, nextProps) {
   if (prevProps.item !== nextProps.item) return false;
   if (prevProps.forceExpanded !== nextProps.forceExpanded) return false;
+  if (prevProps.showLocalTime !== nextProps.showLocalTime) return false;
+  if (prevProps.show12HourTime !== nextProps.show12HourTime) return false;
+  if (prevProps.timeZoneIsShown !== nextProps.timeZoneIsShown) return false;
   return (
     getRelativeTime(prevProps.item, prevProps.now) ===
     getRelativeTime(nextProps.item, nextProps.now)

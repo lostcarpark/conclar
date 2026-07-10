@@ -39,7 +39,15 @@ const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded = false, now }) 
   const rows = [];
   items.forEach((item) => {
     rows.push(
-      <ProgramItem key={item.id} item={item} forceExpanded={forceExpanded} now={now} />
+      <ProgramItem
+        key={item.id}
+        item={item}
+        forceExpanded={forceExpanded}
+        now={now}
+        showLocalTime={showLocalTime}
+        show12HourTime={show12HourTime}
+        timeZoneIsShown={timeZoneIsShown}
+      />
     );
   });
 
