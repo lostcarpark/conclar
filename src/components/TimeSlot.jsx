@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { memo } from "react";
 import { useStoreState } from "easy-peasy";
 import ProgramItem from "./ProgramItem";
 import { LocalTime } from "../utils/LocalTime";
@@ -61,4 +62,4 @@ TimeSlot.propTypes = {
   now: PropTypes.instanceOf(Temporal.ZonedDateTime),
 };
 
-export default TimeSlot;
+export default memo(TimeSlot);

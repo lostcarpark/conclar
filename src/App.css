@@ -1192,10 +1192,18 @@ div.switch-wrapper {
   font-size: 1.5rem;
   line-height: 1rem;
   overflow: auto;
+  transition: transform 0.3s ease-in-out, color 0.2s ease;
 }
 
 .item-chevron-expanded {
   color: var(--brand-700);
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item-chevron {
+    transition: none;
+  }
 }
 
 .item-title {

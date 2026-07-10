@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { memo } from "react";
 import TimeSlot from "./TimeSlot";
 import { LocalTime } from "../utils/LocalTime";
 import { Temporal } from "@js-temporal/polyfill";
@@ -54,4 +55,4 @@ Day.propTypes = {
   now: PropTypes.instanceOf(Temporal.ZonedDateTime),
 };
 
-export default Day;
+export default memo(Day);
