@@ -16,6 +16,21 @@ export class ProgramData {
     /(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(\.\d{3})?(Z)?([+-]\d{2}:\d{2})?/;
 
   /**
+   * Hash of the given strings, joined with a separator very unlikely to
+   * appear in real content (to avoid boundary-concatenation false matches).
+   *
+   * @param {string[]} parts
+   * @returns {Promise<string>} Hex-encoded SHA-256 digest.
+   */
+  static async fingerprint(parts) {
+    const bytes = new TextEncoder().encode(parts.join("\u0000"));
+    const digest = await crypto.subtle.digest("SHA-256", bytes);
+    return Array.from(new Uint8Array(digest))
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  /**
    * Process a program item and return the date and time as a ZonedDateTime.
    *
    * @param {object} item
@@ -419,15 +434,19 @@ export class ProgramData {
    * the failure to the user. Data-source configuration is validated at build
    * time (see vite.config.js), so config.json is assumed valid here.
    *
-   * @returns {object}
+   * @param {boolean} firstTime
+   * @param {string} [previousFingerprint] Fingerprint of the previously
+   *   fetched payload (see fingerprint()).
+   * @returns {{fingerprint: string, data: object|null}} `data` is null when
+   *   the fetched payload is unchanged from the previous fetch.
    */
-  static async fetchData(firstTime) {
+  static async fetchData(firstTime, previousFingerprint) {
     console.log("Fetching:", firstTime ? "First time" : "Refreshing");
     const fetchOptions = firstTime
       ? configData.FETCH_OPTIONS_FIRST
       : configData.FETCH_OPTIONS;
 
-    let program, people, info;
+    let program, people, info, rawParts;
     if (configData.DATA_URLS) {
       const { COMBINED, SCHEDULE, PEOPLE } = configData.DATA_URLS;
       if (COMBINED) {
@@ -436,6 +455,7 @@ export class ProgramData {
           this.fetchText(COMBINED, fetchOptions),
           this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
+        rawParts = [raw, info];
         ({ program, people } = this.parseSchemaVersionedData(raw, "data"));
       } else {
         let rawSchedule, rawPeople;
@@ -444,6 +464,7 @@ export class ProgramData {
           this.fetchText(PEOPLE, fetchOptions),
           this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
+        rawParts = [rawSchedule, rawPeople, info];
         program = this.parseSchemaVersionedData(rawSchedule, "schedule").program;
         people = this.parseSchemaVersionedData(rawPeople, "people").people;
       }
@@ -455,6 +476,7 @@ export class ProgramData {
           this.fetchText(configData.PROGRAM_DATA_URL, fetchOptions),
           this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
+        rawParts = [raw, info];
         [program, people] = JsonParse.extractJson(raw);
       } else {
         let rawProgram, rawPeople;
@@ -463,13 +485,23 @@ export class ProgramData {
           this.fetchText(configData.PEOPLE_DATA_URL, fetchOptions),
           this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
+        rawParts = [rawProgram, rawPeople, info];
         program = JsonParse.extractJson(rawProgram)[0];
         people = JsonParse.extractJson(rawPeople)[0];
       }
     }
 
+    // A background refresh commonly comes back byte-identical to what's
+    // already loaded. Returning early keeps the previously processed arrays
+    // (and their references) in place, so reprocessing and downstream
+    // re-rendering are skipped for data that hasn't actually changed.
+    const fingerprint = await ProgramData.fingerprint(rawParts);
+    if (fingerprint === previousFingerprint) {
+      return { fingerprint, data: null };
+    }
+
     const data = ProgramData.processData(program, people);
     data.info = info;
-    return data;
+    return { fingerprint, data };
   }
 }

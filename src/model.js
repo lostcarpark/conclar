@@ -55,6 +55,11 @@ const model = {
   personTags: [],
   info: "",
   loadError: null,
+  // Digest of the last successfully-loaded program/people/info payload, so
+  // fetchProgram can tell ProgramData.fetchData whether a new fetch's
+  // contents actually differ - letting it skip reprocessing (and reusing
+  // the same array references) for a byte-identical background refresh.
+  lastFetchFingerprint: null,
   lastFetchTime: null,
   timeSinceLastFetch: null,
   helpTextDismissed: () => {
@@ -85,9 +90,19 @@ const model = {
   darkMode: localStorage.getItem("dark_mode") ? localStorage.getItem("dark_mode") : 'browser',
   showSyncWarning: false,
   // Thunks
-  fetchProgram: thunk(async (actions, firstTime) => {
+  fetchProgram: thunk(async (actions, firstTime, { getState }) => {
     try {
-      actions.setData(await ProgramData.fetchData(firstTime));
+      // data is null when the fetch came back byte-identical to what's
+      // already loaded - nothing to commit, but the fetch itself still
+      // succeeded.
+      const { fingerprint, data } = await ProgramData.fetchData(
+        firstTime,
+        getState().lastFetchFingerprint
+      );
+      if (data) {
+        actions.setData(data);
+        actions.setLastFetchFingerprint(fingerprint);
+      }
       actions.setLoadError(null);
       actions.resetLastFetchTime(firstTime);
       actions.updateTimeSinceLastFetch();
@@ -195,6 +210,9 @@ const model = {
     state.info = data.info;
   }),
   setInfo: action((state, info) => state.info = info),
+  setLastFetchFingerprint: action((state, fingerprint) => {
+    state.lastFetchFingerprint = fingerprint;
+  }),
   setLoadError: action((state, error) => {
     state.loadError = error;
   }),
