@@ -1146,6 +1146,7 @@ div.switch-wrapper {
   margin-bottom: 0.25rem;
   max-width: 100%;
   display: flex;
+  contain: layout;
 }
 
 .item ~ .item {
