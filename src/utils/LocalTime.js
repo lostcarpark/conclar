@@ -296,11 +296,9 @@ export class LocalTime {
     ampm,
     showTimeZone
   ) {
-    // Check if entry cached for timeslot. Create two dimensional array if not.
+    // Check if entry cached for timeslot. Create cache entry if not.
     const cacheValue =
-      this.conventionTimeCache.indexOf(timeSlot) >= 0
-        ? this.conventionTimeCache[timeSlot]
-        : { dateAndTime: dateAndTime };
+      this.conventionTimeCache[timeSlot] || { dateAndTime: dateAndTime };
     //console.log (cacheValue, intAmPm, showTimeZone, cacheValue.indexOf(intAmPm))
     const cacheKey = (ampm ? "h12_" : "h24_") + (showTimeZone ? "tz" : "no");
     if (cacheValue.hasOwnProperty(cacheKey)) {
@@ -325,11 +323,9 @@ export class LocalTime {
    */
   static formatTimeInLocalTimeZone(timeSlot, dateAndTime, ampm, showTimeZone) {
     const dateAndTimeStr = dateAndTime.toString();
-    // Check if entry cached for timeslot. Create two dimensional array if not.
+    // Check if entry cached for timeslot. Create cache entry if not.
     let cacheValue =
-      this.localTimeCache.indexOf(timeSlot) >= 0
-        ? this.localTimeCache[timeSlot]
-        : { dateAndTime: dateAndTimeStr };
+      this.localTimeCache[timeSlot] || { dateAndTime: dateAndTimeStr };
     // Make sure we have the correct cached item.
     if (cacheValue.dateAndTime !== dateAndTimeStr)
       cacheValue = { dateAndTime: dateAndTimeStr };
