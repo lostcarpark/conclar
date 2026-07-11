@@ -73,6 +73,11 @@ const model = {
   selectedTimeZone: LocalTime.getStoredSelectedTimeZone(),
   showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
+  // Whether the most recent change to expandedItems was a bulk action
+  // (expand/collapse all or selected); bulk changes snap open/shut instead
+  // of animating. Read non-reactively (getState) by items, never subscribed
+  // to, so flipping it re-renders nothing itself.
+  expandedItemsChangedInBulk: false,
   selectionStore: ProgramSelection.getSelectionStore().selections,
   mySelections: ProgramSelection.getSelectedIds(),
   currentUserId: null,
@@ -280,21 +285,27 @@ const model = {
   // Actions for expanding program items.
   expandItem: action((state, id) => {
     state.expandedItems.push(id);
+    state.expandedItemsChangedInBulk = false;
   }),
   collapseItem: action((state, id) => {
     state.expandedItems = state.expandedItems.filter((item) => item !== id);
+    state.expandedItemsChangedInBulk = false;
   }),
   expandAll: action((state) => {
     state.expandedItems = state.program.map((item) => item.id);
+    state.expandedItemsChangedInBulk = true;
   }),
   collapseAll: action((state) => {
     state.expandedItems = [];
+    state.expandedItemsChangedInBulk = true;
   }),
   expandSelected: action((state) => {
     state.expandedItems = [...state.mySelections];
+    state.expandedItemsChangedInBulk = true;
   }),
   collapseSelected: action((state) => {
     state.expandedItems = [];
+    state.expandedItemsChangedInBulk = true;
   }),
 
   // Actions for filtering program and people.

@@ -13,6 +13,7 @@ import configData from "../config.json";
 export function ExpandableDetails({
   id,
   showExpanded,
+  snap = false,
   permaLink,
   people,
   tags,
@@ -29,6 +30,9 @@ export function ExpandableDetails({
   const itemExpandedStyle = useSpring({
     height: showExpanded ? bounds.height : 0,
     display: "block",
+    // Bulk expand/collapse snaps instead of animating. onRest still fires
+    // for immediate transitions, so the collapse path's unmount below works.
+    immediate: snap,
     config: {
       tension: 300,
       friction: 15,
@@ -50,17 +54,19 @@ export function ExpandableDetails({
       role="region"
       aria-labelledby={"header-" + id}
     >
-      <div className="item-details-expanded" ref={ref}>
-        {permaLink}
-        <div className="item-people">
-          <ul>{people}</ul>
+      <div className="item-details-measure" ref={ref}>
+        <div className="item-details-expanded">
+          {permaLink}
+          <div className="item-people">
+            <ul>{people}</ul>
+          </div>
+          <div className="item-tags">{tags}</div>
+          <div
+            className="item-description"
+            dangerouslySetInnerHTML={{ __html: safeDesc }}
+          />
+          <div className="item-links">{links}</div>
         </div>
-        <div className="item-tags">{tags}</div>
-        <div
-          className="item-description"
-          dangerouslySetInnerHTML={{ __html: safeDesc }}
-        />
-        <div className="item-links">{links}</div>
       </div>
     </animated.div>
   );
@@ -69,6 +75,7 @@ export function ExpandableDetails({
 ExpandableDetails.propTypes = {
   id: PropTypes.string,
   showExpanded: PropTypes.bool,
+  snap: PropTypes.bool,
   permaLink: PropTypes.node,
   people: PropTypes.node,
   tags: PropTypes.node,

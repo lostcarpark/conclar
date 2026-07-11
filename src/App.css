@@ -1363,8 +1363,15 @@ div.switch-wrapper {
 
 .item-details {
   overflow: hidden;
-  /* Give enough space for the focus ring on the header above. */
-  margin-top: 3px;
+}
+
+/* Space for the focus ring on the header above. Padding on the measured
+ * wrapper - not margin on .item-details - so the gap is part of the
+ * animated height and clips away at height 0. A margin would still occupy
+ * space while the (zero-height) details element is mounted, nudging the
+ * row taller before an expand snaps open and after a collapse snaps shut. */
+.item-details-measure {
+  padding-top: 3px;
 }
 
 /* .item-entry > .item-details.item-details-expanded {
