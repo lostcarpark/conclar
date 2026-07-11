@@ -87,6 +87,13 @@ export class ProgramData {
       item.endDateAndTime = item.startDateAndTime.add({ minutes: item.mins ? item.mins : 0});
       item.bufferedEndEpochMs = item.endDateAndTime.epochMilliseconds + 10 * 60000;
       item.timeSlot = LocalTime.getTimeSlot(item.startDateAndTime);
+      // Which convention day the item belongs to. Precomputed because the
+      // timezone-aware rounding is far too expensive to run per item per
+      // render when grouping the programme into days.
+      item.dayKey = item.startDateAndTime
+        .withTimeZone(LocalTime.conventionTimeZone)
+        .round({ smallestUnit: "day", roundingMode: "floor" })
+        .toString();
       return item;
     });
     program.sort((a, b) => {

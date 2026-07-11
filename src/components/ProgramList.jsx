@@ -38,11 +38,8 @@ const ProgramList = ({ program, now, forceExpanded = false }) => {
     const out = [];
     let cur = null;
     program.forEach((item) => {
-      const itemDate = item.startDateAndTime
-        .withTimeZone(LocalTime.conventionTimeZone)
-        .round({ smallestUnit: "day", roundingMode: "floor" });
-      if (cur === null || !itemDate.equals(cur.date)) {
-        cur = { key: itemDate.toString(), date: itemDate, items: [] };
+      if (cur === null || item.dayKey !== cur.key) {
+        cur = { key: item.dayKey, items: [] };
         out.push(cur);
       }
       cur.items.push(item);
@@ -135,7 +132,7 @@ const ProgramList = ({ program, now, forceExpanded = false }) => {
     rows.push(
       <Day
         key={day.key}
-        date={day.date}
+        date={day.key}
         items={items}
         forceExpanded={forceExpanded}
         now={now}
