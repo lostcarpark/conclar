@@ -134,11 +134,22 @@ const ProgramList = ({ program, now, forceExpanded = false }) => {
       ""
     );
 
+  // Driven by the remaining count, not isPending - isPending blips false
+  // at every chunk boundary, which would flicker the indicator.
+  const loadingMore =
+    effectiveVisibleCount < program.length ? (
+      <div className="program-loading-more" role="status">
+        <span className="program-loading-more-spinner" aria-hidden="true" />
+        {configData.PROGRAM.LOADING_MORE_MESSAGE}
+      </div>
+    ) : null;
+
   return (
     <div className="program-container">
       {conventionTime}
       {localTime}
       <div className="program">{rows}</div>
+      {loadingMore}
     </div>
   );
 };

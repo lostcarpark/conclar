@@ -59,6 +59,7 @@
     }
   },
   "PROGRAM": {
+    "LOADING_MORE_MESSAGE": "Loading more items…",
     "SEARCH": {
       "SEARCH_LABEL": "Search title, desc, or people"
     },

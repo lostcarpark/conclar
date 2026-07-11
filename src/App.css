@@ -1019,6 +1019,36 @@ div.switch-wrapper {
   padding-top: 1rem;
 }
 
+/* Shown at the bottom of the list while the progressive reveal is still
+ * mounting chunks. */
+.program-loading-more {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+.program-loading-more-spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid var(--gray-400);
+  border-top-color: currentColor;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .program-loading-more-spinner {
+    animation: program-loading-more-spin 0.8s linear infinite;
+  }
+}
+
+@keyframes program-loading-more-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .program-container {
   margin-top: 0.5rem;
   clear: both;
