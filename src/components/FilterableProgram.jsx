@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useDeferredValue } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
@@ -158,10 +158,11 @@ const FilterableProgram = () => {
 
   const now = useTickingNow();
 
+  const deferredSearch = useDeferredValue(search);
   const filtered = useMemo(
     () =>
       applyFilters(program, {
-        search,
+        search: deferredSearch,
         selLoc,
         selTags,
         showPastItems,
@@ -169,7 +170,7 @@ const FilterableProgram = () => {
         tags,
         now,
       }),
-    [program, search, selLoc, selTags, showPastItems, hideBefore, tags, now]
+    [program, deferredSearch, selLoc, selTags, showPastItems, hideBefore, tags, now]
   );
   const total = filtered.length;
   const totalMessage = `Listing ${total} items`;
