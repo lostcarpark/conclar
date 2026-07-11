@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useState, useTransition } from 'react';
+import { memo, useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import PropTypes from "prop-types";
 import { useStoreState } from "easy-peasy";
 import { LocalTime } from "../utils/LocalTime";
@@ -12,6 +12,12 @@ import { Temporal } from "@js-temporal/polyfill";
 // revealed - this spreads the initial mount cost, it isn't virtualization.
 const CHUNK_SIZE = 100;
 const INITIAL_CHUNK_SIZE = 10;
+// How long the reveal holds off after the user interacts. Transitions keep
+// the mount interruptible while *rendering*, but each chunk's commit
+// (DOM insertion + layout) is atomic and long enough to eat frames from a
+// short expand/collapse animation - so give animations the frames outright
+// rather than competing for them.
+const INTERACTION_HOLD_MS = 300;
 
 const ProgramList = ({ program, now, forceExpanded = false }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
@@ -61,16 +67,39 @@ const ProgramList = ({ program, now, forceExpanded = false }) => {
     setVisibleCount(effectiveVisibleCount);
   }
 
+  const lastInteractionRef = useRef(0);
   useEffect(() => {
-    // Each chunk is revealed inside a transition, keeping the mount
-    // low-priority and interruptible by input. The next chunk is queued
-    // when the previous one settles (isPending flips false and this effect
-    // re-fires), so a slow chunk delays the next rather than piling up.
-    if (!isPending && visibleCount < program.length) {
+    function noteInteraction() {
+      lastInteractionRef.current = performance.now();
+    }
+    window.addEventListener("pointerdown", noteInteraction, true);
+    window.addEventListener("keydown", noteInteraction, true);
+    return () => {
+      window.removeEventListener("pointerdown", noteInteraction, true);
+      window.removeEventListener("keydown", noteInteraction, true);
+    };
+  }, []);
+
+  useEffect(() => {
+    // The next chunk is queued when the previous one settles (isPending
+    // flips false and this effect re-fires), so a slow chunk delays the
+    // next rather than piling up.
+    if (isPending || visibleCount >= program.length) {
+      return undefined;
+    }
+    let timer;
+    function revealNextChunk() {
+      const heldFor = performance.now() - lastInteractionRef.current;
+      if (heldFor < INTERACTION_HOLD_MS) {
+        timer = setTimeout(revealNextChunk, INTERACTION_HOLD_MS - heldFor);
+        return;
+      }
       startTransition(() => {
         setVisibleCount((count) => Math.min(count + CHUNK_SIZE, program.length));
       });
     }
+    revealNextChunk();
+    return () => clearTimeout(timer);
   }, [isPending, visibleCount, program, startTransition]);
   useEffect(() => {
     // Printing needs the complete list immediately. A plain (non-transition)
