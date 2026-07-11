@@ -73,7 +73,6 @@ const model = {
   selectedTimeZone: LocalTime.getStoredSelectedTimeZone(),
   showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
-  programDisplayLimit: localStorage.getItem("program_display_limit"),
   selectionStore: ProgramSelection.getSelectionStore().selections,
   mySelections: ProgramSelection.getSelectedIds(),
   currentUserId: null,
@@ -296,19 +295,6 @@ const model = {
   }),
   collapseSelected: action((state) => {
     state.expandedItems = [];
-  }),
-
-  // Action for number of items displayed.
-  setProgramDisplayLimit: action((state, limit) => {
-    if (limit === "all") {
-      localStorage.setItem("program_display_limit", limit);
-      state.programDisplayLimit = limit;
-    }
-    if (!isNaN(limit)) {
-      localStorage.setItem("program_display_limit", limit);
-      state.programDisplayLimit = limit;
-    }
-    // Take no action if limit is not numeric or null.
   }),
 
   // Actions for filtering program and people.

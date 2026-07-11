@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
@@ -156,22 +156,6 @@ const FilterableProgram = () => {
   );
   const programIsFiltered = useStoreState((state) => state.programIsFiltered);
 
-  // User selected display limit.
-  const programDisplayLimit = useStoreState(
-    (state) => state.programDisplayLimit
-  );
-  const setProgramDisplayLimit = useStoreActions(
-    (actions) => actions.setProgramDisplayLimit
-  );
-  // Current display limit, changes when user presses "show more". Resets whenever filters change.
-  const [displayLimit, setDisplayLimit] = useState(
-    parseInt(
-      programDisplayLimit === null
-        ? configData.PROGRAM.LIMIT.DEFAULT
-        : programDisplayLimit
-    )
-  );
-
   const now = useTickingNow();
 
   const filtered = useMemo(
@@ -188,100 +172,7 @@ const FilterableProgram = () => {
     [program, search, selLoc, selTags, showPastItems, hideBefore, tags, now]
   );
   const total = filtered.length;
-  const totalMessage =
-    displayLimit !== "all" && displayLimit < total
-      ? `Listing ${displayLimit} of ${total} items`
-      : `Listing ${total} items`;
-  // Memoized so ProgramList only sees a new `program` reference when the
-  // visible items actually change - otherwise unrelated re-renders (the
-  // ticking clock, etc.) would hand it a fresh array each time, defeating
-  // the memoization inside it.
-  const display = useMemo(
-    () =>
-      configData.PROGRAM.LIMIT.SHOW && !isNaN(displayLimit)
-        ? filtered.slice(0, displayLimit)
-        : filtered,
-    [filtered, displayLimit]
-  );
-
-  /**
-   * When filters change, set the display limit back to the selection.
-   */
-  function resetDisplayLimit() {
-    setDisplayLimit(
-      parseInt(
-        programDisplayLimit === null
-          ? configData.PROGRAM.LIMIT.DEFAULT
-          : programDisplayLimit
-      )
-    );
-  }
-
-  /**
-   * When reset filters pressed, reset the display limit and the program filters.
-   */
-  function resetLimitsAndFilters() {
-    resetDisplayLimit();
-    resetProgramFilters();
-  }
-
-  function limitDropDown() {
-    function displayLimit(limit) {
-      if (limit === null) return configData.PROGRAM.LIMIT.DEFAULT;
-      if (limit === "all") return limit;
-      if (isNaN(limit)) return configData.PROGRAM.LIMIT.DEFAULT;
-      return limit;
-    }
-    if (configData.PROGRAM.LIMIT.SHOW) {
-      const options = configData.PROGRAM.LIMIT.OPTIONS.map((item) => (
-        <option key={item} value={item}>
-          {item}
-        </option>
-      ));
-      options.push(
-        <option key="all" value="all">
-          {configData.PROGRAM.LIMIT.ALL_LABEL}
-        </option>
-      );
-      return (
-        <div className="program-limit-select">
-          <label htmlFor="display_limit">
-            {configData.PROGRAM.LIMIT.LABEL}:{" "}
-          </label>
-          <select
-            id="display_limit"
-            name="display_limit"
-            value={displayLimit(programDisplayLimit)}
-            disabled={isLoading}
-            onChange={(e) => {
-              setProgramDisplayLimit(e.target.value);
-              setDisplayLimit(parseInt(e.target.value));
-            }}
-          >
-            {options}
-          </select>
-        </div>
-      );
-    }
-    return "";
-  }
-
-  const moreButton =
-    displayLimit < total ? (
-      <button
-        className="show-more-button"
-        onClick={() =>
-          setDisplayLimit(
-            parseInt(displayLimit) +
-              configData.PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA
-          )
-        }
-      >
-        {configData.PROGRAM.LIMIT.SHOW_MORE.LABEL}
-      </button>
-    ) : (
-      <span>{configData.PROGRAM.LIMIT.SHOW_MORE.NO_MORE}</span>
-    );
+  const totalMessage = `Listing ${total} items`;
 
   // create list of options for hide before time drop-down.
   const hideBeforeOptions = [
@@ -307,7 +198,6 @@ const FilterableProgram = () => {
         value={hideBefore}
         disabled={isLoading}
         onChange={(e) => {
-          resetDisplayLimit();
           setHideBefore(e.target.value);
         }}
       >
@@ -332,7 +222,6 @@ const FilterableProgram = () => {
               value={selLoc}
               onChange={(value) => {
                 console.log(value);
-                resetDisplayLimit();
                 setSelLoc(value);
                 if (value.length) {
                   const locList = value.map((location) => encodeURIComponent(location.value)).join('~');
@@ -352,7 +241,6 @@ const FilterableProgram = () => {
             setSelTags={setSelTags}
             isLoading={isLoading}
             tagConfig={configData.TAGS}
-            resetLimit={resetDisplayLimit}
           />
           {hideBeforeSelect}
           <div className="filter-search">
@@ -364,7 +252,6 @@ const FilterableProgram = () => {
               value={search}
               disabled={isLoading}
               onChange={(e) => {
-                resetDisplayLimit();
                 setSearch(e.target.value);
               }}
             />
@@ -373,10 +260,9 @@ const FilterableProgram = () => {
         <div className="reset-filters">
           <ResetButton
             isFiltered={programIsFiltered}
-            resetFilters={resetLimitsAndFilters}
+            resetFilters={resetProgramFilters}
           />
         </div>
-        {limitDropDown()}
         <div className="result-filters">
           <div className="stack">
             <div className="filter-total">
@@ -411,14 +297,13 @@ const FilterableProgram = () => {
       ) : (
         <>
           <div className="program-page">
-            <ProgramList program={display} now={now} />
+            <ProgramList program={filtered} now={now} />
           </div>
           <div className="result-filters">
             <div className="stack">
               <div className="filter-total">{totalMessage}</div>
             </div>
           </div>
-          <div className="result-more-button">{moreButton}</div>
         </>
       )}
     </div>

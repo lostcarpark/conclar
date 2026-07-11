@@ -59,18 +59,6 @@
     }
   },
   "PROGRAM": {
-    "LIMIT": {
-      "SHOW": true,
-      "LABEL": "Maximum items displayed",
-      "OPTIONS": [50, 100, 250, 500, 1000],
-      "ALL_LABEL": "Show all",
-      "DEFAULT": 100,
-      "SHOW_MORE": {
-        "LABEL": "Show more items",
-        "NO_MORE": "No more items to display",
-        "NUM_EXTRA": 50
-      }
-    },
     "SEARCH": {
       "SEARCH_LABEL": "Search title, desc, or people"
     },
