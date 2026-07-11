@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   FaCalendarAlt,
   FaUsers,
@@ -11,8 +11,9 @@ import NavIcon from "./NavIcon";
 import UserStatus from "./UserStatus";
 
 const Navigation = () => {
+  const { pathname } = useLocation();
   const coreLinks = [
-    { to: "/", icon: FaCalendarAlt, label: configData.NAVIGATION.PROGRAM },
+    { to: "/", icon: FaCalendarAlt, label: configData.NAVIGATION.PROGRAM, forceActive: pathname.startsWith("/loc/") },
     { to: "/people", icon: FaUsers, label: configData.NAVIGATION.PEOPLE },
     { to: "/myschedule", icon: FaStar, label: configData.NAVIGATION.MYSCHEDULE },
     ...("INFO" in configData.NAVIGATION
@@ -24,9 +25,9 @@ const Navigation = () => {
   return (
     <nav className="navigation">
       <ul>
-        {coreLinks.map(({ to, icon, label }) => (
+        {coreLinks.map(({ to, icon, label, forceActive }) => (
           <li key={to}>
-            <NavLink to={to}>
+            <NavLink to={to} className={({ isActive }) => (isActive || forceActive ? "active" : undefined)}>
               <NavIcon icon={icon} />
               {label}
             </NavLink>
