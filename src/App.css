@@ -935,6 +935,14 @@ div.switch-wrapper {
   width: 100%;
 }
 
+.program-limit-select {
+  margin: 0.5em;
+}
+
+.program-limit-select select {
+  font-size: 1rem;
+}
+
 .stack {
   flex-basis: 0;
   flex-grow: 2;
@@ -1404,6 +1412,30 @@ div.switch-wrapper {
 
 .share-qr-code {
   margin: 0.25rem;
+}
+
+/* When limit on displayed items, show more button. */
+
+.result-more-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.show-more-button {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-fg);
+  font-size: 1rem;
+  padding: .5rem 1.5rem;
+  border: none;
+  border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+.show-more-button:hover,
+.show-more-button:focus {
+  background-color: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-fg);
 }
 
 /* ItemIDs page, showing shared items. */

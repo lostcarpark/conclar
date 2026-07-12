@@ -78,6 +78,7 @@ const model = {
   // of animating. Read non-reactively (getState) by items, never subscribed
   // to, so flipping it re-renders nothing itself.
   expandedItemsChangedInBulk: false,
+  programDisplayLimit: localStorage.getItem("program_display_limit"),
   selectionStore: ProgramSelection.getSelectionStore().selections,
   mySelections: ProgramSelection.getSelectedIds(),
   currentUserId: null,
@@ -306,6 +307,14 @@ const model = {
   collapseSelected: action((state) => {
     state.expandedItems = [];
     state.expandedItemsChangedInBulk = true;
+  }),
+
+  // Action for number of items displayed.
+  setProgramDisplayLimit: action((state, limit) => {
+    if (limit === "all" || !isNaN(limit)) {
+      localStorage.setItem("program_display_limit", limit);
+      state.programDisplayLimit = limit;
+    }
   }),
 
   // Actions for filtering program and people.

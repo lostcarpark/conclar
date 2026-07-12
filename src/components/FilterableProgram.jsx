@@ -1,4 +1,4 @@
-import React, { useMemo, useDeferredValue } from "react";
+import React, { useState, useMemo, useEffect, useDeferredValue } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
@@ -12,6 +12,11 @@ import LoadError from "./LoadError";
 import { LocalTime } from "../utils/LocalTime";
 import { buildLocationOptions, locationMatchesSelection } from "../utils/Venues";
 import { useTickingNow } from "../hooks/useTickingNow";
+import { INFINITE_SCROLL } from "../utils/AdaptivePageSize";
+
+// The drop-down and "Show more" flow needs a default limit even when a
+// deployed config.json predates the LIMIT block.
+const DEFAULT_DISPLAY_LIMIT = configData.PROGRAM.LIMIT?.DEFAULT ?? 100;
 
 /**
  * Apply hide before time filter.
@@ -156,6 +161,22 @@ const FilterableProgram = () => {
   );
   const programIsFiltered = useStoreState((state) => state.programIsFiltered);
 
+  // User selected display limit.
+  const programDisplayLimit = useStoreState(
+    (state) => state.programDisplayLimit
+  );
+  const setProgramDisplayLimit = useStoreActions(
+    (actions) => actions.setProgramDisplayLimit
+  );
+  // The user's selected limit as a number ("all" and other non-numeric
+  // selections parse to NaN, which every comparison treats as unlimited).
+  const selectedLimit = () =>
+    parseInt(
+      programDisplayLimit === null ? DEFAULT_DISPLAY_LIMIT : programDisplayLimit
+    );
+  // Current display limit, changes when user presses "show more". Resets whenever filters change.
+  const [displayLimit, setDisplayLimit] = useState(selectedLimit);
+
   const now = useTickingNow();
 
   const deferredSearch = useDeferredValue(search);
@@ -173,7 +194,87 @@ const FilterableProgram = () => {
     [program, deferredSearch, selLoc, selTags, showPastItems, hideBefore, tags, now]
   );
   const total = filtered.length;
-  const totalMessage = `Listing ${total} items`;
+  const totalMessage =
+    !INFINITE_SCROLL && displayLimit < total
+      ? `Listing ${displayLimit} of ${total} items`
+      : `Listing ${total} items`;
+  // Memoized so ProgramList only sees a new `program` reference when the
+  // visible items actually change - otherwise unrelated re-renders (the
+  // ticking clock, etc.) would hand it a fresh array each time, defeating
+  // the memoization inside it. Under infinite scroll ProgramList paces the
+  // mounting itself, so it gets the whole filtered list.
+  const display = useMemo(
+    () =>
+      !INFINITE_SCROLL && configData.PROGRAM.LIMIT.SHOW && !isNaN(displayLimit)
+        ? filtered.slice(0, displayLimit)
+        : filtered,
+    [filtered, displayLimit]
+  );
+
+  // Any filter change - including via the reset button or the location URL
+  // route - puts the display limit back to the selection.
+  useEffect(() => {
+    setDisplayLimit(selectedLimit());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search, selLoc, selTags, hideBefore]);
+
+  function limitDropDown() {
+    function normalizeLimit(limit) {
+      if (limit === null) return DEFAULT_DISPLAY_LIMIT;
+      if (limit === "all") return limit;
+      if (isNaN(limit)) return DEFAULT_DISPLAY_LIMIT;
+      return limit;
+    }
+    if (!INFINITE_SCROLL && configData.PROGRAM.LIMIT.SHOW) {
+      const options = configData.PROGRAM.LIMIT.OPTIONS.map((item) => (
+        <option key={item} value={item}>
+          {item}
+        </option>
+      ));
+      options.push(
+        <option key="all" value="all">
+          {configData.PROGRAM.LIMIT.ALL_LABEL}
+        </option>
+      );
+      return (
+        <div className="program-limit-select">
+          <label htmlFor="display_limit">
+            {configData.PROGRAM.LIMIT.LABEL}:{" "}
+          </label>
+          <select
+            id="display_limit"
+            name="display_limit"
+            value={normalizeLimit(programDisplayLimit)}
+            disabled={isLoading}
+            onChange={(e) => {
+              setProgramDisplayLimit(e.target.value);
+              setDisplayLimit(parseInt(e.target.value));
+            }}
+          >
+            {options}
+          </select>
+        </div>
+      );
+    }
+    return "";
+  }
+
+  const moreButton =
+    displayLimit < total ? (
+      <button
+        className="show-more-button"
+        onClick={() =>
+          setDisplayLimit(
+            parseInt(displayLimit) +
+              configData.PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA
+          )
+        }
+      >
+        {configData.PROGRAM.LIMIT.SHOW_MORE.LABEL}
+      </button>
+    ) : (
+      <span>{configData.PROGRAM.LIMIT.SHOW_MORE.NO_MORE}</span>
+    );
 
   // create list of options for hide before time drop-down.
   const hideBeforeOptions = [
@@ -222,7 +323,6 @@ const FilterableProgram = () => {
               isSearchable={configData.LOCATIONS.SEARCHABLE}
               value={selLoc}
               onChange={(value) => {
-                console.log(value);
                 setSelLoc(value);
                 if (value.length) {
                   const locList = value.map((location) => encodeURIComponent(location.value)).join('~');
@@ -264,6 +364,7 @@ const FilterableProgram = () => {
             resetFilters={resetProgramFilters}
           />
         </div>
+        {limitDropDown()}
         <div className="result-filters">
           <div className="stack">
             <div className="filter-total">
@@ -298,13 +399,16 @@ const FilterableProgram = () => {
       ) : (
         <>
           <div className="program-page">
-            <ProgramList program={filtered} now={now} />
+            <ProgramList program={display} now={now} />
           </div>
           <div className="result-filters">
             <div className="stack">
               <div className="filter-total">{totalMessage}</div>
             </div>
           </div>
+          {!INFINITE_SCROLL && (
+            <div className="result-more-button">{moreButton}</div>
+          )}
         </>
       )}
     </div>
