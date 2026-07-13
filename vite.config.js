@@ -71,6 +71,7 @@ export default defineConfig({
     open: true,
   },
   build: {
+    target: "es2015",
     outDir: "build",
     minify: "terser",
     terserOptions: {

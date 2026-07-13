@@ -159,6 +159,9 @@ body {
   display: grid;
   grid-template-columns: auto 1fr;
   align-content: start;
+  /* dvh isn't understood below Safari 15.4/Chrome 108/Firefox 101 - the vh
+     fallback is overridden by the line below on browsers that support dvh. */
+  min-height: 100vh;
   min-height: 100dvh;
   text-align: left;
   font-size: 1.25rem;
@@ -181,6 +184,7 @@ body {
 .sidebar {
   position: sticky;
   top: 0;
+  height: 100vh;
   height: 100dvh;
   overflow-y: auto;
   width: 16rem;
@@ -436,6 +440,10 @@ header img {
   position: fixed;
   inset: 0;
   background: var(--shadow-50);
+  /* Unprefixed backdrop-filter is Safari 18+ only; -webkit- covers back to
+     Safari 9. Below both, the scrim's solid background still shows - just
+     without the blur. */
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: flex-start;
@@ -575,7 +583,11 @@ header img {
   }
 
   /* Lock background scroll while the drawer is open (the drawer itself scrolls).
-     The modal dialog inerts the background but doesn't prevent it scrolling. */
+     The modal dialog inerts the background but doesn't prevent it scrolling.
+     :has() is unsupported below Safari 15.5/Chrome 106/Firefox 122; there the
+     whole rule is invalid and dropped, so the background can scroll behind
+     the drawer. Accepted as a graceful, cosmetic-only degradation - no
+     fallback exists short of a JS-driven scroll lock. */
   body:has(dialog.sidebar-drawer[open]) {
     overflow: hidden;
   }
@@ -623,6 +635,7 @@ header img {
     position: fixed;
     inset: 0 auto 0 0;
     width: 16rem;
+    height: 100vh;
     height: 100dvh;
     box-sizing: border-box;
     box-shadow: 4px 0 16px var(--shadow-20);
