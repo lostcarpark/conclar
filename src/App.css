@@ -1204,6 +1204,10 @@ div.switch-wrapper {
   margin-right: 0.5rem;
 }
 
+.item-location-venue {
+  opacity: 0.75;
+}
+
 .item-tags .item-tag:after {
     content: ', ';
 }

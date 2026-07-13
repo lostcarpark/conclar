@@ -15,6 +15,7 @@ import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
 import { useState, useEffect } from "react";
 import { LocalTime } from "../utils/LocalTime";
+import { venueForLocation } from "../utils/Venues";
 
 const ProgramItem = ({ item, forceExpanded = false, now }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
@@ -65,9 +66,9 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
   const locations = [];
   if (Array.isArray(item.loc))
     for (let loc of item.loc) {
-      locations.push(<Location key={loc} loc={loc} />);
+      locations.push(<Location key={loc} loc={loc} venue={venueForLocation(loc, configData)} />);
     }
-  else locations.push(<Location key={item.loc} loc={item.loc} />);
+  else locations.push(<Location key={item.loc} loc={item.loc} venue={venueForLocation(item.loc, configData)} />);
 
   const permaLink =
     configData.PERMALINK.SHOW_PERMALINK && configData.INTERACTIVE ? (

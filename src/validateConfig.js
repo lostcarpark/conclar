@@ -12,6 +12,7 @@
 export function validateConfig(configData) {
   const errors = [];
   validateDataSourceConfig(configData, errors);
+  validateVenuesConfig(configData, errors);
   if (errors.length > 0) {
     throw new Error(
       "Invalid config.json:\n - " + errors.join("\n - ")
@@ -59,6 +60,58 @@ function validateDataSourceConfig(configData, errors) {
       errors.push(
         "DATA_URLS must specify COMBINED, or both SCHEDULE and PEOPLE."
       );
+    }
+  }
+}
+
+/**
+ * Validate the optional VENUES config block. Each venue must have a non-empty
+ * NAME and a non-empty LOCATIONS array of strings. Venue names must be unique,
+ * and a location may not be assigned to more than one venue.
+ *
+ * @param {object} configData Parsed contents of config.json.
+ * @param {string[]} errors Accumulator for problem descriptions.
+ */
+function validateVenuesConfig(configData, errors) {
+  if (configData.VENUES === undefined) return;
+
+  if (!Array.isArray(configData.VENUES.MAPPING)) {
+    errors.push("VENUES.MAPPING must be an array.");
+    return;
+  }
+
+  const seenNames = new Set();
+  const locationOwner = new Map();
+
+  for (const [index, venue] of configData.VENUES.MAPPING.entries()) {
+    if (typeof venue.NAME !== "string" || venue.NAME.length === 0) {
+      errors.push(`VENUES.MAPPING[${index}] must have a non-empty NAME.`);
+    } else if (seenNames.has(venue.NAME)) {
+      errors.push(`VENUES.MAPPING contains duplicate NAME "${venue.NAME}".`);
+    } else {
+      seenNames.add(venue.NAME);
+    }
+
+    if (
+      !Array.isArray(venue.LOCATIONS) ||
+      venue.LOCATIONS.length === 0 ||
+      !venue.LOCATIONS.every((loc) => typeof loc === "string" && loc.length > 0)
+    ) {
+      errors.push(
+        `VENUES.MAPPING[${index}] must have a non-empty LOCATIONS array of strings.`
+      );
+      continue;
+    }
+
+    for (const loc of venue.LOCATIONS) {
+      const owner = locationOwner.get(loc);
+      if (owner !== undefined && owner !== venue.NAME) {
+        errors.push(
+          `Location "${loc}" is assigned to both "${owner}" and "${venue.NAME}" in VENUES.MAPPING.`
+        );
+      } else {
+        locationOwner.set(loc, venue.NAME);
+      }
     }
   }
 }
