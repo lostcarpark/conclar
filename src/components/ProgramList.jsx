@@ -4,7 +4,7 @@ import { useStoreState } from "easy-peasy";
 import { LocalTime } from "../utils/LocalTime";
 import Day from "./Day";
 import configData from "../config.json";
-import { Temporal } from "@js-temporal/polyfill";
+import { programTimePropType } from "../utils/ProgramTime";
 import {
   INFINITE_SCROLL,
   currentPageSize,
@@ -21,7 +21,7 @@ import {
 // the user scrolls instead of always mounting the whole list.
 const INITIAL_CHUNK_SIZE = 10;
 
-const ProgramList = ({ program, now, forceExpanded = false }) => {
+const ProgramList = ({ program, programTime, forceExpanded = false }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
 
   // Reveal the list in chunks instead of mounting everything at once.
@@ -191,7 +191,7 @@ const ProgramList = ({ program, now, forceExpanded = false }) => {
         date={day.key}
         items={items}
         forceExpanded={forceExpanded}
-        now={now}
+        programTime={programTime}
       />
     );
   }
@@ -242,7 +242,7 @@ const ProgramList = ({ program, now, forceExpanded = false }) => {
 
 ProgramList.propTypes = {
   program: PropTypes.array.isRequired,
-  now: PropTypes.instanceOf(Temporal.ZonedDateTime).isRequired,
+  programTime: programTimePropType.isRequired,
   forceExpanded: PropTypes.bool,
 };
 

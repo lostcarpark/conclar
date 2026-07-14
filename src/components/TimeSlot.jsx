@@ -3,9 +3,9 @@ import { memo } from "react";
 import { useStoreState } from "easy-peasy";
 import ProgramItem from "./ProgramItem";
 import { LocalTime } from "../utils/LocalTime";
-import { Temporal } from "@js-temporal/polyfill";
+import { programTimePropType } from "../utils/ProgramTime";
 
-const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded = false, now }) => {
+const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded = false, programTime }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
@@ -43,7 +43,7 @@ const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded = false, now }) 
         key={item.id}
         item={item}
         forceExpanded={forceExpanded}
-        now={now}
+        programTime={programTime}
         showLocalTime={showLocalTime}
         show12HourTime={show12HourTime}
         timeZoneIsShown={timeZoneIsShown}
@@ -67,7 +67,7 @@ const TimeSlot = ({ timeSlot, dateAndTime, items, forceExpanded = false, now }) 
 TimeSlot.propTypes = {
   items: PropTypes.array,
   forceExpanded: PropTypes.bool,
-  now: PropTypes.instanceOf(Temporal.ZonedDateTime),
+  programTime: programTimePropType,
 };
 
 export default memo(TimeSlot);

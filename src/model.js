@@ -2,6 +2,7 @@ import { action, thunk, computed } from "easy-peasy";
 import { ProgramData } from "./ProgramData";
 import { ProgramSelection } from "./ProgramSelection";
 import { LocalTime } from "./utils/LocalTime";
+import { collectBoundaries } from "./utils/ProgramTime";
 import * as SyncService from "./SyncService";
 import configData from "./config.json";
 
@@ -443,6 +444,9 @@ const model = {
     if (state.peopleSearch.length > 0) return true;
     return false;
   }),
+  timeBoundaries: computed([(state) => state.program], (program) =>
+    collectBoundaries(program)
+  ),
   selectedSet: computed(
     [(state) => state.mySelections],
     (mySelections) => new Set(mySelections)

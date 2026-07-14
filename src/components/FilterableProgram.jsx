@@ -11,7 +11,7 @@ import ShowPastItems from "./ShowPastItems";
 import LoadError from "./LoadError";
 import { LocalTime } from "../utils/LocalTime";
 import { buildLocationOptions, locationMatchesSelection } from "../utils/Venues";
-import { useTickingNow } from "../hooks/useTickingNow";
+import { useProgramTime } from "../hooks/useProgramTime";
 import { INFINITE_SCROLL } from "../utils/AdaptivePageSize";
 
 // The drop-down and "Show more" flow needs a default limit even when a
@@ -41,7 +41,7 @@ function filterHideBefore(program, minDay, hideBefore) {
  * @param {object} filters Current filter selections.
  * @returns {array} The filtered array.
  */
-function applyFilters(program, { search, selLoc, selTags, showPastItems, hideBefore, tags, now }) {
+function applyFilters(program, { search, selLoc, selTags, showPastItems, hideBefore, tags, programTime }) {
   const term = search.trim().toLowerCase();
 
   // If no filters, return full program;
@@ -88,9 +88,7 @@ function applyFilters(program, { search, selLoc, selTags, showPastItems, hideBef
       });
     }
   }
-  if (LocalTime.isDuringCon(program, now) && !showPastItems) {
-    filtered = LocalTime.filterPastItems(filtered, now);
-  }
+  filtered = programTime.hidePastItems(filtered, showPastItems);
   if (!configData.HIDE_BEFORE.HIDE && hideBefore) {
     if (
       "days" in selTags &&
@@ -177,7 +175,7 @@ const FilterableProgram = () => {
   // Current display limit, changes when user presses "show more". Resets whenever filters change.
   const [displayLimit, setDisplayLimit] = useState(selectedLimit);
 
-  const now = useTickingNow();
+  const programTime = useProgramTime();
 
   const deferredSearch = useDeferredValue(search);
   const filtered = useMemo(
@@ -189,9 +187,9 @@ const FilterableProgram = () => {
         showPastItems,
         hideBefore,
         tags,
-        now,
+        programTime,
       }),
-    [program, deferredSearch, selLoc, selTags, showPastItems, hideBefore, tags, now]
+    [program, deferredSearch, selLoc, selTags, showPastItems, hideBefore, tags, programTime]
   );
   const total = filtered.length;
   const totalMessage =
@@ -380,7 +378,7 @@ const FilterableProgram = () => {
             </div>
           </div>
           <div className="filter-options">
-            <ShowPastItems now={now} />
+            <ShowPastItems programTime={programTime} />
           </div>
         </div>
       </div>
@@ -399,7 +397,7 @@ const FilterableProgram = () => {
       ) : (
         <>
           <div className="program-page">
-            <ProgramList program={display} now={now} />
+            <ProgramList program={display} programTime={programTime} />
           </div>
           <div className="result-filters">
             <div className="stack">

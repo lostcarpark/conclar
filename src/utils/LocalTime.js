@@ -365,59 +365,6 @@ export class LocalTime {
     );
   }
 
-  /**
-   * Filter out program items that have already happened.
-   *
-   * @param {Array} program
-   * @param {Temporal.ZonedDateTime} now
-   * @returns {Array}
-   */
-  static filterPastItems(program, now) {
-    if (configData.SHOW_PAST_ITEMS.FROM_START) {
-      // Filter by past item state.  Quick hack to treat this as a filter.
-      const cutOff = now.add({
-        minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
-      });
-      return program.filter((item) => {
-        return Temporal.ZonedDateTime.compare(cutOff, item.startDateAndTime) <= 0;
-      });
-    } else {
-      const cutOff = now.subtract({
-        minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
-      });
-      return program.filter((item) => {
-        const itemNearEndTime = item.startDateAndTime.add({
-          minutes: item.hasOwnProperty("mins")
-            ? item.mins
-            : configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
-        });
-        return Temporal.ZonedDateTime.compare(cutOff, itemNearEndTime) <= 0;
-      });
-    }
-  }
-
-  /**
-   * Check if currently during the convention.
-   *
-   * @param {Array} program
-   * @param {Temporal.ZonedDateTime} now
-   * @returns {bool}
-   */
-  static isDuringCon(program, now) {
-    //First check that program is an array.
-    if (!program || !(program instanceof Array) || program.length === 0) {
-      return false;
-    }
-    const startTime = program[0].startDateAndTime;
-    const [lastItem] = program.slice(-1);
-    const endTime = lastItem.endDateAndTime;
-    // True if between start of first item and end of last item.
-    // ToDo: consider edge case where the item with the latest end time is not the last item.
-    return (
-      Temporal.ZonedDateTime.compare(now, startTime) > 0 &&
-      Temporal.ZonedDateTime.compare(now, endTime) < 0
-    );
-  }
 }
 
 // Initialize the LocalTime class

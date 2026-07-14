@@ -81,11 +81,7 @@ export class ProgramData {
     program.map((item) => {
       const startTime = this.processDateAndTime(item);
       item.startDateAndTime = startTime.withTimeZone(utcTimeZone);
-      // Only ever compared against, never formatted or displayed.
-      item.bufferedStartEpochMs =
-        item.startDateAndTime.epochMilliseconds - 20 * 60000;
       item.endDateAndTime = item.startDateAndTime.add({ minutes: item.mins ? item.mins : 0});
-      item.bufferedEndEpochMs = item.endDateAndTime.epochMilliseconds + 10 * 60000;
       item.timeSlot = LocalTime.getTimeSlot(item.startDateAndTime);
       // Which convention day the item belongs to. Precomputed because the
       // timezone-aware rounding is far too expensive to run per item per

@@ -2,24 +2,20 @@ import React from "react";
 import { useStoreState } from "easy-peasy";
 import ProgramList from "./ProgramList";
 import Info from "./Info";
-import { LocalTime } from "../utils/LocalTime";
-import { useTickingNow } from "../hooks/useTickingNow";
+import { useProgramTime } from "../hooks/useProgramTime";
 
 const UnfilterableProgram = () => {
   const program = useStoreState((state) => state.program);
 
   const showPastItems = useStoreState((state) => state.showPastItems);
-  const now = useTickingNow();
+  const programTime = useProgramTime();
 
-  const filtered =
-    LocalTime.isDuringCon(program, now) && !showPastItems
-      ? LocalTime.filterPastItems(program, now)
-      : program;
+  const filtered = programTime.hidePastItems(program, showPastItems);
 
   return (
     <div className="uninteractive">
       <div className="program-page">
-        <ProgramList program={filtered} now={now} />
+        <ProgramList program={filtered} programTime={programTime} />
       </div>
       <hr />
       <Info />

@@ -10,28 +10,14 @@ import Participant from "./Participant";
 import { ExpandableDetails } from "./ExpandableDetails";
 import configData from "../config.json";
 import PropTypes from "prop-types";
-import { Temporal } from "@js-temporal/polyfill";
+import { programTimePropType } from "../utils/ProgramTime";
 import { useState, useEffect, memo } from "react";
 import { LocalTime } from "../utils/LocalTime";
 import { venueForLocation } from "../utils/Venues";
 
-/**
- * Which side of "now" an item falls on.
- */
-function getRelativeTime(item, now) {
-  const nowEpochMs = now.epochMilliseconds;
-  if (nowEpochMs < item.bufferedStartEpochMs) {
-    return "before";
-  } else if (nowEpochMs < item.bufferedEndEpochMs) {
-    return "during";
-  } else {
-    return "after";
-  }
-}
-
 const ProgramItem = ({
   item,
-  now,
+  programTime,
   showLocalTime,
   show12HourTime,
   timeZoneIsShown,
@@ -112,7 +98,7 @@ const ProgramItem = ({
     configData.LINKS.forEach((link) => {
       if (item.links && item.links[link.NAME] && item.links[link.NAME].length) {
         const enabled =
-          !link.WHEN || link.WHEN.indexOf(getRelativeTime(item, now)) >= 0;
+          !link.WHEN || link.WHEN.indexOf(programTime.phaseOf(item)) >= 0;
         links.push(
           <ItemLink
             key={link.NAME}
@@ -267,16 +253,17 @@ const ProgramItem = ({
 
 ProgramItem.propTypes = {
   forceExpanded: PropTypes.bool,
-  now: PropTypes.instanceOf(Temporal.ZonedDateTime),
+  programTime: programTimePropType,
   showLocalTime: PropTypes.string,
   show12HourTime: PropTypes.bool,
   timeZoneIsShown: PropTypes.bool,
 };
 
 /**
- * `now` ticks every 10s so relative-time-gated links stay live, but on any
- * given tick almost no item's before/during/after bucket changes. Comparing
- * the bucket (rather than `now` itself) lets those items skip re-rendering.
+ * `programTime` gets a new identity when a programme time boundary is
+ * crossed, but even then almost no item's before/during/after phase
+ * changes. Comparing the phase (rather than `programTime` itself) lets
+ * those items skip re-rendering.
  */
 function areEqual(prevProps, nextProps) {
   if (prevProps.item !== nextProps.item) return false;
@@ -285,8 +272,8 @@ function areEqual(prevProps, nextProps) {
   if (prevProps.show12HourTime !== nextProps.show12HourTime) return false;
   if (prevProps.timeZoneIsShown !== nextProps.timeZoneIsShown) return false;
   return (
-    getRelativeTime(prevProps.item, prevProps.now) ===
-    getRelativeTime(nextProps.item, nextProps.now)
+    prevProps.programTime.phaseOf(prevProps.item) ===
+    nextProps.programTime.phaseOf(nextProps.item)
   );
 }
 

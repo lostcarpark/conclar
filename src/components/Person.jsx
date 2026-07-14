@@ -8,14 +8,14 @@ import PersonLinks from "./PersonLinks";
 import ProgramList from "./ProgramList";
 import Tag from "./Tag";
 import configData from "../config.json";
-import { useTickingNow } from "../hooks/useTickingNow";
+import { useProgramTime } from "../hooks/useProgramTime";
 
 const Person = () => {
   const navigate = useNavigate();
   const program = useStoreState((state) => state.program);
   const people = useStoreState((state) => state.people);
   const params = useParams();
-  const now = useTickingNow();
+  const programTime = useProgramTime();
   const person = people.find((person) => person.id.toString() === params.id);
   if (!person)
     return (
@@ -63,7 +63,7 @@ const Person = () => {
         dangerouslySetInnerHTML={{ __html: safeBio }}
       />
       <PersonLinks person={person} />
-      <ProgramList program={filteredProgram} now={now} />
+      <ProgramList program={filteredProgram} programTime={programTime} />
     </div>
   );
 };
