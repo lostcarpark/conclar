@@ -23,9 +23,6 @@ const INITIAL_CHUNK_SIZE = 10;
 
 const ProgramList = ({ program, now, forceExpanded = false }) => {
   const showLocalTime = useStoreState((state) => state.showLocalTime);
-  useEffect(() => {
-    LocalTime.storeCachedTimes();
-  });
 
   // Reveal the list in chunks instead of mounting everything at once.
   const [visibleCount, setVisibleCount] = useState(() =>
