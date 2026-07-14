@@ -443,31 +443,33 @@ const model = {
     if (state.peopleSearch.length > 0) return true;
     return false;
   }),
-  isSelected: computed((state) => {
-    return (id) => state.mySelections.find((item) => item === id) || false;
+  selectedSet: computed(
+    [(state) => state.mySelections],
+    (mySelections) => new Set(mySelections)
+  ),
+  expandedSet: computed(
+    [(state) => state.expandedItems],
+    (expandedItems) => new Set(expandedItems)
+  ),
+  isSelected: computed([(state) => state.selectedSet], (selectedSet) => {
+    return (id) => selectedSet.has(id);
   }),
-  isExpanded: computed((state) => {
-    return (id) => state.expandedItems.find((item) => item === id) || false;
+  isExpanded: computed([(state) => state.expandedSet], (expandedSet) => {
+    return (id) => expandedSet.has(id);
   }),
   noneExpanded: computed((state) => state.expandedItems.length === 0),
   allExpanded: computed((state) => {
-    // Loop through all items in progrm. If any not found in expanded list, return false.
     for (let item of state.program)
-      if (!state.expandedItems.find((id) => item.id === id)) return false;
-    // All found, so can return true.
+      if (!state.expandedSet.has(item.id)) return false;
     return true;
   }),
   allSelectedExpanded: computed((state) => {
-    // Loop through all items in progrm. If any not found in expanded list, return false.
     for (let item of state.mySelections)
-      if (!state.expandedItems.find((id) => item === id)) return false;
-    // All found, so can return true.
+      if (!state.expandedSet.has(item)) return false;
     return true;
   }),
   getMySchedule: computed((state) =>
-    state.program.filter((item) =>
-      state.mySelections.find((id) => item.id === id)
-    )
+    state.program.filter((item) => state.selectedSet.has(item.id))
   ),
 };
 
