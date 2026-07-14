@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useSpring, animated } from "react-spring";
 import useMeasure from "react-use-measure";
+import DOMPurify from "dompurify";
 import PropTypes from "prop-types";
 import configData from "../config.json";
 
@@ -17,11 +18,16 @@ export function ExpandableDetails({
   permaLink,
   people,
   tags,
-  safeDesc,
+  desc,
   links,
 }) {
   const [ref, bounds] = useMeasure();
   const [detailsVisible, setDetailsVisible] = useState(showExpanded);
+
+  const safeDesc = useMemo(
+    () => DOMPurify.sanitize(desc, configData.ITEM_DESCRIPTION.PURIFY_OPTIONS),
+    [desc]
+  );
 
   useEffect(() => {
     if (showExpanded) setDetailsVisible(true);
@@ -79,6 +85,6 @@ ExpandableDetails.propTypes = {
   permaLink: PropTypes.node,
   people: PropTypes.node,
   tags: PropTypes.node,
-  safeDesc: PropTypes.string,
+  desc: PropTypes.string,
   links: PropTypes.node,
 };
