@@ -1176,10 +1176,10 @@ div.switch-wrapper {
   margin-bottom: 0.25rem;
   max-width: 100%;
   display: flex;
-  contain: layout;
+  contain: layout style;
 }
 
-.item ~ .item {
+.item:not(:first-child) {
   border-top: 1px solid var(--gray-400);
   padding-top: 0.5rem;
 }
