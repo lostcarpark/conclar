@@ -56,7 +56,7 @@ const model = {
   personTags: [],
   info: "",
   loadError: null,
-  // Digest of the last successfully-loaded program/people/info payload, so
+  // Digest of the last successfully-loaded program/people payload, so
   // fetchProgram can tell ProgramData.fetchData whether a new fetch's
   // contents actually differ - letting it skip reprocessing (and reusing
   // the same array references) for a byte-identical background refresh.
@@ -121,6 +121,18 @@ const model = {
       }
     } finally {
       actions.setIsLoadingFalse();
+    }
+  }),
+
+  // Info-page markdown, fetched on first visit.
+  fetchInfo: thunk(async (actions, payload, { getState }) => {
+    if (getState().info !== "") {
+      return;
+    }
+    try {
+      actions.setInfo(await ProgramData.fetchInfo(true));
+    } catch (e) {
+      console.error("Failed to load info page:", e);
     }
   }),
 
@@ -213,9 +225,10 @@ const model = {
     state.locations = data.locations;
     state.tags = data.tags;
     state.personTags = data.personTags;
-    state.info = data.info;
   }),
-  setInfo: action((state, info) => state.info = info),
+  setInfo: action((state, info) => {
+    state.info = info;
+  }),
   setLastFetchFingerprint: action((state, fingerprint) => {
     state.lastFetchFingerprint = fingerprint;
   }),

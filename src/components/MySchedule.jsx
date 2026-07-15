@@ -2,7 +2,9 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import configData from "../config.json";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
-import ShareLink from "./ShareLink";
+import { lazy, Suspense } from "react";
+
+const ShareLink = lazy(() => import("./ShareLink"));
 import { LocalTime } from "../utils/LocalTime";
 import { useProgramTime } from "../hooks/useProgramTime";
 
@@ -58,7 +60,9 @@ const MySchedule = () => {
         </div>
       </div>
       <ProgramList program={filtered} programTime={programTime} />
-      <ShareLink />
+      <Suspense fallback={null}>
+        <ShareLink />
+      </Suspense>
     </div>
   );
 };

@@ -431,7 +431,20 @@ export class ProgramData {
   }
 
   /**
-   * Fetch and parse program, people, and info.
+   * Fetch the info-page markdown.
+   *
+   * @param {boolean} firstTime
+   * @returns {string}
+   */
+  static async fetchInfo(firstTime) {
+    return this.fetchText(
+      configData.INFORMATION.MARKDOWN_URL,
+      firstTime ? configData.FETCH_OPTIONS_FIRST : configData.FETCH_OPTIONS
+    );
+  }
+
+  /**
+   * Fetch and parse program and people.
    *
    * Throws on fetch or parse errors; the caller is responsible for surfacing
    * the failure to the user. Data-source configuration is validated at build
@@ -449,46 +462,34 @@ export class ProgramData {
       ? configData.FETCH_OPTIONS_FIRST
       : configData.FETCH_OPTIONS;
 
-    let program, people, info, rawParts;
+    let program, people, rawParts;
     if (configData.DATA_URLS) {
       const { COMBINED, SCHEDULE, PEOPLE } = configData.DATA_URLS;
       if (COMBINED) {
-        let raw;
-        [raw, info] = await Promise.all([
-          this.fetchText(COMBINED, fetchOptions),
-          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
-        ]);
-        rawParts = [raw, info];
+        const raw = await this.fetchText(COMBINED, fetchOptions);
+        rawParts = [raw];
         ({ program, people } = this.parseSchemaVersionedData(raw, "data"));
       } else {
-        let rawSchedule, rawPeople;
-        [rawSchedule, rawPeople, info] = await Promise.all([
+        const [rawSchedule, rawPeople] = await Promise.all([
           this.fetchText(SCHEDULE, fetchOptions),
           this.fetchText(PEOPLE, fetchOptions),
-          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
-        rawParts = [rawSchedule, rawPeople, info];
+        rawParts = [rawSchedule, rawPeople];
         program = this.parseSchemaVersionedData(rawSchedule, "schedule").program;
         people = this.parseSchemaVersionedData(rawPeople, "people").people;
       }
     } else {
       // Legacy path: always the v1 bare-array format.
       if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
-        let raw;
-        [raw, info] = await Promise.all([
-          this.fetchText(configData.PROGRAM_DATA_URL, fetchOptions),
-          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
-        ]);
-        rawParts = [raw, info];
+        const raw = await this.fetchText(configData.PROGRAM_DATA_URL, fetchOptions);
+        rawParts = [raw];
         [program, people] = JsonParse.extractJson(raw);
       } else {
-        let rawProgram, rawPeople;
-        [rawProgram, rawPeople, info] = await Promise.all([
+        const [rawProgram, rawPeople] = await Promise.all([
           this.fetchText(configData.PROGRAM_DATA_URL, fetchOptions),
           this.fetchText(configData.PEOPLE_DATA_URL, fetchOptions),
-          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
-        rawParts = [rawProgram, rawPeople, info];
+        rawParts = [rawProgram, rawPeople];
         program = JsonParse.extractJson(rawProgram)[0];
         people = JsonParse.extractJson(rawPeople)[0];
       }
@@ -504,7 +505,6 @@ export class ProgramData {
     }
 
     const data = ProgramData.processData(program, people);
-    data.info = info;
     return { fingerprint, data };
   }
 }

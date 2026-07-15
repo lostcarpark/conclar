@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -21,9 +21,10 @@ import ItemByIdList from "./ItemByIdList";
 import LocationProgramme from "./LocationProgramme";
 import People from "./People";
 import Person from "./Person";
-import Info from "./Info";
 import Settings from "./Settings";
 import Footer from "./Footer";
+
+const Info = lazy(() => import("./Info"));
 
 const AppRoutes = () => {
   const appClasses =
@@ -76,7 +77,16 @@ const AppRoutes = () => {
               <Route path=":id" element={<Loading><Person /></Loading>} />
             </Route>
             <Route path="myschedule" element={<Loading><MySchedule /></Loading>} />
-            <Route path="info" element={<Loading><Info /></Loading>} />
+            <Route
+              path="info"
+              element={
+                <Loading>
+                  <Suspense fallback={null}>
+                    <Info />
+                  </Suspense>
+                </Loading>
+              }
+            />
             <Route path="settings" element={<Settings />} />
           </Route>
           <Route path="*" element={<NotFound />} />

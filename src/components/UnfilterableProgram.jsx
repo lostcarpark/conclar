@@ -1,8 +1,9 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { useStoreState } from "easy-peasy";
 import ProgramList from "./ProgramList";
-import Info from "./Info";
 import { useProgramTime } from "../hooks/useProgramTime";
+
+const Info = lazy(() => import("./Info"));
 
 const UnfilterableProgram = () => {
   const program = useStoreState((state) => state.program);
@@ -18,7 +19,9 @@ const UnfilterableProgram = () => {
         <ProgramList program={filtered} programTime={programTime} />
       </div>
       <hr />
-      <Info />
+      <Suspense fallback={null}>
+        <Info />
+      </Suspense>
     </div>
   );
 };
