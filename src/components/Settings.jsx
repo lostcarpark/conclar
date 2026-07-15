@@ -1,7 +1,7 @@
 import configData from "../config.json";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Temporal } from "@js-temporal/polyfill";
-import TimeZoneSelect from "react-timezone-select";
+import TimeZoneSelect from "./TimeZoneSelect";
 
 const Settings = () => {
   const defaultTimeZone = Temporal.Now.timeZoneId();
@@ -35,7 +35,6 @@ const Settings = () => {
       <TimeZoneSelect
         value={selectedTimeZone}
         onChange={(e) => setSelectedTimeZone(e.value)}
-        labelStyle="abbrev"
         className="filter-container"
         classNamePrefix="filter-select"
       />

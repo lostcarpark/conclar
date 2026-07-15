@@ -15,10 +15,8 @@
     "react-router-dom": "^7.18.1",
     "react-select": "^5.10.2",
     "react-spring": "^10.0.4",
-    "react-timezone-select": "^3.3.3",
     "react-use-measure": "^2.1.7",
-    "remark-gfm": "^4.0.1",
-    "timezone-soft": "^1.5.2"
+    "remark-gfm": "^4.0.1"
   },
   "scripts": {
     "start": "vite",
