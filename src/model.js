@@ -2,6 +2,7 @@ import { action, thunk, computed } from "easy-peasy";
 import { ProgramData } from "./ProgramData";
 import { ProgramSelection } from "./ProgramSelection";
 import { LocalTime } from "./utils/LocalTime";
+import { collectBoundaries } from "./utils/ProgramTime";
 import * as SyncService from "./SyncService";
 import configData from "./config.json";
 
@@ -55,6 +56,11 @@ const model = {
   personTags: [],
   info: "",
   loadError: null,
+  // Digest of the last successfully-loaded program/people payload, so
+  // fetchProgram can tell ProgramData.fetchData whether a new fetch's
+  // contents actually differ - letting it skip reprocessing (and reusing
+  // the same array references) for a byte-identical background refresh.
+  lastFetchFingerprint: null,
   lastFetchTime: null,
   timeSinceLastFetch: null,
   helpTextDismissed: () => {
@@ -68,6 +74,11 @@ const model = {
   selectedTimeZone: LocalTime.getStoredSelectedTimeZone(),
   showPastItems: LocalTime.getStoredPastItems(),
   expandedItems: [],
+  // Whether the most recent change to expandedItems was a bulk action
+  // (expand/collapse all or selected); bulk changes snap open/shut instead
+  // of animating. Read non-reactively (getState) by items, never subscribed
+  // to, so flipping it re-renders nothing itself.
+  expandedItemsChangedInBulk: false,
   programDisplayLimit: localStorage.getItem("program_display_limit"),
   selectionStore: ProgramSelection.getSelectionStore().selections,
   mySelections: ProgramSelection.getSelectedIds(),
@@ -85,9 +96,19 @@ const model = {
   darkMode: localStorage.getItem("dark_mode") ? localStorage.getItem("dark_mode") : 'browser',
   showSyncWarning: false,
   // Thunks
-  fetchProgram: thunk(async (actions, firstTime) => {
+  fetchProgram: thunk(async (actions, firstTime, { getState }) => {
     try {
-      actions.setData(await ProgramData.fetchData(firstTime));
+      // data is null when the fetch came back byte-identical to what's
+      // already loaded - nothing to commit, but the fetch itself still
+      // succeeded.
+      const { fingerprint, data } = await ProgramData.fetchData(
+        firstTime,
+        getState().lastFetchFingerprint
+      );
+      if (data) {
+        actions.setData(data);
+        actions.setLastFetchFingerprint(fingerprint);
+      }
       actions.setLoadError(null);
       actions.resetLastFetchTime(firstTime);
       actions.updateTimeSinceLastFetch();
@@ -100,6 +121,18 @@ const model = {
       }
     } finally {
       actions.setIsLoadingFalse();
+    }
+  }),
+
+  // Info-page markdown, fetched on first visit.
+  fetchInfo: thunk(async (actions, payload, { getState }) => {
+    if (getState().info !== "") {
+      return;
+    }
+    try {
+      actions.setInfo(await ProgramData.fetchInfo(true));
+    } catch (e) {
+      console.error("Failed to load info page:", e);
     }
   }),
 
@@ -192,9 +225,13 @@ const model = {
     state.locations = data.locations;
     state.tags = data.tags;
     state.personTags = data.personTags;
-    state.info = data.info;
   }),
-  setInfo: action((state, info) => state.info = info),
+  setInfo: action((state, info) => {
+    state.info = info;
+  }),
+  setLastFetchFingerprint: action((state, fingerprint) => {
+    state.lastFetchFingerprint = fingerprint;
+  }),
   setLoadError: action((state, error) => {
     state.loadError = error;
   }),
@@ -263,34 +300,35 @@ const model = {
   // Actions for expanding program items.
   expandItem: action((state, id) => {
     state.expandedItems.push(id);
+    state.expandedItemsChangedInBulk = false;
   }),
   collapseItem: action((state, id) => {
     state.expandedItems = state.expandedItems.filter((item) => item !== id);
+    state.expandedItemsChangedInBulk = false;
   }),
   expandAll: action((state) => {
     state.expandedItems = state.program.map((item) => item.id);
+    state.expandedItemsChangedInBulk = true;
   }),
   collapseAll: action((state) => {
     state.expandedItems = [];
+    state.expandedItemsChangedInBulk = true;
   }),
   expandSelected: action((state) => {
     state.expandedItems = [...state.mySelections];
+    state.expandedItemsChangedInBulk = true;
   }),
   collapseSelected: action((state) => {
     state.expandedItems = [];
+    state.expandedItemsChangedInBulk = true;
   }),
 
   // Action for number of items displayed.
   setProgramDisplayLimit: action((state, limit) => {
-    if (limit === "all") {
+    if (limit === "all" || !isNaN(limit)) {
       localStorage.setItem("program_display_limit", limit);
       state.programDisplayLimit = limit;
     }
-    if (!isNaN(limit)) {
-      localStorage.setItem("program_display_limit", limit);
-      state.programDisplayLimit = limit;
-    }
-    // Take no action if limit is not numeric or null.
   }),
 
   // Actions for filtering program and people.
@@ -419,31 +457,36 @@ const model = {
     if (state.peopleSearch.length > 0) return true;
     return false;
   }),
-  isSelected: computed((state) => {
-    return (id) => state.mySelections.find((item) => item === id) || false;
+  timeBoundaries: computed([(state) => state.program], (program) =>
+    collectBoundaries(program)
+  ),
+  selectedSet: computed(
+    [(state) => state.mySelections],
+    (mySelections) => new Set(mySelections)
+  ),
+  expandedSet: computed(
+    [(state) => state.expandedItems],
+    (expandedItems) => new Set(expandedItems)
+  ),
+  isSelected: computed([(state) => state.selectedSet], (selectedSet) => {
+    return (id) => selectedSet.has(id);
   }),
-  isExpanded: computed((state) => {
-    return (id) => state.expandedItems.find((item) => item === id) || false;
+  isExpanded: computed([(state) => state.expandedSet], (expandedSet) => {
+    return (id) => expandedSet.has(id);
   }),
   noneExpanded: computed((state) => state.expandedItems.length === 0),
   allExpanded: computed((state) => {
-    // Loop through all items in progrm. If any not found in expanded list, return false.
     for (let item of state.program)
-      if (!state.expandedItems.find((id) => item.id === id)) return false;
-    // All found, so can return true.
+      if (!state.expandedSet.has(item.id)) return false;
     return true;
   }),
   allSelectedExpanded: computed((state) => {
-    // Loop through all items in progrm. If any not found in expanded list, return false.
     for (let item of state.mySelections)
-      if (!state.expandedItems.find((id) => item === id)) return false;
-    // All found, so can return true.
+      if (!state.expandedSet.has(item)) return false;
     return true;
   }),
   getMySchedule: computed((state) =>
-    state.program.filter((item) =>
-      state.mySelections.find((id) => item.id === id)
-    )
+    state.program.filter((item) => state.selectedSet.has(item.id))
   ),
 };
 

@@ -1,15 +1,15 @@
 import ReactSelect from "react-select";
 
-const TagSelect = ({ options, tag, selTags, setSelTags, tagData, resetLimit }) => {
+const TagSelect = ({ options, tag, selTags, setSelTags, tagData, isDisabled = false }) => {
   return (
     <ReactSelect
       placeholder={tagData.PLACEHOLDER}
       options={options}
       isMulti
+      isDisabled={isDisabled}
       isSearchable={tagData.SEARCHABLE}
       value={selTags[tag]}
       onChange={(value) => {
-        resetLimit();
         let selections = { ...selTags };
         selections[tag] = value;
         setSelTags(selections);

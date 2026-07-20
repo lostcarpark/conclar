@@ -1027,6 +1027,36 @@ div.switch-wrapper {
   padding-top: 1rem;
 }
 
+/* Shown at the bottom of the list while the progressive reveal is still
+ * mounting chunks. */
+.program-loading-more {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+.program-loading-more-spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid var(--gray-400);
+  border-top-color: currentColor;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .program-loading-more-spinner {
+    animation: program-loading-more-spin 0.8s linear infinite;
+  }
+}
+
+@keyframes program-loading-more-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .program-container {
   margin-top: 0.5rem;
   clear: both;
@@ -1146,11 +1176,29 @@ div.switch-wrapper {
   margin-bottom: 0.25rem;
   max-width: 100%;
   display: flex;
+  contain: layout style;
 }
 
-.item ~ .item {
+.item:not(:first-child) {
   border-top: 1px solid var(--gray-400);
   padding-top: 0.5rem;
+}
+
+/* Only plays on a given item's first mount - React reuses the same DOM node
+ * on re-render, so it never re-triggers. */
+@media (prefers-reduced-motion: no-preference) {
+  .item {
+    animation: item-fade-in 0.25s ease-out;
+  }
+}
+
+@keyframes item-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .item-selection {
@@ -1192,10 +1240,18 @@ div.switch-wrapper {
   font-size: 1.5rem;
   line-height: 1rem;
   overflow: auto;
+  transition: transform 0.3s ease-in-out, color 0.2s ease;
 }
 
 .item-chevron-expanded {
   color: var(--brand-700);
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item-chevron {
+    transition: none;
+  }
 }
 
 .item-title {
@@ -1315,8 +1371,15 @@ div.switch-wrapper {
 
 .item-details {
   overflow: hidden;
-  /* Give enough space for the focus ring on the header above. */
-  margin-top: 3px;
+}
+
+/* Space for the focus ring on the header above. Padding on the measured
+ * wrapper - not margin on .item-details - so the gap is part of the
+ * animated height and clips away at height 0. A margin would still occupy
+ * space while the (zero-height) details element is mounted, nudging the
+ * row taller before an expand snaps open and after a collapse snaps shut. */
+.item-details-measure {
+  padding-top: 3px;
 }
 
 /* .item-entry > .item-details.item-details-expanded {

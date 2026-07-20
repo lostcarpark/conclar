@@ -30,15 +30,9 @@ export class LocalTime {
         .toLocaleString(language, { timeZoneName: "short" })
         .split(" ")
     );
-    // Load cached times.
-    const tsCache = localStorage.getItem("time_slot_cache");
-    this.timeSlotCache = tsCache ? JSON.parse(tsCache) : {};
-    const conTimeCache = localStorage.getItem("convention_time_cache");
-    this.conventionTimeCache = conTimeCache ? JSON.parse(conTimeCache) : [];
-    const locTimeCache = localStorage.getItem(
-      "local_time_cache_" + this.localTimeZone
-    );
-    this.localTimeCache = locTimeCache ? JSON.parse(locTimeCache) : [];
+    // Cached local-time strings depend on the selected timezone, so they
+    // are dropped whenever it (re)initializes.
+    this.localTimeCache = [];
   }
 
   static get localTimeClass() {
@@ -150,33 +144,23 @@ export class LocalTime {
   }
 
   /**
-   * Get time slot for time.
+   * Get time slot for time. Slots are identified by their instant; two
+   * items starting at the same instant share a slot. The convention and
+   * local caches get *separate* entry objects - the formatters use the
+   * same cache keys (h12_no etc.), so a shared object would let whichever
+   * formatter runs first poison the other's cache.
    */
   static getTimeSlot(dateAndTime) {
-    if (this.timeSlotCache.hasOwnProperty(dateAndTime))
-      return this.timeSlotCache[dateAndTime];
+    const key = dateAndTime.epochMilliseconds;
+    if (this.timeSlotCache.hasOwnProperty(key)) {
+      return this.timeSlotCache[key];
+    }
 
     const newIndex = this.conventionTimeCache.length;
-    const newEntry = { dateAndTime: dateAndTime.toString() };
-    this.timeSlotCache[dateAndTime] = newIndex;
-    this.conventionTimeCache[newIndex] = newEntry;
-    this.localTimeCache[newIndex] = newEntry;
+    this.timeSlotCache[key] = newIndex;
+    this.conventionTimeCache[newIndex] = {};
+    this.localTimeCache[newIndex] = {};
     return newIndex;
-  }
-
-  /**
-   * Save cached times to Local Storage.
-   */
-  static storeCachedTimes() {
-    localStorage.setItem("time_slot_cache", JSON.stringify(this.timeSlotCache));
-    localStorage.setItem(
-      "convention_time_cache",
-      JSON.stringify(this.conventionTimeCache)
-    );
-    localStorage.setItem(
-      "local_time_cache_" + this.localTimeZone,
-      JSON.stringify(this.localTimeCache)
-    );
   }
 
   // Format the date as a string in user's language.
@@ -296,12 +280,7 @@ export class LocalTime {
     ampm,
     showTimeZone
   ) {
-    // Check if entry cached for timeslot. Create two dimensional array if not.
-    const cacheValue =
-      this.conventionTimeCache.indexOf(timeSlot) >= 0
-        ? this.conventionTimeCache[timeSlot]
-        : { dateAndTime: dateAndTime };
-    //console.log (cacheValue, intAmPm, showTimeZone, cacheValue.indexOf(intAmPm))
+    const cacheValue = this.conventionTimeCache[timeSlot] || {};
     const cacheKey = (ampm ? "h12_" : "h24_") + (showTimeZone ? "tz" : "no");
     if (cacheValue.hasOwnProperty(cacheKey)) {
       return cacheValue[cacheKey];
@@ -324,16 +303,7 @@ export class LocalTime {
    * @returns {string} The formatted time.
    */
   static formatTimeInLocalTimeZone(timeSlot, dateAndTime, ampm, showTimeZone) {
-    const dateAndTimeStr = dateAndTime.toString();
-    // Check if entry cached for timeslot. Create two dimensional array if not.
-    let cacheValue =
-      this.localTimeCache.indexOf(timeSlot) >= 0
-        ? this.localTimeCache[timeSlot]
-        : { dateAndTime: dateAndTimeStr };
-    // Make sure we have the correct cached item.
-    if (cacheValue.dateAndTime !== dateAndTimeStr)
-      cacheValue = { dateAndTime: dateAndTimeStr };
-    //console.log("Local time slot: ", timeSlot, dateAndTime.toString(), cacheValue);
+    const cacheValue = this.localTimeCache[timeSlot] || {};
     const cacheKey = (ampm ? "h12_" : "h24_") + (showTimeZone ? "tz" : "no");
     if (cacheValue.hasOwnProperty(cacheKey)) {
       return cacheValue[cacheKey];
@@ -395,59 +365,6 @@ export class LocalTime {
     );
   }
 
-  /**
-   * Filter out program items that have already happened.
-   *
-   * @param {Array} program
-   * @param {bool} showPastItems
-   * @returns {Array}
-   */
-  static filterPastItems(program) {
-    if (configData.SHOW_PAST_ITEMS.FROM_START) {
-      // Filter by past item state.  Quick hack to treat this as a filter.
-      const cutOff = Temporal.Now.zonedDateTimeISO("UTC").add({
-        minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
-      });
-      return program.filter((item) => {
-        return Temporal.ZonedDateTime.compare(cutOff, item.startDateAndTime) <= 0;
-      });
-    } else {
-      const cutOff = Temporal.Now.zonedDateTimeISO("UTC").subtract({
-        minutes: configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
-      });
-      return program.filter((item) => {
-        const itemNearEndTime = item.startDateAndTime.add({
-          minutes: item.hasOwnProperty("mins")
-            ? item.mins
-            : configData.SHOW_PAST_ITEMS.ADJUST_MINUTES,
-        });
-        return Temporal.ZonedDateTime.compare(cutOff, itemNearEndTime) <= 0;
-      });
-    }
-  }
-
-  /**
-   * Check if currently during the convention.
-   *
-   * @param {Array} program
-   * @returns {bool}
-   */
-  static isDuringCon(program) {
-    //First check that program is an array.
-    if (!program || !(program instanceof Array) || program.length === 0) {
-      return false;
-    }
-    const now = Temporal.Now.zonedDateTimeISO("UTC");
-    const startTime = program[0].startDateAndTime;
-    const [lastItem] = program.slice(-1);
-    const endTime = lastItem.endDateAndTime;
-    // True if between start of first item and end of last item.
-    // ToDo: consider edge case where the item with the latest end time is not the last item.
-    return (
-      Temporal.ZonedDateTime.compare(now, startTime) > 0 &&
-      Temporal.ZonedDateTime.compare(now, endTime) < 0
-    );
-  }
 }
 
 // Initialize the LocalTime class

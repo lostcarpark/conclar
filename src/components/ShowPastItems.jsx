@@ -1,15 +1,16 @@
 import { useStoreState, useStoreActions } from "easy-peasy";
+import PropTypes from "prop-types";
 import configData from "../config.json";
 import { LocalTime } from "../utils/LocalTime";
+import { programTimePropType } from "../utils/ProgramTime";
 import Switch from "./Switch";
 
-const ShowPastItems = () => {
-  const program = useStoreState((state) => state.program);
+const ShowPastItems = ({ programTime }) => {
   const showPastItems = useStoreState((state) => state.showPastItems);
   const setShowPastItems = useStoreActions(
     (actions) => actions.setShowPastItems
   );
-  return LocalTime.isDuringCon(program) &&
+  return programTime.isDuringCon() &&
     configData.SHOW_PAST_ITEMS.SHOW_CHECKBOX ? (
     <Switch
       id={LocalTime.pastItemsClass}
@@ -19,6 +20,10 @@ const ShowPastItems = () => {
   ) : (
     ""
   );
+};
+
+ShowPastItems.propTypes = {
+  programTime: programTimePropType.isRequired,
 };
 
 export default ShowPastItems;

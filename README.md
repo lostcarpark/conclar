@@ -99,7 +99,10 @@ The main place customisations go is the `src/config.json` file. Settings current
   - `VENUES.UNGROUPED_LABEL`: Label for the group heading shown above locations that aren't listed under any venue. Defaults to `"Other"`.
   - `VENUES.MAPPING`: Array of venues, each specified as: `{ "NAME": "Venue name", "LOCATIONS": ["Room name", "Another room"] }`. Venues are listed in the locations drop-down in the order given here. A location may only belong to one venue; locations not listed under any venue are shown grouped under `VENUES.UNGROUPED_LABEL`, below the venue groups. Selecting a venue's "All <venue>" option shows every programme item in any of that venue's locations.
 - `APPLICATION.LOADING.MESSAGE`: Message to display while loading.
-- `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed.
+- `PROGRAM.LOADING_MORE_MESSAGE`: Message to display at the bottom of the programme list while items are still loading in.
+- `PROGRAM.LIMIT.INFINITE_SCROLL`: If true, more items load in automatically as the user scrolls towards the bottom of the list. Overrides the limit drop-down and "Show more" button, which will not be shown.
+- `PROGRAM.LIMIT.INITIAL_PAGE_SIZE`: Number of items in the first page loaded by infinite scroll. Later page sizes adapt automatically to the device's speed.
+- `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed. Ignored when `PROGRAM.LIMIT.INFINITE_SCROLL` is true.
 - `PROGRAM.LIMIT.LABEL`: Label for limit drop-down.
 - `PROGRAM.LIMIT.OPTIONS`: Options for limit drop-down - should be an array of integers.
 - `PROGRAM.LIMIT.ALL_LABEL`: Label to show for "All" entry.

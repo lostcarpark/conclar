@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import { memo } from "react";
 import TimeSlot from "./TimeSlot";
 import { LocalTime } from "../utils/LocalTime";
-import { Temporal } from "@js-temporal/polyfill";
+import { programTimePropType } from "../utils/ProgramTime";
 
-const Day = ({ date, items, forceExpanded = false, now }) => {
+const Day = ({ date, items, forceExpanded = false, programTime }) => {
   const day = LocalTime.formatDateForLocaleAsUTC(date);
   const rows = [];
   let itemRows = [];
@@ -19,7 +20,7 @@ const Day = ({ date, items, forceExpanded = false, now }) => {
             dateAndTime={curDateAndTime}
             items={itemRows}
             forceExpanded={forceExpanded}
-            now={now}
+            programTime={programTime}
           />
         );
         itemRows = [];
@@ -36,7 +37,7 @@ const Day = ({ date, items, forceExpanded = false, now }) => {
       dateAndTime={curDateAndTime}
       items={itemRows}
       forceExpanded={forceExpanded}
-      now={now}
+      programTime={programTime}
     />
   );
 
@@ -51,7 +52,7 @@ const Day = ({ date, items, forceExpanded = false, now }) => {
 Day.propTypes = {
   items: PropTypes.array,
   forceExpanded: PropTypes.bool,
-  now: PropTypes.instanceOf(Temporal.ZonedDateTime),
+  programTime: programTimePropType,
 };
 
-export default Day;
+export default memo(Day);

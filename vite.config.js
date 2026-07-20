@@ -63,9 +63,49 @@ function injectDataPreloads() {
   };
 }
 
+/**
+ * The footer's markdown comes from config.json, so it's known at build
+ * time. Rendering it to HTML here (micromark is already in node_modules
+ * as react-markdown's core) keeps the markdown-rendering packages out of
+ * the eager bundle entirely - at runtime they're only in the lazy chunk
+ * for the info page. micromark escapes raw HTML by default, so the
+ * output is safe for dangerouslySetInnerHTML.
+ */
+function prerenderFooterPlugin() {
+  const virtualId = "virtual:footer-html";
+  const resolvedId = "\0" + virtualId;
+  return {
+    name: "prerender-footer-markdown",
+    resolveId(id) {
+      if (id === virtualId) {
+        return resolvedId;
+      }
+    },
+    async load(id) {
+      if (id !== resolvedId) {
+        return;
+      }
+      // Dynamic import: micromark is ESM-only and this config is CJS.
+      const { micromark } = await import("micromark");
+      const footer = JSON.parse(fs.readFileSync(configPath, "utf-8")).FOOTER;
+      const html = {
+        site: micromark(footer.SITE_NOTE_MARKDOWN),
+        copyright: micromark(footer.COPYRIGHT_MARKDOWN),
+        conclar: micromark(footer.CONCLAR_NOTE_MARKDOWN),
+      };
+      return `export default ${JSON.stringify(html)};`;
+    },
+  };
+}
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), validateConfigPlugin(), injectDataPreloads()],
+  plugins: [
+    react(),
+    validateConfigPlugin(),
+    injectDataPreloads(),
+    prerenderFooterPlugin(),
+  ],
   server: {
     port: 3000,
     open: true,
@@ -83,25 +123,6 @@ export default defineConfig({
       },
     },
     cssCodeSplit: false,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          // Bundle all node_modules into a single vendor chunk
-          // This reduces HTTP requests for short-lived convention deployments
-          // where dependencies won't change but app code might get bug fixes
-          if (id.includes("node_modules")) {
-            return "vendor";
-          }
-        },
-      },
-    },
-    // We are intentionally bundling all the vendor code together. This is
-    // because it is very unlikely we change dependencies once we've deployed
-    // because of the short-lived nature of the conventions.
-    // Hence, having a single vendor bundle reduces the number of HTTP requests
-    // needed to load the app.
-    // But this does mean we can end up with a large vendor.js file, so increase
-    // the warning limit.
     chunkSizeWarningLimit: 1000,
   },
 });

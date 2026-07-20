@@ -16,6 +16,21 @@ export class ProgramData {
     /(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(\.\d{3})?(Z)?([+-]\d{2}:\d{2})?/;
 
   /**
+   * Hash of the given strings, joined with a separator very unlikely to
+   * appear in real content (to avoid boundary-concatenation false matches).
+   *
+   * @param {string[]} parts
+   * @returns {Promise<string>} Hex-encoded SHA-256 digest.
+   */
+  static async fingerprint(parts) {
+    const bytes = new TextEncoder().encode(parts.join("\u0000"));
+    const digest = await crypto.subtle.digest("SHA-256", bytes);
+    return Array.from(new Uint8Array(digest))
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  /**
    * Process a program item and return the date and time as a ZonedDateTime.
    *
    * @param {object} item
@@ -66,10 +81,15 @@ export class ProgramData {
     program.map((item) => {
       const startTime = this.processDateAndTime(item);
       item.startDateAndTime = startTime.withTimeZone(utcTimeZone);
-      item.bufferedStartDateAndTime = item.startDateAndTime.subtract({ minutes: 20});
       item.endDateAndTime = item.startDateAndTime.add({ minutes: item.mins ? item.mins : 0});
-      item.bufferedEndDateAndTime = item.endDateAndTime.add({ minutes: 10});
       item.timeSlot = LocalTime.getTimeSlot(item.startDateAndTime);
+      // Which convention day the item belongs to. Precomputed because the
+      // timezone-aware rounding is far too expensive to run per item per
+      // render when grouping the programme into days.
+      item.dayKey = item.startDateAndTime
+        .withTimeZone(LocalTime.conventionTimeZone)
+        .round({ smallestUnit: "day", roundingMode: "floor" })
+        .toString();
       return item;
     });
     program.sort((a, b) => {
@@ -114,14 +134,13 @@ export class ProgramData {
    * @param {array} people
    */
   static addProgramParticipantDetails(program, people) {
+    const peopleById = new Map(people.map((person) => [person.id, person]));
     // Add extra participant info to program participants.
     for (let item of program) {
       if (item.people) {
         // Loop through people backwards, so we don't miss anyone if entries are removed.
         for (let index = item.people.length - 1; index >= 0; index--) {
-          let fullPerson = people.find(
-            (fullPerson) => fullPerson.id === item.people[index].id
-          );
+          let fullPerson = peopleById.get(item.people[index].id);
           if (!fullPerson) {
             item.people.splice(index, 1);
           }
@@ -412,63 +431,80 @@ export class ProgramData {
   }
 
   /**
-   * Fetch and parse program, people, and info.
+   * Fetch the info-page markdown.
+   *
+   * @param {boolean} firstTime
+   * @returns {string}
+   */
+  static async fetchInfo(firstTime) {
+    return this.fetchText(
+      configData.INFORMATION.MARKDOWN_URL,
+      firstTime ? configData.FETCH_OPTIONS_FIRST : configData.FETCH_OPTIONS
+    );
+  }
+
+  /**
+   * Fetch and parse program and people.
    *
    * Throws on fetch or parse errors; the caller is responsible for surfacing
    * the failure to the user. Data-source configuration is validated at build
    * time (see vite.config.js), so config.json is assumed valid here.
    *
-   * @returns {object}
+   * @param {boolean} firstTime
+   * @param {string} [previousFingerprint] Fingerprint of the previously
+   *   fetched payload (see fingerprint()).
+   * @returns {{fingerprint: string, data: object|null}} `data` is null when
+   *   the fetched payload is unchanged from the previous fetch.
    */
-  static async fetchData(firstTime) {
+  static async fetchData(firstTime, previousFingerprint) {
     console.log("Fetching:", firstTime ? "First time" : "Refreshing");
     const fetchOptions = firstTime
       ? configData.FETCH_OPTIONS_FIRST
       : configData.FETCH_OPTIONS;
 
-    let program, people, info;
+    let program, people, rawParts;
     if (configData.DATA_URLS) {
       const { COMBINED, SCHEDULE, PEOPLE } = configData.DATA_URLS;
       if (COMBINED) {
-        let raw;
-        [raw, info] = await Promise.all([
-          this.fetchText(COMBINED, fetchOptions),
-          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
-        ]);
+        const raw = await this.fetchText(COMBINED, fetchOptions);
+        rawParts = [raw];
         ({ program, people } = this.parseSchemaVersionedData(raw, "data"));
       } else {
-        let rawSchedule, rawPeople;
-        [rawSchedule, rawPeople, info] = await Promise.all([
+        const [rawSchedule, rawPeople] = await Promise.all([
           this.fetchText(SCHEDULE, fetchOptions),
           this.fetchText(PEOPLE, fetchOptions),
-          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
+        rawParts = [rawSchedule, rawPeople];
         program = this.parseSchemaVersionedData(rawSchedule, "schedule").program;
         people = this.parseSchemaVersionedData(rawPeople, "people").people;
       }
     } else {
       // Legacy path: always the v1 bare-array format.
       if (configData.PROGRAM_DATA_URL === configData.PEOPLE_DATA_URL) {
-        let raw;
-        [raw, info] = await Promise.all([
-          this.fetchText(configData.PROGRAM_DATA_URL, fetchOptions),
-          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
-        ]);
+        const raw = await this.fetchText(configData.PROGRAM_DATA_URL, fetchOptions);
+        rawParts = [raw];
         [program, people] = JsonParse.extractJson(raw);
       } else {
-        let rawProgram, rawPeople;
-        [rawProgram, rawPeople, info] = await Promise.all([
+        const [rawProgram, rawPeople] = await Promise.all([
           this.fetchText(configData.PROGRAM_DATA_URL, fetchOptions),
           this.fetchText(configData.PEOPLE_DATA_URL, fetchOptions),
-          this.fetchText(configData.INFORMATION.MARKDOWN_URL, fetchOptions),
         ]);
+        rawParts = [rawProgram, rawPeople];
         program = JsonParse.extractJson(rawProgram)[0];
         people = JsonParse.extractJson(rawPeople)[0];
       }
     }
 
+    // A background refresh commonly comes back byte-identical to what's
+    // already loaded. Returning early keeps the previously processed arrays
+    // (and their references) in place, so reprocessing and downstream
+    // re-rendering are skipped for data that hasn't actually changed.
+    const fingerprint = await ProgramData.fingerprint(rawParts);
+    if (fingerprint === previousFingerprint) {
+      return { fingerprint, data: null };
+    }
+
     const data = ProgramData.processData(program, people);
-    data.info = info;
-    return data;
+    return { fingerprint, data };
   }
 }

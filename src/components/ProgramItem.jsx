@@ -1,8 +1,5 @@
-import DOMPurify from "dompurify";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { useStore, useStoreState, useStoreActions } from "easy-peasy";
 import { Link } from "react-router-dom";
-import useMeasure from "react-use-measure";
-import { useSpring, animated } from "react-spring";
 import { IoChevronDownCircle } from "react-icons/io5";
 import { HiLink } from "react-icons/hi";
 import { FaStar, FaRegStar } from "react-icons/fa";
@@ -10,29 +7,34 @@ import ItemLink from "./ItemLink";
 import Location from "./Location";
 import Tag from "./Tag";
 import Participant from "./Participant";
+import { ExpandableDetails } from "./ExpandableDetails";
 import configData from "../config.json";
 import PropTypes from "prop-types";
-import { Temporal } from "@js-temporal/polyfill";
-import { useState, useEffect } from "react";
+import { programTimePropType } from "../utils/ProgramTime";
+import { useState, useEffect, memo } from "react";
 import { LocalTime } from "../utils/LocalTime";
 import { venueForLocation } from "../utils/Venues";
 
-const ProgramItem = ({ item, forceExpanded = false, now }) => {
-  const showLocalTime = useStoreState((state) => state.showLocalTime);
-  const show12HourTime = useStoreState((state) => state.show12HourTime);
-  const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
-
+const ProgramItem = ({
+  item,
+  programTime,
+  showLocalTime,
+  show12HourTime,
+  timeZoneIsShown,
+  forceExpanded = false,
+}) => {
   const selected = useStoreState((state) => state.isSelected(item.id));
-  const { addSelection, removeSelection } = useStoreActions((actions) => ({
-    addSelection: actions.addSelectionAndSync,
-    removeSelection: actions.removeSelectionAndSync,
-  }));
+  const addSelection = useStoreActions((actions) => actions.addSelectionAndSync);
+  const removeSelection = useStoreActions((actions) => actions.removeSelectionAndSync);
 
   const expanded = useStoreState((state) => state.isExpanded(item.id));
-  const { expandItem, collapseItem } = useStoreActions((actions) => ({
-    expandItem: actions.expandItem,
-    collapseItem: actions.collapseItem,
-  }));
+  const expandItem = useStoreActions((actions) => actions.expandItem);
+  const collapseItem = useStoreActions((actions) => actions.collapseItem);
+  // Read at render time, not subscribed: an item only needs the flag's
+  // value when its own expanded state just changed (which already
+  // re-rendered it). Subscribing would re-render every item whenever the
+  // flag flips between bulk and individual.
+  const snapExpansion = useStore().getState().expandedItemsChangedInBulk;
 
   function toggleExpanded() {
     if (configData.INTERACTIVE) {
@@ -46,20 +48,6 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
   function handleSelected(event) {
     if (event.target.checked) addSelection(item.id);
     else removeSelection(item.id);
-  }
-
-  function getRelativeTime(item) {
-    if (
-      Temporal.ZonedDateTime.compare(now, item.bufferedStartDateAndTime) < 0
-    ) {
-      return "before";
-    } else if (
-      Temporal.ZonedDateTime.compare(now, item.bufferedEndDateAndTime) < 0
-    ) {
-      return "during";
-    } else {
-      return "after";
-    }
   }
 
   let id = "item_" + item.id;
@@ -105,17 +93,12 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
       );
     });
   }
-  const safeDesc = DOMPurify.sanitize(
-    item.desc,
-    configData.ITEM_DESCRIPTION.PURIFY_OPTIONS
-  );
-
   const links = [];
   if (configData.LINKS) {
     configData.LINKS.forEach((link) => {
       if (item.links && item.links[link.NAME] && item.links[link.NAME].length) {
         const enabled =
-          !link.WHEN || link.WHEN.indexOf(getRelativeTime(item)) >= 0;
+          !link.WHEN || link.WHEN.indexOf(programTime.phaseOf(item)) >= 0;
         links.push(
           <ItemLink
             key={link.NAME}
@@ -183,40 +166,30 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
     );
   }
 
-  const [ref, bounds] = useMeasure();
   const showExpanded = !configData.INTERACTIVE || expanded || forceExpanded;
-  const [detailsVisible, setDetailsVisible] = useState(showExpanded);
 
+  // Mounting the details is a one-way latch: once mounted it stays mounted,
+  // so the spring keeps its state across repeated expand/collapse.
+  // pointerdown/focus fire before the click that actually toggles expansion,
+  // so the spring exists with a "collapsed" baseline before the first real
+  // transition - without this, the very first expand of any item would snap
+  // instead of animate. (See ExpandableDetails for why it isn't simply
+  // always mounted.)
+  const [animationReady, setAnimationReady] = useState(showExpanded);
   useEffect(() => {
-    if (showExpanded) setDetailsVisible(true);
+    if (showExpanded) setAnimationReady(true);
   }, [showExpanded]);
-
-  const chevronExpandedClass = showExpanded ? " item-chevron-expanded" : "";
-  const chevronExpandedStyle = useSpring({
-    transform: showExpanded ? "rotate(180deg)" : "rotate(0deg)",
-  });
-  const itemExpandedStyle = useSpring({
-    height: showExpanded ? bounds.height : 0,
-    display: "block",
-    config: {
-      tension: 300,
-      friction: 15,
-      clamp: true, 
-      ...configData.EXPAND.SPRING_CONFIG
-    },
-    onRest: () => {
-      if (!showExpanded) setDetailsVisible(false);
-    },
-  });
+  function warmUpAnimation() {
+    setAnimationReady(true);
+  }
 
   const chevron =
     configData.INTERACTIVE && !forceExpanded ? (
-      <animated.div
-        className={"item-chevron" + chevronExpandedClass}
-        style={chevronExpandedStyle}
+      <div
+        className={"item-chevron" + (showExpanded ? " item-chevron-expanded" : "")}
       >
         <IoChevronDownCircle />
-      </animated.div>
+      </div>
     ) : (
       ""
     );
@@ -248,6 +221,8 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
           className="item-header"
           aria-expanded={showExpanded}
           aria-controls={"details-" + id}
+          onPointerDown={warmUpAnimation}
+          onFocus={warmUpAnimation}
         >
           <h3 className="item-title">
             {item.title}
@@ -259,27 +234,17 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
             {duration}
           </div>
         </button>
-        {detailsVisible && (
-          <animated.div
-            className="item-details"
-            style={itemExpandedStyle}
-            id={"details-" + id}
-            role="region"
-            aria-labelledby={"header-" + id}
-          >
-            <div className="item-details-expanded" ref={ref}>
-              {permaLink}
-              <div className="item-people">
-                <ul>{people}</ul>
-              </div>
-              <div className="item-tags">{tags}</div>
-              <div
-                className="item-description"
-                dangerouslySetInnerHTML={{ __html: safeDesc }}
-              />
-              <div className="item-links">{links}</div>
-            </div>
-          </animated.div>
+        {animationReady && (
+          <ExpandableDetails
+            id={id}
+            showExpanded={showExpanded}
+            snap={snapExpansion}
+            permaLink={permaLink}
+            people={people}
+            tags={tags}
+            desc={item.desc}
+            links={links}
+          />
         )}
       </div>
     </div>
@@ -288,7 +253,28 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
 
 ProgramItem.propTypes = {
   forceExpanded: PropTypes.bool,
-  now: PropTypes.instanceOf(Temporal.ZonedDateTime),
+  programTime: programTimePropType,
+  showLocalTime: PropTypes.string,
+  show12HourTime: PropTypes.bool,
+  timeZoneIsShown: PropTypes.bool,
 };
 
-export default ProgramItem;
+/**
+ * `programTime` gets a new identity when a programme time boundary is
+ * crossed, but even then almost no item's before/during/after phase
+ * changes. Comparing the phase (rather than `programTime` itself) lets
+ * those items skip re-rendering.
+ */
+function areEqual(prevProps, nextProps) {
+  if (prevProps.item !== nextProps.item) return false;
+  if (prevProps.forceExpanded !== nextProps.forceExpanded) return false;
+  if (prevProps.showLocalTime !== nextProps.showLocalTime) return false;
+  if (prevProps.show12HourTime !== nextProps.show12HourTime) return false;
+  if (prevProps.timeZoneIsShown !== nextProps.timeZoneIsShown) return false;
+  return (
+    prevProps.programTime.phaseOf(prevProps.item) ===
+    nextProps.programTime.phaseOf(nextProps.item)
+  );
+}
+
+export default memo(ProgramItem, areEqual);

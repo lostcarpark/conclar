@@ -59,7 +59,10 @@
     }
   },
   "PROGRAM": {
+    "LOADING_MORE_MESSAGE": "Loading more items…",
     "LIMIT": {
+      "INFINITE_SCROLL": true,
+      "INITIAL_PAGE_SIZE": 50,
       "SHOW": true,
       "LABEL": "Maximum items displayed",
       "OPTIONS": [50, 100, 250, 500, 1000],

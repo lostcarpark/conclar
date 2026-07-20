@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -21,9 +21,10 @@ import ItemByIdList from "./ItemByIdList";
 import LocationProgramme from "./LocationProgramme";
 import People from "./People";
 import Person from "./Person";
-import Info from "./Info";
 import Settings from "./Settings";
 import Footer from "./Footer";
+
+const Info = lazy(() => import("./Info"));
 
 const AppRoutes = () => {
   const appClasses =
@@ -61,25 +62,35 @@ const AppRoutes = () => {
       <Sidebar />
       <div className="main-column">
         <HelpText />
-        <Loading>
-          <Routes>
-            <Route path="/">
-              <Route index element={<FilterableProgram />} />
-              <Route path="/index.html" element={<FilterableProgram />} />
-              <Route path="id/:id" element={<ItemById />} />
-              <Route path="ids/:idList" element={<ItemByIdList />} />
-              <Route path="loc/:locList" element={<LocationProgramme />} />
-              <Route path="people">
-                <Route index element={<People />} />
-                <Route path=":id" element={<Person />} />
-              </Route>
-              <Route path="myschedule" element={<MySchedule />} />
-              <Route path="info" element={<Info />} />
-              <Route path="settings" element={<Settings />} />
+        <Routes>
+          <Route path="/">
+            {/* FilterableProgram manages its own loading state so the filter
+                bar can appear immediately (disabled placeholders) instead of
+                waiting behind the generic loading spinner. */}
+            <Route index element={<FilterableProgram />} />
+            <Route path="/index.html" element={<FilterableProgram />} />
+            <Route path="id/:id" element={<Loading><ItemById /></Loading>} />
+            <Route path="ids/:idList" element={<Loading><ItemByIdList /></Loading>} />
+            <Route path="loc/:locList" element={<Loading><LocationProgramme /></Loading>} />
+            <Route path="people">
+              <Route index element={<Loading><People /></Loading>} />
+              <Route path=":id" element={<Loading><Person /></Loading>} />
             </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Loading>
+            <Route path="myschedule" element={<Loading><MySchedule /></Loading>} />
+            <Route
+              path="info"
+              element={
+                <Loading>
+                  <Suspense fallback={null}>
+                    <Info />
+                  </Suspense>
+                </Loading>
+              }
+            />
+            <Route path="settings" element={<Settings />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
       {isSyncEnabled() && (
         <InfoPopup

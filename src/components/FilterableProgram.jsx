@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect, useDeferredValue } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactSelect from "react-select";
 import { useStoreState, useStoreActions } from "easy-peasy";
@@ -8,11 +8,124 @@ import TagSelectors from "./TagSelectors";
 import ResetButton from "./ResetButton";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
+import LoadError from "./LoadError";
 import { LocalTime } from "../utils/LocalTime";
 import { buildLocationOptions, locationMatchesSelection } from "../utils/Venues";
+import { useProgramTime } from "../hooks/useProgramTime";
+import { INFINITE_SCROLL } from "../utils/AdaptivePageSize";
+
+// The drop-down and "Show more" flow needs a default limit even when a
+// deployed config.json predates the LIMIT block.
+const DEFAULT_DISPLAY_LIMIT = configData.PROGRAM.LIMIT?.DEFAULT ?? 100;
+
+/**
+ * Apply hide before time filter.
+ * @param {array} program Program to filter.
+ * @param {string} minDay Earliest selected day.
+ * @param {string} hideBefore Time of day to hide items before.
+ * @returns {array} The program with items before start removed.
+ */
+function filterHideBefore(program, minDay, hideBefore) {
+  const beforeDate = Temporal.ZonedDateTime.from(
+    minDay + "T" + hideBefore + "[" + configData.TIMEZONE + "]"
+  );
+  return program.filter(
+    (item) =>
+      Temporal.ZonedDateTime.compare(beforeDate, item.startDateAndTime) <= 0
+  );
+}
+
+/**
+ * Apply filters to the program array.
+ * @param {array} program Array of program items.
+ * @param {object} filters Current filter selections.
+ * @returns {array} The filtered array.
+ */
+function applyFilters(program, { search, selLoc, selTags, showPastItems, hideBefore, tags, programTime }) {
+  const term = search.trim().toLowerCase();
+
+  // If no filters, return full program;
+  if (term.length === 0 && selLoc.length === 0 && selTags === 0)
+    return program;
+
+  let filtered = program;
+
+  // Filter by search term.
+  if (term.length) {
+    filtered = filtered.filter((item) => {
+      if (item.title && item.title.toLowerCase().includes(term)) return true;
+      if (item.desc && item.desc.toLowerCase().includes(term)) return true;
+      if (item.people) {
+        for (const person of item.people) {
+          if (person.name && person.name.toLowerCase().includes(term))
+            return true;
+        }
+      }
+      return false;
+    });
+  }
+  // Filter by location
+  if (selLoc.length) {
+    filtered = filtered.filter((item) => {
+      for (const location of item.loc) {
+        for (const selected of selLoc) {
+          if (locationMatchesSelection(location, selected.value, configData)) return true;
+        }
+      }
+      return false;
+    });
+  }
+  // Filter by each tag dropdown.
+  for (const tagType in selTags) {
+    if (selTags[tagType].length) {
+      filtered = filtered.filter((item) => {
+        for (const tag of item.tags) {
+          for (const selected of selTags[tagType]) {
+            if (selected.value === tag.value) return true;
+          }
+        }
+        return false;
+      });
+    }
+  }
+  filtered = programTime.hidePastItems(filtered, showPastItems);
+  if (!configData.HIDE_BEFORE.HIDE && hideBefore) {
+    if (
+      "days" in selTags &&
+      Array.isArray(selTags.days) &&
+      selTags.days.length > 0
+    ) {
+      // if days selected, take start time for first selected day.
+      const minDay = selTags.days.reduce(
+        (acc, curr) => (curr.value < acc ? curr.value : acc),
+        selTags.days[0].value
+      );
+      filtered = filterHideBefore(filtered, minDay, hideBefore);
+    } else if (filtered[0] && "tags" in filtered[0]) {
+      // If days tag present on items get date of first programme item.
+      const tag = filtered[0].tags.find((item) => item.category === "days");
+      if (tag && "value" in tag) {
+        const minDay = tag.value;
+        filtered = filterHideBefore(filtered, minDay, hideBefore);
+      }
+    } else {
+      // As backup get date from drop-down items.
+      const labelledDays = tags.days.filter((item) => typeof item.label !== "undefined");
+      const minDay = labelledDays.reduce(
+        (acc, curr) => (curr.value < acc ? curr.value : acc),
+        labelledDays[0].value
+      );
+      filtered = filterHideBefore(filtered, minDay, hideBefore);
+    }
+  }
+  return filtered;
+}
 
 const FilterableProgram = () => {
   const navigate = useNavigate();
+
+  const isLoading = useStoreState((state) => state.isLoading);
+  const loadError = useStoreState((state) => state.loadError);
 
   const program = useStoreState((state) => state.program);
   const locations = useStoreState((state) => state.locations);
@@ -53,158 +166,64 @@ const FilterableProgram = () => {
   const setProgramDisplayLimit = useStoreActions(
     (actions) => actions.setProgramDisplayLimit
   );
-  // Current display limit, changes when user presses "show more". Resets whenever filters change.
-  const [displayLimit, setDisplayLimit] = useState(
+  // The user's selected limit as a number ("all" and other non-numeric
+  // selections parse to NaN, which every comparison treats as unlimited).
+  const selectedLimit = () =>
     parseInt(
-      programDisplayLimit === null
-        ? configData.PROGRAM.LIMIT.DEFAULT
-        : programDisplayLimit
-    )
-  );
+      programDisplayLimit === null ? DEFAULT_DISPLAY_LIMIT : programDisplayLimit
+    );
+  // Current display limit, changes when user presses "show more". Resets whenever filters change.
+  const [displayLimit, setDisplayLimit] = useState(selectedLimit);
 
-  const filtered = applyFilters(program);
+  const programTime = useProgramTime();
+
+  const deferredSearch = useDeferredValue(search);
+  const filtered = useMemo(
+    () =>
+      applyFilters(program, {
+        search: deferredSearch,
+        selLoc,
+        selTags,
+        showPastItems,
+        hideBefore,
+        tags,
+        programTime,
+      }),
+    [program, deferredSearch, selLoc, selTags, showPastItems, hideBefore, tags, programTime]
+  );
   const total = filtered.length;
   const totalMessage =
-    displayLimit !== "all" && displayLimit < total
+    !INFINITE_SCROLL && displayLimit < total
       ? `Listing ${displayLimit} of ${total} items`
       : `Listing ${total} items`;
-  const display =
-    configData.PROGRAM.LIMIT.SHOW && !isNaN(displayLimit)
-      ? filtered.slice(0, displayLimit)
-      : filtered;
+  // Memoized so ProgramList only sees a new `program` reference when the
+  // visible items actually change - otherwise unrelated re-renders (the
+  // ticking clock, etc.) would hand it a fresh array each time, defeating
+  // the memoization inside it. Under infinite scroll ProgramList paces the
+  // mounting itself, so it gets the whole filtered list.
+  const display = useMemo(
+    () =>
+      !INFINITE_SCROLL && configData.PROGRAM.LIMIT.SHOW && !isNaN(displayLimit)
+        ? filtered.slice(0, displayLimit)
+        : filtered,
+    [filtered, displayLimit]
+  );
 
-  /**
-   * When filters change, set the display limit back to the selection.
-   */
-  function resetDisplayLimit() {
-    setDisplayLimit(
-      parseInt(
-        programDisplayLimit === null
-          ? configData.PROGRAM.LIMIT.DEFAULT
-          : programDisplayLimit
-      )
-    );
-  }
-
-  /**
-   * When reset filters pressed, reset the display limit and the program filters.
-   */
-  function resetLimitsAndFilters() {
-    resetDisplayLimit();
-    resetProgramFilters();
-  }
-
-  /**
-   * Apply hide before time filter.
-   * @param {array} program Program to filter.
-   * @param {array} days Days to choose earliest from.
-   * @returns {array} The program with items before start removed.
-   */
-  function filterHideBefore(program, minDay) {
-    const beforeDate = Temporal.ZonedDateTime.from(
-      minDay + "T" + hideBefore + "[" + configData.TIMEZONE + "]"
-    );
-    return program.filter(
-      (item) =>
-        Temporal.ZonedDateTime.compare(beforeDate, item.startDateAndTime) <= 0
-    );
-  }
-
-  /**
-   * Apply filters to the program array.
-   * @param {array} program Array of program items.
-   * @returns {array} The filtered array.
-   */
-  function applyFilters(program) {
-    const term = search.trim().toLowerCase();
-
-    // If no filters, return full program;
-    if (term.length === 0 && selLoc.length === 0 && selTags === 0)
-      return program;
-
-    let filtered = program;
-
-    // Filter by search term.
-    if (term.length) {
-      filtered = filtered.filter((item) => {
-        if (item.title && item.title.toLowerCase().includes(term)) return true;
-        if (item.desc && item.desc.toLowerCase().includes(term)) return true;
-        if (item.people) {
-          for (const person of item.people) {
-            if (person.name && person.name.toLowerCase().includes(term))
-              return true;
-          }
-        }
-        return false;
-      });
-    }
-    // Filter by location
-    if (selLoc.length) {
-      filtered = filtered.filter((item) => {
-        for (const location of item.loc) {
-          for (const selected of selLoc) {
-            if (locationMatchesSelection(location, selected.value, configData)) return true;
-          }
-        }
-        return false;
-      });
-    }
-    // Filter by each tag dropdown.
-    for (const tagType in selTags) {
-      if (selTags[tagType].length) {
-        filtered = filtered.filter((item) => {
-          for (const tag of item.tags) {
-            for (const selected of selTags[tagType]) {
-              if (selected.value === tag.value) return true;
-            }
-          }
-          return false;
-        });
-      }
-    }
-    if (LocalTime.isDuringCon(program) && !showPastItems) {
-      filtered = LocalTime.filterPastItems(filtered);
-    }
-    if (!configData.HIDE_BEFORE.HIDE && hideBefore) {
-      if (
-        "days" in selTags &&
-        Array.isArray(selTags.days) &&
-        selTags.days.length > 0
-      ) {
-        // if days selected, take start time for first selected day.
-        const minDay = selTags.days.reduce(
-          (acc, curr) => (curr.value < acc ? curr.value : acc),
-          selTags.days[0].value
-        );
-        filtered = filterHideBefore(filtered, minDay);
-      } else if (filtered[0] && "tags" in filtered[0]) {
-        // If days tag present on items get date of first programme item.
-        const tag = filtered[0].tags.find((item) => item.category === "days");
-        if (tag && "value" in tag) {
-          const minDay = tag.value;
-          filtered = filterHideBefore(filtered, minDay);
-        }
-      } else {
-        // As backup get date from drop-down items.
-        const labelledDays = tags.days.filter((item) => typeof item.label !== "undefined");
-        const minDay = labelledDays.reduce(
-          (acc, curr) => (curr.value < acc ? curr.value : acc),
-          labelledDays[0].value
-        );
-        filtered = filterHideBefore(filtered, minDay);
-      }
-    }
-    return filtered;
-  }
+  // Any filter change - including via the reset button or the location URL
+  // route - puts the display limit back to the selection.
+  useEffect(() => {
+    setDisplayLimit(selectedLimit());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search, selLoc, selTags, hideBefore]);
 
   function limitDropDown() {
-    function displayLimit(limit) {
-      if (limit === null) return configData.PROGRAM.LIMIT.DEFAULT;
+    function normalizeLimit(limit) {
+      if (limit === null) return DEFAULT_DISPLAY_LIMIT;
       if (limit === "all") return limit;
-      if (isNaN(limit)) return configData.PROGRAM.LIMIT.DEFAULT;
+      if (isNaN(limit)) return DEFAULT_DISPLAY_LIMIT;
       return limit;
     }
-    if (configData.PROGRAM.LIMIT.SHOW) {
+    if (!INFINITE_SCROLL && configData.PROGRAM.LIMIT.SHOW) {
       const options = configData.PROGRAM.LIMIT.OPTIONS.map((item) => (
         <option key={item} value={item}>
           {item}
@@ -223,7 +242,8 @@ const FilterableProgram = () => {
           <select
             id="display_limit"
             name="display_limit"
-            value={displayLimit(programDisplayLimit)}
+            value={normalizeLimit(programDisplayLimit)}
+            disabled={isLoading}
             onChange={(e) => {
               setProgramDisplayLimit(e.target.value);
               setDisplayLimit(parseInt(e.target.value));
@@ -276,8 +296,8 @@ const FilterableProgram = () => {
         id="hide-before"
         placeholder={configData.HIDE_BEFORE.PLACEHOLDER}
         value={hideBefore}
+        disabled={isLoading}
         onChange={(e) => {
-          resetDisplayLimit();
           setHideBefore(e.target.value);
         }}
       >
@@ -285,6 +305,8 @@ const FilterableProgram = () => {
       </select>
     </div>
   );
+
+  if (loadError) return <LoadError />;
 
   return (
     <div>
@@ -295,11 +317,10 @@ const FilterableProgram = () => {
               placeholder="Select locations"
               options={buildLocationOptions(locations, configData)}
               isMulti
+              isDisabled={isLoading}
               isSearchable={configData.LOCATIONS.SEARCHABLE}
               value={selLoc}
               onChange={(value) => {
-                console.log(value);
-                resetDisplayLimit();
                 setSelLoc(value);
                 if (value.length) {
                   const locList = value.map((location) => encodeURIComponent(location.value)).join('~');
@@ -317,8 +338,8 @@ const FilterableProgram = () => {
             tags={tags}
             selTags={selTags}
             setSelTags={setSelTags}
+            isLoading={isLoading}
             tagConfig={configData.TAGS}
-            resetLimit={resetDisplayLimit}
           />
           {hideBeforeSelect}
           <div className="filter-search">
@@ -328,8 +349,8 @@ const FilterableProgram = () => {
               type="search"
               placeholder={configData.PROGRAM.SEARCH.SEARCH_LABEL}
               value={search}
+              disabled={isLoading}
               onChange={(e) => {
-                resetDisplayLimit();
                 setSearch(e.target.value);
               }}
             />
@@ -338,36 +359,56 @@ const FilterableProgram = () => {
         <div className="reset-filters">
           <ResetButton
             isFiltered={programIsFiltered}
-            resetFilters={resetLimitsAndFilters}
+            resetFilters={resetProgramFilters}
           />
         </div>
         {limitDropDown()}
         <div className="result-filters">
           <div className="stack">
-            <div className="filter-total">{totalMessage}</div>
+            <div className="filter-total">
+              {isLoading ? configData.APPLICATION.LOADING.MESSAGE : totalMessage}
+            </div>
             <div className="filter-expand">
-              <button disabled={allExpanded} onClick={expandAll}>
+              <button disabled={isLoading || allExpanded} onClick={expandAll}>
                 {configData.EXPAND.EXPAND_ALL_LABEL}
               </button>
-              <button disabled={noneExpanded} onClick={collapseAll}>
+              <button disabled={isLoading || noneExpanded} onClick={collapseAll}>
                 {configData.EXPAND.COLLAPSE_ALL_LABEL}
               </button>
             </div>
           </div>
           <div className="filter-options">
-            <ShowPastItems />
+            <ShowPastItems programTime={programTime} />
           </div>
         </div>
       </div>
-      <div className="program-page">
-        <ProgramList program={display} />
-      </div>
-      <div className="result-filters">
-        <div className="stack">
-          <div className="filter-total">{totalMessage}</div>
+      {isLoading ? (
+        <div className="program-page">
+          <div className="program-container">
+            <div className="time-convention-message" aria-hidden="true">
+              {configData.CONVENTION_TIME.NOTICE.replace(
+                "@timezone",
+                configData.TIMEZONE
+              )}
+            </div>
+            <div className="program-empty">{"\u00A0"}</div>
+          </div>
         </div>
-      </div>
-      <div className="result-more-button">{moreButton}</div>
+      ) : (
+        <>
+          <div className="program-page">
+            <ProgramList program={display} programTime={programTime} />
+          </div>
+          <div className="result-filters">
+            <div className="stack">
+              <div className="filter-total">{totalMessage}</div>
+            </div>
+          </div>
+          {!INFINITE_SCROLL && (
+            <div className="result-more-button">{moreButton}</div>
+          )}
+        </>
+      )}
     </div>
   );
 };
