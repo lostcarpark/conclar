@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import configData from "../config.json";
+import { slugify, shortId } from "../utils/Slug";
 
 const Participant = ({ person, thumbnails = true, moderator }) => {
   function getParticipantThumbnail(person) {
@@ -60,7 +61,7 @@ const Participant = ({ person, thumbnails = true, moderator }) => {
     if (configData.INTERACTIVE) {
       return (
         <li className="participant">
-          <Link to={"/people/" + person.id}>
+          <Link to={"/people/" + shortId(person.id) + "/" + slugify(person.name)}>
             {getParticipantThumbnail(person)}
             {getParticipantName(person, moderator)}
           </Link>

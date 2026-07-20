@@ -75,6 +75,7 @@ const AppRoutes = () => {
             <Route path="people">
               <Route index element={<Loading><People /></Loading>} />
               <Route path=":id" element={<Loading><Person /></Loading>} />
+              <Route path=":id/:slug" element={<Loading><Person /></Loading>} />
             </Route>
             <Route path="myschedule" element={<Loading><MySchedule /></Loading>} />
             <Route
