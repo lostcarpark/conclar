@@ -144,10 +144,11 @@
     "SEARCHABLE": false,
     "HIDE": false,
     "SEPARATE": [
-      { "PREFIX": "Division", "PLACEHOLDER": "Select division", "SEARCHABLE": false, "HIDE": true },
-      { "PREFIX": "Type", "PLACEHOLDER": "Select type", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
+      { "PREFIX": "Division", "PLACEHOLDER": "Division", "SEARCHABLE": false, "HIDE": true },
+      { "PREFIX": "Area", "PLACEHOLDER": "Area", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Tag", "PLACEHOLDER": "Tag", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Environment", "PLACEHOLDER": "Environment", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "Note", "PLACEHOLDER": "Note", "SEARCHABLE": false, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
@@ -161,7 +162,7 @@
         "6": "Saturday",
         "7": "Sunday"
       },
-      "PLACEHOLDER": "Select days",
+      "PLACEHOLDER": "Days",
       "SEARCHABLE": false,
       "HIDE": false
     },
@@ -169,7 +170,7 @@
   },
   "HIDE_BEFORE": {
     "HIDE": false,
-    "PLACEHOLDER": "Select time",
+    "PLACEHOLDER": "Time",
     "TIMES": [
       { "TIME": "10:00:00", "LABEL_24H": "10:00", "LABEL_12H": "10am" },
       { "TIME": "12:00:00", "LABEL_24H": "12:00", "LABEL_12H": "12 noon" },
@@ -199,19 +200,34 @@
     }
   },
   "LINKS": [
-    {"NAME": "signup",
-     "TEXT": "Click to sign up",
-     "TAG": ""
+    {
+      "NAME": "chat",
+      "TEXT": "Chat about this item",
+      "TAG": ""
     },
-    {"NAME": "meeting",
-     "TEXT": "Click to view stream",
-     "TAG": "type:Streaming",
-     "WHEN": ["during"]
+    {
+      "NAME": "signup",
+      "TEXT": "Sign-up for this item",
+      "WHEN": ["before"],
+      "TAG": ""
     },
-    {"NAME": "recording",
-     "TEXT": "Click to view recording",
-     "TAG": "",
-     "WHEN": ["after"]
+    {
+      "NAME": "stage",
+      "TEXT": "Watch the stream",
+      "WHEN": ["during"],
+      "TAG": ""
+    },
+    {
+      "NAME": "session",
+      "TEXT": "Join this session",
+      "WHEN": ["during"],
+      "TAG": ""
+    },
+    {
+      "NAME": "replay",
+      "TEXT": "Watch the replay",
+      "WHEN": ["after"],
+      "TAG": ""
     }
   ],
   "CONVENTION_TIME": {
@@ -320,8 +336,8 @@
     }
   },
   "FOOTER": {
-    "SITE_NOTE_MARKDOWN": "",
-    "COPYRIGHT_MARKDOWN": "",
+    "SITE_NOTE_MARKDOWN": "\"World Science Fiction Society\", \"WSFS\", \"World Science Fiction Convention\", \"Worldcon\" and \"Hugo Award\" are service marks of Worldcon Intellectual Property, a California non-profit corporation managed by the Mark Protection Committee of the World Science Fiction Society, an unincorporated literary society.",
+    "COPYRIGHT_MARKDOWN": "© 2026, Southern California Institute for Fan Interests (SCIFI), Inc. All rights reserved.",
     "CONCLAR_NOTE_MARKDOWN": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "TIMER": {

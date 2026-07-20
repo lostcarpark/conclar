@@ -314,7 +314,7 @@ const FilterableProgram = () => {
         <div className="search-filters">
           <div className="filter-locations">
             <ReactSelect
-              placeholder="Select locations"
+              placeholder="Locations"
               options={buildLocationOptions(locations, configData)}
               isMulti
               isDisabled={isLoading}

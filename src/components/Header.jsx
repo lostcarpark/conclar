@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import configData from "../config.json";
 import Navigation from "./Navigation";
 
-const headerImg = configData.HEADER.IMG_SRC ? <img src={configData.HEADER.IMG_SRC} alt={configData.HEADER.IMG_ALT_TEXT}></img> : "";
+const headerImg = configData.HEADER.IMG_SRC ? <img src={configData.HEADER.IMG_SRC} alt={configData.HEADER.IMG_ALT_TEXT} width="300" height="202"></img> : "";
 const showBreak = configData.HEADER.LINEFEED_AFTER_URL ? <br /> : "";
 
 // headingHidden keeps the title visible but drops it from the accessibility
