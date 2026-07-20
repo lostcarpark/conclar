@@ -5,26 +5,11 @@
     <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="ConClár Programme Guide" />
+    <meta name="description" content="LACon V Programme Guide" />
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
-    <title>ConClár Program Guide</title>
-    <script>
-      // Resolve the theme before first paint to avoid a flash. Mirrors the
-      // resolution logic in ThemeSelector: "dark"/"light" force it, anything
-      // else (incl. "browser" or no saved choice) follows the OS preference.
-      (function () {
-        try {
-          var mode = localStorage.getItem("dark_mode");
-          var isDark =
-            mode === "dark" ||
-            (mode !== "light" &&
-              window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches);
-          document.documentElement.dataset.theme = isDark ? "dark" : "light";
-        } catch (e) {}
-      })();
-    </script>
+    <title>LACon V Program Guide</title>
+    <script src="/theme-init.js"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
