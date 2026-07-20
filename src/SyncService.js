@@ -28,6 +28,7 @@ function resolveReturnUrl(urlTemplate) {
 export async function fetchProfile() {
   const response = await fetch(`${getApiUrl()}/profile`, {
     credentials: "include",
+    cache: "no-store",
   });
   if (!response.ok) {
     throw new Error(`Profile fetch failed: ${response.status}`);
@@ -56,6 +57,7 @@ export async function fetchProfile() {
 export async function fetchSelections() {
   const response = await fetch(getSelectionsUrl(), {
     credentials: "include",
+    cache: "no-store",
   });
   if (response.status === 401) {
     return null;
