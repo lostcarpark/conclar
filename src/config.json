@@ -32,8 +32,8 @@
     "MYSCHEDULE": "My Schedule",
     "SETTINGS": "Settings",
     "EXTRA": [
-      { "LABEL": "Member portal", "URL": "https://portal.lacon.com", "ICON_NAME": "Home" },
-      { "LABEL": "Website", "URL": "https://lacon.com", "ICON_NAME": "Globe" }
+      { "LABEL": "Member portal", "URL": "https://portal.lacon.org", "ICON_NAME": "Home" },
+      { "LABEL": "Website", "URL": "https://lacon.org", "ICON_NAME": "Globe" }
     ]
   },
   "HELP_TEXT": {
