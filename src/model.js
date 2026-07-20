@@ -63,10 +63,10 @@ const model = {
   lastFetchFingerprint: null,
   lastFetchTime: null,
   timeSinceLastFetch: null,
-  helpTextDismissed: () => {
+  helpTextDismissed: (() => {
     const dismissed = localStorage.getItem("help_text_dismissed_" + configData.APP_ID);
-    return (dismissed) ? JSON.parse(dismissed) : [];
-  },
+    return (dismissed) ? JSON.parse(dismissed) : {};
+  })(),
   showLocalTime: LocalTime.getStoredLocalTime(),
   show12HourTime: LocalTime.getStoredTwelveHourTime(),
   showTimeZone: LocalTime.getStoredShowTimeZone(),

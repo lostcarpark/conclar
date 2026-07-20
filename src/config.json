@@ -38,7 +38,6 @@
   },
   "HELP_TEXT": {
     "WELCOME": "Hi there. It looks like you've cracked our secret code and found our program guide before it is ready. This is a work in progress. No program items are final. Please do not share anything you see here.",
-    "SHARING": "You may share your personal schedule to other devices using the QR codes on the My Schedule page.",
     "CLOSE_ARIA_LABEL": "Dismiss help text"
   },
   "LOCATIONS": {
