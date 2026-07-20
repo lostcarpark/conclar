@@ -1079,10 +1079,24 @@ div.switch-wrapper {
   margin: 0;
 }
 
+.selection {
+  display: flex;
+  align-items: flex-start;
+}
+
 .selection label {
   cursor: pointer;
-  display: inline-block;
-  padding: 0.2em 0.3em;
+  display: flex;
+  align-items: flex-start;
+  padding: 0 0.3em;
+  position: relative;
+}
+
+/* Enlarges the clickable/tappable area without affecting the visual size or layout. */
+.selection label::before {
+  content: "";
+  position: absolute;
+  inset: -0.4em;
 }
 
 .selection .selection-star {
@@ -1148,6 +1162,7 @@ div.switch-wrapper {
 }
 
 .item-header {
+    position: relative;
     border: none;
     margin: 0;
     padding: 0;
@@ -1164,11 +1179,12 @@ div.switch-wrapper {
 }
 
 .item-chevron {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
   color: var(--brand-primary-fg);
   font-size: 1.5rem;
-  line-height: 1rem;
-  overflow: auto;
+  line-height: 1;
   transition: transform 0.3s ease-in-out, color 0.2s ease;
 }
 
@@ -1187,6 +1203,8 @@ div.switch-wrapper {
   font-weight: bold;
   margin: 0;
   font-size: inherit;
+  line-height: 1;
+  padding-right: 1.5rem;
 }
 
 .item-duration,
