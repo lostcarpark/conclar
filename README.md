@@ -94,6 +94,10 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
 - `LOCATIONS.LABEL`: Label to show on map links.
 - `LOCATIONS.MAPPING`: Array of locations, with links to show on map. Each room should be specified as: `{ "KEY": "Room name", "MAP_URL": "link to map" }`.
+- `VENUES`: Groups locations by venue, for conventions spanning more than one building. If omitted, the locations drop-down is a flat, ungrouped list.
+  - `VENUES.ALL_LABEL`: Label template for the "select this whole venue" option shown at the top of each venue's group in the locations drop-down. `@venue` is replaced with the venue name. Defaults to `"All @venue"`.
+  - `VENUES.UNGROUPED_LABEL`: Label for the group heading shown above locations that aren't listed under any venue. Defaults to `"Other"`.
+  - `VENUES.MAPPING`: Array of venues, each specified as: `{ "NAME": "Venue name", "LOCATIONS": ["Room name", "Another room"] }`. Venues are listed in the locations drop-down in the order given here. A location may only belong to one venue; locations not listed under any venue are shown grouped under `VENUES.UNGROUPED_LABEL`, below the venue groups. Selecting a venue's "All <venue>" option shows every programme item in any of that venue's locations.
 - `APPLICATION.LOADING.MESSAGE`: Message to display while loading.
 - `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed.
 - `PROGRAM.LIMIT.LABEL`: Label for limit drop-down.
