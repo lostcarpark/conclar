@@ -2,11 +2,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 
-// Mock react-i18next
-vi.mock('react-i18next', () => ({
-  useTranslation: () => ({ t: (key) => key }),
-}));
-
 // Mock config.json before importing HelpText
 vi.mock('../config.json', () => ({
   default: {
@@ -32,7 +27,6 @@ describe('HelpText', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    useTranslation.mockReturnValue({ t: mockT });
     useStoreActions.mockReturnValue(mockSetHelpTextDismissed);
   });
 
