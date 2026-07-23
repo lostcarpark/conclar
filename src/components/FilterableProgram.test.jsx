@@ -61,13 +61,6 @@ vi.mock('easy-peasy', () => ({
   useStoreActions: vi.fn(),
 }));
 
-// Mock react-i18next
-vi.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    t: (key) => key,
-  }),
-}));
-
 // Mock Temporal
 vi.mock('@js-temporal/polyfill', () => ({
   Temporal: {
