@@ -6,6 +6,7 @@ import { useSpring, animated } from "react-spring";
 import { IoChevronDownCircle } from "react-icons/io5";
 import { HiLink } from "react-icons/hi";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import { HiCalendarDays } from "react-icons/hi2";
 import ItemLink from "./ItemLink";
 import Location from "./Location";
 import Tag from "./Tag";
@@ -15,6 +16,7 @@ import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
 import { useState, useEffect } from "react";
 import { LocalTime } from "../utils/LocalTime";
+import { downloadIcs } from "../utils/ICalendar";
 import { venueForLocation } from "../utils/Venues";
 
 const ProgramItem = ({ item, forceExpanded = false, now }) => {
@@ -69,6 +71,23 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
       locations.push(<Location key={loc} loc={loc} venue={venueForLocation(loc, configData)} />);
     }
   else locations.push(<Location key={item.loc} loc={item.loc} venue={venueForLocation(item.loc, configData)} />);
+
+  const calendarLink =
+    configData.CALENDARLINK && configData.CALENDARLINK.SHOW && configData.INTERACTIVE ? (
+        <div className="item-calendarlink">
+          <a
+            href="#add-to-calendar"
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              downloadIcs(item);
+            }}
+            title={configData.CALENDARLINK.TITLE}
+          >
+            <HiCalendarDays />
+          </a>
+        </div>
+    ) : null;
 
   const permaLink =
     configData.PERMALINK.SHOW_PERMALINK && configData.INTERACTIVE ? (
@@ -268,7 +287,10 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
             aria-labelledby={"header-" + id}
           >
             <div className="item-details-expanded" ref={ref}>
-              {permaLink}
+              <div className="item-links-row">
+                {calendarLink}
+                {permaLink}
+              </div>
               <div className="item-people">
                 <ul>{people}</ul>
               </div>

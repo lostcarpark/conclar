@@ -1247,20 +1247,25 @@ div.switch-wrapper {
   width: 1px;
 }
 
-.item-permalink {
+.item-links-row {
   float: right;
+  display: flex;
+  gap: 0.3rem;
 }
 
 .item-permalink a,
+.item-calendarlink a,
 .item-links a {
   transition: color 0.4s;
   color: var(--link-fg);
 }
 .item-permalink a:visited,
+.item-calendarlink a,
 .item-links a:visited {
   color: var(--link-fg);
 }
 .item-permalink a:hover,
+.item-calendarlink a,
 .item-links a:hover {
   color: var(--link-hover-fg);
 }
