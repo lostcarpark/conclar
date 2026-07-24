@@ -143,8 +143,8 @@
     "PERMALINK_TITLE": "Permalink"
   },
   "CALENDARLINK": {
-    "SHOW_CALENDARLINK": true,
-    "CALENDARLINK_TITLE": "Add To Calendar"
+    "SHOW": true,
+    "TITLE": "Add To Calendar"
   },
   "EXPAND": {
     "EXPAND_ALL_LABEL": "Expand All",

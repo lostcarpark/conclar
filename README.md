@@ -137,7 +137,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `FILTER.RESET.LABEL`: The label for the "Reset filters" button.
 - `PERMALINK.SHOW_PERMALINK`: If true, display a "permalink" icon when each program item is expanded.
 - `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
-- `CALENDARLINK.SHOW_CALENDARLINK`: If true, display a calendar download icon when each program item is expanded.
+- `CALENDARLINK.SHOW`: If true, display a calendar download icon when each program item is expanded.
 - `CALENDARLINK.CALENDARLINK`: "Title" text displayed when mouse is hovered over calendar download icon.
 - `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
 - `EXPAND.COLLAPSE_ALL_LABEL`: Label for Collapse All button.

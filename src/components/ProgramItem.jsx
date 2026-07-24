@@ -73,7 +73,7 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
   else locations.push(<Location key={item.loc} loc={item.loc} venue={venueForLocation(item.loc, configData)} />);
 
   const calendarLink =
-    configData.CALENDARLINK && configData.CALENDARLINK.SHOW_CALENDARLINK && configData.INTERACTIVE ? (
+    configData.CALENDARLINK && configData.CALENDARLINK.SHOW && configData.INTERACTIVE ? (
         <div className="item-calendarlink">
           <a
             href="#add-to-calendar"
@@ -82,7 +82,7 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
               event.stopPropagation();
               downloadIcs(item);
             }}
-            title={configData.CALENDARLINK.CALENDARLINK_TITLE}
+            title={configData.CALENDARLINK.TITLE}
           >
             <HiCalendarDays />
           </a>
