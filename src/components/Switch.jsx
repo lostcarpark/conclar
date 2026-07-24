@@ -1,5 +1,5 @@
 const Switch = ({ id, label, checked, onChange }) => (
-  <div class="switch-wrapper">
+  <div className="switch-wrapper">
     <button
       className="switch"
       id={id}
