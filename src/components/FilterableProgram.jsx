@@ -92,6 +92,9 @@ const FilterableProgram = () => {
   function resetLimitsAndFilters() {
     resetDisplayLimit();
     resetProgramFilters();
+    // Clearing the filters must also drop any /loc/ URL, otherwise a refresh
+    // restores the location filter from the path.
+    navigate("/");
   }
 
   /**
@@ -298,7 +301,6 @@ const FilterableProgram = () => {
               isSearchable={configData.LOCATIONS.SEARCHABLE}
               value={selLoc}
               onChange={(value) => {
-                console.log(value);
                 resetDisplayLimit();
                 setSelLoc(value);
                 if (value.length) {

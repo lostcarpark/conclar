@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useStoreActions } from "easy-peasy";
 import { useParams } from "react-router-dom";
 import FilterableProgram from "./FilterableProgram";
@@ -10,12 +11,12 @@ const LocationProgramme = () => {
   );
 
   const params = useParams();
-  const locations = params.locList.split("~").map((loc) => decodeURIComponent(loc));
-  if (locations.length) {
-    setSelLoc(locations.map((loc) => {
-      return { value: loc, label: labelForLocationValue(loc, configData) };
-    }));
-  }
+  useEffect(() => {
+    const locations = params.locList.split("~").map((loc) => decodeURIComponent(loc));
+    if (locations.length) {
+      setSelLoc(locations.map((loc) => { return {value: loc, label: labelForLocationValue(loc, configData)}; }));
+    }
+  }, [params.locList, setSelLoc]);
 
   return (
     <FilterableProgram />
