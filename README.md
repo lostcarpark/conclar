@@ -93,6 +93,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `HELP_TEXT.CLOSE_ARIA_LABEL`: Label to describe dismiss button.
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
 - `LOCATIONS.LABEL`: Label to show on map links.
+- `LOCATIONS.ICON_NAME` / `LOCATIONS.ICON_URL`: Optional icon shown before the map link's label, working the same way as `NAVIGATION.EXTRA`'s icon fields above.
 - `LOCATIONS.MAPPING`: Array of locations, with links to show on map. Each room should be specified as: `{ "KEY": "Room name", "MAP_URL": "link to map" }`.
 - `VENUES`: Groups locations by venue, for conventions spanning more than one building. If omitted, the locations drop-down is a flat, ungrouped list.
   - `VENUES.ALL_LABEL`: Label template for the "select this whole venue" option shown at the top of each venue's group in the locations drop-down. `@venue` is replaced with the venue name. Defaults to `"All @venue"`.
@@ -149,6 +150,7 @@ The main place customisations go is the `src/config.json` file. Settings current
   - `TEXT` is the text that should appear on this link in ConClár.
   - `TAG` is an optional tag to add to every program item which includes a matching link.  If using prefixed tags, include the prefix, *e.g.*, `"type:Workshop"`.
   - `WHEN` is an optional array listing times when the link will be visible. Valid entries are `"before"`, `"during"`, and `"after"`. For example, a link type that specifies `"WHEN": ["during"]` will only be visible when the programme item is taking place. Multiple options may be specified, such as `"WHEN": ["before", "during"]`, which will cause the link to be visible prior to the item and while it is happening, but will disappear when it finishes.
+  - `ICON_NAME` and `ICON_URL` are optional, and work the same way as for `NAVIGATION.EXTRA` above: `ICON_NAME` selects a built-in icon by name, `ICON_URL` points to a custom image instead. If both are given, `ICON_NAME` takes precedence.
 - `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
 - `LOCAL_TIME.NOTICE`: Label for notie telling users how local time displayed.
 - `LOCAL_TIME.PREV_DAY`: Label appended to local time if local time is before start of advertised day.

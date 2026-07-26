@@ -93,21 +93,21 @@ const ProgramItem = ({
       );
     });
   }
-  const links = [];
+  const linkEntries = [];
   if (configData.LINKS) {
     configData.LINKS.forEach((link) => {
       if (item.links && item.links[link.NAME] && item.links[link.NAME].length) {
         const enabled =
           !link.WHEN || link.WHEN.indexOf(programTime.phaseOf(item)) >= 0;
-        links.push(
-          <ItemLink
-            key={link.NAME}
-            name={"item-links-" + link.NAME}
-            link={item.links[link.NAME]}
-            text={link.TEXT}
-            enabled={enabled}
-          />
-        );
+        linkEntries.push({
+          key: link.NAME,
+          name: "item-links-" + link.NAME,
+          link: item.links[link.NAME],
+          text: link.TEXT,
+          enabled,
+          iconName: link.ICON_NAME,
+          iconUrl: link.ICON_URL,
+        });
       }
     });
   }
@@ -115,18 +115,32 @@ const ProgramItem = ({
   if ("MAPPING" in configData.LOCATIONS) {
     for (const location of configData.LOCATIONS.MAPPING) {
       if (item.loc.toString() === location.KEY) {
-        links.push(
-          <ItemLink
-            key="map"
-            name="item-links-map"
-            link={location.MAP_URL}
-            text={configData.LOCATIONS.LABEL}
-            enabled={true}
-          />
-        );
+        linkEntries.push({
+          key: "map",
+          name: "item-links-map",
+          link: location.MAP_URL,
+          text: configData.LOCATIONS.LABEL,
+          enabled: true,
+          iconName: configData.LOCATIONS.ICON_NAME,
+          iconUrl: configData.LOCATIONS.ICON_URL,
+        });
       }
     }
   }
+
+  const hasIcon = linkEntries.some((entry) => entry.iconName || entry.iconUrl);
+  const links = linkEntries.map((entry) => (
+    <ItemLink
+      key={entry.key}
+      name={entry.name}
+      link={entry.link}
+      text={entry.text}
+      enabled={entry.enabled}
+      iconName={entry.iconName}
+      iconUrl={entry.iconUrl}
+      reserveIconSpace={hasIcon}
+    />
+  ));
 
   const duration =
     configData.DURATION.SHOW_DURATION && item.mins ? (

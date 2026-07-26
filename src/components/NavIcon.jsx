@@ -1,4 +1,5 @@
 import {
+  FaComment,
   FaDiscord,
   FaEnvelope,
   FaFacebook,
@@ -9,9 +10,12 @@ import {
   FaMapSigns,
   FaMastodon,
   FaPaperPlane,
+  FaPen,
+  FaPlayCircle,
   FaQuestionCircle,
   FaTicketAlt,
   FaTwitter,
+  FaVideo,
   FaYoutube,
 } from "react-icons/fa";
 
@@ -21,6 +25,7 @@ import {
 // the name without the "Fa" prefix. Links needing an icon outside this set can
 // use ICON_URL instead.
 const iconsByName = {
+  Comment: FaComment,
   Discord: FaDiscord,
   Envelope: FaEnvelope,
   Facebook: FaFacebook,
@@ -30,19 +35,22 @@ const iconsByName = {
   Map: FaMap,
   Mastodon: FaMastodon,
   PaperPlane: FaPaperPlane,
+  Pen: FaPen,
+  Play: FaPlayCircle,
   Question: FaQuestionCircle,
   Sign: FaMapSigns,
   Ticket: FaTicketAlt,
   Twitter: FaTwitter,
+  Video: FaVideo,
   Youtube: FaYoutube,
 };
 
-const NavIcon = ({ icon, iconName, iconUrl }) => {
+const NavIcon = ({ icon, iconName, iconUrl, className = "nav-icon" }) => {
   // Core links pass a component directly; EXTRA links pass a config name we
   // resolve via the curated set. Either way we end up with a component.
   const Icon = icon || iconsByName[iconName];
   if (Icon) {
-    return <Icon className="nav-icon" aria-hidden="true" />;
+    return <Icon className={className} aria-hidden="true" />;
   }
   if (iconUrl) {
     return (
@@ -50,11 +58,11 @@ const NavIcon = ({ icon, iconName, iconUrl }) => {
         src={iconUrl}
         alt=""
         aria-hidden="true"
-        className="nav-icon nav-icon-img"
+        className={className + " " + className + "-img"}
       />
     );
   }
-  return <span className="nav-icon" aria-hidden="true" />;
+  return <span className={className} aria-hidden="true" />;
 };
 
 export default NavIcon;

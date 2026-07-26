@@ -285,31 +285,36 @@
     {
       "NAME": "chat",
       "TEXT": "Chat about this item",
-      "TAG": ""
+      "TAG": "",
+      "ICON_NAME": "Comment"
     },
     {
       "NAME": "signup",
       "TEXT": "Sign-up for this item",
       "WHEN": ["before"],
-      "TAG": ""
+      "TAG": "",
+      "ICON_NAME": "Pen"
     },
     {
       "NAME": "stage",
       "TEXT": "Watch the stream",
       "WHEN": ["during"],
-      "TAG": ""
+      "TAG": "",
+      "ICON_NAME": "Play"
     },
     {
       "NAME": "session",
       "TEXT": "Join this session",
       "WHEN": ["during"],
-      "TAG": ""
+      "TAG": "",
+      "ICON_NAME": "Video"
     },
     {
       "NAME": "replay",
       "TEXT": "Watch the replay",
       "WHEN": ["after"],
-      "TAG": ""
+      "TAG": "",
+      "ICON_NAME": "Play"
     }
   ],
   "CONVENTION_TIME": {

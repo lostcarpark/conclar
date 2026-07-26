@@ -59,6 +59,7 @@
 
   --link-fg: var(--brand-secondary-800);
   --link-hover-fg: var(--brand-secondary-900);
+  --link-icon-fg: var(--brand-secondary-500);
   --link-disabled: var(--gray-500);
   --participant-link-fg: var(--gray-900);
   --participant-link-visited-fg: var(--gray-700);
@@ -1258,6 +1259,23 @@ div.switch-wrapper {
 .item-links a {
   transition: color 0.4s;
   color: var(--link-fg);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.item-link-icon {
+  flex-shrink: 0;
+  font-size: 1.1em;
+  min-width: 1em;
+  display: inline-block;
+  color: var(--link-icon-fg);
+}
+
+.item-link-icon-img {
+  width: 1.1em;
+  height: 1.1em;
+  object-fit: contain;
 }
 .item-permalink a:visited,
 .item-links a:visited {
@@ -1271,12 +1289,19 @@ div.switch-wrapper {
 .item-links a:not([href]):hover {
   color: var(--link-disabled);
 }
+.item-links a:not([href]) .item-link-icon,
+.item-links a:not([href]):hover .item-link-icon {
+  color: var(--link-disabled);
+}
 
 
 /* fix link spacing */
 
 .item-links {
   margin-top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .item-people {

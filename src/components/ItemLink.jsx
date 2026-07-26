@@ -1,7 +1,14 @@
+import NavIcon from "./NavIcon";
 
-const ItemLink = ({ name, link, text, enabled }) => {
+const ItemLink = ({ name, link, text, enabled, iconName, iconUrl, reserveIconSpace }) => {
+  const showIcon = iconName || iconUrl || reserveIconSpace;
   return <div className={name}>
-    <a className={enabled ? null : "disabled"} href={enabled ? link : null}>{text}</a>
+    <a className={enabled ? null : "disabled"} href={enabled ? link : null}>
+      {showIcon && (
+        <NavIcon iconName={iconName} iconUrl={iconUrl} className="item-link-icon" />
+      )}
+      {text}
+    </a>
   </div>;
 };
 
