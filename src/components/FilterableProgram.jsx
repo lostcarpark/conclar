@@ -12,6 +12,7 @@ import LoadError from "./LoadError";
 import { LocalTime } from "../utils/LocalTime";
 import { buildLocationOptions, locationMatchesSelection } from "../utils/Venues";
 import { useProgramTime } from "../hooks/useProgramTime";
+import { useFilterAnalytics } from "../hooks/useFilterAnalytics";
 import { INFINITE_SCROLL } from "../utils/AdaptivePageSize";
 
 // The drop-down and "Show more" flow needs a default limit even when a
@@ -176,6 +177,8 @@ const FilterableProgram = () => {
   const [displayLimit, setDisplayLimit] = useState(selectedLimit);
 
   const programTime = useProgramTime();
+
+  useFilterAnalytics({ search, selLoc, selTags, hideBefore });
 
   const deferredSearch = useDeferredValue(search);
   const filtered = useMemo(
