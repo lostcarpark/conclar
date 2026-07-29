@@ -2,8 +2,8 @@
   "APP_ID": "LA2026",
   "APP_TITLE": "LACon V Program Guide",
   "DATA_URLS": {
-    "SCHEDULE": "/data/schedule-secret.json",
-    "PEOPLE": "/data/participants-secret.json"
+    "SCHEDULE": "/data/schedule.json",
+    "PEOPLE": "/data/participants.json"
   },
   "FETCH_OPTIONS": {
     "cache": "reload",
@@ -263,7 +263,7 @@
     }
   },
   "ANALYTICS": {
-    "FILTER_BEACON_URL": "https://portal-staging.lacon.org/analytics?event=conclar-filter&data=@filter_data",
+    "FILTER_BEACON_URL": "https://portal.lacon.org/analytics?event=conclar-filter&data=@filter_data",
     "INCLUDE_SESSION_TOKEN": false,
     "DEBOUNCE_MS": 1000
   },
@@ -438,7 +438,7 @@
     "FETCH_BUTTON_LABEL": "Fetch Data Now"
   },
   "SYNC": {
-    "API_URL": "https://portal-staging.lacon.org/api/conclar",
+    "API_URL": "https://portal.lacon.org/api/conclar",
     "LOADING_LABEL": "Loading...",
     "LOGIN_LABEL": "Log in",
     "LOGOUT_LABEL": "Log out @display_name",
