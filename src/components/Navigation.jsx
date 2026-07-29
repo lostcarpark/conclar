@@ -34,7 +34,7 @@ const Navigation = () => {
         ))}
         {extraLinks.map((link) => (
           <li className="nav-extra" key={link.URL}>
-            <a href={link.URL}>
+            <a href={link.URL} target="_blank" rel="noreferrer">
               <NavIcon iconName={link.ICON_NAME} iconUrl={link.ICON_URL} />
               {link.LABEL}
             </a>
