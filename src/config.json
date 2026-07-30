@@ -178,10 +178,10 @@
     "HIDE": false,
     "SEPARATE": [
       { "PREFIX": "Division", "PLACEHOLDER": "Division", "SEARCHABLE": false, "HIDE": true },
+      { "PREFIX": "Availability", "PLACEHOLDER": "Availability", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Area", "PLACEHOLDER": "Area", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Tag", "PLACEHOLDER": "Tag", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Environment", "PLACEHOLDER": "Environment", "SEARCHABLE": false, "HIDE": false },
-      { "PREFIX": "Note", "PLACEHOLDER": "Note", "SEARCHABLE": false, "HIDE": false }
+      { "PREFIX": "Environment", "PLACEHOLDER": "Environment", "SEARCHABLE": false, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
