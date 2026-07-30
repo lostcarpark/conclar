@@ -180,11 +180,12 @@
     "SEPARATE": [
       { "PREFIX": "Division", "PLACEHOLDER": "Division", "SEARCHABLE": false, "HIDE": true },
       { "PREFIX": "Area", "PLACEHOLDER": "Area", "SEARCHABLE": false, "HIDE": false },
+      { "PREFIX": "type", "PLACEHOLDER": "Format", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Tag", "PLACEHOLDER": "Tag", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Environment", "PLACEHOLDER": "Environment", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Availability", "PLACEHOLDER": "Availability", "SEARCHABLE": false, "HIDE": false }
     ],
-    "FORMAT_AS_TAG": false,
+    "FORMAT_AS_TAG": true,
     "DAY_TAG": {
       "GENERATE": true,
       "DAYS": {
@@ -203,7 +204,7 @@
     "DONTLIST": ["Division", "days"]
   },
   "HIDE_BEFORE": {
-    "HIDE": false,
+    "HIDE": true,
     "PLACEHOLDER": "Time",
     "TIMES": [
       { "TIME": "10:00:00", "LABEL_24H": "10:00", "LABEL_12H": "10am" },

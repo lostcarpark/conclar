@@ -93,7 +93,15 @@ export class ProgramData {
       return item;
     });
     program.sort((a, b) => {
-      return Temporal.ZonedDateTime.compare(a.startDateAndTime, b.startDateAndTime);
+      const byTime = Temporal.ZonedDateTime.compare(
+        a.startDateAndTime,
+        b.startDateAndTime
+      );
+      if (byTime !== 0) {
+        return byTime;
+      }
+      // Within a time slot, order alphabetically by title.
+      return (a.title ?? "").localeCompare(b.title ?? "");
     });
     //console.log("Program data", program);
     return program;
