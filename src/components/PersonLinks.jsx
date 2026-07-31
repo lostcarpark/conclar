@@ -8,7 +8,11 @@ import {
   FaTwitch,
   FaYoutube,
   FaGlobe,
+  FaMastodon,
 } from "react-icons/fa";
+import {
+  FaBluesky,
+} from "react-icons/fa6";
 import {
   IoLink,
 } from "react-icons/io5";
@@ -40,6 +44,10 @@ const PersonLinks = ({ person }) => {
         return <FaLinkedin />;
       case "website":
         return <FaGlobe />;
+      case "bsky":
+        return <FaBluesky />;
+      case "fediverse":
+        return <FaMastodon />;
       default:
         return <IoLink />;
     }
