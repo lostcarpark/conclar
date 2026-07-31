@@ -146,9 +146,9 @@ For KonOpas compatibility, each array may optionally be wrapped as `var program 
 		],
 		"desc": "",
 		"links": {
-			"signup": "http://url.to.signup/",
-			"meeting": "http://url.to.meeting/",
-			"recording": "http://url.to.recording/"
+			"signup": "http:\/\/url.to.signup\/",
+			"meeting": "http:\/\/url.to.meeting\/",
+			"recording": "http:\/\/url.to.recording\/"
 		}
 	},
 	...
@@ -200,7 +200,7 @@ Note: these fields are not mutually exclusive between conventions, and it is pos
 			"img_256_url": "\/images\/galahad.jpg",
 			"url": "http:\/\/en.wikipedia.org\/wiki\/Galahad"
 		},
-		"bio": "Sir Galahad (/ˈɡæləhæd/; Middle Welsh: Gwalchavad, sometimes referred to as Galeas /ɡəˈliːəs/ or Galath /ˈɡæləθ/), in Arthurian legend, is a knight of King Arthur's Round Table and one of the three achievers of the Holy Grail."
+		"bio": "Sir Galahad (\/ˈɡæləhæd\/; Middle Welsh: Gwalchavad, sometimes referred to as Galeas \/ɡəˈliːəs\/ or Galath \/ˈɡæləθ\/), in Arthurian legend, is a knight of King Arthur's Round Table and one of the three achievers of the Holy Grail."
 	},
 	{
 		"id": "bf871858-39d4-4eeb-9f5f-611112262a9c",
@@ -228,7 +228,7 @@ Note: these fields are not mutually exclusive between conventions, and it is pos
 * `links` is an array of items for the person. Currently implemented links are:
     * `img` - a link which is a path to a thumbnail image of the person;
     * `photo` - a link which is a path to a thumbnail image of the person;
-    * Other links will be displayed as icons under bio. Known link types are: `bsky`, `bluesky`, `fb`, `facebook`, `instagram`, `linkedin`, `mast`, `mdon`, `mastodon`, `threads`, `tumblr`, `twitch`, `tiktok`, `twitter`, `website`, `yt`, `youtube`, and will be shown with a suitable icon. A generic link icon will be used for other link types.
+    * Other links will be displayed as icons under bio. Known link types are: `bsky`, `bluesky`, `fb`, `facebook`, `fediverse`, `instagram`, `linkedin`, `mast`, `mdon`, `mastodon`, `threads`, `tumblr`, `twitch`, `tiktok`, `twitter`, `website`, `yt`, `youtube`, and will be shown with a suitable icon. A generic link icon will be used for other link types.
 * `img_256_url` - a link which is a path to a thumbnail image of the person (used by Grenadine). Note this is in the root level of the `people` record, not under `links`.
 * `bio` is the biography of the person.
     * Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which get sanitized for dangerous HTML, but all other fields must be plain text.

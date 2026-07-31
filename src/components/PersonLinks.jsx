@@ -18,7 +18,9 @@ import {
 import {
   IoLink,
 } from "react-icons/io5";
-
+import {
+  PiFediverseLogo
+} from "react-icons/pi";
 
 const PersonLinks = ({ person }) => {
   const regex = /^(?:http(s)?:\/\/)[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/;
@@ -35,6 +37,8 @@ const PersonLinks = ({ person }) => {
       case "fb":
       case "facebook":
         return <FaFacebook />;
+      case "fediverse":
+        return <PiFediverseLogo />;
       case "instagram":
         return <FaInstagram />;
       case "linkedin":
@@ -42,6 +46,7 @@ const PersonLinks = ({ person }) => {
       case "mdon":
       case "mast":
       case "mastodon":
+      case "fediverse":
         return <FaMastodon />;
       case "tiktok":
         return <FaTiktok />;
