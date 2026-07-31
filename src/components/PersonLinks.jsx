@@ -53,6 +53,39 @@ const PersonLinks = ({ person }) => {
     }
   };
 
+  /**
+   * Take a link type and return a human-readable label for it.
+   * @param {string} type
+   * @returns {string}
+   */
+  const getLinkLabel = (type) => {
+    switch (type) {
+      case "twitter":
+        return "Twitter";
+      case "fb":
+      case "facebook":
+        return "Facebook";
+      case "instagram":
+        return "Instagram";
+      case "twitch":
+        return "Twitch";
+      case "youtube":
+        return "YouTube";
+      case "tiktok":
+        return "TikTok";
+      case "linkedin":
+        return "LinkedIn";
+      case "website":
+        return "Website";
+      case "bsky":
+        return "Bluesky";
+      case "fediverse":
+        return "Mastodon";
+      default:
+        return "Website";
+    }
+  };
+
   // If person has no links, return empty tag.
   if (!person.hasOwnProperty("links")) {
     return <></>;
@@ -68,13 +101,20 @@ const PersonLinks = ({ person }) => {
     if (!person.links[type].match(regex)) continue;
     // Look up the correct icon.
     const icon = getLinkIcon(type);
+    // Look up a human-readable label for the tooltip.
+    const label = getLinkLabel(type);
     // Add link HTML to array.
     links.push(
       <span className="link" key={type}>
-        <a href={person.links[type]} target="_blank" rel="noreferrer">
+        <a
+          href={person.links[type]}
+          target="_blank"
+          rel="noreferrer"
+          title={label}
+          aria-label={label}
+        >
           {icon}
         </a>
-        {" "}
       </span>
     );
   }

@@ -1542,17 +1542,48 @@ div.switch-wrapper {
 
 .person .person-links {
   max-width: 60ch;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 29px;
+}
+
+.person .person-links .link {
+  display: flex;
 }
 
 .person .person-links a {
   color: var(--participant-link-fg);
+  opacity: 0.75;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  font-size: 1.75rem;
+}
+
+/* Enlarge the tap target to 44px square, centered on the icon, without
+   shifting the icon's visual position or the layout's spacing. */
+.person .person-links a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+}
+
+.person .person-links a:visited {
+  color: var(--participant-link-visited-fg);
 }
 
 .person .person-links a:active,
 .person .person-links a:hover,
-.person .person-links a:visited {
-  color: var(--participant-link-visited-fg);
+.person .person-links a:focus {
+  color: var(--link-fg);
+  opacity: 1;
 }
 
 .person .person-bio {
