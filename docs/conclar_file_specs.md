@@ -195,10 +195,10 @@ Note: these fields are not mutually exclusive between conventions, and it is pos
 		"tags": [ {"value": "G1", "label": "GoH"} ],
 		"prog": [ "416" ],
 		"links": {
-			"img": "/images/galahad.jpg",
-			"photo": "/images/galahad.jpg",
-			"img_256_url": "/images/galahad.jpg",
-			"url": "http://en.wikipedia.org/wiki/Galahad"
+			"img": "\/images\/galahad.jpg",
+			"photo": "\/images\/galahad.jpg",
+			"img_256_url": "\/images\/galahad.jpg",
+			"url": "http:\/\/en.wikipedia.org\/wiki\/Galahad"
 		},
 		"bio": "Sir Galahad (/ˈɡæləhæd/; Middle Welsh: Gwalchavad, sometimes referred to as Galeas /ɡəˈliːəs/ or Galath /ˈɡæləθ/), in Arthurian legend, is a knight of King Arthur's Round Table and one of the three achievers of the Holy Grail."
 	},
@@ -209,8 +209,9 @@ Note: these fields are not mutually exclusive between conventions, and it is pos
 		"tags": [ {"value": "v1", "label": "Virtual" } ],
 		"prog": [ "1234", "416", "810" ],
 		"links": {
-			"twitter": "justsomeguy9999",
-			"url": "http://example.com/just-someguys-blog"
+			"bsky": "https:\/\/bsky.app\/profile\/justsomeguy9999.bsky.social",
+			"twitter": "https\/\/twitter.com\/justsomeguy9999",
+			"website": "http:\/\/example.com\/just-someguys-blog"
 		},
 		"bio": "He was voted \"Worst Dressed Sentient Being in the Known Universe\" seven consecutive times. He's been described as \"the best Bang since the Big One\" by Eccentrica Gallumbits, and as \"one hoopy frood\" by others. In the seventh episode of the original radio series, the narrator describes Beeblebrox as being the \"owner of the hippest place in the universe\" (his own left cranium), as voted on in a poll of the readers of the fictional magazine Playbeing."
 	},
@@ -227,7 +228,7 @@ Note: these fields are not mutually exclusive between conventions, and it is pos
 * `links` is an array of items for the person. Currently implemented links are:
     * `img` - a link which is a path to a thumbnail image of the person;
     * `photo` - a link which is a path to a thumbnail image of the person;
-    * Other links will be displayed as icons under bio. Known link types are: `twitter`, `fb`, `facebook`, `instagram`, `twitch`, `youtube`, `tiktok`, `linkedin`, `website`, and will be shown with a suitable icon. A generic link icon will be used for other link types.
+    * Other links will be displayed as icons under bio. Known link types are: `bsky`, `bluesky`, `fb`, `facebook`, `instagram`, `linkedin`, `mast`, `mdon`, `mastodon`, `threads`, `tumblr`, `twitch`, `tiktok`, `twitter`, `website`, `yt`, `youtube`, and will be shown with a suitable icon. A generic link icon will be used for other link types.
 * `img_256_url` - a link which is a path to a thumbnail image of the person (used by Grenadine). Note this is in the root level of the `people` record, not under `links`.
 * `bio` is the biography of the person.
     * Note: The fields `desc` for program.js and `bio` for people.js can support HTML tags, which get sanitized for dangerous HTML, but all other fields must be plain text.

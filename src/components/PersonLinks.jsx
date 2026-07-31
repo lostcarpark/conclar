@@ -1,14 +1,20 @@
 import React from "react";
 import {
-  FaTwitter,
   FaFacebook,
-  FaLinkedin,
-  FaInstagram,
-  FaTiktok,
-  FaTwitch,
-  FaYoutube,
   FaGlobe,
+  FaInstagram,
+  FaLinkedin,
+  FaMastodon,
+  FaTiktok,
+  FaTumblr,
+  FaTwitch,
+  FaTwitter,
+  FaYoutube,
 } from "react-icons/fa";
+import {
+  FaBluesky,
+  FaThreads
+} from "react-icons/fa6";
 import {
   IoLink,
 } from "react-icons/io5";
@@ -18,28 +24,40 @@ const PersonLinks = ({ person }) => {
   const regex = /^(?:http(s)?:\/\/)[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/;
   /**
    * Take a link type and return an appropriate Icon.
-   * @param {string} type 
+   * @param {string} type
    * @returns {string}
    */
   const getLinkIcon = (type) => {
     switch (type) {
-      case "twitter":
-        return <FaTwitter />;
+      case "bsky":
+      case "bluesky":
+        return <FaBluesky />;
       case "fb":
       case "facebook":
         return <FaFacebook />;
       case "instagram":
         return <FaInstagram />;
-      case "twitch":
-        return <FaTwitch />;
-      case "youtube":
-        return <FaYoutube />;
-      case "tiktok":
-        return <FaTiktok />;
       case "linkedin":
         return <FaLinkedin />;
+      case "mdon":
+      case "mast":
+      case "mastodon":
+        return <FaMastodon />;
+      case "tiktok":
+        return <FaTiktok />;
+      case "threads":
+        return <FaThreads />
+      case "tumblr":
+        return <FaTumblr />
+      case "twitch":
+        return <FaTwitch />;
+      case "twitter":
+        return <FaTwitter />;
       case "website":
         return <FaGlobe />;
+      case "youtube":
+      case "yt":
+        return <FaYoutube />;
       default:
         return <IoLink />;
     }
