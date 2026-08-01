@@ -68,7 +68,7 @@ const Person = () => {
     if (!person.hasOwnProperty("tags") || person.tags.length === 0) return "";
     const tags = [];
     for (const tag of person.tags) {
-      tags.push(<Tag key={tag.value} tag={tag.label} />);
+      tags.push(<Tag key={tag.value} tag={tag} />);
     }
     return <div className="person-tags">{tags}</div>;
   };

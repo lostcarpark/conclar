@@ -66,7 +66,7 @@ export function ExpandableDetails({
           <div className="item-people">
             <ul>{people}</ul>
           </div>
-          <div className="item-tags">{tags}</div>
+          {tags.length > 0 && <div className="item-tags">{tags}</div>}
           <div
             className="item-description"
             dangerouslySetInnerHTML={{ __html: safeDesc }}

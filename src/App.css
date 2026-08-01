@@ -55,6 +55,7 @@
   --search-border: var(--gray-400);
 
   --program-tags-fg: var(--gray-600);
+  --program-tags-bg: var(--gray-200);
   --program-expanded-bg: var(--gray-100);
 
   --link-fg: var(--brand-secondary-800);
@@ -1215,7 +1216,17 @@ div.switch-wrapper {
   color: var(--program-tags-fg);
 }
 
-.item-tag,
+.item-tags {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.item-description {
+  margin-top: 0.5rem;
+}
+
 .item-location {
   display: inline-block;
   margin-right: 0.5rem;
@@ -1225,11 +1236,28 @@ div.switch-wrapper {
   opacity: 0.75;
 }
 
-.item-tags .item-tag:after {
-    content: ', ';
+.item-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.6rem;
+  border-radius: 1rem;
+  background-color: var(--program-tags-bg);
 }
-.item-tags .item-tag:last-child:after {
-    content: '';
+
+.tag-icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1em;
+  min-width: 1em;
+  margin-right: 0.3em;
+  color: inherit;
+  opacity: 0.8;
+}
+
+.tag-icon-img {
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
 }
 
 
@@ -1298,7 +1326,7 @@ div.switch-wrapper {
 /* fix link spacing */
 
 .item-links {
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;

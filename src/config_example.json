@@ -109,6 +109,9 @@
       { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
     ],
     "FORMAT_AS_TAG": false,
+    "ICONS": {
+      "Type:Video": { "ICON_NAME": "fa/FaVideo" }
+    },
     "DAY_TAG": {
       "GENERATE": true,
       "DAYS": {

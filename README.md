@@ -127,7 +127,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
 - `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 - `TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.
-- `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`.
+- `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`. The order of entries also controls the order tag pills are displayed in on a programme item; tags whose category isn't listed here are displayed last, in their original relative order.
 - `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 - `TAGS.DAY_TAG.GENERATE`: If set to true, will generate tags for each day of the convention.
 - `TAGS.DAY_TAG.DAYS`: Object with key values pairs for day names. Keys are day numbers from 1 (Monday) to 7 (Sunday).
@@ -135,6 +135,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `TAGS.DAY_TAG.SEARCHABLE`: Whether day tag list can be searched by typing.
 - `TAGS.DAY_TAG.HIDE`: If true, hide day tags drop-down. Day tags still shown on items if GENERATE true.
 - `TAGS.DONTLIST`: An array of tags not to list in the drop-downs and programme item tag lists.
+- `TAGS.ICONS`: An object mapping a tag's exact value (e.g. `"Availability:Streamed"`) to an icon shown before that tag wherever it's displayed on a programme item or person - see `NAVIGATION.EXTRA`'s `ICON_NAME` / `ICON_URL` above for the available icons. _e.g._, `"ICONS": { "Availability:Streamed": { "ICON_NAME": "fa/FaVideo" } }`. Tags without an entry here render as before, with no icon. Filter drop-downs are unaffected.
 - `HIDE_BEFORE.HIDE`: If true hide "hide before" dropdown. If false, show dropdown containing times to hide items before.
 - `HIDE_BEFORE.PLACEHOLDER`: Placeholder text for hide before drop-down.
 - `HIDE_BEFORE.TIMES`: Array of times to list in hide before drop-down. Each entry should be specified as follows: { "TIME": "time in hh:mm:ss format", "LABEL_24H": "24 hour label", "LABEL_12H": "12 hour label" }. Time should be in convention timezone.
