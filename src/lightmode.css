@@ -79,6 +79,21 @@
 
   --shadow-tint: rgb(1, 5, 8);
 
+  /* Lacon's own tag-category pill palette: same saturation/lightness across
+   * the set, varying only hue, so they read as one harmonious family
+   * instead of borrowing mismatched semantic ramps. */
+  --tag-people-bg: hsl(210, 25%, 90%);
+  --tag-people-fg: hsl(210, 32%, 30%);
+  --tag-area-bg: hsl(15, 25%, 90%);
+  --tag-area-fg: hsl(15, 32%, 30%);
+  --tag-format-bg: hsl(175, 25%, 90%);
+  --tag-format-fg: hsl(175, 32%, 30%);
+  --tag-environment-bg: hsl(38, 25%, 90%);
+  --tag-environment-fg: hsl(38, 32%, 30%);
+  --tag-availability-bg: hsl(235, 30%, 90%);
+  --tag-availability-fg: hsl(235, 37%, 30%);
+  --tag-tag-bg: hsl(270, 25%, 90%);
+  --tag-tag-fg: hsl(270, 32%, 30%);
   --brand-primary-fg: var(--brand-primary-500);
   --brand-primary-fg-strong: var(--brand-primary-700);
   --brand-primary-surface: var(--brand-primary-400);

@@ -12,7 +12,7 @@ const Tag = ({ tag }) => {
     <div className={`item-tag${categoryClass}`}>
       {iconConfig && (
         <Icon
-          iconName={iconConfig.ICON_NAME}
+          icon={iconConfig.ICON_NAME}
           iconUrl={iconConfig.ICON_URL}
           className="tag-icon"
         />

@@ -1,10 +1,9 @@
 import iconsByName from "virtual:config-icons";
 
-const Icon = ({ icon, iconName, iconUrl, className = "nav-icon" }) => {
-  // Core call sites pass a component directly; config-driven call sites pass
-  // a name resolved via the build-time generated set (see configIconsPlugin
-  // in vite.config.js). Either way we end up with a component.
-  const IconComponent = icon || iconsByName[iconName];
+const Icon = ({ icon, iconUrl, className = "nav-icon" }) => {
+  // `icon` is either a component (hardcoded core icons) or a name resolved
+  // via the build-time generated set (see configIconsPlugin in vite.config.js).
+  const IconComponent = typeof icon === "string" ? iconsByName[icon] : icon;
   if (IconComponent) {
     return <IconComponent className={className} aria-hidden="true" />;
   }

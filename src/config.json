@@ -32,8 +32,8 @@
     "MYSCHEDULE": "My Schedule",
     "SETTINGS": "Settings",
     "EXTRA": [
-      { "LABEL": "Member portal", "URL": "https://portal.lacon.org", "ICON_NAME": "Home" },
-      { "LABEL": "Website", "URL": "https://lacon.org", "ICON_NAME": "Globe" }
+      { "LABEL": "Member portal", "URL": "https://portal.lacon.org", "ICON_NAME": "fa/FaHome" },
+      { "LABEL": "Website", "URL": "https://lacon.org", "ICON_NAME": "fa/FaGlobe" }
     ]
   },
   "HELP_TEXT": {
@@ -185,6 +185,10 @@
       { "PREFIX": "Environment", "PLACEHOLDER": "Environment", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Availability", "PLACEHOLDER": "Availability", "SEARCHABLE": false, "HIDE": false }
     ],
+    "ICONS": {
+      "session_Children's Program": { "ICON_NAME": "fa6/FaChildren" },
+      "session_replay": { "ICON_NAME": "pi/PiRecordFill" }
+    },
     "FORMAT_AS_TAG": true,
     "DAY_TAG": {
       "GENERATE": true,
@@ -244,35 +248,35 @@
       "NAME": "chat",
       "TEXT": "Chat about this item",
       "TAG": "",
-      "ICON_NAME": "Comment"
+      "ICON_NAME": "fa/FaComment"
     },
     {
       "NAME": "signup",
       "TEXT": "Sign up for this item",
       "WHEN": ["before"],
       "TAG": "",
-      "ICON_NAME": "Pen"
+      "ICON_NAME": "fa/FaPen"
     },
     {
       "NAME": "stage",
       "TEXT": "Watch the stream",
       "WHEN": ["during"],
       "TAG": "",
-      "ICON_NAME": "Play"
+      "ICON_NAME": "fa/FaPlayCircle"
     },
     {
       "NAME": "session",
       "TEXT": "Watch the stream",
       "WHEN": ["during"],
       "TAG": "",
-      "ICON_NAME": "Video"
+      "ICON_NAME": "fa/FaVideo"
     },
     {
       "NAME": "replay",
       "TEXT": "Watch the replay",
       "WHEN": ["after"],
       "TAG": "",
-      "ICON_NAME": "Play"
+      "ICON_NAME": "fa/FaPlayCircle"
     }
   ],
   "CONVENTION_TIME": {
@@ -310,9 +314,10 @@
     "MODERATORS": {
       "MODERATOR_LABEL": "(moderator)"
     },
+    "RENDER_AS_TAGS": true,
     "THUMBNAILS": {
-      "SHOW_THUMBNAILS": true,
-      "SHOW_CHECKBOX": true,
+      "SHOW_THUMBNAILS": false,
+      "SHOW_CHECKBOX": false,
       "CHECKBOX_LABEL": "Show thumbnails",
       "DEFAULT_IMAGE": "compass.png"
     },

@@ -1250,6 +1250,39 @@ div.switch-wrapper {
   color: inherit;
 }
 
+/* Lacon's own tag category colors (TAGS.SEPARATE's prefixes: Tag, Area,
+ * type, Environment, Availability), plus the people pseudo-category from
+ * PEOPLE.RENDER_AS_TAGS. */
+.item-tag-people {
+  background-color: var(--tag-people-bg);
+  color: var(--tag-people-fg);
+}
+
+.item-tag-tag {
+  background-color: var(--tag-tag-bg);
+  color: var(--tag-tag-fg);
+}
+
+.item-tag-area {
+  background-color: var(--tag-area-bg);
+  color: var(--tag-area-fg);
+}
+
+.item-tag-type {
+  background-color: var(--tag-format-bg);
+  color: var(--tag-format-fg);
+}
+
+.item-tag-environment {
+  background-color: var(--tag-environment-bg);
+  color: var(--tag-environment-fg);
+}
+
+.item-tag-availability {
+  background-color: var(--tag-availability-bg);
+  color: var(--tag-availability-fg);
+}
+
 .tag-icon {
   display: inline-block;
   vertical-align: middle;

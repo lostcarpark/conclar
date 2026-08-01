@@ -10,7 +10,7 @@ const ItemLink = ({ name, link, text, enabled, iconName, iconUrl, reserveIconSpa
       rel="noreferrer"
     >
       {showIcon && (
-        <Icon iconName={iconName} iconUrl={iconUrl} className="item-link-icon" />
+        <Icon icon={iconName} iconUrl={iconUrl} className="item-link-icon" />
       )}
       {text}
     </a>
