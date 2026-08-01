@@ -1,4 +1,4 @@
-import NavIcon from "./NavIcon";
+import Icon from "./Icon";
 
 const ItemLink = ({ name, link, text, enabled, iconName, iconUrl, reserveIconSpace }) => {
   const showIcon = iconName || iconUrl || reserveIconSpace;
@@ -10,7 +10,7 @@ const ItemLink = ({ name, link, text, enabled, iconName, iconUrl, reserveIconSpa
       rel="noreferrer"
     >
       {showIcon && (
-        <NavIcon iconName={iconName} iconUrl={iconUrl} className="item-link-icon" />
+        <Icon iconName={iconName} iconUrl={iconUrl} className="item-link-icon" />
       )}
       {text}
     </a>

@@ -1,7 +1,7 @@
 import { useStoreState } from "easy-peasy";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import configData from "../config.json";
-import NavIcon from "./NavIcon";
+import Icon from "./Icon";
 import { isSyncEnabled } from "../SyncService";
 
 const syncConfig = configData.SYNC || {};
@@ -51,7 +51,7 @@ const UserStatus = () => {
     return (
       <li className="nav-user-status">
         <a href={userProfile.logout_url}>
-          <NavIcon icon={FaSignOutAlt} />
+          <Icon icon={FaSignOutAlt} />
           {label}
         </a>
       </li>
@@ -61,7 +61,7 @@ const UserStatus = () => {
   return (
     <li className="nav-user-status">
       <a href={userProfile.login_url}>
-        <NavIcon icon={FaSignInAlt} />
+        <Icon icon={FaSignInAlt} />
         {syncConfig.LOGIN_LABEL || "Log in"}
       </a>
     </li>

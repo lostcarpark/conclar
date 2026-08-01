@@ -32,7 +32,7 @@
     "MYSCHEDULE": "My Schedule",
     "INFO": "Information",
     "SETTINGS": "Settings",
-    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com", "ICON_NAME": "Home" }]
+    "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com", "ICON_NAME": "fa/FaHome" }]
   },
   "HELP_TEXT": {
     "WELCOME": "Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",

@@ -7,7 +7,7 @@ import {
   FaCog,
 } from "react-icons/fa";
 import configData from "../config.json";
-import NavIcon from "./NavIcon";
+import Icon from "./Icon";
 import UserStatus from "./UserStatus";
 
 const Navigation = () => {
@@ -27,7 +27,7 @@ const Navigation = () => {
         {coreLinks.map(({ to, icon, label }) => (
           <li key={to}>
             <NavLink to={to}>
-              <NavIcon icon={icon} />
+              <Icon icon={icon} />
               {label}
             </NavLink>
           </li>
@@ -35,7 +35,7 @@ const Navigation = () => {
         {extraLinks.map((link) => (
           <li className="nav-extra" key={link.URL}>
             <a href={link.URL} target="_blank" rel="noreferrer">
-              <NavIcon iconName={link.ICON_NAME} iconUrl={link.ICON_URL} />
+              <Icon iconName={link.ICON_NAME} iconUrl={link.ICON_URL} />
               {link.LABEL}
             </a>
           </li>
