@@ -209,6 +209,7 @@
     "MODERATORS": {
       "MODERATOR_LABEL": "(moderator)"
     },
+    "RENDER_AS_TAGS": false,
     "THUMBNAILS": {
       "SHOW_THUMBNAILS": true,
       "SHOW_CHECKBOX": true,

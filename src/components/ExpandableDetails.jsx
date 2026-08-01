@@ -63,9 +63,11 @@ export function ExpandableDetails({
       <div className="item-details-measure" ref={ref}>
         <div className="item-details-expanded">
           {permaLink}
-          <div className="item-people">
-            <ul>{people}</ul>
-          </div>
+          {people.length > 0 && (
+            <div className="item-people">
+              <ul>{people}</ul>
+            </div>
+          )}
           {tags.length > 0 && <div className="item-tags">{tags}</div>}
           <div
             className="item-description"

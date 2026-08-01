@@ -1244,6 +1244,12 @@ div.switch-wrapper {
   background-color: var(--program-tags-bg);
 }
 
+.item-tag-people a,
+.item-tag-people a:hover,
+.item-tag-people a:visited {
+  color: inherit;
+}
+
 .tag-icon {
   display: inline-block;
   vertical-align: middle;

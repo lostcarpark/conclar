@@ -169,6 +169,7 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
 - `SHOW_PAST_ITEMS.CHECKBOX_LABEL`: Label for the show past items checkbox.
 - `SHOW_PAST_ITEMS.ADJUST_MINUTES`: Some wiggle room (in minutes) in order not to hide past items immediately as they start.
+- `PEOPLE.RENDER_AS_TAGS`: Set to true to render each item's people as pills alongside its other tags, instead of in their own list below the item. Suits programmes without thumbnails better than the list layout - people pills always render first, ahead of the item's other tags.
 - `PEOPLE.THUMBNAILS.SHOW_THUMBNAILS`: Set to false to not show member thumbnails (useful to remove spurious controls if pictures not in file).
 - `PEOPLE.THUMBNAILS.SHOW_CHECKBOX`: Set to false to hide "Show thumbnails" checkbox.
 - `PEOPLE.THUMBNAILS.CHECKBOX_LABEL`: Label for "Show thumbnails" checkbox.
