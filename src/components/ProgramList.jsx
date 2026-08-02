@@ -68,8 +68,9 @@ const ProgramList = ({ program, programTime, forceExpanded = false }) => {
   const isSuffixOfPrev =
     program.length > 0 &&
     program.length <= prevProgram.length &&
-    program[program.length - 1] === prevProgram[prevProgram.length - 1] &&
-    program[0] === prevProgram[prevProgram.length - program.length];
+    program[program.length - 1].id ===
+      prevProgram[prevProgram.length - 1].id &&
+    program[0].id === prevProgram[prevProgram.length - program.length].id;
   let effectiveVisibleCount = visibleCount;
   if (
     (INFINITE_SCROLL && programChanged && !isSuffixOfPrev) ||
