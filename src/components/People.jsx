@@ -90,7 +90,7 @@ const People = () => {
 
   const searchInput = configData.PEOPLE.SEARCH.SHOW_SEARCH ? (
     <div className="people-search">
-      <label htmlFor="people-search">Search people</label>
+      <label htmlFor="people-search">{configData.PEOPLE.SEARCH.SEARCH_LABEL}</label>
       <input
         id="people-search"
         type="search"
