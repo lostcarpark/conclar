@@ -258,15 +258,15 @@
       "ICON_NAME": "fa/FaPen"
     },
     {
-      "NAME": "stage",
+      "NAME": "watch",
       "TEXT": "Watch the stream",
       "WHEN": ["during"],
       "TAG": "",
-      "ICON_NAME": "fa/FaPlayCircle"
+      "ICON_NAME": "fa/FaVideo"
     },
     {
-      "NAME": "session",
-      "TEXT": "Watch the stream",
+      "NAME": "join",
+      "TEXT": "Join this item",
       "WHEN": ["during"],
       "TAG": "",
       "ICON_NAME": "fa/FaVideo"
