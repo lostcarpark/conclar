@@ -170,15 +170,17 @@
       "properties": {
         "SEARCHABLE": { "type": "boolean", "description": "Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)" },
         "LABEL": { "type": "string", "description": "Label to show on map links." },
+        "HIGHLIGHT_STYLE": { "type": "string", "description": "CSS style to apply to highlighted locations on the map." },
         "MAPPING": {
           "type": "array",
-          "description": "Array of locations, with links to show on map.",
+          "description": "Array of locations, with links / id to show on map.",
           "items": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
               "KEY": { "type": "string", "description": "Room name, matching the location name used in the programme data." },
-              "MAP_URL": { "type": "string", "description": "Link to a map for this location." }
+              "MAP_URL": { "type": "string", "description": "Link to a map for this location." },
+              "ID": { "type": "string", "description": "Id of location in SVG map." }
             }
           }
         }

@@ -156,6 +156,7 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
             key="map"
             name="item-links-map"
             link={location.MAP_URL}
+            locationId={location.ID}
             text={configData.LOCATIONS.LABEL}
             enabled={true}
           />
