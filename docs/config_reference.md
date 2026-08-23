@@ -156,7 +156,7 @@ Copy `src/config_example.json` to `src/config.json` and customise. See the [Gett
 - `SHOW_PAST_ITEMS.CHECKBOX_LABEL` (string) — Label for the show-past-items checkbox.
 - `SHOW_PAST_ITEMS.ADJUST_MINUTES` (number) — Some wiggle room (in minutes) in order not to hide past items immediately as they start.
 - `SHOW_PAST_ITEMS.FROM_START` (boolean) — If true, adjust from the item's start time rather than its end time when deciding whether it's "past".
-- `PEOPLE` (object) — Settings for the people list and individual participant pages.
+- `PEOPLE` (object, required) — Settings for the people list and individual participant pages.
 - `PEOPLE.MODERATORS` (object)
 - `PEOPLE.MODERATORS.MODERATOR_LABEL` (string) — Label appended to a participant's name when they are the moderator of an item.
 - `PEOPLE.THUMBNAILS` (object)
@@ -183,6 +183,10 @@ Copy `src/config_example.json` to `src/config.json` and customise. See the [Gett
 - `PEOPLE.BIO` (object)
 - `PEOPLE.BIO.PURIFY_OPTIONS` (object) — Additional options passed to DOMPurify when processing participant bios. For more details, see ITEM_DESCRIPTION.PURIFY_OPTIONS.
 - `PEOPLE.BIO.PURIFY_OPTIONS.FORBID_ATTR` (array of string)
+- `PEOPLE.SHARE` (object, required)
+- `PEOPLE.SHARE.LABEL` (string, required) — Heading for sharing person.
+- `PEOPLE.SHARE.DESCRIPTION` (string, required) — Descriptive message for sharing person.
+- `PEOPLE.SHARE.LINK_LABEL` (string, required) — Label for sharing person link.
 - `USELESS_CHECKBOX` (object)
 - `USELESS_CHECKBOX.CHECKBOX_LABEL` (string) — Label for any "useless" placeholder checkboxes used for layout alignment.
 - `INFORMATION` (object, required)

@@ -233,6 +233,11 @@
       "PURIFY_OPTIONS": {
         "FORBID_ATTR": ["style"]
       }
+    },
+    "SHARE": {
+      "LABEL": "Share person",
+      "DESCRIPTION": "Copy and paste this link to share this person. Or point your camera at the QR code below.",
+      "LINK_LABEL": "Shareable link"
     }
   },
   "USELESS_CHECKBOX": {

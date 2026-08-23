@@ -13,6 +13,7 @@
     "NAVIGATION",
     "HEADER",
     "PROGRAM",
+    "PEOPLE",
     "SETTINGS",
     "FOOTER",
     "APPLICATION",
@@ -548,6 +549,7 @@
       "type": "object",
       "additionalProperties": false,
       "description": "Settings for the people list and individual participant pages.",
+      "required": ["SHARE"],
       "properties": {
         "MODERATORS": {
           "type": "object",
@@ -619,6 +621,16 @@
                 "FORBID_ATTR": { "type": "array", "items": { "type": "string" } }
               }
             }
+          }
+        },
+        "SHARE": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["LABEL", "DESCRIPTION", "LINK_LABEL"],
+          "properties": {
+            "LABEL": { "type": "string", "description": "Heading for sharing person." },
+            "DESCRIPTION": { "type": "string", "description": "Descriptive message for sharing person." },
+            "LINK_LABEL": { "type": "string", "description": "Label for sharing person link." }
           }
         }
       }
