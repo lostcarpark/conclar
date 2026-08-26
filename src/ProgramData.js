@@ -269,6 +269,29 @@ export class ProgramData {
     }
 
     /**
+     * Takes a tag and finds its weight. Tags will default to 0, so negative
+     * numbers will float to top of list, positive will fall to bottom.
+     * @param {*} tag
+     * @returns int
+     */
+    function tagWeight(tag) {
+      // return 0;
+      // If tag has explicit weight, use that.
+      if (tag.hasOwnProperty("weight"))
+        return tag.weight;
+      else if (configData.TAGS.hasOwnProperty("WEIGHTS")) {
+        // If new style tag, take label, otherwise full tag text.
+        const value = tag.hasOwnProperty("value") ? tag.value : tag;
+        // If WEIGHTS section exists, search for the tag value.
+        const weight = configData.TAGS.WEIGHTS.find((item) => item.VALUE === value);
+        if (weight && weight.hasOwnProperty("WEIGHT"))
+          return weight.WEIGHT;
+      }
+      // Default tag to 0.
+      return 0;
+    }
+
+    /**
      * Takes a tag string and decodes into a tag object. Adds to tags.all array.
      * @param {*} tag
      * @returns
@@ -283,6 +306,7 @@ export class ProgramData {
       if (hasProps) {
         if (tag.hasOwnProperty("label")) newTag.label = tag.label;
         if (tag.hasOwnProperty("category")) newTag.category = tag.category;
+        newTag.weight = tagWeight(tag);
         tags.all[value] = newTag;
         return newTag;
       }
@@ -301,6 +325,7 @@ export class ProgramData {
       } else {
         newTag.label = tag;
       }
+      newTag.weight = tagWeight(tag);
       tags.all[value] = newTag;
       return newTag;
     }
@@ -338,7 +363,7 @@ export class ProgramData {
     // Now sort each set of tags.
     for (const tagList in tags) {
       if (Array.isArray(tags[tagList]))
-        tags[tagList].sort((a, b) => a.label.localeCompare(b.label));
+        tags[tagList].sort((a, b) => a.weight === b.weight ? a.label.localeCompare(b.label) : a.weight > b.weight);
     }
 
     // If generating day tags, loop through days and add a tag for day in convention timezone.
@@ -367,7 +392,7 @@ export class ProgramData {
       tags.days.sort((a, b) => a.value.localeCompare(b.value));
     }
 
-    //console.log(tags);
+    // console.log(tags);
     return tags;
   }
 

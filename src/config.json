@@ -185,6 +185,13 @@
       { "PREFIX": "Environment", "PLACEHOLDER": "Environment", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Availability", "PLACEHOLDER": "Availability", "SEARCHABLE": false, "HIDE": false }
     ],
+    "WEIGHTS": [
+      { "VALUE": "session_streamed", "WEIGHT": -5 },
+      { "VALUE": "session_not_streamed", "WEIGHT": -4 },
+      { "VALUE": "session_replay", "WEIGHT": -3 },
+      { "VALUE": "session_no_replay", "WEIGHT": -2 },
+      { "VALUE": "sessioon_requires_signup", "WEIGHT": -1 }
+    ],
     "ICONS": {
       "session_Children's Program": { "ICON_NAME": "fa6/FaChildren" },
       "session_replay": { "ICON_NAME": "pi/PiRecordFill" }
