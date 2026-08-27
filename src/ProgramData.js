@@ -242,6 +242,26 @@ export class ProgramData {
     }
 
     /**
+     * Takes a tag and finds its weight. Tags will default to 0, so negative
+     * numbers will float to top of list, positive will fall to bottom.
+     * @param {*} tag
+     * @returns int
+     */
+    function tagWeight(tag, lookupValue) {
+      // If tag has explicit weight, use that.
+      if (tag.hasOwnProperty("weight"))
+        return tag.weight;
+      else if (tagConfig.hasOwnProperty("WEIGHTS")) {
+        // If WEIGHTS section exists, search for the tag value.
+        const weight = tagConfig.WEIGHTS.find((item) => item.VALUE === lookupValue);
+        if (weight && weight.hasOwnProperty("WEIGHT"))
+          return weight.WEIGHT;
+      }
+      // Default tag to 0.
+      return 0;
+    }
+
+    /**
      * Takes a tag string and decodes into a tag object. Adds to tags.all array.
      * @param {*} tag
      * @returns
