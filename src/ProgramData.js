@@ -274,16 +274,13 @@ export class ProgramData {
      * @param {*} tag
      * @returns int
      */
-    function tagWeight(tag) {
-      // return 0;
+    function tagWeight(tag, lookupValue) {
       // If tag has explicit weight, use that.
       if (tag.hasOwnProperty("weight"))
         return tag.weight;
       else if (configData.TAGS.hasOwnProperty("WEIGHTS")) {
-        // If new style tag, take label, otherwise full tag text.
-        const value = tag.hasOwnProperty("value") ? tag.value : tag;
         // If WEIGHTS section exists, search for the tag value.
-        const weight = configData.TAGS.WEIGHTS.find((item) => item.VALUE === value);
+        const weight = configData.TAGS.WEIGHTS.find((item) => item.VALUE === lookupValue);
         if (weight && weight.hasOwnProperty("WEIGHT"))
           return weight.WEIGHT;
       }
@@ -306,26 +303,28 @@ export class ProgramData {
       if (hasProps) {
         if (tag.hasOwnProperty("label")) newTag.label = tag.label;
         if (tag.hasOwnProperty("category")) newTag.category = tag.category;
-        newTag.weight = tagWeight(tag);
+        newTag.weight = tagWeight(tag, newTag.value);
         tags.all[value] = newTag;
         return newTag;
       }
       // If we get here, it's an old style tag.
+      const PREFIX_INDEX = 1;
+      const LABEL_INDEX = 2;
       const matches = tag.match(/^(.+):(.+)/);
-      if (matches && matches.length === 3) {
-        const prefix = matches[1];
-        const label = matches[2];
+      const hasPrefix = matches && matches.length === 3;
+      const lookupValue = hasPrefix ? matches[LABEL_INDEX] : tag;
+      if (hasPrefix) {
         // Tag has a prefix. Check if it's one we're interested in.
-        if (prefix in tags) {
-          newTag.category = prefix;
-          newTag.label = Format.formatTag(label);
+        if (matches[PREFIX_INDEX] in tags) {
+          newTag.category = matches[PREFIX_INDEX];
+          newTag.label = Format.formatTag(matches[LABEL_INDEX]);
         } else {
           newTag.label = tag;
         }
       } else {
         newTag.label = tag;
       }
-      newTag.weight = tagWeight(tag);
+      newTag.weight = tagWeight(tag, lookupValue);
       tags.all[value] = newTag;
       return newTag;
     }
@@ -363,7 +362,7 @@ export class ProgramData {
     // Now sort each set of tags.
     for (const tagList in tags) {
       if (Array.isArray(tags[tagList]))
-        tags[tagList].sort((a, b) => a.weight === b.weight ? a.label.localeCompare(b.label) : a.weight > b.weight);
+        tags[tagList].sort((a, b) => a.weight === b.weight ? a.label.localeCompare(b.label) : a.weight - b.weight);
     }
 
     // If generating day tags, loop through days and add a tag for day in convention timezone.

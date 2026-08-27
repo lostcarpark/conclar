@@ -190,7 +190,7 @@
       { "VALUE": "session_not_streamed", "WEIGHT": -4 },
       { "VALUE": "session_replay", "WEIGHT": -3 },
       { "VALUE": "session_no_replay", "WEIGHT": -2 },
-      { "VALUE": "sessioon_requires_signup", "WEIGHT": -1 }
+      { "VALUE": "session_requires_signup", "WEIGHT": -1 }
     ],
     "ICONS": {
       "session_Children's Program": { "ICON_NAME": "fa6/FaChildren" },
