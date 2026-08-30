@@ -130,6 +130,7 @@
         "PEOPLE": { "type": "string", "description": "Label for people menu." },
         "MYSCHEDULE": { "type": "string", "description": "Label for user's personal schedule." },
         "INFO": { "type": "string", "description": "Label for the Information menu link." },
+        "MAP":  { "type": "string", "description": "Label for the Map menu link." },
         "SETTINGS": { "type": "string", "description": "Label for the Settings menu link." },
         "EXTRA": {
           "type": "array",

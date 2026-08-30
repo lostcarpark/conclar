@@ -82,6 +82,7 @@ const AppRoutes = () => {
               </Route>
               <Route path="myschedule" element={<MySchedule />} />
               <Route path="info" element={<Info />} />
+              <Route path="map" element={<Suspense><Map/></Suspense>} />
               <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="*" element={<NotFound />} />
