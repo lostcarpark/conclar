@@ -93,7 +93,8 @@ Set the `MAP_URL` field to the URL for the map to the location.
 ### Highlight location in inline SVG map
 
 Create a map in SVG format with each location identified with unique ids. Put the file at `src/map.svg`. Set the 
-`ID` field to respective ids set in `map.svg`.
+`CSS_SELECTOR` field to respective selectors for selecting the elements in `map.svg`. So something like `.class` or 
+`#id` depending on how you have structured your map file.
 
 #### Styling
 

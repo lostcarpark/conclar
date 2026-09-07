@@ -36,7 +36,7 @@ const AppRoutes = () => {
   const darkMode = useStoreState((state) => state.darkMode);
   const showSyncWarning = useStoreState((state) => state.showSyncWarning);
   const mapVisible = useStoreState((state) => state.mapVisible);
-  const mapLocationID = useStoreState((state) => state.mapLocationID);
+  const mapLocationCSSSelector = useStoreState((state) => state.mapLocationCSSSelector);
   const userProfile = useStoreState((state) => state.userProfile);
   const setShowSyncWarning = useStoreActions((actions) => actions.setShowSyncWarning);
   const hideMap = useStoreActions((actions) => actions.hideMap)
@@ -90,7 +90,7 @@ const AppRoutes = () => {
         </Loading>
       </div>
       <style href="map">{`
-        #${mapLocationID} {
+        ${mapLocationCSSSelector} {
           ${configData.LOCATIONS.HIGHLIGHT_STYLE}
         }
       `}</style>

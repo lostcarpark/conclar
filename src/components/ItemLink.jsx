@@ -1,13 +1,13 @@
 import { useStoreActions } from 'easy-peasy';
 
-const ItemLink = ({ name, link, locationId, text, enabled }) => {
-  if (locationId !== "") {
+const ItemLink = ({ name, link, locationCSSSelector, text, enabled }) => {
+  if (locationCSSSelector !== "") {
     const showMap = useStoreActions((actions) => actions.showMap);
 
     return <div className={name}>
       <button className={enabled ? null : "disabled"} onClick={e => {
       e.stopPropagation();
-      showMap(locationId)}
+      showMap(locationCSSSelector)}
       }>{text}</button>
     </div>;
   }

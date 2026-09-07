@@ -49,7 +49,7 @@ Copy `src/config_example.json` to `src/config.json` and customise. See the [Gett
 - `LOCATIONS.MAPPING` (array of object) — Array of locations, with links to show on map.
 - `LOCATIONS.MAPPING[].KEY` (string) — Room name, matching the location name used in the programme data.
 - `LOCATIONS.MAPPING[].MAP_URL` (string) — Link to a map for this location.
-- `LOCATIONS.MAPPING[].ID` (string) - ID of the location element on the map.
+- `LOCATIONS.MAPPING[].CSS_SELECTOR` (string) - CSS selector of the location element on the map.
 - `VENUES` (object) — Groups locations by venue, for conventions spanning more than one building. If omitted, the locations drop-down is a flat, ungrouped list.
 - `VENUES.ALL_LABEL` (string) — Label template for the "select this whole venue" option shown at the top of each venue's group in the locations drop-down. @venue is replaced with the venue name. Defaults to "All @venue".
 - `VENUES.UNGROUPED_LABEL` (string) — Label for the group heading shown above locations that aren't listed under any venue. Defaults to "Other".

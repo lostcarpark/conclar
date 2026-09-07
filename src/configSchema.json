@@ -181,7 +181,7 @@
             "properties": {
               "KEY": { "type": "string", "description": "Room name, matching the location name used in the programme data." },
               "MAP_URL": { "type": "string", "description": "Link to a map for this location." },
-              "ID": { "type": "string", "description": "Id of location in SVG map." }
+              "CSS_SELECTOR": { "type": "string", "description": "Id of location in SVG map." }
             }
           }
         }
