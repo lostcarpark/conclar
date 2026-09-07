@@ -79,6 +79,33 @@ To change the styling, edit `src/App.css`. If you want to just change the basic 
 
 To change the home screen app name, edit `public/manifest.json`.
 
+## Show map for location
+
+A link to a map for finding the location can be showed on the program items. This is defined in the `LOCATIONS.MAPPING` 
+config field. This should be an array of objects where the `KEY` field should match the location name used in the programme data.
+
+There are 2 methods available for showing the map.
+
+### External link
+
+Set the `MAP_URL` field to the URL for the map to the location.
+
+### Highlight location in inline SVG map
+
+Create a map in SVG format with each location identified with unique ids. Put the file at `src/map.svg`. Set the 
+`CSS_SELECTOR` field to respective selectors for selecting the elements in `map.svg`. So something like `.class` or 
+`#id` depending on how you have structured your map file.
+
+#### Styling
+
+Configure the styling of the highlighted location in the inline SVG map in the config field 
+`LOCATIONS.HIGHLIGHT_STYLE`. It could for example be set to `fill: var(--brand-400) !important;`. Using a variable 
+like `--brand-400` means that the highlight will follow the color scheme of ConClár.
+
+When creating the SVG file you can also use the CSS variables otherwise used ConClár. See `src/App.css` for 
+available variables. Apart from making the colors of the map harmonize with ConClár this will also make light / dark 
+mode look better.
+
 ## Hosting
 
 ConClár is fairly simple to host on most webservers. However it does require that all requests get directed to index.html. Instruction for this on Apache and Nginx are included below.

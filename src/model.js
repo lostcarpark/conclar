@@ -84,6 +84,8 @@ const model = {
   onLine: window.navigator.onLine,
   darkMode: localStorage.getItem("dark_mode") ? localStorage.getItem("dark_mode") : 'browser',
   showSyncWarning: false,
+  mapVisible: false,
+  mapLocationCSSSelector: "",
   // Thunks
   fetchProgram: thunk(async (actions, firstTime) => {
     try {
@@ -367,6 +369,15 @@ const model = {
       localStorage.setItem(SYNC_WARNING_KEY, "true");
       syncWarningShown = true;
     }
+  }),
+
+  showMap: action((state, locationCSSSelector) => {
+    state.mapVisible = true;
+    state.mapLocationCSSSelector = locationCSSSelector;
+  }),
+  hideMap: action((state) => {
+    state.mapVisible = false;
+    state.mapLocationCSSSelector = null;
   }),
 
   // Thunks for sync-aware selection changes.
