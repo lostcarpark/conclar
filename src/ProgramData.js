@@ -242,6 +242,26 @@ export class ProgramData {
     }
 
     /**
+     * Takes a tag and finds its weight. Tags will default to 0, so negative
+     * numbers will float to top of list, positive will fall to bottom.
+     * @param {*} tag
+     * @returns int
+     */
+    function tagWeight(tag, lookupValue) {
+      // If tag has explicit weight, use that.
+      if (tag.hasOwnProperty("weight"))
+        return tag.weight;
+      else if (tagConfig.hasOwnProperty("WEIGHTS")) {
+        // If WEIGHTS section exists, search for the tag value.
+        const weight = tagConfig.WEIGHTS.find((item) => item.VALUE === lookupValue);
+        if (weight && weight.hasOwnProperty("WEIGHT"))
+          return weight.WEIGHT;
+      }
+      // Default tag to 0.
+      return 0;
+    }
+
+    /**
      * Takes a tag string and decodes into a tag object. Adds to tags.all array.
      * @param {*} tag
      * @returns
@@ -256,24 +276,28 @@ export class ProgramData {
       if (hasProps) {
         if (tag.hasOwnProperty("label")) newTag.label = tag.label;
         if (tag.hasOwnProperty("category")) newTag.category = tag.category;
+        newTag.weight = tagWeight(tag, newTag.value);
         tags.all[value] = newTag;
         return newTag;
       }
       // If we get here, it's an old style tag.
+      const PREFIX_INDEX = 1;
+      const LABEL_INDEX = 2;
       const matches = tag.match(/^(.+):(.+)/);
-      if (matches && matches.length === 3) {
-        const prefix = matches[1];
-        const label = matches[2];
+      const hasPrefix = matches && matches.length === 3;
+      const lookupValue = hasPrefix ? matches[LABEL_INDEX] : tag;
+      if (hasPrefix) {
         // Tag has a prefix. Check if it's one we're interested in.
-        if (prefix in tags) {
-          newTag.category = prefix;
-          newTag.label = Format.formatTag(label);
+        if (matches[PREFIX_INDEX] in tags) {
+          newTag.category = matches[PREFIX_INDEX];
+          newTag.label = Format.formatTag(matches[LABEL_INDEX]);
         } else {
           newTag.label = tag;
         }
       } else {
         newTag.label = tag;
       }
+      newTag.weight = tagWeight(tag, lookupValue);
       tags.all[value] = newTag;
       return newTag;
     }

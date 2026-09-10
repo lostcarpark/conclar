@@ -347,6 +347,19 @@
             }
           }
         },
+        "WEIGHTS": {
+          "type": "array",
+          "description": "An array of weights to control the sort order of tags within drop-downs. Negative weights float to the top, positive weights sink to the bottom. Tags without a weight default to 0. Tags with the same weight are sorted alphabetically.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["VALUE", "WEIGHT"],
+            "properties": {
+              "VALUE": { "type": "string", "description": "The tag value to set the weight for." },
+              "WEIGHT": { "type": "number", "description": "The numeric weight of the tag." }
+            }
+          }
+        },
         "FORMAT_AS_TAG": { "type": "boolean", "description": "If set to true, turns Grenadine item format into a KonOpas-style \"type\" tag." },
         "DAY_TAG": {
           "type": "object",
@@ -593,6 +606,19 @@
                   "PLACEHOLDER": { "type": "string" },
                   "SEARCHABLE": { "type": "boolean" },
                   "HIDE": { "type": "boolean" }
+                }
+              }
+            },
+            "WEIGHTS": {
+              "type": "array",
+              "description": "An array of weights to control the sort order of tags within drop-downs. Negative weights float to the top, positive weights sink to the bottom. Tags without a weight default to 0. Tags with the same weight are sorted alphabetically.",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["VALUE", "WEIGHT"],
+                "properties": {
+                  "VALUE": { "type": "string", "description": "The tag value to set the weight for." },
+                  "WEIGHT": { "type": "number", "description": "The numeric weight of the tag." }
                 }
               }
             }

@@ -105,6 +105,9 @@
       { "PREFIX": "Tag", "PLACEHOLDER": "Select tag", "SEARCHABLE": false, "HIDE": false },
       { "PREFIX": "Track", "PLACEHOLDER": "Select track", "SEARCHABLE": false, "HIDE": false }
     ],
+    "WEIGHTS": [
+      { "VALUE": "sessioon_requires_signup", "WEIGHT": -1 }
+    ],
     "FORMAT_AS_TAG": false,
     "DAY_TAG": {
       "GENERATE": true,

@@ -95,6 +95,9 @@ Copy `src/config_example.json` to `src/config.json` and customise. See the [Gett
 - `TAGS.SEPARATE[].PLACEHOLDER` (string) — Placeholder for this drop-down.
 - `TAGS.SEPARATE[].SEARCHABLE` (boolean) — Whether this drop-down can be searched by typing.
 - `TAGS.SEPARATE[].HIDE` (boolean) — If true, hide this drop-down. Tags are still displayed on items.
+- `TAGS.WEIGHTS` (array of object) — An array of weights to control the sort order of tags within drop-downs. Negative weights float to the top, positive weights sink to the bottom. Tags without a weight default to 0. Tags with the same weight are sorted alphabetically.
+- `TAGS.WEIGHTS[].VALUE` (string) — The tag value to set the weight for.
+- `TAGS.WEIGHTS[].WEIGHT` (number) — The numeric weight of the tag.
 - `TAGS.FORMAT_AS_TAG` (boolean) — If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 - `TAGS.DAY_TAG` (object) — Settings for auto-generated per-day tags.
 - `TAGS.DAY_TAG.GENERATE` (boolean) — If set to true, will generate tags for each day of the convention.
@@ -176,6 +179,9 @@ Copy `src/config_example.json` to `src/config.json` and customise. See the [Gett
 - `PEOPLE.TAGS.SEPARATE[].PLACEHOLDER` (string)
 - `PEOPLE.TAGS.SEPARATE[].SEARCHABLE` (boolean)
 - `PEOPLE.TAGS.SEPARATE[].HIDE` (boolean)
+- `PEOPLE.TAGS.WEIGHTS` (array of object) — An array of weights to control the sort order of tags within drop-downs. Negative weights float to the top, positive weights sink to the bottom. Tags without a weight default to 0. Tags with the same weight are sorted alphabetically.
+- `PEOPLE.TAGS.WEIGHTS[].VALUE` (string) — The tag value to set the weight for.
+- `PEOPLE.TAGS.WEIGHTS[].WEIGHT` (number) — The numeric weight of the tag.
 - `PEOPLE.SEARCH` (object)
 - `PEOPLE.SEARCH.SHOW_SEARCH` (boolean) — Set to false to hide the people search box.
 - `PEOPLE.SEARCH.SEARCH_LABEL` (string) — Label for the people search box.
