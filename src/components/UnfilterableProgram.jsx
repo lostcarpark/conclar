@@ -1,26 +1,27 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { useStoreState } from "easy-peasy";
 import ProgramList from "./ProgramList";
-import Info from "./Info";
-import { LocalTime } from "../utils/LocalTime";
+import { useProgramTime } from "../hooks/useProgramTime";
+
+const Info = lazy(() => import("./Info"));
 
 const UnfilterableProgram = () => {
   const program = useStoreState((state) => state.program);
 
   const showPastItems = useStoreState((state) => state.showPastItems);
+  const programTime = useProgramTime();
 
-  const filtered =
-    LocalTime.isDuringCon(program) && !showPastItems
-      ? LocalTime.filterPastItems(program)
-      : program;
+  const filtered = programTime.hidePastItems(program, showPastItems);
 
   return (
     <div className="uninteractive">
       <div className="program-page">
-        <ProgramList program={filtered} />
+        <ProgramList program={filtered} programTime={programTime} />
       </div>
       <hr />
-      <Info />
+      <Suspense fallback={null}>
+        <Info />
+      </Suspense>
     </div>
   );
 };

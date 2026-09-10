@@ -2,12 +2,14 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import configData from "../config.json";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
-import ShareLink from "./ShareLink";
+import { lazy, Suspense } from "react";
+
+const ShareLink = lazy(() => import("./ShareLink"));
 import { LocalTime } from "../utils/LocalTime";
+import { useProgramTime } from "../hooks/useProgramTime";
 
 const MySchedule = () => {
   const mySchedule = useStoreState((state) => state.getMySchedule);
-  const program = useStoreState((state) => state.program);
   const showPastItems = useStoreState((state) => state.showPastItems);
   const { expandSelected, collapseSelected } = useStoreActions((actions) => ({
     expandSelected: actions.expandSelected,
@@ -17,6 +19,7 @@ const MySchedule = () => {
   const allSelectedExpanded = useStoreState(
     (state) => state.allSelectedExpanded
   );
+  const programTime = useProgramTime();
 
   const pageHeading = (
     <div className="page-heading">
@@ -33,10 +36,7 @@ const MySchedule = () => {
     );
   }
 
-  const filtered =
-    LocalTime.isDuringCon(program) && !showPastItems
-      ? LocalTime.filterPastItems(mySchedule)
-      : mySchedule;
+  const filtered = programTime.hidePastItems(mySchedule, showPastItems);
 
   return (
     <div className="my-schedule">
@@ -56,11 +56,13 @@ const MySchedule = () => {
           </div>
         </div>
         <div className="filter-options">
-          <ShowPastItems />
+          <ShowPastItems programTime={programTime} />
         </div>
       </div>
-      <ProgramList program={filtered} />
-      <ShareLink />
+      <ProgramList program={filtered} programTime={programTime} />
+      <Suspense fallback={null}>
+        <ShareLink />
+      </Suspense>
     </div>
   );
 };

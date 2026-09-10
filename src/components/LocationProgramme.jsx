@@ -11,6 +11,10 @@ const LocationProgramme = () => {
   );
 
   const params = useParams();
+  // Sync the URL's location list into the store in an effect, not during
+  // render - a render-time store update re-renders every subscriber, which
+  // re-renders this component, and the fresh option objects created each
+  // pass turn that into an endless per-frame loop.
   useEffect(() => {
     const locations = params.locList.split("~").map((loc) => decodeURIComponent(loc));
     if (locations.length) {

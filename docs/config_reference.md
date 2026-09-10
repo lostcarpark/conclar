@@ -58,13 +58,16 @@ Copy `src/config_example.json` to `src/config.json` and customise. See the [Gett
 - `APPLICATION.LOADING` (object, required)
 - `APPLICATION.LOADING.MESSAGE` (string, required) — Message to display while loading.
 - `PROGRAM` (object, required) — Settings for the main programme list, My Schedule, and shared-items pages.
-- `PROGRAM.LIMIT` (object, required) — Controls the "maximum items displayed" drop-down on the programme page.
+- `PROGRAM.LOADING_MORE_MESSAGE` (string) — Message to display at the bottom of the programme list while items are still loading in.
+- `PROGRAM.LIMIT` (object) — Controls the "maximum items displayed" drop-down on the programme page. Ignored when INFINITE_SCROLL is enabled.
+- `PROGRAM.LIMIT.INFINITE_SCROLL` (boolean) — If true (the default), the programme list loads more items as the user scrolls, and the limit drop-down / "Show more" button are ignored.
+- `PROGRAM.LIMIT.INITIAL_PAGE_SIZE` (integer) — Starting page size for the adaptive infinite-scroll loader before it has learned the device's actual capacity.
 - `PROGRAM.LIMIT.SHOW` (boolean) — If true, "limit number of items" drop-down will be displayed.
 - `PROGRAM.LIMIT.LABEL` (string) — Label for limit drop-down.
 - `PROGRAM.LIMIT.OPTIONS` (array of integer) — Options for the limit drop-down.
 - `PROGRAM.LIMIT.ALL_LABEL` (string) — Label to show for the "All" entry.
-- `PROGRAM.LIMIT.DEFAULT` (integer, required) — Default value for the limit drop-down.
-- `PROGRAM.LIMIT.SHOW_MORE` (object, required)
+- `PROGRAM.LIMIT.DEFAULT` (integer) — Default value for the limit drop-down.
+- `PROGRAM.LIMIT.SHOW_MORE` (object)
 - `PROGRAM.LIMIT.SHOW_MORE.LABEL` (string, required) — Label for the "Show more" button.
 - `PROGRAM.LIMIT.SHOW_MORE.NO_MORE` (string, required) — Message to display when no more items are available.
 - `PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA` (integer, required) — Number of items to add when "Show more" is pressed.

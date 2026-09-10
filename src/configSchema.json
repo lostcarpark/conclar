@@ -235,14 +235,16 @@
       "type": "object",
       "additionalProperties": false,
       "description": "Settings for the main programme list, My Schedule, and shared-items pages.",
-      "required": ["LIMIT", "SEARCH", "MY_SCHEDULE", "SHARED"],
+      "required": ["SEARCH", "MY_SCHEDULE", "SHARED"],
       "properties": {
+        "LOADING_MORE_MESSAGE": { "type": "string", "description": "Message to display at the bottom of the programme list while items are still loading in." },
         "LIMIT": {
           "type": "object",
           "additionalProperties": false,
-          "description": "Controls the \"maximum items displayed\" drop-down on the programme page.",
-          "required": ["DEFAULT", "SHOW_MORE"],
+          "description": "Controls the \"maximum items displayed\" drop-down on the programme page. Ignored when INFINITE_SCROLL is enabled.",
           "properties": {
+            "INFINITE_SCROLL": { "type": "boolean", "description": "If true (the default), the programme list loads more items as the user scrolls, and the limit drop-down / \"Show more\" button are ignored." },
+            "INITIAL_PAGE_SIZE": { "type": "integer", "description": "Starting page size for the adaptive infinite-scroll loader before it has learned the device's actual capacity." },
             "SHOW": { "type": "boolean", "description": "If true, \"limit number of items\" drop-down will be displayed." },
             "LABEL": { "type": "string", "description": "Label for limit drop-down." },
             "OPTIONS": {

@@ -1,18 +1,20 @@
-import ReactMarkdown from "react-markdown";
-import configData from "../config.json";
+import footerHtml from "virtual:footer-html";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-site">
-        <ReactMarkdown children={configData.FOOTER.SITE_NOTE_MARKDOWN} />
-      </div>
-      <div className="footer-copyright">
-        <ReactMarkdown children={configData.FOOTER.COPYRIGHT_MARKDOWN} />
-      </div>
-      <div className="footer-conclar">
-        <ReactMarkdown children={configData.FOOTER.CONCLAR_NOTE_MARKDOWN} />
-      </div>
+      <div
+        className="footer-site"
+        dangerouslySetInnerHTML={{ __html: footerHtml.site }}
+      />
+      <div
+        className="footer-copyright"
+        dangerouslySetInnerHTML={{ __html: footerHtml.copyright }}
+      />
+      <div
+        className="footer-conclar"
+        dangerouslySetInnerHTML={{ __html: footerHtml.conclar }}
+      />
     </footer>
   );
 };
