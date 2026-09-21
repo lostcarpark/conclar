@@ -19,6 +19,9 @@ yarn.lock
 # config
 /src/config.json
 
+# IDE settings
+/.idea
+
 # misc
 .DS_Store
 .env.local
