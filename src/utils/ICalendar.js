@@ -25,12 +25,18 @@ function filenameFor(item) {
 }
 
 function describeItem(item) {
-  let desc = item.desc;
-  if (item.people && item.people.length > 0) {
-    const names = item.people.map((person) => person.name.toString());
-    desc = "\n\n" + names.join(", ");
+  const parts = [];
+  if (item.desc) {
+    parts.push(item.desc);
   }
-  return new DOMParser().parseFromString(desc, "text/html").body.textContent;
+  if (item.people && item.people.length > 0) {
+    parts.push(item.people.map((person) => person.name.toString()).join(", "));
+  }
+  if (parts.length === 0) {
+    return undefined;
+  }
+  return new DOMParser().parseFromString(parts.join("\n\n"), "text/html").body
+    .textContent;
 }
 
 function buildIcsContent(item) {
@@ -42,7 +48,7 @@ function buildIcsContent(item) {
     end: toDateArray(item.endDateAndTime),
     endInputType: "utc",
     title: item.title,
-    description: item.desc ? describeItem(item) : undefined,
+    description: describeItem(item),
     location: item.loc ? String(item.loc) : undefined,
   });
 
