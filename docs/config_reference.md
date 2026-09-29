@@ -120,8 +120,10 @@ Copy `src/config_example.json` to `src/config.json` and customise. See the [Gett
 - `PERMALINK.SHOW_PERMALINK` (boolean) — If true, display a "permalink" icon when each program item is expanded.
 - `PERMALINK.PERMALINK_TITLE` (string) — "Title" text displayed when the mouse is hovered over the permalink icon.
 - `CALENDARLINK` (object)
-- `CALENDARLINK.SHOW` (boolean) — If true, display a calendar download icon when each program item is expanded.
+- `CALENDARLINK.SHOW` (boolean) — If true, display a calendar download icon when each program item is expanded, and a button on the programme and My Schedule pages to download all listed items as a single calendar.
 - `CALENDARLINK.TITLE` (string) — "Title" text displayed when the mouse is hovered over the calendar download icon.
+- `CALENDARLINK.DOWNLOAD_ALL_LABEL` (string) — Label for the button that downloads all listed items as a calendar. "@count" is replaced by the number of items. Defaults to "Download calendar (@count items)".
+- `CALENDARLINK.DOWNLOAD_ALL_TITLE` (string) — "Title" text displayed when the mouse is hovered over the download all button. Defaults to "Download an .ics file to import into your calendar app".
 - `EXPAND` (object)
 - `EXPAND.EXPAND_ALL_LABEL` (string) — Label text for the Expand All button.
 - `EXPAND.COLLAPSE_ALL_LABEL` (string) — Label for the Collapse All button.

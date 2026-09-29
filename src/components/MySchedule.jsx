@@ -3,6 +3,7 @@ import configData from "../config.json";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import ShareLink from "./ShareLink";
+import CalendarDownloadButton from "./CalendarDownloadButton";
 import { LocalTime } from "../utils/LocalTime";
 
 const MySchedule = () => {
@@ -44,16 +45,22 @@ const MySchedule = () => {
       <div className="introduction">
         {configData.PROGRAM.MY_SCHEDULE.INTRO}
       </div>
-      <div className="result-filters">
-        <div className="stack">
-          <div className="filter-expand">
-            <button disabled={allSelectedExpanded} onClick={expandSelected}>
-              {configData.EXPAND?.EXPAND_ALL_LABEL ?? "Expand All"}
-            </button>
-            <button disabled={noneExpanded} onClick={collapseSelected}>
-              {configData.EXPAND?.COLLAPSE_ALL_LABEL ?? "Collapse All"}
-            </button>
-          </div>
+      <div className="result-controls">
+        <CalendarDownloadButton
+          items={filtered}
+          calendar={{
+            name:
+              configData.APP_TITLE + " – " + configData.PROGRAM.MY_SCHEDULE.TITLE,
+            fileSuffix: "my-schedule",
+          }}
+        />
+        <div className="filter-expand">
+          <button disabled={allSelectedExpanded} onClick={expandSelected}>
+            {configData.EXPAND?.EXPAND_ALL_LABEL ?? "Expand All"}
+          </button>
+          <button disabled={noneExpanded} onClick={collapseSelected}>
+            {configData.EXPAND?.COLLAPSE_ALL_LABEL ?? "Collapse All"}
+          </button>
         </div>
         <div className="filter-options">
           <ShowPastItems />

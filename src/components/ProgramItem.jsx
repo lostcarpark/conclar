@@ -16,7 +16,7 @@ import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
 import { useState, useEffect } from "react";
 import { LocalTime } from "../utils/LocalTime";
-import { downloadIcs } from "../utils/ICalendar";
+import { calendarLinkEnabled, downloadItemIcs } from "../utils/ICalendar";
 import { venueForLocation } from "../utils/Venues";
 
 const ProgramItem = ({ item, forceExpanded = false, now }) => {
@@ -73,14 +73,14 @@ const ProgramItem = ({ item, forceExpanded = false, now }) => {
   else locations.push(<Location key={item.loc} loc={item.loc} venue={venueForLocation(item.loc, configData)} />);
 
   const calendarLink =
-    configData.CALENDARLINK && configData.CALENDARLINK.SHOW && configData.INTERACTIVE ? (
+    calendarLinkEnabled() ? (
         <div className="item-calendarlink">
           <a
             href="#add-to-calendar"
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
-              downloadIcs(item);
+              downloadItemIcs(item);
             }}
             title={configData.CALENDARLINK.TITLE}
           >

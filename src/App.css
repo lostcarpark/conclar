@@ -992,6 +992,83 @@ div.switch-wrapper {
   pointer-events: none;
 }
 
+.result-controls {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "total download"
+    "expand options";
+  align-items: center;
+  column-gap: 1rem;
+  margin: 0.5em;
+  margin-bottom: 1rem;
+}
+
+.result-controls .filter-total {
+  grid-area: total;
+}
+
+.result-controls .calendar-download {
+  grid-area: download;
+  justify-self: end;
+}
+
+.result-controls .filter-expand {
+  grid-area: expand;
+}
+
+.result-controls .filter-options {
+  grid-area: options;
+  justify-self: end;
+  margin: 0.5em 0 0;
+}
+
+.result-controls .switch-wrapper {
+  margin: 0;
+}
+
+@media (max-width: 32rem) {
+  .result-controls {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "total"
+      "download"
+      "expand"
+      "options";
+  }
+
+  .result-controls .calendar-download,
+  .result-controls .filter-options {
+    justify-self: start;
+  }
+}
+
+.calendar-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.25rem 0;
+  border: none;
+  background: none;
+  color: var(--link-fg);
+  font: inherit;
+  font-size: smaller;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.calendar-download:hover,
+.calendar-download:focus {
+  color: var(--link-hover-fg);
+  text-decoration: underline;
+}
+
+.calendar-download:disabled {
+  color: var(--link-disabled);
+  text-decoration: none;
+  cursor: default;
+}
+
 .reset-filters {
   display: flex;
   flex-direction: row;

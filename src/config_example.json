@@ -147,7 +147,9 @@
   },
   "CALENDARLINK": {
     "SHOW": true,
-    "TITLE": "Add To Calendar"
+    "TITLE": "Add To Calendar",
+    "DOWNLOAD_ALL_LABEL": "Download calendar (@count items)",
+    "DOWNLOAD_ALL_TITLE": "Download an .ics file to import into your calendar app"
   },
   "EXPAND": {
     "EXPAND_ALL_LABEL": "Expand All",
