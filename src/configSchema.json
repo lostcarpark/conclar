@@ -442,8 +442,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "SHOW": { "type": "boolean", "description": "If true, display a calendar download icon when each program item is expanded." },
-        "TITLE": { "type": "string", "description": "\"Title\" text displayed when the mouse is hovered over the calendar download icon." }
+        "SHOW": { "type": "boolean", "description": "If true, display a calendar download icon when each program item is expanded, and a button on the programme and My Schedule pages to download all listed items as a single calendar." },
+        "TITLE": { "type": "string", "description": "\"Title\" text displayed when the mouse is hovered over the calendar download icon." },
+        "DOWNLOAD_ALL_LABEL": { "type": "string", "description": "Label for the button that downloads all listed items as a calendar. \"@count\" is replaced by the number of items. Defaults to \"Download calendar (@count items)\"." },
+        "DOWNLOAD_ALL_TITLE": { "type": "string", "description": "\"Title\" text displayed when the mouse is hovered over the download all button. Defaults to \"Download an .ics file to import into your calendar app\"." }
       }
     },
     "EXPAND": {

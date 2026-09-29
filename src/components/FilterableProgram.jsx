@@ -8,6 +8,7 @@ import TagSelectors from "./TagSelectors";
 import ResetButton from "./ResetButton";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
+import CalendarDownloadButton from "./CalendarDownloadButton";
 import { LocalTime } from "../utils/LocalTime";
 import { buildLocationOptions, locationMatchesSelection } from "../utils/Venues";
 
@@ -339,17 +340,19 @@ const FilterableProgram = () => {
           />
         </div>
         {limitDropDown()}
-        <div className="result-filters">
-          <div className="stack">
-            <div className="filter-total">{totalMessage}</div>
-            <div className="filter-expand">
-              <button disabled={allExpanded} onClick={expandAll}>
-                {configData.EXPAND?.EXPAND_ALL_LABEL ?? "Expand All"}
-              </button>
-              <button disabled={noneExpanded} onClick={collapseAll}>
-                {configData.EXPAND?.COLLAPSE_ALL_LABEL ?? "Collapse All"}
-              </button>
-            </div>
+        <div className="result-controls">
+          <div className="filter-total">{totalMessage}</div>
+          <CalendarDownloadButton
+            items={filtered}
+            calendar={{ name: configData.APP_TITLE, fileSuffix: "programme" }}
+          />
+          <div className="filter-expand">
+            <button disabled={allExpanded} onClick={expandAll}>
+              {configData.EXPAND?.EXPAND_ALL_LABEL ?? "Expand All"}
+            </button>
+            <button disabled={noneExpanded} onClick={collapseAll}>
+              {configData.EXPAND?.COLLAPSE_ALL_LABEL ?? "Collapse All"}
+            </button>
           </div>
           <div className="filter-options">
             <ShowPastItems />
