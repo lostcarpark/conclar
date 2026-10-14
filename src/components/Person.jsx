@@ -6,6 +6,7 @@ import DOMPurify from "dompurify";
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import PersonLinks from "./PersonLinks";
 import ProgramList from "./ProgramList";
+import SharePerson from "./SharePerson";
 import Tag from "./Tag";
 import configData from "../config.json";
 
@@ -62,6 +63,7 @@ const Person = () => {
       />
       <PersonLinks person={person} />
       <ProgramList program={filteredProgram} />
+      <SharePerson person={person} />
     </div>
   );
 };
