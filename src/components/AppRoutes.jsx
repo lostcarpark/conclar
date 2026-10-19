@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, useEffect, Suspense } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -24,15 +24,22 @@ import Person from "./Person";
 import Info from "./Info";
 import Settings from "./Settings";
 import Footer from "./Footer";
+const svgMapModules = import.meta.glob("../map.svg", { query: "?react", import: "default", eager: false });
+const svgMapKey = Object.keys(svgMapModules)[0];
+const Map = svgMapKey
+  ? lazy(() => svgMapModules[svgMapKey]().then((component) => ({ default: component })))
+    : () => <span>map.svg is missing</span>;
 
 const AppRoutes = () => {
   const appClasses =
     "App" + (configData.DEBUG_MODE.ENABLE ? " debug-mode" : "");
   const darkMode = useStoreState((state) => state.darkMode);
   const showSyncWarning = useStoreState((state) => state.showSyncWarning);
+  const mapVisible = useStoreState((state) => state.mapVisible);
+  const mapLocationCSSSelector = useStoreState((state) => state.mapLocationCSSSelector);
   const userProfile = useStoreState((state) => state.userProfile);
   const setShowSyncWarning = useStoreActions((actions) => actions.setShowSyncWarning);
-
+  const hideMap = useStoreActions((actions) => actions.hideMap)
   useEffect(() => {
     document.title = configData.APP_TITLE;
   }, []);
@@ -75,12 +82,23 @@ const AppRoutes = () => {
               </Route>
               <Route path="myschedule" element={<MySchedule />} />
               <Route path="info" element={<Info />} />
+              <Route path="map" element={<Suspense><Map/></Suspense>} />
               <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Loading>
       </div>
+      <style href="map">{`
+        ${mapLocationCSSSelector} {
+          ${configData.LOCATIONS.HIGHLIGHT_STYLE}
+        }
+      `}</style>
+      <InfoPopup isOpen={mapVisible}
+                 graphic={mapVisible && <Suspense><Map/></Suspense>}
+                 dismissLabel="Close"
+                 onDismiss={() => hideMap()}
+      />
       {isSyncEnabled() && (
         <InfoPopup
           isOpen={showSyncWarning}

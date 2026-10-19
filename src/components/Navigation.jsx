@@ -4,6 +4,7 @@ import {
   FaUsers,
   FaStar,
   FaInfoCircle,
+  FaMap,
   FaCog,
 } from "react-icons/fa";
 import configData from "../config.json";
@@ -18,6 +19,9 @@ const Navigation = () => {
     { to: "/myschedule", icon: FaStar, label: configData.NAVIGATION.MYSCHEDULE },
     ...("INFO" in configData.NAVIGATION
       ? [{ to: "/info", icon: FaInfoCircle, label: configData.NAVIGATION.INFO }]
+      : []),
+    ...("MAP" in configData.NAVIGATION
+      ? [{ to: "/map", icon: FaMap, label: configData.NAVIGATION.MAP }]
       : []),
     { to: "/settings", icon: FaCog, label: configData.NAVIGATION.SETTINGS },
   ];

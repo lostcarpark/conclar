@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 import fs from "fs";
 import path from "path";
 import { validateConfig } from "./src/validateConfig.js";
@@ -65,7 +66,7 @@ function injectDataPreloads() {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), validateConfigPlugin(), injectDataPreloads()],
+  plugins: [react(), validateConfigPlugin(), injectDataPreloads(), svgr()],
   server: {
     port: 3000,
     open: true,
